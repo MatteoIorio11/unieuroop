@@ -11,6 +11,7 @@ plugins {
     application
     
     id("org.openjfx.javafxplugin") version "0.0.12"
+    java
     checkstyle
     pmd
 }
