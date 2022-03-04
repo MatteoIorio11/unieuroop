@@ -11,6 +11,31 @@ plugins {
     application
     
     id("org.openjfx.javafxplugin") version "0.0.12"
+    checkstyle
+    pmd
+}
+
+
+allprojects {
+    apply(plugin = "checkstyle")
+    apply(plugin = "pmd")
+
+    tasks.withType<Test> {
+        ignoreFailures = true
+        useJUnitPlatform()
+    }
+
+
+    pmd {
+        ruleSets = listOf()
+        ruleSetConfig = resources.text.fromFile("${project.rootProject.projectDir}/config/pmd/pmd.xml")
+        isIgnoreFailures = true
+    }
+
+
+    checkstyle {
+        isIgnoreFailures = true
+    }
 }
 
 buildscript {
