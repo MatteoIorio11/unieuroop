@@ -15,8 +15,12 @@ import unieuroop.model.sale.NullSaleException;
 public class AnalyticImpl {
 	
 	private final List<Sale> sales;
-	
-	
+	/*POTREBBE AVERE SENSO AVERE QUA DENTRO UNA SERIE DI VARIABILI PER IMPLEMENTARE L'EFFICIENZA NEI 
+	 * CALCOLO PER RENDERLI MOLTO PIU VELOCI OPPURE PROPRIO UNA CLASSE CON UNA SERIE DI MAPPE Da vedere */
+
+	/**
+	 * Constructor of Analytic, in this method we initialize the List of sale
+	 */
 	public AnalyticImpl() {
 		this.sales = new LinkedList<>();
 	}
@@ -43,19 +47,26 @@ public class AnalyticImpl {
 	                .distinct()
 	                .collect(Collectors.toList());
 	}
+	/**
+	 * 
+	 * @param product
+	 * @return the total amount sold of the "product"
+	 */
 	public int getQuantitySoldOf(final Product product) {
-	    return 0;
+	    return this.sales.stream()
+	            .flatMap((sale) -> sale.getProducts().stream()
+	                    .filter((singleProduct) -> singleProduct.getProductCode() == product.getProductCode()))
+	            .collect(Collectors.toList()).size();
 	}
 	/**
 	 * PROMEMRORIA : NELLA VIEW DOVRO COSTRUIRE UN SET DELLE CATEOGRIE E NEL PREDICATE METTERE
 	 * (categoria) -> set.contains(categoria) ====> DOVE set VIENE COSTRUITO IN BASE A CIO CHE SI SCEGLIE DALLA VIEW 
 	 * @return a
 	 */
-	public Map<Product, Integer> getOrdered(final Predicate<Set<Category>> predicate) {
-	    final Map<Product, Integer> out = this.sales.stream()
+	public Map<Product, Integer> getOrdered(final Predicate<Category> predicate) {
+	    return this.sales.stream()
 	            .flatMap((sale) -> sale.getProducts().stream()
 	                    .filter((product) -> predicate.test(product.getCategory())))
-	            .collect(Collectors.toMap((product) -> product, (prod)))
-	    return null;
+	            .collect(Collectors.toMap((product) -> product, (procuct) -> this.getQuantitySoldOf(procuct)));
 	}
 }
