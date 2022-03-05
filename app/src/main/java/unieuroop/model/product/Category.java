@@ -1,8 +1,38 @@
 package unieuroop.model.product;
 
 public enum Category {
-    SMARTPHONE,
-    PC,
-    HOME,
-    SMARTWATCH;
+    /**
+     * Smartphone category.
+     * @param name
+     */
+    SMARTPHONE("Smartpone"),
+    /**
+     * PC category.
+     * @param name
+     */
+    PC("PC"),
+    /**
+     * Home category.
+     * @param name
+     */
+    HOME("Home"),
+    /**
+     * Smartwatch category.
+     * @param name
+     */
+    SMARTWATCH("Smartwatch");
+
+    private String name;
+
+    Category(final String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    void setName(final String name) {
+        this.name = name;
+    }
 }
