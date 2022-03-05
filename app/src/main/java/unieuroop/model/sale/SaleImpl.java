@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
-public class SaleImpl {
+public class SaleImpl implements Sale {
 	
 	private final Date date;
 	private final Map<Product, Integer> productsBuyed;
@@ -31,6 +31,7 @@ public class SaleImpl {
 	 * 
 	 * @return the Date of the sale
 	 */
+	@Override
 	public Date getDate() {
 		return this.date;
 	}
@@ -39,6 +40,7 @@ public class SaleImpl {
 	 * 
 	 * @return the copy of all products buyed
 	 */
+	@Override
 	public Set<Product> getProducts() {
 		return Set.copyOf(this.productsBuyed.keySet());
 	}
@@ -47,6 +49,7 @@ public class SaleImpl {
 	 * 
 	 * @return the total price of the sale 
 	 */
+	@Override
 	public float getTotalPrice() {
 		return this.productsBuyed.entrySet().stream()
 				.map((e) -> e.getKey().getSellingPrice() * e.getValue())
