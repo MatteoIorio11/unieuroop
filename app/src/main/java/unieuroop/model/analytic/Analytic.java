@@ -34,17 +34,24 @@ public interface Analytic {
     int getQuantitySoldOf(Product product);
 
     /**
-     * PROMEMRORIA : NELLA VIEW DOVRO COSTRUIRE UN SET DELLE CATEOGRIE E NEL PREDICATE METTERE
-     * (categoria) -> set.contains(categoria) ====> DOVE set VIENE COSTRUITO IN BASE A CIO CHE SI SCEGLIE DALLA VIEW 
-     * @return a
+     * PR : inside the view we build the set of categories, then inside the predicate we only check 
+     * if ( a )  -> set.contains( a ).
+     * @param categories : specifies which categories we have to consider
+     * @return a Map that contains all the Product of the specified categories with theri quantity
      */
-    Map<Product, Integer> getOrderedByCategory(Predicate<Category> predicate);
+    Map<Product, Integer> getOrderedByCategory(Predicate<Category> categories);
 
     /**
-     * 
-     * @param predicate
-     * @return a
+     * All the products sold in date, it can be also a range like 02/11/2022 < x < 10/27/2022.
+     * @param date : specifies which dates we have to consider
+     * @return the List of all products sold in the specific date
      */
-    List<Product> getOrderedByDate(Predicate<Date> predicate);
+    List<Product> getOrderedByDate(Predicate<Date> date);
+
+    /**
+     * This method find the best day of sold (based on the total quantity sold) and return the total of product sold.
+     * @return the List of products most sold in a day
+     */
+    List<Product> getBestSoldDay();
 
 }
