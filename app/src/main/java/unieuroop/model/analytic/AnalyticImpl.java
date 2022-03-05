@@ -3,6 +3,7 @@ package unieuroop.model.analytic;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.Collections;
@@ -73,5 +74,11 @@ public final class AnalyticImpl implements Analytic {
     public List<Product> getBestSoldDay() {
         return Collections.emptyList();
     }
+
+    @Override
+    public List<Product> getProductByCategoryDate(final BiPredicate<Date, Category> predicate) {
+        return Collections.emptyList();
+    }
+
 
 }
