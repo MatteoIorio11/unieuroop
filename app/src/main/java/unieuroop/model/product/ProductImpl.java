@@ -3,12 +3,14 @@ package unieuroop.model.product;
 
 import java.util.Optional;
 
+import unieuroop.model.supplier.Supplier;
+
 public final class ProductImpl implements Product {
     private final int productCode;
     private String name;
     private float sellingPrice;
     private final float purchasePrice;
-    private final Optional<Integer> discountPercentage;
+    private Optional<Integer> discountPercentage;
     private String description;
     private Category category;
     private final Supplier supplier;

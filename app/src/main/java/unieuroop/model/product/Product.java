@@ -2,6 +2,8 @@ package unieuroop.model.product;
 
 import java.util.Optional;
 
+import unieuroop.model.supplier.Supplier;
+
 public interface Product {
     /**
      * 
