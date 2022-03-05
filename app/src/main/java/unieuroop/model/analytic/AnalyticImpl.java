@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import unieuroop.model.sale.Sale;
@@ -36,30 +37,30 @@ public final class AnalyticImpl implements Analytic {
         }
     }
 
-	@Override
+    @Override
     public List<Product> getTotalProductsSold() {
-	    return this.sales.stream()
-	                .flatMap((sale) -> sale.getProducts().stream())
-	                .distinct()
-	                .collect(Collectors.toList());
-	}
+        return this.sales.stream()
+                .flatMap((sale) -> sale.getProducts().stream())
+                .distinct()
+                .collect(Collectors.toList());
+    }
 
-	@Override
+    @Override
     public int getQuantitySoldOf(final Product product) {
-	    return this.sales.stream()
-	            .flatMap((sale) -> sale.getProducts().stream()
-	                    .filter((singleProduct) -> singleProduct.getProductCode() == product.getProductCode()))
-	            .collect(Collectors.toList()).size();
-	}
+        return this.sales.stream()
+                .flatMap((sale) -> sale.getProducts().stream()
+                        .filter((singleProduct) -> singleProduct.getProductCode() == product.getProductCode()))
+                .collect(Collectors.toList()).size();
+    }
 
-	@Override
+    @Override
     public Map<Product, Integer> getOrderedByCategory(final Predicate<Category> categories) {
-	    return this.sales.stream()
-	            .flatMap((sale) -> sale.getProducts().stream()
-	                    .filter((product) -> categories.test(product.getCategory())))
-	            .collect(Collectors.toMap((product) -> product, (procuct) -> this.getQuantitySoldOf(procuct)));
-	}
-	/*PR : in the view the predicate will be build and inside it we put some Date*/
+        return this.sales.stream()
+                .flatMap((sale) -> sale.getProducts().stream()
+                        .filter((product) -> categories.test(product.getCategory())))
+                .collect(Collectors.toMap((product) -> product, (procuct) -> this.getQuantitySoldOf(procuct)));
+    }
+    /*PR : in the view the predicate will be build and inside it we put some Date*/
     @Override
     public List<Product> getOrderedByDate(final Predicate<Date> date) {
         return this.sales.stream()
@@ -69,8 +70,8 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override 
-    public List<Product> getBestSoldDay(){
-        return null;
+    public List<Product> getBestSoldDay() {
+        return Collections.emptyList();
     }
 
 }
