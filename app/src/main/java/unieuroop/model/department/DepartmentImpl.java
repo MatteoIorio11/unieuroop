@@ -1,5 +1,5 @@
 package unieuroop.model.department;
 
-public class Department {
+public class DepartmentImpl {
 
 }

@@ -9,12 +9,12 @@ import unieuroop.model.sale.Sale;
  * Class used for Analytics on sales
  *
  */
-public class Analytic {
+public class AnalyticImpl {
 	
 	private final List<Sale> sales;
 	
 	
-	public Analytic() {
+	public AnalyticImpl() {
 		this.sales = new LinkedList<>();
 	}
 }
