@@ -1,5 +1,6 @@
 package unieuroop.model.product;
 
+
 import java.util.Optional;
 
 public final class ProductImpl implements Product {
