@@ -1,6 +1,6 @@
 package unieuroop.model.product;
 
-public final class ProductImpl implements Product{
+public final class ProductImpl implements Product {
     private final int productCode;
     private String name;
     private float sellingPrice;

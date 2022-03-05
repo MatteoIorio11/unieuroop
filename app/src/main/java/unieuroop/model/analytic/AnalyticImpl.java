@@ -6,13 +6,14 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.Date;
 import java.util.LinkedList;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.Category;
 import unieuroop.model.sale.NullSaleException;
 
-public class AnalyticImpl {
+public final class AnalyticImpl implements Analytic {
 	
 	private final List<Sale> sales;
 	/*POTREBBE AVERE SENSO AVERE QUA DENTRO UNA SERIE DI VARIABILI PER IMPLEMENTARE L'EFFICIENZA NEI 
@@ -29,7 +30,8 @@ public class AnalyticImpl {
 	 * @param sale
 	 * @throws NullSaleException 
 	 */
-	public void addSale(final Sale sale) throws NullSaleException {
+	@Override
+    public void addSale(final Sale sale) throws NullSaleException {
 		try {
 			this.sales.add(Objects.requireNonNull(sale));
 		} catch (NullSaleException exception) {
@@ -41,7 +43,8 @@ public class AnalyticImpl {
 	 * 
 	 * @return all the product sold in all the different sales
 	 */
-	public List<Product> getTotalProductsSold() {
+	@Override
+    public List<Product> getTotalProductsSold() {
 	    return this.sales.stream()
 	                .flatMap((sale) -> sale.getProducts().stream())
 	                .distinct()
@@ -50,23 +53,35 @@ public class AnalyticImpl {
 	/**
 	 * 
 	 * @param product
-	 * @return the total amount sold of the "product"
+	 * @return the total quantity sold of the "product"
 	 */
-	public int getQuantitySoldOf(final Product product) {
+	@Override
+    public int getQuantitySoldOf(final Product product) {
 	    return this.sales.stream()
 	            .flatMap((sale) -> sale.getProducts().stream()
 	                    .filter((singleProduct) -> singleProduct.getProductCode() == product.getProductCode()))
 	            .collect(Collectors.toList()).size();
 	}
-	/**
-	 * PROMEMRORIA : NELLA VIEW DOVRO COSTRUIRE UN SET DELLE CATEOGRIE E NEL PREDICATE METTERE
-	 * (categoria) -> set.contains(categoria) ====> DOVE set VIENE COSTRUITO IN BASE A CIO CHE SI SCEGLIE DALLA VIEW 
-	 * @return a
-	 */
-	public Map<Product, Integer> getOrdered(final Predicate<Category> predicate) {
+    /**
+     * PROMEMRORIA : NELLA VIEW DOVRO COSTRUIRE UN SET DELLE CATEOGRIE E NEL PREDICATE METTERE
+     * (categoria) -> set.contains(categoria) ====> DOVE set VIENE COSTRUITO IN BASE A CIO CHE SI SCEGLIE DALLA VIEW 
+     * @return a
+     */
+	@Override
+    public Map<Product, Integer> getOrderedByCategory(final Predicate<Category> predicate) {
 	    return this.sales.stream()
 	            .flatMap((sale) -> sale.getProducts().stream()
 	                    .filter((product) -> predicate.test(product.getCategory())))
 	            .collect(Collectors.toMap((product) -> product, (procuct) -> this.getQuantitySoldOf(procuct)));
 	}
+	
+	
+    @Override
+    public List<Product> getOrderedByDate(final Predicate<Date> predicate) {
+        return this.sales.stream()
+                .filter((sale) -> predicate.test(sale.getDate()))
+                .flatMap((sale) -> sale.getProducts().stream())
+                .collect(Collectors.toList());
+    }
+
 }
