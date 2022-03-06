@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
-public class SaleImpl implements Sale {
+public final class SaleImpl implements Sale {
 	
 	private final LocalDate date;
 	private final Map<Product, Integer> productsBuyed;
@@ -56,5 +56,15 @@ public class SaleImpl implements Sale {
 				.map((e) -> e.getKey().getSellingPrice() * e.getValue())
 				.reduce((price1, price2) -> price1 + price2).get();
 	}
+
+    @Override
+    public int getQuantityOf(final Product product) {
+        return this.productsBuyed.containsKey(product) ? this.productsBuyed.get(product) : 0;
+    }
+
+    @Override
+    public Optional<Client> getClient() {
+        return this.client;
+    }
 	
 }

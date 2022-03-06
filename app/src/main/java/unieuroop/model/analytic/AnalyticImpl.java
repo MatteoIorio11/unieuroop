@@ -50,7 +50,8 @@ public final class AnalyticImpl implements Analytic {
     public int getQuantitySoldOf(final Product product) {
         return this.sales.stream()
                 .flatMap((sale) -> sale.getProducts().stream()
-                        .filter((singleProduct) -> singleProduct.getProductCode() == product.getProductCode()))
+                        .filter((singleProduct) -> singleProduct.getProductCode() == product.getProductCode())
+                        .mapToInt((singleProduct) -> sale.getQuantityOf(singleProduct)))
                 .collect(Collectors.toList()).size();
     }
 
