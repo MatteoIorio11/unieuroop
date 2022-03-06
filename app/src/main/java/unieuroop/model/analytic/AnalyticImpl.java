@@ -29,13 +29,8 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public void addSale(final Sale sale) throws NullSaleException {
-        try {
-            this.sales.add(Objects.requireNonNull(sale));
-        } catch (NullSaleException exception) {
-            exception.setMessage("Analytic -> addSale (insertion of the sale. ");
-            throw exception;
-        }
+    public void addSale(final Sale sale) throws NullPointerException {
+        this.sales.add(Objects.requireNonNull(sale, "Sale must no be null"));
     }
 
     @Override

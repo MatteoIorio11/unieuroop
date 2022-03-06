@@ -54,7 +54,7 @@ public class TestAnalytic {
     public void test1() {
         try {
             this.analytic.addSale(null);
-        } catch (NullPointerException ex) {
+        } catch (IllegalArgumentException ex) {
             assertNotEquals("", ex.getMessage());
             assertNotEquals("Analytic -> addSale (insertion of the sale", ex.getMessage());
             assertEquals("Analytic -> addSale (insertion of the sale. The sale must not be null", ex.getMessage());

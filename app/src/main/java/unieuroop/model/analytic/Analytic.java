@@ -8,7 +8,6 @@ import java.time.LocalDate;
 
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
-import unieuroop.model.sale.NullSaleException;
 import unieuroop.model.sale.Sale;
 
 
@@ -17,9 +16,9 @@ public interface Analytic {
     /**
      * Used for add a new Sale inside the class that will implements Analytic.
      * @param sale
-     * @throws NullSaleException 
+     * @throws IllegalArgumentException 
      */
-    void addSale(Sale sale) throws NullSaleException;
+    void addSale(Sale sale) throws NullPointerException;
 
     /**
      * This method has to return the List of all product sold in the shop.
