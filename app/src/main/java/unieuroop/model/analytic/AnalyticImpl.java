@@ -33,7 +33,7 @@ public final class AnalyticImpl implements Analytic {
         try {
             this.sales.add(Objects.requireNonNull(sale));
         } catch (NullSaleException exception) {
-            exception.setMessage("Analytic -> addSale (insertion of the sale");
+            exception.setMessage("Analytic -> addSale (insertion of the sale. ");
             throw exception;
         }
     }
