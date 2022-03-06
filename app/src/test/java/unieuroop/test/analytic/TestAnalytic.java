@@ -2,18 +2,53 @@ package unieuroop.test.analytic;
 
 import static org.junit.Assert.*;
 
+import java.util.Optional;
 import org.junit.Before;
 import org.junit.Test;
+import unieuroop.model.product.Category;
+import unieuroop.model.product.Product;
+import unieuroop.model.product.ProductImpl;
+import unieuroop.model.sale.NullSaleException;
+import unieuroop.model.supplier.Supplier;
+import unieuroop.model.analytic.Analytic;
+import unieuroop.model.analytic.AnalyticImpl;
 
 public class TestAnalytic {
 
+    private Analytic analytic = new AnalyticImpl();
+
     @Before
     public void setUp() throws Exception {
+        final Supplier s1 = null;
+        /**
+         * Constructor of product with discount.
+         * @param productCode
+         * @param name
+         * @param sellingPrice
+         * @param purchasePrice
+         * @param discount
+         * @param description
+         * @param category
+         * @param supplier
+         */
+        final Product p1 = new ProductImpl(1, "iphone 13 pro", (float) 1200.00, (float) 900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
+        final Product p2 = new ProductImpl(2, "applewatch", (float) 500.00, (float) 200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
+        final Product p3 = new ProductImpl(3, "mac book pro 14 ", (float) 3000.00, (float) 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
+        final Product p4 = new ProductImpl(4, "mac book pro 16", (float) 6000.00, (float) 3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
+        final Product p5 = new ProductImpl(5, "ipad Air ", (float) 700.00, (float) 300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
+        final Product p6 = new ProductImpl(6, "ipad Pro", (float) 1000.00, (float) 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
+        final Product p7 = new ProductImpl(7, "ipad Pro Max", (float) 1200.00, (float) 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+
+
     }
 
     @Test
-    public void test() {
-        fail("Not yet implemented");
+    public void test1() {
+        try {
+            this.analytic.addSale(null);
+        } catch (NullPointerException ex) {
+            assertNotEquals("", ex.getMessage());
+        }
     }
 
 }

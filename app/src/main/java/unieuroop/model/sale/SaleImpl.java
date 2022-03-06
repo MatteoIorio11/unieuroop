@@ -1,6 +1,8 @@
 package unieuroop.model.sale;
 
 import unieuroop.model.product.Product;
+import unieuroop.model.person.Client;
+
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -54,7 +56,5 @@ public class SaleImpl implements Sale {
 				.map((e) -> e.getKey().getSellingPrice() * e.getValue())
 				.reduce((price1, price2) -> price1 + price2).get();
 	}
-	
-	
 	
 }
