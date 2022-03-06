@@ -102,5 +102,11 @@ public final class AnalyticImpl implements Analytic {
                         (category) -> this.allSalesCategory(category)));
     }
 
+    @Override
+    public Map<LocalDate, Double> getTotalEarn() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 
 }

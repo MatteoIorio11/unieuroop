@@ -67,5 +67,10 @@ public interface Analytic {
      * @return the Map contains the Category and the complete list of all product sold of that specific Category 
      */
     Map<Category, List<Product>> geCategoriesSold();
+    /**
+     * 
+     * @return the total earned in differents days
+     */
+    Map<LocalDate, Double> getTotalEarn();
 
 }
