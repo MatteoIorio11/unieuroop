@@ -1,14 +1,14 @@
 package unieuroop.model.person;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public abstract class AbstractPerson {
 	
 	private final String name;
 	private final String surname;
-	private final Date birthdayDate;
+	private final LocalDate birthdayDate;
 	
-	public AbstractPerson(final String name, final String surname, final Date birthdayDate) {
+	protected AbstractPerson(final String name, final String surname, final LocalDate birthdayDate) {
 		this.name = name;
 		this.surname = surname;
 		this.birthdayDate = birthdayDate;
@@ -31,7 +31,7 @@ public abstract class AbstractPerson {
 	/**
 	 * @return the birthday of the person 
 	 */
-	public Date getBirthdayDate() {
+	public LocalDate getBirthdayDate() {
 		return this.birthdayDate;
 	}
 }

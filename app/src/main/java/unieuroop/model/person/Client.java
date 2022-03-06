@@ -1,5 +1,5 @@
 package unieuroop.model.person;
 
-public class Client extends AbstractPersonImpl{
+public class Client extends AbstractPerson{
 
 }
