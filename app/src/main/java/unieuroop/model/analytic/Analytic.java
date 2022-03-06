@@ -50,10 +50,10 @@ public interface Analytic {
     List<Product> getOrderedByDate(Predicate<LocalDate> date);
 
     /**
-     * This method return the a Map contains a Date and their respective quantity sold of products.
-     * @return a Map with key a Date and value the total quantity sold in that day
+     * This method return the a Map contains a LocalDate and a List of all products sold in that day.
+     * @return a Map with key a Date and value the list of all products sold in that specific day
      */
-    Map<LocalDate, Long> getBestSoldDay();
+    Map<LocalDate, List<Product>> getBestSoldDay();
 
     /**
      * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
@@ -66,6 +66,6 @@ public interface Analytic {
      * This method return all categories sold with their total quantity sold.
      * @return the Map <Category, Quantity> of all categories sold
      */
-    Map<Category, Long> geCategoriesSold();
+    Map<Category, List<Product>> geCategoriesSold();
 
 }

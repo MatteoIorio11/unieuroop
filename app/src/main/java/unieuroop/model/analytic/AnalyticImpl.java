@@ -71,14 +71,12 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override 
-    public Map<LocalDate, Long> getBestSoldDay() {
-        final Map<LocalDate, List<Product>> out = this.sales.stream()
+    public Map<LocalDate, List<Product>> getBestSoldDay() {
+        return this.sales.stream()
                 .map((sale) -> sale.getDate())
                 .distinct()
                 .collect(Collectors.toMap((date) -> date, 
-                        (date) -> this.getOrderedByDate((inputDate) -> 
-                        inputDate.Day)));
-        return null;
+                        (date) -> this.getOrderedByDate((inputDate) -> inputDate.getDayOfYear() == date.getDayOfYear())));
     }
 
     /*VINCI does this*/
