@@ -3,6 +3,7 @@ package unieuroop.test.analytic;
 import static org.junit.Assert.*;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
 import org.junit.Before;
@@ -10,7 +11,6 @@ import org.junit.Test;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
-import unieuroop.model.sale.NullSaleException;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.supplier.Supplier;
@@ -55,6 +55,8 @@ public class TestAnalytic {
     public void test1() {
         try {
             this.analytic.addSale(null);
+            fail("Exception must be detected");
+            this.analytic.addSale(sale1);
         } catch (NullPointerException ex) {
             assertEquals("Sale must not be null", ex.getMessage());
         }
@@ -77,6 +79,13 @@ public class TestAnalytic {
         assertEquals(TestAnalytic.SECOND_RESULT, this.analytic.getQuantitySoldOf(p2));
         assertNotEquals(0, this.analytic.getQuantitySoldOf(p5));
 
+    }
+    /**
+     * Test the total product Sold in all Sales.
+     */
+    @Test
+    public void test3() {
+        assertNotEquals(Collections.emptyList(), this.analytic.getTotalProductsSold());
     }
 
 }

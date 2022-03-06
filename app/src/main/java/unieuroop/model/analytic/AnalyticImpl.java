@@ -12,7 +12,6 @@ import java.util.LinkedList;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.Category;
-import unieuroop.model.sale.NullSaleException;
 
 public final class AnalyticImpl implements Analytic {
 
