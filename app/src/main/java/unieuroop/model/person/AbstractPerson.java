@@ -2,13 +2,13 @@ package unieuroop.model.person;
 
 import java.util.Date;
 
-public abstract class AbstractPersonImpl {
+public abstract class AbstractPerson {
 	
 	private final String name;
 	private final String surname;
 	private final Date birthdayDate;
 	
-	public AbstractPersonImpl(final String name, final String surname, final Date birthdayDate) {
+	public AbstractPerson(final String name, final String surname, final Date birthdayDate) {
 		this.name = name;
 		this.surname = surname;
 		this.birthdayDate = birthdayDate;
