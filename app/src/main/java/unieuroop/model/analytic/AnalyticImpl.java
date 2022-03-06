@@ -93,7 +93,7 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public Map<LocalDate, Double> getTotalEarn() {
+    public Map<LocalDate, Double> getTotalEarned() {
         return Collections.emptyMap();
     }
 

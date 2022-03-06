@@ -69,6 +69,6 @@ public interface Analytic {
      * 
      * @return the total earned in differents days
      */
-    Map<LocalDate, Double> getTotalEarn();
+    Map<LocalDate, Double> getTotalEarned();
 
 }
