@@ -50,16 +50,13 @@ public class TestAnalytic {
 
         }
 
+    /*I can not add a Null sale in Analytic*/
     @Test
     public void test1() {
         try {
             this.analytic.addSale(null);
-        } catch (IllegalArgumentException ex) {
-            assertNotEquals("", ex.getMessage());
-            assertNotEquals("Analytic -> addSale (insertion of the sale", ex.getMessage());
-            assertEquals("Analytic -> addSale (insertion of the sale. The sale must not be null", ex.getMessage());
-            System.out.println(ex.getMessage());
-
+        } catch (NullPointerException ex) {
+            assertEquals("Sale must not be null", ex.getMessage());
         }
     }
 

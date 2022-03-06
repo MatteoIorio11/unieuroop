@@ -17,9 +17,6 @@ import unieuroop.model.sale.NullSaleException;
 public final class AnalyticImpl implements Analytic {
 
     private final List<Sale> sales;
-    /*POTREBBE AVERE SENSO AVERE QUA DENTRO UNA SERIE DI VARIABILI PER IMPLEMENTARE L'EFFICIENZA NEI 
-     * CALCOLO PER RENDERLI MOLTO PIU VELOCI OPPURE PROPRIO UNA CLASSE CON UNA SERIE DI MAPPE Da vedere */
-
     /**
      * Constructor of Analytic, in this method we initialize the List of sale.
      */
@@ -29,8 +26,8 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public void addSale(final Sale sale) throws NullPointerException {
-        this.sales.add(Objects.requireNonNull(sale, "Sale must no be null"));
+    public void addSale(final Sale sale) {
+        this.sales.add(Objects.requireNonNull(sale, "Sale must not be null"));
     }
 
     @Override
@@ -82,7 +79,7 @@ public final class AnalyticImpl implements Analytic {
         return Collections.emptyList();
     }
 
-    private List<Product> allSalesCategory(final Category category){
+    private List<Product> allSalesCategory(final Category category) {
         return this.sales.stream()
                 .flatMap((sale) -> sale.getProducts().stream().filter((product) -> product.getCategory().equals(category)))
                 .collect(Collectors.toList());

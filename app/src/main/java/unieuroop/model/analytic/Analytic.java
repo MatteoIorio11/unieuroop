@@ -16,9 +16,8 @@ public interface Analytic {
     /**
      * Used for add a new Sale inside the class that will implements Analytic.
      * @param sale
-     * @throws IllegalArgumentException 
      */
-    void addSale(Sale sale) throws NullPointerException;
+    void addSale(Sale sale);
 
     /**
      * This method has to return the List of all product sold in the shop.
