@@ -63,8 +63,8 @@ public interface Analytic {
     List<Product> getProductByCategoryDate(BiPredicate<LocalDate, Category> predicate);
 
     /**
-     * This method return all categories sold with their total quantity sold.
-     * @return the Map <Category, Quantity> of all categories sold
+     * This method return all categories sold with the complete list of all product .
+     * @return the Map contains the Category and the complete list of all product sold of that specific Category 
      */
     Map<Category, List<Product>> geCategoriesSold();
 

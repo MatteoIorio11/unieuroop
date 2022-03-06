@@ -85,9 +85,19 @@ public final class AnalyticImpl implements Analytic {
         return Collections.emptyList();
     }
 
+    private List<Product> allSalesCategory(final Category category){
+        return this.sales.stream()
+                .flatMap((sale) -> sale.getProducts().stream().filter((product) -> product.getCategory().equals(category)))
+                .collect(Collectors.toList());
+    }
+
     @Override
     public Map<Category, List<Product>> geCategoriesSold() {
-        return Collections.emptyMap();
+        return this.sales.stream()
+                .flatMap((sale) -> sale.getProducts().stream().map((product) -> product.getCategory()))
+                .distinct()
+                .collect(Collectors.toMap((category) -> category, 
+                        (category) -> this.allSalesCategory(category)));
     }
 
 
