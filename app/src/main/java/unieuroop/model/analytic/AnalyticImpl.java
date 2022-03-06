@@ -2,6 +2,7 @@ package unieuroop.model.analytic;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -25,7 +26,7 @@ public final class AnalyticImpl implements Analytic {
 
     @Override
     public void addSale(final Sale sale) {
-        this.sales.add(sale);
+        this.sales.add(Objects.requireNonNull(sale, "Sale must not be NULL."));
     }
 
     @Override

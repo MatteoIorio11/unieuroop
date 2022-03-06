@@ -55,7 +55,12 @@ public class TestAnalytic {
     @Test
     public void test1() {
         /*Test on the controller of the Analytic*/
-
+        try {
+            this.analytic.addSale(null);
+            fail("A NULL sale can not be add inside Analytic");
+        } catch (NullPointerException ex) {
+            assertEquals("Sale must not be null", ex.getMessage());
+        }
     }
 
     /**
