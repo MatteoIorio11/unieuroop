@@ -19,6 +19,9 @@ import unieuroop.model.analytic.AnalyticImpl;
 
 public class TestAnalytic {
 
+    private static final int FIRST_RESULT = 31; /*sum of all p1s product*/
+    private static final int SECOND_RESULT = 300; /*sum of all p2s product*/
+
     private Analytic analytic = new AnalyticImpl();
     private final Supplier s1 = null;
     private final Product p1 = new ProductImpl(1, "iphone 13 pro", (float) 1200.00, (float) 900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
@@ -38,18 +41,6 @@ public class TestAnalytic {
 
     @Before
     public void setUp() throws Exception {
-        /**
-         * Constructor of product with discount.
-         * @param productCode
-         * @param name
-         * @param sellingPrice
-         * @param purchasePrice
-         * @param discount
-         * @param description
-         * @param category
-         * @param supplier
-         */
-
 
         this.analytic.addSale(sale1);
         this.analytic.addSale(sale2);
@@ -73,11 +64,12 @@ public class TestAnalytic {
     }
 
     /**
-     * Assert on quantity of total bought products 
+     * Test on quantity of total bought products, checking if the sum of all products bought are correct.
      */
     @Test
     public void test2() {
-        assertEquals(31 , this.analytic.getQuantitySoldOf(p1));
+
+        assertEquals(TestAnalytic.FIRST_RESULT, this.analytic.getQuantitySoldOf(p1));
         assertEquals(0, this.analytic.getQuantitySoldOf(p8)); /*p8 does not exist in all the sales*/
 
         /*Add the new sale inside the analytic with the product p8*/
@@ -85,6 +77,9 @@ public class TestAnalytic {
         this.analytic.addSale(sale6);
 
         assertEquals(100, this.analytic.getQuantitySoldOf(p8));
+        assertEquals(TestAnalytic.SECOND_RESULT, this.analytic.getQuantitySoldOf(p2));
+        assertNotEquals(0, this.analytic.getQuantitySoldOf(p5));
+
     }
 
 }
