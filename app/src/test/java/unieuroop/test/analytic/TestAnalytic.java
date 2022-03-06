@@ -28,6 +28,7 @@ public class TestAnalytic {
     private final Product p5 = new ProductImpl(5, "ipad Air ", (float) 700.00, (float) 300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
     private final Product p6 = new ProductImpl(6, "ipad Pro", (float) 1000.00, (float) 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
     private final Product p7 = new ProductImpl(7, "ipad Pro Max", (float) 1200.00, (float) 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+    private final Product p8 = new ProductImpl(8, "ipad Pro Max", (float) 1200.00, (float) 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
 
     private final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1), Optional.empty());
     private final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1, p7, 10), Optional.empty());
@@ -71,9 +72,19 @@ public class TestAnalytic {
         }
     }
 
+    /**
+     * Assert on quantity of total bought products 
+     */
     @Test
     public void test2() {
-        assertEquals(31, this.analytic.getQuantitySoldOf(p1));
+        assertEquals(31 , this.analytic.getQuantitySoldOf(p1));
+        assertEquals(0, this.analytic.getQuantitySoldOf(p8)); /*p8 does not exist in all the sales*/
+
+        /*Add the new sale inside the analytic with the product p8*/
+        final Sale sale6 = new SaleImpl(LocalDate.now(), Map.of(p8, 100), Optional.empty());
+        this.analytic.addSale(sale6);
+
+        assertEquals(100, this.analytic.getQuantitySoldOf(p8));
     }
 
 }
