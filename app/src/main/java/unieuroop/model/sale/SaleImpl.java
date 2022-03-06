@@ -2,14 +2,14 @@ package unieuroop.model.sale;
 
 import unieuroop.model.product.Product;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
 public class SaleImpl implements Sale {
 	
-	private final Calendar date;
+	private final LocalDate date;
 	private final Map<Product, Integer> productsBuyed;
 	private final Optional<Client> client;
 	/*private final int id;ID created with the hashCode ???????????*/
@@ -20,7 +20,7 @@ public class SaleImpl implements Sale {
 	 * @param products : the map of product buyed and their quantity. Product-Quantity
 	 * @param client   : this parameter can be Empty, the most important thing is the Sale not who buyed 
 	 */
-	public SaleImpl(final Calendar dateSale, final Map<Product, Integer> products, final Optional<Client> client) {
+	public SaleImpl(final LocalDate dateSale, final Map<Product, Integer> products, final Optional<Client> client) {
 		this.date = dateSale;
 		this.productsBuyed = Map.copyOf(products);	
 		this.client = client;
@@ -31,7 +31,7 @@ public class SaleImpl implements Sale {
 	 * @return the Date of the sale
 	 */
 	@Override
-	public Calendar getDate() {
+	public LocalDate getDate() {
 		return this.date;
 	}
 	

@@ -7,7 +7,7 @@ import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.Collections;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.product.Product;
@@ -63,7 +63,7 @@ public final class AnalyticImpl implements Analytic {
     }
     /*PR : in the view the predicate will be build and inside it we put some Date*/
     @Override
-    public List<Product> getOrderedByDate(final Predicate<Date> date) {
+    public List<Product> getOrderedByDate(final Predicate<LocalDate> date) {
         return this.sales.stream()
                 .filter((sale) -> date.test(sale.getDate()))
                 .flatMap((sale) -> sale.getProducts().stream())
@@ -71,20 +71,19 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override 
-    public Map<Date, Long> getBestSoldDay() {
-        final Map<Date, List<Product>> out = this.sales.stream()
+    public Map<LocalDate, Long> getBestSoldDay() {
+        final Map<LocalDate, List<Product>> out = this.sales.stream()
                 .map((sale) -> sale.getDate())
                 .distinct()
                 .collect(Collectors.toMap((date) -> date, 
-                        (date) -> this.getOrderedByDate((datePredicate) -> datePredicate.getYear() == date.getYear() && 
-                        datePredicate.getMonth() == date.getMonth() &&
-                        datePredicate.getDay() == date.getDay())));
+                        (date) -> this.getOrderedByDate((inputDate) -> 
+                        inputDate.Day)));
         return null;
     }
 
     /*VINCI does this*/
     @Override
-    public List<Product> getProductByCategoryDate(final BiPredicate<Date, Category> predicate) {
+    public List<Product> getProductByCategoryDate(final BiPredicate<LocalDate, Category> predicate) {
         return Collections.emptyList();
     }
 

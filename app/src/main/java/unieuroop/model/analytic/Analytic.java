@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
@@ -47,20 +47,20 @@ public interface Analytic {
      * @param date : specifies which dates we have to consider
      * @return the List of all products sold in the specific date
      */
-    List<Product> getOrderedByDate(Predicate<Calendar> date);
+    List<Product> getOrderedByDate(Predicate<LocalDate> date);
 
     /**
      * This method return the a Map contains a Date and their respective quantity sold of products.
      * @return a Map with key a Date and value the total quantity sold in that day
      */
-    Map<Date, Long> getBestSoldDay();
+    Map<LocalDate, Long> getBestSoldDay();
 
     /**
      * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
      * @param predicate wich categories have to be select in a specific Date
      * @return the List of all products sold in a specific Date of different categories
      */
-    List<Product> getProductByCategoryDate(BiPredicate<Calendar, Category> predicate);
+    List<Product> getProductByCategoryDate(BiPredicate<LocalDate, Category> predicate);
 
     /**
      * This method return all categories sold with their total quantity sold.

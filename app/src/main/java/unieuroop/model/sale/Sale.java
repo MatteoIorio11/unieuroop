@@ -1,6 +1,6 @@
 package unieuroop.model.sale;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.Set;
 
 import unieuroop.model.product.Product;
@@ -10,7 +10,7 @@ public interface Sale {
 	* 
 	* @return the specific Date of the sale
 	*/
-	Calendar getDate();
+    LocalDate getDate();
 	
 	/**
 	* 
