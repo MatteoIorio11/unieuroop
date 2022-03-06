@@ -21,6 +21,7 @@ public class TestAnalytic {
 
     private static final int FIRST_RESULT = 31; /*sum of all p1s product*/
     private static final int SECOND_RESULT = 300; /*sum of all p2s product*/
+    private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold */
 
     private Analytic analytic = new AnalyticImpl();
     private final Supplier s1 = null;
@@ -41,25 +42,20 @@ public class TestAnalytic {
 
     @Before
     public void setUp() throws Exception {
-
+        /*Put some sales inside Analytic*/
         this.analytic.addSale(sale1);
         this.analytic.addSale(sale2);
         this.analytic.addSale(sale3);
         this.analytic.addSale(sale4);
         this.analytic.addSale(sale5);
 
-        }
+    }
 
     /*I can not add a Null sale in Analytic*/
     @Test
     public void test1() {
-        try {
-            this.analytic.addSale(null);
-            fail("Exception must be detected");
-            this.analytic.addSale(sale1);
-        } catch (NullPointerException ex) {
-            assertEquals("Sale must not be null", ex.getMessage());
-        }
+        /*Test on the controller of the Analytic*/
+
     }
 
     /**
@@ -86,6 +82,18 @@ public class TestAnalytic {
     @Test
     public void test3() {
         assertNotEquals(Collections.emptyList(), this.analytic.getTotalProductsSold());
+        /*Check if all 7 product are contained in Analytic*/
+        assertTrue(this.analytic.getTotalProductsSold().contains(p1));
+        assertTrue(this.analytic.getTotalProductsSold().contains(p2));
+        assertTrue(this.analytic.getTotalProductsSold().contains(p3));
+        assertTrue(this.analytic.getTotalProductsSold().contains(p4));
+        assertTrue(this.analytic.getTotalProductsSold().contains(p5));
+        assertTrue(this.analytic.getTotalProductsSold().contains(p6));
+        assertTrue(this.analytic.getTotalProductsSold().contains(p7));
+        /*Check if a specific product that is not present in any Sale is contained in Analytic*/
+        assertFalse(this.analytic.getTotalProductsSold().contains(p8));
+        /*Check if all the seven product are inside the list of all product sold*/
+        assertEquals(TestAnalytic.TOTAL_PRODUCT_SOLD, this.analytic.getTotalProductsSold().size());
     }
 
 }

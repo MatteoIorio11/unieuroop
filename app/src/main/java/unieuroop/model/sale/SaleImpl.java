@@ -30,33 +30,33 @@ public final class SaleImpl implements Sale {
     }
 
     /**
-	 * 
-	 * @return the Date of the sale
-	 */
-	@Override
-	public LocalDate getDate() {
-		return this.date;
-	}
-	
-	/**
-	 * 
-	 * @return the copy of all products buyed
-	 */
-	@Override
-	public Set<Product> getProducts() {
-		return Set.copyOf(this.productsBuyed.keySet());
-	}
-	
-	/**
-	 * 
-	 * @return the total price of the sale 
-	 */
-	@Override
-	public float getTotalPrice() {
-		return this.productsBuyed.entrySet().stream()
-				.map((e) -> e.getKey().getSellingPrice() * e.getValue())
-				.reduce((price1, price2) -> price1 + price2).get();
-	}
+     * 
+     * @return the Date of the sale
+     */
+    @Override
+    public LocalDate getDate() {
+        return this.date;
+    }
+
+    /**
+     * 
+     * @return the copy of all products buyed
+     */
+    @Override
+    public Set<Product> getProducts() {
+        return Set.copyOf(this.productsBuyed.keySet());
+    }
+
+    /**
+     * 
+     * @return the total price of the sale 
+     */
+    @Override
+    public float getTotalPrice() {
+        return this.productsBuyed.entrySet().stream()
+                .map((e) -> e.getKey().getSellingPrice() * e.getValue())
+                .reduce((price1, price2) -> price1 + price2).get();
+    }
 
     @Override
     public int getQuantityOf(final Product product) {
@@ -67,5 +67,5 @@ public final class SaleImpl implements Sale {
     public Optional<Client> getClient() {
         return this.client;
     }
-	
+
 }
