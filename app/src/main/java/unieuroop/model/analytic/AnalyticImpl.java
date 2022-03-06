@@ -86,7 +86,7 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public Map<Category, Long> geCategoriesSold() {
+    public Map<Category, List<Product>> geCategoriesSold() {
         return Collections.emptyMap();
     }
 
