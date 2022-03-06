@@ -59,7 +59,7 @@ public class TestAnalytic {
             this.analytic.addSale(null);
             fail("A NULL sale can not be add inside Analytic");
         } catch (NullPointerException ex) {
-            assertEquals("Sale must not be null", ex.getMessage());
+            assertEquals("Sale must not be NULL.", ex.getMessage());
         }
     }
 
@@ -99,6 +99,11 @@ public class TestAnalytic {
         assertFalse(this.analytic.getTotalProductsSold().contains(p8));
         /*Check if all the seven product are inside the list of all product sold*/
         assertEquals(TestAnalytic.TOTAL_PRODUCT_SOLD, this.analytic.getTotalProductsSold().size());
+    }
+
+    @Test
+    public void test4() {
+        
     }
 
 }
