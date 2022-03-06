@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
-import java.util.Date;
+import java.util.Calendar;
 
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
@@ -15,20 +15,20 @@ import unieuroop.model.sale.Sale;
 public interface Analytic {
 
     /**
-     * 
+     * Used for add a new Sale inside the class that will implements Analytic.
      * @param sale
      * @throws NullSaleException 
      */
     void addSale(Sale sale) throws NullSaleException;
 
     /**
-     * 
+     * This method has to return the List of all product sold in the shop.
      * @return all the product sold in all the different sales
      */
     List<Product> getTotalProductsSold();
 
     /**
-     * 
+     * This method is used to get the quantity sold of a specific product.
      * @param product
      * @return the total quantity sold of the "product"
      */
@@ -47,19 +47,25 @@ public interface Analytic {
      * @param date : specifies which dates we have to consider
      * @return the List of all products sold in the specific date
      */
-    List<Product> getOrderedByDate(Predicate<Date> date);
+    List<Product> getOrderedByDate(Predicate<Calendar> date);
 
     /**
-     * This method find the best day of sold (based on the total quantity sold) and return the total of product sold.
-     * @return the List of products most sold in a day
+     * This method return the a Map contains a Date and their respective quantity sold of products.
+     * @return a Map with key a Date and value the total quantity sold in that day
      */
-    List<Product> getBestSoldDay();
+    Map<Date, Long> getBestSoldDay();
 
     /**
      * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
      * @param predicate wich categories have to be select in a specific Date
      * @return the List of all products sold in a specific Date of different categories
      */
-    List<Product> getProductByCategoryDate(BiPredicate<Date, Category> predicate);
+    List<Product> getProductByCategoryDate(BiPredicate<Calendar, Category> predicate);
+
+    /**
+     * This method return all categories sold with their total quantity sold.
+     * @return the Map <Category, Quantity> of all categories sold
+     */
+    Map<Category, Long> geCategoriesSold();
 
 }

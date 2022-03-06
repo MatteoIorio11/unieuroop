@@ -71,13 +71,26 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override 
-    public List<Product> getBestSoldDay() {
+    public Map<Date, Long> getBestSoldDay() {
+        final Map<Date, List<Product>> out = this.sales.stream()
+                .map((sale) -> sale.getDate())
+                .distinct()
+                .collect(Collectors.toMap((date) -> date, 
+                        (date) -> this.getOrderedByDate((datePredicate) -> datePredicate.getYear() == date.getYear() && 
+                        datePredicate.getMonth() == date.getMonth() &&
+                        datePredicate.getDay() == date.getDay())));
+        return null;
+    }
+
+    /*VINCI does this*/
+    @Override
+    public List<Product> getProductByCategoryDate(final BiPredicate<Date, Category> predicate) {
         return Collections.emptyList();
     }
 
     @Override
-    public List<Product> getProductByCategoryDate(final BiPredicate<Date, Category> predicate) {
-        return Collections.emptyList();
+    public Map<Category, Long> geCategoriesSold() {
+        return Collections.emptyMap();
     }
 
 
