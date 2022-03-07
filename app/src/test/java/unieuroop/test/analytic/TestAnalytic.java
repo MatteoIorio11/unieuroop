@@ -16,6 +16,8 @@ import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
+import unieuroop.model.shop.Shop;
+import unieuroop.model.shop.ShopImpl;
 
 public class TestAnalytic {
 
@@ -23,7 +25,6 @@ public class TestAnalytic {
     private static final int SECOND_RESULT = 300; /*sum of all p2s product*/
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold */
 
-    private Analytic analytic = new AnalyticImpl();
     private final Supplier s1 = null;
     private final Product p1 = new ProductImpl(1, "iphone 13 pro", (float) 1200.00, (float) 900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
     private final Product p2 = new ProductImpl(2, "applewatch", (float) 500.00, (float) 200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
@@ -40,15 +41,11 @@ public class TestAnalytic {
     private final Sale sale4 = new SaleImpl(LocalDate.now(), Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
     private final Sale sale5 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
 
+    private final Shop shop = new ShopImpl();
+
     @Before
     public void setUp() throws Exception {
-        /*Put some sales inside Analytic*/
-        this.analytic.addSale(sale1);
-        this.analytic.addSale(sale2);
-        this.analytic.addSale(sale3);
-        this.analytic.addSale(sale4);
-        this.analytic.addSale(sale5);
-
+        private Analytic analytic = new AnalyticImpl();
     }
 
     /*I can not add a Null sale in Analytic*/

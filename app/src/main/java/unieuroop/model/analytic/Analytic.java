@@ -8,16 +8,8 @@ import java.time.LocalDate;
 
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
-import unieuroop.model.sale.Sale;
-
 
 public interface Analytic {
-
-    /**
-     * Used for add a new Sale inside the class that will implements Analytic.
-     * @param sale
-     */
-    void addSale(Sale sale);
 
     /**
      * This method has to return the List of all product sold in the shop.
