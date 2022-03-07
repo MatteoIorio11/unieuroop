@@ -7,11 +7,10 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.Collections;
 import java.time.LocalDate;
-import java.util.LinkedList;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.Category;
-
+import unieuroop.model.shop.Shop;
 public final class AnalyticImpl implements Analytic {
 
     private final List<Sale> sales;
@@ -19,13 +18,8 @@ public final class AnalyticImpl implements Analytic {
      * Constructor of Analytic, in this method we initialize the List of sale.
      */
 
-    public AnalyticImpl() {
-        this.sales = new LinkedList<>();
-    }
-
-    @Override
-    public void addSale(final Sale sale) {
-        this.sales.add(sale);
+    public AnalyticImpl(final Shop shop) {
+        this.sales = shop.getAllSales();
     }
 
     @Override

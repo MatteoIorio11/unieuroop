@@ -16,6 +16,8 @@ import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
+import unieuroop.model.shop.Shop;
+import unieuroop.model.shop.ShopImpl;
 
 public class TestAnalytic {
 
@@ -23,7 +25,7 @@ public class TestAnalytic {
     private static final int SECOND_RESULT = 300; /*sum of all p2s product*/
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold */
 
-    private Analytic analytic = new AnalyticImpl();
+    private Analytic analytic;
     private final Supplier s1 = null;
     private final Product p1 = new ProductImpl(1, "iphone 13 pro", (float) 1200.00, (float) 900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
     private final Product p2 = new ProductImpl(2, "applewatch", (float) 500.00, (float) 200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
@@ -40,52 +42,22 @@ public class TestAnalytic {
     private final Sale sale4 = new SaleImpl(LocalDate.now(), Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
     private final Sale sale5 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
 
-    @Before
-    public void setUp() throws Exception {
-        /*Put some sales inside Analytic*/
-        this.analytic.addSale(sale1);
-        this.analytic.addSale(sale2);
-        this.analytic.addSale(sale3);
-        this.analytic.addSale(sale4);
-        this.analytic.addSale(sale5);
-
-    }
-
-    /*I can not add a Null sale in Analytic*/
-    @Test
-    public void test1() {
-        /*Test on the controller of the Analytic*/
-        try {
-            this.analytic.addSale(null);
-            fail("A NULL sale can not be add inside Analytic");
-        } catch (NullPointerException ex) {
-            assertEquals("Sale must not be NULL.", ex.getMessage());
-        }
-    }
+    private final Shop shop = new ShopImpl();
 
     /**
-     * Test on quantity of total bought products, checking if the sum of all products bought are correct.
+     * Set up of the class AnalyticImpl
      */
-    @Test
-    public void test2() {
-
-        assertEquals(TestAnalytic.FIRST_RESULT, this.analytic.getQuantitySoldOf(p1));
-        assertEquals(0, this.analytic.getQuantitySoldOf(p8)); /*p8 does not exist in all the sales*/
-
-        /*Add the new sale inside the analytic with the product p8*/
-        final Sale sale6 = new SaleImpl(LocalDate.now(), Map.of(p8, 100), Optional.empty());
-        this.analytic.addSale(sale6);
-
-        assertEquals(100, this.analytic.getQuantitySoldOf(p8));
-        assertEquals(TestAnalytic.SECOND_RESULT, this.analytic.getQuantitySoldOf(p2));
-        assertNotEquals(0, this.analytic.getQuantitySoldOf(p5));
-
+    
+    @Before
+    public void setUp(){
+       analytic = new AnalyticImpl(shop);
     }
+
     /**
      * Test the total product Sold in all Sales.
      */
     @Test
-    public void test3() {
+    public void testGetTotalProductsSold() {
         assertNotEquals(Collections.emptyList(), this.analytic.getTotalProductsSold());
         /*Check if all 7 product are contained in Analytic*/
         assertTrue(this.analytic.getTotalProductsSold().contains(p1));
@@ -101,9 +73,51 @@ public class TestAnalytic {
         assertEquals(TestAnalytic.TOTAL_PRODUCT_SOLD, this.analytic.getTotalProductsSold().size());
     }
 
+    /**
+     * Test on quantity of total bought products, checking if the sum of all products bought are correct.
+     */
     @Test
-    public void test4() {
+    public void testQuantitySoldOf() {
+
+        assertEquals(TestAnalytic.FIRST_RESULT, this.analytic.getQuantitySoldOf(p1));
+        assertEquals(0, this.analytic.getQuantitySoldOf(p8)); /*p8 does not exist in all the sales*/
+
+        /*Add the new sale inside the analytic with the product p8*/
+        final Sale sale6 = new SaleImpl(LocalDate.now(), Map.of(p8, 100), Optional.empty());
+        /*
+        assertEquals(100, this.analytic.getQuantitySoldOf(p8));
+        assertEquals(TestAnalytic.SECOND_RESULT, this.analytic.getQuantitySoldOf(p2));
+        assertNotEquals(0, this.analytic.getQuantitySoldOf(p5));
+        */
+
+    }
+
+    @Test
+    public void testOrderedByCategory() {
         
     }
 
+    @Test
+    public void testOrderedByDate() {
+        
+    }
+
+    @Test
+    public void testBestSoldDays() {
+        
+    }
+
+    @Test
+    public void testCategoryDate() {
+        
+    }
+
+    @Test
+    public void testCategoriesSold() {
+        
+    }
+
+    @Test
+    public void testTotalEarned() {
+        
 }
