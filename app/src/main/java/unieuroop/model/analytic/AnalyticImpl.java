@@ -12,7 +12,6 @@ import java.util.LinkedList;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.Category;
-import unieuroop.model.sale.NullSaleException;
 
 public final class AnalyticImpl implements Analytic {
 
@@ -29,13 +28,8 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public void addSale(final Sale sale) throws NullSaleException {
-        try {
-            this.sales.add(Objects.requireNonNull(sale));
-        } catch (NullSaleException exception) {
-            exception.setMessage("Analytic -> addSale (insertion of the sale");
-            throw exception;
-        }
+    public void addSale(final Sale sale) {
+        this.sales.add(Objects.requireNonNull(sale));
     }
 
     @Override

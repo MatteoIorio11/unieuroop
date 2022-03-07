@@ -14,7 +14,7 @@ public class SaleImpl implements Sale {
 	/*private final int id;ID created with the hashCode ???????????*/
 	
 	/**
-	 * Constructor of Sale, it requires :
+	 * Constructor of Sale.
 	 * @param dateSale : date of the sale
 	 * @param products : the map of product buyed and their quantity. Product-Quantity
 	 * @param client   : this parameter can be Empty, the most important thing is the Sale not who buyed 
