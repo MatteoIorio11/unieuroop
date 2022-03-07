@@ -17,6 +17,11 @@ public interface Product {
     String getName();
     /**
      * 
+     * @return : the brand of the product
+     */
+    String getBrand();
+    /**
+     * 
      * @return : the price the shop decided as selling price
      */
     float getSellingPrice();
@@ -50,6 +55,11 @@ public interface Product {
      * @param name
      */
     void setName(String name);
+    /**
+     * change the brand of the product.
+     * @param name
+     */
+    void setBrand(String brand);
     /**
      * change the selling price of the product.
      * @param price

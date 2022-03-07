@@ -8,6 +8,7 @@ import unieuroop.model.supplier.Supplier;
 public final class ProductImpl implements Product {
     private final int productCode;
     private String name;
+    private String brand;
     private float sellingPrice;
     private final float purchasePrice;
     private Optional<Integer> discountPercentage;
@@ -18,6 +19,7 @@ public final class ProductImpl implements Product {
      * Constructor of product with discount.
      * @param productCode
      * @param name
+     * @param brand
      * @param sellingPrice
      * @param purchasePrice
      * @param discount
@@ -25,11 +27,12 @@ public final class ProductImpl implements Product {
      * @param category
      * @param supplier
      */
-    public ProductImpl(final int productCode, final String name, final float sellingPrice, 
+    public ProductImpl(final int productCode, final String name, final String brand, final float sellingPrice, 
             final float purchasePrice, final Optional<Integer> discount, final String description, final Category category, 
             final Supplier supplier) {
         this.productCode = productCode;
         this.name = name;
+        this.brand = brand;
         this.sellingPrice = sellingPrice;
         this.purchasePrice = purchasePrice;
         this.discountPercentage = discount;
@@ -41,16 +44,17 @@ public final class ProductImpl implements Product {
      * Constructor of products without discount.
      * @param productCode
      * @param name
+     * @param brand
      * @param sellingPrice
      * @param purchasePrice
      * @param description
      * @param category
      * @param supplier
      */
-    public ProductImpl(final int productCode, final String name, final float sellingPrice, 
+    public ProductImpl(final int productCode, final String name, final String brand, final float sellingPrice, 
             final float purchasePrice, final String description, final Category category, 
             final Supplier supplier) {
-        this(productCode, name, sellingPrice, purchasePrice, Optional.empty(), description, category, supplier);
+        this(productCode, name, brand, sellingPrice, purchasePrice, Optional.empty(), description, category, supplier);
     }
     @Override
     public int getProductCode() {
@@ -59,6 +63,10 @@ public final class ProductImpl implements Product {
     @Override
     public String getName() {
         return this.name;
+    }
+    @Override
+    public String getBrand() {
+        return this.brand;
     }
     @Override
     public float getSellingPrice() {
@@ -90,6 +98,10 @@ public final class ProductImpl implements Product {
     @Override
     public void setName(final String name) {
         this.name = name;
+    }
+    @Override
+    public void setBrand(final String brand) {
+        this.brand = brand;
     }
     @Override
     public void setSellingPrice(final float price) {
