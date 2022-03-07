@@ -107,4 +107,13 @@ public class TestAnalytic {
     public void testCategoryDate() {
         
     }
+
+    @Test
+    public void testCategoriesSold() {
+        
+    }
+
+    @Test
+    public void testTotalEarned() {
+        
 }
