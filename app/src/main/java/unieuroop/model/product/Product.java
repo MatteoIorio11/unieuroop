@@ -57,7 +57,7 @@ public interface Product {
     void setName(String name);
     /**
      * change the brand of the product.
-     * @param name
+     * @param brand
      */
     void setBrand(String brand);
     /**
