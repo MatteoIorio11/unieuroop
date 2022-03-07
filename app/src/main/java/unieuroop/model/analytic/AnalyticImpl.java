@@ -2,7 +2,6 @@ package unieuroop.model.analytic;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -64,12 +63,12 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override 
-    public Map<LocalDate, List<Product>> getBestSoldDay() {
+    public Map<LocalDate, List<Product>> getBestSoldDay(final Predicate<LocalDate> datePredicate) {
         return this.sales.stream()
                 .map((sale) -> sale.getDate())
                 .distinct()
                 .collect(Collectors.toMap((date) -> date, 
-                        (date) -> this.getOrderedByDate((inputDate) -> inputDate.getDayOfYear() == date.getDayOfYear())));
+                        (date) -> this.getOrderedByDate((inputDate) -> datePredicate.test(inputDate))));
     }
 
     /*VINCI does this*/
@@ -80,7 +79,8 @@ public final class AnalyticImpl implements Analytic {
 
     private List<Product> allSalesCategory(final Category category) {
         return this.sales.stream()
-                .flatMap((sale) -> sale.getProducts().stream().filter((product) -> product.getCategory().equals(category)))
+                .flatMap((sale) -> sale.getProducts().stream()
+                        .filter((product) -> product.getCategory().equals(category)))
                 .collect(Collectors.toList());
     }
 
