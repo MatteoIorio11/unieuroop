@@ -4,31 +4,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
-import java.util.Date;
+import java.time.LocalDate;
 
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
-import unieuroop.model.sale.NullSaleException;
 import unieuroop.model.sale.Sale;
 
 
 public interface Analytic {
 
     /**
-     * 
+     * Used for add a new Sale inside the class that will implements Analytic.
      * @param sale
-     * @throws NullSaleException 
      */
-    void addSale(Sale sale) throws NullSaleException;
+    void addSale(Sale sale);
 
     /**
-     * 
+     * This method has to return the List of all product sold in the shop.
      * @return all the product sold in all the different sales
      */
     List<Product> getTotalProductsSold();
 
     /**
-     * 
+     * This method is used to get the quantity sold of a specific product.
      * @param product
      * @return the total quantity sold of the "product"
      */
@@ -47,19 +45,30 @@ public interface Analytic {
      * @param date : specifies which dates we have to consider
      * @return the List of all products sold in the specific date
      */
-    List<Product> getOrderedByDate(Predicate<Date> date);
+    List<Product> getOrderedByDate(Predicate<LocalDate> date);
 
     /**
-     * This method find the best day of sold (based on the total quantity sold) and return the total of product sold.
-     * @return the List of products most sold in a day
+     * This method return the a Map contains a LocalDate and a List of all products sold in that day.
+     * @return a Map with key a Date and value the list of all products sold in that specific day
      */
-    List<Product> getBestSoldDay();
+    Map<LocalDate, List<Product>> getBestSoldDay();
 
     /**
      * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
      * @param predicate wich categories have to be select in a specific Date
      * @return the List of all products sold in a specific Date of different categories
      */
-    List<Product> getProductByCategoryDate(BiPredicate<Date, Category> predicate);
+    List<Product> getProductByCategoryDate(BiPredicate<LocalDate, Category> predicate);
+
+    /**
+     * This method return all categories sold with the complete list of all product .
+     * @return the Map contains the Category and the complete list of all product sold of that specific Category 
+     */
+    Map<Category, List<Product>> geCategoriesSold();
+    /**
+     * 
+     * @return the total earned in differents days
+     */
+    Map<LocalDate, Double> getTotalEarned();
 
 }
