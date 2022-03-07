@@ -29,7 +29,7 @@ public final class AnalyticImpl implements Analytic {
 
     @Override
     public void addSale(final Sale sale) {
-        this.sales.add(Objects.requireNonNull(sale));
+        this.sales.add(sale);
     }
 
     @Override
