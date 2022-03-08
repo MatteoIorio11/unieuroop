@@ -26,15 +26,16 @@ public class TestAnalytic {
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold */
 
     private Analytic analytic;
+    private final Shop shop = new ShopImpl("TEST");
     private final Supplier s1 = null;
-    private final Product p1 = new ProductImpl(1, "iphone 13 pro", (float) 1200.00, (float) 900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
-    private final Product p2 = new ProductImpl(2, "applewatch", (float) 500.00, (float) 200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
-    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", (float) 3000.00, (float) 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p4 = new ProductImpl(4, "mac book pro 16", (float) 6000.00, (float) 3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p5 = new ProductImpl(5, "ipad Air ", (float) 700.00, (float) 300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
-    private final Product p6 = new ProductImpl(6, "ipad Pro", (float) 1000.00, (float) 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
-    private final Product p7 = new ProductImpl(7, "ipad Pro Max", (float) 1200.00, (float) 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
-    private final Product p8 = new ProductImpl(8, "ipad Pro Max", (float) 1200.00, (float) 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+    private final Product p1 = new ProductImpl(1, "iphone 13 pro", "APPLE", (float) 1200.00, (float) 900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
+    private final Product p2 = new ProductImpl(2, "applewatch", "APPLE", (float) 500.00, (float) 200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
+    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", "APPLE", (float) 3000.00, (float) 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
+    private final Product p4 = new ProductImpl(4, "mac book pro 16", "APPLE", (float) 6000.00, (float) 3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
+    private final Product p5 = new ProductImpl(5, "ipad Air ", "APPLE", (float) 700.00, (float) 300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
+    private final Product p6 = new ProductImpl(6, "ipad Pro", "APPLE", (float) 1000.00, (float) 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
+    private final Product p7 = new ProductImpl(7, "ipad Pro Max", "APPLE", (float) 1200.00, (float) 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+    private final Product p8 = new ProductImpl(8, "ipad Pro Max", "APPLE", (float) 1200.00, (float) 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
 
     private final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1), Optional.empty());
     private final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1, p7, 10), Optional.empty());
@@ -42,14 +43,17 @@ public class TestAnalytic {
     private final Sale sale4 = new SaleImpl(LocalDate.now(), Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
     private final Sale sale5 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
 
-    private final Shop shop = new ShopImpl();
-
     /**
      * Set up of the class AnalyticImpl
      */
     
     @Before
     public void setUp(){
+       this.shop.addSale(sale1);
+       this.shop.addSale(sale2);
+       this.shop.addSale(sale3);
+       this.shop.addSale(sale4);
+       this.shop.addSale(sale5);
        analytic = new AnalyticImpl(shop);
     }
 
@@ -119,5 +123,5 @@ public class TestAnalytic {
 
     @Test
     public void testTotalEarned() {
-        
+    }
 }
