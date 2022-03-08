@@ -52,7 +52,7 @@ public final class SaleImpl implements Sale {
      * @return the total price of the sale 
      */
     @Override
-    public float getTotalPrice() {
+    public float getTotalSpent() {
         return this.productsBuyed.entrySet().stream()
                 .map((e) -> e.getKey().getSellingPrice() * e.getValue())
                 .reduce((price1, price2) -> price1 + price2).get();

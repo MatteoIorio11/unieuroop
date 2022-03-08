@@ -25,7 +25,7 @@ public interface Sale {
 	* 
 	* @return the total price of the sale 
 	*/
-	float getTotalPrice();
+	float getTotalSpent();
 	
 	/**
 	 * 

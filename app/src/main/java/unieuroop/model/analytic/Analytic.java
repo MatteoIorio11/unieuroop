@@ -44,7 +44,7 @@ public interface Analytic {
      * @param datePredicate : specifies which dates we have to consider
      * @return a Map with key a Date and value the list of all products sold in that specific day
      */
-    Map<LocalDate, List<Product>> getBestSoldDay(Predicate<LocalDate> datePredicate);
+    Map<LocalDate, List<Product>> getSoldOnDay(Predicate<LocalDate> datePredicate);
 
     /**
      * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
