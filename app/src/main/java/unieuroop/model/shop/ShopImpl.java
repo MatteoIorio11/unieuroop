@@ -3,6 +3,8 @@ package unieuroop.model.shop;
 import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
@@ -19,6 +21,10 @@ public final class ShopImpl implements Shop {
     private final Set<Sale> sales = new HashSet<>();
     private final Set<Client> registeredClients = new HashSet<>();
     private final Stock stock = new StockImpl();
+
+    public ShopImpl(String name) {
+        this.name = name;
+    }
 
     @Override
     public String getName() {
@@ -43,6 +49,11 @@ public final class ShopImpl implements Shop {
     @Override
     public Set<Sale> getSales() {
         return Set.copyOf(this.sales);
+    }
+
+    @Override
+    public Set<Sale> getSales(final Predicate<Sale> predicate) {
+        return this.sales.stream().filter(predicate).collect(Collectors.toSet());
     }
 
     @Override

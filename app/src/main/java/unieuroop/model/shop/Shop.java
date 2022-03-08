@@ -1,6 +1,7 @@
 package unieuroop.model.shop;
 
 import java.util.Set;
+import java.util.function.Predicate;
 
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
@@ -19,6 +20,8 @@ public interface Shop {
     Set<Supplier> getSuppliers();
 
     Set<Sale> getSales();
+    
+    Set<Sale> getSales(Predicate<Sale> predicate);
 
     Set<Client> getRegisteredClients();
 
@@ -43,4 +46,5 @@ public interface Shop {
     void removeSale(Sale sale);
 
     void removeClient(Client client);
+    
 }
