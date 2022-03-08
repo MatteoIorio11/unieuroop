@@ -3,10 +3,15 @@ package unieuroop.model.shop;
 import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+import com.google.common.collect.Streams;
 
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
+import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.stock.Stock;
 import unieuroop.model.supplier.Supplier;
@@ -19,6 +24,10 @@ public final class ShopImpl implements Shop {
     private final Set<Sale> sales = new HashSet<>();
     private final Set<Client> registeredClients = new HashSet<>();
     private final Stock stock = new StockImpl();
+
+    public ShopImpl(final String name) {
+        this.name = name;
+    }
 
     @Override
     public String getName() {
@@ -46,6 +55,11 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
+    public Set<Sale> getSales(final Predicate<Sale> predicate) {
+        return this.sales.stream().filter(predicate).collect(Collectors.toSet());
+    }
+
+    @Override
     public Set<Client> getRegisteredClients() {
         return Set.copyOf(this.registeredClients);
     }
@@ -53,6 +67,11 @@ public final class ShopImpl implements Shop {
     @Override
     public Stock getStock() {
         return this.stock;
+    }
+
+    @Override
+    public void setName(final String name) {
+        this.name = name;
     }
 
     @Override
@@ -111,5 +130,11 @@ public final class ShopImpl implements Shop {
         if (!this.registeredClients.remove(client)) {
             throw new NoSuchElementException();
         }
+    }
+
+    @Override
+    public Department mergeDepartments(final Set<Department> departments, final String newName) {
+        Set<Product> products = departments.stream().flatMap(d -> d.getProducts().stream()).collect(Collectors.toSet());
+        return new DepartmentImpl(newName, products);
     }
 }
