@@ -132,13 +132,14 @@ public final class ShopImpl implements Shop {
 
     @Override
     public Department mergeDepartments(final Set<Department> departments, final String newName) {
-        Set<Product> products = departments.stream().flatMap(d -> d.getProducts().stream()).collect(Collectors.toSet());
+        final Set<Product> products = departments.stream().flatMap(d -> d.getProducts().stream()).collect(Collectors.toSet());
         departments.stream().forEach(d -> this.removeDepartment(d));
         return new DepartmentImpl(newName, products);
     }
 
     @Override
     public void supplyDepartment(final Department department, final Map<Product, Integer> requestedProducts) {
-        this.stock.takeFromStock(requestedProducts);
+        final var products = this.stock.takeFromStock(requestedProducts);
+        department.addProducts(products);
     }
 }
