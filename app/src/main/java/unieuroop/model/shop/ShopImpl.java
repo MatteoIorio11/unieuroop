@@ -12,6 +12,7 @@ import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.stock.Stock;
+import unieuroop.model.stock.StockImpl;
 import unieuroop.model.supplier.Supplier;
 
 public final class ShopImpl implements Shop {
