@@ -22,7 +22,7 @@ public final class ShopImpl implements Shop {
     private final Set<Client> registeredClients = new HashSet<>();
     private final Stock stock = new StockImpl();
 
-    public ShopImpl(String name) {
+    public ShopImpl(final String name) {
         this.name = name;
     }
 
@@ -64,6 +64,11 @@ public final class ShopImpl implements Shop {
     @Override
     public Stock getStock() {
         return this.stock;
+    }
+
+    @Override
+    public void setName(final String name) {
+        this.name = name;
     }
 
     @Override
