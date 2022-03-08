@@ -1,13 +1,11 @@
 package unieuroop.model.shop;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
-import com.google.common.collect.Streams;
-
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
@@ -56,7 +54,7 @@ public final class ShopImpl implements Shop {
 
     @Override
     public Set<Sale> getSales(final Predicate<Sale> predicate) {
-        return this.sales.stream().filter(predicate).collect(Collectors.toSet());
+        return this.sales.stream().filter(s -> predicate.test(s)).collect(Collectors.toSet());
     }
 
     @Override
@@ -135,6 +133,12 @@ public final class ShopImpl implements Shop {
     @Override
     public Department mergeDepartments(final Set<Department> departments, final String newName) {
         Set<Product> products = departments.stream().flatMap(d -> d.getProducts().stream()).collect(Collectors.toSet());
+        departments.stream().forEach(d -> this.removeDepartment(d));
         return new DepartmentImpl(newName, products);
+    }
+
+    @Override
+    public void supplyDepartment(final Department department, final Map<Product, Integer> requestedProducts) {
+        this.stock.takeFromStock(requestedProducts);
     }
 }

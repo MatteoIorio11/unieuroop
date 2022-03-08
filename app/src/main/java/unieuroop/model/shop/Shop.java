@@ -1,11 +1,13 @@
 package unieuroop.model.shop;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
 
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
+import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.stock.Stock;
 import unieuroop.model.supplier.Supplier;
@@ -107,4 +109,10 @@ public interface Shop {
      * @param client
      */
     void removeClient(Client client);
+    /**
+     * Takes the requested quantity of the specified products from the stock and add them in the specified department.
+     * @param department
+     * @param requestedProduct
+     */
+    void supplyDepartment(Department department, Map<Product, Integer> requestedProduct);
 }

@@ -21,7 +21,7 @@ public final class AnalyticImpl implements Analytic {
     public AnalyticImpl(final Shop shop) {
         this.sales = shop.getAllSales();
     }
-
+    
     @Override
     public List<Product> getTotalProductsSold() {
         return this.sales.stream()
