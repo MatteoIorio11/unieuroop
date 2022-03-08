@@ -24,7 +24,7 @@ public final class AnalyticImpl implements Analytic {
 
     @Override
     public List<Product> getTotalProductsSold() {
-        return this.sales.stream()
+        return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream())
                 .distinct()
                 .collect(Collectors.toList());
@@ -32,7 +32,7 @@ public final class AnalyticImpl implements Analytic {
 
     @Override
     public int getQuantitySoldOf(final Product product) {
-        return this.sales.stream()
+        return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream()
                         .filter((singleProduct) -> singleProduct.getProductCode() == product.getProductCode())
                         .map((singleProduct) -> sale.getQuantityOf(singleProduct)))
@@ -42,23 +42,22 @@ public final class AnalyticImpl implements Analytic {
 
     @Override
     public Map<Product, Integer> getOrderedByCategory(final Predicate<Category> categories) {
-        return this.sales.stream()
-                .flatMap((sale) -> sale.getProducts().stream()
-                        .filter((product) -> categories.test(product.getCategory())))
+        return this.shop.getSales((sale) -> sale.getProducts().stream()
+                    .anyMatch((product) -> categories.test(product.getCategory()))).stream()
+                .flatMap((sale) -> sale.getProducts().stream())
                 .collect(Collectors.toMap((product) -> product, (procuct) -> this.getQuantitySoldOf(procuct)));
     }
     /*PR : in the view the predicate will be build and inside it we put some Date*/
     @Override
     public List<Product> getOrderedByDate(final Predicate<LocalDate> date) {
-        return this.sales.stream()
-                .filter((sale) -> date.test(sale.getDate()))
+        return this.shop.getSales((sale) -> date.test(sale.getDate())).stream()
                 .flatMap((sale) -> sale.getProducts().stream())
                 .collect(Collectors.toList());
     }
 
     @Override 
     public Map<LocalDate, List<Product>> getBestSoldDay(final Predicate<LocalDate> datePredicate) {
-        return this.sales.stream()
+        return this.shop.getSales((sale) -> datePredicate.test(sale.getDate())).stream()
                 .map((sale) -> sale.getDate())
                 .distinct()
                 .collect(Collectors.toMap((date) -> date, 
@@ -72,7 +71,7 @@ public final class AnalyticImpl implements Analytic {
     }
 
     private List<Product> allSalesCategory(final Category category) {
-        return this.sales.stream()
+        return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream()
                         .filter((product) -> product.getCategory().equals(category)))
                 .collect(Collectors.toList());
@@ -80,7 +79,7 @@ public final class AnalyticImpl implements Analytic {
 
     @Override
     public Map<Category, List<Product>> geCategoriesSold() {
-        return this.sales.stream()
+        return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream().map((product) -> product.getCategory()))
                 .distinct()
                 .collect(Collectors.toMap((category) -> category, 
@@ -90,6 +89,18 @@ public final class AnalyticImpl implements Analytic {
     @Override
     public Map<LocalDate, Double> getTotalEarned() {
         return Collections.emptyMap();
+    }
+
+    @Override
+    public double getTotalStockPrice() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public double getTotalShopEarned() {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
 

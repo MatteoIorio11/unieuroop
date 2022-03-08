@@ -63,5 +63,15 @@ public interface Analytic {
      * @return the total earned in differents days
      */
     Map<LocalDate, Double> getTotalEarned();
+    /**
+     * 
+     * @return the total value of all products inside the stock
+     */
+    double getTotalStockPrice();
+    /**
+     * 
+     * @return all the total value of all sales
+     */
+    double getTotalShopEarned();
 
 }
