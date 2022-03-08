@@ -51,7 +51,7 @@ public interface Analytic {
      * @param predicate wich categories have to be select in a specific Date
      * @return the List of all products sold in a specific Date of different categories
      */
-    List<Product> getProductByCategoryDate(BiPredicate<LocalDate, Category> predicate);
+    List<Product> getProductByDateCategory(BiPredicate<LocalDate, Category> predicate);
 
     /**
      * This method return all categories sold with the complete list of all product .

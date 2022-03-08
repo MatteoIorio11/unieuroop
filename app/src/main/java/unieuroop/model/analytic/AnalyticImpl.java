@@ -64,10 +64,12 @@ public final class AnalyticImpl implements Analytic {
                         (date) -> this.getOrderedByDate((inputDate) -> datePredicate.test(inputDate))));
     }
 
-    /*VINCI does this*/
     @Override
-    public List<Product> getProductByCategoryDate(final BiPredicate<LocalDate, Category> predicate) {
-        return Collections.emptyList();
+    public List<Product> getProductByDateCategory(final BiPredicate<LocalDate, Category> predicate) {
+        return this.shop.getSales().stream()
+                .flatMap((sale) -> sale.getProducts().stream()
+                        .filter((product) -> predicate.test(sale.getDate(), product.getCategory())))
+                .collect(Collectors.toList());
     }
 
     private List<Product> allSalesCategory(final Category category) {
