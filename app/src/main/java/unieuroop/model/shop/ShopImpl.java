@@ -6,9 +6,12 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import com.google.common.collect.Streams;
+
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
+import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.stock.Stock;
 import unieuroop.model.supplier.Supplier;
@@ -127,5 +130,11 @@ public final class ShopImpl implements Shop {
         if (!this.registeredClients.remove(client)) {
             throw new NoSuchElementException();
         }
+    }
+
+    @Override
+    public Department mergeDepartments(final Set<Department> departments, final String newName) {
+        Set<Product> products = departments.stream().flatMap(d -> d.getProducts().stream()).collect(Collectors.toSet());
+        return new DepartmentImpl(newName, products);
     }
 }
