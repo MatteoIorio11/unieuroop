@@ -57,7 +57,7 @@ public interface Analytic {
      * This method return all categories sold with the complete list of all product .
      * @return the Map contains the Category and the complete list of all product sold of that specific Category 
      */
-    Map<Category, List<Product>> geCategoriesSold();
+    Map<Category, List<Product>> getCategoriesSold();
     /**
      * 
      * @return the total earned in differents days

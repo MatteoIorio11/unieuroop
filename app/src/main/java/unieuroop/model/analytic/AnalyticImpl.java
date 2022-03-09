@@ -80,7 +80,7 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public Map<Category, List<Product>> geCategoriesSold() {
+    public Map<Category, List<Product>> getCategoriesSold() {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream().map((product) -> product.getCategory()))
                 .distinct()
