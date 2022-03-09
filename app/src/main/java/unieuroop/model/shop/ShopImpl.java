@@ -97,7 +97,7 @@ public final class ShopImpl implements Shop {
     @Override
     public void registerClient(final Client client) {
         this.registeredClients.add(client);
-    }
+    }department
 
     @Override
     public void removeDepartment(final Department department) {
