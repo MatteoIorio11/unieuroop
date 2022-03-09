@@ -7,21 +7,29 @@ import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 
 public class DepartmentImpl implements Department{
+    private final String name;
+    private final Set<Staff> staff;
+    private final Map<Product,Integer> products;
+
+    public DepartmentImpl(final String nameDepartment, final Set<Staff> staff, 
+            final Map<Product, Integer> products) {
+        this.name = nameDepartment;
+        this.staff = Set.copyOf(staff);
+        this.products = Map.copyOf(products);
+    }
 
     @Override
-    public void addProducts(Map<Product, Integer> products) {
-        // TODO Auto-generated method stub
+    public void addProducts(final Map<Product, Integer> products) {
         
     }
 
     @Override
-    public void addStaff(Staff newStaff) {
-        // TODO Auto-generated method stub
+    public void addStaff(final Staff newStaff) {
         
     }
 
     @Override
-    public void removeStaff(Staff deleteStaff) {
+    public void removeStaff(final Staff deleteStaff) {
         // TODO Auto-generated method stub
         
     }
