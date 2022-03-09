@@ -36,8 +36,7 @@ public class DepartmentImpl implements Department{
 
     @Override
     public String getDepartmentName() {
-        // TODO Auto-generated method stub
-        return null;
+        return this.name;
     }
 
     @Override

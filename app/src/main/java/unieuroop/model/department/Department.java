@@ -2,6 +2,8 @@ package unieuroop.model.department;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Predicate;
+
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 
@@ -27,10 +29,11 @@ public interface Department {
      */
     String getDepartmentName();
     /**
-     * Return some products filter by their quantities.
+     * Return products filtered by their quantities.
+     * @param quantity 
      * @return productsByQuantities
      */
-    Map<Product, Integer> productsbyQuantity(); //Function?
+    Map<Product, Integer> productsbyQuantity(Predicate<Integer> quantity); 
     /**
      * Return the entire Staff assigned in the Department.
      * @return staffsDepartment
