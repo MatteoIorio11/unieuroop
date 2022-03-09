@@ -115,4 +115,5 @@ public interface Shop {
      * @param requestedProduct
      */
     void supplyDepartment(Department department, Map<Product, Integer> requestedProduct);
+    Department mergeDepartments(Set<Department> departments, String newName);
 }

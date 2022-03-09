@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import unieuroop.model.department.Department;
+import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
@@ -133,9 +134,20 @@ public final class ShopImpl implements Shop {
 
     @Override
     public Department mergeDepartments(final Set<Department> departments, final String newName) {
-        final Set<Product> products = departments.stream().flatMap(d -> d.getProducts().stream()).collect(Collectors.toSet());
+        //get all products from the departments i want to merge
+        final Set<Product> products = departments.stream()
+                .flatMap(d -> d.getAllProducts().keySet().stream())
+                .collect(Collectors.toSet());
+        //get all staff from the department i want to merge
+        final Set<Staff> staff = departments.stream()
+                .flatMap(d -> d.getStaff().stream())
+                .collect(Collectors.toSet());
+        //dremoving all departments
         departments.stream().forEach(d -> this.removeDepartment(d));
-        return new DepartmentImpl(newName, products);
+        //creating new department
+        var dep = new DepartmentImpl(newName, products, staff);
+        this.addDepartment(dep);
+        return dep;
     }
 
     @Override
