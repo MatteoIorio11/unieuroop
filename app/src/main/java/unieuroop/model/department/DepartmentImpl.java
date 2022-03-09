@@ -9,10 +9,10 @@ import java.util.function.Predicate;
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 
-public class DepartmentImpl implements Department{
+public final class DepartmentImpl implements Department{
     private final String name;
     private final Set<Staff> staff;
-    private final Map<Product,Integer> products;
+    private final Map<Product, Integer> products;
 
     public DepartmentImpl(final String nameDepartment, final Set<Staff> staff, 
             final Map<Product, Integer> products) {
