@@ -1,7 +1,10 @@
 package unieuroop.model.department;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Predicate;
 
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
@@ -14,8 +17,8 @@ public class DepartmentImpl implements Department{
     public DepartmentImpl(final String nameDepartment, final Set<Staff> staff, 
             final Map<Product, Integer> products) {
         this.name = nameDepartment;
-        this.staff = Set.copyOf(staff);
-        this.products = Map.copyOf(products);
+        this.staff = new HashSet<>(Set.copyOf(staff));
+        this.products = new HashMap<>(Map.copyOf(products));
     }
 
     @Override
@@ -25,12 +28,15 @@ public class DepartmentImpl implements Department{
 
     @Override
     public void addStaff(final Staff newStaff) {
-        
+        if (!this.staff.contains(newStaff)) {
+            this.staff.add(newStaff);
+        } else {
+            throw new IllegalArgumentException("The staff : " + newStaff.toString() + " already exist.");
+        }
     }
 
     @Override
     public void removeStaff(final Staff deleteStaff) {
-        // TODO Auto-generated method stub
         
     }
 
@@ -40,21 +46,19 @@ public class DepartmentImpl implements Department{
     }
 
     @Override
-    public Map<Product, Integer> productsbyQuantity() {
+    public Map<Product, Integer> productsByQuantity(final Predicate<Integer> quantity) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public Set<Staff> getStaff() {
-        // TODO Auto-generated method stub
-        return null;
+        return Set.copyOf(this.staff);
     }
 
     @Override
     public Map<Product, Integer> getAllProducts() {
-        // TODO Auto-generated method stub
-        return null;
+        return Map.copyOf(this.products);
     }
 
 }

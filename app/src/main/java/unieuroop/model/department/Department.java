@@ -33,7 +33,7 @@ public interface Department {
      * @param quantity 
      * @return productsByQuantities
      */
-    Map<Product, Integer> productsbyQuantity(Predicate<Integer> quantity); 
+    Map<Product, Integer> productsByQuantity(Predicate<Integer> quantity); 
     /**
      * Return the entire Staff assigned in the Department.
      * @return staffsDepartment
