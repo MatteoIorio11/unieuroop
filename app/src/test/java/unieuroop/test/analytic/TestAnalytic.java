@@ -1,11 +1,16 @@
 package unieuroop.test.analytic;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
+
 import org.junit.Before;
 import org.junit.Test;
 import unieuroop.model.product.Category;
@@ -23,19 +28,20 @@ public class TestAnalytic {
 
     private static final int FIRST_RESULT = 31; /*sum of all p1s product*/
     private static final int SECOND_RESULT = 300; /*sum of all p2s product*/
+    private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold */
 
     private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
     private final Supplier s1 = null;
-    private final Product p1 = new ProductImpl(1, "iphone 13 pro", "APPLE", (float) 1200.00, (float) 900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
-    private final Product p2 = new ProductImpl(2, "applewatch", "APPLE", (float) 500.00, (float) 200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
-    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", "APPLE", (float) 3000.00, (float) 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p4 = new ProductImpl(4, "mac book pro 16", "APPLE", (float) 6000.00, (float) 3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p5 = new ProductImpl(5, "ipad Air ", "APPLE", (float) 700.00, (float) 300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
-    private final Product p6 = new ProductImpl(6, "ipad Pro", "APPLE", (float) 1000.00, (float) 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
-    private final Product p7 = new ProductImpl(7, "ipad Pro Max", "APPLE", (float) 1200.00, (float) 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
-    private final Product p8 = new ProductImpl(8, "ipad Pro Max", "APPLE", (float) 1200.00, (float) 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+    private final Product p1 = new ProductImpl(1, "iphone 13 pro", TestAnalytic.APPLE_PRODUCT,  1200.00,  900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
+    private final Product p2 = new ProductImpl(2, "applewatch", TestAnalytic.APPLE_PRODUCT, 500.00,  200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
+    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestAnalytic.APPLE_PRODUCT,  3000.00, 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
+    private final Product p4 = new ProductImpl(4, "mac book pro 16", TestAnalytic.APPLE_PRODUCT,  6000.00,  3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
+    private final Product p5 = new ProductImpl(5, "ipad Air ", TestAnalytic.APPLE_PRODUCT,  700.00,  300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
+    private final Product p6 = new ProductImpl(6, "ipad Pro", TestAnalytic.APPLE_PRODUCT, 1000.00, 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
+    private final Product p7 = new ProductImpl(7, "ipad Pro Max", TestAnalytic.APPLE_PRODUCT, 1200.00,  900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+    private final Product p8 = new ProductImpl(8, "ipad Pro Max", TestAnalytic.APPLE_PRODUCT, 1200.00, 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
 
     private final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1), Optional.empty());
     private final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1, p7, 10), Optional.empty());
@@ -44,9 +50,9 @@ public class TestAnalytic {
     private final Sale sale5 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
 
     /**
-     * Set up of the class AnalyticImpl
+     * Set up of the class AnalyticImpl.
      */
-    
+
     @Before
     public void setUp(){
        this.shop.addSale(sale1);
@@ -88,17 +94,28 @@ public class TestAnalytic {
 
         /*Add the new sale inside the analytic with the product p8*/
         final Sale sale6 = new SaleImpl(LocalDate.now(), Map.of(p8, 100), Optional.empty());
-        /*
+        this.shop.addSale(sale6);
         assertEquals(100, this.analytic.getQuantitySoldOf(p8));
         assertEquals(TestAnalytic.SECOND_RESULT, this.analytic.getQuantitySoldOf(p2));
         assertNotEquals(0, this.analytic.getQuantitySoldOf(p5));
-        */
-
     }
-
+    /**
+     * Test of getOrderedByCategory, this method return a Map contain a Product and it's quantity sold.
+     */
     @Test
     public void testOrderedByCategory() {
-        
+        Set<Category> categories = Set.of(Category.HOME, Category.PC, 
+                Category.SMARTPHONE, Category.SMARTWATCH);
+        assertNotEquals(Collections.emptyMap(), 
+                this.analytic.getOrderedByCategory((category) -> categories.contains(category)));
+        assertNotEquals(Collections.emptyMap(), 
+                this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE));
+        assertEquals(1, this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).size());
+        assertEquals(Set.of(p1), this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).keySet());
+        final Set<Category> categories2 = Set.of(Category.SMARTPHONE, Category.SMARTWATCH);
+        assertEquals(Set.of(p1, p2),
+                this.analytic.getOrderedByCategory((category) -> categories2.contains(category)).keySet());
+        assertTrue(this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).get(p1) > 0);
     }
 
     @Test

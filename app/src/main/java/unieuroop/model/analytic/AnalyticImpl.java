@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.Collections;
 import java.time.LocalDate;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.Category;
@@ -14,7 +13,7 @@ public final class AnalyticImpl implements Analytic {
 
     private final Shop shop;
     /**
-     * Constructor of Analytic, in this method we initialize the List of sale.
+     * Constructor of Analytic, in this method we initialise the List of sale.
      * @param shop
      */
 
@@ -43,9 +42,9 @@ public final class AnalyticImpl implements Analytic {
 
     @Override
     public Map<Product, Integer> getOrderedByCategory(final Predicate<Category> categories) {
-        return this.shop.getSales((sale) -> sale.getProducts().stream()
-                    .anyMatch((product) -> categories.test(product.getCategory()))).stream()
-                .flatMap((sale) -> sale.getProducts().stream())
+        return this.shop.getSales().stream()
+                .flatMap((sale) -> sale.getProducts().stream()
+                        .filter((product) -> categories.test(product.getCategory())))
                 .distinct()
                 .sorted((product1, product2) -> product1.getName().compareTo(product2.getName()))
                 .collect(Collectors.toMap((product) -> product, (procuct) -> this.getQuantitySoldOf(procuct)));
@@ -128,6 +127,4 @@ public final class AnalyticImpl implements Analytic {
                 .mapToDouble((sale) -> sale.getTotalSpent())
                 .sum();
     }
-
-
 }

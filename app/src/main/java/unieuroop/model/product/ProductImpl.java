@@ -144,4 +144,9 @@ public final class ProductImpl implements Product {
         final ProductImpl other = (ProductImpl) obj;
         return productCode == other.productCode;
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }
