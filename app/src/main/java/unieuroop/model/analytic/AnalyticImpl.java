@@ -27,6 +27,7 @@ public final class AnalyticImpl implements Analytic {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream())
                 .distinct()
+                .sorted((product1, product2) -> product1.getName().compareTo(product2.getName()))
                 .collect(Collectors.toList());
     }
 
@@ -45,6 +46,8 @@ public final class AnalyticImpl implements Analytic {
         return this.shop.getSales((sale) -> sale.getProducts().stream()
                     .anyMatch((product) -> categories.test(product.getCategory()))).stream()
                 .flatMap((sale) -> sale.getProducts().stream())
+                .distinct()
+                .sorted((product1, product2) -> product1.getName().compareTo(product2.getName()))
                 .collect(Collectors.toMap((product) -> product, (procuct) -> this.getQuantitySoldOf(procuct)));
     }
 
@@ -52,6 +55,8 @@ public final class AnalyticImpl implements Analytic {
     public List<Product> getOrderedByDate(final Predicate<LocalDate> date) {
         return this.shop.getSales((sale) -> date.test(sale.getDate())).stream()
                 .flatMap((sale) -> sale.getProducts().stream())
+                .distinct()
+                .sorted((product1, product2) -> product1.getName().compareTo(product2.getName()))
                 .collect(Collectors.toList());
     }
 
@@ -60,6 +65,7 @@ public final class AnalyticImpl implements Analytic {
         return this.shop.getSales((sale) -> datePredicate.test(sale.getDate())).stream()
                 .map((sale) -> sale.getDate())
                 .distinct()
+                .sorted((date1, date2) -> date1.compareTo(date2))
                 .collect(Collectors.toMap((date) -> date, 
                         (date) -> this.getOrderedByDate((inputDate) -> datePredicate.test(inputDate))));
     }
@@ -69,6 +75,8 @@ public final class AnalyticImpl implements Analytic {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream()
                         .filter((product) -> predicate.test(sale.getDate(), product.getCategory())))
+                .distinct()
+                .sorted((product1, product2) -> product1.getName().compareTo(product2.getName())) 
                 .collect(Collectors.toList());
     }
 
@@ -76,6 +84,8 @@ public final class AnalyticImpl implements Analytic {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream()
                         .filter((product) -> product.getCategory().equals(category)))
+                .distinct()
+                .sorted((product1, product2) -> product1.getName().compareTo(product2.getName()))
                 .collect(Collectors.toList());
     }
 
@@ -84,6 +94,7 @@ public final class AnalyticImpl implements Analytic {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream().map((product) -> product.getCategory()))
                 .distinct()
+                .sorted((product1, product2) -> product1.getName().compareTo(product2.getName()))
                 .collect(Collectors.toMap((category) -> category, 
                         (category) -> this.allSalesCategory(category)));
     }
