@@ -31,5 +31,5 @@ public interface Stock {
      * Permanent delete a set of Products.
      * @param productsDelete
      */
-    void deleteProduct(Set<Product> productsDelete);
+    void deleteProducts(Set<Product> productsDelete);
 }

@@ -2,6 +2,7 @@ package unieuroop.model.supplier;
 
 import java.util.Map;
 import java.util.Set;
+
 import unieuroop.model.product.Product;
 
 public interface Supplier {
@@ -21,12 +22,17 @@ public interface Supplier {
      * @param amount
      * @return productPrice
      */
-    float getPriceByProduct(Product product, int amount);
+    double getPriceOf(Product product, int amount);
     /**
-     * Sells the quantities product requested.
-     * @param product
-     * @param amount
-     * @return productSold
+     * Return the total prices of the products purchased.
+     * @param productsPurchased
+     * @return productTotalPrice
      */
-    Map<Product, Integer> sellProduct(Product product, int amount);
+    double getTotalPriceByProducts(Map<Product, Integer> productsPurchased);
+    /**
+     * Sell given product.
+     * @param productsPurchased
+     * @return productPurchased
+     */
+    Map<Product, Integer> sellProduct(Map<Product, Integer> productsPurchased);
 }

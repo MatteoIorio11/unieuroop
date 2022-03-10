@@ -20,15 +20,20 @@ public class SupplierImpl implements Supplier {
     }
 
     @Override
-    public float getPriceByProduct(Product product, int amount) {
+    public double getPriceOf(Product product, int amount) {
         // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
-    public Map<Product, Integer> sellProduct(Product product, int amount) {
+    public double getTotalPriceByProducts(Map<Product, Integer> productsPurchased) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public Map<Product, Integer> sellProduct(Map<Product, Integer> productsPurchased) {
         // TODO Auto-generated method stub
         return null;
     }
-
 }

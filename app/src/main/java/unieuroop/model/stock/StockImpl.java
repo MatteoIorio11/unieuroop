@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class StockImpl implements Stock {
-    private final Map<Product, Integer> productsStocked = new HashMap<Product, Integer>();
+    private final Map<Product, Integer> productsStocked = new HashMap<>();
 
     /**
      * Add Products in the Stock.
@@ -23,11 +23,11 @@ public class StockImpl implements Stock {
      */
     @Override
     public Map<Product, Integer> getTotalStock() {
-        return this.productsStocked;
+        return new HashMap<Product, Integer>(this.productsStocked);
     }
 
     /**
-     * Return the amount of a specified product.
+     * Return the quantities present in the stock.
      */
     @Override
     public int getQuantityOfProduct(final Product product) {
@@ -42,16 +42,40 @@ public class StockImpl implements Stock {
      */
     @Override
     public Map<Product, Integer> takeFromStock(final Map<Product, Integer> productsTaken) {
-        // TODO Auto-generated method stub
-        return null;
+        if (!checkProductTaken(productsTaken)) {
+            throw new IllegalArgumentException();
+        }
+        for (final Product product : productsTaken.keySet()) {
+            this.productsStocked.put(product, this.productsStocked.get(product) - productsTaken.get(product));
+        }
+        return productsTaken;
     }
 
     /**
      * Delete products from the stock.
      */
     @Override
-    public void deleteProduct(final Set<Product> productsDelete) {
+    public void deleteProducts(final Set<Product> productsDelete) {
+        for (final Product productDeleted : productsDelete) {
+            if (!this.productsStocked.containsKey(productDeleted)) {
+                throw new IllegalArgumentException();
+            }
+        }
         this.productsStocked.keySet().removeAll(productsDelete);
+    }
+
+    /**
+     * Check if is possible take each products and their amount from the stock.
+     * @param productsTaken
+     * @return boolean
+     */
+    private boolean checkProductTaken(final Map<Product, Integer> productsTaken) {
+        for (final Product productTake : productsTaken.keySet()) {
+            if (!this.productsStocked.containsKey(productTake) || this.productsStocked.get(productTake) < productsTaken.get(productTake)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
