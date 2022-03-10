@@ -60,7 +60,7 @@ public interface Analytic {
     Map<Category, List<Product>> getCategoriesSold();
     /**
      * 
-     * @return the total earned in differents days
+     * @return the total earned in different days
      */
     Map<LocalDate, Double> getTotalEarned();
     /**

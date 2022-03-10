@@ -99,9 +99,20 @@ public final class AnalyticImpl implements Analytic {
                         (category) -> this.allSalesCategory(category)));
     }
 
+    private double getTotalEarnedIn(final Predicate<LocalDate> predicate) {
+        return this.shop.getSales().stream()
+                .filter((sale) -> predicate.test(sale.getDate()))
+                .mapToDouble((sale) -> sale.getTotalSpent())
+                .sum();
+    }
+
     @Override
     public Map<LocalDate, Double> getTotalEarned() {
-        return Collections.emptyMap();
+        return this.shop.getSales().stream()
+                .map((sale) -> sale.getDate())
+                .distinct()
+                .collect(Collectors.toMap((date) -> date, 
+                        (date) -> this.getTotalEarnedIn((dateInput) -> dateInput.equals(date))));
     }
 
     @Override
