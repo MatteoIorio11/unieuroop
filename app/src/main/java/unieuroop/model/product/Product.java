@@ -24,12 +24,12 @@ public interface Product {
      * 
      * @return : the price the shop decided as selling price
      */
-    float getSellingPrice();
+    Double getSellingPrice();
     /**
      * 
      * @return : the price payed by the shop to get this product
      */
-    float getPurchasePrice();
+    Double getPurchasePrice();
     /**
      * 
      * @return : the percentage of discount applied to the price of the product
@@ -64,7 +64,7 @@ public interface Product {
      * change the selling price of the product.
      * @param price
      */
-    void setSellingPrice(float price);
+    void setSellingPrice(Double price);
     /**
      * change the discount of the product.
      * @param discount

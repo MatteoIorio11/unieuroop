@@ -9,8 +9,8 @@ public final class ProductImpl implements Product {
     private final int productCode;
     private String name;
     private String brand;
-    private float sellingPrice;
-    private final float purchasePrice;
+    private Double sellingPrice;
+    private final Double purchasePrice;
     private Optional<Integer> discountPercentage;
     private String description;
     private Category category;
@@ -27,8 +27,8 @@ public final class ProductImpl implements Product {
      * @param category
      * @param supplier
      */
-    public ProductImpl(final int productCode, final String name, final String brand, final float sellingPrice, 
-            final float purchasePrice, final Optional<Integer> discount, final String description, final Category category, 
+    public ProductImpl(final int productCode, final String name, final String brand, final Double sellingPrice, 
+            final Double purchasePrice, final Optional<Integer> discount, final String description, final Category category, 
             final Supplier supplier) {
         this.productCode = productCode;
         this.name = name;
@@ -51,8 +51,8 @@ public final class ProductImpl implements Product {
      * @param category
      * @param supplier
      */
-    public ProductImpl(final int productCode, final String name, final String brand, final float sellingPrice, 
-            final float purchasePrice, final String description, final Category category, 
+    public ProductImpl(final int productCode, final String name, final String brand, final Double sellingPrice, 
+            final Double purchasePrice, final String description, final Category category, 
             final Supplier supplier) {
         this(productCode, name, brand, sellingPrice, purchasePrice, Optional.empty(), description, category, supplier);
     }
@@ -69,11 +69,11 @@ public final class ProductImpl implements Product {
         return this.brand;
     }
     @Override
-    public float getSellingPrice() {
+    public Double getSellingPrice() {
         return this.sellingPrice;
     }
     @Override
-    public float getPurchasePrice() {
+    public Double getPurchasePrice() {
         return purchasePrice;
     }
     @Override
@@ -92,7 +92,7 @@ public final class ProductImpl implements Product {
     public Supplier getSupplier() {
         return this.supplier;
     }
-    public float getDiscountedSallingPrice() {
+    public Double getDiscountedSallingPrice() {
         return this.sellingPrice - this.sellingPrice * this.discountPercentage.orElse(0) / 100;
     }
     @Override
@@ -104,7 +104,7 @@ public final class ProductImpl implements Product {
         this.brand = brand;
     }
     @Override
-    public void setSellingPrice(final float price) {
+    public void setSellingPrice(final Double price) {
         this.sellingPrice = price;
     }
     @Override
