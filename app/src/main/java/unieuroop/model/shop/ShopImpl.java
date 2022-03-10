@@ -97,7 +97,7 @@ public final class ShopImpl implements Shop {
     @Override
     public void registerClient(final Client client) {
         this.registeredClients.add(client);
-    }department
+    }
 
     @Override
     public void removeDepartment(final Department department) {
@@ -135,9 +135,10 @@ public final class ShopImpl implements Shop {
     @Override
     public Department mergeDepartments(final Set<Department> departments, final String newName) {
         //get all products from the departments i want to merge
-        final Set<Product> products = departments.stream()
-                .flatMap(d -> d.getAllProducts().keySet().stream())
-                .collect(Collectors.toSet());
+        final Map<Product, Integer> products = departments.stream()
+                .map(d -> d.getAllProducts())
+                .flatMap(m -> m.entrySet().stream())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, Integer::sum));
         //get all staff from the department i want to merge
         final Set<Staff> staff = departments.stream()
                 .flatMap(d -> d.getStaff().stream())
@@ -145,7 +146,7 @@ public final class ShopImpl implements Shop {
         //dremoving all departments
         departments.stream().forEach(d -> this.removeDepartment(d));
         //creating new department
-        var dep = new DepartmentImpl(newName, products, staff);
+        final var dep = new DepartmentImpl(newName, staff, products);
         this.addDepartment(dep);
         return dep;
     }
