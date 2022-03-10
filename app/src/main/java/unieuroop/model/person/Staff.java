@@ -44,4 +44,12 @@ public class Staff extends AbstractPerson {
     public LocalDate getWorkTime() {
         return this.workTime;
     }
+
+    /**
+     * @return toString of the Staff
+     */
+    @Override
+    public String toString() {
+        return super.toString() + " " + this.id + " " + this.email + " " + this.password + " " + this.workTime;
+    }
 }

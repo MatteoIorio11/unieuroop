@@ -34,4 +34,12 @@ public abstract class AbstractPerson {
     public LocalDate getBirthdayDate() {
         return this.birthdayDate;
     }
+
+    /**
+     * @return toString of the person
+     */
+    @Override
+    public String toString() {
+        return this.name + " " + this.surname + " " + this.birthdayDate;
+    }
 }

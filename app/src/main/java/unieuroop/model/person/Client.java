@@ -18,4 +18,12 @@ public class Client extends AbstractPerson {
     public Optional<Integer> getClientCode() {
         return this.clientCode;
     }
+
+    /**
+     * @return toString of the client
+     */
+    @Override
+    public String toString() {
+        return super.toString() + " " + this.clientCode;
+    }
 }
