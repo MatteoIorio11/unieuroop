@@ -71,7 +71,7 @@ dependencies {
             implementation("org.openjfx:javafx-$module:$javaFxVersion:$platform")
         }
     }
-    implementation("com.google.code.gson:gson:2.9.0")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.0.1")
     // Use JUnit test framework.
     testImplementation("junit:junit:4.13.2")
 

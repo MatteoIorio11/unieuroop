@@ -1,11 +1,16 @@
 package unieuroop.model.product;
 
 
+import java.io.Serializable;
 import java.util.Optional;
 
 import unieuroop.model.supplier.Supplier;
 
-public final class ProductImpl implements Product {
+public final class ProductImpl implements Product, Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -8521815205261847580L;
     private final int productCode;
     private String name;
     private String brand;

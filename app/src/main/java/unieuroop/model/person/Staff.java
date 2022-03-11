@@ -1,9 +1,14 @@
 package unieuroop.model.person;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Staff extends AbstractPerson {
+public class Staff extends AbstractPerson implements Serializable{
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 3841944704413502446L;
     private final Integer id;
     private final String email;
     private final String password;
