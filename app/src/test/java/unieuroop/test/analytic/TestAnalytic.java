@@ -31,13 +31,21 @@ public class TestAnalytic {
     private static final int P1_TOTAL_SOLD = 31; /*sum of all p1s product*/
     private static final int P2_TOTAL_SOLD = 300; /*sum of all p2s product*/
     private static final int P3_TOTAL_SOLD = 11; /*sum of all p3s product*/;
+    /*Data for a temporary local date*/
+    private static final int YEAR_TEST = 2001;
+    private static final int YEAR_TEST2 = 2002;
+    private static final int MONTH_TEST = 2;
+    private static final int DAY_TEST = 11;
 
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
-    private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold */
+    private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold , not the quantity*/
 
     private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
     private final Supplier s1 = new SupplierImpl();
+    /**
+     * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
+     */
     private final Product p1 = new ProductImpl(1, "iphone 13 pro", TestAnalytic.APPLE_PRODUCT,  1200.00,  900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
     private final Product p2 = new ProductImpl(2, "applewatch", TestAnalytic.APPLE_PRODUCT, 500.00,  200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
     private final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestAnalytic.APPLE_PRODUCT,  3000.00, 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
@@ -46,7 +54,9 @@ public class TestAnalytic {
     private final Product p6 = new ProductImpl(6, "ipad Pro", TestAnalytic.APPLE_PRODUCT, 1000.00, 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
     private final Product p7 = new ProductImpl(7, "ipad Pro Max", TestAnalytic.APPLE_PRODUCT, 1200.00,  900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
     private final Product p8 = new ProductImpl(8, "ipad Pro Max v2", TestAnalytic.APPLE_PRODUCT, 1200.00, 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
-
+    /**
+     * ALL THE SALES THAT WILL BE USED IN THIS TEST.
+     */
     private final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1), Optional.empty());
     private final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1, p7, 10), Optional.empty());
     private final Sale sale3 = new SaleImpl(LocalDate.now(), Map.of(p5, 10, p2, 100, p6, 1), Optional.empty());
@@ -182,16 +192,34 @@ public class TestAnalytic {
     @Test
     public void testProductByDate() {
         final Set<LocalDate> dates = new HashSet<>(Set.of(LocalDate.now()));
-        final Set<Product> products = this.analytic.getProductByDate((date) -> dates.contains(date));
+        Set<Product> products = this.analytic.getProductByDate((date) -> dates.contains(date));
+        final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
+        final LocalDate dateTemp2 = LocalDate.of(TestAnalytic.YEAR_TEST2, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
+        final Sale saleTest = new SaleImpl(dateTemp, Map.of(p8, 1), Optional.empty());
+        final Sale saleTest2 = new SaleImpl(dateTemp2, Map.of(p1, 100), Optional.empty());
+        final Sale saleTest3 = new SaleImpl(dateTemp2, Map.of(p2, 100), Optional.empty());
 
         assertNotEquals(Collections.emptySet(), products);
         assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7), products);
-        
-        final int totalEarnedToday = products.g
+
+        products = this.analytic.getProductByDate((date) -> date == dateTemp);
+        assertEquals(Collections.emptySet(), products);
+
+        this.shop.addSale(saleTest);
+        products = this.analytic.getProductByDate((date) -> date == dateTemp);
+        assertEquals(Set.of(p8), products);
+
+        products = this.analytic.getProductByDate((date) -> date.getYear() > LocalDate.MIN.getYear());
+        assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7, p8), products);
+
+        this.shop.addSale(saleTest2);
+        this.shop.addSale(saleTest3);
+        products = this.analytic.getProductByDate((date) -> date.getYear() >= TestAnalytic.YEAR_TEST && date.getYear() <= TestAnalytic.YEAR_TEST2);
+        assertEquals(Set.of(p1, p2, p8), products);
     }
 
     @Test
-    public void testBestSoldDays() {
+    public void testSoldDays() {
         
     }
 
