@@ -1,4 +1,4 @@
-{
+[ {
   "name" : "nome",
   "surname" : "cognome",
   "birthdayDate" : [ 2022, 3, 11 ],
@@ -6,4 +6,12 @@
   "email" : "ffff",
   "password" : "passw",
   "workTime" : [ 2022, 3, 11 ]
-}
+}, {
+  "name" : "nome1",
+  "surname" : "cognome1",
+  "birthdayDate" : [ 2022, 3, 11 ],
+  "id" : 1,
+  "email" : "AAAA",
+  "password" : "askjda",
+  "workTime" : [ 2022, 3, 11 ]
+} ]
