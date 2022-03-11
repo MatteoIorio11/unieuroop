@@ -3,6 +3,9 @@ package unieuroop.model.person;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Staff extends AbstractPerson implements Serializable{
 
     /**
@@ -13,8 +16,15 @@ public class Staff extends AbstractPerson implements Serializable{
     private final String email;
     private final String password;
     private final LocalDate workTime;
-
-    public Staff(final String name, final String surname, final LocalDate birthdayDate, final Integer id, final String email, final String password, final LocalDate workTime) {
+    
+    @JsonCreator
+    public Staff(@JsonProperty("name") final String name, 
+            @JsonProperty("surname") final String surname, 
+            @JsonProperty("birthdayDate") final LocalDate birthdayDate,
+            @JsonProperty("id") final Integer id,
+            @JsonProperty("email") final String email,
+            @JsonProperty("password") final String password,
+            @JsonProperty("workTime") final LocalDate workTime) {
         super(name, surname, birthdayDate);
         this.id = id;
         this.email = email;

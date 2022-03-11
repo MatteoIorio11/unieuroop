@@ -1,1 +1,9 @@
-{"productCode":1,"name":"prova","brand":"provaBrand","sellingPrice":12.4,"purchasePrice":15.0,"discountPercentage":{"empty":true,"present":false},"description":"bla bla bla bla bla","category":"PC","supplier":null,"discountedSallingPrice":12.4}
+{
+  "name" : "nome",
+  "surname" : "cognome",
+  "birthdayDate" : [ 2022, 3, 11 ],
+  "id" : 1,
+  "email" : "ffff",
+  "password" : "passw",
+  "workTime" : [ 2022, 3, 11 ]
+}
