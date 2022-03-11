@@ -65,6 +65,11 @@ public interface Analytic {
     Map<LocalDate, Double> getTotalEarned();
     /**
      * 
+     * @return the total of all money spent in their specific date.
+     */
+    Map<LocalDate, Double> getTotalSpent();
+    /**
+     * 
      * @return the total value of all products inside the stock
      */
     double getTotalStockPrice();

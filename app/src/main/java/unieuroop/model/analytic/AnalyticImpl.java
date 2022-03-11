@@ -1,5 +1,6 @@
 package unieuroop.model.analytic;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiPredicate;
@@ -112,6 +113,11 @@ public final class AnalyticImpl implements Analytic {
                 .distinct()
                 .collect(Collectors.toMap((date) -> date, 
                         (date) -> this.getTotalEarnedIn((dateInput) -> dateInput.equals(date))));
+    }
+
+    @Override
+    public Map<LocalDate, Double> getTotalSpent() {
+        return Collections.emptyMap();
     }
 
     @Override
