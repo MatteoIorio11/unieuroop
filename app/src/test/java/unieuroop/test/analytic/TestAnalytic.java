@@ -43,7 +43,7 @@ public class TestAnalytic {
     private final Product p5 = new ProductImpl(5, "ipad Air ", TestAnalytic.APPLE_PRODUCT,  700.00,  300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
     private final Product p6 = new ProductImpl(6, "ipad Pro", TestAnalytic.APPLE_PRODUCT, 1000.00, 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
     private final Product p7 = new ProductImpl(7, "ipad Pro Max", TestAnalytic.APPLE_PRODUCT, 1200.00,  900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
-    private final Product p8 = new ProductImpl(8, "ipad Pro Max", TestAnalytic.APPLE_PRODUCT, 1200.00, 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+    private final Product p8 = new ProductImpl(8, "ipad Pro Max v2", TestAnalytic.APPLE_PRODUCT, 1200.00, 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
 
     private final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1), Optional.empty());
     private final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1, p7, 10), Optional.empty());
@@ -137,14 +137,20 @@ public class TestAnalytic {
     @Test
     public void testOrderedByCategory2() {
         final Set<Category> categories = new HashSet<>(Set.of(Category.SMARTPHONE, Category.SMARTWATCH));
-        assertEquals(1, this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).size());
-        assertEquals(Set.of(p1), this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).keySet());
-        assertEquals(Set.of(p1, p2),
-                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        Map<Product, Integer> products = this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE);
+        assertEquals(1, products.size());
+        assertEquals(Set.of(p1), products.keySet());
+
+        products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+
+        assertEquals(Set.of(p1, p2), products.keySet());
         assertTrue(this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).get(p1) > 0);
+
         categories.add(Category.PC);
-        assertEquals(Set.of(p1, p2, p3, p4), 
-                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+
+        products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+        assertEquals(Set.of(p1, p2, p3, p4), products.keySet());
+
         categories.add(Category.TABLET);
         assertEquals(Set.of(p1, p2, p3, p4), 
                 this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
@@ -163,8 +169,11 @@ public class TestAnalytic {
     }
 
     @Test
-    public void testOrderedByDate() {
-        
+    public void testOrderedByDate1() {
+        final Set<LocalDate> dates = new HashSet<>(Set.of(LocalDate.now()));
+        final Set<Product> products = this.analytic.getOrderedByDate((date) -> dates.contains(date));
+        assertNotEquals(Collections.emptySet(), products);
+        assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7), products);
     }
 
     @Test

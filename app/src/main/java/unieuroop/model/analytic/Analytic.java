@@ -2,6 +2,7 @@ package unieuroop.model.analytic;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.time.LocalDate;
@@ -37,14 +38,14 @@ public interface Analytic {
      * @param date : specifies which dates we have to consider
      * @return the List of all products sold in the specific date
      */
-    List<Product> getOrderedByDate(Predicate<LocalDate> date);
+    Set<Product> getOrderedByDate(Predicate<LocalDate> date);
 
     /**
      * This method return the a Map contains a LocalDate and a List of all products sold in that day.
      * @param datePredicate : specifies which dates we have to consider
      * @return a Map with key a Date and value the list of all products sold in that specific day
      */
-    Map<LocalDate, List<Product>> getSoldOnDay(Predicate<LocalDate> datePredicate);
+    Map<LocalDate, Set<Product>> getSoldOnDay(Predicate<LocalDate> datePredicate);
 
     /**
      * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
@@ -63,6 +64,11 @@ public interface Analytic {
      * @return the total earned in different days
      */
     Map<LocalDate, Double> getTotalEarned();
+    /**
+     * 
+     * @return the total of all money spent in their specific date.
+     */
+    Map<LocalDate, Double> getTotalSpent();
     /**
      * 
      * @return the total value of all products inside the stock
