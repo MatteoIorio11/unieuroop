@@ -13,7 +13,7 @@ public class TestSerialization {
 
     @Test
     public void test() {
-        fail("Not yet implemented");
+        
     }
 
 }

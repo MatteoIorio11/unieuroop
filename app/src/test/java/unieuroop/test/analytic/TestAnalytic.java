@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -19,6 +20,7 @@ import unieuroop.model.product.ProductImpl;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.supplier.Supplier;
+import unieuroop.model.supplier.SupplierImpl;
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
 import unieuroop.model.shop.Shop;
@@ -26,14 +28,14 @@ import unieuroop.model.shop.ShopImpl;
 
 public class TestAnalytic {
 
-    private static final int FIRST_RESULT = 31; /*sum of all p1s product*/
+    private static final int P1_TOTAL_SOLD = 31; /*sum of all p1s product*/
     private static final int SECOND_RESULT = 300; /*sum of all p2s product*/
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold */
 
     private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
-    private final Supplier s1 = null;
+    private final Supplier s1 = new SupplierImpl();
     private final Product p1 = new ProductImpl(1, "iphone 13 pro", TestAnalytic.APPLE_PRODUCT,  1200.00,  900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
     private final Product p2 = new ProductImpl(2, "applewatch", TestAnalytic.APPLE_PRODUCT, 500.00,  200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
     private final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestAnalytic.APPLE_PRODUCT,  3000.00, 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
@@ -89,7 +91,7 @@ public class TestAnalytic {
     @Test
     public void testQuantitySoldOf() {
 
-        assertEquals(TestAnalytic.FIRST_RESULT, this.analytic.getQuantitySoldOf(p1));
+        assertEquals(TestAnalytic.P1_TOTAL_SOLD, this.analytic.getQuantitySoldOf(p1));
         assertEquals(0, this.analytic.getQuantitySoldOf(p8)); /*p8 does not exist in all the sales*/
 
         /*Add the new sale inside the analytic with the product p8*/
@@ -101,21 +103,63 @@ public class TestAnalytic {
     }
     /**
      * Test of getOrderedByCategory, this method return a Map contain a Product and it's quantity sold.
+     * In this test I have to check if every product's category in Sale are present in the analytic's result.
      */
     @Test
-    public void testOrderedByCategory() {
+    public void testOrderedByCategory1() {
         Set<Category> categories = Set.of(Category.HOME, Category.PC, 
                 Category.SMARTPHONE, Category.SMARTWATCH);
+
         assertNotEquals(Collections.emptyMap(), 
                 this.analytic.getOrderedByCategory((category) -> categories.contains(category)));
+
         assertNotEquals(Collections.emptyMap(), 
                 this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE));
+
+        assertNotEquals(Collections.emptyMap(), 
+                this.analytic.getOrderedByCategory((category) -> category == Category.HOME));
+
+        assertNotEquals(Collections.emptyMap(), 
+                this.analytic.getOrderedByCategory((category) -> category == Category.SMARTWATCH));
+
+        assertNotEquals(Collections.emptyMap(), 
+                this.analytic.getOrderedByCategory((category) -> category == Category.PC));
+
+        /*we don't have any product of type Tablet*/
+        assertEquals(Collections.emptyMap(), 
+                this.analytic.getOrderedByCategory((category) -> category == Category.TABLET));
+    }
+    /**
+     * Test of getOrderedByCategory, this method return a Map contain a Product and it's quantity sold.
+     * Test if every categories on sale are present in Analytic's result. By adding or removing some categories
+     * in the Predicate of the method
+     */
+    @Test
+    public void testOrderedByCategory2() {
+        final Set<Category> categories = new HashSet<>(Set.of(Category.SMARTPHONE, Category.SMARTWATCH));
         assertEquals(1, this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).size());
         assertEquals(Set.of(p1), this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).keySet());
-        final Set<Category> categories2 = Set.of(Category.SMARTPHONE, Category.SMARTWATCH);
         assertEquals(Set.of(p1, p2),
-                this.analytic.getOrderedByCategory((category) -> categories2.contains(category)).keySet());
+                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
         assertTrue(this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).get(p1) > 0);
+        categories.add(Category.PC);
+        assertEquals(Set.of(p1, p2, p3, p4), 
+                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        categories.add(Category.TABLET);
+        assertEquals(Set.of(p1, p2, p3, p4), 
+                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        categories.remove(Category.SMARTPHONE);
+        assertEquals(Set.of(p2, p3, p4), 
+                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        categories.remove(Category.SMARTWATCH);
+        assertEquals(Set.of(p3, p4), 
+                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        categories.remove(Category.PC);
+        assertEquals(Collections.emptySet(), 
+                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        categories.add(Category.TABLET);
+        assertEquals(Collections.emptySet(),
+                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
     }
 
     @Test
