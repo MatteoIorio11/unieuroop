@@ -20,7 +20,12 @@ public enum Category {
      * Smartwatch category.
      * @param name
      */
-    SMARTWATCH("Smartwatch");
+    SMARTWATCH("Smartwatch"),
+    /**
+     * Tablet Category.
+     * @param name
+     */
+    TABLET("Tablet");
 
     private String name;
 
