@@ -54,7 +54,7 @@ public class TestAnalytic {
      */
 
     @Before
-    public void setUp(){
+    public void setUp() {
        this.shop.addSale(sale1);
        this.shop.addSale(sale2);
        this.shop.addSale(sale3);

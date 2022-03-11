@@ -48,7 +48,7 @@ public interface Analytic {
 
     /**
      * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
-     * @param predicate wich categories have to be select in a specific Date
+     * @param predicate which categories have to be select in a specific Date
      * @return the List of all products sold in a specific Date of different categories
      */
     List<Product> getProductByDateCategory(BiPredicate<LocalDate, Category> predicate);
