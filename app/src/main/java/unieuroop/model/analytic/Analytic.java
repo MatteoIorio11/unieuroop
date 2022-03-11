@@ -38,7 +38,7 @@ public interface Analytic {
      * @param date : specifies which dates we have to consider
      * @return the List of all products sold in the specific date
      */
-    Set<Product> getOrderedByDate(Predicate<LocalDate> date);
+    Set<Product> getProductByDate(Predicate<LocalDate> date);
 
     /**
      * This method return the a Map contains a LocalDate and a List of all products sold in that day.

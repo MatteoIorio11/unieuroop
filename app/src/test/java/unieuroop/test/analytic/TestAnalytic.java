@@ -30,6 +30,8 @@ public class TestAnalytic {
 
     private static final int P1_TOTAL_SOLD = 31; /*sum of all p1s product*/
     private static final int P2_TOTAL_SOLD = 300; /*sum of all p2s product*/
+    private static final int P3_TOTAL_SOLD = 11; /*sum of all p3s product*/;
+
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold */
 
@@ -152,9 +154,10 @@ public class TestAnalytic {
         assertEquals(TestAnalytic.P2_TOTAL_SOLD, totalP2products);
 
         categories.add(Category.PC);
-
         products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+        final int totalP3products = products.get(p3);
         assertEquals(Set.of(p1, p2, p3, p4), products.keySet());
+        assertEquals(TestAnalytic.P3_TOTAL_SOLD, totalP3products);
 
         categories.add(Category.TABLET);
         products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
@@ -177,11 +180,14 @@ public class TestAnalytic {
     }
 
     @Test
-    public void testOrderedByDate1() {
+    public void testProductByDate() {
         final Set<LocalDate> dates = new HashSet<>(Set.of(LocalDate.now()));
-        final Set<Product> products = this.analytic.getOrderedByDate((date) -> dates.contains(date));
+        final Set<Product> products = this.analytic.getProductByDate((date) -> dates.contains(date));
+
         assertNotEquals(Collections.emptySet(), products);
         assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7), products);
+        
+        final int totalEarnedToday = products.g
     }
 
     @Test

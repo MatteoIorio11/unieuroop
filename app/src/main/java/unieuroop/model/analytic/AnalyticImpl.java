@@ -53,7 +53,7 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public Set<Product> getOrderedByDate(final Predicate<LocalDate> date) {
+    public Set<Product> getProductByDate(final Predicate<LocalDate> date) {
         return this.shop.getSales((sale) -> date.test(sale.getDate())).stream()
                 .flatMap((sale) -> sale.getProducts().stream())
                 .distinct()
@@ -68,7 +68,7 @@ public final class AnalyticImpl implements Analytic {
                 .distinct()
                 .sorted((date1, date2) -> date1.compareTo(date2))
                 .collect(Collectors.toMap((date) -> date, 
-                        (date) -> this.getOrderedByDate((inputDate) -> datePredicate.test(inputDate))));
+                        (date) -> this.getProductByDate((inputDate) -> datePredicate.test(inputDate))));
     }
 
     @Override
