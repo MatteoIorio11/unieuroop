@@ -137,14 +137,20 @@ public class TestAnalytic {
     @Test
     public void testOrderedByCategory2() {
         final Set<Category> categories = new HashSet<>(Set.of(Category.SMARTPHONE, Category.SMARTWATCH));
-        assertEquals(1, this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).size());
-        assertEquals(Set.of(p1), this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).keySet());
-        assertEquals(Set.of(p1, p2),
-                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        Map<Product, Integer> products = this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE);
+        assertEquals(1, products.size());
+        assertEquals(Set.of(p1), products.keySet());
+
+        products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+
+        assertEquals(Set.of(p1, p2), products.keySet());
         assertTrue(this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).get(p1) > 0);
+
         categories.add(Category.PC);
-        assertEquals(Set.of(p1, p2, p3, p4), 
-                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+
+        products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+        assertEquals(Set.of(p1, p2, p3, p4), products.keySet());
+
         categories.add(Category.TABLET);
         assertEquals(Set.of(p1, p2, p3, p4), 
                 this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
@@ -163,8 +169,11 @@ public class TestAnalytic {
     }
 
     @Test
-    public void testOrderedByDate() {
-        
+    public void testOrderedByDate1() {
+        final Set<LocalDate> dates = new HashSet<>(Set.of(LocalDate.now()));
+        final Set<Product> products = this.analytic.getOrderedByDate((date) -> dates.contains(date));
+        assertNotEquals(Collections.emptySet(), products);
+        assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7), products);
     }
 
     @Test

@@ -3,6 +3,7 @@ package unieuroop.model.analytic;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -52,16 +53,16 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public List<Product> getOrderedByDate(final Predicate<LocalDate> date) {
+    public Set<Product> getOrderedByDate(final Predicate<LocalDate> date) {
         return this.shop.getSales((sale) -> date.test(sale.getDate())).stream()
                 .flatMap((sale) -> sale.getProducts().stream())
                 .distinct()
                 .sorted((product1, product2) -> product1.getName().compareTo(product2.getName()))
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 
     @Override 
-    public Map<LocalDate, List<Product>> getSoldOnDay(final Predicate<LocalDate> datePredicate) {
+    public Map<LocalDate, Set<Product>> getSoldOnDay(final Predicate<LocalDate> datePredicate) {
         return this.shop.getSales((sale) -> datePredicate.test(sale.getDate())).stream()
                 .map((sale) -> sale.getDate())
                 .distinct()
