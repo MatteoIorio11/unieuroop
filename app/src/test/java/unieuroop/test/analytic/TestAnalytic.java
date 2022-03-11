@@ -39,7 +39,7 @@ public class TestAnalytic {
 
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold , not the quantity*/
-
+    private static final LocalDate TIME_NOW = LocalDate.now();
     private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
     private final Supplier s1 = new SupplierImpl();
@@ -57,11 +57,11 @@ public class TestAnalytic {
     /**
      * ALL THE SALES THAT WILL BE USED IN THIS TEST.
      */
-    private final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1), Optional.empty());
-    private final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100, p5, 1, p7, 10), Optional.empty());
-    private final Sale sale3 = new SaleImpl(LocalDate.now(), Map.of(p5, 10, p2, 100, p6, 1), Optional.empty());
-    private final Sale sale4 = new SaleImpl(LocalDate.now(), Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
-    private final Sale sale5 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
+    private final Sale sale1 = new SaleImpl(TestAnalytic.TIME_NOW, Map.of(p1, 10, p2, 100, p5, 1), Optional.empty());
+    private final Sale sale2 = new SaleImpl(TestAnalytic.TIME_NOW, Map.of(p1, 10, p2, 100, p5, 1, p7, 10), Optional.empty());
+    private final Sale sale3 = new SaleImpl(TestAnalytic.TIME_NOW, Map.of(p5, 10, p2, 100, p6, 1), Optional.empty());
+    private final Sale sale4 = new SaleImpl(TestAnalytic.TIME_NOW, Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
+    private final Sale sale5 = new SaleImpl(TestAnalytic.TIME_NOW, Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
 
     /**
      * Set up of the class AnalyticImpl.
@@ -191,7 +191,7 @@ public class TestAnalytic {
 
     @Test
     public void testProductByDate() {
-        final Set<LocalDate> dates = new HashSet<>(Set.of(LocalDate.now()));
+        final Set<LocalDate> dates = new HashSet<>(Set.of(TestAnalytic.TIME_NOW));
         Set<Product> products = this.analytic.getProductByDate((date) -> dates.contains(date));
         final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
         final LocalDate dateTemp2 = LocalDate.of(TestAnalytic.YEAR_TEST2, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
@@ -220,7 +220,7 @@ public class TestAnalytic {
 
     @Test
     public void testSoldDays() {
-        final Set<LocalDate> dates = new HashSet<>(Set.of(LocalDate.now()));
+        final Set<LocalDate> dates = new HashSet<>(Set.of(TestAnalytic.TIME_NOW));
         Map<LocalDate, Set<Product>> products = this.analytic.getSoldOnDay((date) -> dates.contains(date));
         final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
         final Sale saleTest = new SaleImpl(dateTemp, Map.of(p8, 1), Optional.empty());
@@ -239,9 +239,16 @@ public class TestAnalytic {
 
     @Test
     public void testCategoryDate() {
-        final Set<LocalDate> dates = new HashSet<>(Set.of(LocalDate.now()));
+        final Set<LocalDate> dates = new HashSet<>(Set.of(TestAnalytic.TIME_NOW));
         final Set<Category> categories = new HashSet<>(Set.of(Category.SMARTPHONE, Category.SMARTWATCH));
+        Set<Product> products = this.analytic.getProductByDateCategory(
+                (date, category) -> dates.contains(date) && categories.contains(category));
+        assertNotEquals(Collections.emptySet(), products);
+        assertEquals(Set.of(p1, p2), products);
 
+        categories.add(Category.PC);
+        products = this.analytic.getProductByDateCategory((date, category) -> dates.contains(date) && categories.contains(category));
+        assertEquals(Set.of(p1, p2, p3, p4), products);
     }
 
     @Test
