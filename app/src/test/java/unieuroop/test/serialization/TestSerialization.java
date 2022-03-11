@@ -25,14 +25,14 @@ public class TestSerialization {
     }
 
     @Test
-    public void test() throws JsonGenerationException, JsonMappingException, IOException {
+    public void testStaff() throws JsonGenerationException, JsonMappingException, IOException {
         //Product p = new ProductImpl(1, "prova","provaBrand",12.4, 15.0, Optional.empty(), "bla bla bla bla bla", Category.PC, null);
         final Staff s = new Staff("nome", "cognome", LocalDate.now(), 1, "ffff", "passw", LocalDate.now());
         final Staff s1 = new Staff("nome1", "cognome1", LocalDate.now(), 1, "AAAA", "askjda", LocalDate.now());
         final Set<Staff> staff = new HashSet<>();
         staff.add(s);
         staff.add(s1);
-
+        System.out.println(Files.STAFFS.getPath());
         Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), staff);
 
         final Set<Staff> pr = Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<Staff>>() { });

@@ -32,7 +32,7 @@ public enum Files {
 
     private final String fileName;
     private final String separator = System.getProperty("file.separator");
-    private final String dir = "src" + this.separator + "main" + this.separator + "resources";
+    private final String dir = "src" + this.separator + "main" + this.separator + "resources" + this.separator + "files";
 
     Files(final String fileName) {
         this.fileName = fileName;
