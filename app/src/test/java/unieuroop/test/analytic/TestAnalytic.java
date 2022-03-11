@@ -29,7 +29,7 @@ import unieuroop.model.shop.ShopImpl;
 public class TestAnalytic {
 
     private static final int P1_TOTAL_SOLD = 31; /*sum of all p1s product*/
-    private static final int SECOND_RESULT = 300; /*sum of all p2s product*/
+    private static final int P2_TOTAL_SOLD = 300; /*sum of all p2s product*/
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold */
 
@@ -98,7 +98,7 @@ public class TestAnalytic {
         final Sale sale6 = new SaleImpl(LocalDate.now(), Map.of(p8, 100), Optional.empty());
         this.shop.addSale(sale6);
         assertEquals(100, this.analytic.getQuantitySoldOf(p8));
-        assertEquals(TestAnalytic.SECOND_RESULT, this.analytic.getQuantitySoldOf(p2));
+        assertEquals(TestAnalytic.P2_TOTAL_SOLD, this.analytic.getQuantitySoldOf(p2));
         assertNotEquals(0, this.analytic.getQuantitySoldOf(p5));
     }
     /**
@@ -107,7 +107,7 @@ public class TestAnalytic {
      */
     @Test
     public void testOrderedByCategory1() {
-        Set<Category> categories = Set.of(Category.HOME, Category.PC, 
+        final Set<Category> categories = Set.of(Category.HOME, Category.PC, 
                 Category.SMARTPHONE, Category.SMARTWATCH);
 
         assertNotEquals(Collections.emptyMap(), 
@@ -138,13 +138,18 @@ public class TestAnalytic {
     public void testOrderedByCategory2() {
         final Set<Category> categories = new HashSet<>(Set.of(Category.SMARTPHONE, Category.SMARTWATCH));
         Map<Product, Integer> products = this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE);
+
         assertEquals(1, products.size());
         assertEquals(Set.of(p1), products.keySet());
 
         products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+        final int totalP1products = products.get(p1);
+        final int totalP2products = products.get(p2);
 
         assertEquals(Set.of(p1, p2), products.keySet());
         assertTrue(this.analytic.getOrderedByCategory((category) -> category == Category.SMARTPHONE).get(p1) > 0);
+        assertEquals(TestAnalytic.P1_TOTAL_SOLD, totalP1products);
+        assertEquals(TestAnalytic.P2_TOTAL_SOLD, totalP2products);
 
         categories.add(Category.PC);
 
@@ -152,20 +157,23 @@ public class TestAnalytic {
         assertEquals(Set.of(p1, p2, p3, p4), products.keySet());
 
         categories.add(Category.TABLET);
-        assertEquals(Set.of(p1, p2, p3, p4), 
-                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+        assertEquals(Set.of(p1, p2, p3, p4), products.keySet());
+
         categories.remove(Category.SMARTPHONE);
-        assertEquals(Set.of(p2, p3, p4), 
-                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+        assertEquals(Set.of(p2, p3, p4), products.keySet());
+
         categories.remove(Category.SMARTWATCH);
-        assertEquals(Set.of(p3, p4), 
-                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+        assertEquals(Set.of(p3, p4), products.keySet());
+
         categories.remove(Category.PC);
-        assertEquals(Collections.emptySet(), 
-                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        products =  this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+        assertEquals(Collections.emptySet(), products.keySet());
+
         categories.add(Category.TABLET);
-        assertEquals(Collections.emptySet(),
-                this.analytic.getOrderedByCategory((category) -> categories.contains(category)).keySet());
+        assertEquals(Collections.emptySet(), products.keySet());
     }
 
     @Test

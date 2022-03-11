@@ -6,37 +6,41 @@ public enum Files {
      */
     PRODUCTS("Products.json"),
     /**
-     * @param fileName Products.json
+     * @param fileName Staffs.json
      */
     STAFFS("Staffs.json"),
     /**
-     * @param fileName Products.json
+     * @param fileName Sales.json
      */
     SALES("Sales.json"),
     /**
-     * @param fileName Products.json
+     * @param fileName Stock.json
      */
     STOCK("Stock.json"),
     /**
-     * @param fileName Products.json
+     * @param fileName Suppliers.json
      */
     SUPPLIERS("Suppliers.json"),
     /**
-     * @param fileName Products.json
+     * @param fileName Shop.json
      */
     SHOP("Shop.json"),
     /**
-     * @param fileName Products.json
+     * @param fileName Departments.json
      */
     DEPARTMENTS("Departments.json");
 
     private final String fileName;
     private static final String SEPARATOR = System.getProperty("file.separator");
+
     Files(final String fileName) {
         this.fileName = fileName;
     }
-
-    public String getPath(){
+    /**
+     * 
+     * @return the path of the file 
+     */
+    public String getPath() {
         return Files.SEPARATOR + this.fileName;
     }
 }
