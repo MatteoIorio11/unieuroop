@@ -13,6 +13,8 @@ import org.junit.Test;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
+
+import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.person.Staff;
 
@@ -31,9 +33,9 @@ public class TestSerialization {
         staff.add(s);
         staff.add(s1);
 
-        Serialization.<Set<Staff>>serialize("test.json", staff);
+        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), staff);
 
-        final Set<Staff> pr = Serialization.<Set<Staff>>deserialize("test.json", new TypeReference<Set<Staff>>() { });
+        final Set<Staff> pr = Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<Staff>>() { });
 
         pr.forEach(a -> System.out.println(a));
     }

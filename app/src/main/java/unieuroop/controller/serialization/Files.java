@@ -31,16 +31,21 @@ public enum Files {
     DEPARTMENTS("Departments.json");
 
     private final String fileName;
-    private static final String SEPARATOR = System.getProperty("file.separator");
+    private final String separator = System.getProperty("file.separator");
+    private final String dir = "src" + this.separator + "main" + this.separator + "resources";
 
     Files(final String fileName) {
         this.fileName = fileName;
+    }
+
+    public String getSeparator() {
+        return this.separator;
     }
     /**
      * 
      * @return the path of the file 
      */
     public String getPath() {
-        return Files.SEPARATOR + this.fileName;
+        return dir + this.separator + this.fileName;
     }
 }
