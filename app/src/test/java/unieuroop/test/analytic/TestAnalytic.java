@@ -82,7 +82,7 @@ public class TestAnalytic {
      */
     @Test
     public void testGetTotalProductsSold() {
-        assertNotEquals(Collections.emptyList(), this.analytic.getTotalProductsSold());
+        assertNotEquals(Collections.emptySet(), this.analytic.getTotalProductsSold());
         /*Check if all 7 product are contained in Analytic*/
         assertTrue(this.analytic.getTotalProductsSold().contains(p1));
         assertTrue(this.analytic.getTotalProductsSold().contains(p2));
@@ -220,12 +220,28 @@ public class TestAnalytic {
 
     @Test
     public void testSoldDays() {
-        
+        final Set<LocalDate> dates = new HashSet<>(Set.of(LocalDate.now()));
+        Map<LocalDate, Set<Product>> products = this.analytic.getSoldOnDay((date) -> dates.contains(date));
+        final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
+        final Sale saleTest = new SaleImpl(dateTemp, Map.of(p8, 1), Optional.empty());
+
+        assertNotEquals(Collections.emptyMap(), products);
+        assertEquals(1, products.size());
+        assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7), products.get(LocalDate.now()));
+
+        this.shop.addSale(saleTest);
+        dates.add(dateTemp);
+        products = this.analytic.getSoldOnDay((date) -> dates.contains(date));
+        assertNotEquals(Collections.emptyMap(), products);
+        assertEquals(2, products.size());
+        assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7, p8), products.get(LocalDate.now()));
     }
 
     @Test
     public void testCategoryDate() {
-        
+        final Set<LocalDate> dates = new HashSet<>(Set.of(LocalDate.now()));
+        final Set<Category> categories = new HashSet<>(Set.of(Category.SMARTPHONE, Category.SMARTWATCH));
+
     }
 
     @Test

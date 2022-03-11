@@ -24,12 +24,12 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public List<Product> getTotalProductsSold() {
+    public Set<Product> getTotalProductsSold() {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream())
                 .distinct()
                 .sorted((product1, product2) -> product1.getName().compareTo(product2.getName()))
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 
     @Override
@@ -72,26 +72,26 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public List<Product> getProductByDateCategory(final BiPredicate<LocalDate, Category> predicate) {
+    public Set<Product> getProductByDateCategory(final BiPredicate<LocalDate, Category> predicate) {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream()
                         .filter((product) -> predicate.test(sale.getDate(), product.getCategory())))
                 .distinct()
                 .sorted((product1, product2) -> product1.getName().compareTo(product2.getName())) 
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 
-    private List<Product> allSalesCategory(final Category category) {
+    private Set<Product> allSalesCategory(final Category category) {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream()
                         .filter((product) -> product.getCategory().equals(category)))
                 .distinct()
                 .sorted((product1, product2) -> product1.getName().compareTo(product2.getName()))
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 
     @Override
-    public Map<Category, List<Product>> getCategoriesSold() {
+    public Map<Category, Set<Product>> getCategoriesSold() {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream().map((product) -> product.getCategory()))
                 .distinct()

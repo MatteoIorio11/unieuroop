@@ -1,6 +1,6 @@
 package unieuroop.model.analytic;
 
-import java.util.List;
+import java.util.Set;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.BiPredicate;
@@ -13,10 +13,10 @@ import unieuroop.model.product.Product;
 public interface Analytic {
 
     /**
-     * This method has to return the List of all product sold in the shop.
+     * This method has to return the Set of all product sold in the shop.
      * @return all the product sold in all the different sales
      */
-    List<Product> getTotalProductsSold();
+    Set<Product> getTotalProductsSold();
 
     /**
      * This method is used to get the quantity sold of a specific product.
@@ -36,29 +36,29 @@ public interface Analytic {
     /**
      * All the products sold in date, it can be also a range like 02/11/2022 < x < 10/27/2022.
      * @param date : specifies which dates we have to consider
-     * @return the List of all products sold in the specific date
+     * @return the Set of all products sold in the specific date
      */
     Set<Product> getProductByDate(Predicate<LocalDate> date);
 
     /**
-     * This method return the a Map contains a LocalDate and a List of all products sold in that day.
+     * This method return the a Map contains a LocalDate and a Set of all products sold in that day.
      * @param datePredicate : specifies which dates we have to consider
-     * @return a Map with key a Date and value the list of all products sold in that specific day
+     * @return a Map with key a Date and value the Set of all products sold in that specific day
      */
     Map<LocalDate, Set<Product>> getSoldOnDay(Predicate<LocalDate> datePredicate);
 
     /**
      * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
      * @param predicate which categories have to be select in a specific Date
-     * @return the List of all products sold in a specific Date of different categories
+     * @return the Set of all products sold in a specific Date of different categories
      */
-    List<Product> getProductByDateCategory(BiPredicate<LocalDate, Category> predicate);
+    Set<Product> getProductByDateCategory(BiPredicate<LocalDate, Category> predicate);
 
     /**
-     * This method return all categories sold with the complete list of all product .
-     * @return the Map contains the Category and the complete list of all product sold of that specific Category 
+     * This method return all categories sold with the complete Set of all product .
+     * @return the Map contains the Category and the complete Set of all product sold of that specific Category 
      */
-    Map<Category, List<Product>> getCategoriesSold();
+    Map<Category, Set<Product>> getCategoriesSold();
     /**
      * 
      * @return the total earned in different days
