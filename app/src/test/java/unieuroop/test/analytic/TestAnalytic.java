@@ -238,7 +238,7 @@ public class TestAnalytic {
     }
 
     @Test
-    public void testCategoryDate() {
+    public void testDateCategory() {
         final Set<LocalDate> dates = new HashSet<>(Set.of(TestAnalytic.TIME_NOW));
         final Set<Category> categories = new HashSet<>(Set.of(Category.SMARTPHONE, Category.SMARTWATCH));
         Set<Product> products = this.analytic.getProductByDateCategory(
