@@ -188,7 +188,10 @@ public class TestAnalytic {
         categories.add(Category.TABLET);
         assertEquals(Collections.emptySet(), products.keySet());
     }
-
+    /**
+     *  Testing the method getProductByDate where we specified a Date or a time lapse,
+     *  and we get a Set of all different products sold in the Date or in the time lapse.
+     */
     @Test
     public void testProductByDate() {
         final Set<LocalDate> dates = new HashSet<>(Set.of(TestAnalytic.TIME_NOW));
@@ -217,7 +220,10 @@ public class TestAnalytic {
         products = this.analytic.getProductByDate((date) -> date.getYear() >= TestAnalytic.YEAR_TEST && date.getYear() <= TestAnalytic.YEAR_TEST2);
         assertEquals(Set.of(p1, p2, p8), products);
     }
-
+    /**
+     * This method use a Date or a time lapse for return a Map where we find in the key
+     * the LocalDate and in the Value we find all the different products sold in that day.
+     */
     @Test
     public void testSoldDays() {
         final Set<LocalDate> dates = new HashSet<>(Set.of(TestAnalytic.TIME_NOW));
@@ -236,7 +242,10 @@ public class TestAnalytic {
         assertEquals(2, products.size());
         assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7, p8), products.get(LocalDate.now()));
     }
-
+    /**
+     * This test return all the Products and only them searching inside the sales, return all the 
+     * products of a specified categories or more categories in a Date or a time lapse.
+     */
     @Test
     public void testDateCategory() {
         final Set<LocalDate> dates = new HashSet<>(Set.of(TestAnalytic.TIME_NOW));
@@ -250,13 +259,29 @@ public class TestAnalytic {
         products = this.analytic.getProductByDateCategory((date, category) -> dates.contains(date) && categories.contains(category));
         assertEquals(Set.of(p1, p2, p3, p4), products);
     }
-
+    /**
+     * This test is for the method getCategoriesSold, where the method return a Map
+     * with Key the category and the Value is all the set of values. 
+     */
     @Test
     public void testCategoriesSold() {
-        
     }
-
+    /**
+     * This test calculate the total earned by selling the products to the clients. 
+     */
     @Test
     public void testTotalEarned() {
+    }
+    /**
+     * This test calculate the total spent for buying the products in the different days. 
+     */
+    @Test
+    public void testTotalSpent() {
+    }
+    /**
+     * test the stock price of all products.
+     */
+    @Test
+    public void testTotalStockPrice() {
     }
 }
