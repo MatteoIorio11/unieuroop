@@ -42,6 +42,17 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
+    public int getQuantitySoldOf(final Product product, final Predicate<LocalDate> date) {
+        return this.shop.getSales().stream()
+                .filter((sale) -> date.test(sale.getDate()))
+                .flatMap((sale) -> sale.getProducts().stream()
+                        .filter((pro) -> pro.equals(product))
+                        .map((pro) -> sale.getQuantityOf(pro)))
+                .mapToInt((quantity) -> quantity)
+                .sum();
+    }
+
+    @Override
     public Map<Product, Integer> getOrderedByCategory(final Predicate<Category> categories) {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream()

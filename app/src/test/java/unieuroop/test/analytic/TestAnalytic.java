@@ -98,6 +98,7 @@ public class TestAnalytic {
     }
 
     /**
+     *  TEST FOR : analytic.getQuantityOf(Product p);
      * Test on quantity of total bought products, checking if the sum of all products bought are correct.
      */
     @Test
@@ -114,6 +115,15 @@ public class TestAnalytic {
         assertNotEquals(0, this.analytic.getQuantitySoldOf(p5));
     }
     /**
+     * TEST FOR : analytic.getQuantityOf(Product p, Predicate<LocalDate> date);
+     * Test quantity of a specific product in a specific date.
+     */
+    @Test
+    public void testQuantitySoldOf2() {
+
+    }
+    /**
+     * TEST FOR : analytic.getOrderedByCategory(Predicate<Category> c);
      * Test of getOrderedByCategory, this method return a Map contain a Product and it's quantity sold.
      * In this test I have to check if every product's category in Sale are present in the analytic's result.
      */
@@ -142,6 +152,7 @@ public class TestAnalytic {
                 this.analytic.getOrderedByCategory((category) -> category == Category.TABLET));
     }
     /**
+     * TEST FOR : analytic.getOrderedByCategory(Predicate<Category> c);
      * Test of getOrderedByCategory, this method return a Map contain a Product and it's quantity sold.
      * Test if every categories on sale are present in Analytic's result. By adding or removing some categories
      * in the Predicate of the method
@@ -189,6 +200,7 @@ public class TestAnalytic {
         assertEquals(Collections.emptySet(), products.keySet());
     }
     /**
+     * TEST FOR : analytic.getOrderedByDate(Predicate<LocalDate> c);
      *  Testing the method getProductByDate where we specified a Date or a time lapse,
      *  and we get a Set of all different products sold in the Date or in the time lapse.
      */
@@ -221,6 +233,7 @@ public class TestAnalytic {
         assertEquals(Set.of(p1, p2, p8), products);
     }
     /**
+     * TEST FOR : analytic.getSoldOnDay(Predicate<LocalDate> d);
      * This method use a Date or a time lapse for return a Map where we find in the key
      * the LocalDate and in the Value we find all the different products sold in that day.
      */
@@ -243,6 +256,7 @@ public class TestAnalytic {
         assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7, p8), products.get(LocalDate.now()));
     }
     /**
+     * TEST FOR : analytic.getProductByDateCategory(BiPredicate<LocalDate, Category> b);
      * This test return all the Products and only them searching inside the sales, return all the 
      * products of a specified categories or more categories in a Date or a time lapse.
      */
@@ -260,28 +274,39 @@ public class TestAnalytic {
         assertEquals(Set.of(p1, p2, p3, p4), products);
     }
     /**
+     * TEST FOR : analytic.getCategoriesSold();
      * This test is for the method getCategoriesSold, where the method return a Map
      * with Key the category and the Value is all the set of values. 
      */
     @Test
     public void testCategoriesSold() {
     }
-    /**
+    /** 
+     * TEST FOR : analytic.getTotalEarned();
      * This test calculate the total earned by selling the products to the clients. 
      */
     @Test
     public void testTotalEarned() {
     }
     /**
+     * TEST FOR : analytic.getTotalSpent();
      * This test calculate the total spent for buying the products in the different days. 
      */
     @Test
     public void testTotalSpent() {
     }
     /**
+     * TEST FOR : analytic.getTotalStockPrice();
      * test the stock price of all products.
      */
     @Test
     public void testTotalStockPrice() {
+    }
+    /**
+     * TEST FOR : analytic.getTotalShopEarned();
+     * test where analytic return all the money resulting from sales.
+     */
+    @Test
+    public void testTotalShopEarned() {
     }
 }

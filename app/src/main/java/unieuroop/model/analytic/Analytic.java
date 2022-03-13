@@ -23,6 +23,13 @@ public interface Analytic {
      * @return the total quantity sold of the "product"
      */
     int getQuantitySoldOf(Product product);
+    /**
+     * This method return all the quantity sold of a specific product in a specific date.
+     * @param product
+     * @param date
+     * @return all the quantity of a single product sold in Date.
+     */
+    int getQuantitySoldOf(Product product, Predicate<LocalDate> date);
 
     /**
      * PR : inside the view we build the set of categories, then inside the predicate we only check 
