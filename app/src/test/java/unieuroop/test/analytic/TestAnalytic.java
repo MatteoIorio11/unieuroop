@@ -12,6 +12,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
+
+import javax.management.loading.PrivateClassLoader;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -308,13 +311,10 @@ public class TestAnalytic {
      */
     @Test
     public void testTotalEarned() {
-        //p1= 1200 p2 = 500 p3= 3000 p4 = 6000 p5 = 700 p6 = 1000 p7 = 1200 p8 = 1200 
-        //private final Sale sale1 = new SaleImpl(TestAnalytic.TIME_NOW, Map.of(p1, 10, p2, 100, p5, 1), Optional.empty());
-        //private final Sale sale2 = new SaleImpl(TestAnalytic.TIME_NOW, Map.of(p1, 10, p2, 100, p5, 1, p7, 10), Optional.empty());
-        //private final Sale sale3 = new SaleImpl(TestAnalytic.TIME_NOW, Map.of(p5, 10, p2, 100, p6, 1), Optional.empty());
-        //private final Sale sale4 = new SaleImpl(TestAnalytic.TIME_NOW, Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
-        //private final Sale sale5 = new SaleImpl(TestAnalytic.TIME_NOW, Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
-        
+        final double totalEarned = sale1.getTotalSpent() + sale2.getTotalSpent() + sale3.getTotalSpent() + sale4.getTotalSpent() + sale5.getTotalSpent();
+        final Map<LocalDate, Double> testMap = new HashMap<>(this.analytic.getTotalEarned());
+        final double testEarned = testMap.get(TestAnalytic.TIME_NOW);
+        assertEquals(totalEarned, testEarned);
     }
     /**
      * TEST FOR : analytic.getTotalSpent();
