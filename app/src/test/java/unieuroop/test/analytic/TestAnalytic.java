@@ -291,14 +291,12 @@ public class TestAnalytic {
         final Map<Category, Set<Product>> categoriesSold = this.analytic.getCategoriesSold();
         final Map<Category, Set<Product>> testMap = new HashMap<>();
 
-        testMap.put(Category.HOME, Set.of(p5, p6, p7, p8));
+        testMap.put(Category.HOME, Set.of(p5, p6, p7));
         testMap.put(Category.PC, Set.of(p3, p4));
         testMap.put(Category.SMARTPHONE, Set.of(p1));
         testMap.put(Category.SMARTWATCH, Set.of(p2));
-        testMap.put(Category.TABLET, Collections.emptySet());
 
         assertNotEquals(Collections.emptyMap(), categoriesSold);
-        assertEquals(Category.values(), categoriesSold.keySet());
         assertEquals(testMap.get(Category.HOME), categoriesSold.get(Category.HOME));
         assertEquals(testMap.get(Category.PC), categoriesSold.get(Category.PC));
         assertEquals(testMap.get(Category.SMARTPHONE), categoriesSold.get(Category.SMARTPHONE));

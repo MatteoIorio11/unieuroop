@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane layoutX="-2.0" layoutY="-2.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="-2.0">
@@ -31,7 +30,7 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.79998779296875" minWidth="10.0" prefWidth="305.79998779296875" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="269.6000122070312" minHeight="10.0" prefHeight="269.6000122070312" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <PieChart id="chartTotalSpent" prefHeight="298.0" prefWidth="217.0" title="Total Spent in the last 30 days" />
