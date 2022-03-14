@@ -314,7 +314,8 @@ public class TestAnalytic {
         final double totalEarned = sale1.getTotalSpent() + sale2.getTotalSpent() + sale3.getTotalSpent() + sale4.getTotalSpent() + sale5.getTotalSpent();
         final Map<LocalDate, Double> testMap = new HashMap<>(this.analytic.getTotalEarned());
         final double testEarned = testMap.get(TestAnalytic.TIME_NOW);
-        assertEquals(totalEarned, testEarned);
+        final double error = 0.1;
+        assertEquals(totalEarned, testEarned, error);
     }
     /**
      * TEST FOR : analytic.getTotalSpent();
