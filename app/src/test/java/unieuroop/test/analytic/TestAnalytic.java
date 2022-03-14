@@ -128,7 +128,7 @@ public class TestAnalytic {
      */
     @Test
     public void testQuantitySoldOf2() {
-
+        
     }
     /**
      * TEST FOR : analytic.getOrderedByCategory(Predicate<Category> c);
@@ -309,11 +309,27 @@ public class TestAnalytic {
      */
     @Test
     public void testTotalEarned() {
-        final double totalEarned = sale1.getTotalSpent() + sale2.getTotalSpent() + sale3.getTotalSpent() + sale4.getTotalSpent() + sale5.getTotalSpent();
-        final Map<LocalDate, Double> testMap = new HashMap<>(this.analytic.getTotalEarned());
-        final double testEarned = testMap.get(TestAnalytic.TIME_NOW);
+        final double totalEarnedNow = sale1.getTotalSpent()
+                + sale2.getTotalSpent() 
+                + sale3.getTotalSpent() 
+                + sale4.getTotalSpent() 
+                + sale5.getTotalSpent();
+        Map<LocalDate, Double> testMap = this.analytic.getTotalEarned();
+        double testEarned = testMap.get(TestAnalytic.TIME_NOW);
         final double error = 0.1;
-        assertEquals(totalEarned, testEarned, error);
+        final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
+        final Sale saleTest = new SaleImpl(dateTemp, Map.of(p8, 1), Optional.empty());
+
+        assertTrue(this.analytic.getTotalEarned().get(TestAnalytic.TIME_NOW) >= 0);
+        assertEquals(totalEarnedNow, testEarned, error);
+        assertFalse(testMap.containsKey(dateTemp));
+
+        this.shop.addSale(saleTest);
+        testMap = this.analytic.getTotalEarned();
+        final double testEarnedDateTemp = saleTest.getTotalSpent();
+        testEarned = testMap.get(dateTemp);
+        assertTrue(testMap.containsKey(dateTemp));
+        assertEquals(testEarnedDateTemp, testEarned, error);
     }
     /**
      * TEST FOR : analytic.getTotalSpent();
