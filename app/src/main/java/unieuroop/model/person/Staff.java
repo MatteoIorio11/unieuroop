@@ -1,7 +1,7 @@
 package unieuroop.model.person;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,7 +15,8 @@ public class Staff extends AbstractPerson implements Serializable{
     private final Integer id;
     private final String email;
     private final String password;
-    private final LocalDate workTime;
+    private final Date startTime;
+    private final Date endTime;
     
     @JsonCreator
     public Staff(@JsonProperty("name") final String name, 
@@ -24,12 +25,14 @@ public class Staff extends AbstractPerson implements Serializable{
             @JsonProperty("id") final Integer id,
             @JsonProperty("email") final String email,
             @JsonProperty("password") final String password,
-            @JsonProperty("workTime") final LocalDate workTime) {
+            @JsonProperty("startTime") final Date startTime,
+            @JsonProperty("endTime") final Date endTime) {
         super(name, surname, birthdayDate);
         this.id = id;
         this.email = email;
         this.password = password;
-        this.workTime = workTime;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     /**
@@ -54,17 +57,24 @@ public class Staff extends AbstractPerson implements Serializable{
     }
 
     /**
-     * @return workTime of the Staff
+     * @return startTime of the Staff
      */
-    public LocalDate getWorkTime() {
-        return this.workTime;
+    public Date getStartTime() {
+        return this.startTime;
     }
+    
+    /**
+    * @return endTime of the Staff
+    */
+   public Date getEndTime() {
+       return this.endTime;
+   }
 
     /**
      * @return toString of the Staff
      */
     @Override
     public String toString() {
-        return super.toString() + " " + this.id + " " + this.email + " " + this.password + " " + this.workTime;
+        return super.toString() + " " + this.id + " " + this.email + " " + this.password + " " + this.startTime + " " + this.endTime;
     }
 }
