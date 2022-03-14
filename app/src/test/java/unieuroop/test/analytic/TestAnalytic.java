@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Optional;
@@ -14,6 +15,10 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.fasterxml.jackson.annotation.JsonFormat.Value;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy.KebabCaseStrategy;
+
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
@@ -280,6 +285,22 @@ public class TestAnalytic {
      */
     @Test
     public void testCategoriesSold() {
+        final Map<Category, Set<Product>> categoriesSold = this.analytic.getCategoriesSold();
+        final Map<Category, Set<Product>> testMap = new HashMap<>();
+
+        testMap.put(Category.HOME, Set.of(p5, p6, p7, p8));
+        testMap.put(Category.PC, Set.of(p3, p4));
+        testMap.put(Category.SMARTPHONE, Set.of(p1));
+        testMap.put(Category.SMARTWATCH, Set.of(p2));
+        testMap.put(Category.TABLET, Collections.emptySet());
+
+        assertNotEquals(Collections.emptyMap(), categoriesSold);
+        assertEquals(Category.values(), categoriesSold.keySet());
+        assertEquals(testMap.get(Category.HOME), categoriesSold.get(Category.HOME));
+        assertEquals(testMap.get(Category.PC), categoriesSold.get(Category.PC));
+        assertEquals(testMap.get(Category.SMARTPHONE), categoriesSold.get(Category.SMARTPHONE));
+        assertEquals(testMap.get(Category.SMARTWATCH), categoriesSold.get(Category.SMARTWATCH));
+        assertEquals(testMap.get(Category.TABLET), categoriesSold.get(Category.TABLET));
     }
     /** 
      * TEST FOR : analytic.getTotalEarned();
