@@ -128,9 +128,24 @@ public class TestAnalytic {
      */
     @Test
     public void testQuantitySoldOf2() {
+        final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
         final int quantityP1 = this.analytic.getQuantitySoldOf(p1,
                 (date) -> date.equals(TestAnalytic.TIME_NOW));
+        final int quantityP2 = this.analytic.getQuantitySoldOf(p2,
+                (date) -> date.equals(TestAnalytic.TIME_NOW));
+        int quantityP3 = this.analytic.getQuantitySoldOf(p3,
+                (date) -> date.equals(dateTemp));
+
         assertTrue(quantityP1 > 0);
+        assertTrue(quantityP2 > 0);
+        assertEquals(0, quantityP3);
+        assertEquals(TestAnalytic.P1_TOTAL_SOLD, quantityP1);
+        assertEquals(TestAnalytic.P2_TOTAL_SOLD, quantityP2);
+
+        quantityP3 = this.analytic.getQuantitySoldOf(p3, 
+                (date) -> date.equals(TestAnalytic.TIME_NOW));
+        assertTrue(quantityP3 > 0);
+        assertEquals(TestAnalytic.P3_TOTAL_SOLD, quantityP3);
     }
     /**
      * TEST FOR : analytic.getOrderedByCategory(Predicate<Category> c);
