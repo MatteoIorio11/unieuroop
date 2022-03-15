@@ -1,5 +1,6 @@
 package unieuroop.model.shop;
 
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -18,6 +19,11 @@ public interface Shop {
      * @return the name of the shop
      */
     String getName();
+    /**
+     * 
+     * @return the map of all bills
+     */
+    Map<LocalDate, Double> getBills();
     /**
      * 
      * @return a set containing all the departments of the shop
@@ -59,6 +65,12 @@ public interface Shop {
      * @param name
      */
     void setName(String name);
+    /**
+     * Add a new bill inside the Map of all bills
+     * @param date
+     * @param spent
+     */
+    void addBills(LocalDate date, Double spent);
     /**
      * Adds a new department to the shop.
      * @param department

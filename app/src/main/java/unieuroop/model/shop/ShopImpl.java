@@ -1,5 +1,7 @@
 package unieuroop.model.shop;
 
+import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -24,6 +26,7 @@ public final class ShopImpl implements Shop {
     private final Set<Sale> sales = new HashSet<>();
     private final Set<Client> registeredClients = new HashSet<>();
     private final Stock stock = new StockImpl();
+    private final Map<LocalDate, Double> bills = new HashMap<>();
 
     public ShopImpl(final String name) {
         this.name = name;
