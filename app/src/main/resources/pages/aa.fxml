@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="960.0">
+         <left>
+            <BarChart prefHeight="476.0" prefWidth="705.0" BorderPane.alignment="CENTER">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </BarChart>
+         </left>
+         <right>
+            <Label prefHeight="16.0" prefWidth="155.0" text="Label" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>
