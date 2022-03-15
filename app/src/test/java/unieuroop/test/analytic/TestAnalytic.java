@@ -39,6 +39,8 @@ public class TestAnalytic {
     private static final int P1_TOTAL_SOLD = 31; /*sum of all p1s product*/
     private static final int P2_TOTAL_SOLD = 300; /*sum of all p2s product*/
     private static final int P3_TOTAL_SOLD = 11; /*sum of all p3s product*/;
+    /*ERROR tollerance*/
+    private static final double ERROR_TOLLERANCE = 0.01;
     /*Data for a temporary local date*/
     private static final int YEAR_TEST = 2001;
     private static final int YEAR_TEST2 = 2002;
@@ -82,6 +84,9 @@ public class TestAnalytic {
        this.shop.addSale(sale3);
        this.shop.addSale(sale4);
        this.shop.addSale(sale5);
+       this.shop.addBills(TestAnalytic.TIME_NOW, 4);
+       this.shop.addBills(TestAnalytic.TIME_NOW, 10);
+       this.shop.addBills(TestAnalytic.TIME_NOW, 2);
        analytic = new AnalyticImpl(shop);
     }
 
@@ -333,12 +338,11 @@ public class TestAnalytic {
                 + sale5.getTotalSpent();
         Map<LocalDate, Double> testMap = this.analytic.getTotalEarned();
         double testEarned = testMap.get(TestAnalytic.TIME_NOW);
-        final double error = 0.1;
         final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
         final Sale saleTest = new SaleImpl(dateTemp, Map.of(p8, 1), Optional.empty());
 
         assertTrue(this.analytic.getTotalEarned().get(TestAnalytic.TIME_NOW) >= 0);
-        assertEquals(totalEarnedNow, testEarned, error);
+        assertEquals(totalEarnedNow, testEarned, TestAnalytic.ERROR_TOLLERANCE);
         assertFalse(testMap.containsKey(dateTemp));
 
         this.shop.addSale(saleTest);
@@ -346,7 +350,7 @@ public class TestAnalytic {
         final double testEarnedDateTemp = saleTest.getTotalSpent();
         testEarned = testMap.get(dateTemp);
         assertTrue(testMap.containsKey(dateTemp));
-        assertEquals(testEarnedDateTemp, testEarned, error);
+        assertEquals(testEarnedDateTemp, testEarned, TestAnalytic.ERROR_TOLLERANCE);
     }
     /**
      * TEST FOR : analytic.getTotalSpent();
@@ -354,6 +358,23 @@ public class TestAnalytic {
      */
     @Test
     public void testTotalSpent() {
+        Map<LocalDate, Double> mapSpent = this.analytic.getTotalSpent();
+        final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
+        final double totalNow =  mapSpent.get(TestAnalytic.TIME_NOW);
+        assertFalse(mapSpent.isEmpty());
+        assertFalse(mapSpent.containsKey(dateTemp));
+        assertTrue(totalNow > 0);
+        assertEquals(16, totalNow, TestAnalytic.ERROR_TOLLERANCE);
+ 
+        this.shop.addBills(dateTemp, 2);
+        this.shop.addBills(dateTemp, 10);
+        mapSpent = this.analytic.getTotalSpent();
+        final double totalDateTemp = mapSpent.get(dateTemp);
+
+        assertFalse(mapSpent.isEmpty());
+        assertTrue(mapSpent.containsKey(dateTemp));
+        assertTrue(totalDateTemp > 0);
+        assertEquals(12, totalDateTemp, TestAnalytic.ERROR_TOLLERANCE);
     }
     /**
      * TEST FOR : analytic.getTotalStockPrice();

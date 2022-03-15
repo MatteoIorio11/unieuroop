@@ -66,11 +66,11 @@ public interface Shop {
      */
     void setName(String name);
     /**
-     * Add a new bill inside the Map of all bills
+     * Add a new bill inside the Map of all bills.
      * @param date
      * @param spent
      */
-    void addBills(LocalDate date, Double spent);
+    void addBills(LocalDate date, double spent);
     /**
      * Adds a new department to the shop.
      * @param department

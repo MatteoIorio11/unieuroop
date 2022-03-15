@@ -38,6 +38,11 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
+    public Map<LocalDate, Double> getBills() {
+        return Map.copyOf(this.bills);
+    }
+
+    @Override
     public Set<Department> getDepartments() {
         return Set.copyOf(this.departments);
     }
@@ -75,6 +80,11 @@ public final class ShopImpl implements Shop {
     @Override
     public void setName(final String name) {
         this.name = name;
+    }
+
+    @Override
+    public void addBills(final LocalDate date, final double spent) {
+        this.bills.merge(date, spent, (total, bill) -> total + bill);
     }
 
     @Override
@@ -159,4 +169,5 @@ public final class ShopImpl implements Shop {
         final var products = this.stock.takeFromStock(requestedProducts);
         department.addProducts(products);
     }
+
 }
