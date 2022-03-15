@@ -1,17 +1,15 @@
 package unieuroop.test.department;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import com.fasterxml.jackson.core.sym.Name2;
 
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
