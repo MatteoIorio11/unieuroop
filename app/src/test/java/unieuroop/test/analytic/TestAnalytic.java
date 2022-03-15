@@ -128,7 +128,9 @@ public class TestAnalytic {
      */
     @Test
     public void testQuantitySoldOf2() {
-        
+        final int quantityP1 = this.analytic.getQuantitySoldOf(p1,
+                (date) -> date.equals(TestAnalytic.TIME_NOW));
+        assertTrue(quantityP1 > 0);
     }
     /**
      * TEST FOR : analytic.getOrderedByCategory(Predicate<Category> c);
