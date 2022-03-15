@@ -33,12 +33,16 @@ import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.shop.ShopImpl;
+import unieuroop.model.stock.Stock;
+import unieuroop.model.stock.StockImpl;
 
 public class TestAnalytic {
 
     private static final int P1_TOTAL_SOLD = 31; /*sum of all p1s product*/
     private static final int P2_TOTAL_SOLD = 300; /*sum of all p2s product*/
     private static final int P3_TOTAL_SOLD = 11; /*sum of all p3s product*/;
+    /*All the money earned from sales*/
+    private static final double TOTAL_SHOP_EARNED = 961600;
     /*ERROR tollerance*/
     private static final double ERROR_TOLLERANCE = 0.01;
     /*Data for a temporary local date*/
@@ -361,20 +365,21 @@ public class TestAnalytic {
         Map<LocalDate, Double> mapSpent = this.analytic.getTotalSpent();
         final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
         final double totalNow =  mapSpent.get(TestAnalytic.TIME_NOW);
+
         assertFalse(mapSpent.isEmpty());
         assertFalse(mapSpent.containsKey(dateTemp));
         assertTrue(totalNow > 0);
         assertEquals(16, totalNow, TestAnalytic.ERROR_TOLLERANCE);
  
         this.shop.addBills(dateTemp, 2);
-        this.shop.addBills(dateTemp, 10);
+        this.shop.addBills(dateTemp, 8);
         mapSpent = this.analytic.getTotalSpent();
         final double totalDateTemp = mapSpent.get(dateTemp);
 
         assertFalse(mapSpent.isEmpty());
         assertTrue(mapSpent.containsKey(dateTemp));
         assertTrue(totalDateTemp > 0);
-        assertEquals(12, totalDateTemp, TestAnalytic.ERROR_TOLLERANCE);
+        assertEquals(10, totalDateTemp, TestAnalytic.ERROR_TOLLERANCE);
     }
     /**
      * TEST FOR : analytic.getTotalStockPrice();
@@ -382,6 +387,14 @@ public class TestAnalytic {
      */
     @Test
     public void testTotalStockPrice() {
+        final Stock stock = new StockImpl();
+        stock.addProducts(Map.of(p1, 10, p2, 10, p3, 3));
+        final double total = this.analytic.getTotalStockPrice();
+        final double totalCheck = p1.getSellingPrice() * 10
+                + p2.getSellingPrice() * 10
+                + p3.getSellingPrice() * 3;
+        assertTrue(total > 0);
+        assertEquals(totalCheck, total, TestAnalytic.ERROR_TOLLERANCE);
     }
     /**
      * TEST FOR : analytic.getTotalShopEarned();
@@ -389,5 +402,8 @@ public class TestAnalytic {
      */
     @Test
     public void testTotalShopEarned() {
+        final double totalEarned = this.analytic.getTotalShopEarned();
+        assertTrue(totalEarned > 0);
+        assertEquals(TestAnalytic.TOTAL_SHOP_EARNED, totalEarned, TestAnalytic.ERROR_TOLLERANCE);
     }
 }
