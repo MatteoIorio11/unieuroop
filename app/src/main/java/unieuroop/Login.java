@@ -17,8 +17,8 @@ public final class Login extends Application {
         final Scene scene = new Scene(root, 1000, 600);
         primaryStage.setTitle("unieurOOP");
         primaryStage.setScene(scene);
-        primaryStage.setMinHeight(650);
-        primaryStage.setMinWidth(1200);
+        primaryStage.setMinHeight(500);
+        primaryStage.setMinWidth(1000);
         primaryStage.show();
         
         
