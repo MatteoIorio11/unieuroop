@@ -1,17 +1,19 @@
 [ {
-  "name" : "nome",
-  "surname" : "cognome",
-  "birthdayDate" : [ 2022, 3, 11 ],
-  "id" : 1,
-  "email" : "ffff",
-  "password" : "passw",
-  "workTime" : [ 2022, 3, 11 ]
-}, {
   "name" : "nome1",
   "surname" : "cognome1",
-  "birthdayDate" : [ 2022, 3, 11 ],
+  "birthdayDate" : [ 2022, 3, 15 ],
   "id" : 1,
   "email" : "AAAA",
   "password" : "askjda",
-  "workTime" : [ 2022, 3, 11 ]
+  "startTime" : "1970-01-01",
+  "endTime" : "1970-01-01"
+}, {
+  "name" : "nome",
+  "surname" : "cognome",
+  "birthdayDate" : [ 2022, 3, 15 ],
+  "id" : 1,
+  "email" : "ffff",
+  "password" : "passw",
+  "startTime" : "1970-01-01",
+  "endTime" : "1970-01-01"
 } ]

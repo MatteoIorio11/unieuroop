@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.StackedAreaChart?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="-2.0" layoutY="-2.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="-2.0">
+         <bottom>
+            <StackedAreaChart id="chartSpentEarned" prefHeight="173.0" prefWidth="663.0" BorderPane.alignment="CENTER">
+              <xAxis>
+                <NumberAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </StackedAreaChart>
+         </bottom>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="313.5999755859375" minWidth="10.0" prefWidth="313.5999755859375" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.4000244140625" minWidth="10.0" prefWidth="43.20002441406251" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.79998779296875" minWidth="10.0" prefWidth="305.79998779296875" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="269.6000122070312" minHeight="10.0" prefHeight="269.6000122070312" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <PieChart id="chartTotalSpent" prefHeight="298.0" prefWidth="217.0" title="Total Spent in the last 30 days" />
+                  <PieChart id="chartTotalEarned" title="Total earned in the last 30 days" GridPane.columnIndex="2" />
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

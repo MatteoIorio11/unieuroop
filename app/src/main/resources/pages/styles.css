@@ -13,6 +13,10 @@
     -fx-border-color : #CDD1D6;
     -fx-border-width : 0px 0px 0px 3px;
 }
+.ScrollPane {
+    -fx-fit-to-height: true;
+    -fx-fit-to-width: true;
+}
 /* Colors of JavaFX pie chart slices. */
 .data0.chart-pie { -fx-pie-color: turquoise; }
 .data1.chart-pie { -fx-pie-color: aquamarine; }
