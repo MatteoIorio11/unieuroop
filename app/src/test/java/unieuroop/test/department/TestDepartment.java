@@ -13,6 +13,12 @@ public class TestDepartment {
 
     @Test
     public void test() {
+        try {
+            //aggiungi staff che gia prewsente
+            fail("Exception must be detected");
+        }catch (Exception e) {
+            // TODO: handle exception
+        }
         fail("Not yet implemented");
     }
 

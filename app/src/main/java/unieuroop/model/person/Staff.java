@@ -1,23 +1,21 @@
 package unieuroop.model.person;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Staff extends AbstractPerson implements Serializable{
+public class Staff extends AbstractPerson implements Serializable {
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = 3841944704413502446L;
     private final Integer id;
     private final String email;
     private final String password;
-    private final Date startTime;
-    private final Date endTime;
-    
+    private final LocalTime startTime;
+    private final LocalTime endTime;
+
     @JsonCreator
     public Staff(@JsonProperty("name") final String name, 
             @JsonProperty("surname") final String surname, 
@@ -25,8 +23,8 @@ public class Staff extends AbstractPerson implements Serializable{
             @JsonProperty("id") final Integer id,
             @JsonProperty("email") final String email,
             @JsonProperty("password") final String password,
-            @JsonProperty("startTime") final Date startTime,
-            @JsonProperty("endTime") final Date endTime) {
+            @JsonProperty("startTime") final LocalTime startTime,
+            @JsonProperty("endTime") final LocalTime endTime) {
         super(name, surname, birthdayDate);
         this.id = id;
         this.email = email;
@@ -59,14 +57,14 @@ public class Staff extends AbstractPerson implements Serializable{
     /**
      * @return startTime of the Staff
      */
-    public Date getStartTime() {
+    public LocalTime getStartTime() {
         return this.startTime;
     }
-    
+
     /**
     * @return endTime of the Staff
     */
-   public Date getEndTime() {
+   public LocalTime getEndTime() {
        return this.endTime;
    }
 
