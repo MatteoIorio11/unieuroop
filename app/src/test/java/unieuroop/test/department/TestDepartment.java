@@ -17,7 +17,6 @@ import unieuroop.model.person.Staff;
 
 public class TestDepartment {
 
-
     private static final LocalDate TIME_NOW = LocalDate.now();
     private static final LocalTime TIME_START = LocalTime.now();
     private static final LocalTime TIME_FINISH = LocalTime.of(10, 10);

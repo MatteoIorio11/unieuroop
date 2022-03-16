@@ -156,7 +156,7 @@ public final class ShopImpl implements Shop {
         final Set<Staff> staff = departments.stream()
                 .flatMap(d -> d.getStaff().stream())
                 .collect(Collectors.toSet());
-        //dremoving all departments
+        //removing all departments
         departments.stream().forEach(d -> this.removeDepartment(d));
         //creating new department
         final var dep = new DepartmentImpl(newName, staff, products);
