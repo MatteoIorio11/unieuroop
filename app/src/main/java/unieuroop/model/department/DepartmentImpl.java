@@ -88,4 +88,13 @@ public final class DepartmentImpl implements Department {
         return Map.copyOf(this.products);
     }
 
+    /**
+     * 
+     */
+    @Override
+    public Map<Product, Integer> takeProductFromDepartment(Map<Product, Integer> productsTaken) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }

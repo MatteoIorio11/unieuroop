@@ -44,4 +44,10 @@ public interface Department {
      * @return departmentProducts
      */
     Map<Product, Integer> getAllProducts();
+    /**
+     * Return the products and their amount taken from the departments.
+     * @param productsTaken
+     * @return productsTaken
+     */
+    Map<Product, Integer> takeProductFromDepartment(Map<Product, Integer> productsTaken);
 }
