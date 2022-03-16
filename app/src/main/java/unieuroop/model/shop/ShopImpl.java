@@ -1,5 +1,7 @@
 package unieuroop.model.shop;
 
+import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -24,6 +26,7 @@ public final class ShopImpl implements Shop {
     private final Set<Sale> sales = new HashSet<>();
     private final Set<Client> registeredClients = new HashSet<>();
     private final Stock stock = new StockImpl();
+    private final Map<LocalDate, Double> bills = new HashMap<>();
 
     public ShopImpl(final String name) {
         this.name = name;
@@ -32,6 +35,11 @@ public final class ShopImpl implements Shop {
     @Override
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public Map<LocalDate, Double> getBills() {
+        return Map.copyOf(this.bills);
     }
 
     @Override
@@ -72,6 +80,11 @@ public final class ShopImpl implements Shop {
     @Override
     public void setName(final String name) {
         this.name = name;
+    }
+
+    @Override
+    public void addBills(final LocalDate date, final double spent) {
+        this.bills.merge(date, spent, (total, bill) -> total + bill);
     }
 
     @Override
@@ -156,4 +169,5 @@ public final class ShopImpl implements Shop {
         final var products = this.stock.takeFromStock(requestedProducts);
         department.addProducts(products);
     }
+
 }

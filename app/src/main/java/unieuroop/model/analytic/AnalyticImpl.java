@@ -1,6 +1,5 @@
 package unieuroop.model.analytic;
 
-import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.BiPredicate;
@@ -128,7 +127,7 @@ public final class AnalyticImpl implements Analytic {
 
     @Override
     public Map<LocalDate, Double> getTotalSpent() {
-        return Collections.emptyMap();
+        return this.shop.getBills();
     }
 
     @Override
