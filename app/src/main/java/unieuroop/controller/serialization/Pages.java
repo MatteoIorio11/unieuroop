@@ -4,7 +4,7 @@ public enum Pages {
     DASHBOARD("Dashboard.fxml"),
     STOCK("Stock.fxml"),
     SALES("Sales.fxml"),
-    DEPARTMENTS("Departments.fxml"),
+    DEPARTMENTS("DepartmentsView.fxml"),
     ANALYTICS("testChart.fxml");
     
     private final String fileName;

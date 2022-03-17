@@ -33,7 +33,7 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btn_Department_action(ActionEvent event) {
-
+        this.LoadPage(Pages.DEPARTMENTS);
     }
     @FXML
     private void btn_Analytics_action(ActionEvent event) {
