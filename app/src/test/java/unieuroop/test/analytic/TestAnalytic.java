@@ -56,7 +56,7 @@ public class TestAnalytic {
     private static final LocalDate TIME_NOW = LocalDate.now();
     private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
-    private final Supplier s1 = new SupplierImpl();
+    private final Supplier s1 = new SupplierImpl("nome", null);
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */

@@ -13,7 +13,7 @@ public class ViewAnalyticTable implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.tableView.columfx 
+        //this.tableView.columfx 
     }
 
 }

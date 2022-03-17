@@ -28,11 +28,12 @@ import unieuroop.model.supplier.SupplierImpl;
 public class ViewAnalytic implements Initializable{
     @FXML
     private PieChart chart;
+    
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold , not the quantity*/
     private static final LocalDate TIME_NOW = LocalDate.now();
 
-    private final Supplier s1 = new SupplierImpl();
+    private final Supplier s1 = new SupplierImpl("nome", Map.of());
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */
