@@ -17,7 +17,7 @@ public class ViewMainMenu implements Initializable{
     private BorderPane mainPane;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.LoadPage("/pages/testChart.fxml");
+        
     }
     @FXML
     private void btn_DashBoard_action(ActionEvent event) {
@@ -37,12 +37,12 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btn_Analytics_action(ActionEvent event) {
-        
+        this.LoadPage(Pages.ANALYTICS);
     }
-    private void LoadPage(String s) {
+    private void LoadPage(Pages page) {
         Pane p;
         try {
-            p = FXMLLoader.load(getClass().getResource(s));
+            p = FXMLLoader.load(getClass().getResource(page.getPath()));
             this.mainPane.setCenter(p);
         } catch (IOException e) {
             e.printStackTrace();
