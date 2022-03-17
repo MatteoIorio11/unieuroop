@@ -32,7 +32,7 @@ public class TestShop {
     private Shop shop01;
     private Shop shop02;
     private Set<Department> departments;
-    private final Supplier s1 = new SupplierImpl();
+    private Supplier s1;
     /**
      * ALL THE STAFF THAT WILL BE USED IN THIS TEST.
      */
@@ -54,6 +54,7 @@ public class TestShop {
 
     @Before
     public void setUp() {
+        this.s1 = new SupplierImpl("supp1", Map.of(p1, 900.00, p2, 200.00, p3, 2000.00, p4, 3000.00));
         this.shop01 = new ShopImpl("shop01");
         this.department = new DepartmentImpl("finalDep", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 10, p2, 1, p3, 2, p4, 3));
         this.shop01.addDepartment(department);
