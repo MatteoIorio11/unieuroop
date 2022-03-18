@@ -1,14 +1,15 @@
 package unieuroop.controller.serialization;
 
 public enum Pages {
+    
     DASHBOARD("Dashboard.fxml"),
     STOCK("Stock.fxml"),
     SALES("Sales.fxml"),
     DEPARTMENTS("DepartmentsView.fxml"),
-    ANALYTICS("testChart.fxml");
-    
-    private final String fileName;
+    ANALYTICS("AnalyticType1" +System.getProperty("file.separator")+"testChart.fxml");
     private final String separator = System.getProperty("file.separator");
+
+    private final String fileName;
     private final String dir = this.separator + "pages";
     
     Pages(final String fileName) {
