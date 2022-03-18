@@ -10,7 +10,6 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
     
-    id("org.openjfx.javafxplugin") version "0.0.12"
     java
     checkstyle
     pmd
@@ -45,24 +44,35 @@ buildscript {
             setUrl("https://plugins.gradle.org/m2/")
         }
     }
-    dependencies {
-        classpath("org.openjfx:javafx-plugin:0.0.12")
-    }
 }
-apply(plugin = "org.openjfx.javafxplugin")
 
-javafx {
-    version = "12"
-    modules("javafx.controls", "javafx.fxml")
-    configuration = "compileOnly"
-}
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
+val javaFXModules = listOf(
+    "base",
+    "controls",
+    "fxml",
+    "swing",
+    "graphics",
+    "media"
+)
+
+val supportedPlatforms = listOf("linux", "mac", "win") // All required for OOP
+
+val javaFxVersion = "15.0.1"
 dependencies {
+// JavaFX: comment out if you do not need them
+    for (platform in supportedPlatforms) {
+        for (module in javaFXModules) {
+            implementation("org.openjfx:javafx-$module:$javaFxVersion:$platform")
+        }
+    }
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.6")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.0.1")
     // Use JUnit test framework.
     testImplementation("junit:junit:4.13.2")
 

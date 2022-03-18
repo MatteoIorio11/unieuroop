@@ -1,16 +1,19 @@
 package unieuroop.model.sale;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Optional;
 import java.util.Set;
 
+import unieuroop.model.person.Client;
 import unieuroop.model.product.Product;
 
 public interface Sale {
-	/**
+	
+    /**
 	* 
 	* @return the specific Date of the sale
 	*/
-	Date getDate();
+    LocalDate getDate();
 	
 	/**
 	* 
@@ -22,6 +25,20 @@ public interface Sale {
 	* 
 	* @return the total price of the sale 
 	*/
-	float getTotalPrice();
+	double getTotalSpent();
+	
+	/**
+	 * 
+	 * @param product
+	 * @return the total quantity of the specified product, if the product is not contained, 
+	 * I return 0
+	 */
+	int getQuantityOf(Product product);
+	
+	/**
+	 * 
+	 * @return the client of this specific Sale, is optional
+	 */
+	Optional<Client> getClient();
 
 }
