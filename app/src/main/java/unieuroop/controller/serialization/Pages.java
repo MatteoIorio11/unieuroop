@@ -20,7 +20,7 @@ public enum Pages {
     /**
      * @param
      */
-    ANALYTICS("AnalyticType1" +System.getProperty("file.separator")+"SpentEarnedChart.fxml");
+    ANALYTICS("AnalyticType1" + System.getProperty("file.separator") + "SpentEarnedChart.fxml");
     private final String separator = System.getProperty("file.separator");
 
     private final String fileName;

@@ -26,7 +26,7 @@ public class ViewLogin implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         Pane p;
         try {
-            p = FXMLLoader.load(getClass().getResource("/pages/testChart.fxml"));
+            p = FXMLLoader.load(getClass().getResource("/pages/SpentEarnedChart.fxml"));
             this.mainPane.setCenter(p);
         } catch (IOException e) {
             // TODO Auto-generated catch block
