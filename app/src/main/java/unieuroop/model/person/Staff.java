@@ -73,6 +73,6 @@ public class Staff extends AbstractPerson implements Serializable {
      */
     @Override
     public String toString() {
-        return super.toString() + " " + this.id + " " + this.email + " " + this.password + " " + this.startTime + " " + this.endTime;
+        return super.toString() + " " + this.id + " " + this.email;
     }
 }
