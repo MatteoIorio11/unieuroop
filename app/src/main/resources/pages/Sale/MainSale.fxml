@@ -9,27 +9,33 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane id="GridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="637.0" xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com">
+<GridPane id="GridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="272.0" minWidth="10.0" prefWidth="264.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.20001220703125" minWidth="10.0" prefWidth="91.19999999999999" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.4000244140625" minWidth="10.0" prefWidth="245.60001220703123" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="278.79998779296875" minWidth="10.0" prefWidth="278.79998779296875" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.20001220703125" minWidth="10.0" prefWidth="122.00001220703126" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.4000244140625" minWidth="10.0" prefWidth="233.20004882812492" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0">
+      <Pane prefHeight="436.0" prefWidth="350.0">
          <children>
             <ComboBox id="comboDepartment" layoutX="19.0" layoutY="43.0" prefHeight="25.0" prefWidth="230.0" />
             <ListView id="listProducts" layoutX="19.0" layoutY="84.0" prefHeight="289.0" prefWidth="230.0" />
          </children>
       </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+         <children>
+            <ListView id="listSell" layoutX="30.0" layoutY="78.0" prefHeight="289.0" prefWidth="200.0" />
+            <Button id="btnSell" layoutX="86.0" layoutY="382.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="SELL" />
+            <Label layoutX="30.0" layoutY="14.0" prefHeight="34.0" prefWidth="200.0" text="SALE" />
+         </children></Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
-            <Button id="buttonAddProduct" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" text="add to sale " />
+            <Button id="buttonAddProduct" layoutX="59.0" layoutY="305.0" mnemonicParsing="false" text="add to sale " />
             <Label id="labelProducts" layoutX="7.0" layoutY="210.0" prefHeight="17.0" prefWidth="87.0" />
+            <Label id="labelQuantity" layoutX="30.0" layoutY="249.0" prefHeight="17.0" prefWidth="140.0" text="Quantity : " />
          </children>
       </Pane>
    </children>
