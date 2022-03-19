@@ -1,5 +1,7 @@
 package unieuroop.controller.serialization;
 
+import java.io.File;
+
 public enum Pages {
 	/**
 	 * @param 
@@ -12,32 +14,42 @@ public enum Pages {
     /**
      * @param
      */
-    SALES("Sales.fxml"),
+    SALES("/pages/Sale/MainSale.fxml"),
     /**
      * @param
      */
-    DEPARTMENTS("DepartmentsView.fxml"),
+    LABEL_PRODUCT_SALE("/pages/Sale/labelProduct.fxml"),
     /**
      * @param
      */
-    ANALYTICS("AnalyticType1" + System.getProperty("file.separator") + "SpentEarnedChart.fxml");
-    private final String separator = System.getProperty("file.separator");
+    DEPARTMENTS("/pages/Department/DepartmentsView.fxml"),
+    /**
+     * @param file directory of balance's chart
+     */
+    BALANCE("/pages/Balance/SpentEarnedChart.fxml"),
+    /**
+     * @param
+     */
+	MAIN_CATEGORIES_SOLD("/pages/CategoriesSold/MainCategoriesSold.fxml"),
+	/**
+	 * @param
+	 */
+	TABLE_CATEGORIES_SOLD("/pages/CategoriesSold/tableCategoriesSold.fxml"),
+	/**
+	 * @param
+	 */
+	MAIN_DATE_SOLD("/pages/DateSold/MainDateChart.fxml");
 
     private final String fileName;
-    private final String dir = this.separator + "pages";
-    
+
     Pages(final String fileName) {
         this.fileName = fileName;
-    }
-
-    public String getSeparator() {
-        return this.separator;
     }
     /**
      * 
      * @return the path of the file 
      */
     public String getPath() {
-        return dir + this.separator + this.fileName;
+        return this.fileName;
     }
 }

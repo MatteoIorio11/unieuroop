@@ -29,7 +29,7 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btn_Sale_action(ActionEvent event) {
-
+    	this.LoadPage(Pages.MAIN_DATE_SOLD);
     }
     @FXML
     private void btn_Department_action(ActionEvent event) {
@@ -37,11 +37,12 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btn_Analytics_action(ActionEvent event) {
-        this.LoadPage(Pages.ANALYTICS);
+        this.LoadPage(Pages.BALANCE);
     }
     private void LoadPage(Pages page) {
         Pane p;
         try {
+        	System.out.println(page.getPath());
             p = FXMLLoader.load(getClass().getResource(page.getPath()));
             this.mainPane.setCenter(p);
         } catch (IOException e) {
