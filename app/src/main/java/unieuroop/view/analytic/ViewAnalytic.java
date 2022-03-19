@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import unieuroop.controller.analytic.ControllerAnalytic;
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
 import unieuroop.model.product.Category;
@@ -28,7 +29,7 @@ import unieuroop.model.supplier.SupplierImpl;
 public class ViewAnalytic implements Initializable{
     @FXML
     private PieChart chart;
-    
+    private final ControllerAnalytic controller = new ControllerAnalytic(null);
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold , not the quantity*/
     private static final LocalDate TIME_NOW = LocalDate.now();
@@ -70,7 +71,7 @@ public class ViewAnalytic implements Initializable{
         analytic = new AnalyticImpl(shop);
         
         ObservableList<PieChart.Data> pieChartData =
-                FXCollections.observableArrayList(this.analytic.getTotalEarned().entrySet().stream().map(e-> new PieChart.Data(e.getKey().toString(), e.getValue())).collect(Collectors.toList()));
+                FXCollections.observableArrayList(this.analytic.getTotalEarned((date) -> true).entrySet().stream().map(e-> new PieChart.Data(e.getKey().toString(), e.getValue())).collect(Collectors.toList()));
                 /*FXCollections.observableArrayList(
                 new PieChart.Data("Grapefruit", 13),
                 new PieChart.Data("Oranges", 25),

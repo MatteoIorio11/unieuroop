@@ -66,15 +66,15 @@ public interface Analytic {
      */
     Map<Category, Set<Product>> getCategoriesSold();
     /**
-     * 
+     * @param predicate
      * @return the total earned in different days
      */
-    Map<LocalDate, Double> getTotalEarned();
+    Map<LocalDate, Double> getTotalEarned(Predicate<LocalDate> predicate);
     /**
-     * 
+     * @param predicate
      * @return the total of all money spent in their specific date.
      */
-    Map<LocalDate, Double> getTotalSpent();
+    Map<LocalDate, Double> getTotalSpent(Predicate<LocalDate> predicate);
     /**
      * 
      * @return the total value of all products inside the stock

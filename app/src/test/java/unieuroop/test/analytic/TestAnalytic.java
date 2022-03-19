@@ -42,8 +42,8 @@ public class TestAnalytic {
     private static final int P2_TOTAL_SOLD = 300; /*sum of all p2s product*/
     private static final int P3_TOTAL_SOLD = 11; /*sum of all p3s product*/;
     /*All the money earned from sales*/
-    private static final double TOTAL_SHOP_EARNED = 961600;
-    /*ERROR tollerance*/
+    private static final double TOTAL_SHOP_EARNED = 961_600;
+    /*ERROR tolerance*/
     private static final double ERROR_TOLLERANCE = 0.01;
     /*Data for a temporary local date*/
     private static final int YEAR_TEST = 2001;
@@ -56,7 +56,7 @@ public class TestAnalytic {
     private static final LocalDate TIME_NOW = LocalDate.now();
     private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
-    private final Supplier s1 = new SupplierImpl("nome", null);
+    private final Supplier s1 = new SupplierImpl("nome", Map.of());
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */
@@ -92,6 +92,7 @@ public class TestAnalytic {
        this.shop.addBills(TestAnalytic.TIME_NOW, 10);
        this.shop.addBills(TestAnalytic.TIME_NOW, 2);
        analytic = new AnalyticImpl(shop);
+       assertTrue(this.analytic.getTotalShopEarned() > 0);
     }
 
     /**
@@ -333,6 +334,7 @@ public class TestAnalytic {
      * TEST FOR : analytic.getTotalEarned();
      * This test calculate the total earned by selling the products to the clients. 
      */
+
     @Test
     public void testTotalEarned() {
         final double totalEarnedNow = sale1.getTotalSpent()
@@ -340,29 +342,31 @@ public class TestAnalytic {
                 + sale3.getTotalSpent() 
                 + sale4.getTotalSpent() 
                 + sale5.getTotalSpent();
-        Map<LocalDate, Double> testMap = this.analytic.getTotalEarned();
+        Map<LocalDate, Double> testMap = this.analytic.getTotalEarned((date) -> date.equals(TestAnalytic.TIME_NOW));
         double testEarned = testMap.get(TestAnalytic.TIME_NOW);
         final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
         final Sale saleTest = new SaleImpl(dateTemp, Map.of(p8, 1), Optional.empty());
 
-        assertTrue(this.analytic.getTotalEarned().get(TestAnalytic.TIME_NOW) >= 0);
+        assertTrue(this.analytic.getTotalEarned((date) -> date.equals(TestAnalytic.TIME_NOW)).get(TestAnalytic.TIME_NOW) >= 0);
         assertEquals(totalEarnedNow, testEarned, TestAnalytic.ERROR_TOLLERANCE);
         assertFalse(testMap.containsKey(dateTemp));
 
         this.shop.addSale(saleTest);
-        testMap = this.analytic.getTotalEarned();
+        testMap = this.analytic.getTotalEarned((date) -> date.equals(dateTemp));
         final double testEarnedDateTemp = saleTest.getTotalSpent();
         testEarned = testMap.get(dateTemp);
         assertTrue(testMap.containsKey(dateTemp));
         assertEquals(testEarnedDateTemp, testEarned, TestAnalytic.ERROR_TOLLERANCE);
     }
+
     /**
      * TEST FOR : analytic.getTotalSpent();
      * This test calculate the total spent for buying the products in the different days. 
      */
+
     @Test
     public void testTotalSpent() {
-        Map<LocalDate, Double> mapSpent = this.analytic.getTotalSpent();
+        Map<LocalDate, Double> mapSpent = this.analytic.getTotalSpent((date) -> date.equals(TestAnalytic.TIME_NOW));
         final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
         final double totalNow =  mapSpent.get(TestAnalytic.TIME_NOW);
 
@@ -373,7 +377,7 @@ public class TestAnalytic {
  
         this.shop.addBills(dateTemp, 2);
         this.shop.addBills(dateTemp, 8);
-        mapSpent = this.analytic.getTotalSpent();
+        mapSpent = this.analytic.getTotalSpent((date) -> date.equals(dateTemp));
         final double totalDateTemp = mapSpent.get(dateTemp);
 
         assertFalse(mapSpent.isEmpty());
@@ -381,6 +385,7 @@ public class TestAnalytic {
         assertTrue(totalDateTemp > 0);
         assertEquals(10, totalDateTemp, TestAnalytic.ERROR_TOLLERANCE);
     }
+ 
     /**
      * TEST FOR : analytic.getTotalStockPrice();
      * test the stock price of all products.

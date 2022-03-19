@@ -117,17 +117,20 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public Map<LocalDate, Double> getTotalEarned() {
+    public Map<LocalDate, Double> getTotalEarned(final Predicate<LocalDate> predicate) {
         return this.shop.getSales().stream()
                 .map((sale) -> sale.getDate())
+                .filter((date) -> predicate.test(date))
                 .distinct()
                 .collect(Collectors.toMap((date) -> date, 
                         (date) -> this.getTotalEarnedIn((dateInput) -> dateInput.equals(date))));
     }
 
     @Override
-    public Map<LocalDate, Double> getTotalSpent() {
-        return this.shop.getBills();
+    public Map<LocalDate, Double> getTotalSpent(final Predicate<LocalDate> predicate) {
+        return this.shop.getBills().entrySet().stream()
+                .filter((entry) -> predicate.test(entry.getKey()))
+                .collect(Collectors.toMap((entry) -> entry.getKey(), (entry) -> entry.getValue()));
     }
 
     @Override
