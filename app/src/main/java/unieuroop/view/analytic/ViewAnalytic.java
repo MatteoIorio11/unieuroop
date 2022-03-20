@@ -12,8 +12,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.PieChart;
-import unieuroop.controller.analytic.ControllerAnalytic;
+import javafx.scene.chart.StackedAreaChart;
+import javafx.scene.chart.XYChart;
+import unieuroop.controller.analytic.ControllerAnalyticImpl;
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
 import unieuroop.model.product.Category;
@@ -28,8 +31,13 @@ import unieuroop.model.supplier.SupplierImpl;
 
 public class ViewAnalytic implements Initializable{
     @FXML
-    private PieChart chart;
-    private final ControllerAnalytic controller = new ControllerAnalytic(null);
+    private PieChart chartSpent;
+    @FXML
+    private PieChart chartEarned;
+    @FXML
+    private StackedAreaChart<Double,Integer> areaChart;
+    
+    private ControllerAnalyticImpl controller;
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
     private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold , not the quantity*/
     private static final LocalDate TIME_NOW = LocalDate.now();
@@ -59,26 +67,24 @@ public class ViewAnalytic implements Initializable{
     private final Shop shop = new ShopImpl("TEST");
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         this.shop.addSale(sale1);
         this.shop.addSale(sale2);
         this.shop.addSale(sale3);
         this.shop.addSale(sale4);
         this.shop.addSale(sale5);
-        this.shop.addBills(ViewAnalytic.TIME_NOW, 4);
-        this.shop.addBills(ViewAnalytic.TIME_NOW, 10);
-        this.shop.addBills(ViewAnalytic.TIME_NOW, 2);
+        this.shop.addBills(LocalDate.of(2011, 1, 20), 4631);
+        this.shop.addBills(LocalDate.of(2011, 5, 20), 100);
+        this.shop.addBills(ViewAnalytic.TIME_NOW, 14232);
+        this.shop.addBills(LocalDate.of(2015, 3, 20), 2123);
         analytic = new AnalyticImpl(shop);
-        
+        this.controller = new ControllerAnalyticImpl(analytic);
+
+        ObservableList<PieChart.Data> secondPieChartData = FXCollections.observableArrayList(this.controller.getTotalSpent((date) -> true).entrySet().stream()
+                .map((entry) -> new PieChart.Data(entry.getKey().toString(), entry.getValue())).collect(Collectors.toList()));
+        secondPieChartData.forEach((data) -> data.nameProperty().bind(Bindings.concat(data.getName(), "\n", data.pieValueProperty())));
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(this.analytic.getTotalEarned((date) -> true).entrySet().stream().map(e-> new PieChart.Data(e.getKey().toString(), e.getValue())).collect(Collectors.toList()));
-                /*FXCollections.observableArrayList(
-                new PieChart.Data("Grapefruit", 13),
-                new PieChart.Data("Oranges", 25),
-                new PieChart.Data("Plums", 10),
-                new PieChart.Data("Pears", 22),
-                new PieChart.Data("Apples", 30));
-                */
         pieChartData.forEach(data ->
                 data.nameProperty().bind(
                         Bindings.concat(
@@ -86,6 +92,12 @@ public class ViewAnalytic implements Initializable{
                         )
                 )
         );
-        chart.setData(pieChartData);
+        XYChart.Series<Double, Integer> serie1 = new XYChart.Series<>();
+        XYChart.Series<Double, Integer> serie2 = new XYChart.Series();
+        this.analytic.getTotalEarned((date)-> true).entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getValue(), entry.getKey().getYear())));
+        this.analytic.getTotalSpent((date) -> true).entrySet().forEach((entry) -> serie2.getData().add(new XYChart.Data<>(entry.getValue(), entry.getKey().getYear())));
+        areaChart.getData().addAll(serie1, serie2);
+        chartSpent.setData(pieChartData);
+        chartEarned.setData(secondPieChartData);
     }
 }

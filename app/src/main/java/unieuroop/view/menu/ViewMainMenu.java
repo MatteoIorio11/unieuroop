@@ -42,7 +42,6 @@ public class ViewMainMenu implements Initializable{
     private void LoadPage(Pages page) {
         Pane p;
         try {
-        	System.out.println(page.getPath());
             p = FXMLLoader.load(getClass().getResource(page.getPath()));
             this.mainPane.setCenter(p);
         } catch (IOException e) {

@@ -146,4 +146,11 @@ public final class AnalyticImpl implements Analytic {
                 .mapToDouble((sale) -> sale.getTotalSpent())
                 .sum();
     }
+
+    @Override
+    public double getTotalAmountSpent() {
+        return this.shop.getBills().entrySet().stream()
+                .mapToDouble((entry) -> entry.getValue())
+                .sum();
+    }
 }

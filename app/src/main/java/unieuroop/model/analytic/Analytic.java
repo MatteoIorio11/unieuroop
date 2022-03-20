@@ -85,4 +85,9 @@ public interface Analytic {
      * @return all the total value of all sales
      */
     double getTotalShopEarned();
+    /**
+     * 
+     * @return the total spent in the Shop
+     */
+    double getTotalAmountSpent();
 }
