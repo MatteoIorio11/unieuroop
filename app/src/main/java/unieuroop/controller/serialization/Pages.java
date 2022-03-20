@@ -3,9 +3,9 @@ package unieuroop.controller.serialization;
 import java.io.File;
 
 public enum Pages {
-	/**
-	 * @param 
-	 */
+    /**
+     * @param 
+     */
     DASHBOARD("Dashboard.fxml"),
     /**
      * @param
@@ -30,15 +30,15 @@ public enum Pages {
     /**
      * @param
      */
-	MAIN_CATEGORIES_SOLD("/pages/CategoriesSold/MainCategoriesSold.fxml"),
-	/**
-	 * @param
-	 */
-	TABLE_CATEGORIES_SOLD("/pages/CategoriesSold/tableCategoriesSold.fxml"),
-	/**
-	 * @param
-	 */
-	MAIN_DATE_SOLD("/pages/DateSold/MainDateChart.fxml");
+    MAIN_CATEGORIES_SOLD("/pages/CategoriesSold/MainCategoriesSold.fxml"),
+    /**
+     * @param
+     */
+    TABLE_CATEGORIES_SOLD("/pages/CategoriesSold/tableCategoriesSold.fxml"),
+    /**
+     * @param
+     */
+    MAIN_DATE_SOLD("/pages/DateSold/MainDateChart.fxml");
 
     private final String fileName;
 

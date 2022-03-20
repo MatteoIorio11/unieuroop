@@ -29,17 +29,17 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btn_Sale_action(ActionEvent event) {
-    	this.LoadPage(Pages.MAIN_DATE_SOLD);
+    	this.loadPage(Pages.TABLE_CATEGORIES_SOLD);
     }
     @FXML
     private void btn_Department_action(ActionEvent event) {
-        this.LoadPage(Pages.DEPARTMENTS);
+        this.loadPage(Pages.DEPARTMENTS);
     }
     @FXML
     private void btn_Analytics_action(ActionEvent event) {
-        this.LoadPage(Pages.BALANCE);
+        this.loadPage(Pages.BALANCE);
     }
-    private void LoadPage(Pages page) {
+    private void loadPage(final Pages page){
         Pane p;
         try {
             p = FXMLLoader.load(getClass().getResource(page.getPath()));
