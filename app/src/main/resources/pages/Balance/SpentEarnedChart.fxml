@@ -9,23 +9,23 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="503.0" prefWidth="534.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="unieuroop.view.analytic.ViewAnalytic">
+<BorderPane prefHeight="550.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="unieuroop.view.analytic.ViewAnalytic">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <BorderPane layoutX="1.0" layoutY="-1.0" prefHeight="452.0" prefWidth="611.0" AnchorPane.bottomAnchor="2.6000000000000227" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.3999999999999773" AnchorPane.topAnchor="-1.0">
                <bottom>
-                  <StackedAreaChart id="areaChartSpentEarned" fx:id="areaChart" prefHeight="210.0" prefWidth="532.0" BorderPane.alignment="CENTER">
+                  <StackedAreaChart id="areaChartSpentEarned" fx:id="areaChart" prefHeight="331.0" prefWidth="626.0" BorderPane.alignment="CENTER">
                      <xAxis>
-                        <NumberAxis side="BOTTOM" />
+                        <NumberAxis label="amount" side="BOTTOM" fx:id="xAxis" />
                      </xAxis>
                      <yAxis>
-                        <NumberAxis side="LEFT" />
+                        <NumberAxis fx:id="yAxis" label="year" minorTickLength="0.0" side="LEFT" tickLabelGap="1.0" tickLength="1.0" tickUnit="0.0" />
                      </yAxis>
                   </StackedAreaChart>
                </bottom>
                <center>
-                  <GridPane BorderPane.alignment="CENTER">
+                  <GridPane prefHeight="242.0" prefWidth="532.0" BorderPane.alignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
