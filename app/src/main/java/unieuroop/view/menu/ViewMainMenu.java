@@ -32,6 +32,14 @@ public class ViewMainMenu implements Initializable{
         this.loadPage(Pages.MAIN_DATE_SOLD);
     }
     @FXML
+    private void btnClientsHandler(final ActionEvent event) {
+        this.loadPage(Pages.MAIN_DATE_SOLD);
+    }
+    @FXML
+    private void btnStaffHandler(final ActionEvent event) {
+        this.loadPage(Pages.MAIN_CATEGORIES_SOLD);
+    }
+    @FXML
     private void btnDepartmentsHandler(final ActionEvent event) {
         this.loadPage(Pages.DEPARTMENTS);
     }
