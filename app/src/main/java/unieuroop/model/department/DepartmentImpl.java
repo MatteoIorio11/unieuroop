@@ -22,7 +22,7 @@ public final class DepartmentImpl implements Department {
     }
 
     /**
-     * 
+     * Add products and their amount to the department.
      */
     @Override
     public void addProducts(final Map<Product, Integer> products) {
@@ -32,7 +32,7 @@ public final class DepartmentImpl implements Department {
     }
 
     /**
-     * 
+     * Add Staff to the department.
      */
     @Override
     public void addStaff(final Staff newStaff) {
@@ -44,7 +44,7 @@ public final class DepartmentImpl implements Department {
     }
 
     /**
-     * 
+     * Remove the Staff assigned to the department.
      */
     @Override
     public void removeStaff(final Staff deleteStaff) {
@@ -56,7 +56,7 @@ public final class DepartmentImpl implements Department {
     }
 
     /**
-     * 
+     * Return the department name.
      */
     @Override
     public String getDepartmentName() {
@@ -73,7 +73,7 @@ public final class DepartmentImpl implements Department {
     }
 
     /**
-     * 
+     * Return all the staff assigned to the department.
      */
     @Override
     public Set<Staff> getStaff() {
@@ -81,7 +81,7 @@ public final class DepartmentImpl implements Department {
     }
 
     /**
-     * 
+     * Return all the products present in the departments.
      */
     @Override
     public Map<Product, Integer> getAllProducts() {
@@ -89,12 +89,31 @@ public final class DepartmentImpl implements Department {
     }
 
     /**
-     * 
+     * Return the products taken from the department.
      */
     @Override
-    public Map<Product, Integer> takeProductFromDepartment(Map<Product, Integer> productsTaken) {
-        // TODO Auto-generated method stub
-        return null;
+    public Map<Product, Integer> takeProductFromDepartment(final Map<Product, Integer> productsTaken) {
+        if (!checkProductTaken(productsTaken)) {
+            throw new IllegalArgumentException();
+        }
+        for (final Product product : productsTaken.keySet()) {
+            this.products.put(product, this.products.get(product) - productsTaken.get(product));
+        }
+        return productsTaken;
+    }
+
+    /**
+     * Check if is possible take each products and their amount from the stock.
+     * @param productsTaken
+     * @return boolean
+     */
+    private boolean checkProductTaken(final Map<Product, Integer> productsTaken) {
+        for (final Product productTake : productsTaken.keySet()) {
+            if (!this.products.containsKey(productTake) || this.products.get(productTake) < productsTaken.get(productTake)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
