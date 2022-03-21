@@ -93,11 +93,15 @@ public class ViewAnalytic implements Initializable{
                 )
         );
         XYChart.Series<Double, Integer> serie1 = new XYChart.Series<>();
+        serie1.setName("Earned");
         XYChart.Series<Double, Integer> serie2 = new XYChart.Series();
+        serie2.setName("Spent");
         this.analytic.getTotalEarned((date)-> true).entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getValue(), entry.getKey().getYear())));
         this.analytic.getTotalSpent((date) -> true).entrySet().forEach((entry) -> serie2.getData().add(new XYChart.Data<>(entry.getValue(), entry.getKey().getYear())));
         areaChart.getData().addAll(serie1, serie2);
         chartSpent.setData(pieChartData);
+        chartSpent.setLegendVisible(false);
         chartEarned.setData(secondPieChartData);
+        chartEarned.setLegendVisible(false);
     }
 }

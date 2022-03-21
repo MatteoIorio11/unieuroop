@@ -12,7 +12,7 @@ public class Staff extends AbstractPerson implements Serializable {
     private static final long serialVersionUID = 3841944704413502446L;
     private final Integer id;
     private final String email;
-    private final String password;
+    private final Integer password;
     private final LocalTime startTime;
     private final LocalTime endTime;
 
@@ -22,7 +22,7 @@ public class Staff extends AbstractPerson implements Serializable {
             @JsonProperty("birthdayDate") final LocalDate birthdayDate,
             @JsonProperty("id") final Integer id,
             @JsonProperty("email") final String email,
-            @JsonProperty("password") final String password,
+            @JsonProperty("password") final Integer password,
             @JsonProperty("startTime") final LocalTime startTime,
             @JsonProperty("endTime") final LocalTime endTime) {
         super(name, surname, birthdayDate);
@@ -50,7 +50,7 @@ public class Staff extends AbstractPerson implements Serializable {
     /**
      * @return password of the Staff
      */
-    public String getPassword() {
+    public Integer getPassword() {
         return this.password;
     }
 
