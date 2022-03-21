@@ -66,16 +66,16 @@ public class ViewAnalytic implements Initializable{
     private final Sale sale4 = new SaleImpl(LocalDate.of(2010, 9, 20), Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
     private final Sale sale5 = new SaleImpl(LocalDate.of(2011, 5, 20), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
     private final Sale sale6 = new SaleImpl(LocalDate.of(2013, 1, 10), Map.of(p5, 10, p2, 100, p6, 1), Optional.empty());
-    private final Sale sale7 = new SaleImpl(LocalDate.of(2012, 6, 20), Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
+    private final Sale sale7 = new SaleImpl(LocalDate.of(2022, 6, 20), Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
     private final Sale sale8 = new SaleImpl(LocalDate.of(2020, 2, 20), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
     private final Sale sale9 = new SaleImpl(LocalDate.of(2010, 3, 20), Map.of(p1, 10, p2, 100, p5, 1), Optional.empty());
     private final Sale sale10 = new SaleImpl(LocalDate.of(2002, 2, 20), Map.of(p1, 10, p2, 100, p5, 1, p7, 10), Optional.empty());
     private final Sale sale11 = new SaleImpl(LocalDate.of(2000, 10, 10), Map.of(p5, 10, p2, 100, p6, 1), Optional.empty());
     private final Sale sale12 = new SaleImpl(LocalDate.of(2001, 4, 20), Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
-    private final Sale sale13 = new SaleImpl(LocalDate.of(2004, 2, 20), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
-    private final Sale sale14 = new SaleImpl(LocalDate.of(2005, 5, 10), Map.of(p5, 10, p2, 100, p6, 1), Optional.empty());
+    private final Sale sale13 = new SaleImpl(LocalDate.of(2022, 2, 20), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
+    private final Sale sale14 = new SaleImpl(LocalDate.of(2022, 5, 10), Map.of(p5, 10, p2, 100, p6, 1), Optional.empty());
     private final Sale sale15 = new SaleImpl(LocalDate.of(2012, 12, 20), Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
-    private final Sale sale16 = new SaleImpl(LocalDate.of(2020, 11, 20), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
+    private final Sale sale16 = new SaleImpl(LocalDate.of(2022, 11, 20), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
 
     private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
@@ -98,8 +98,8 @@ public class ViewAnalytic implements Initializable{
         this.shop.addSale(sale14);
         this.shop.addSale(sale15);
         this.shop.addSale(sale16);
-        this.shop.addBills(LocalDate.of(2011, 1, 20), 46310);
-        this.shop.addBills(LocalDate.of(2011, 5, 20), 10000);
+        this.shop.addBills(LocalDate.of(2022, 1, 20), 46310);
+        this.shop.addBills(LocalDate.of(2022, 5, 20), 10000);
         this.shop.addBills(ViewAnalytic.TIME_NOW, 14232);
         this.shop.addBills(LocalDate.of(2015, 3, 20), 2123);
         this.shop.addBills(LocalDate.of(2002, 1, 20), 10231);
@@ -109,11 +109,13 @@ public class ViewAnalytic implements Initializable{
         analytic = new AnalyticImpl(shop);
         this.controller = new ControllerAnalyticImpl(analytic);
 
-        ObservableList<PieChart.Data> secondPieChartData = FXCollections.observableArrayList(this.controller.getTotalSpent((date) -> true).entrySet().stream()
+        ObservableList<PieChart.Data> secondPieChartData = FXCollections.observableArrayList(
+                this.controller.getLastYearEarned().entrySet().stream()
                 .map((entry) -> new PieChart.Data(entry.getKey().toString(), entry.getValue())).collect(Collectors.toList()));
         secondPieChartData.forEach((data) -> data.nameProperty().bind(Bindings.concat(data.getName(), "\n", data.pieValueProperty())));
+        
         ObservableList<PieChart.Data> pieChartData =
-                FXCollections.observableArrayList(this.analytic.getTotalEarned((date) -> true).entrySet().stream().map(e-> new PieChart.Data(e.getKey().toString(), e.getValue())).collect(Collectors.toList()));
+                FXCollections.observableArrayList(this.controller.getLastYearSpent().entrySet().stream().map(e-> new PieChart.Data(e.getKey().toString(), e.getValue())).collect(Collectors.toList()));
         pieChartData.forEach(data ->
                 data.nameProperty().bind(
                         Bindings.concat(
@@ -125,11 +127,17 @@ public class ViewAnalytic implements Initializable{
         serie1.setName("Spent");
         XYChart.Series<Integer, Double> serie2 = new XYChart.Series();
         serie2.setName("Earned");
-        this.analytic.getTotalEarned((date)-> true).entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getKey().getYear(), entry.getValue())));
-        this.analytic.getTotalSpent((date) -> true).entrySet().forEach((entry) -> serie2.getData().add(new XYChart.Data<>(entry.getKey().getYear(), entry.getValue())));
+        this.controller.getYearsTotalEarned().entrySet().forEach((entry) ->  serie1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
+        //this.analytic.getTotalEarned((date) -> true).entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getKey().getYear(), entry.getValue())));
+        this.controller.getYearsTotalSpent().entrySet().forEach((entry) -> serie2.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
+        //this.analytic.getTotalSpent((date) -> true).entrySet().forEach((entry) -> serie2.getData().add(new XYChart.Data<>(entry.getKey().getYear(), entry.getValue())));
+        final var lowerEarned = this.controller.getYearsTotalEarned().entrySet().stream()
+                .map((entry) -> entry.getKey()).sorted().findFirst().get();
+        final var lowerSpent = this.controller.getYearsTotalEarned().entrySet().stream()
+                .map((entry) -> entry.getKey()).sorted().findFirst().get();
         areaChart.getData().addAll(serie2, serie1);
         xAxis.setAutoRanging(false);
-        xAxis.setLowerBound(2000);
+        xAxis.setLowerBound(lowerEarned > lowerSpent ? lowerSpent : lowerEarned);
         xAxis.setUpperBound(2030);
         xAxis.setTickUnit(2);
         chartSpent.setData(pieChartData);

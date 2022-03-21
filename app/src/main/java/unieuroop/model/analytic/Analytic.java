@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.time.LocalDate;
+import java.time.Month;
 
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
@@ -75,6 +76,10 @@ public interface Analytic {
      * @return the total of all money spent in their specific date.
      */
     Map<LocalDate, Double> getTotalSpent(Predicate<LocalDate> predicate);
+    Map<Integer, Double> getTotalSpentByYears();
+    Map<Integer, Double> getTotalEarnedByYear();
+    Map<Month, Double> getTotalEarnedByMonth(Predicate<Integer> year);
+    Map<Month, Double> getTotalSpentByMonth(Predicate<Integer> year);
     /**
      * 
      * @return the total value of all products inside the stock
