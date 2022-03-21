@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -13,106 +12,113 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <SplitPane dividerPositions="0.3754180602006689" layoutX="79.0" layoutY="176.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
+      <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="251.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="355.0" minWidth="10.0" prefWidth="349.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <center>
-                  <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                  <GridPane prefHeight="398.0" prefWidth="367.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="329.4649658203125" minHeight="10.0" prefHeight="295.751953125" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="194.85826110839844" minHeight="10.0" prefHeight="102.748046875" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.91354370117188" minWidth="10.0" prefWidth="102.32281494140625" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.9174499511719" minWidth="10.0" prefWidth="267.17718505859375" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <center>
+                                    <Label prefHeight="18.0" prefWidth="62.0" text="Name:" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                 <center>
+                                    <Label prefHeight="18.0" prefWidth="62.0" text="Surname:" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                 <center>
+                                    <Label prefHeight="18.0" prefWidth="62.0" text="Birthday:" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                 <center>
+                                    <Label prefHeight="18.0" prefWidth="62.0" text="Code:" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                 <center>
+                                    <TextField BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <center>
+                                    <TextField BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <center>
+                                    <TextField BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <center>
+                                    <TextField BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="1">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                 <center>
+                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EDIT CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                                 <center>
+                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" text="DELETE CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <center>
+                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="ADD CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
                </center>
             </BorderPane>
-            <GridPane prefHeight="398.0" prefWidth="367.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="329.4649658203125" minHeight="10.0" prefHeight="295.751953125" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="194.85826110839844" minHeight="10.0" prefHeight="102.748046875" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <GridPane>
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.91354370117188" minWidth="10.0" prefWidth="102.32281494140625" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.9174499511719" minWidth="10.0" prefWidth="267.17718505859375" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0">
-                           <center>
-                              <Label prefHeight="18.0" prefWidth="62.0" text="Name:" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                           <center>
-                              <Label prefHeight="18.0" prefWidth="62.0" text="Surname:" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-                           <center>
-                              <Label prefHeight="18.0" prefWidth="62.0" text="Birthday:" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
-                           <center>
-                              <Label prefHeight="18.0" prefWidth="62.0" text="Code:" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                           <center>
-                              <TextField BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <center>
-                              <TextField BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <center>
-                              <TextField BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <center>
-                              <TextField BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                     </children>
-                  </GridPane>
-                  <GridPane GridPane.rowIndex="1">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                           <center>
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EDIT CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
-                           <center>
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" text="DELETE CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0">
-                           <center>
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="ADD CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                     </children>
-                  </GridPane>
-               </children>
-            </GridPane>
-        </items>
-      </SplitPane>
+            <ListView prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
