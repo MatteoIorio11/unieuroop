@@ -16,30 +16,42 @@ public class ViewMainMenu implements Initializable{
     @FXML 
     private BorderPane mainPane;
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         
     }
     @FXML
-    private void btn_DashBoard_action(ActionEvent event) {
+    private void btnDashBoardHandler(final ActionEvent event) {
 
     }
     @FXML
-    private void btn_Stock_action(ActionEvent event) {
+    private void btnStockHandler(final ActionEvent event) {
 
     }
     @FXML
-    private void btn_Sale_action(ActionEvent event) {
-    	this.loadPage(Pages.TABLE_CATEGORIES_SOLD);
+    private void btnSalesHandler(final ActionEvent event) {
+        this.loadPage(Pages.MAIN_DATE_SOLD);
     }
     @FXML
-    private void btn_Department_action(ActionEvent event) {
+    private void btnClientsHandler(final ActionEvent event) {
+        this.loadPage(Pages.MAIN_DATE_SOLD);
+    }
+    @FXML
+    private void btnStaffHandler(final ActionEvent event) {
+        this.loadPage(Pages.MAIN_CATEGORIES_SOLD);
+    }
+    @FXML
+    private void btnDepartmentsHandler(final ActionEvent event) {
         this.loadPage(Pages.DEPARTMENTS);
     }
     @FXML
-    private void btn_Analytics_action(ActionEvent event) {
+    private void btnBalancesHandler(final ActionEvent event) {
         this.loadPage(Pages.BALANCE);
     }
-    private void loadPage(final Pages page){
+    @FXML
+    private void btnAnalyticsHandler(final ActionEvent event) {
+        this.loadPage(Pages.MAIN_CATEGORIES_SOLD);
+    }
+    private void loadPage(final Pages page) {
         Pane p;
         try {
             p = FXMLLoader.load(getClass().getResource(page.getPath()));
