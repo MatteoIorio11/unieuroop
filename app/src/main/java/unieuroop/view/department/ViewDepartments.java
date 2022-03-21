@@ -34,9 +34,9 @@ public class ViewDepartments implements Initializable{
     private static final LocalTime TIME_FINISH = LocalTime.of(10, 10);
     private Department department; 
     private final Staff staff1 = new Staff("Nome1", "Cognome1", ViewDepartments.TIME_NOW,
-            0, "email1@gmail.com", "password1", TIME_START, TIME_FINISH);
+            0, "email1@gmail.com", 1, TIME_START, TIME_FINISH);
     private final Staff staff2 = new Staff("Nome2", "Cognome2", ViewDepartments.TIME_NOW,
-            0, "email2@gmail.csom", "password2", TIME_START, TIME_FINISH);
+            0, "email2@gmail.csom", 1, TIME_START, TIME_FINISH);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
