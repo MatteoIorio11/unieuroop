@@ -24,6 +24,14 @@ public enum Pages {
      */
     DEPARTMENTS("/pages/Department/DepartmentsView.fxml"),
     /**
+     * @param
+     */
+    CLIENTS("/pages/Client/clientView.fxml"),
+    /**
+     * @param
+     */
+    STAFF("/pages/Staff/staffView.fxml"),
+    /**
      * @param file directory of balance's chart
      */
     BALANCE("/pages/Balance/SpentEarnedChart.fxml"),
