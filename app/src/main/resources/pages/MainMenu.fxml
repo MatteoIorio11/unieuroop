@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="unieuroop.view.menu.ViewMainMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="unieuroop.view.menu.ViewMainMenu">
    <children>
       <BorderPane fx:id="mainPane" layoutX="-1.0" layoutY="-7.0" prefHeight="660.0" prefWidth="1206.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-7.0">
          <left>
             <VBox prefHeight="503.0" prefWidth="188.0" style="-fx-background-color: #6F5CC2;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btn_dashboard" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btn_DashBoard_action" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="DashBoard" textFill="WHITE">
+                  <Button fx:id="btnDashBoard" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btnDashBoardHandler" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="DashBoard" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -26,7 +26,7 @@
                         <Insets left="20.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="btn_stock" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="54.0" mnemonicParsing="false" onAction="#btn_Stock_action" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="Stock" textFill="WHITE">
+                  <Button fx:id="btnStock" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnStockHandler" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="Stock" textFill="WHITE">
                      <padding>
                         <Insets left="20.0" />
                      </padding>
@@ -38,7 +38,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btn_sales" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn_Sale_action" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="Sales" textFill="WHITE">
+                  <Button fx:id="btnSales" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnSalesHandler" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="Sales" textFill="WHITE">
                      <padding>
                         <Insets left="20.0" />
                      </padding>
@@ -50,7 +50,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btn_departments" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="54.0" mnemonicParsing="false" onAction="#btn_Department_action" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="Departments" textFill="WHITE">
+                  <Button fx:id="btnDepartments" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnDepartmentsHandler" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="Departments" textFill="WHITE">
                      <padding>
                         <Insets left="20.0" />
                      </padding>
@@ -62,7 +62,19 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btn_analytics" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="98.0" mnemonicParsing="false" onAction="#btn_Analytics_action" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="Analytics" textFill="WHITE">
+                  <Button fx:id="btnBalances" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="98.0" mnemonicParsing="false" onAction="#btnBalancesHandler" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="Balances" textFill="WHITE">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/analytics.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnAnalytics" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnAnalyticsHandler" prefHeight="44.0" prefWidth="188.0" stylesheets="@styles.css" text="Analytics" textFill="WHITE">
                      <padding>
                         <Insets left="20.0" />
                      </padding>

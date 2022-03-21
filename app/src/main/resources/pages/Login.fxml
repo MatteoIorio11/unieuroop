@@ -40,7 +40,7 @@
             </PasswordField>
             <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
                <center>
-                  <Button mnemonicParsing="false" text="Login" BorderPane.alignment="CENTER" />
+                  <Button fx:id="btn_login" mnemonicParsing="false" onAction="#btn_login_action" text="Login" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
             <Label text="Username">
