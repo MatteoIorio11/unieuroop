@@ -51,7 +51,7 @@ public final class DepartmentImpl implements Department {
         if (this.staff.contains(deleteStaff)) {
             this.staff.remove(deleteStaff);
         } else {
-            throw new IllegalArgumentException("The staff : " + deleteStaff.toString() + " not exist.");
+            throw new IllegalArgumentException("The staff : " + deleteStaff.toString() + " does not exist.");
         }
     }
 
@@ -99,7 +99,7 @@ public final class DepartmentImpl implements Department {
     @Override
     public Map<Product, Integer> takeProductFromDepartment(final Map<Product, Integer> productsTaken) {
         if (!checkProductsTaken(productsTaken)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Take products can not be done beacuse some products's quantity is less than the quantity in input");
         }
         for (final Product product : productsTaken.keySet()) {
             this.products.put(product, this.products.get(product) - productsTaken.get(product));
