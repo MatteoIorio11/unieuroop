@@ -64,12 +64,17 @@ public final class DepartmentImpl implements Department {
     }
 
     /**
-     * 
+     * Return the products present in the department filter by their quantities.
      */
     @Override
     public Map<Product, Integer> productsByQuantity(final Predicate<Integer> quantity) {
-        // TODO Auto-generated method stub
-        return null;
+        final Map<Product, Integer> productsFilter = new HashMap<>();
+        for (final Product product : this.products.keySet()) {
+            if (quantity.test(this.products.get(product))) {
+                productsFilter.put(product, this.products.get(product));
+            }
+        }
+        return productsFilter;
     }
 
     /**

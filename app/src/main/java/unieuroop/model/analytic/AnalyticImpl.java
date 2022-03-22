@@ -6,6 +6,8 @@ import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.time.LocalDate;
+import java.time.Month;
+
 import unieuroop.model.product.Product;
 import unieuroop.model.product.Category;
 import unieuroop.model.shop.Shop;
@@ -131,6 +133,68 @@ public final class AnalyticImpl implements Analytic {
         return this.shop.getBills().entrySet().stream()
                 .filter((entry) -> predicate.test(entry.getKey()))
                 .collect(Collectors.toMap((entry) -> entry.getKey(), (entry) -> entry.getValue()));
+    }
+
+    private double spentInYear(final int year) {
+        return this.shop.getBills().entrySet().stream()
+               .filter((entry) -> entry.getKey().getYear() == year)
+               .mapToDouble((entry) -> entry.getValue())
+               .sum();
+    }
+
+    private double earnedInYear(final int year) {
+        return this.shop.getSales().stream()
+                .filter((sale) -> sale.getDate().getYear() == year)
+                .mapToDouble((sale) -> sale.getTotalSpent())
+                .sum();
+    }
+
+    @Override
+    public Map<Integer, Double> getTotalSpentByYears() {
+        return this.shop.getBills().entrySet().parallelStream()
+                .map((entry) -> entry.getKey().getYear())
+                .distinct()
+                .collect(Collectors.toMap((year) -> year, (year) -> this.spentInYear(year)));
+    }
+
+    @Override
+    public Map<Integer, Double> getTotalEarnedByYear() {
+        return this.shop.getSales().parallelStream()
+                .map((sale) -> sale.getDate().getYear())
+                .distinct()
+                .collect(Collectors.toMap((year) -> year, (year) -> this.earnedInYear(year)));
+    }
+
+    private double earnedInMonth(final Month month, final Predicate<Integer> year) {
+        return this.shop.getSales().parallelStream()
+                .filter((sale) -> year.test(sale.getDate().getYear()) && sale.getDate().getMonth()== month)
+                .mapToDouble((sale) -> sale.getTotalSpent())
+                .sum();
+    }
+
+    @Override
+    public Map<Month, Double> getTotalEarnedByMonth(final Predicate<Integer> year) {
+        return this.shop.getSales().parallelStream()
+                .filter((sale) -> year.test(sale.getDate().getYear()))
+                .map((sale) -> sale.getDate().getMonth())
+                .distinct()
+                .collect(Collectors.toMap((month) -> month, (month) -> this.earnedInMonth(month, year)));
+    }
+
+    private double spentInMonth(final Month month, final Predicate<Integer> year) {
+        return this.shop.getBills().entrySet().parallelStream()
+                .filter((entry) -> year.test(entry.getKey().getYear()) && entry.getKey().getMonth() == month)
+                .mapToDouble((entry) -> entry.getValue())
+                .sum();
+    }
+    
+    @Override
+    public Map<Month, Double> getTotalSpentByMonth(final Predicate<Integer> year) {
+        return this.shop.getBills().entrySet().parallelStream()
+                .filter((entry) -> year.test(entry.getKey().getYear()))
+                .map((entry) -> entry.getKey().getMonth())
+                .distinct()
+                .collect(Collectors.toMap((month) -> month, (month) -> this.spentInMonth(month, year)));
     }
 
     @Override
