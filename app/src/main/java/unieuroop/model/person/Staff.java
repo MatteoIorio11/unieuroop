@@ -1,11 +1,15 @@
 package unieuroop.model.person;
 
 import java.io.Serializable;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javafx.util.Pair;
 
 public class Staff extends AbstractPerson implements Serializable {
 
@@ -13,8 +17,7 @@ public class Staff extends AbstractPerson implements Serializable {
     private final Integer id;
     private final String email;
     private final Integer password;
-    private final LocalTime startTime;
-    private final LocalTime endTime;
+    private final Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime;
 
     @JsonCreator
     public Staff(@JsonProperty("name") final String name, 
@@ -23,14 +26,12 @@ public class Staff extends AbstractPerson implements Serializable {
             @JsonProperty("id") final Integer id,
             @JsonProperty("email") final String email,
             @JsonProperty("password") final Integer password,
-            @JsonProperty("startTime") final LocalTime startTime,
-            @JsonProperty("endTime") final LocalTime endTime) {
+            @JsonProperty("workTime") final Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime) {
         super(name, surname, birthdayDate);
         this.id = id;
         this.email = email;
         this.password = password;
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.workTime = workTime;
     }
 
     /**
@@ -55,18 +56,16 @@ public class Staff extends AbstractPerson implements Serializable {
     }
 
     /**
-     * @return startTime of the Staff
+     * @param day 
+     * @return return the workTime of the Staff based on the day of the week
      */
-    public LocalTime getStartTime() {
-        return this.startTime;
+    public Pair<LocalTime, LocalTime> getWorkTime(final DayOfWeek day) {
+        if (this.workTime.containsKey(day)) {
+            return this.workTime.get(day);
+        } else {
+            throw new IllegalArgumentException("day out of workDays");
+        }
     }
-
-    /**
-    * @return endTime of the Staff
-    */
-   public LocalTime getEndTime() {
-       return this.endTime;
-   }
 
     /**
      * @return toString of the Staff
