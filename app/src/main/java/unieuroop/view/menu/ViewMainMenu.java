@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import unieuroop.controller.serialization.Pages;
+import unieuroop.view.analytic.ViewAnalytic;
+import unieuroop.view.department.ViewDepartments;
 
 public class ViewMainMenu implements Initializable{
     @FXML 
@@ -29,32 +31,34 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnSalesHandler(final ActionEvent event) {
-        this.loadPage(Pages.MAIN_DATE_SOLD);
+        this.loadPage(Pages.MAIN_DATE_SOLD, null);
     }
     @FXML
     private void btnClientsHandler(final ActionEvent event) {
-        this.loadPage(Pages.CLIENTS);
+        this.loadPage(Pages.CLIENTS, null);
     }
     @FXML
     private void btnStaffHandler(final ActionEvent event) {
-        this.loadPage(Pages.STAFF);
+        this.loadPage(Pages.STAFF, null);
     }
     @FXML
     private void btnDepartmentsHandler(final ActionEvent event) {
-        this.loadPage(Pages.DEPARTMENTS);
+        this.loadPage(Pages.DEPARTMENTS, new ViewDepartments());
     }
     @FXML
     private void btnBalancesHandler(final ActionEvent event) {
-        this.loadPage(Pages.BALANCE);
+        this.loadPage(Pages.BALANCE, new ViewAnalytic());
     }
     @FXML
     private void btnAnalyticsHandler(final ActionEvent event) {
-        this.loadPage(Pages.MAIN_CATEGORIES_SOLD);
+        this.loadPage(Pages.MAIN_CATEGORIES_SOLD, null);
     }
-    private void loadPage(final Pages page) {
+    private <X>void loadPage(final Pages page, X controller) {
         Pane p;
         try {
-            p = FXMLLoader.load(getClass().getResource(page.getPath()));
+            var loader = new FXMLLoader(getClass().getResource(page.getPath()));
+            loader.setController(controller);
+            p = loader.load();
             this.mainPane.setCenter(p);
         } catch (IOException e) {
             e.printStackTrace();
