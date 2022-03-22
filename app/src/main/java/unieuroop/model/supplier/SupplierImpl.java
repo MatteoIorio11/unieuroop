@@ -58,7 +58,7 @@ public class SupplierImpl implements Supplier {
     }
 
     /**
-     * Return all the products buyed with their quantities. (Limitazione nelle vendite ? )
+     * Return all the products buyed with their quantities. (Limitazione nelle vendite?)
      */
     @Override
     public Map<Product, Integer> sellProduct(final Map<Product, Integer> productsPurchased) {

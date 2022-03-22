@@ -1,9 +1,11 @@
 package unieuroop.model.stock;
 
+import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.function.BiPredicate;
 
 public class StockImpl implements Stock {
     private final Map<Product, Integer> productsStocked = new HashMap<>();
@@ -62,6 +64,15 @@ public class StockImpl implements Stock {
             }
         }
         this.productsStocked.keySet().removeAll(productsDelete);
+    }
+
+    /**
+     * 
+     */
+    @Override
+    public Map<Product, Integer> getFilterProducts(BiPredicate<Integer, Category> filter) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     /**

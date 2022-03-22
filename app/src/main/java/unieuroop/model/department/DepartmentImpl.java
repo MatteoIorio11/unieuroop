@@ -98,7 +98,7 @@ public final class DepartmentImpl implements Department {
      */
     @Override
     public Map<Product, Integer> takeProductFromDepartment(final Map<Product, Integer> productsTaken) {
-        if (!checkProductTaken(productsTaken)) {
+        if (!checkProductsTaken(productsTaken)) {
             throw new IllegalArgumentException();
         }
         for (final Product product : productsTaken.keySet()) {
@@ -108,11 +108,11 @@ public final class DepartmentImpl implements Department {
     }
 
     /**
-     * Check if is possible take each products and their amount from the stock.
+     * Check if is possible take each products and their amount from the department.
      * @param productsTaken
      * @return boolean
      */
-    private boolean checkProductTaken(final Map<Product, Integer> productsTaken) {
+    private boolean checkProductsTaken(final Map<Product, Integer> productsTaken) {
         for (final Product productTake : productsTaken.keySet()) {
             if (!this.products.containsKey(productTake) || this.products.get(productTake) < productsTaken.get(productTake)) {
                 return false;
