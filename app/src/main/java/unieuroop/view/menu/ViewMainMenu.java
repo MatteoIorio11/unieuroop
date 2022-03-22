@@ -29,7 +29,7 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnSalesHandler(final ActionEvent event) {
-        this.loadPage(Pages.MAIN_DATE_SOLD);
+        this.loadPage(Pages.SALES);
     }
     @FXML
     private void btnClientsHandler(final ActionEvent event) {
