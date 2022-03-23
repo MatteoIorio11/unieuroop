@@ -27,7 +27,7 @@ public class ViewLogin implements Initializable {
     public void initialize(final URL location, final ResourceBundle resources) {
     }
     @FXML
-    private void btn_login_action(final ActionEvent event) {
+    private void btnLoginHandler(final ActionEvent event) {
         if(this.controller.CheckPassword(this.email.getText(), this.password.getText())) {
             //load page
         }else {
