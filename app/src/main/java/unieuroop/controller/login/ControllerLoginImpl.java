@@ -6,9 +6,9 @@ import java.util.Map;
 import unieuroop.model.person.Staff;
 import unieuroop.model.shop.Shop;
 
-public class LoginControllerImpl {
+public class ControllerLoginImpl {
     private final Shop shop;
-    public LoginControllerImpl(Shop shop) {
+    public ControllerLoginImpl(Shop shop) {
         this.shop = shop;
     }
     public boolean CheckPassword(String email, String password) {

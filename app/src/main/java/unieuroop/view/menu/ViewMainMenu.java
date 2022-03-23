@@ -53,10 +53,10 @@ public class ViewMainMenu implements Initializable{
     private void btnAnalyticsHandler(final ActionEvent event) {
         this.loadPage(Pages.MAIN_CATEGORIES_SOLD, null);
     }
-    private <X>void loadPage(final Pages page, X controller) {
+    private <X> void loadPage(final Pages page, final X controller) {
         Pane p;
         try {
-            var loader = new FXMLLoader(getClass().getResource(page.getPath()));
+            final var loader = new FXMLLoader(getClass().getResource(page.getPath()));
             loader.setController(controller);
             p = loader.load();
             this.mainPane.setCenter(p);
