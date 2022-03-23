@@ -3,6 +3,7 @@ package unieuroop.model.stock;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -69,21 +70,27 @@ public class StockImpl implements Stock {
     }
 
     /**
-     * 
+     * Return the the products and their quantities filter by their amount and categories.
      */
     @Override
-    public Map<Product, Integer> getFilterProducts(BiPredicate<Integer, Category> filter) {
-        // TODO Auto-generated method stub
-        return null;
+    public Map<Product, Integer> getFilterProducts(final BiPredicate<Integer, Category> filter) {
+        final Map<Product, Integer> productsFilter = new HashMap<>();
+        for (final var entryProduct : this.productsStocked.entrySet()) {
+            if (filter.test(entryProduct.getValue(), entryProduct.getKey().getCategory())) {
+                productsFilter.put(entryProduct.getKey(), entryProduct.getValue());
+            }
+        }
+        return productsFilter;
     }
 
     /**
-     * 
+     * Return the list of product sorted increasing or decreasing.
      */
     @Override
-    public List<Product> getProductsSorted(Comparator<Product> sorting) {
-        // TODO Auto-generated method stub
-        return null;
+    public List<Product> getProductsSorted(final Comparator<Product> sorting) {
+        final List<Product> sortedProducts = new ArrayList<>(this.productsStocked.keySet());
+        sortedProducts.sort(sorting);
+        return sortedProducts;
     }
 
     /**
