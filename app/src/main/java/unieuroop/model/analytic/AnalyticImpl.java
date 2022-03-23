@@ -111,30 +111,6 @@ public final class AnalyticImpl implements Analytic {
                         (category) -> this.allSalesCategory(category)));
     }
 
-    private double getTotalEarnedIn(final Predicate<LocalDate> predicate) {
-        return this.shop.getSales().stream()
-                .filter((sale) -> predicate.test(sale.getDate()))
-                .mapToDouble((sale) -> sale.getTotalSpent())
-                .sum();
-    }
-
-    @Override
-    public Map<LocalDate, Double> getTotalEarned(final Predicate<LocalDate> predicate) {
-        return this.shop.getSales().stream()
-                .map((sale) -> sale.getDate())
-                .filter((date) -> predicate.test(date))
-                .distinct()
-                .collect(Collectors.toMap((date) -> date, 
-                        (date) -> this.getTotalEarnedIn((dateInput) -> dateInput.equals(date))));
-    }
-
-    @Override
-    public Map<LocalDate, Double> getTotalSpent(final Predicate<LocalDate> predicate) {
-        return this.shop.getBills().entrySet().stream()
-                .filter((entry) -> predicate.test(entry.getKey()))
-                .collect(Collectors.toMap((entry) -> entry.getKey(), (entry) -> entry.getValue()));
-    }
-
     private double spentInYear(final int year) {
         return this.shop.getBills().entrySet().stream()
                .filter((entry) -> entry.getKey().getYear() == year)
@@ -150,7 +126,7 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public Map<Integer, Double> getTotalSpentByYears() {
+    public Map<Integer, Double> getTotalSpentByYear() {
         return this.shop.getBills().entrySet().parallelStream()
                 .map((entry) -> entry.getKey().getYear())
                 .distinct()
@@ -167,7 +143,7 @@ public final class AnalyticImpl implements Analytic {
 
     private double earnedInMonth(final Month month, final Predicate<Integer> year) {
         return this.shop.getSales().parallelStream()
-                .filter((sale) -> year.test(sale.getDate().getYear()) && sale.getDate().getMonth()== month)
+                .filter((sale) -> year.test(sale.getDate().getYear()) && sale.getDate().getMonth() == month)
                 .mapToDouble((sale) -> sale.getTotalSpent())
                 .sum();
     }
@@ -187,7 +163,7 @@ public final class AnalyticImpl implements Analytic {
                 .mapToDouble((entry) -> entry.getValue())
                 .sum();
     }
-    
+
     @Override
     public Map<Month, Double> getTotalSpentByMonth(final Predicate<Integer> year) {
         return this.shop.getBills().entrySet().parallelStream()

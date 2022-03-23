@@ -18,36 +18,6 @@ public final class ControllerAnalyticImpl{
     public ControllerAnalyticImpl(final Analytic analytic) {
         this.analytic = analytic;
     }
-    /**
-     * 
-     * @return
-     */
-    Map<LocalDate, Double> getTotalEarned(){
-        return this.analytic.getTotalEarned((date) -> true);
-    }
-    /**
-     * 
-     * @return
-     */
-    public Map<LocalDate, Double> getTotalSpent(){
-        return this.analytic.getTotalSpent((date) -> true);
-    }
-    /**
-     * 
-     * @return
-     */
-   public  Map<LocalDate, Double> getTotalSold30Days(){
-        return this.analytic.getTotalEarned((date) -> 
-        Math.abs(LocalDate.now().getMonthValue() - date.getMonthValue()) == 1);
-    }
-    /**
-     * 
-     * @return
-     */
-    public Map<LocalDate, Double> getTotalSpent30Days(){
-        return this.analytic.getTotalSpent((date) -> 
-        Math.abs(LocalDate.now().getMonthValue() - date.getMonthValue()) == 1);
-    }
     public Map<Month, Double> getLastYearSpent(){
         return this.analytic.getTotalSpentByMonth((year) -> LocalDate.now().getYear() == year);
     }
@@ -55,7 +25,7 @@ public final class ControllerAnalyticImpl{
         return this.analytic.getTotalEarnedByMonth((year) -> LocalDate.now().getYear() == year);
     }
     public Map<Integer, Double> getYearsTotalSpent(){
-        return this.analytic.getTotalSpentByYears();
+        return this.analytic.getTotalSpentByYear();
     }
     public Map<Integer, Double> getYearsTotalEarned(){
         return this.analytic.getTotalEarnedByYear();

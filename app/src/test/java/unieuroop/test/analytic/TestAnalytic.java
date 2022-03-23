@@ -6,22 +6,15 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Stream;
-
-import javax.management.loading.PrivateClassLoader;
-
 import org.junit.Before;
 import org.junit.Test;
-
-import com.fasterxml.jackson.annotation.JsonFormat.Value;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy.KebabCaseStrategy;
-
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
@@ -43,6 +36,7 @@ public class TestAnalytic {
     private static final int P3_TOTAL_SOLD = 11; /*sum of all p3s product*/;
     /*All the money earned from sales*/
     private static final double TOTAL_SHOP_EARNED = 961_600;
+    private static final double TOTAL_SPENT_NOW = 16;
     /*ERROR tolerance*/
     private static final double ERROR_TOLLERANCE = 0.01;
     /*Data for a temporary local date*/
@@ -116,7 +110,7 @@ public class TestAnalytic {
     }
 
     /**
-     *  TEST FOR : analytic.getQuantityOf(Product p);
+     *  TEST FOR : analytic.getQuantityOf(Product p) {@link Analytic}
      * Test on quantity of total bought products, checking if the sum of all products bought are correct.
      */
     @Test
@@ -133,7 +127,7 @@ public class TestAnalytic {
         assertNotEquals(0, this.analytic.getQuantitySoldOf(p5));
     }
     /**
-     * TEST FOR : analytic.getQuantityOf(Product p, Predicate<LocalDate> date);
+     * TEST FOR : analytic.getQuantityOf(Product p, Predicate<LocalDate> date); {@link Analytic}
      * Test quantity of a specific product in a specific date.
      */
     @Test
@@ -158,7 +152,7 @@ public class TestAnalytic {
         assertEquals(TestAnalytic.P3_TOTAL_SOLD, quantityP3);
     }
     /**
-     * TEST FOR : analytic.getOrderedByCategory(Predicate<Category> c);
+     * TEST FOR : analytic.getOrderedByCategory(Predicate<Category> c); {@link Analytic}
      * Test of getOrderedByCategory, this method return a Map contain a Product and it's quantity sold.
      * In this test I have to check if every product's category in Sale are present in the analytic's result.
      */
@@ -187,7 +181,7 @@ public class TestAnalytic {
                 this.analytic.getOrderedByCategory((category) -> category == Category.TABLET));
     }
     /**
-     * TEST FOR : analytic.getOrderedByCategory(Predicate<Category> c);
+     * TEST FOR : analytic.getOrderedByCategory(Predicate<Category> c); {@link Analytic}
      * Test of getOrderedByCategory, this method return a Map contain a Product and it's quantity sold.
      * Test if every categories on sale are present in Analytic's result. By adding or removing some categories
      * in the Predicate of the method
@@ -235,7 +229,7 @@ public class TestAnalytic {
         assertEquals(Collections.emptySet(), products.keySet());
     }
     /**
-     * TEST FOR : analytic.getOrderedByDate(Predicate<LocalDate> c);
+     * TEST FOR : analytic.getOrderedByDate(Predicate<LocalDate> c); {@link Analytic}
      *  Testing the method getProductByDate where we specified a Date or a time lapse,
      *  and we get a Set of all different products sold in the Date or in the time lapse.
      */
@@ -268,7 +262,7 @@ public class TestAnalytic {
         assertEquals(Set.of(p1, p2, p8), products);
     }
     /**
-     * TEST FOR : analytic.getSoldOnDay(Predicate<LocalDate> d);
+     * TEST FOR : analytic.getSoldOnDay(Predicate<LocalDate> d);{@link Analytic}
      * This method use a Date or a time lapse for return a Map where we find in the key
      * the LocalDate and in the Value we find all the different products sold in that day.
      */
@@ -291,7 +285,7 @@ public class TestAnalytic {
         assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7, p8), products.get(LocalDate.now()));
     }
     /**
-     * TEST FOR : analytic.getProductByDateCategory(BiPredicate<LocalDate, Category> b);
+     * TEST FOR : analytic.getProductByDateCategory(BiPredicate<LocalDate, Category> b); {@link Analytic}
      * This test return all the Products and only them searching inside the sales, return all the 
      * products of a specified categories or more categories in a Date or a time lapse.
      */
@@ -309,7 +303,7 @@ public class TestAnalytic {
         assertEquals(Set.of(p1, p2, p3, p4), products);
     }
     /**
-     * TEST FOR : analytic.getCategoriesSold();
+     * TEST FOR : analytic.getCategoriesSold(); {@link Analytic}
      * This test is for the method getCategoriesSold, where the method return a Map
      * with Key the category and the Value is all the set of values. 
      */
@@ -330,64 +324,8 @@ public class TestAnalytic {
         assertEquals(testMap.get(Category.SMARTWATCH), categoriesSold.get(Category.SMARTWATCH));
         assertEquals(testMap.get(Category.TABLET), categoriesSold.get(Category.TABLET));
     }
-    /** 
-     * TEST FOR : analytic.getTotalEarned();
-     * This test calculate the total earned by selling the products to the clients. 
-     */
-
-    @Test
-    public void testTotalEarned() {
-        final double totalEarnedNow = sale1.getTotalSpent()
-                + sale2.getTotalSpent() 
-                + sale3.getTotalSpent() 
-                + sale4.getTotalSpent() 
-                + sale5.getTotalSpent();
-        Map<LocalDate, Double> testMap = this.analytic.getTotalEarned((date) -> date.equals(TestAnalytic.TIME_NOW));
-        double testEarned = testMap.get(TestAnalytic.TIME_NOW);
-        final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
-        final Sale saleTest = new SaleImpl(dateTemp, Map.of(p8, 1), Optional.empty());
-
-        assertTrue(this.analytic.getTotalEarned((date) -> date.equals(TestAnalytic.TIME_NOW)).get(TestAnalytic.TIME_NOW) >= 0);
-        assertEquals(totalEarnedNow, testEarned, TestAnalytic.ERROR_TOLLERANCE);
-        assertFalse(testMap.containsKey(dateTemp));
-
-        this.shop.addSale(saleTest);
-        testMap = this.analytic.getTotalEarned((date) -> date.equals(dateTemp));
-        final double testEarnedDateTemp = saleTest.getTotalSpent();
-        testEarned = testMap.get(dateTemp);
-        assertTrue(testMap.containsKey(dateTemp));
-        assertEquals(testEarnedDateTemp, testEarned, TestAnalytic.ERROR_TOLLERANCE);
-    }
-
     /**
-     * TEST FOR : analytic.getTotalSpent();
-     * This test calculate the total spent for buying the products in the different days. 
-     */
-
-    @Test
-    public void testTotalSpent() {
-        Map<LocalDate, Double> mapSpent = this.analytic.getTotalSpent((date) -> date.equals(TestAnalytic.TIME_NOW));
-        final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
-        final double totalNow =  mapSpent.get(TestAnalytic.TIME_NOW);
-
-        assertFalse(mapSpent.isEmpty());
-        assertFalse(mapSpent.containsKey(dateTemp));
-        assertTrue(totalNow > 0);
-        assertEquals(16, totalNow, TestAnalytic.ERROR_TOLLERANCE);
- 
-        this.shop.addBills(dateTemp, 2);
-        this.shop.addBills(dateTemp, 8);
-        mapSpent = this.analytic.getTotalSpent((date) -> date.equals(dateTemp));
-        final double totalDateTemp = mapSpent.get(dateTemp);
-
-        assertFalse(mapSpent.isEmpty());
-        assertTrue(mapSpent.containsKey(dateTemp));
-        assertTrue(totalDateTemp > 0);
-        assertEquals(10, totalDateTemp, TestAnalytic.ERROR_TOLLERANCE);
-    }
- 
-    /**
-     * TEST FOR : analytic.getTotalStockPrice();
+     * TEST FOR : analytic.getTotalStockPrice(); {@link Analytic}
      * test the stock price of all products.
      */
     @Test
@@ -402,7 +340,7 @@ public class TestAnalytic {
         assertEquals(totalCheck, total, TestAnalytic.ERROR_TOLLERANCE);
     }
     /**
-     * TEST FOR : analytic.getTotalShopEarned();
+     * TEST FOR : analytic.getTotalShopEarned(); {@link Analytic}
      * test where analytic return all the money resulting from sales.
      */
     @Test
@@ -410,5 +348,58 @@ public class TestAnalytic {
         final double totalEarned = this.analytic.getTotalShopEarned();
         assertTrue(totalEarned > 0);
         assertEquals(TestAnalytic.TOTAL_SHOP_EARNED, totalEarned, TestAnalytic.ERROR_TOLLERANCE);
+    }
+    /**
+     * TEST FOR : analytic.getTotalSpentByYear(); {@link Analytic}
+     * test where analytic return a map where we find the year and the total spent in that year.
+     */
+    @Test
+    public void testTotalSpentByYear() {
+        final Map<Integer, Double> spentYear = this.analytic.getTotalSpentByYear();
+        final double value = spentYear.get(TestAnalytic.TIME_NOW.getYear());
+
+        assertFalse(spentYear.isEmpty());
+        assertTrue(spentYear.containsKey(TestAnalytic.TIME_NOW.getYear()));
+        assertEquals(TestAnalytic.TOTAL_SPENT_NOW, value, TestAnalytic.ERROR_TOLLERANCE);
+    }
+    /**
+     * TEST FOR : analytic.getTotalEarnedByYear(); {@link Analytic}
+     * test where analytic return a Map where we can find in the Key the year and in the value the total earned in that year.
+     */
+    @Test
+    public void testTotalEarnedByYear() {
+        final Map<Integer, Double> spentYear = this.analytic.getTotalEarnedByYear();
+        final double value = spentYear.get(TestAnalytic.TIME_NOW.getYear());
+
+        assertFalse(spentYear.isEmpty());
+        assertTrue(spentYear.containsKey(TestAnalytic.TIME_NOW.getYear()));
+        assertEquals(TestAnalytic.TOTAL_SHOP_EARNED, value, TestAnalytic.ERROR_TOLLERANCE);
+    }
+    /**
+     *  TEST FOR : analytic.getTotalEarnedByMonth(Predicate<Integer> year); {@link Analytic}
+     *  test where analytic return a Map where we can find in the key the month and in the value the total earned in that month. 
+     */
+    @Test
+    public void testTotalEarnedByMonth() {
+        final Map<Month, Double> totalEarnedMonth = this.analytic.getTotalEarnedByMonth((year) -> TestAnalytic.TIME_NOW.getYear() == year);
+        assertFalse(totalEarnedMonth.isEmpty());
+        final double spentInThisMonth = totalEarnedMonth.get(TestAnalytic.TIME_NOW.getMonth());
+
+        assertTrue(spentInThisMonth > 0);
+        assertEquals(TestAnalytic.TOTAL_SHOP_EARNED, spentInThisMonth, TestAnalytic.ERROR_TOLLERANCE);
+    }
+    /**
+     * TEST FOR : analytic.getTotalSpentByMonth(Predicate<Integer> year); {@link Analytic}
+     * test where analytic return a Map where in the Key there is the month and in the value the total spent in that month.
+     */
+    @Test
+    public void testTotalSpentByMonth() {
+        final Map<Month, Double> spentTotalMonth = this.analytic.getTotalSpentByMonth((year) -> TestAnalytic.TIME_NOW.getYear() == year);
+        assertFalse(spentTotalMonth.isEmpty());
+
+        final double spent = spentTotalMonth.get(TestAnalytic.TIME_NOW.getMonth());
+
+        assertTrue(spent > 0);
+        assertEquals(spent, TestAnalytic.TOTAL_SPENT_NOW, TestAnalytic.ERROR_TOLLERANCE);
     }
 }

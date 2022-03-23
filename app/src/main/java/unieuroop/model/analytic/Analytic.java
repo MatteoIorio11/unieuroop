@@ -67,18 +67,26 @@ public interface Analytic {
      */
     Map<Category, Set<Product>> getCategoriesSold();
     /**
-     * @param predicate
-     * @return the total earned in different days
+     * This method return the sum of all bills in the same year.
+     * @return a Map where the Key is the Year and in the Value we can find the total spent in that year.
      */
-    Map<LocalDate, Double> getTotalEarned(Predicate<LocalDate> predicate);
+    Map<Integer, Double> getTotalSpentByYear();
     /**
-     * @param predicate
-     * @return the total of all money spent in their specific date.
+     * This method calculate the total Earned in one year.
+     * @return a Map where the key is Year and the Value is the sum of all sales by that year
      */
-    Map<LocalDate, Double> getTotalSpent(Predicate<LocalDate> predicate);
-    Map<Integer, Double> getTotalSpentByYears();
     Map<Integer, Double> getTotalEarnedByYear();
+    /**
+     * This method calculate the total earned in a specific Month by the year/years specified in the predicate.
+     * @param year : which year we have to consider for sales.
+     * @return a Map where the Key is the Month and in the Value we find the total earned in that Month
+     */
     Map<Month, Double> getTotalEarnedByMonth(Predicate<Integer> year);
+    /**
+     * This method calculate the total spent in a specific Month by the year/years in the predicate.
+     * @param year : which year we have to consider
+     * @return a Map where the Key is the Month and the Value is the sum of all spent in that month.
+     */
     Map<Month, Double> getTotalSpentByMonth(Predicate<Integer> year);
     /**
      * 
