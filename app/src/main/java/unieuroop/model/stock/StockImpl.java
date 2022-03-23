@@ -3,7 +3,9 @@ package unieuroop.model.stock;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import java.util.Map;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 import java.util.function.BiPredicate;
 
@@ -71,6 +73,15 @@ public class StockImpl implements Stock {
      */
     @Override
     public Map<Product, Integer> getFilterProducts(BiPredicate<Integer, Category> filter) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    /**
+     * 
+     */
+    @Override
+    public List<Product> getProductsSorted(Comparator<Product> sorting) {
         // TODO Auto-generated method stub
         return null;
     }

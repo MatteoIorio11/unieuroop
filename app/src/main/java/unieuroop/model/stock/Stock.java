@@ -2,6 +2,9 @@ package unieuroop.model.stock;
 
 import java.util.Set;
 import java.util.function.BiPredicate;
+import java.util.Comparator;
+import java.util.List;
+
 import java.util.Map;
 
 import unieuroop.model.product.Category;
@@ -46,4 +49,11 @@ public interface Stock {
      * @return filterProducts
      */
     Map<Product, Integer> getFilterProducts(BiPredicate<Integer, Category> filter);
+
+    /**
+     * Return the list of products sorted by increasing or decreasing.
+     * @param sorting
+     * @return sortedProducts
+     */
+    List<Product> getProductsSorted(Comparator<Product> sorting);
 }
