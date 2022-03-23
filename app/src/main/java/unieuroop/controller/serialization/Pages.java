@@ -10,7 +10,7 @@ public enum Pages {
     /**
      * @param
      */
-    STOCK("Stock.fxml"),
+    STOCK("/pages/Stock/StockView.fxml"),
     /**
      * @param
      */
