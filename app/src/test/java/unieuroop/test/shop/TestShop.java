@@ -1,11 +1,14 @@
 package unieuroop.test.shop;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
 
@@ -15,14 +18,18 @@ import org.junit.Test;
 import javafx.util.Pair;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
+import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
+import unieuroop.model.sale.Sale;
+import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.shop.ShopImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierImpl;
+import unieuroop.test.analytic.TestAnalytic;
 
 public class TestShop {
 
@@ -30,22 +37,23 @@ public class TestShop {
     private static final LocalDate TIME_NOW = LocalDate.now();
     private static final LocalTime TIME_START = LocalTime.now();
     private static final LocalTime TIME_FINISH = LocalTime.of(10, 10);
-    private Department department; 
+    private Department department1;
+    private Department department2;
+    private Department department3;
     private Shop shop01;
-    private Shop shop02;
-    private Set<Department> departments;
+    private final Set<Department> departments = new HashSet<>();
     private Supplier s1;
     /**
      * ALL THE STAFF THAT WILL BE USED IN THIS TEST.
      */
     private final Staff staff1 = new Staff("Nome1", "Cognome1", TestShop.TIME_NOW,
-            0, "email1@gmail.com", 111, Map.of(DayOfWeek.of(0), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            0, "email1@gmail.com", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff2 = new Staff("Nome2", "Cognome2", TestShop.TIME_NOW,
-            0, "email2@gmail.csom", 222, Map.of(DayOfWeek.of(0), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            0, "email2@gmail.csom", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff3 = new Staff("Nome3", "Cognome4", TestShop.TIME_NOW,
-            0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(0), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff4 = new Staff("Nome4", "Cognome4", TestShop.TIME_NOW,
-            0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(0), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */
@@ -58,19 +66,123 @@ public class TestShop {
     public void setUp() {
         this.s1 = new SupplierImpl("supp1", Map.of(p1, 900.00, p2, 200.00, p3, 2000.00, p4, 3000.00));
         this.shop01 = new ShopImpl("shop01");
-        this.department = new DepartmentImpl("finalDep", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 10, p2, 1, p3, 2, p4, 3));
-        this.shop01.addDepartment(department);
-        this.department = new DepartmentImpl("department1", Set.of(staff1, staff2), Map.of(p1, 10, p4, 3));
-        this.departments.add(department);
-        this.department = new DepartmentImpl("department2", Set.of(staff3, staff4), Map.of(p2, 1, p3, 2));
-        this.departments.add(department);
-        this.shop02 = new ShopImpl("shop02");
+        this.department1 = new DepartmentImpl("department1", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 5, p2, 1, p3, 2, p4, 2));
+        this.department2 = new DepartmentImpl("department2", Set.of(staff1, staff2), Map.of(p1, 5, p4, 2));
+        this.department3 = new DepartmentImpl("department3", Set.of(staff3, staff4), Map.of(p2, 1, p3, 2));
+        this.shop01.addDepartment(department1);
+        this.shop01.addDepartment(department2);
+        this.shop01.addDepartment(department3);
+        this.departments.add(department1);
+        this.departments.add(department2);
+        this.departments.add(department3);
     }
-
+    /**
+     * TESTING :  mergeDepartments(Set<Department> departments {@link Department}, String name) {@link Shop}.
+     */
     @Test
     public void testMergeDepartments() {
-        setUp();
-        assertEquals(this.shop01.getName(), this.shop02.mergeDepartments(departments, "finalDep"));
+        final var departmentTemp = this.shop01.mergeDepartments(departments, "finalDep");
+        assertEquals("finalDep", departmentTemp.getDepartmentName());
+        assertEquals(departmentTemp.getAllProducts(), Map.of(p1, 10, p2, 2, p3, 4, p4, 4));
+        assertEquals(Set.of(staff1, staff2, staff3, staff4), departmentTemp.getStaff());
     }
+    /**
+     * Testing supplyDepartment(Department {@link Department}, Map<Product, Integer> products).  {@link Shop}
+     */
+    @Test
+    public void testSupplyDepartment() {
+        this.shop01.supplyDepartment(department1, Map.of(p1,5, p2, 2, p3, 3, p4, 1));
+        assertEquals(Map.of(p1, 10, p2, 3, p3, 5, p4, 3), this.department1.getAllProducts());
+    }
+    /**
+     * TESTING : removeClient(Client {@link Client}) {@link Shop}.
+     */
+    @Test
+    public void testRemoveClient1() {
+        final Client client1 = new Client("Name1", "Surname1", LocalDate.now(), Optional.empty());
+        final Client client2 = new Client("Name2", "Surname2", LocalDate.now(), Optional.empty());
+        final Client client3 = new Client("Name3", "Surname3", LocalDate.now(), Optional.empty());
+        this.shop01.registerClient(client1);
+        this.shop01.registerClient(client2);
 
+        try {
+            this.shop01.removeClient(client3);
+            fail("ERROR : exception must be throwned");
+        } catch (NoSuchElementException e) {
+            assertEquals("The input client does not exist", e.getMessage());
+        }
+    }
+    /**
+     * TESTING : removeClient(Client {@link Client}) {@link Shop}.
+     */
+    @Test
+    public void testRemoveClient2() {
+        final Client client1 = new Client("Name1", "Surname1", LocalDate.now(), Optional.empty());
+        final Client client2 = new Client("Name2", "Surname2", LocalDate.now(), Optional.empty());
+        this.shop01.registerClient(client1);
+        this.shop01.registerClient(client2);
+
+        try {
+            this.shop01.removeClient(client1);
+            this.shop01.removeClient(client2);
+        } catch (NoSuchElementException e) {
+            fail("ERROR : input clients exist in the Shop");
+        }
+    }
+    /**
+     * TESTING : removeSale(Sale {@link Sale}) {@link Shop}.
+     */
+    @Test
+    public void testRemoveSale1() {
+        final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100), Optional.empty());
+        final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 1), Optional.empty());
+        final Sale sale3 = new SaleImpl(LocalDate.now(), Map.of(p2, 1), Optional.empty());
+
+        this.shop01.addSale(sale1);
+        this.shop01.addSale(sale2);
+
+        try {
+            this.shop01.removeSale(sale3);
+            fail("ERROR : exception must be catched");
+        } catch (NoSuchElementException e) {
+            assertEquals("The input sale does not exist", e.getMessage());
+        }
+    }
+    /**
+     * TESTING : removeSale(Sale {@link Sale}) {@link Shop}.
+     */
+    @Test
+    public void testRemoveSale2() {
+        final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100), Optional.empty());
+        final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 1), Optional.empty());
+        final Sale sale3 = new SaleImpl(LocalDate.now(), Map.of(p2, 1), Optional.empty());
+
+        this.shop01.addSale(sale1);
+        this.shop01.addSale(sale2);
+
+        try {
+            this.shop01.removeSale(sale1);
+        } catch (NoSuchElementException e) {
+            fail("ERROR : exception must not be catched");
+        }
+    }
+    /**
+     * TESTING : removeSupplier(Supplier {@link Supplier} ) {@link Shop}.
+     */
+    @Test
+    public void testRemoveSupplier() {
+        final Supplier supp1 = new SupplierImpl("Supplier1", Map.of(p1, 10.0, p2, 40.0, p3, 1.0));
+        final Supplier supp2 = new SupplierImpl("Supplier2", Map.of(p1, 5.0, p2, 10.0));
+        final Supplier supp3 = new SupplierImpl("Supplier2", Map.of(p1, 1.0));
+
+        this.shop01.addSupplier(supp1);
+        this.shop01.addSupplier(supp2);
+
+        try {
+            this.shop01.removeSupplier(supp3);
+            fail("ERROR : exception must be throwned");
+        } catch(NoSuchElementException e) {
+            assertEquals("The input supplier does not exist", e.getMessage());
+        }
+    }
 }

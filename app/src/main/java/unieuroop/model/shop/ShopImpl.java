@@ -127,21 +127,21 @@ public final class ShopImpl implements Shop {
     @Override
     public void removeSupplier(final Supplier supplier) {
         if (!this.suppliers.remove(supplier)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input supplier does not exist");
         }
     }
 
     @Override
     public void removeSale(final Sale sale) {
         if (!this.sales.remove(sale)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input sale does not exist");
         }
     }
 
     @Override
     public void removeClient(final Client client) {
         if (!this.registeredClients.remove(client)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input client does not exist");
         }
     }
 
