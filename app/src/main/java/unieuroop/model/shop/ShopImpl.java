@@ -141,7 +141,7 @@ public final class ShopImpl implements Shop {
     @Override
     public void removeClient(final Client client) {
         if (!this.registeredClients.remove(client)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input client does not exist");
         }
     }
 
