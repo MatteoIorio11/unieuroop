@@ -55,7 +55,6 @@ public class ViewMainMenu implements Initializable{
     }
     private <X> void loadPage(final Pages page, final X controller) {
         Pane p;
-        System.out.println(page.getPath());
         try {
             final var loader = new FXMLLoader(getClass().getResource(page.getPath()));
             loader.setController(controller);
