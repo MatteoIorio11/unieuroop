@@ -170,7 +170,7 @@ public class TestShop {
      * TESTING : removeSupplier(Supplier {@link Supplier} ) {@link Shop}.
      */
     @Test
-    public void testRemoveSupplier() {
+    public void testRemoveSupplier1() {
         final Supplier supp1 = new SupplierImpl("Supplier1", Map.of(p1, 10.0, p2, 40.0, p3, 1.0));
         final Supplier supp2 = new SupplierImpl("Supplier2", Map.of(p1, 5.0, p2, 10.0));
         final Supplier supp3 = new SupplierImpl("Supplier2", Map.of(p1, 1.0));
@@ -181,8 +181,57 @@ public class TestShop {
         try {
             this.shop01.removeSupplier(supp3);
             fail("ERROR : exception must be throwned");
-        } catch(NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             assertEquals("The input supplier does not exist", e.getMessage());
+        }
+    }
+    /**
+     * TESTING : removeSupplier(Supplier {@link Supplier} ) {@link Shop}.
+     */
+    @Test
+    public void testRemoveSupplier2() {
+        final Supplier supp1 = new SupplierImpl("Supplier1", Map.of(p1, 10.0, p2, 40.0, p3, 1.0));
+        final Supplier supp2 = new SupplierImpl("Supplier2", Map.of(p1, 5.0, p2, 10.0));
+
+        this.shop01.addSupplier(supp1);
+        this.shop01.addSupplier(supp2);
+
+        try {
+            this.shop01.removeSupplier(supp1);
+        } catch (NoSuchElementException e) {
+            fail("ERROR : exception must not be throwned");
+        }
+    }
+    /**
+     * TESTING : removeStaff(Staff {@link Staff} ) {@link Shop}.
+     */
+    @Test
+    public void testRemoveStaff1() {
+        this.shop01.addStaff(staff1);
+        this.shop01.addStaff(staff2);
+        this.shop01.addStaff(staff3);
+
+        try {
+            this.shop01.removeStaff(staff4);
+            fail("ERROR : exception must be throwned");
+        } catch (NoSuchElementException e) {
+            assertEquals("The input staff does not exist", e.getMessage());
+        }
+    }
+    /**
+     * TESTING : removeStaff(Staff {@link Staff} ) {@link Shop}.
+     */
+    @Test
+    public void testRemoveStaff2() {
+        this.shop01.addStaff(staff1);
+        this.shop01.addStaff(staff2);
+        this.shop01.addStaff(staff3);
+
+        try {
+            this.shop01.removeStaff(staff4);
+            fail("ERROR : exception must be throwned");
+        } catch (NoSuchElementException e) {
+            assertEquals("The input staff does not exist", e.getMessage());
         }
     }
 }
