@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="628.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="550.0" prefWidth="628.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
       <GridPane BorderPane.alignment="CENTER">
          <columnConstraints>
@@ -31,9 +31,6 @@
          </children>
       </GridPane>
    </bottom>
-   <center>
-      <ListView prefWidth="702.0" BorderPane.alignment="CENTER" />
-   </center>
    <top>
       <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
          <columnConstraints>
@@ -71,4 +68,7 @@
          </children>
       </GridPane>
    </top>
+   <center>
+      <ListView prefWidth="702.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
