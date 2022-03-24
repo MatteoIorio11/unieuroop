@@ -29,7 +29,9 @@ public class ViewLogin implements Initializable {
     @FXML
     private void btnLoginHandler(final ActionEvent event) {
         if(this.controller.CheckPassword(this.email.getText(), this.password.getText())) {
-            //load page
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setContentText("good");
+            alert.showAndWait();
         }else {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setContentText("Wrong Password");
