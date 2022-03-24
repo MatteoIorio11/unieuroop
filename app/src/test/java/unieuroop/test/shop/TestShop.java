@@ -23,10 +23,13 @@ import unieuroop.model.person.Staff;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
+import unieuroop.model.sale.Sale;
+import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.shop.ShopImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierImpl;
+import unieuroop.test.analytic.TestAnalytic;
 
 public class TestShop {
 
@@ -88,7 +91,6 @@ public class TestShop {
      */
     @Test
     public void testSupplyDepartment() {
-        System.out.println(this.shop01.getName());
         this.shop01.supplyDepartment(department1, Map.of(p1,5, p2, 2, p3, 3, p4, 1));
         assertEquals(Map.of(p1, 10, p2, 3, p3, 5, p4, 3), this.department1.getAllProducts());
     }
@@ -110,5 +112,58 @@ public class TestShop {
             assertEquals("The input client does not exist", e.getMessage());
         }
     }
+    /**
+     * TESTING : removeClient(Client {@link Client}) {@link Shop}.
+     */
+    @Test
+    public void testRemoveClient2() {
+        final Client client1 = new Client("Name1", "Surname1", LocalDate.now(), Optional.empty());
+        final Client client2 = new Client("Name2", "Surname2", LocalDate.now(), Optional.empty());
+        this.shop01.registerClient(client1);
+        this.shop01.registerClient(client2);
 
+        try {
+            this.shop01.removeClient(client1);
+            this.shop01.removeClient(client2);
+        } catch (NoSuchElementException e) {
+            fail("ERROR : input clients exist in the Shop");
+        }
+    }
+    /**
+     * TESTING : removeSale(Sale {@link Sale}) {@link Shop}.
+     */
+    @Test
+    public void testRemoveSale1() {
+        final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100), Optional.empty());
+        final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 1), Optional.empty());
+        final Sale sale3 = new SaleImpl(LocalDate.now(), Map.of(p2, 1), Optional.empty());
+
+        this.shop01.addSale(sale1);
+        this.shop01.addSale(sale2);
+
+        try {
+            this.shop01.removeSale(sale3);
+            fail("ERROR : exception must be catched");
+        } catch (NoSuchElementException e) {
+            assertEquals("The input sale does not exist", e.getMessage());
+        }
+    }
+    /**
+     * TESTING : removeSale(Sale {@link Sale}) {@link Shop}.
+     */
+    @Test
+    public void testRemoveSale2() {
+        final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100), Optional.empty());
+        final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 1), Optional.empty());
+        final Sale sale3 = new SaleImpl(LocalDate.now(), Map.of(p2, 1), Optional.empty());
+
+        this.shop01.addSale(sale1);
+        this.shop01.addSale(sale2);
+
+        try {
+            this.shop01.removeSale(sale1);
+        } catch (NoSuchElementException e) {
+            fail("ERROR : exception must not be catched");
+        }
+    }
 }

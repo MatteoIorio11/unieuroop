@@ -134,7 +134,7 @@ public final class ShopImpl implements Shop {
     @Override
     public void removeSale(final Sale sale) {
         if (!this.sales.remove(sale)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input sale does not exist");
         }
     }
 
