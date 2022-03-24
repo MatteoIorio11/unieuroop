@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="550.0" prefWidth="628.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<BorderPane prefHeight="550.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,8 +34,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <PieChart id="pieChartSpent" fx:id="chartSpent" title="total spent (last 30 days)" />
-                        <PieChart id="pieChartEarned" fx:id="chartEarned" title="last earned (last 30 days)" GridPane.columnIndex="1" />
+                        <PieChart id="pieChartSpent" fx:id="chartSpent" title="total spent (this year)" />
+                        <PieChart id="pieChartEarned" fx:id="chartEarned" title="last earned (this year)" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                </center>

@@ -155,6 +155,7 @@ public final class ShopImpl implements Shop {
         //get all staff from the department i want to merge
         final Set<Staff> staff = departments.stream()
                 .flatMap(d -> d.getStaff().stream())
+                .distinct()
                 .collect(Collectors.toSet());
         //removing all departments
         departments.stream().forEach(d -> this.removeDepartment(d));

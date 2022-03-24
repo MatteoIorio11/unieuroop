@@ -123,13 +123,13 @@ public class ViewAnalytic implements Initializable{
                         )
                 )
         );
-        XYChart.Series<Integer, Double> serie1 = new XYChart.Series<>();
+        final XYChart.Series<Integer, Double> serie1 = new XYChart.Series<>();
         serie1.setName("Spent");
-        XYChart.Series<Integer, Double> serie2 = new XYChart.Series();
+        final XYChart.Series<Integer, Double> serie2 = new XYChart.Series();
         serie2.setName("Earned");
-        this.controller.getYearsTotalEarned().entrySet().forEach((entry) ->  serie1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
+        this.controller.getYearsTotalEarned().entrySet().forEach((entry) ->  serie2.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
         //this.analytic.getTotalEarned((date) -> true).entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getKey().getYear(), entry.getValue())));
-        this.controller.getYearsTotalSpent().entrySet().forEach((entry) -> serie2.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
+        this.controller.getYearsTotalSpent().entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
         //this.analytic.getTotalSpent((date) -> true).entrySet().forEach((entry) -> serie2.getData().add(new XYChart.Data<>(entry.getKey().getYear(), entry.getValue())));
         final var lowerEarned = this.controller.getYearsTotalEarned().entrySet().stream()
                 .map((entry) -> entry.getKey()).sorted().findFirst().get();

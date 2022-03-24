@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -30,10 +31,12 @@ public class TestShop {
     private static final LocalDate TIME_NOW = LocalDate.now();
     private static final LocalTime TIME_START = LocalTime.now();
     private static final LocalTime TIME_FINISH = LocalTime.of(10, 10);
-    private Department department; 
+    private Department department1;
+    private Department department2;
+    private Department department3;
     private Shop shop01;
     private Shop shop02;
-    private Set<Department> departments;
+    private final Set<Department> departments = new HashSet<>();
     private Supplier s1;
     /**
      * ALL THE STAFF THAT WILL BE USED IN THIS TEST.
@@ -58,18 +61,25 @@ public class TestShop {
     public void setUp() {
         this.s1 = new SupplierImpl("supp1", Map.of(p1, 900.00, p2, 200.00, p3, 2000.00, p4, 3000.00));
         this.shop01 = new ShopImpl("shop01");
-        this.department = new DepartmentImpl("finalDep", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 10, p2, 1, p3, 2, p4, 3));
-        this.shop01.addDepartment(department);
-        this.department = new DepartmentImpl("department1", Set.of(staff1, staff2), Map.of(p1, 10, p4, 3));
-        this.departments.add(department);
-        this.department = new DepartmentImpl("department2", Set.of(staff3, staff4), Map.of(p2, 1, p3, 2));
-        this.departments.add(department);
-        this.shop02 = new ShopImpl("shop02");
+        this.department1 = new DepartmentImpl("department1", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 10, p2, 1, p3, 2, p4, 3));
+        this.department2 = new DepartmentImpl("department2", Set.of(staff1, staff2), Map.of(p1, 10, p4, 3));
+        this.department3 = new DepartmentImpl("department3", Set.of(staff3, staff4), Map.of(p2, 1, p3, 2));
+        this.shop01.addDepartment(department1);
+        this.shop01.addDepartment(department2);
+        this.shop01.addDepartment(department3);
+        this.departments.add(department1);
+        this.departments.add(department2);
+        this.departments.add(department3);
     }
-
+    /**
+     * TESTING :  mergeDepartments(Set<Department> departments {@link Department}, String name) {@link Shop}.
+     */
     @Test
     public void testMergeDepartments() {
-        assertEquals(this.shop01.getName(), this.shop02.mergeDepartments(departments, "finalDep"));
+        final var departmentTemp = this.shop01.mergeDepartments(departments, "finalDep");
+        assertEquals("finalDep", departmentTemp.getDepartmentName());
+        assertEquals(departmentTemp.getAllProducts(), Map.of(p1, 20, p2, 2, p3, 4, p4, 6));
+        assertEquals(Set.of(staff1, staff2, staff3, staff4), departmentTemp.getStaff());
     }
 
 }

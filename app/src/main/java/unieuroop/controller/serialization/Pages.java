@@ -1,7 +1,5 @@
 package unieuroop.controller.serialization;
 
-import java.io.File;
-
 public enum Pages {
     /**
      * @param 
