@@ -29,10 +29,10 @@ import unieuroop.model.shop.Shop;
 import unieuroop.model.shop.ShopImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierImpl;
-import unieuroop.test.analytic.TestAnalytic;
 
 public class TestShop {
 
+    private static final String ERROR_MESSAGE = "ERROR : exception must be throwned";
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
     private static final LocalDate TIME_NOW = LocalDate.now();
     private static final LocalTime TIME_START = LocalTime.now();
@@ -107,7 +107,7 @@ public class TestShop {
 
         try {
             this.shop01.removeClient(client3);
-            fail("ERROR : exception must be throwned");
+            fail(TestShop.ERROR_MESSAGE);
         } catch (NoSuchElementException e) {
             assertEquals("The input client does not exist", e.getMessage());
         }
@@ -180,7 +180,7 @@ public class TestShop {
 
         try {
             this.shop01.removeSupplier(supp3);
-            fail("ERROR : exception must be throwned");
+            fail(TestShop.ERROR_MESSAGE);
         } catch (NoSuchElementException e) {
             assertEquals("The input supplier does not exist", e.getMessage());
         }
@@ -213,7 +213,7 @@ public class TestShop {
 
         try {
             this.shop01.removeStaff(staff4);
-            fail("ERROR : exception must be throwned");
+            fail(TestShop.ERROR_MESSAGE);
         } catch (NoSuchElementException e) {
             assertEquals("The input staff does not exist", e.getMessage());
         }
@@ -228,10 +228,35 @@ public class TestShop {
         this.shop01.addStaff(staff3);
 
         try {
-            this.shop01.removeStaff(staff4);
-            fail("ERROR : exception must be throwned");
+            this.shop01.removeStaff(staff3);
         } catch (NoSuchElementException e) {
-            assertEquals("The input staff does not exist", e.getMessage());
+            fail(TestShop.ERROR_MESSAGE);
         }
     }
+    /**
+     * TESING : removeDepartment (Department {@link Department} ) {@link Shop}.
+     */
+    @Test
+    public void testRemoveDepartment1() {
+        try {
+            this.shop01.removeDepartment(department1);
+        } catch (NoSuchElementException e) {
+            fail("ERROR : The input department exist");
+        }
+    }
+    /**
+     * TESING : removeDepartment (Department {@link Department} ) {@link Shop}.
+     */
+    @Test
+    public void testRemoveDepartment2() {
+        final Department departmentTemp = new DepartmentImpl("departmentTemp", Set.of(staff1, staff2), Map.of(p1, 5));
+
+        try {
+            this.shop01.removeDepartment(departmentTemp);
+            fail(TestShop.ERROR_MESSAGE);
+        } catch (NoSuchElementException e) {
+            assertEquals("The input department does not exist", e.getMessage());
+        }
+    }
+    
 }

@@ -115,7 +115,7 @@ public final class ShopImpl implements Shop {
     @Override
     public void removeDepartment(final Department department) {
         if (!this.departments.remove(department)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input department does not exist");
         }
     }
 
