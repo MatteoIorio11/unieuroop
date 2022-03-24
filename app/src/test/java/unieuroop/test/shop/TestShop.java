@@ -39,13 +39,13 @@ public class TestShop {
      * ALL THE STAFF THAT WILL BE USED IN THIS TEST.
      */
     private final Staff staff1 = new Staff("Nome1", "Cognome1", TestShop.TIME_NOW,
-            0, "email1@gmail.com", 111, Map.of(DayOfWeek.of(0), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            0, "email1@gmail.com", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff2 = new Staff("Nome2", "Cognome2", TestShop.TIME_NOW,
-            0, "email2@gmail.csom", 222, Map.of(DayOfWeek.of(0), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            0, "email2@gmail.csom", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff3 = new Staff("Nome3", "Cognome4", TestShop.TIME_NOW,
-            0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(0), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff4 = new Staff("Nome4", "Cognome4", TestShop.TIME_NOW,
-            0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(0), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */
@@ -69,7 +69,6 @@ public class TestShop {
 
     @Test
     public void testMergeDepartments() {
-        setUp();
         assertEquals(this.shop01.getName(), this.shop02.mergeDepartments(departments, "finalDep"));
     }
 

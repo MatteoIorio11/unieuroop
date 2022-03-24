@@ -71,4 +71,7 @@
          </children>
       </GridPane>
    </top>
+   <center>
+      <ListView prefWidth="702.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
