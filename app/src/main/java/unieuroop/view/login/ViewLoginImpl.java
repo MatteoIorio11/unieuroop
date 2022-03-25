@@ -19,14 +19,14 @@ import javafx.stage.Stage;
 import unieuroop.controller.login.ControllerLoginImpl;
 import unieuroop.controller.serialization.Pages;
 
-public class ViewLogin implements Initializable {
+public class ViewLoginImpl implements Initializable {
     private final ControllerLoginImpl controller;
     private final Stage primaryStage;
     @FXML 
     private TextField email;
     @FXML
     private PasswordField password;
-    public ViewLogin(final ControllerLoginImpl controller, final Stage primaryStage) {
+    public ViewLoginImpl(final ControllerLoginImpl controller, final Stage primaryStage) {
         this.controller = controller;
         this.primaryStage = primaryStage;
     }

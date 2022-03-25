@@ -12,7 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.view.analytic.ViewAnalytic;
-import unieuroop.view.department.ViewDepartments;
+import unieuroop.view.department.ViewDepartmentsImpl;
 
 public class ViewMainMenu implements Initializable{
     @FXML 
@@ -43,7 +43,7 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnDepartmentsHandler(final ActionEvent event) {
-        this.loadPage(Pages.DEPARTMENTS, new ViewDepartments());
+        this.loadPage(Pages.DEPARTMENTS, new ViewDepartmentsImpl());
     }
     @FXML
     private void btnBalancesHandler(final ActionEvent event) {

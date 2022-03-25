@@ -10,14 +10,14 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import unieuroop.controller.login.ControllerLoginImpl;
 import unieuroop.model.shop.ShopImpl;
-import unieuroop.view.login.ViewLogin;
+import unieuroop.view.login.ViewLoginImpl;
 
 public final class Launcher extends Application {
     
     @Override
     public void start(final Stage primaryStage) throws Exception {
         final var loader = new FXMLLoader(getClass().getResource("/pages/Login.fxml"));
-        loader.setController(new ViewLogin(new ControllerLoginImpl(new ShopImpl("UnieurOOP")), primaryStage));
+        loader.setController(new ViewLoginImpl(new ControllerLoginImpl(new ShopImpl("UnieurOOP")), primaryStage));
         final Parent root = loader.load();
         final Scene scene = new Scene(root, 700, 500);
         primaryStage.setTitle("unieurOOP");

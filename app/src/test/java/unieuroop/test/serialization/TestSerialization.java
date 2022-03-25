@@ -40,7 +40,7 @@ public class TestSerialization {
         System.out.println(Files.STAFFS.getPath());
         Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), staff);
 
-        final Set<Staff> pr = Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<Staff>>() { });
+        final Set<Staff> pr = Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), TypeReference<Set<Staff>>);
 
         pr.forEach(a -> System.out.println(a));
     }
