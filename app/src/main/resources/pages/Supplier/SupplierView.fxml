@@ -12,7 +12,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -64,11 +63,12 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: #0598ff;" text="BUY" textFill="WHITE">
+                        <Button layoutX="165.0" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: #0598ff;" text="BUY PRODUCTS" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
+                        <Spinner editable="true" layoutX="-80.0" layoutY="1.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
                      </children>
                      <BorderPane.margin>
                         <Insets bottom="20.0" />
@@ -79,9 +79,6 @@
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Spinner editable="true" layoutX="6.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
-                     </children>
                      <BorderPane.margin>
                         <Insets bottom="20.0" />
                      </BorderPane.margin>
