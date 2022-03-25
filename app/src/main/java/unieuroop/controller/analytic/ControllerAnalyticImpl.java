@@ -30,4 +30,10 @@ public final class ControllerAnalyticImpl{
     public Map<Integer, Double> getYearsTotalEarned(){
         return this.analytic.getTotalEarnedByYear();
     }
+    public Map<Product, Integer> getProductsSoldByCategory(final Set<Category> categories){
+        return this.analytic.getOrderedByCategory((category) -> categories.contains(category));
+    }
+    public Map<Category, Set<Product>> getCategoriesSold(){
+        return this.analytic.getCategoriesSold();
+    }
 }

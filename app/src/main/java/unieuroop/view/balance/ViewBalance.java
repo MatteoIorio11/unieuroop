@@ -1,4 +1,4 @@
-package unieuroop.view.analytic;
+package unieuroop.view.balance;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -30,7 +30,7 @@ import unieuroop.model.shop.ShopImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierImpl;
 
-public class ViewAnalytic implements Initializable{
+public class ViewBalance implements Initializable{
     @FXML
     private PieChart chartSpent;
     @FXML
@@ -49,14 +49,14 @@ public class ViewAnalytic implements Initializable{
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */
-    private final Product p1 = new ProductImpl(1, "iphone 13 pro", ViewAnalytic.APPLE_PRODUCT,  1200.00,  900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
-    private final Product p2 = new ProductImpl(2, "applewatch", ViewAnalytic.APPLE_PRODUCT, 500.00,  200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
-    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", ViewAnalytic.APPLE_PRODUCT,  3000.00, 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p4 = new ProductImpl(4, "mac book pro 16", ViewAnalytic.APPLE_PRODUCT,  600.00,  3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p5 = new ProductImpl(5, "ipad Air ", ViewAnalytic.APPLE_PRODUCT,  700.00,  300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
-    private final Product p6 = new ProductImpl(6, "ipad Pro", ViewAnalytic.APPLE_PRODUCT, 1000.00, 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
-    private final Product p7 = new ProductImpl(7, "ipad Pro Max", ViewAnalytic.APPLE_PRODUCT, 1200.00,  900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
-    private final Product p8 = new ProductImpl(8, "ipad Pro Max v2", ViewAnalytic.APPLE_PRODUCT, 1200.00, 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+    private final Product p1 = new ProductImpl(1, "iphone 13 pro", ViewBalance.APPLE_PRODUCT,  1200.00,  900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
+    private final Product p2 = new ProductImpl(2, "applewatch", ViewBalance.APPLE_PRODUCT, 500.00,  200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
+    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", ViewBalance.APPLE_PRODUCT,  3000.00, 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
+    private final Product p4 = new ProductImpl(4, "mac book pro 16", ViewBalance.APPLE_PRODUCT,  600.00,  3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
+    private final Product p5 = new ProductImpl(5, "ipad Air ", ViewBalance.APPLE_PRODUCT,  700.00,  300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
+    private final Product p6 = new ProductImpl(6, "ipad Pro", ViewBalance.APPLE_PRODUCT, 1000.00, 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
+    private final Product p7 = new ProductImpl(7, "ipad Pro Max", ViewBalance.APPLE_PRODUCT, 1200.00,  900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+    private final Product p8 = new ProductImpl(8, "ipad Pro Max v2", ViewBalance.APPLE_PRODUCT, 1200.00, 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
     /**
      * ALL THE SALES THAT WILL BE USED IN THIS TEST.
      */
@@ -100,11 +100,11 @@ public class ViewAnalytic implements Initializable{
         this.shop.addSale(sale16);
         this.shop.addBills(LocalDate.of(2022, 1, 20), 46310);
         this.shop.addBills(LocalDate.of(2022, 5, 20), 10000);
-        this.shop.addBills(ViewAnalytic.TIME_NOW, 14232);
+        this.shop.addBills(ViewBalance.TIME_NOW, 14232);
         this.shop.addBills(LocalDate.of(2015, 3, 20), 2123);
         this.shop.addBills(LocalDate.of(2002, 1, 20), 10231);
         this.shop.addBills(LocalDate.of(2017, 2, 20), 1000);
-        this.shop.addBills(ViewAnalytic.TIME_NOW, 14232);
+        this.shop.addBills(ViewBalance.TIME_NOW, 14232);
         this.shop.addBills(LocalDate.of(2013, 4, 20), 2123);
         analytic = new AnalyticImpl(shop);
         this.controller = new ControllerAnalyticImpl(analytic);
@@ -135,7 +135,7 @@ public class ViewAnalytic implements Initializable{
                 .map((entry) -> entry.getKey()).sorted().findFirst().get();
         final var lowerSpent = this.controller.getYearsTotalEarned().entrySet().stream()
                 .map((entry) -> entry.getKey()).sorted().findFirst().get();
-        areaChart.getData().addAll(serie2, serie1);
+        areaChart.getData().addAll(serie1, serie2);
         xAxis.setAutoRanging(false);
         xAxis.setLowerBound(lowerEarned > lowerSpent ? lowerSpent : lowerEarned);
         xAxis.setUpperBound(2030);

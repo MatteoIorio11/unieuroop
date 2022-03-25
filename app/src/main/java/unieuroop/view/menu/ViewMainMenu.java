@@ -11,7 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import unieuroop.controller.serialization.Pages;
-import unieuroop.view.analytic.ViewAnalytic;
+import unieuroop.view.balance.ViewBalance;
+import unieuroop.view.categories.ViewCategoriesSold;
 import unieuroop.view.department.ViewDepartments;
 
 public class ViewMainMenu implements Initializable{
@@ -31,7 +32,7 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnSalesHandler(final ActionEvent event) {
-        this.loadPage(Pages.MAIN_DATE_SOLD, null);
+        this.loadPage(Pages.SALES, null);
     }
     @FXML
     private void btnClientsHandler(final ActionEvent event) {
@@ -47,11 +48,11 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnBalancesHandler(final ActionEvent event) {
-        this.loadPage(Pages.BALANCE, new ViewAnalytic());
+        this.loadPage(Pages.BALANCE, new ViewBalance());
     }
     @FXML
     private void btnAnalyticsHandler(final ActionEvent event) {
-        this.loadPage(Pages.MAIN_CATEGORIES_SOLD, null);
+        this.loadPage(Pages.MAIN_CATEGORIES_SOLD, new ViewCategoriesSold());
     }
     private <X> void loadPage(final Pages page, final X controller) {
         Pane p;
