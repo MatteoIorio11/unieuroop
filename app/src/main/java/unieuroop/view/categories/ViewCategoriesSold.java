@@ -119,7 +119,7 @@ public class ViewCategoriesSold implements Initializable{
         this.comboCategories.getItems().addAll(Category.HOME, Category.PC);
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
         serie.setName("Category");
-        this.controller.getCategoriesSold().entrySet().forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue().size())));
+        this.controller.getCategoriesSold().entrySet().forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
         this.barCategories.getData().add(serie);
 
         this.comboCategories.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {

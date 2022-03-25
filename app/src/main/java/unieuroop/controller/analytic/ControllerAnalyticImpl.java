@@ -33,7 +33,7 @@ public final class ControllerAnalyticImpl{
     public Map<Product, Integer> getProductsSoldByCategory(final Set<Category> categories){
         return this.analytic.getOrderedByCategory((category) -> categories.contains(category));
     }
-    public Map<Category, Set<Product>> getCategoriesSold(){
+    public Map<Category, Integer> getCategoriesSold(){
         return this.analytic.getCategoriesSold();
     }
 }

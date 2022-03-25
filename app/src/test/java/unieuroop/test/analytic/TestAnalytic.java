@@ -269,20 +269,22 @@ public class TestAnalytic {
     @Test
     public void testSoldDays() {
         final Set<LocalDate> dates = new HashSet<>(Set.of(TestAnalytic.TIME_NOW));
-        Map<LocalDate, Set<Product>> products = this.analytic.getSoldOnDay((date) -> dates.contains(date));
+        Map<LocalDate, Integer> products = this.analytic.getSoldOnDay((date) -> dates.contains(date));
         final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
         final Sale saleTest = new SaleImpl(dateTemp, Map.of(p8, 1), Optional.empty());
+        int totalProducts = products.get(LocalDate.now());
 
         assertNotEquals(Collections.emptyMap(), products);
         assertEquals(1, products.size());
-        assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7), products.get(LocalDate.now()));
+        assertEquals(7, totalProducts);
 
         this.shop.addSale(saleTest);
         dates.add(dateTemp);
         products = this.analytic.getSoldOnDay((date) -> dates.contains(date));
+        totalProducts = products.get(LocalDate.now());
         assertNotEquals(Collections.emptyMap(), products);
         assertEquals(2, products.size());
-        assertEquals(Set.of(p1, p2, p3, p4, p5, p6, p7, p8), products.get(LocalDate.now()));
+        assertEquals(8, totalProducts);
     }
     /**
      * TEST FOR : analytic.getProductByDateCategory(BiPredicate<LocalDate, Category> b); {@link Analytic}
@@ -309,13 +311,13 @@ public class TestAnalytic {
      */
     @Test
     public void testCategoriesSold() {
-        final Map<Category, Set<Product>> categoriesSold = this.analytic.getCategoriesSold();
-        final Map<Category, Set<Product>> testMap = new HashMap<>();
+        final Map<Category, Integer> categoriesSold = this.analytic.getCategoriesSold();
+        final Map<Category, Integer> testMap = new HashMap<>();
 
-        testMap.put(Category.HOME, Set.of(p5, p6, p7));
-        testMap.put(Category.PC, Set.of(p3, p4));
-        testMap.put(Category.SMARTPHONE, Set.of(p1));
-        testMap.put(Category.SMARTWATCH, Set.of(p2));
+        testMap.put(Category.HOME, 3);
+        testMap.put(Category.PC, 2);
+        testMap.put(Category.SMARTPHONE, 1);
+        testMap.put(Category.SMARTWATCH, 1);
 
         assertNotEquals(Collections.emptyMap(), categoriesSold);
         assertEquals(testMap.get(Category.HOME), categoriesSold.get(Category.HOME));

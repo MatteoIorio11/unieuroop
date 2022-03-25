@@ -52,7 +52,7 @@ public interface Analytic {
      * @param datePredicate : specifies which dates we have to consider
      * @return a Map with key a Date and value the Set of all products sold in that specific day
      */
-    Map<LocalDate, Set<Product>> getSoldOnDay(Predicate<LocalDate> datePredicate);
+    Map<LocalDate, Integer> getSoldOnDay(Predicate<LocalDate> datePredicate);
 
     /**
      * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
@@ -65,7 +65,7 @@ public interface Analytic {
      * This method return all categories sold with the complete Set of all product .
      * @return the Map contains the Category and the complete Set of all product sold of that specific Category 
      */
-    Map<Category, Set<Product>> getCategoriesSold();
+    Map<Category, Integer> getCategoriesSold();
     /**
      * This method return the sum of all bills in the same year.
      * @return a Map where the Key is the Year and in the Value we can find the total spent in that year.

@@ -73,13 +73,13 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override 
-    public Map<LocalDate, Set<Product>> getSoldOnDay(final Predicate<LocalDate> datePredicate) {
+    public Map<LocalDate, Integer> getSoldOnDay(final Predicate<LocalDate> datePredicate) {
         return this.shop.getSales((sale) -> datePredicate.test(sale.getDate())).stream()
                 .map((sale) -> sale.getDate())
                 .distinct()
                 .sorted((date1, date2) -> date1.compareTo(date2))
                 .collect(Collectors.toMap((date) -> date, 
-                        (date) -> this.getProductByDate((inputDate) -> datePredicate.test(inputDate))));
+                        (date) -> this.getProductByDate((inputDate) -> datePredicate.test(inputDate)).size()));
     }
 
     @Override
@@ -102,13 +102,13 @@ public final class AnalyticImpl implements Analytic {
     }
 
     @Override
-    public Map<Category, Set<Product>> getCategoriesSold() {
+    public Map<Category, Integer> getCategoriesSold() {
         return this.shop.getSales().stream()
                 .flatMap((sale) -> sale.getProducts().stream().map((product) -> product.getCategory()))
                 .distinct()
                 .sorted((product1, product2) -> product1.getName().compareTo(product2.getName()))
                 .collect(Collectors.toMap((category) -> category, 
-                        (category) -> this.allSalesCategory(category)));
+                        (category) -> this.allSalesCategory(category).size()));
     }
 
     private double spentInYear(final int year) {
