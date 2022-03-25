@@ -37,6 +37,10 @@ public class TestShop {
     private static final LocalDate TIME_NOW = LocalDate.now();
     private static final LocalTime TIME_START = LocalTime.now();
     private static final LocalTime TIME_FINISH = LocalTime.of(10, 10);
+    private static final double P1_PRICE = 900.0;
+    private static final double P2_PRICE = 200.0;
+    private static final double P3_PRICE = 2000.0;
+    private static final double P4_PRICE = 3000.0;
     private Department department1;
     private Department department2;
     private Department department3;
@@ -64,26 +68,29 @@ public class TestShop {
 
     @Before
     public void setUp() {
-        this.s1 = new SupplierImpl("supp1", Map.of(p1, 900.00, p2, 200.00, p3, 2000.00, p4, 3000.00));
+        this.s1 = new SupplierImpl("supp1", Map.of(p1, TestShop.P1_PRICE, p2, TestShop.P2_PRICE, p3, TestShop.P3_PRICE, p4, TestShop.P4_PRICE));
         this.shop01 = new ShopImpl("shop01");
-        this.department1 = new DepartmentImpl("department1", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 5, p2, 1, p3, 2, p4, 2));
-        this.department2 = new DepartmentImpl("department2", Set.of(staff1, staff2), Map.of(p1, 5, p4, 2));
+        this.department1 = new DepartmentImpl("department1", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 2, p2, 1, p3, 2, p4, 2));
+        this.department2 = new DepartmentImpl("department2", Set.of(staff1, staff2), Map.of(p1, 2, p4, 2));
         this.department3 = new DepartmentImpl("department3", Set.of(staff3, staff4), Map.of(p2, 1, p3, 2));
         this.shop01.addDepartment(department1);
         this.shop01.addDepartment(department2);
         this.shop01.addDepartment(department3);
+
         this.departments.add(department1);
         this.departments.add(department2);
         this.departments.add(department3);
+
     }
     /**
      * TESTING :  mergeDepartments(Set<Department> departments {@link Department}, String name) {@link Shop}.
      */
     @Test
     public void testMergeDepartments() {
+
         final var departmentTemp = this.shop01.mergeDepartments(departments, "finalDep");
         assertEquals("finalDep", departmentTemp.getDepartmentName());
-        assertEquals(departmentTemp.getAllProducts(), Map.of(p1, 10, p2, 2, p3, 4, p4, 4));
+        assertEquals(departmentTemp.getAllProducts(), Map.of(p1, 4, p2, 2, p3, 4, p4, 4));
         assertEquals(Set.of(staff1, staff2, staff3, staff4), departmentTemp.getStaff());
     }
     /**
@@ -91,8 +98,10 @@ public class TestShop {
      */
     @Test
     public void testSupplyDepartment() {
-        this.shop01.supplyDepartment(department1, Map.of(p1,5, p2, 2, p3, 3, p4, 1));
-        assertEquals(Map.of(p1, 10, p2, 3, p3, 5, p4, 3), this.department1.getAllProducts());
+        this.shop01.supplyDepartment(department1, Map.of(p1, 2, p2, 2, p3, 3, p4, 1));
+        this.shop01.supplyDepartment(department3, Map.of(p2, 1));
+        assertEquals(Map.of(p1, 10, p2, 3, p3, 2, p4, 3), this.department1.getAllProducts());
+        assertEquals(Map.of(p2, 2, p3, 3), this.department3.getAllProducts());
     }
     /**
      * TESTING : removeClient(Client {@link Client}) {@link Shop}.
@@ -155,7 +164,6 @@ public class TestShop {
     public void testRemoveSale2() {
         final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p1, 10, p2, 100), Optional.empty());
         final Sale sale2 = new SaleImpl(LocalDate.now(), Map.of(p1, 1), Optional.empty());
-        final Sale sale3 = new SaleImpl(LocalDate.now(), Map.of(p2, 1), Optional.empty());
 
         this.shop01.addSale(sale1);
         this.shop01.addSale(sale2);
@@ -239,7 +247,7 @@ public class TestShop {
     @Test
     public void testRemoveDepartment1() {
         try {
-            this.shop01.removeDepartment(department1);
+            this.shop01.removeDepartment(department2);
         } catch (NoSuchElementException e) {
             fail("ERROR : The input department exist");
         }
@@ -258,5 +266,5 @@ public class TestShop {
             assertEquals("The input department does not exist", e.getMessage());
         }
     }
-    
+
 }

@@ -35,7 +35,6 @@ public class TestDepartment {
     private static final int FINAL_QUANTITY_P1 = 11;
     private static final int FINAL_QUANTITY_P2 = 200;
 
-    
     private Department department;
     private final Supplier s1 = new SupplierImpl("nome", Map.of());
     private final Product p1 = new ProductImpl(1, "iphone 13 pro", TestDepartment.APPLE_PRODUCT,  1200.00,  900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
