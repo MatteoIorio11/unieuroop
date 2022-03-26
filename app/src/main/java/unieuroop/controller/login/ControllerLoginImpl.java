@@ -19,13 +19,14 @@ import unieuroop.model.sale.Sale;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.shop.ShopImpl;
 import unieuroop.model.stock.Stock;
+import unieuroop.model.stock.StockImpl;
 import unieuroop.model.supplier.Supplier;
 
 public final class ControllerLoginImpl {
     private Shop shop;
     public ControllerLoginImpl() throws JsonGenerationException, JsonMappingException, IOException {
-        //this.shop.addStaff(new Staff("mario", "rossi", LocalDate.now(), 0, "prova@gmail.com", "1234".hashCode(), null));
         this.shop = new ShopImpl("UnieurOOP");
+        //this.shop.addStaff(new Staff("mario", "rossi", LocalDate.now(), 0, "prova@gmail.com", "1234".hashCode(), null));
         Serialization.<String>serialize(Files.SHOPNAME.getPath(), this.shop.getName());
         Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
         Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
@@ -53,7 +54,7 @@ public final class ControllerLoginImpl {
                 Serialization.<Set<Supplier>>deserialize(Files.SUPPLIERS.getPath(), new TypeReference<Set<Supplier>>() { }),
                 Serialization.<Set<Sale>>deserialize(Files.SALES.getPath(), new TypeReference<Set<Sale>>() { }),
                 Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { }),
-                Serialization.<Stock>deserialize(Files.STOCK.getPath(), new TypeReference<Stock>() { }),
+                Serialization.<StockImpl>deserialize(Files.STOCK.getPath(), new TypeReference<StockImpl>() { }),
                 Serialization.<Map<LocalDate, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<LocalDate, Double>>() { })           
                 );
     }
