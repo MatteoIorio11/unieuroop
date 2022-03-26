@@ -9,16 +9,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
-   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="251.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="355.0" minWidth="10.0" prefWidth="349.0" />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-   </rowConstraints>
-   <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
             <GridPane prefHeight="398.0" prefWidth="367.0" BorderPane.alignment="CENTER">
                <columnConstraints>
@@ -114,6 +111,5 @@
             </GridPane>
          </center>
       </BorderPane>
-      <ListView prefHeight="200.0" prefWidth="200.0" />
-   </children>
-</GridPane>
+   </center>
+</BorderPane>

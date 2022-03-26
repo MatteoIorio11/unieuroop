@@ -56,4 +56,10 @@ public interface Stock {
      * @return sortedProducts
      */
     List<Product> getProductsSorted(Comparator<Product> sorting);
+
+    /**
+     * Return the max amount of a product present in the Stock.
+     * @return maxAmount
+     */
+    int getMaxAmountOfProducts();
 }
