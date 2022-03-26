@@ -9,28 +9,16 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.google.common.collect.Multiset.Entry;
-
-import javafx.beans.value.ChangeListener;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.Axis;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.ScatterChart;
-import javafx.scene.chart.StackedAreaChart;
-import javafx.scene.chart.ValueAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.cell.ComboBoxListCell;
-import javafx.scene.layout.Background;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
-import unieuroop.controller.serialization.Pages;
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
 import unieuroop.model.product.Category;
@@ -43,7 +31,7 @@ import unieuroop.model.shop.ShopImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierImpl;
 
-public class ViewCategoriesSold implements Initializable{
+public final class ViewCategoriesSold implements Initializable {
 
     @FXML
     private BarChart<String, Integer> barCategories;
@@ -65,8 +53,6 @@ public class ViewCategoriesSold implements Initializable{
 
     private ControllerAnalyticImpl controller;
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
-    private static final int TOTAL_PRODUCT_SOLD = 7;  /*all the total product sold , not the quantity*/
-    private static final LocalDate TIME_NOW = LocalDate.now();
 
     private final Supplier s1 = new SupplierImpl("nome", Map.of());
     /**
@@ -100,7 +86,6 @@ public class ViewCategoriesSold implements Initializable{
     private final Sale sale15 = new SaleImpl(LocalDate.of(2012, 12, 20), Map.of(p3, 10, p7, 100, p1, 1), Optional.empty());
     private final Sale sale16 = new SaleImpl(LocalDate.of(2022, 11, 20), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
 
-    private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
 
     @Override
@@ -129,49 +114,56 @@ public class ViewCategoriesSold implements Initializable{
         this.shop.addBills(LocalDate.of(2017, 2, 20), 1000);
         this.shop.addBills(LocalDate.now(), 14232);
         this.shop.addBills(LocalDate.of(2013, 4, 20), 2123);
+        final Analytic analytic;
         analytic = new AnalyticImpl(shop);
         this.controller = new ControllerAnalyticImpl(analytic);
         /*TENIAMO DA QUI*/
-        this.comboCategories.getItems().addAll(Category.HOME, Category.PC, Category.SMARTPHONE);
+        this.barCategories.setLegendVisible(false);
+        this.comboCategories.getItems().addAll(this.controller.getCategoriesSold().keySet());
+
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
-        serie.setName("Category");
         this.controller.getCategoriesSold().entrySet().forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
         this.barCategories.getData().add(serie);
         this.barProductsSold.setLegendVisible(false);
 
 
         this.comboCategories.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            if(!this.selectedCategories.contains(this.comboCategories.getValue())) {
+            if (!this.selectedCategories.contains(this.comboCategories.getValue())) {
                 this.selectedCategories.add(this.comboCategories.getValue());
                 this.displayChart();
             }
          });
-        this.listLegend.getSelectionModel().selectedItemProperty().addListener( e -> {
-            var string = this.listLegend.getSelectionModel().getSelectedItem();
-            var code = string.split(":")[1].split(" ")[1];
-            System.out.println(code);
-            final var d = this.barProductsSold.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
-                    d.get().getNode().setStyle("-fx-bar-fill: red;");
+        this.listLegend.getSelectionModel().selectedItemProperty().addListener((e) -> {
+            final var string = this.listLegend.getSelectionModel().getSelectedItem();
+            if (string != null) {
+                final var code = string.split(":")[1].split(" ")[1];
+                final var d = this.barProductsSold.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
+                        d.get().getNode().setStyle("-fx-bar-fill: blue;");
+            }
         });
     }
 
     private void displayChart() {
+        this.barProductsSold.getData().clear();
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
         serie.setName("Product");
         final var categoriesSold =  this.controller.getProductsSoldByCategory(selectedCategories);
         this.barProductsSold.getData().clear();
         categoriesSold.entrySet().forEach((entry) ->
             serie.getData().add(new XYChart.Data<String, Integer>(String.valueOf(entry.getKey().getProductCode()), entry.getValue())));
-
-        final var out = categoriesSold.entrySet().stream().map((entry) -> "Code : " + entry.getKey().getProductCode() + " Name : " + entry.getKey().getName())
+        this.listLegend.getItems().clear();
+        this.listSelectedCategories.getItems().clear();
+        final var out = categoriesSold.entrySet().stream().map((entry) -> "Code : " + entry.getKey().getProductCode() + " Name : " + entry.getKey().getName()
+                + " Category : " + entry.getKey().getCategory())
                    .collect(Collectors.toList());
         this.listLegend.getItems().addAll(out);
+
         this.listSelectedCategories.getItems().addAll(this.selectedCategories.stream()
                 .map((cat) -> cat.toString()).collect(Collectors.toList()));
         this.barProductsSold.getData().add(serie);
     }
     @FXML
-    private void clearEvent(final ActionEvent event) {
+    public void clearEvent(final ActionEvent event) {
         this.selectedCategories.clear();
         this.barProductsSold.getData().clear();
         this.listLegend.getItems().clear();
