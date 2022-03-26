@@ -11,18 +11,26 @@ import java.util.stream.Collectors;
 
 import com.google.common.collect.Multiset.Entry;
 
+import javafx.beans.value.ChangeListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.ValueAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.cell.ComboBoxListCell;
+import javafx.scene.layout.Background;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
+import unieuroop.controller.serialization.Pages;
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
 import unieuroop.model.product.Category;
@@ -40,7 +48,7 @@ public class ViewCategoriesSold implements Initializable{
     @FXML
     private BarChart<String, Integer> barCategories;
     @FXML
-    private BarChart<Integer, Integer> barProductSold;
+    private BarChart<String, Integer> barProductsSold;
     @FXML
     private ComboBox<Category> comboCategories;
 
@@ -51,8 +59,9 @@ public class ViewCategoriesSold implements Initializable{
     @FXML
     private final NumberAxis yAxis = new NumberAxis();
     @FXML
-    private final ListView<String> listLegend = new ListView<>();
-
+    private ListView<String> listLegend;
+    @FXML
+    private ListView<String> listSelectedCategories;
 
     private ControllerAnalyticImpl controller;
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
@@ -123,23 +132,49 @@ public class ViewCategoriesSold implements Initializable{
         analytic = new AnalyticImpl(shop);
         this.controller = new ControllerAnalyticImpl(analytic);
         /*TENIAMO DA QUI*/
-        this.comboCategories.getItems().addAll(Category.HOME, Category.PC);
+        this.comboCategories.getItems().addAll(Category.HOME, Category.PC, Category.SMARTPHONE);
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
         serie.setName("Category");
         this.controller.getCategoriesSold().entrySet().forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
         this.barCategories.getData().add(serie);
+        this.barProductsSold.setLegendVisible(false);
+
 
         this.comboCategories.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            this.selectedCategories.add(this.comboCategories.getValue());
-            this.displayChart();
+            if(!this.selectedCategories.contains(this.comboCategories.getValue())) {
+                this.selectedCategories.add(this.comboCategories.getValue());
+                this.displayChart();
+            }
          });
+        this.listLegend.getSelectionModel().selectedItemProperty().addListener( e -> {
+            var string = this.listLegend.getSelectionModel().getSelectedItem();
+            var code = string.split(":")[1].split(" ")[1];
+            System.out.println(code);
+            final var d = this.barProductsSold.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
+                    d.get().getNode().setStyle("-fx-bar-fill: red;");
+        });
     }
 
     private void displayChart() {
-        final XYChart.Series<Integer, Integer> serie = new XYChart.Series<>();
-        this.controller.getProductsSoldByCategory(selectedCategories).entrySet().forEach((entry) -> serie.getData().add(new XYChart.Data<Integer, Integer>(entry.getKey().getProductCode(), entry.getValue())));
-        System.out.println("Aoooo");
-        this.barProductSold.getData().add(serie);
-    }
+        final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
+        serie.setName("Product");
+        final var categoriesSold =  this.controller.getProductsSoldByCategory(selectedCategories);
+        this.barProductsSold.getData().clear();
+        categoriesSold.entrySet().forEach((entry) ->
+            serie.getData().add(new XYChart.Data<String, Integer>(String.valueOf(entry.getKey().getProductCode()), entry.getValue())));
 
+        final var out = categoriesSold.entrySet().stream().map((entry) -> "Code : " + entry.getKey().getProductCode() + " Name : " + entry.getKey().getName())
+                   .collect(Collectors.toList());
+        this.listLegend.getItems().addAll(out);
+        this.listSelectedCategories.getItems().addAll(this.selectedCategories.stream()
+                .map((cat) -> cat.toString()).collect(Collectors.toList()));
+        this.barProductsSold.getData().add(serie);
+    }
+    @FXML
+    private void clearEvent(final ActionEvent event) {
+        this.selectedCategories.clear();
+        this.barProductsSold.getData().clear();
+        this.listLegend.getItems().clear();
+        this.listSelectedCategories.getItems().clear();
+    }
 }
