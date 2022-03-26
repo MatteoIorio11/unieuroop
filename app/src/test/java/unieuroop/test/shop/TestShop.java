@@ -98,10 +98,11 @@ public class TestShop {
      */
     @Test
     public void testSupplyDepartment() {
-        this.shop01.supplyDepartment(department1, Map.of(p1, 2, p2, 2, p3, 3, p4, 1));
-        this.shop01.supplyDepartment(department3, Map.of(p2, 1));
-        assertEquals(Map.of(p1, 10, p2, 3, p3, 2, p4, 3), this.department1.getAllProducts());
-        assertEquals(Map.of(p2, 2, p3, 3), this.department3.getAllProducts());
+        this.shop01.getStock().addProducts(Map.of(p1, 10, p2, 10, p3, 10, p4, 10));
+        this.shop01.supplyDepartment(department1, Map.of(p1, 2, p2, 2));
+        this.shop01.supplyDepartment(department3, Map.of(p4, 1));
+        assertEquals(Map.of(p1, 4, p2, 3, p3, 2, p4, 2), this.department1.getAllProducts());
+        assertEquals(Map.of(p2, 1, p3, 2, p4, 1), this.department3.getAllProducts());
     }
     /**
      * TESTING : removeClient(Client {@link Client}) {@link Shop}.
