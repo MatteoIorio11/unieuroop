@@ -17,10 +17,10 @@
                <bottom>
                   <StackedAreaChart id="areaChartSpentEarned" fx:id="areaChart" prefHeight="331.0" prefWidth="626.0" BorderPane.alignment="CENTER">
                      <xAxis>
-                        <NumberAxis label="amount" side="BOTTOM" fx:id="xAxis" />
+                        <NumberAxis label="year" side="BOTTOM" fx:id="xAxis" />
                      </xAxis>
                      <yAxis>
-                        <NumberAxis fx:id="yAxis" label="year" minorTickLength="0.0" side="LEFT" tickLabelGap="1.0" tickLength="1.0" tickUnit="0.0" />
+                        <NumberAxis fx:id="yAxis" label="amount" minorTickLength="0.0" side="LEFT" tickLabelGap="1.0" tickLength="1.0" tickUnit="0.0" />
                      </yAxis>
                   </StackedAreaChart>
                </bottom>

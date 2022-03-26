@@ -21,6 +21,7 @@ import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.ValueAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
@@ -39,13 +40,19 @@ public class ViewCategoriesSold implements Initializable{
     @FXML
     private BarChart<String, Integer> barCategories;
     @FXML
+    private BarChart<Integer, Integer> barProductSold;
+    @FXML
     private ComboBox<Category> comboCategories;
 
     private final Set<Category> selectedCategories = new HashSet<>();
 
     @FXML
     private final CategoryAxis xAxis = new CategoryAxis();
+    @FXML
     private final NumberAxis yAxis = new NumberAxis();
+    @FXML
+    private final ListView<String> listLegend = new ListView<>();
+
 
     private ControllerAnalyticImpl controller;
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
@@ -125,12 +132,14 @@ public class ViewCategoriesSold implements Initializable{
         this.comboCategories.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             this.selectedCategories.add(this.comboCategories.getValue());
             this.displayChart();
-
          });
     }
 
     private void displayChart() {
-
+        final XYChart.Series<Integer, Integer> serie = new XYChart.Series<>();
+        this.controller.getProductsSoldByCategory(selectedCategories).entrySet().forEach((entry) -> serie.getData().add(new XYChart.Data<Integer, Integer>(entry.getKey().getProductCode(), entry.getValue())));
+        System.out.println("Aoooo");
+        this.barProductSold.getData().add(serie);
     }
 
 }
