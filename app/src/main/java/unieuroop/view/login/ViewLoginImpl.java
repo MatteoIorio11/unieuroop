@@ -32,6 +32,11 @@ public class ViewLoginImpl implements Initializable {
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
+        try {
+            this.controller.loadData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     private void btnLoginHandler(final ActionEvent event) throws IOException {

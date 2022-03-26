@@ -44,7 +44,7 @@ public final class ShopImpl implements Shop {
         this.stock = stock;
         this.bills = bills;
     }
-    
+   
     @Override
     public String getName() {
         return this.name;
