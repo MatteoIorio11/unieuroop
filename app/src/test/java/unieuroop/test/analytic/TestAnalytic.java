@@ -332,8 +332,7 @@ public class TestAnalytic {
      */
     @Test
     public void testTotalStockPrice() {
-        final Stock stock = new StockImpl();
-        stock.addProducts(Map.of(p1, 10, p2, 10, p3, 3));
+        this.shop.getStock().addProducts(Map.of(p1, 10, p2, 10, p3, 3));
         final double total = this.analytic.getTotalStockPrice();
         final double totalCheck = p1.getSellingPrice() * 10
                 + p2.getSellingPrice() * 10
