@@ -1,16 +1,17 @@
 package unieuroop.view.sale;
 
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.Set;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import unieuroop.controller.shop.ControllerShopImpl;
+import unieuroop.model.department.Department;
 import unieuroop.model.product.Product;
 
 public final class ViewLabelSale implements Initializable {
@@ -23,20 +24,38 @@ public final class ViewLabelSale implements Initializable {
     private Label labelProductName;
 
     private final Product product;
-    private final int maxQuantity;
-    public ViewLabelSale(final Product product, final int maxQuantity) {
+    private int maxQuantity;
+    private final  Map<Product, Integer> bag;
+    private final ViewSale view;
+    private final ControllerShopImpl controller;
+    private final Department department;
+    public ViewLabelSale(final Product product, final Department department, final int maxQuantity, final Map<Product, Integer> bag, final ViewSale view, final ControllerShopImpl controller) {
         this.product = product;
         this.maxQuantity = maxQuantity;
+        this.bag = bag;
+        this.view = view;
+        this.controller = controller;
+        this.department = department;
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        final SpinnerValueFactory<Integer> values = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, this.maxQuantity);
-        this.labelProductName.setText(this.product.toString());
+        final int minValue = this.maxQuantity > 0 ? 1 : 0;
+        final SpinnerValueFactory<Integer> values = new SpinnerValueFactory.IntegerSpinnerValueFactory(minValue, this.maxQuantity);
+        this.labelProductName.setText("Product : " + this.product.toString());
         this.spinnerQuantity.setValueFactory(values);
-    }
-    @FXML
-    public void btnAddToSale(final ActionEvent event) {
-        final int quantity = this.spinnerQuantity.getValue();
-        
+
+        this.btnAdd.setOnMouseClicked((e) -> {
+            final int quantitySelected = this.spinnerQuantity.getValue();
+            if (quantitySelected > 0) {
+                this.bag.merge(product, quantitySelected, (oldQuantity, newQuantity) -> oldQuantity + newQuantity);
+                this.controller.reserveProducts(department, Map.of(this.product, quantitySelected));
+
+                this.view.getListView().getItems().clear();
+                this.bag.forEach((product, quantity) -> this.view.getListView().getItems().add("Product : " + product.getName() + ", Quantity : " + quantity));
+                this.maxQuantity = this.maxQuantity - quantitySelected;
+                final SpinnerValueFactory<Integer> newLimit = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.maxQuantity > 0 ? 1 : 0, this.maxQuantity);
+                this.spinnerQuantity.setValueFactory(newLimit);
+            }
+        });
     }
 }

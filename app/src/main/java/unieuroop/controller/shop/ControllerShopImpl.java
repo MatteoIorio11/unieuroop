@@ -36,4 +36,10 @@ public final class ControllerShopImpl {
     public int getQuantityOf(final Product product, final Department department) {
         return department.getAllProducts().get(product);
     }
+
+    public void reserveProducts(final Department departmentInput, final Map<Product, Integer> products) {
+        final Department deparment = this.shop.getDepartments().stream().filter((dep) -> dep.equals(departmentInput)).findFirst().get();
+        System.out.println(deparment.getAllProducts());
+        deparment.takeProductFromDepartment(products);
+    }
 }

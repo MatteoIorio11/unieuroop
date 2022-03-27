@@ -15,10 +15,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Pair;
@@ -42,7 +45,7 @@ public final class ViewSale implements Initializable {
     @FXML
     private ScrollPane scrollPane;;
     @FXML
-    private ListView<Product> listSelectedProducts;
+    private ListView<String> listSelectedProducts;
     @FXML
     private ListView<Pane> listLabel;
 
@@ -86,10 +89,22 @@ public final class ViewSale implements Initializable {
         this.comboDepartments.getItems().addAll(this.controller.getDepartments());
         this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             this.input = this.comboDepartments.getValue();
-            this.listSelectedProducts.getItems().clear();
-            this.listSelectedProducts.getItems().addAll(this.input.getAllProducts().keySet());
+            this.listLabel.getItems().clear();
             this.addLabels(this.input.getAllProducts().keySet(), this.input);
         });
+        this.btnCompleteSale.setOnMouseClicked((e) -> {
+            if (!this.bag.isEmpty()) {
+                final Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setContentText("Are you sure that you wanto to close the sale ?");
+                alert.showAndWait();
+                final var result = alert.getResult();
+                if (result == ButtonType.OK) {
+                        this.controller.registerSale(bag);
+                        this.bag.clear();
+                        this.listSelectedProducts.getItems().clear();
+                    }
+                } 
+            });
 
     }
     private void addLabels(final Set<Product> products, final Department department) {
@@ -97,7 +112,7 @@ public final class ViewSale implements Initializable {
             Pane p;
             try {
                 final var loader = new FXMLLoader(getClass().getResource(Pages.LABEL_PRODUCT_SALE.getPath()));
-                loader.setController(new ViewLabelSale(product, this.controller.getQuantityOf(product, department)));
+                loader.setController(new ViewLabelSale(product, department, this.controller.getQuantityOf(product, department), this.bag, this, this.controller));
                 p = loader.load();
                 this.listLabel.getItems().add(p);
             } catch (IOException e) {
@@ -107,7 +122,10 @@ public final class ViewSale implements Initializable {
 
     }
     public void btnSell(final ActionEvent event) {
-        this.controller.registerSale(this.bag);
+
+    }
+    public ListView<String> getListView() {
+        return this.listSelectedProducts;
     }
 
 }
