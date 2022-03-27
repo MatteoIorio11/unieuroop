@@ -5,11 +5,13 @@ import java.net.URL;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,12 +44,16 @@ public final class ViewSale implements Initializable {
     @FXML
     private ListView<Product> listSelectedProducts;
     @FXML
+    private ListView<Pane> listLabel;
+
+    @FXML
     private Button btnCompleteSale;
     @FXML
     private Button btnAddToSale;
     @FXML
     private ComboBox<Department> comboDepartments;
     private final ControllerShopImpl controller = new ControllerShopImpl();
+    private final Map<Product, Integer> bag = new HashMap<>();
     private Department input;
     private Supplier s1;
 
@@ -72,25 +78,36 @@ public final class ViewSale implements Initializable {
         this.s1 = new SupplierImpl("supp1", Map.of(p1, 900.00, p2, 200.00, p3, 2000.00, p4, 3000.00));
         this.department1 = new DepartmentImpl("department1", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 5, p2, 1, p3, 2, p4, 2));
         this.department2 = new DepartmentImpl("department2", Set.of(staff1, staff2), Map.of(p1, 5, p4, 2));
-        this.department3 = new DepartmentImpl("department3", Set.of(staff3, staff4), Map.of(p2, 1, p3, 2));
+        this.department3 = new DepartmentImpl("department3", Set.of(staff3, staff4), Map.of(p2, 100, p3, 2));
         this.controller.addDepartment(department1);
         this.controller.addDepartment(department2);
         this.controller.addDepartment(department3);
+
         this.comboDepartments.getItems().addAll(this.controller.getDepartments());
         this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             this.input = this.comboDepartments.getValue();
+            this.listSelectedProducts.getItems().clear();
             this.listSelectedProducts.getItems().addAll(this.input.getAllProducts().keySet());
+            this.addLabels(this.input.getAllProducts().keySet(), this.input);
+        });
 
-         });
-        Pane p;
-        try {
-            final var loader = new FXMLLoader(getClass().getResource(Pages.LABEL_PRODUCT_SALE.getPath()));
-            loader.setController(new ViewLabelSale());
-            p = loader.load();
-            this.scrollPane.setContent(p);
-        } catch (IOException e) {
-            e.printStackTrace();
+    }
+    private void addLabels(final Set<Product> products, final Department department) {
+        for (final var product : products) {
+            Pane p;
+            try {
+                final var loader = new FXMLLoader(getClass().getResource(Pages.LABEL_PRODUCT_SALE.getPath()));
+                loader.setController(new ViewLabelSale(product, this.controller.getQuantityOf(product, department)));
+                p = loader.load();
+                this.listLabel.getItems().add(p);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
+    }
+    public void btnSell(final ActionEvent event) {
+        this.controller.registerSale(this.bag);
     }
 
 }
