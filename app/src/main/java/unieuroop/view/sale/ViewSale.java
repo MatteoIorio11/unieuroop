@@ -1,5 +1,6 @@
 package unieuroop.view.sale;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -10,11 +11,16 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.util.Pair;
+import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
@@ -32,7 +38,7 @@ public final class ViewSale implements Initializable {
     private static final LocalTime TIME_FINISH = LocalTime.of(1, 1);
     private static final LocalDate TIME_NOW = LocalDate.now();
     @FXML
-    private ListView<Product> listProducts;
+    private ScrollPane scrollPane;;
     @FXML
     private ListView<Product> listSelectedProducts;
     @FXML
@@ -42,7 +48,9 @@ public final class ViewSale implements Initializable {
     @FXML
     private ComboBox<Department> comboDepartments;
     private final ControllerShopImpl controller = new ControllerShopImpl();
+    private Department input;
     private Supplier s1;
+
 
     private Department department1;
     private Department department2;
@@ -69,6 +77,20 @@ public final class ViewSale implements Initializable {
         this.controller.addDepartment(department2);
         this.controller.addDepartment(department3);
         this.comboDepartments.getItems().addAll(this.controller.getDepartments());
+        this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+            this.input = this.comboDepartments.getValue();
+            this.listSelectedProducts.getItems().addAll(this.input.getAllProducts().keySet());
+
+         });
+        Pane p;
+        try {
+            final var loader = new FXMLLoader(getClass().getResource(Pages.LABEL_PRODUCT_SALE.getPath()));
+            loader.setController(new ViewLabelSale());
+            p = loader.load();
+            this.scrollPane.setContent(p);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

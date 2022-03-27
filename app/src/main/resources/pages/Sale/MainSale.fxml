@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="468.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
-   <left>
-      <ListView id="listViewDepartment" fx:id="listProducts" prefHeight="400.0" prefWidth="257.0" BorderPane.alignment="CENTER" />
-   </left>
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="468.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <right>
-      <ListView id="listViewSale" fx:id="listSelectedProducts" prefHeight="400.0" prefWidth="265.0" BorderPane.alignment="CENTER" />
+      <ListView id="listViewSale" fx:id="listSelectedProducts" prefHeight="397.0" prefWidth="230.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="5.0" />
+         </BorderPane.margin></ListView>
    </right>
    <bottom>
       <Button id="buttonSell" fx:id="btnCompleteSale" mnemonicParsing="false" text="SELL" BorderPane.alignment="CENTER" />
    </bottom>
-   <center>
-      <Button id="buttonAddSale" fx:id="btnAddToSale" mnemonicParsing="false" text="ADD TO SALE" BorderPane.alignment="CENTER" />
-   </center>
    <top>
       <Pane prefHeight="45.0" prefWidth="675.0" BorderPane.alignment="CENTER">
          <children>
             <ComboBox fx:id="comboDepartments" layoutX="8.0" layoutY="10.0" prefHeight="25.0" prefWidth="248.0" />
-            <Label alignment="CENTER" layoutX="412.0" layoutY="7.0" prefHeight="17.0" prefWidth="263.0" text="Sale" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="519.0" layoutY="7.0" prefHeight="31.0" prefWidth="205.0" text="Sale" textAlignment="CENTER">
                <font>
                   <Font size="21.0" />
                </font>
@@ -33,4 +32,7 @@
          </children>
       </Pane>
    </top>
+   <left>
+      <ScrollPane fx:id="scrollPane" prefHeight="397.0" prefWidth="494.0" BorderPane.alignment="CENTER" />
+   </left>
 </BorderPane>
