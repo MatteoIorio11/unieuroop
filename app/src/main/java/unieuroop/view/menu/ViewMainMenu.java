@@ -14,6 +14,7 @@ import unieuroop.controller.serialization.Pages;
 import unieuroop.view.balance.ViewBalance;
 import unieuroop.view.categories.ViewCategoriesSold;
 import unieuroop.view.department.ViewDepartments;
+import unieuroop.view.sale.ViewSale;
 
 public class ViewMainMenu implements Initializable{
     @FXML 
@@ -32,7 +33,7 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnSalesHandler(final ActionEvent event) {
-        this.loadPage(Pages.SALES, null);
+        this.loadPage(Pages.SALES, new ViewSale());
     }
     @FXML
     private void btnClientsHandler(final ActionEvent event) {

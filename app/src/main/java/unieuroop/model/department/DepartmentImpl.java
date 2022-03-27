@@ -121,4 +121,12 @@ public final class DepartmentImpl implements Department {
         return true;
     }
 
+    /**
+     * Override of the method toString in order to have a better print of this class.
+     */
+    @Override
+    public String toString() {
+        return "Department Name : " + this.name;
+    }
+
 }
