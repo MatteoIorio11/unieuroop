@@ -1,0 +1,21 @@
+<java.util.ImmutableCollections_-Set12 resolves-to="java.util.CollSer" serialization="custom">
+  <java.util.CollSer>
+    <default>
+      <tag>2</tag>
+    </default>
+    <int>1</int>
+    <unieuroop.model.person.Staff>
+      <name>mario</name>
+      <surname>rossi</surname>
+      <birthdayDate resolves-to="java.time.Ser">
+        <byte>3</byte>
+        <int>2022</int>
+        <byte>3</byte>
+        <byte>27</byte>
+      </birthdayDate>
+      <id>0</id>
+      <email>prova@gmail.com</email>
+      <password>1509442</password>
+    </unieuroop.model.person.Staff>
+  </java.util.CollSer>
+</java.util.ImmutableCollections_-Set12>

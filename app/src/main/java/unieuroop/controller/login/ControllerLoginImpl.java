@@ -26,15 +26,15 @@ public final class ControllerLoginImpl {
     private Shop shop;
     public ControllerLoginImpl() throws JsonGenerationException, JsonMappingException, IOException {
         this.shop = new ShopImpl("UnieurOOP");
-        //this.shop.addStaff(new Staff("mario", "rossi", LocalDate.now(), 0, "prova@gmail.com", "1234".hashCode(), null));
-        Serialization.<String>serialize(Files.SHOPNAME.getPath(), this.shop.getName());
-        Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
-        Serialization.<Set<Supplier>>serialize(Files.SUPPLIERS.getPath(), this.shop.getSuppliers());
-        Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), this.shop.getSales());
-        Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), this.shop.getRegisteredClients());
-        Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
-        Serialization.<Map<LocalDate, Double>>serialize(Files.BILLS.getPath(), this.shop.getBills());
+//        this.shop.addStaff(new Staff("mario", "rossi", LocalDate.now(), 0, "prova@gmail.com", "1234".hashCode(), null));
+//        Serialization.<String>serialize(Files.SHOPNAME.getPath(), this.shop.getName());
+//        Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+//        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
+//        Serialization.<Set<Supplier>>serialize(Files.SUPPLIERS.getPath(), this.shop.getSuppliers());
+//        Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), this.shop.getSales());
+//        Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), this.shop.getRegisteredClients());
+//        Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
+//        Serialization.<Map<LocalDate, Double>>serialize(Files.BILLS.getPath(), this.shop.getBills());
 
     }
     
@@ -47,15 +47,23 @@ public final class ControllerLoginImpl {
     }
     
     public void loadData() throws JsonParseException, JsonMappingException, IOException {
-        this.shop = new ShopImpl(
-                Serialization.<String>deserialize(Files.SHOPNAME.getPath(), new TypeReference<String>() { }),
-                Serialization.<Set<Department>>deserialize(Files.DEPARTMENTS.getPath(), new TypeReference<Set<Department>>() { }),
-                Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<Staff>>() { }),
-                Serialization.<Set<Supplier>>deserialize(Files.SUPPLIERS.getPath(), new TypeReference<Set<Supplier>>() { }),
-                Serialization.<Set<Sale>>deserialize(Files.SALES.getPath(), new TypeReference<Set<Sale>>() { }),
-                Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { }),
-                Serialization.<StockImpl>deserialize(Files.STOCK.getPath(), new TypeReference<StockImpl>() { }),
-                Serialization.<Map<LocalDate, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<LocalDate, Double>>() { })           
-                );
+        Serialization.<String>deserialize(Files.SHOPNAME.getPath());
+        Serialization.<Set<Department>>deserialize(Files.DEPARTMENTS.getPath());
+        Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath());
+        Serialization.<Set<Supplier>>deserialize(Files.SUPPLIERS.getPath());
+        Serialization.<Set<Sale>>deserialize(Files.SALES.getPath());
+        Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath());
+        Serialization.<StockImpl>deserialize(Files.STOCK.getPath());
+        Serialization.<Map<LocalDate, Double>>deserialize(Files.BILLS.getPath());
+        //        this.shop = new ShopImpl(
+//                Serialization.<String>deserialize(Files.SHOPNAME.getPath()),
+//                Serialization.<Set<Department>>deserialize(Files.DEPARTMENTS.getPath()),
+//                Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath()),
+//                Serialization.<Set<Supplier>>deserialize(Files.SUPPLIERS.getPath()),
+//                Serialization.<Set<Sale>>deserialize(Files.SALES.getPath()),
+//                Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath()),
+//                Serialization.<StockImpl>deserialize(Files.STOCK.getPath()),
+//                Serialization.<Map<LocalDate, Double>>deserialize(Files.BILLS.getPath())           
+//                );
     }
 }

@@ -1,12 +1,9 @@
 package unieuroop.model.product;
-
-
-import java.io.Serializable;
 import java.util.Optional;
 
 import unieuroop.model.supplier.Supplier;
 
-public final class ProductImpl implements Product, Serializable {
+public final class ProductImpl implements Product {
     /**
      * 
      */
