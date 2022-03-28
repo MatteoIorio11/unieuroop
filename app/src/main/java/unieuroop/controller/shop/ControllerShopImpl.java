@@ -63,4 +63,8 @@ public final class ControllerShopImpl {
     public void clearReservedProducts() {
         this.reservedProductsMap.clear();
     }
+
+    public boolean isReserved() {
+        return this.reservedProductsMap.isEmpty();
+    }
 }

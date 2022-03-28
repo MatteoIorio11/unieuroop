@@ -84,7 +84,7 @@ public final class ViewSale implements Initializable {
         this.view = view;
         this.controller = controller;
     }
-    
+
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.s1 = new SupplierImpl("supp1", Map.of(p1, 900.00, p2, 200.00, p3, 2000.00, p4, 3000.00));
@@ -97,6 +97,9 @@ public final class ViewSale implements Initializable {
 
         this.comboDepartments.getItems().addAll(this.controller.getDepartments());
         this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+            if (this.controller.isReserved()) {
+                this.view.disableButtons(true);
+            }
             this.input = this.comboDepartments.getValue();
             this.listLabel.getItems().clear();
             this.addLabels(this.input.getAllProducts().keySet(), this.input);
@@ -110,6 +113,7 @@ public final class ViewSale implements Initializable {
                 if (result == ButtonType.OK) {
                         this.controller.closeSale();
                         this.bag.clear();
+                        this.view.disableButtons(false);
                         this.listSelectedProducts.getItems().clear();
                     }
                 } 
@@ -118,7 +122,7 @@ public final class ViewSale implements Initializable {
             this.controller.clearReservedProducts();
             this.listLabel.getItems().clear();
             this.listSelectedProducts.getItems().clear();
-            this.view.setVisibility(false);
+            this.view.disableButtons(false);
         });
 
     }

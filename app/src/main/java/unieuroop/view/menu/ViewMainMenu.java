@@ -86,7 +86,7 @@ public final class ViewMainMenu implements Initializable{
         }
     }
 
-    public void setVisibility(final boolean status) {
+    public void disableButtons(final boolean status) {
         this.btnAnalytics.setDisable(status);
         this.btnBalances.setDisable(status);
         this.btnClients.setDisable(status);
