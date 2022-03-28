@@ -60,7 +60,7 @@ public final class ViewSale implements Initializable {
     private ComboBox<Department> comboDepartments;
     private final ControllerShopImpl controller;
     private final Map<Product, Integer> bag = new HashMap<>();
-    private final ViewMainMenu view;
+    private final ViewMainMenu viewMenu;
     private Department input;
     private Supplier s1;
 
@@ -81,7 +81,7 @@ public final class ViewSale implements Initializable {
     private final Staff staff4 = new Staff("Nome4", "Cognome4", this.TIME_NOW,
             0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     public ViewSale(final ViewMainMenu view, final ControllerShopImpl controller) {
-        this.view = view;
+        this.viewMenu = view;
         this.controller = controller;
     }
 
@@ -98,7 +98,7 @@ public final class ViewSale implements Initializable {
         this.comboDepartments.getItems().addAll(this.controller.getDepartments());
         this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             if (this.controller.isReserved()) {
-                this.view.disableButtons(true);
+                this.viewMenu.disableButtons(true);
             }
             this.input = this.comboDepartments.getValue();
             this.listLabel.getItems().clear();
@@ -113,7 +113,7 @@ public final class ViewSale implements Initializable {
                 if (result == ButtonType.OK) {
                         this.controller.closeSale();
                         this.bag.clear();
-                        this.view.disableButtons(false);
+                        this.viewMenu.disableButtons(false);
                         this.listSelectedProducts.getItems().clear();
                     }
                 } 
@@ -122,7 +122,7 @@ public final class ViewSale implements Initializable {
             this.controller.clearReservedProducts();
             this.listLabel.getItems().clear();
             this.listSelectedProducts.getItems().clear();
-            this.view.disableButtons(false);
+            this.viewMenu.disableButtons(false);
         });
 
     }
