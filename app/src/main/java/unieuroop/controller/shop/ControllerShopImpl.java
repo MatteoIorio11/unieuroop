@@ -1,6 +1,7 @@
 package unieuroop.controller.shop;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -13,6 +14,7 @@ import unieuroop.model.shop.Shop;
 import unieuroop.model.shop.ShopImpl;
 
 public final class ControllerShopImpl {
+    private final Map<Department, Map<Product, Integer>> reservedProductsMap = new HashMap<>();
     private final Shop shop = new ShopImpl("Test");
 
     public void registerSale(final Map<Product, Integer> products) {
