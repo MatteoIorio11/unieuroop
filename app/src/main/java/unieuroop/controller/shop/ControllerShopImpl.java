@@ -39,14 +39,16 @@ public final class ControllerShopImpl {
     public void reserveProducts(final Department departmentInput, final Map<Product, Integer> products) {
         this.reservedProductsMap.merge(departmentInput, products, 
                 (olderMap, newerMap) -> {
-                    newerMap.putAll(olderMap); return newerMap;
+                    olderMap.putAll(newerMap); return olderMap;
                     });
     }
 
     public void closeSale() {
         if (!this.reservedProductsMap.isEmpty()) {
+            System.out.println(this.reservedProductsMap);
             for (final var entry : this.reservedProductsMap.entrySet()) {
-                final Department department = entry.getKey();
+                final Department department = this.shop.getDepartments().stream()
+                        .filter((d) -> d.equals(entry.getKey())).findFirst().get();
                 department.takeProductFromDepartment(entry.getValue());
             }
             final Map<Product, Integer> products = this.reservedProductsMap.entrySet().stream().map((entry) -> entry.getValue())
@@ -54,6 +56,7 @@ public final class ControllerShopImpl {
                         .collect(Collectors.toMap((entry) -> entry.getKey(), (entry) -> entry.getValue()));
             final Sale sale = new SaleImpl(LocalDate.now(), products, Optional.empty());
             this.shop.addSale(sale);
+            this.reservedProductsMap.clear();
         }
     }
 

@@ -58,7 +58,7 @@ public final class ViewSale implements Initializable {
     private Button btnQuit;
     @FXML
     private ComboBox<Department> comboDepartments;
-    private final ControllerShopImpl controller = new ControllerShopImpl();
+    private final ControllerShopImpl controller;
     private final Map<Product, Integer> bag = new HashMap<>();
     private final ViewMainMenu view;
     private Department input;
@@ -80,8 +80,9 @@ public final class ViewSale implements Initializable {
             0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff4 = new Staff("Nome4", "Cognome4", this.TIME_NOW,
             0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    public ViewSale(final ViewMainMenu view) {
+    public ViewSale(final ViewMainMenu view, final ControllerShopImpl controller) {
         this.view = view;
+        this.controller = controller;
     }
     
     @Override
@@ -96,7 +97,6 @@ public final class ViewSale implements Initializable {
 
         this.comboDepartments.getItems().addAll(this.controller.getDepartments());
         this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            
             this.input = this.comboDepartments.getValue();
             this.listLabel.getItems().clear();
             this.addLabels(this.input.getAllProducts().keySet(), this.input);

@@ -30,6 +30,7 @@ public final class ViewLabelSale implements Initializable {
     private final ViewSale view;
     private final ControllerShopImpl controller;
     private final Department department;
+    private int totalQuantity;
     public ViewLabelSale(final Product product, final Department department, final int maxQuantity,
             final Map<Product, Integer> bag, final ViewSale view, final ControllerShopImpl controller) {
         this.product = product;
@@ -38,6 +39,7 @@ public final class ViewLabelSale implements Initializable {
         this.view = view;
         this.controller = controller;
         this.department = department;
+        this.totalQuantity = 0;
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
@@ -49,8 +51,10 @@ public final class ViewLabelSale implements Initializable {
         this.btnAdd.setOnMouseClicked((e) -> {
             final int quantitySelected = this.spinnerQuantity.getValue();
             if (quantitySelected > 0) {
+                this.totalQuantity = this.totalQuantity + quantitySelected;
                 this.bag.merge(product, quantitySelected, (oldQuantity, newQuantity) -> oldQuantity + newQuantity);
-                this.controller.reserveProducts(department, new HashMap<>(Map.of(this.product, quantitySelected)));
+                System.out.println(this.totalQuantity);
+                this.controller.reserveProducts(department, new HashMap<>(Map.of(this.product, totalQuantity)));
 
                 this.view.getListView().getItems().clear();
                 this.bag.forEach((product, quantity) -> this.view.getListView().getItems().add("Product : " + product.getName() + ", Quantity : " + quantity));
