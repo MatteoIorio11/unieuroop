@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import unieuroop.model.department.Department;
 import unieuroop.model.product.Product;
@@ -17,13 +18,6 @@ public final class ControllerShopImpl {
     private final Map<Department, Map<Product, Integer>> reservedProductsMap = new HashMap<>();
     private final Shop shop = new ShopImpl("Test");
 
-    public void registerSale(final Map<Product, Integer> products) {
-        if (products.isEmpty()) {
-            throw new IllegalArgumentException("There have to be some products in the Sale.");
-        } else {
-            this.shop.addSale(new SaleImpl(LocalDate.now(), products, Optional.empty()));
-        }
-    }
     public Set<Department> getDepartments() {
         return this.shop.getDepartments();
     }
@@ -36,12 +30,34 @@ public final class ControllerShopImpl {
     }
 
     public int getQuantityOf(final Product product, final Department department) {
-        return department.getAllProducts().get(product);
+        final int quantity = department.getAllProducts().get(product);
+        return this.reservedProductsMap.containsKey(department) && this.reservedProductsMap.get(department).containsKey(product)
+                 ? this.reservedProductsMap.get(department).get(product) - quantity : quantity;
+
     }
 
     public void reserveProducts(final Department departmentInput, final Map<Product, Integer> products) {
-        final Department deparment = this.shop.getDepartments().stream().filter((dep) -> dep.equals(departmentInput)).findFirst().get();
-        System.out.println(deparment.getAllProducts());
-        deparment.takeProductFromDepartment(products);
+        this.reservedProductsMap.merge(departmentInput, products, 
+                (olderMap, newerMap) -> {
+                    newerMap.putAll(olderMap); return newerMap;
+                    });
+    }
+
+    public void closeSale() {
+        if (!this.reservedProductsMap.isEmpty()) {
+            for (final var entry : this.reservedProductsMap.entrySet()) {
+                final Department department = entry.getKey();
+                department.takeProductFromDepartment(entry.getValue());
+            }
+            final Map<Product, Integer> products = this.reservedProductsMap.entrySet().stream().map((entry) -> entry.getValue())
+                        .flatMap((m) -> m.entrySet().stream())
+                        .collect(Collectors.toMap((entry) -> entry.getKey(), (entry) -> entry.getValue()));
+            final Sale sale = new SaleImpl(LocalDate.now(), products, Optional.empty());
+            this.shop.addSale(sale);
+        }
+    }
+
+    public void clearReservedProducts() {
+        this.reservedProductsMap.clear();
     }
 }

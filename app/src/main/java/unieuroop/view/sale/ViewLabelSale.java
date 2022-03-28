@@ -1,6 +1,7 @@
 package unieuroop.view.sale;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -29,7 +30,8 @@ public final class ViewLabelSale implements Initializable {
     private final ViewSale view;
     private final ControllerShopImpl controller;
     private final Department department;
-    public ViewLabelSale(final Product product, final Department department, final int maxQuantity, final Map<Product, Integer> bag, final ViewSale view, final ControllerShopImpl controller) {
+    public ViewLabelSale(final Product product, final Department department, final int maxQuantity,
+            final Map<Product, Integer> bag, final ViewSale view, final ControllerShopImpl controller) {
         this.product = product;
         this.maxQuantity = maxQuantity;
         this.bag = bag;
@@ -48,7 +50,7 @@ public final class ViewLabelSale implements Initializable {
             final int quantitySelected = this.spinnerQuantity.getValue();
             if (quantitySelected > 0) {
                 this.bag.merge(product, quantitySelected, (oldQuantity, newQuantity) -> oldQuantity + newQuantity);
-                this.controller.reserveProducts(department, Map.of(this.product, quantitySelected));
+                this.controller.reserveProducts(department, new HashMap<>(Map.of(this.product, quantitySelected)));
 
                 this.view.getListView().getItems().clear();
                 this.bag.forEach((product, quantity) -> this.view.getListView().getItems().add("Product : " + product.getName() + ", Quantity : " + quantity));

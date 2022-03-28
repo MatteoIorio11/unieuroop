@@ -35,6 +35,7 @@ import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierImpl;
+import unieuroop.view.menu.ViewMainMenu;
 
 public final class ViewSale implements Initializable {
 
@@ -54,9 +55,12 @@ public final class ViewSale implements Initializable {
     @FXML
     private Button btnAddToSale;
     @FXML
+    private Button btnQuit;
+    @FXML
     private ComboBox<Department> comboDepartments;
     private final ControllerShopImpl controller = new ControllerShopImpl();
     private final Map<Product, Integer> bag = new HashMap<>();
+    private final ViewMainMenu view;
     private Department input;
     private Supplier s1;
 
@@ -76,6 +80,10 @@ public final class ViewSale implements Initializable {
             0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff4 = new Staff("Nome4", "Cognome4", this.TIME_NOW,
             0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+    public ViewSale(final ViewMainMenu view) {
+        this.view = view;
+    }
+    
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.s1 = new SupplierImpl("supp1", Map.of(p1, 900.00, p2, 200.00, p3, 2000.00, p4, 3000.00));
@@ -88,6 +96,7 @@ public final class ViewSale implements Initializable {
 
         this.comboDepartments.getItems().addAll(this.controller.getDepartments());
         this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+            
             this.input = this.comboDepartments.getValue();
             this.listLabel.getItems().clear();
             this.addLabels(this.input.getAllProducts().keySet(), this.input);
@@ -99,12 +108,18 @@ public final class ViewSale implements Initializable {
                 alert.showAndWait();
                 final var result = alert.getResult();
                 if (result == ButtonType.OK) {
-                        this.controller.registerSale(bag);
+                        this.controller.closeSale();
                         this.bag.clear();
                         this.listSelectedProducts.getItems().clear();
                     }
                 } 
             });
+        this.btnQuit.setOnMouseClicked((e) -> {
+            this.controller.clearReservedProducts();
+            this.listLabel.getItems().clear();
+            this.listSelectedProducts.getItems().clear();
+            this.view.setVisibility(false);
+        });
 
     }
     private void addLabels(final Set<Product> products, final Department department) {

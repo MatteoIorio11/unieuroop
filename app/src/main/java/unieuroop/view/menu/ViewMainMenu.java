@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import unieuroop.controller.serialization.Pages;
@@ -16,9 +17,25 @@ import unieuroop.view.categories.ViewCategoriesSold;
 import unieuroop.view.department.ViewDepartments;
 import unieuroop.view.sale.ViewSale;
 
-public class ViewMainMenu implements Initializable{
+public final class ViewMainMenu implements Initializable{
     @FXML 
     private BorderPane mainPane;
+    @FXML
+    private Button btnDashBoard;
+    @FXML
+    private Button btnStock;
+    @FXML
+    private Button btnSales;
+    @FXML
+    private Button btnClients;
+    @FXML
+    private Button btnStaff;
+    @FXML
+    private Button btnDepartments;
+    @FXML
+    private Button btnBalances;
+    @FXML
+    private Button btnAnalytics;
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         
@@ -33,7 +50,7 @@ public class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnSalesHandler(final ActionEvent event) {
-        this.loadPage(Pages.SALES, new ViewSale());
+        this.loadPage(Pages.SALES, new ViewSale(this));
     }
     @FXML
     private void btnClientsHandler(final ActionEvent event) {
@@ -66,4 +83,16 @@ public class ViewMainMenu implements Initializable{
             e.printStackTrace();
         }
     }
+
+    public void setVisibility(final boolean status) {
+        this.btnAnalytics.setDisable(status);
+        this.btnBalances.setDisable(status);
+        this.btnClients.setDisable(status);
+        this.btnDashBoard.setDisable(status);
+        this.btnDepartments.setDisable(status);
+        this.btnSales.setDisable(status);
+        this.btnStaff.setDisable(status);
+        this.btnStock.setDisable(status);
+    }
+
 }
