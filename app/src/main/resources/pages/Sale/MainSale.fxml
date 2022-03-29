@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane prefHeight="484.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <GridPane BorderPane.alignment="CENTER">
@@ -20,15 +19,15 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.79998779296875" minWidth="10.0" prefWidth="258.3999755859375" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="127.79999389648438" minHeight="0.0" prefHeight="33.200004959106444" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="392.0000137269497" minHeight="10.0" prefHeight="383.99999504089357" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="75.79996337890628" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="127.79999389648438" minHeight="0.0" prefHeight="29.800006103515624" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="436.7999980926514" minHeight="10.0" prefHeight="424.8000122070313" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="75.79996337890628" minHeight="0.0" prefHeight="29.59998779296876" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <ListView fx:id="listLabel" prefHeight="397.0" prefWidth="495.0" GridPane.rowIndex="1" />
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ComboBox fx:id="comboDepartments" layoutX="226.0" layoutY="8.0" prefHeight="25.0" prefWidth="248.0" />
+                  <ComboBox fx:id="comboDepartments" layoutX="240.0" layoutY="3.0" prefHeight="15.0" prefWidth="248.0" />
                   <Label layoutX="97.0" layoutY="12.0" prefHeight="17.0" prefWidth="122.0" text="Departments : " />
                </children>
             </Pane>
