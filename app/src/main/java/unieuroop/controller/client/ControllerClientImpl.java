@@ -1,16 +1,18 @@
 package unieuroop.controller.client;
 
+import java.time.LocalDate;
+
 public class ControllerClientImpl {
 
-    private void AddClient() {
+    public void AddClient(String name, String surname, LocalDate birthday, String code) {
         
     }
     
-    private void EditClient() {
+    public void EditClient() {
         
     }
     
-    private void DeleteClient() {
+    public void DeleteClient() {
         
     }
 }

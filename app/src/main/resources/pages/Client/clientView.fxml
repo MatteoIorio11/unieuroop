@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
@@ -8,7 +9,6 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <left>
@@ -60,22 +60,22 @@
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                            <center>
-                              <TextField BorderPane.alignment="CENTER" />
+                              <TextField fx:id="tbxName" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <center>
-                              <TextField BorderPane.alignment="CENTER" />
+                              <TextField fx:id="tbxSurname" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <center>
-                              <TextField BorderPane.alignment="CENTER" />
+                              <DatePicker fx:id="dtBirthday" prefHeight="26.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <center>
-                              <TextField BorderPane.alignment="CENTER" />
+                              <TextField fx:id="tbxCode" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                      </children>
@@ -92,17 +92,17 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                            <center>
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EDIT CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                              <Button fx:id="btnEditClient" mnemonicParsing="false" onAction="#btnEditClientHandler" prefHeight="50.0" prefWidth="100.0" text="EDIT CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                            <center>
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" text="DELETE CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                              <Button fx:id="btnDeleteClient" mnemonicParsing="false" onAction="#btnDeleteClientHandler" prefHeight="50.0" prefWidth="113.0" text="DELETE CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0">
                            <center>
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="ADD CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                              <Button fx:id="btnAddClient" mnemonicParsing="false" onAction="#btnAddClientHandler" prefHeight="50.0" prefWidth="100.0" text="ADD CLIENT" textAlignment="CENTER" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                      </children>

@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import unieuroop.controller.client.ControllerClientImpl;
@@ -20,13 +21,13 @@ public class ViewClient implements Initializable {
     @FXML
     private ListView<Client> listClients;
     @FXML 
-    private TextField name;
+    private TextField tbxName;
     @FXML 
-    private TextField surname;
+    private TextField tbxSurname;
     @FXML 
-    private TextField birthday;
+    private DatePicker dtBirthday;
     @FXML 
-    private TextField code;
+    private TextField tbxCode;
     @FXML
     private Button btnAddClient;
     @FXML
@@ -48,10 +49,10 @@ public class ViewClient implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-    
+
     @FXML
     private void btnAddHandler(final ActionEvent event) {
-        
+        this.controller.AddClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue(), this.tbxCode.getText());
     }
 
     private void btnEditClientHandler(final ActionEvent event) {
