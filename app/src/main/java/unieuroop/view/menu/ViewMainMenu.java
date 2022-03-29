@@ -15,6 +15,7 @@ import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.view.balance.ViewBalance;
 import unieuroop.view.categories.ViewCategoriesSold;
+import unieuroop.view.client.ViewClient;
 import unieuroop.view.department.ViewDepartments;
 import unieuroop.view.sale.ViewSale;
 
@@ -56,7 +57,7 @@ public final class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnClientsHandler(final ActionEvent event) {
-        this.loadPage(Pages.CLIENTS, null);
+        this.loadPage(Pages.CLIENTS, new ViewClient(this, this.controller));
     }
     @FXML
     private void btnStaffHandler(final ActionEvent event) {
