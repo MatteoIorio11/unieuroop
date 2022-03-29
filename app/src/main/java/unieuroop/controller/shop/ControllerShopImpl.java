@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import unieuroop.model.department.Department;
+import unieuroop.model.person.Client;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
@@ -43,7 +44,7 @@ public final class ControllerShopImpl {
                     });
     }
 
-    public void closeSale() {
+    public void closeSale(final Optional<Client> client) {
         if (!this.reservedProductsMap.isEmpty()) {
             System.out.println(this.reservedProductsMap);
             for (final var entry : this.reservedProductsMap.entrySet()) {
@@ -54,10 +55,14 @@ public final class ControllerShopImpl {
             final Map<Product, Integer> products = this.reservedProductsMap.entrySet().stream().map((entry) -> entry.getValue())
                         .flatMap((m) -> m.entrySet().stream())
                         .collect(Collectors.toMap((entry) -> entry.getKey(), (entry) -> entry.getValue()));
-            final Sale sale = new SaleImpl(LocalDate.now(), products, Optional.empty());
+            final Sale sale = new SaleImpl(LocalDate.now(), products, client);
             this.shop.addSale(sale);
             this.reservedProductsMap.clear();
         }
+    }
+
+    public void addClient(final String name, final String surname, final LocalDate birthday, final Optional<Integer> code) {
+        this.shop.registerClient(new Client(name, surname, birthday, code));
     }
 
     public void clearReservedProducts() {
@@ -66,5 +71,9 @@ public final class ControllerShopImpl {
 
     public boolean isReserved() {
         return this.reservedProductsMap.isEmpty();
+    }
+
+    public Set<Client> getClients() {
+        return this.shop.getRegisteredClients();
     }
 }

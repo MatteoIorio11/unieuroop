@@ -29,6 +29,6 @@ public class Client extends AbstractPerson implements Serializable {
      */
     @Override
     public String toString() {
-        return super.toString() + " " + this.clientCode;
+        return super.toString();
     }
 }

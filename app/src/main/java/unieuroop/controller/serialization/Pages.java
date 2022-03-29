@@ -56,7 +56,11 @@ public enum Pages {
     /**
      * @param
      */
-    MAIN_DATE_SOLD("/pages/DateSold/MainDateChart.fxml");
+    MAIN_DATE_SOLD("/pages/DateSold/MainDateChart.fxml"),
+    /**
+     * @param
+     */
+    CHOSE_CLIENT("/pages/Client/ChoseClient.fxml");
 
     private final String fileName;
 

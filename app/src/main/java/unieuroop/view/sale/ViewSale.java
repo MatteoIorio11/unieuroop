@@ -10,25 +10,31 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
+import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
@@ -49,7 +55,10 @@ public final class ViewSale implements Initializable {
     private ListView<String> listSelectedProducts;
     @FXML
     private ListView<Pane> listLabel;
-
+    @FXML
+    private ListView<Client> listClients;
+    @FXML
+    private TextField textName;
     @FXML
     private Button btnCompleteSale;
     @FXML
@@ -61,6 +70,7 @@ public final class ViewSale implements Initializable {
     private final ControllerShopImpl controller;
     private final Map<Product, Integer> bag = new HashMap<>();
     private final ViewMainMenu viewMenu;
+    private Optional<Client> selectedClient = Optional.empty();
     private Department input;
     private Supplier s1;
 
@@ -91,11 +101,16 @@ public final class ViewSale implements Initializable {
         this.department1 = new DepartmentImpl("department1", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 5, p2, 1, p3, 2, p4, 2));
         this.department2 = new DepartmentImpl("department2", Set.of(staff1, staff2), Map.of(p1, 5, p4, 2));
         this.department3 = new DepartmentImpl("department3", Set.of(staff3, staff4), Map.of(p2, 100, p3, 2));
+        this.controller.addClient("Nome", "Cognome", LocalDate.now(), Optional.empty());
+        this.controller.addClient("Nome1", "Cognome", LocalDate.now(), Optional.empty());
+        this.controller.addClient("Nome2", "Cognome", LocalDate.now(), Optional.empty());
+        this.controller.addClient("Nome3", "Cognome", LocalDate.now(), Optional.empty());
         this.controller.addDepartment(department1);
         this.controller.addDepartment(department2);
         this.controller.addDepartment(department3);
 
         this.comboDepartments.getItems().addAll(this.controller.getDepartments());
+        this.listClients.getItems().addAll(this.controller.getClients());
         this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             if (this.controller.isReserved()) {
                 this.viewMenu.disableButtons(true);
@@ -104,6 +119,17 @@ public final class ViewSale implements Initializable {
             this.listLabel.getItems().clear();
             this.addLabels(this.input.getAllProducts().keySet(), this.input);
         });
+        this.textName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                this.listClients.getItems().addAll(this.controller.getClients());
+            } else {
+                this.listClients.getItems().addAll(this.controller.getClients().stream()
+                        .filter((client) -> client.getName().contains(newValue)).collect(Collectors.toList()));
+            }
+        });
+        this.listClients.getSelectionModel().selectedItemProperty().addListener((e) -> {
+            this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
+        });
         this.btnCompleteSale.setOnMouseClicked((e) -> {
             if (!this.bag.isEmpty()) {
                 final Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -111,13 +137,14 @@ public final class ViewSale implements Initializable {
                 alert.showAndWait();
                 final var result = alert.getResult();
                 if (result == ButtonType.OK) {
-                        this.controller.closeSale();
                         this.bag.clear();
                         this.viewMenu.disableButtons(false);
                         this.listSelectedProducts.getItems().clear();
+                        this.controller.closeSale(this.selectedClient);
                     }
                 } 
             });
+
         this.btnQuit.setOnMouseClicked((e) -> {
             this.controller.clearReservedProducts();
             this.listLabel.getItems().clear();

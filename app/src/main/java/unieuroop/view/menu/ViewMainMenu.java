@@ -11,12 +11,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.view.balance.ViewBalance;
 import unieuroop.view.categories.ViewCategoriesSold;
-import unieuroop.view.client.ViewClient;
 import unieuroop.view.department.ViewDepartments;
 import unieuroop.view.sale.ViewSale;
 
@@ -40,7 +38,7 @@ public final class ViewMainMenu implements Initializable{
     @FXML
     private Button btnAnalytics;
     private final ControllerShopImpl controller = new ControllerShopImpl();
-    private final ControllerClientImpl controllerClientImpl = new ControllerClientImpl();
+//    private final ControllerClientImpl controllerClientImpl = new ControllerClientImpl();
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         
@@ -59,7 +57,7 @@ public final class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnClientsHandler(final ActionEvent event) {
-        this.loadPage(Pages.CLIENTS, new ViewClient(this, this.controllerClientImpl));
+        //this.loadPage(Pages.CLIENTS, new ViewClient(this, this.controllerClientImpl));
     }
     @FXML
     private void btnStaffHandler(final ActionEvent event) {
