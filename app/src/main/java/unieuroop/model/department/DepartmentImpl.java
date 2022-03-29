@@ -149,6 +149,4 @@ public final class DepartmentImpl implements Department {
         final DepartmentImpl other = (DepartmentImpl) obj;
         return Objects.equals(name, other.name);
     }
-    
-
 }
