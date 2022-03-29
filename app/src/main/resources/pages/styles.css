@@ -6,10 +6,10 @@
 .button:hover{
     -fx-background-color : #2A1C42;
 }
-.button:pressed{
+.menuBtn:pressed{
     -fx-background-color : #7156DD;
 }
-.button:focused{
+.menuBtn:focused{
     -fx-background-color : #7D6CC8;
     -fx-border-color : #CDD1D6;
     -fx-border-width : 0px 0px 0px 3px;
@@ -75,4 +75,7 @@
     -fx-fill: transparent;
     -fx-stroke: transparent;
     -fx-stroke-width: 0;
+}
+.series-SELECTED *.chart-series-area-fill{
+    -fx-fill: #3278fa; 
 }

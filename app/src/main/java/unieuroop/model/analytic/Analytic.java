@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.time.LocalDate;
+import java.time.Month;
 
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
@@ -51,7 +52,7 @@ public interface Analytic {
      * @param datePredicate : specifies which dates we have to consider
      * @return a Map with key a Date and value the Set of all products sold in that specific day
      */
-    Map<LocalDate, Set<Product>> getSoldOnDay(Predicate<LocalDate> datePredicate);
+    Map<LocalDate, Integer> getSoldOnDay(Predicate<LocalDate> datePredicate);
 
     /**
      * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
@@ -64,17 +65,29 @@ public interface Analytic {
      * This method return all categories sold with the complete Set of all product .
      * @return the Map contains the Category and the complete Set of all product sold of that specific Category 
      */
-    Map<Category, Set<Product>> getCategoriesSold();
+    Map<Category, Integer> getCategoriesSold();
     /**
-     * 
-     * @return the total earned in different days
+     * This method return the sum of all bills in the same year.
+     * @return a Map where the Key is the Year and in the Value we can find the total spent in that year.
      */
-    Map<LocalDate, Double> getTotalEarned();
+    Map<Integer, Double> getTotalSpentByYear();
     /**
-     * 
-     * @return the total of all money spent in their specific date.
+     * This method calculate the total Earned in one year.
+     * @return a Map where the key is Year and the Value is the sum of all sales by that year
      */
-    Map<LocalDate, Double> getTotalSpent();
+    Map<Integer, Double> getTotalEarnedByYear();
+    /**
+     * This method calculate the total earned in a specific Month by the year/years specified in the predicate.
+     * @param year : which year we have to consider for sales.
+     * @return a Map where the Key is the Month and in the Value we find the total earned in that Month
+     */
+    Map<Month, Double> getTotalEarnedByMonth(Predicate<Integer> year);
+    /**
+     * This method calculate the total spent in a specific Month by the year/years in the predicate.
+     * @param year : which year we have to consider
+     * @return a Map where the Key is the Month and the Value is the sum of all spent in that month.
+     */
+    Map<Month, Double> getTotalSpentByMonth(Predicate<Integer> year);
     /**
      * 
      * @return the total value of all products inside the stock
@@ -85,4 +98,9 @@ public interface Analytic {
      * @return all the total value of all sales
      */
     double getTotalShopEarned();
+    /**
+     * 
+     * @return the total spent in the Shop
+     */
+    double getTotalAmountSpent();
 }
