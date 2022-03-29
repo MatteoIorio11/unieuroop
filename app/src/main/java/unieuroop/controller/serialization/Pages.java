@@ -16,6 +16,14 @@ public enum Pages {
     /**
      * @param
      */
+    STOCK_SET_SEARCH_FILTER("/pages/Stock/StockSetFilterView.fxml"),
+    /**
+     * @param
+     */
+    STOCK_BUY_PRODUCTS("/pages/Stock/StockBuyProductsView.fxml"),
+    /**
+     * @param
+     */
     SALES("/pages/Sale/MainSale.fxml"),
     /**
      * @param

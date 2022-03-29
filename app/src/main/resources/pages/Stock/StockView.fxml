@@ -27,7 +27,7 @@
                <GridPane.margin>
                   <Insets bottom="15.0" />
                </GridPane.margin></Button>
-            <Button mnemonicParsing="false" text="Add Products" GridPane.columnIndex="1">
+            <Button mnemonicParsing="false" text="Buy Products" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets bottom="15.0" />
                </GridPane.margin></Button>
