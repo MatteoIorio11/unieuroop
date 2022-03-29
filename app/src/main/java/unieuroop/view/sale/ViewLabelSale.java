@@ -26,16 +26,14 @@ public final class ViewLabelSale implements Initializable {
 
     private final Product product;
     private int maxQuantity;
-    private final  Map<Product, Integer> bag;
     private final ViewSale view;
     private final ControllerShopImpl controller;
     private final Department department;
     private int totalQuantity;
     public ViewLabelSale(final Product product, final Department department, final int maxQuantity,
-            final Map<Product, Integer> bag, final ViewSale view, final ControllerShopImpl controller) {
+            final ViewSale view, final ControllerShopImpl controller) {
         this.product = product;
         this.maxQuantity = maxQuantity;
-        this.bag = bag;
         this.view = view;
         this.controller = controller;
         this.department = department;
@@ -52,12 +50,11 @@ public final class ViewLabelSale implements Initializable {
             final int quantitySelected = this.spinnerQuantity.getValue();
             if (quantitySelected > 0) {
                 this.totalQuantity = this.totalQuantity + quantitySelected;
-                this.bag.merge(product, quantitySelected, (oldQuantity, newQuantity) -> oldQuantity + newQuantity);
                 System.out.println(this.totalQuantity);
                 this.controller.reserveProducts(department, new HashMap<>(Map.of(this.product, totalQuantity)));
 
                 this.view.getListView().getItems().clear();
-                this.bag.forEach((product, quantity) -> this.view.getListView().getItems().add("Product : " + product.getName() + ", Quantity : " + quantity));
+                this.controller.getReservedProducts().forEach((product, quantity) -> this.view.getListView().getItems().add("Product : " + product.getName() + ", Quantity : " + quantity));
                 this.maxQuantity = this.maxQuantity - quantitySelected;
                 final SpinnerValueFactory<Integer> newLimit = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.maxQuantity > 0 ? 1 : 0, this.maxQuantity);
                 this.spinnerQuantity.setValueFactory(newLimit);

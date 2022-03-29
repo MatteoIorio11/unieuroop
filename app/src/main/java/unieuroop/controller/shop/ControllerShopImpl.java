@@ -69,6 +69,12 @@ public final class ControllerShopImpl {
         this.reservedProductsMap.clear();
     }
 
+    public Map<Product, Integer> getReservedProducts(){
+        return Map.copyOf(this.reservedProductsMap.entrySet().stream()
+                    .flatMap((entry) -> entry.getValue().entrySet().stream())
+                    .collect(Collectors.toMap((entry) -> entry.getKey(), (entry) -> entry.getValue())));
+    }
+
     public boolean isReserved() {
         return this.reservedProductsMap.isEmpty();
     }

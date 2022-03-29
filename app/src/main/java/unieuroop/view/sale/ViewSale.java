@@ -68,7 +68,6 @@ public final class ViewSale implements Initializable {
     @FXML
     private ComboBox<Department> comboDepartments;
     private final ControllerShopImpl controller;
-    private final Map<Product, Integer> bag = new HashMap<>();
     private final ViewMainMenu viewMenu;
     private Optional<Client> selectedClient = Optional.empty();
     private Department input;
@@ -120,6 +119,7 @@ public final class ViewSale implements Initializable {
             this.addLabels(this.input.getAllProducts().keySet(), this.input);
         });
         this.textName.textProperty().addListener((observable, oldValue, newValue) -> {
+            this.listClients.getItems().clear();
             if (newValue.isEmpty()) {
                 this.listClients.getItems().addAll(this.controller.getClients());
             } else {
@@ -131,15 +131,15 @@ public final class ViewSale implements Initializable {
             this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
         });
         this.btnCompleteSale.setOnMouseClicked((e) -> {
-            if (!this.bag.isEmpty()) {
+            if (!this.controller.isReserved()) {
                 final Alert alert = new Alert(AlertType.CONFIRMATION);
                 alert.setContentText("Are you sure that you wanto to close the sale ?");
                 alert.showAndWait();
                 final var result = alert.getResult();
                 if (result == ButtonType.OK) {
-                        this.bag.clear();
-                        this.viewMenu.disableButtons(false);
+                        this.listLabel.getItems().clear();
                         this.listSelectedProducts.getItems().clear();
+                        this.viewMenu.disableButtons(false);
                         this.controller.closeSale(this.selectedClient);
                     }
                 } 
@@ -158,7 +158,7 @@ public final class ViewSale implements Initializable {
             Pane p;
             try {
                 final var loader = new FXMLLoader(getClass().getResource(Pages.LABEL_PRODUCT_SALE.getPath()));
-                loader.setController(new ViewLabelSale(product, department, this.controller.getQuantityOf(product, department), this.bag, this, this.controller));
+                loader.setController(new ViewLabelSale(product, department, this.controller.getQuantityOf(product, department), this, this.controller));
                 p = loader.load();
                 this.listLabel.getItems().add(p);
             } catch (IOException e) {
