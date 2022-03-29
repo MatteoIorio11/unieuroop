@@ -1,16 +1,35 @@
 package unieuroop.model.supplier;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import unieuroop.model.product.Product;
 
-public class SupplierImpl implements Supplier {
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import unieuroop.model.product.Product;
+import unieuroop.model.product.ProductDeserialization;
+import unieuroop.model.product.ProductSerialization;
+
+@JsonIdentityInfo(scope=SupplierImpl.class, generator=ObjectIdGenerators.IntSequenceGenerator.class)
+public class SupplierImpl implements Supplier, Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     // Add sales limit ?
     private final String supplierName;
+    @JsonSerialize(keyUsing = ProductSerialization.class) 
+    @JsonDeserialize(keyUsing = ProductDeserialization.class)
     private final Map<Product, Double> salableProduct;
-
-    public SupplierImpl(final String name, final Map<Product, Double> products) {
+    @JsonCreator
+    public SupplierImpl(@JsonProperty("name")final String name, 
+            @JsonProperty("products")final Map<Product, Double> products) {
         this.supplierName = name;
         salableProduct = new HashMap<>(products);
     }

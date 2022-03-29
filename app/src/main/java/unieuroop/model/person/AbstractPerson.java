@@ -1,9 +1,14 @@
 package unieuroop.model.person;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public abstract class AbstractPerson {
+public abstract class AbstractPerson implements Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private final String name;
     private final String surname;
     private final LocalDate birthdayDate;

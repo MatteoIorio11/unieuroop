@@ -2,45 +2,45 @@ package unieuroop.controller.serialization;
 
 public enum Files {
     /**
-     * @param fileName Products.xml
+     * @param fileName Products.json
      */
-    PRODUCTS("Products.xml"),
+    PRODUCTS("Products.json"),
     /**
-     * @param fileName Staffs.xml
+     * @param fileName Staffs.json
      */
-    STAFFS("Staffs.xml"),
+    STAFFS("Staffs.json"),
     /**
-     * @param fileName Sales.xml
+     * @param fileName Sales.json
      */
-    SALES("Sales.xml"),
+    SALES("Sales.json"),
     /**
-     * @param fileName Stock.xml
+     * @param fileName Stock.json
      */
-    STOCK("Stock.xml"),
+    STOCK("Stock.json"),
     /**
-     * @param fileName Suppliers.xml
+     * @param fileName Suppliers.json
      */
-    SUPPLIERS("Suppliers.xml"),
+    SUPPLIERS("Suppliers.json"),
     /**
-     * @param fileName Shop.xml
+     * @param fileName Shop.json
      */
-    SHOP("Shop.xml"),
+    SHOP("Shop.json"),
     /**
-     * @param fileName Departments.xml
+     * @param fileName Departments.json
      */
-    DEPARTMENTS("Departments.xml"),
+    DEPARTMENTS("Departments.json"),
     /**
-     * @param fileName Clients.xml
+     * @param fileName Clients.json
      */
-    CLIENTS("Clients.xml"),
+    CLIENTS("Clients.json"),
     /**
-     * @param fileName Bills.xml
+     * @param fileName Bills.json
      */
-    BILLS("Bills.xml"),
+    BILLS("Bills.json"),
     /**
-     * @param fileName ShopName.xml
+     * @param fileName ShopName.json
      */
-    SHOPNAME("ShopName.xml");
+    SHOPNAME("ShopName.json");
 
     private final String fileName;
     private final String separator = System.getProperty("file.separator");

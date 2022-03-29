@@ -1,0 +1,8 @@
+[ {
+  "name" : "mario",
+  "surname" : "rossi",
+  "birthdayDate" : [ 2022, 3, 29 ],
+  "id" : 0,
+  "email" : "prova@gmail.com",
+  "password" : 1509442
+} ]

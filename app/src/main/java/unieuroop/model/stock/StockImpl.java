@@ -11,10 +11,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.BiPredicate;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-public class StockImpl implements Stock {
-    
+public class StockImpl implements Stock, Serializable{
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private final Map<Product, Integer> productsStocked = new HashMap<>();
 
     /**

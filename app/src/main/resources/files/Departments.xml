@@ -1,8 +1,0 @@
-<java.util.ImmutableCollections_-SetN resolves-to="java.util.CollSer" serialization="custom">
-  <java.util.CollSer>
-    <default>
-      <tag>2</tag>
-    </default>
-    <int>0</int>
-  </java.util.CollSer>
-</java.util.ImmutableCollections_-SetN>

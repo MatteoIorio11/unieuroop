@@ -34,7 +34,7 @@ public class ViewLoginImpl implements Initializable {
     public void initialize(final URL location, final ResourceBundle resources) {
         try {
             this.controller.loadData();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

@@ -1,0 +1,42 @@
+[ {
+  "@id" : 1,
+  "name" : "nome",
+  "salableProduct" : {
+    "{\"productCode\":1,\"name\":\"iphone 13 pro\",\"brand\":\"apple\",\"sellingPrice\":1200.0,\"purchasePrice\":900.0,\"description\":\"best phone ever created\",\"category\":\"SMARTPHONE\",\"supplier\":{\"@id\":1,\"name\":\"nome\",\"salableProduct\":{},\"catalog\":[]}}" : 10.0,
+    "{\"productCode\":2,\"name\":\"applewatch\",\"brand\":\"apple\",\"sellingPrice\":500.0,\"purchasePrice\":200.0,\"description\":\"best watch ever created\",\"category\":\"SMARTWATCH\",\"supplier\":{\"@id\":1,\"name\":\"nome\",\"salableProduct\":{},\"catalog\":[]}}" : 10.0,
+    "{\"productCode\":3,\"name\":\"mac book pro 14 \",\"brand\":\"apple\",\"sellingPrice\":3000.0,\"purchasePrice\":2000.0,\"description\":\"best mac book ever created\",\"category\":\"PC\",\"supplier\":{\"@id\":1,\"name\":\"nome\",\"salableProduct\":{},\"catalog\":[]}}" : 3.0
+  },
+  "catalog" : [ {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "apple",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC",
+    "supplier" : {
+      "@id" : 2,
+      "name" : "nome",
+      "salableProduct" : { },
+      "catalog" : [ ]
+    }
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "apple",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH",
+    "supplier" : 2
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "apple",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE",
+    "supplier" : 2
+  } ]
+} ]
