@@ -34,14 +34,34 @@
             <Insets left="5.0" right="10.0" />
          </GridPane.margin></ListView>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <center>
-            <Button mnemonicParsing="false" text="Add Staff" BorderPane.alignment="CENTER" />
-         </center>
+         <right>
+            <Button mnemonicParsing="false" text="Add Staff" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="50.0" />
+               </BorderPane.margin></Button>
+         </right>
+         <left>
+            <Button mnemonicParsing="false" text="Remove Staff" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="50.0" />
+               </BorderPane.margin>
+            </Button>
+         </left>
       </BorderPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-         <center>
-            <Button mnemonicParsing="false" text="Add products" BorderPane.alignment="CENTER" />
-         </center>
+         <left>
+            <Button mnemonicParsing="false" text="Remove Products" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="50.0" />
+               </BorderPane.margin>
+            </Button>
+         </left>
+         <right>
+            <Button mnemonicParsing="false" text="Add Products" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="50.0" />
+               </BorderPane.margin></Button>
+         </right>
       </BorderPane>
       <BorderPane prefHeight="32.0" prefWidth="267.0">
          <center>
@@ -57,6 +77,29 @@
          <center>
             <Label text="PRODUCTS" BorderPane.alignment="CENTER" />
          </center>
+      </BorderPane>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+         <left>
+            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="135.0" text="Add Departments" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </left>
+         <right>
+            <Button mnemonicParsing="false" text="Delete Departments" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </right>
+         <top>
+            <Button mnemonicParsing="false" text="Merge Departments" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </top>
       </BorderPane>
    </children>
 </GridPane>
