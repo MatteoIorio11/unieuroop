@@ -16,6 +16,7 @@ import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.view.balance.ViewBalance;
 import unieuroop.view.categories.ViewCategoriesSold;
+import unieuroop.view.dates.ViewDateSold;
 import unieuroop.view.department.ViewDepartments;
 import unieuroop.view.sale.ViewSale;
 
@@ -67,6 +68,10 @@ public final class ViewMainMenu implements Initializable{
     @FXML
     private void btnDepartmentsHandler(final ActionEvent event) {
         this.loadPage(Pages.DEPARTMENTS, new ViewDepartments());
+    }
+    @FXML
+    private void btnDateAnalyticsHandler(final ActionEvent event) {
+        this.loadPage(Pages.MAIN_DATE_SOLD, new ViewDateSold(new ControllerAnalyticImpl(this.controller.getShop())));
     }
     @FXML
     private void btnBalancesHandler(final ActionEvent event) {

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="unieuroop.view.menu.ViewMainMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="unieuroop.view.menu.ViewMainMenu">
    <children>
       <BorderPane fx:id="mainPane" layoutX="-1.0" layoutY="-7.0" prefHeight="660.0" prefWidth="1206.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-7.0">
          <left>
@@ -98,7 +98,19 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btnAnalytics" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnAnalyticsHandler" prefHeight="44.0" prefWidth="188.0" styleClass="menuBtn" stylesheets="@styles.css" text="Analytics" textFill="WHITE">
+                  <Button fx:id="btnAnalytics" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnAnalyticsHandler" prefHeight="44.0" prefWidth="188.0" styleClass="menuBtn" stylesheets="@styles.css" text="Categories Analytics" textFill="WHITE">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/analytics.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnDateAnalytics" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btnDateAnalyticsHandler" prefHeight="44.0" prefWidth="188.0" styleClass="menuBtn" stylesheets="@styles.css" text="Date Analytics" textFill="WHITE">
                      <padding>
                         <Insets left="20.0" />
                      </padding>

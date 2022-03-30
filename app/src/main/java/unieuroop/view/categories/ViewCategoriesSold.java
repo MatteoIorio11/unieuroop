@@ -51,7 +51,7 @@ public final class ViewCategoriesSold implements Initializable {
     @FXML
     private ListView<String> listSelectedCategories;
 
-    private ControllerAnalyticImpl controller;
+    private final ControllerAnalyticImpl controller;
     private static final String APPLE_PRODUCT = "APPLE"; /*Brand of products*/
 
     private final Supplier s1 = new SupplierImpl("nome", Map.of());

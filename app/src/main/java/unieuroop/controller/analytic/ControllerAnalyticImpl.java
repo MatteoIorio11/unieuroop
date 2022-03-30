@@ -20,22 +20,28 @@ public final class ControllerAnalyticImpl{
     public ControllerAnalyticImpl(final Shop shop) {
         this.analytic = new AnalyticImpl(shop);
     }
-    public Map<Month, Double> getLastYearSpent(){
+    public Map<Month, Double> getLastYearSpent() {
         return this.analytic.getTotalSpentByMonth((year) -> LocalDate.now().getYear() == year);
     }
-    public Map<Month, Double> getLastYearEarned(){
+    public Map<Month, Double> getLastYearEarned() {
         return this.analytic.getTotalEarnedByMonth((year) -> LocalDate.now().getYear() == year);
     }
-    public Map<Integer, Double> getYearsTotalSpent(){
+    public Map<Integer, Double> getYearsTotalSpent() {
         return this.analytic.getTotalSpentByYear();
     }
-    public Map<Integer, Double> getYearsTotalEarned(){
+    public Map<Integer, Double> getYearsTotalEarned() {
         return this.analytic.getTotalEarnedByYear();
     }
-    public Map<Product, Integer> getProductsSoldByCategory(final Set<Category> categories){
+    public Map<Product, Integer> getProductsSoldByCategory(final Set<Category> categories) {
         return this.analytic.getOrderedByCategory((category) -> categories.contains(category));
     }
-    public Map<Category, Integer> getCategoriesSold(){
+    public Map<Category, Integer> getCategoriesSold() {
         return this.analytic.getCategoriesSold();
+    }
+    public Map<Integer, Double> getTotalEarnedByYear(){
+        return this.analytic.getTotalEarnedByYear();
+    }
+    public Map<LocalDate, Integer> getSelectedDate(final Set<LocalDate> dates){
+        return this.analytic.getSoldOnDay((date) -> dates.contains(date));
     }
 }

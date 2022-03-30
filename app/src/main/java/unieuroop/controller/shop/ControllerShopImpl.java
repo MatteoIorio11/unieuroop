@@ -38,10 +38,12 @@ public final class ControllerShopImpl {
     }
 
     public void reserveProducts(final Department departmentInput, final Map<Product, Integer> products) {
+        System.out.println(this.reservedProductsMap);
         this.reservedProductsMap.merge(departmentInput, products, 
                 (olderMap, newerMap) -> {
                     olderMap.putAll(newerMap); return olderMap;
                     });
+        System.out.println(this.reservedProductsMap);
     }
 
     public void closeSale(final Optional<Client> client) {
@@ -54,7 +56,9 @@ public final class ControllerShopImpl {
             }
             final Map<Product, Integer> products = this.reservedProductsMap.entrySet().stream().map((entry) -> entry.getValue())
                         .flatMap((m) -> m.entrySet().stream())
-                        .collect(Collectors.toMap((entry) -> entry.getKey(), (entry) -> entry.getValue()));
+                        .map((entry) -> entry.getKey())
+                        .distinct()
+                        .collect(Collectors.toMap((product) -> product, (product) -> this.totalQuantityProduct(product)));
             final Sale sale = new SaleImpl(LocalDate.now(), products, client);
             this.shop.addSale(sale);
             this.reservedProductsMap.clear();
@@ -68,11 +72,19 @@ public final class ControllerShopImpl {
     public void clearReservedProducts() {
         this.reservedProductsMap.clear();
     }
-
+    private int totalQuantityProduct(final Product product) {
+        return this.reservedProductsMap.entrySet().stream()
+                .flatMapToInt((entry) -> entry.getValue().entrySet().stream()
+                        .filter((e) -> e.getKey().equals(product))
+                        .mapToInt((e) -> e.getValue()))
+                .sum();
+    }
     public Map<Product, Integer> getReservedProducts(){
         return Map.copyOf(this.reservedProductsMap.entrySet().stream()
                     .flatMap((entry) -> entry.getValue().entrySet().stream())
-                    .collect(Collectors.toMap((entry) -> entry.getKey(), (entry) -> entry.getValue())));
+                    .map((entry) -> entry.getKey())
+                    .distinct()
+                    .collect(Collectors.toMap((product) -> product, (product) -> this.totalQuantityProduct(product))));
     }
 
     public boolean isReserved() {
