@@ -54,7 +54,6 @@ public final class ViewChoseClient extends Stage implements Initializable {
     }
 
     public Optional<Client> getSelectedClient() {
-        System.out.println(this.selectedClient);
         return this.selectedClient;
     }
 
