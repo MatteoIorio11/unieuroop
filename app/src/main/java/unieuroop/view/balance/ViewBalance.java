@@ -79,6 +79,9 @@ public class ViewBalance implements Initializable{
 
     private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
+    public ViewBalance(final ControllerAnalyticImpl controller) {
+        this.controller = controller;
+    }
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
@@ -106,8 +109,6 @@ public class ViewBalance implements Initializable{
         this.shop.addBills(LocalDate.of(2017, 2, 20), 1000);
         this.shop.addBills(ViewBalance.TIME_NOW, 14232);
         this.shop.addBills(LocalDate.of(2013, 4, 20), 2123);
-        analytic = new AnalyticImpl(shop);
-        this.controller = new ControllerAnalyticImpl(analytic);
 
         ObservableList<PieChart.Data> secondPieChartData = FXCollections.observableArrayList(
                 this.controller.getLastYearEarned().entrySet().stream()

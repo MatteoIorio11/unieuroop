@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import unieuroop.controller.analytic.ControllerAnalyticImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.view.balance.ViewBalance;
@@ -69,11 +70,11 @@ public final class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnBalancesHandler(final ActionEvent event) {
-        this.loadPage(Pages.BALANCE, new ViewBalance());
+        this.loadPage(Pages.BALANCE, new ViewBalance(new ControllerAnalyticImpl(this.controller.getShop())));
     }
     @FXML
     private void btnAnalyticsHandler(final ActionEvent event) {
-        this.loadPage(Pages.MAIN_CATEGORIES_SOLD, new ViewCategoriesSold());
+        this.loadPage(Pages.MAIN_CATEGORIES_SOLD, new ViewCategoriesSold(new ControllerAnalyticImpl(this.controller.getShop())));
     }
     private <X> void loadPage(final Pages page, final X controller) {
         Pane p;

@@ -82,4 +82,7 @@ public final class ControllerShopImpl {
     public Set<Client> getClients() {
         return this.shop.getRegisteredClients();
     }
+    public Shop getShop() {
+        return this.shop;
+    }
 }

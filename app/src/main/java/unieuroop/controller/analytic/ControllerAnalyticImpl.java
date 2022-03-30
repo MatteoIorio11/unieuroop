@@ -8,15 +8,17 @@ import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 import unieuroop.model.analytic.Analytic;
+import unieuroop.model.analytic.AnalyticImpl;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
+import unieuroop.model.shop.Shop;
 
 public final class ControllerAnalyticImpl{
 
     private final Analytic analytic;
 
-    public ControllerAnalyticImpl(final Analytic analytic) {
-        this.analytic = analytic;
+    public ControllerAnalyticImpl(final Shop shop) {
+        this.analytic = new AnalyticImpl(shop);
     }
     public Map<Month, Double> getLastYearSpent(){
         return this.analytic.getTotalSpentByMonth((year) -> LocalDate.now().getYear() == year);

@@ -139,6 +139,7 @@ public final class ViewSale implements Initializable {
                 if (result == ButtonType.OK) {
                         this.listLabel.getItems().clear();
                         this.listSelectedProducts.getItems().clear();
+                        this.listClients.getItems().clear();
                         this.viewMenu.disableButtons(false);
                         this.controller.closeSale(this.selectedClient);
                     }

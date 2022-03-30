@@ -59,7 +59,7 @@ public final class ViewCategoriesSold implements Initializable {
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */
     private final Product p1 = new ProductImpl(1, "iphone 13 pro", this.APPLE_PRODUCT,  1200.00,  900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
-    private final Product p2 = new ProductImpl(2, "applewatch", this.APPLE_PRODUCT, 500.00,  200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
+    private final Product p2 = new ProductImpl(2, "applewatch", this.APPLE_PRODUCT, 500.00,  200.00, Optional.empty(), "best watch ever created", Category.HOME, s1);
     private final Product p3 = new ProductImpl(3, "mac book pro 14 ", this.APPLE_PRODUCT,  3000.00, 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
     private final Product p4 = new ProductImpl(4, "mac book pro 16", this.APPLE_PRODUCT,  600.00,  3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
     private final Product p5 = new ProductImpl(5, "ipad Air ", this.APPLE_PRODUCT,  700.00,  300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
@@ -87,7 +87,9 @@ public final class ViewCategoriesSold implements Initializable {
     private final Sale sale16 = new SaleImpl(LocalDate.of(2022, 11, 20), Map.of(p1, 10, p4, 100, p3, 1), Optional.empty());
 
     private final Shop shop = new ShopImpl("TEST");
-
+    public ViewCategoriesSold(final ControllerAnalyticImpl controller) {
+        this.controller = controller;
+    }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.shop.addSale(sale1);
@@ -114,9 +116,6 @@ public final class ViewCategoriesSold implements Initializable {
         this.shop.addBills(LocalDate.of(2017, 2, 20), 1000);
         this.shop.addBills(LocalDate.now(), 14232);
         this.shop.addBills(LocalDate.of(2013, 4, 20), 2123);
-        final Analytic analytic;
-        analytic = new AnalyticImpl(shop);
-        this.controller = new ControllerAnalyticImpl(analytic);
         /*TENIAMO DA QUI*/
         this.barCategories.setLegendVisible(false);
         this.comboCategories.getItems().addAll(this.controller.getCategoriesSold().keySet());
