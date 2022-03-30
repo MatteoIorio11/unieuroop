@@ -41,6 +41,7 @@ import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierImpl;
+import unieuroop.view.client.ViewChoseClient;
 import unieuroop.view.menu.ViewMainMenu;
 
 public final class ViewSale implements Initializable {
@@ -50,15 +51,13 @@ public final class ViewSale implements Initializable {
     private static final LocalTime TIME_FINISH = LocalTime.of(1, 1);
     private static final LocalDate TIME_NOW = LocalDate.now();
     @FXML
+    private Stage primaryStage;
+    @FXML
     private ScrollPane scrollPane;;
     @FXML
     private ListView<String> listSelectedProducts;
     @FXML
     private ListView<Pane> listLabel;
-    @FXML
-    private ListView<Client> listClients;
-    @FXML
-    private TextField textName;
     @FXML
     private Button btnCompleteSale;
     @FXML
@@ -69,7 +68,6 @@ public final class ViewSale implements Initializable {
     private ComboBox<Department> comboDepartments;
     private final ControllerShopImpl controller;
     private final ViewMainMenu viewMenu;
-    private Optional<Client> selectedClient = Optional.empty();
     private Department input;
     private Supplier s1;
 
@@ -109,7 +107,6 @@ public final class ViewSale implements Initializable {
         this.controller.addDepartment(department3);
 
         this.comboDepartments.getItems().addAll(this.controller.getDepartments());
-        this.listClients.getItems().addAll(this.controller.getClients());
         this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             if (this.controller.isReserved()) {
                 this.viewMenu.disableButtons(true);
@@ -117,18 +114,6 @@ public final class ViewSale implements Initializable {
             this.input = this.comboDepartments.getValue();
             this.listLabel.getItems().clear();
             this.addLabels(this.input.getAllProducts().keySet(), this.input);
-        });
-        this.textName.textProperty().addListener((observable, oldValue, newValue) -> {
-            this.listClients.getItems().clear();
-            if (newValue.isEmpty()) {
-                this.listClients.getItems().addAll(this.controller.getClients());
-            } else {
-                this.listClients.getItems().addAll(this.controller.getClients().stream()
-                        .filter((client) -> client.getName().contains(newValue)).collect(Collectors.toList()));
-            }
-        });
-        this.listClients.getSelectionModel().selectedItemProperty().addListener((e) -> {
-            this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
         });
         this.btnCompleteSale.setOnMouseClicked((e) -> {
             if (!this.controller.isReserved()) {
@@ -139,9 +124,22 @@ public final class ViewSale implements Initializable {
                 if (result == ButtonType.OK) {
                         this.listLabel.getItems().clear();
                         this.listSelectedProducts.getItems().clear();
-                        this.listClients.getItems().clear();
-                        this.viewMenu.disableButtons(false);
-                        this.controller.closeSale(this.selectedClient);
+                        Pane p;
+                        try {
+                            StackPane secondaryLayout = new StackPane();
+                            Stage newWindow = new Stage();
+                            final var view = new ViewChoseClient(this.controller, this.viewMenu, newWindow);
+                            final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
+                            loader.setController(view);
+                            p = loader.load();
+                            Scene secondScene = new Scene(p, 500, 500);
+                            newWindow.setScene(secondScene);
+                            newWindow.showAndWait();
+                            this.viewMenu.disableButtons(false);
+                            this.controller.closeSale(view.getSelectedClient());
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
                     }
                 } 
             });

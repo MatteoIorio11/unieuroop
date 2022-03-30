@@ -126,20 +126,23 @@ public class ViewBalance implements Initializable{
         );
         final XYChart.Series<Integer, Double> serie1 = new XYChart.Series<>();
         serie1.setName("Spent");
-        final XYChart.Series<Integer, Double> serie2 = new XYChart.Series();
+        final XYChart.Series<Integer, Double> serie2 = new XYChart.Series<>();
         serie2.setName("Earned");
         this.controller.getYearsTotalEarned().entrySet().forEach((entry) ->  serie2.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
         //this.analytic.getTotalEarned((date) -> true).entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getKey().getYear(), entry.getValue())));
         this.controller.getYearsTotalSpent().entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
         //this.analytic.getTotalSpent((date) -> true).entrySet().forEach((entry) -> serie2.getData().add(new XYChart.Data<>(entry.getKey().getYear(), entry.getValue())));
         final var lowerEarned = this.controller.getYearsTotalEarned().entrySet().stream()
-                .map((entry) -> entry.getKey()).sorted().findFirst().get();
+                .map((entry) -> entry.getKey()).sorted().findFirst();
         final var lowerSpent = this.controller.getYearsTotalEarned().entrySet().stream()
-                .map((entry) -> entry.getKey()).sorted().findFirst().get();
-        areaChart.getData().addAll(serie1, serie2);
+                .map((entry) -> entry.getKey()).sorted().findFirst();
+        if (lowerEarned.isPresent() && lowerSpent.isPresent()) {
+            xAxis.setLowerBound(lowerEarned.get() > lowerSpent.get() ? lowerSpent.get() : lowerEarned.get());
+            xAxis.setUpperBound(lowerEarned.get() < lowerSpent.get() ? lowerSpent.get() : lowerEarned.get());
+        }
+        areaChart.getData().add(serie1);
+        areaChart.getData().add(serie2);
         xAxis.setAutoRanging(false);
-        xAxis.setLowerBound(lowerEarned > lowerSpent ? lowerSpent : lowerEarned);
-        xAxis.setUpperBound(2030);
         xAxis.setTickUnit(2);
         chartSpent.setData(pieChartData);
         chartSpent.setLegendVisible(false);
