@@ -5,14 +5,12 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.person.Client;
 import unieuroop.view.menu.ViewMainMenu;
@@ -35,7 +33,7 @@ public final class ViewChoseClient extends Stage implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         this.listClients.getItems().addAll(this.controller.getClients());
         this.textName.textProperty().addListener((observable, oldValue, newValue) -> {
             this.listClients.getItems().clear();
@@ -55,7 +53,8 @@ public final class ViewChoseClient extends Stage implements Initializable {
         });
     }
 
-    public Optional<Client> getSelectedClient(){
+    public Optional<Client> getSelectedClient() {
+        System.out.println(this.selectedClient);
         return this.selectedClient;
     }
 

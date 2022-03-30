@@ -39,6 +39,8 @@ public final class ViewMainMenu implements Initializable{
     private Button btnBalances;
     @FXML
     private Button btnAnalytics;
+    @FXML
+    private Button btnDateAnalytics;
     private final ControllerShopImpl controller = new ControllerShopImpl();
 //    private final ControllerClientImpl controllerClientImpl = new ControllerClientImpl();
     @Override
@@ -102,6 +104,7 @@ public final class ViewMainMenu implements Initializable{
         this.btnSales.setDisable(status);
         this.btnStaff.setDisable(status);
         this.btnStock.setDisable(status);
+        this.btnDateAnalytics.setDisable(status);
     }
 
 }
