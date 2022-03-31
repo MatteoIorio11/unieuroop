@@ -25,7 +25,7 @@
       <Pane prefHeight="45.0" prefWidth="49.0" GridPane.columnIndex="1">
          <children>
             <Spinner id="spinnerQuantity" fx:id="spinnerQuantity" layoutX="36.0" layoutY="10.0" />
-            <Button fx:id="btnAdd" layoutX="185.0" layoutY="10.0" mnemonicParsing="false" text="add" />
+            <Button fx:id="btnAdd" layoutX="185.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnAddHandler" text="add" />
             <Label layoutX="14.0" layoutY="14.0" text="Qty:" />
          </children>
       </Pane>

@@ -5,12 +5,11 @@ import java.net.URL;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
-import java.util.stream.Collectors;
+import java.awt.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,9 +22,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -34,7 +31,6 @@ import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
-import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
@@ -68,6 +64,7 @@ public final class ViewSale implements Initializable {
     private ComboBox<Department> comboDepartments;
     private final ControllerShopImpl controller;
     private final ViewMainMenu viewMenu;
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private Department input;
     private Supplier s1;
 
@@ -132,7 +129,7 @@ public final class ViewSale implements Initializable {
                             final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
                             loader.setController(view);
                             p = loader.load();
-                            Scene secondScene = new Scene(p, 500, 500);
+                            Scene secondScene = new Scene(p, 500 , 500);
                             newWindow.setScene(secondScene);
                             newWindow.showAndWait();
                             this.viewMenu.disableButtons(false);
@@ -152,6 +149,7 @@ public final class ViewSale implements Initializable {
         });
 
     }
+
     private void addLabels(final Set<Product> products, final Department department) {
         for (final var product : products) {
             Pane p;

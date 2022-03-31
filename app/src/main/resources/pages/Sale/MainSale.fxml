@@ -23,8 +23,8 @@
    <bottom>
       <Pane prefHeight="32.0" prefWidth="707.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="buttonSell" fx:id="btnQuit" layoutX="14.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnSell" style="-fx-background-color: red;" text="QUIT" />
-            <Button id="buttonSell" fx:id="btnCompleteSale" layoutX="97.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnSell" text="SELL" />
+            <Button id="buttonSell" fx:id="btnQuit" layoutX="14.0" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: red;" text="QUIT" />
+            <Button id="buttonSell" fx:id="btnCompleteSale" layoutX="97.0" layoutY="1.0" mnemonicParsing="false" text="SELL" />
          </children>
       </Pane>
    </bottom>
