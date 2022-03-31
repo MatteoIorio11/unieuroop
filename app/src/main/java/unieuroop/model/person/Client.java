@@ -10,9 +10,9 @@ public class Client extends AbstractPerson implements Serializable {
      * 
      */
     private static final long serialVersionUID = 2150913221610743492L;
-    private final Optional<Integer> clientCode;
+    private final int clientCode;
 
-    public Client(final String name, final String surname, final LocalDate birthdayDate, final Optional<Integer> clientCode) {
+    public Client(final String name, final String surname, final LocalDate birthdayDate, final int clientCode) {
         super(name, surname, birthdayDate);
         this.clientCode = clientCode;
     }
@@ -20,7 +20,7 @@ public class Client extends AbstractPerson implements Serializable {
     /**
      * @return the code of the client
      */
-    public Optional<Integer> getClientCode() {
+    public int getClientCode() {
         return this.clientCode;
     }
 

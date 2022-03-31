@@ -3,7 +3,6 @@ package unieuroop.view.client;
 import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -36,9 +35,9 @@ public class ViewClient implements Initializable {
     private Button btnDeleteClient;
     private final ViewMainMenu viewMenu;
     private final ControllerClientImpl controller;
-    private final Client c1 = new Client("Mario", "Rossi", LocalDate.of(2000, 1, 10), Optional.of(10001));
-    private final Client c2 = new Client("Luigi", "Verdi", LocalDate.of(1999, 2, 15), Optional.of(10002));
-    private final Client c3 = new Client("Marco", "Bianchi", LocalDate.of(2002, 3, 16), Optional.empty());
+    private final Client c1 = new Client("Mario", "Rossi", LocalDate.of(2000, 1, 10), 11);
+    private final Client c2 = new Client("Luigi", "Verdi", LocalDate.of(1999, 2, 15), 12);
+    private final Client c3 = new Client("Marco", "Bianchi", LocalDate.of(2002, 3, 16), 13);
 
     public ViewClient(final ViewMainMenu view, final ControllerClientImpl controller) {
         this.viewMenu = view;
@@ -47,19 +46,16 @@ public class ViewClient implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
-    @FXML
-    private void btnAddHandler(final ActionEvent event) {
-        this.controller.AddClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue(), this.tbxCode.getText());
-    }
-
-    private void btnEditClientHandler(final ActionEvent event) {
+        btnAddClient.setOnMouseClicked((e) -> {
+            this.controller.AddClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue());
+        });
         
-    }
+        btnEditClient.setOnMouseClicked((e) -> {
+            
+        });
 
-    private void btnDeleteClient(final ActionEvent event) {
-        
+        btnDeleteClient.setOnMouseClicked((e) ->{
+            
+        });
     }
 }

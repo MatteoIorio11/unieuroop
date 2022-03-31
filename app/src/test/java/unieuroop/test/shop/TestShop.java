@@ -99,9 +99,9 @@ public class TestShop {
      */
     @Test
     public void testRemoveClient1() {
-        final Client client1 = new Client("Name1", "Surname1", LocalDate.now(), Optional.empty());
-        final Client client2 = new Client("Name2", "Surname2", LocalDate.now(), Optional.empty());
-        final Client client3 = new Client("Name3", "Surname3", LocalDate.now(), Optional.empty());
+        final Client client1 = new Client("Name1", "Surname1", LocalDate.now(), 1);
+        final Client client2 = new Client("Name2", "Surname2", LocalDate.now(), 2);
+        final Client client3 = new Client("Name3", "Surname3", LocalDate.now(), 3);
         this.shop01.registerClient(client1);
         this.shop01.registerClient(client2);
 
@@ -117,8 +117,8 @@ public class TestShop {
      */
     @Test
     public void testRemoveClient2() {
-        final Client client1 = new Client("Name1", "Surname1", LocalDate.now(), Optional.empty());
-        final Client client2 = new Client("Name2", "Surname2", LocalDate.now(), Optional.empty());
+        final Client client1 = new Client("Name1", "Surname1", LocalDate.now(), 1);
+        final Client client2 = new Client("Name2", "Surname2", LocalDate.now(), 2);
         this.shop01.registerClient(client1);
         this.shop01.registerClient(client2);
 

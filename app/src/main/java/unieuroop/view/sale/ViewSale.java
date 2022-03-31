@@ -98,10 +98,10 @@ public final class ViewSale implements Initializable {
         this.department1 = new DepartmentImpl("department1", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 5, p2, 1, p3, 2, p4, 2));
         this.department2 = new DepartmentImpl("department2", Set.of(staff1, staff2), Map.of(p1, 5, p4, 2));
         this.department3 = new DepartmentImpl("department3", Set.of(staff3, staff4), Map.of(p2, 100, p3, 2));
-        this.controller.addClient("Nome", "Cognome", LocalDate.now(), Optional.empty());
-        this.controller.addClient("Nome1", "Cognome", LocalDate.now(), Optional.empty());
-        this.controller.addClient("Nome2", "Cognome", LocalDate.now(), Optional.empty());
-        this.controller.addClient("Nome3", "Cognome", LocalDate.now(), Optional.empty());
+//        this.controller.addClient("Nome", "Cognome", LocalDate.now());
+//        this.controller.addClient("Nome1", "Cognome", LocalDate.now());
+//        this.controller.addClient("Nome2", "Cognome", LocalDate.now());
+//        this.controller.addClient("Nome3", "Cognome", LocalDate.now(), Optional.empty());
         this.controller.addDepartment(department1);
         this.controller.addDepartment(department2);
         this.controller.addDepartment(department3);
