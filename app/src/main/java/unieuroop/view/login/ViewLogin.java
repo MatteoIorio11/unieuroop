@@ -18,8 +18,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import unieuroop.controller.login.ControllerLoginImpl;
 import unieuroop.controller.serialization.Pages;
+import unieuroop.view.menu.ViewMainMenu;
 
-public class ViewLogin implements Initializable {
+public final class ViewLogin implements Initializable {
     private final ControllerLoginImpl controller;
     private final Stage primaryStage;
     @FXML 
@@ -30,13 +31,17 @@ public class ViewLogin implements Initializable {
         this.controller = controller;
         this.primaryStage = primaryStage;
     }
+
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
     }
+
     @FXML
-    private void btnLoginHandler(final ActionEvent event) throws IOException {
+    public void btnLoginHandler(final ActionEvent event) throws IOException {
         if (this.controller.checkPassword(this.email.getText(), this.password.getText())) {
-          final Parent root = FXMLLoader.load(getClass().getResource("/pages/MainMenu.fxml"));
+          final var loader = new FXMLLoader(getClass().getResource("/pages/MainMenu.fxml"));
+          loader.setController(new ViewMainMenu(this.primaryStage));
+          final Parent root = loader.load();
           final Scene scene = new Scene(root, 1000, 600);
           primaryStage.setTitle("unieurOOP");
           primaryStage.setScene(scene);

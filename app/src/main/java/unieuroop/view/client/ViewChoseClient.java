@@ -17,7 +17,6 @@ import unieuroop.view.menu.ViewMainMenu;
 
 public final class ViewChoseClient extends Stage implements Initializable {
     private final ControllerShopImpl controller;
-    private final ViewMainMenu viewMenu;
     @FXML
     private ListView<Client> listClients;
     @FXML
@@ -26,9 +25,8 @@ public final class ViewChoseClient extends Stage implements Initializable {
     private Button btnQuit;
     private Optional<Client> selectedClient = Optional.empty();
     private final Stage window;
-    public ViewChoseClient(final ControllerShopImpl controller, final ViewMainMenu viewMenu, final Stage window) {
+    public ViewChoseClient(final ControllerShopImpl controller, final Stage window) {
         this.controller = controller;
-        this.viewMenu = viewMenu;
         this.window = window;
     }
 
@@ -46,9 +44,11 @@ public final class ViewChoseClient extends Stage implements Initializable {
         });
         this.listClients.getSelectionModel().selectedItemProperty().addListener((e) -> {
             this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
+            this.listClients.getItems().clear();
             this.window.close();
         });
         this.btnQuit.setOnMouseClicked((e) -> {
+            this.listClients.getItems().clear();
             this.window.close();
         });
     }

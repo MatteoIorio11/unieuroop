@@ -9,9 +9,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
-import java.awt.*;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,13 +22,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
+import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
@@ -64,7 +62,6 @@ public final class ViewSale implements Initializable {
     private ComboBox<Department> comboDepartments;
     private final ControllerShopImpl controller;
     private final ViewMainMenu viewMenu;
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private Department input;
     private Supplier s1;
 
@@ -95,10 +92,10 @@ public final class ViewSale implements Initializable {
         this.department1 = new DepartmentImpl("department1", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 5, p2, 1, p3, 2, p4, 2));
         this.department2 = new DepartmentImpl("department2", Set.of(staff1, staff2), Map.of(p1, 5, p4, 2));
         this.department3 = new DepartmentImpl("department3", Set.of(staff3, staff4), Map.of(p2, 100, p3, 2));
-//        this.controller.addClient("Nome", "Cognome", LocalDate.now());
-//        this.controller.addClient("Nome1", "Cognome", LocalDate.now());
-//        this.controller.addClient("Nome2", "Cognome", LocalDate.now());
-//        this.controller.addClient("Nome3", "Cognome", LocalDate.now(), Optional.empty());
+        this.controller.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),1));
+        this.controller.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),2));
+        this.controller.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),3));
+        this.controller.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),4));
         this.controller.addDepartment(department1);
         this.controller.addDepartment(department2);
         this.controller.addDepartment(department3);
@@ -112,7 +109,7 @@ public final class ViewSale implements Initializable {
             this.listLabel.getItems().clear();
             this.addLabels(this.input.getAllProducts().keySet(), this.input);
         });
-        this.btnCompleteSale.setOnMouseClicked((e) -> {
+        this.btnCompleteSale.setOnMouseClicked((event) -> {
             if (!this.controller.isReserved()) {
                 final Alert alert = new Alert(AlertType.CONFIRMATION);
                 alert.setContentText("Are you sure that you wanto to close the sale ?");
@@ -121,15 +118,15 @@ public final class ViewSale implements Initializable {
                 if (result == ButtonType.OK) {
                         this.listLabel.getItems().clear();
                         this.listSelectedProducts.getItems().clear();
-                        Pane p;
+                        final Pane pane;
                         try {
-                            StackPane secondaryLayout = new StackPane();
-                            Stage newWindow = new Stage();
-                            final var view = new ViewChoseClient(this.controller, this.viewMenu, newWindow);
+//                            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                            final Stage newWindow = new Stage();
+                            final var view = new ViewChoseClient(this.controller, newWindow);
                             final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
                             loader.setController(view);
-                            p = loader.load();
-                            Scene secondScene = new Scene(p, 500 , 500);
+                            pane = loader.load();
+                            final Scene secondScene = new Scene(pane, 500 , 500);
                             newWindow.setScene(secondScene);
                             newWindow.showAndWait();
                             this.viewMenu.disableButtons(false);
@@ -141,7 +138,7 @@ public final class ViewSale implements Initializable {
                 } 
             });
 
-        this.btnQuit.setOnMouseClicked((e) -> {
+        this.btnQuit.setOnMouseClicked((event) -> {
             this.controller.clearReservedProducts();
             this.listLabel.getItems().clear();
             this.listSelectedProducts.getItems().clear();
@@ -152,21 +149,18 @@ public final class ViewSale implements Initializable {
 
     private void addLabels(final Set<Product> products, final Department department) {
         for (final var product : products) {
-            Pane p;
+            Pane pane;
             try {
                 final var loader = new FXMLLoader(getClass().getResource(Pages.LABEL_PRODUCT_SALE.getPath()));
                 loader.setController(new ViewLabelSale(product, department, this.controller.getQuantityOf(product, department), this, this.controller));
-                p = loader.load();
-                this.listLabel.getItems().add(p);
+                pane = loader.load();
+                this.listLabel.getItems().add(pane);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
     }
-    public void btnSell(final ActionEvent event) {
 
-    }
     public ListView<String> getListView() {
         return this.listSelectedProducts;
     }
