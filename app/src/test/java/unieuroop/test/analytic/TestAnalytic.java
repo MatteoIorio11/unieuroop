@@ -26,8 +26,6 @@ import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.shop.ShopImpl;
-import unieuroop.model.stock.Stock;
-import unieuroop.model.stock.StockImpl;
 
 public class TestAnalytic {
 
@@ -37,6 +35,7 @@ public class TestAnalytic {
     /*All the money earned from sales*/
     private static final double TOTAL_SHOP_EARNED = 961_600;
     private static final double TOTAL_SPENT_NOW = 16;
+    private static final int TOTAL_SOLD_NOW = 7;
     /*ERROR tolerance*/
     private static final double ERROR_TOLLERANCE = 0.01;
     /*Data for a temporary local date*/
@@ -276,7 +275,7 @@ public class TestAnalytic {
 
         assertNotEquals(Collections.emptyMap(), products);
         assertEquals(1, products.size());
-        assertEquals(7, totalProducts);
+        assertEquals(TestAnalytic.TOTAL_SOLD_NOW, totalProducts);
 
         this.shop.addSale(saleTest);
         dates.add(dateTemp);
@@ -286,24 +285,7 @@ public class TestAnalytic {
         assertEquals(2, products.size());
         assertEquals(8, totalProducts);
     }
-    /**
-     * TEST FOR : analytic.getProductByDateCategory(BiPredicate<LocalDate, Category> b); {@link Analytic}
-     * This test return all the Products and only them searching inside the sales, return all the 
-     * products of a specified categories or more categories in a Date or a time lapse.
-     */
-    @Test
-    public void testDateCategory() {
-        final Set<LocalDate> dates = new HashSet<>(Set.of(TestAnalytic.TIME_NOW));
-        final Set<Category> categories = new HashSet<>(Set.of(Category.SMARTPHONE, Category.SMARTWATCH));
-        Set<Product> products = this.analytic.getProductByDateCategory(
-                (date, category) -> dates.contains(date) && categories.contains(category));
-        assertNotEquals(Collections.emptySet(), products);
-        assertEquals(Set.of(p1, p2), products);
 
-        categories.add(Category.PC);
-        products = this.analytic.getProductByDateCategory((date, category) -> dates.contains(date) && categories.contains(category));
-        assertEquals(Set.of(p1, p2, p3, p4), products);
-    }
     /**
      * TEST FOR : analytic.getCategoriesSold(); {@link Analytic}
      * This test is for the method getCategoriesSold, where the method return a Map
