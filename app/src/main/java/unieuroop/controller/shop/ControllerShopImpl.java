@@ -65,10 +65,6 @@ public final class ControllerShopImpl {
         }
     }
 
-    public void addClient(final String name, final String surname, final LocalDate birthday, final Optional<Integer> code) {
-        this.shop.registerClient(new Client(name, surname, birthday, code));
-    }
-
     public void clearReservedProducts() {
         this.reservedProductsMap.clear();
     }

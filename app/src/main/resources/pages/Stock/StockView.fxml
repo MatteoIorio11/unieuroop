@@ -26,20 +26,27 @@
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Take Products">
                <GridPane.margin>
                   <Insets bottom="15.0" />
-               </GridPane.margin></Button>
+               </GridPane.margin>
+            </Button>
             <Button mnemonicParsing="false" text="Buy Products" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets bottom="15.0" />
-               </GridPane.margin></Button>
+               </GridPane.margin>
+            </Button>
             <Button mnemonicParsing="false" text="Delete Products" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets bottom="15.0" />
-               </GridPane.margin></Button>
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
    </bottom>
    <center>
-      <ListView BorderPane.alignment="CENTER" />
+      <ListView prefWidth="702.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" top="10.0" />
+         </BorderPane.margin>
+      </ListView>
    </center>
    <top>
       <GridPane alignment="CENTER" BorderPane.alignment="TOP_CENTER">
@@ -81,10 +88,4 @@
          </children>
       </GridPane>
    </top>
-   <center>
-      <ListView prefWidth="702.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" top="10.0" />
-         </BorderPane.margin></ListView>
-   </center>
 </BorderPane>
