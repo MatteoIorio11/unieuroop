@@ -8,14 +8,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
+import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.view.balance.ViewBalance;
 import unieuroop.view.categories.ViewCategoriesSold;
+import unieuroop.view.client.ViewClient;
 import unieuroop.view.dates.ViewDateSold;
 import unieuroop.view.department.ViewDepartments;
 import unieuroop.view.sale.ViewSale;
@@ -42,7 +45,6 @@ public final class ViewMainMenu implements Initializable{
     @FXML
     private Button btnDateAnalytics;
     private final ControllerShopImpl controller = new ControllerShopImpl();
-//    private final ControllerClientImpl controllerClientImpl = new ControllerClientImpl();
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         
@@ -61,7 +63,7 @@ public final class ViewMainMenu implements Initializable{
     }
     @FXML
     private void btnClientsHandler(final ActionEvent event) {
-        //this.loadPage(Pages.CLIENTS, new ViewClient(this, this.controllerClientImpl));
+        this.loadPage(Pages.CLIENTS, new ViewClient(this, new ControllerClientImpl(this.controller.getShop())));
     }
     @FXML
     private void btnStaffHandler(final ActionEvent event) {
@@ -89,6 +91,7 @@ public final class ViewMainMenu implements Initializable{
             final var loader = new FXMLLoader(getClass().getResource(page.getPath()));
             loader.setController(controller);
             p = loader.load();
+
             this.mainPane.setCenter(p);
         } catch (IOException e) {
             e.printStackTrace();
