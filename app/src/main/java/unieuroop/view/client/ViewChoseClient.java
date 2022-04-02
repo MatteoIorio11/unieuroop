@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
+import java.util.Objects;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,16 +36,17 @@ public final class ViewChoseClient extends Stage implements Initializable {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.listClients.getItems().addAll(this.controller.getClients());
+
         this.textName.textProperty().addListener((observable, oldValue, newValue) -> {
             this.listClients.getItems().clear();
-            if (newValue.isEmpty()) {
+            if (Objects.isNull(newValue)) {
                 this.listClients.getItems().addAll(this.controller.getClients());
             } else {
                 this.listClients.getItems().addAll(this.controller.getClients().stream()
                         .filter((client) -> client.getName().contains(newValue)).collect(Collectors.toList()));
             }
         });
-        this.listClients.getSelectionModel().selectedItemProperty().addListener((e) -> {
+        this.listClients.getSelectionModel().selectedItemProperty().addListener((evenet) -> {
             this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
         });
         this.btnSelect.setOnMouseClicked((e) -> {
