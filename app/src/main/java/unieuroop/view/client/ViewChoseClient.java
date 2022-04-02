@@ -48,10 +48,7 @@ public final class ViewChoseClient extends Stage implements Initializable {
             this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
         });
         this.btnSelect.setOnMouseClicked((e) -> {
-            System.out.println("AO");
             this.controller.closeSale(selectedClient);
-//            this.clearListClient();
-            System.out.println("AO");
             this.window.close();
         });
         this.btnQuit.setOnMouseClicked((event) -> {

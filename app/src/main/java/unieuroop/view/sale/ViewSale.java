@@ -13,15 +13,17 @@ import java.util.Set;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Dimension2D;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import unieuroop.controller.serialization.Pages;
@@ -117,19 +119,23 @@ public final class ViewSale implements Initializable {
                     this.listSelectedProducts.getItems().clear();
                     final Pane pane;
                     try {
-//                            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                        final Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+                        final double xSize =  screenBounds.getMaxX() / 2;
+                        final double ySize = screenBounds.getMaxY() / 2;
                         final Stage newWindow = new Stage();
                         final var view = new ViewChoseClient(this.controller, newWindow);
                         final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
                         loader.setController(view);
                         pane = loader.load();
-                        final Scene secondScene = new Scene(pane, 500 , 500);
+                        final Scene secondScene = new Scene(pane, xSize, ySize);
                         newWindow.setTitle("Client Selection");
                         newWindow.setScene(secondScene);
                         newWindow.setOnCloseRequest((closeEvent) -> {
                             closeEvent.consume();
                             final Alert alert = new Alert(AlertType.INFORMATION);
-                            alert.setContentText("You should chose a client or leave with the \"QUIT\" button.\n Remember if you choose QUIT the client will be EMPTY");
+                            alert.setContentText("You should chose a client or leave with the \"QUIT\" button.\n"
+                                    + "Remember if you choose QUIT the client will be always EMPTY.\n"
+                                    + "If you do not choose any Client and press \"SELECT\",\n the selected client will be EMPYT");
                             alert.showAndWait();
                         });
                         this.stage.hide();
