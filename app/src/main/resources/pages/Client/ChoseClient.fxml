@@ -4,11 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <ListView fx:id="listClients" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
@@ -21,6 +21,11 @@
       </Pane>
    </top>
    <bottom>
-      <Button fx:id="btnQuit" mnemonicParsing="false" text="Quit" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="34.0" prefWidth="486.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnSelect" layoutX="215.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="56.0" text="Select" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="1.0" />
+            <Button fx:id="btnQuit" layoutX="14.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: RED;" text="QUIT" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="1.0" />
+         </children>
+      </AnchorPane>
    </bottom>
 </BorderPane>

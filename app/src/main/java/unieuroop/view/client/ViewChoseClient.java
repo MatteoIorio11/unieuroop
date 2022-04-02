@@ -13,7 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.person.Client;
-import unieuroop.view.menu.ViewMainMenu;
 
 public final class ViewChoseClient extends Stage implements Initializable {
     private final ControllerShopImpl controller;
@@ -22,12 +21,15 @@ public final class ViewChoseClient extends Stage implements Initializable {
     @FXML
     private TextField textName;
     @FXML
+    private Button btnSelect;
+    @FXML
     private Button btnQuit;
-    private Optional<Client> selectedClient = Optional.empty();
+    private Optional<Client> selectedClient;
     private final Stage window;
     public ViewChoseClient(final ControllerShopImpl controller, final Stage window) {
         this.controller = controller;
         this.window = window;
+        this.selectedClient = Optional.empty();
     }
 
     @Override
@@ -44,17 +46,18 @@ public final class ViewChoseClient extends Stage implements Initializable {
         });
         this.listClients.getSelectionModel().selectedItemProperty().addListener((e) -> {
             this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
-            this.listClients.getItems().clear();
+        });
+        this.btnSelect.setOnMouseClicked((e) -> {
+            System.out.println("AO");
+            this.controller.closeSale(selectedClient);
+//            this.clearListClient();
+            System.out.println("AO");
             this.window.close();
         });
-        this.btnQuit.setOnMouseClicked((e) -> {
-            this.listClients.getItems().clear();
+        this.btnQuit.setOnMouseClicked((event) -> {
+            this.controller.closeSale(Optional.empty());
+//            this.clearListClient();
             this.window.close();
         });
     }
-
-    public Optional<Client> getSelectedClient() {
-        return this.selectedClient;
-    }
-
 }

@@ -62,6 +62,7 @@ public final class ViewSale implements Initializable {
     private ComboBox<Department> comboDepartments;
     private final ControllerShopImpl controller;
     private final ViewMainMenu viewMenu;
+    private final Stage stage;
     private Department input;
     private Supplier s1;
 
@@ -81,9 +82,10 @@ public final class ViewSale implements Initializable {
             0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff4 = new Staff("Nome4", "Cognome4", this.TIME_NOW,
             0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    public ViewSale(final ViewMainMenu view, final ControllerShopImpl controller) {
+    public ViewSale(final ViewMainMenu view, final ControllerShopImpl controller, final Stage primaryStage) {
         this.viewMenu = view;
         this.controller = controller;
+        this.stage = primaryStage;
     }
 
     @Override
@@ -111,29 +113,31 @@ public final class ViewSale implements Initializable {
         });
         this.btnCompleteSale.setOnMouseClicked((event) -> {
             if (!this.controller.isReserved()) {
-                final Alert alert = new Alert(AlertType.CONFIRMATION);
-                alert.setContentText("Are you sure that you wanto to close the sale ?");
-                alert.showAndWait();
-                final var result = alert.getResult();
-                if (result == ButtonType.OK) {
-                        this.listLabel.getItems().clear();
-                        this.listSelectedProducts.getItems().clear();
-                        final Pane pane;
-                        try {
+                    this.listLabel.getItems().clear();
+                    this.listSelectedProducts.getItems().clear();
+                    final Pane pane;
+                    try {
 //                            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-                            final Stage newWindow = new Stage();
-                            final var view = new ViewChoseClient(this.controller, newWindow);
-                            final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
-                            loader.setController(view);
-                            pane = loader.load();
-                            final Scene secondScene = new Scene(pane, 500 , 500);
-                            newWindow.setScene(secondScene);
-                            newWindow.showAndWait();
-                            this.viewMenu.disableButtons(false);
-                            this.controller.closeSale(view.getSelectedClient());
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
+                        final Stage newWindow = new Stage();
+                        final var view = new ViewChoseClient(this.controller, newWindow);
+                        final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
+                        loader.setController(view);
+                        pane = loader.load();
+                        final Scene secondScene = new Scene(pane, 500 , 500);
+                        newWindow.setTitle("Client Selection");
+                        newWindow.setScene(secondScene);
+                        newWindow.setOnCloseRequest((closeEvent) -> {
+                            closeEvent.consume();
+                            final Alert alert = new Alert(AlertType.INFORMATION);
+                            alert.setContentText("You should chose a client or leave with the \"QUIT\" button.\n Remember if you choose QUIT the client will be EMPTY");
+                            alert.showAndWait();
+                        });
+                        this.stage.hide();
+                        newWindow.showAndWait();
+                        this.stage.show();
+                        this.viewMenu.disableButtons(false);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
                     }
                 } 
             });
