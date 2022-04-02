@@ -44,4 +44,10 @@ public final class ControllerAnalyticImpl{
     public Map<LocalDate, Integer> getSelectedDate(final Set<LocalDate> dates){
         return this.analytic.getSoldOnDay((date) -> dates.contains(date));
     }
+    public Map<LocalDate, Integer> getSelectedDate(final LocalDate dateOne, final LocalDate dateTwo){
+        final var lowerBound = dateOne.isBefore(dateTwo) ? dateOne : dateTwo;
+        final var upperBound = dateOne.isAfter(dateTwo) ? dateOne : dateTwo;
+        return this.analytic.getSoldOnDay((date) -> date.isAfter(lowerBound) && date.isBefore(upperBound)
+                || date.isEqual(lowerBound) || date.isEqual(upperBound));
+    }
 }

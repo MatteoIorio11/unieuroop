@@ -44,12 +44,13 @@ public final class ViewCategoriesSold implements Initializable {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.barCategories.setLegendVisible(false);
+        this.barProductsSold.setLegendVisible(false);
+
         this.comboCategories.getItems().addAll(this.controller.getCategoriesSold().keySet());
 
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
         this.controller.getCategoriesSold().entrySet().forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
         this.barCategories.getData().add(serie);
-        this.barProductsSold.setLegendVisible(false);
 
 
         this.comboCategories.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {

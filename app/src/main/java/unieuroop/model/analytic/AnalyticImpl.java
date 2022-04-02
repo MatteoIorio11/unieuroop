@@ -71,6 +71,12 @@ public final class AnalyticImpl implements Analytic {
                 .collect(Collectors.toSet());
     }
 
+    private int totalQuantitySold(final Predicate<LocalDate> date) {
+        return this.shop.getSales((sale) -> date.test(sale.getDate())).stream()
+                .mapToInt((sale) -> sale.getTotalQuantity())
+                .sum();
+    }
+
     @Override 
     public Map<LocalDate, Integer> getSoldOnDay(final Predicate<LocalDate> datePredicate) {
         return this.shop.getSales((sale) -> datePredicate.test(sale.getDate())).stream()
@@ -78,7 +84,7 @@ public final class AnalyticImpl implements Analytic {
                 .distinct()
                 .sorted((date1, date2) -> date1.compareTo(date2))
                 .collect(Collectors.toMap((date) -> date, 
-                        (date) -> this.getProductByDate((inputDate) -> datePredicate.test(inputDate)).size()));
+                        (date) -> this.totalQuantitySold(datePredicate)));
     }
 
     private Set<Product> allSalesCategory(final Category category) {

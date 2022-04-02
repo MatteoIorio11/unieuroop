@@ -37,6 +37,11 @@ public interface Sale {
 
     /**
      * 
+     * @return the sun of all Product's quantity.
+     */
+    int getTotalQuantity();
+    /**
+     * 
      * @return the client of this specific Sale, is optional
      */
     Optional<Client> getClient();

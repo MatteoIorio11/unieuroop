@@ -15,7 +15,6 @@ public final class SaleImpl implements Sale {
     private final LocalDate date;
     private final Map<Product, Integer> productsBuyed;
     private final Optional<Client> client;
-    /*private final int id;ID created with the hashCode ???????????*/
 
     /**
      * Constructor of Sale, it requires.
@@ -64,8 +63,14 @@ public final class SaleImpl implements Sale {
     }
 
     @Override
+    public int getTotalQuantity() {
+        return this.productsBuyed.entrySet().stream()
+                .mapToInt((entry) -> entry.getValue())
+                .sum();
+    }
+
+    @Override
     public Optional<Client> getClient() {
         return this.client;
     }
-
 }

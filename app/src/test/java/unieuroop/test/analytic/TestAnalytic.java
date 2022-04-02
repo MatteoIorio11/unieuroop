@@ -35,7 +35,7 @@ public class TestAnalytic {
     /*All the money earned from sales*/
     private static final double TOTAL_SHOP_EARNED = 961_600;
     private static final double TOTAL_SPENT_NOW = 16;
-    private static final int TOTAL_SOLD_NOW = 7;
+    private static final int TOTAL_SOLD_NOW = 565;
     /*ERROR tolerance*/
     private static final double ERROR_TOLLERANCE = 0.01;
     /*Data for a temporary local date*/
@@ -272,6 +272,7 @@ public class TestAnalytic {
         final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
         final Sale saleTest = new SaleImpl(dateTemp, Map.of(p8, 1), Optional.empty());
         int totalProducts = products.get(LocalDate.now());
+        final int totalQuantityTemp = TestAnalytic.TOTAL_SOLD_NOW + 1;
 
         assertNotEquals(Collections.emptyMap(), products);
         assertEquals(1, products.size());
@@ -283,7 +284,7 @@ public class TestAnalytic {
         totalProducts = products.get(LocalDate.now());
         assertNotEquals(Collections.emptyMap(), products);
         assertEquals(2, products.size());
-        assertEquals(8, totalProducts);
+        assertEquals(totalQuantityTemp, totalProducts);
     }
 
     /**
