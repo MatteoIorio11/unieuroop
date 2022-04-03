@@ -75,7 +75,7 @@ public final class ControllerShopImpl {
                         .mapToInt((e) -> e.getValue()))
                 .sum();
     }
-    public Map<Product, Integer> getReservedProducts(){
+    public Map<Product, Integer> getReservedProducts() {
         return Map.copyOf(this.reservedProductsMap.entrySet().stream()
                     .flatMap((entry) -> entry.getValue().entrySet().stream())
                     .map((entry) -> entry.getKey())
@@ -87,9 +87,6 @@ public final class ControllerShopImpl {
         return this.reservedProductsMap.isEmpty();
     }
 
-    public Set<Client> getClients() {
-        return this.shop.getRegisteredClients();
-    }
     public Shop getShop() {
         return this.shop;
     }

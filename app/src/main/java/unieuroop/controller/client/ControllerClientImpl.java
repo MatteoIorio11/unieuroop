@@ -2,11 +2,12 @@ package unieuroop.controller.client;
 
 import java.time.LocalDate;
 import java.util.Optional;
+import java.util.Set;
 
 import unieuroop.model.person.Client;
 import unieuroop.model.shop.Shop;
 
-public class ControllerClientImpl {
+public final class ControllerClientImpl {
     
     private final Shop shop;
     public ControllerClientImpl(final Shop shop) {
@@ -17,12 +18,16 @@ public class ControllerClientImpl {
         int code = 0;
         this.shop.registerClient(new Client(name, surname, birthday, code));
     }
-    
+
     public void EditClient() {
         
     }
-    
+
     public void DeleteClient() {
-        
+
+    }
+
+    public Set<Client> getRegisteredClients() {
+        return this.shop.getRegisteredClients();
     }
 }

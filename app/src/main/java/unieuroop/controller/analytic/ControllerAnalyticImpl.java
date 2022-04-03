@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.BiPredicate;
-import java.util.function.Predicate;
 
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
@@ -13,7 +11,7 @@ import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.shop.Shop;
 
-public final class ControllerAnalyticImpl{
+public final class ControllerAnalyticImpl {
 
     private final Analytic analytic;
 
@@ -38,13 +36,13 @@ public final class ControllerAnalyticImpl{
     public Map<Category, Integer> getCategoriesSold() {
         return this.analytic.getCategoriesSold();
     }
-    public Map<Integer, Double> getTotalEarnedByYear(){
+    public Map<Integer, Double> getTotalEarnedByYear() {
         return this.analytic.getTotalEarnedByYear();
     }
-    public Map<LocalDate, Integer> getSelectedDate(final Set<LocalDate> dates){
+    public Map<LocalDate, Integer> getSelectedDate(final Set<LocalDate> dates) {
         return this.analytic.getSoldOnDay((date) -> dates.contains(date));
     }
-    public Map<LocalDate, Integer> getSelectedDate(final LocalDate dateOne, final LocalDate dateTwo){
+    public Map<LocalDate, Integer> getSelectedDate(final LocalDate dateOne, final LocalDate dateTwo) {
         final var lowerBound = dateOne.isBefore(dateTwo) ? dateOne : dateTwo;
         final var upperBound = dateOne.isAfter(dateTwo) ? dateOne : dateTwo;
         return this.analytic.getSoldOnDay((date) -> date.isAfter(lowerBound) && date.isBefore(upperBound)

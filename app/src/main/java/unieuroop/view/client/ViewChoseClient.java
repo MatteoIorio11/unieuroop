@@ -12,11 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.person.Client;
 
 public final class ViewChoseClient extends Stage implements Initializable {
-    private final ControllerShopImpl controller;
     @FXML
     private ListView<Client> listClients;
     @FXML
@@ -27,22 +27,25 @@ public final class ViewChoseClient extends Stage implements Initializable {
     private Button btnQuit;
     private Optional<Client> selectedClient;
     private final Stage window;
-    public ViewChoseClient(final ControllerShopImpl controller, final Stage window) {
-        this.controller = controller;
+    private final ControllerShopImpl controllerShop;
+    private final ControllerClientImpl controllerClient;
+    public ViewChoseClient(final ControllerShopImpl controller, final ControllerClientImpl controllerClient, final Stage window) {
+        this.controllerShop = controller;
+        this.controllerClient = controllerClient;
         this.window = window;
         this.selectedClient = Optional.empty();
     }
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        this.listClients.getItems().addAll(this.controller.getClients());
+        this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients());
 
         this.textName.textProperty().addListener((observable, oldValue, newValue) -> {
             this.listClients.getItems().clear();
             if (Objects.isNull(newValue)) {
-                this.listClients.getItems().addAll(this.controller.getClients());
+                this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients());
             } else {
-                this.listClients.getItems().addAll(this.controller.getClients().stream()
+                this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients().stream()
                         .filter((client) -> client.getName().contains(newValue)).collect(Collectors.toList()));
             }
         });
@@ -50,12 +53,11 @@ public final class ViewChoseClient extends Stage implements Initializable {
             this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
         });
         this.btnSelect.setOnMouseClicked((e) -> {
-            this.controller.closeSale(selectedClient);
+            this.controllerShop.closeSale(selectedClient);
             this.window.close();
         });
         this.btnQuit.setOnMouseClicked((event) -> {
-            this.controller.closeSale(Optional.empty());
-//            this.clearListClient();
+            this.controllerShop.closeSale(Optional.empty());
             this.window.close();
         });
     }

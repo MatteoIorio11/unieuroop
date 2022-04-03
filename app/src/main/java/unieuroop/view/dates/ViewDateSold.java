@@ -13,6 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
 
@@ -28,6 +29,8 @@ public final class ViewDateSold implements Initializable {
     private Button btnClearAll;
     @FXML
     private ListView<String> listDates;
+    @FXML
+    private Label labelDates;
     private final ControllerAnalyticImpl controller;
     private List<LocalDate> selectedDates = new LinkedList<>();
     private LocalDate date = LocalDate.now();
@@ -70,6 +73,9 @@ public final class ViewDateSold implements Initializable {
                         .map((date) -> String.valueOf("Code : " + this.selectedDates.indexOf(date) + "\n" + "Date : " + date))
                         .collect(Collectors.toList()));
             }
+            final var lowerBound = this.date.isBefore(newValue) ? this.date : newValue;
+            final var upperBound = this.date.isAfter(newValue) ? this.date : newValue;
+            this.labelDates.setText("Dare from : " + lowerBound + " to " + upperBound);
             this.date = LocalDate.of(newValue.getYear(), newValue.getMonthValue(), newValue.getDayOfMonth());
             this.barSelectedDates.getData().clear();
             this.barSelectedDates.getData().add(serie2);

@@ -15,9 +15,10 @@
    <bottom>
       <Pane prefHeight="35.0" prefWidth="784.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="buttonClearAll" fx:id="btnClearAll" layoutX="650.0" layoutY="1.0" mnemonicParsing="false" text="CLEAR ALL" />
-            <DatePicker id="inputDatePicker" fx:id="datePicker" layoutX="261.0" layoutY="1.0" prefHeight="25.0" prefWidth="261.0" />
-            <Label layoutX="23.0" layoutY="5.0" prefHeight="17.0" prefWidth="193.0" text="Select Dates : " />
+            <Button id="buttonClearAll" fx:id="btnClearAll" layoutX="436.0" layoutY="2.0" mnemonicParsing="false" text="CLEAR ALL" />
+            <DatePicker id="inputDatePicker" fx:id="datePicker" layoutX="146.0" layoutY="2.0" prefHeight="25.0" prefWidth="261.0" />
+            <Label layoutX="23.0" layoutY="5.0" prefHeight="17.0" prefWidth="131.0" text="Select Dates : " />
+            <Label fx:id="labelDates" layoutX="521.0" layoutY="5.0" prefHeight="17.0" prefWidth="288.0" />
          </children>
       </Pane>
    </bottom>

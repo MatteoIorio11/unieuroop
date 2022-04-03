@@ -13,7 +13,6 @@ import java.util.Set;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Dimension2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -26,6 +25,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Pair;
+import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.department.Department;
@@ -62,7 +62,8 @@ public final class ViewSale implements Initializable {
     private Button btnQuit;
     @FXML
     private ComboBox<Department> comboDepartments;
-    private final ControllerShopImpl controller;
+    private final ControllerShopImpl controllerShop;
+    private final ControllerClientImpl controllerClient;
     private final ViewMainMenu viewMenu;
     private final Stage stage;
     private Department input;
@@ -84,9 +85,10 @@ public final class ViewSale implements Initializable {
             0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff4 = new Staff("Nome4", "Cognome4", this.TIME_NOW,
             0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    public ViewSale(final ViewMainMenu view, final ControllerShopImpl controller, final Stage primaryStage) {
+    public ViewSale(final ViewMainMenu view, final ControllerShopImpl controllerShop, final ControllerClientImpl controllerClient, final Stage primaryStage) {
         this.viewMenu = view;
-        this.controller = controller;
+        this.controllerShop = controllerShop;
+        this.controllerClient = controllerClient;
         this.stage = primaryStage;
     }
 
@@ -96,17 +98,17 @@ public final class ViewSale implements Initializable {
         this.department1 = new DepartmentImpl("department1", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 5, p2, 1, p3, 2, p4, 2));
         this.department2 = new DepartmentImpl("department2", Set.of(staff1, staff2), Map.of(p1, 5, p4, 2));
         this.department3 = new DepartmentImpl("department3", Set.of(staff3, staff4), Map.of(p2, 100, p3, 2));
-        this.controller.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),1));
-        this.controller.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),2));
-        this.controller.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),3));
-        this.controller.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),4));
-        this.controller.addDepartment(department1);
-        this.controller.addDepartment(department2);
-        this.controller.addDepartment(department3);
+        this.controllerShop.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),1));
+        this.controllerShop.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),2));
+        this.controllerShop.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),3));
+        this.controllerShop.getShop().registerClient(new Client("Nome", "Cognome", LocalDate.now(),4));
+        this.controllerShop.addDepartment(department1);
+        this.controllerShop.addDepartment(department2);
+        this.controllerShop.addDepartment(department3);
 
-        this.comboDepartments.getItems().addAll(this.controller.getDepartments());
+        this.comboDepartments.getItems().addAll(this.controllerShop.getDepartments());
         this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            if (this.controller.isReserved()) {
+            if (this.controllerShop.isReserved()) {
                 this.viewMenu.disableButtons(true);
             }
             this.input = this.comboDepartments.getValue();
@@ -114,7 +116,7 @@ public final class ViewSale implements Initializable {
             this.addLabels(this.input.getAllProducts().keySet(), this.input);
         });
         this.btnCompleteSale.setOnMouseClicked((event) -> {
-            if (!this.controller.isReserved()) {
+            if (!this.controllerShop.isReserved()) {
                     this.listLabel.getItems().clear();
                     this.listSelectedProducts.getItems().clear();
                     final Pane pane;
@@ -123,7 +125,7 @@ public final class ViewSale implements Initializable {
                         final double xSize =  screenBounds.getMaxX() / 2;
                         final double ySize = screenBounds.getMaxY() / 2;
                         final Stage newWindow = new Stage();
-                        final var view = new ViewChoseClient(this.controller, newWindow);
+                        final var view = new ViewChoseClient(this.controllerShop, this.controllerClient, newWindow);
                         final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
                         loader.setController(view);
                         pane = loader.load();
@@ -149,7 +151,7 @@ public final class ViewSale implements Initializable {
             });
 
         this.btnQuit.setOnMouseClicked((event) -> {
-            this.controller.clearReservedProducts();
+            this.controllerShop.clearReservedProducts();
             this.listLabel.getItems().clear();
             this.listSelectedProducts.getItems().clear();
             this.viewMenu.disableButtons(false);
@@ -162,7 +164,7 @@ public final class ViewSale implements Initializable {
             Pane pane;
             try {
                 final var loader = new FXMLLoader(getClass().getResource(Pages.LABEL_PRODUCT_SALE.getPath()));
-                loader.setController(new ViewLabelSale(product, department, this.controller.getQuantityOf(product, department), this, this.controller));
+                loader.setController(new ViewLabelSale(product, department, this.controllerShop.getQuantityOf(product, department), this, this.controllerShop));
                 pane = loader.load();
                 this.listLabel.getItems().add(pane);
             } catch (IOException e) {

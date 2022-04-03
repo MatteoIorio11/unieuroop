@@ -25,7 +25,7 @@
    <top>
       <AnchorPane prefHeight="35.0" prefWidth="896.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox fx:id="comboDepartments" layoutY="1.0" prefHeight="15.0" prefWidth="248.0" promptText="Departments" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="5.0" />
+            <ComboBox fx:id="comboDepartments" layoutY="1.0" prefHeight="25.0" prefWidth="342.0" promptText="Departments" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
    </top>

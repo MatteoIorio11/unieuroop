@@ -62,7 +62,7 @@ public final class ViewCategoriesSold implements Initializable {
         this.listLegend.getSelectionModel().selectedItemProperty().addListener((e) -> {
             final var string = this.listLegend.getSelectionModel().getSelectedItem();
             if (string != null) {
-                final var code = string.split(":")[1].split(" ")[1];
+                final var code = string.split(":")[1].split("\n")[0].split(" ")[1];
                 final var d = this.barProductsSold.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
                         d.get().getNode().setStyle("-fx-bar-fill: blue;");
             }
@@ -79,8 +79,9 @@ public final class ViewCategoriesSold implements Initializable {
             serie.getData().add(new XYChart.Data<String, Integer>(String.valueOf(entry.getKey().getProductCode()), entry.getValue())));
         this.listLegend.getItems().clear();
         this.listSelectedCategories.getItems().clear();
-        final var out = categoriesSold.entrySet().stream().map((entry) -> "Code : " + entry.getKey().getProductCode() + " Name : " + entry.getKey().getName()
-                + " Category : " + entry.getKey().getCategory())
+        final var out = categoriesSold.entrySet().stream().map((entry) -> "Code : " + entry.getKey().getProductCode() + "\n" 
+                + "Name : " + entry.getKey().getName() + "\n"
+                + "Category : " + entry.getKey().getCategory())
                    .collect(Collectors.toList());
         this.listLegend.getItems().addAll(out);
 
