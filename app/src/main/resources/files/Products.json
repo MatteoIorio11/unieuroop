@@ -5,13 +5,7 @@
   "sellingPrice" : 1200.0,
   "purchasePrice" : 900.0,
   "description" : "best phone ever created",
-  "category" : "SMARTPHONE",
-  "supplier" : {
-    "@id" : 1,
-    "name" : "nome",
-    "salableProduct" : { },
-    "catalog" : [ ]
-  }
+  "category" : "SMARTPHONE"
 }, {
   "productCode" : 2,
   "name" : "applewatch",
@@ -19,8 +13,7 @@
   "sellingPrice" : 500.0,
   "purchasePrice" : 200.0,
   "description" : "best watch ever created",
-  "category" : "SMARTWATCH",
-  "supplier" : 1
+  "category" : "SMARTWATCH"
 }, {
   "productCode" : 3,
   "name" : "mac book pro 14 ",
@@ -28,6 +21,5 @@
   "sellingPrice" : 3000.0,
   "purchasePrice" : 2000.0,
   "description" : "best mac book ever created",
-  "category" : "PC",
-  "supplier" : 1
+  "category" : "PC"
 } ]

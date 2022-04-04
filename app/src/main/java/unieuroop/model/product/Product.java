@@ -41,11 +41,7 @@ public interface Product {
      * @return : the category of the product
      */
     Category getCategory();
-    /**
-     * 
-     * @return : the supplier that sold the product to the shop
-     */
-    Supplier getSupplier();
+    
     /**
      * change the name of the product.
      * @param name

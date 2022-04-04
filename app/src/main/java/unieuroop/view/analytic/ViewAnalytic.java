@@ -49,14 +49,14 @@ public class ViewAnalytic implements Initializable{
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */
-    private final Product p1 = new ProductImpl(1, "iphone 13 pro", ViewAnalytic.APPLE_PRODUCT,  1200.00,  900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
-    private final Product p2 = new ProductImpl(2, "applewatch", ViewAnalytic.APPLE_PRODUCT, 500.00,  200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
-    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", ViewAnalytic.APPLE_PRODUCT,  3000.00, 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p4 = new ProductImpl(4, "mac book pro 16", ViewAnalytic.APPLE_PRODUCT,  600.00,  3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p5 = new ProductImpl(5, "ipad Air ", ViewAnalytic.APPLE_PRODUCT,  700.00,  300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
-    private final Product p6 = new ProductImpl(6, "ipad Pro", ViewAnalytic.APPLE_PRODUCT, 1000.00, 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
-    private final Product p7 = new ProductImpl(7, "ipad Pro Max", ViewAnalytic.APPLE_PRODUCT, 1200.00,  900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
-    private final Product p8 = new ProductImpl(8, "ipad Pro Max v2", ViewAnalytic.APPLE_PRODUCT, 1200.00, 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+    private final Product p1 = new ProductImpl(1, "iphone 13 pro", ViewAnalytic.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+    private final Product p2 = new ProductImpl(2, "applewatch", ViewAnalytic.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
+    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", ViewAnalytic.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+    private final Product p4 = new ProductImpl(4, "mac book pro 16", ViewAnalytic.APPLE_PRODUCT,  600.00,  3000.00, "best mac book ever created", Category.PC);
+    private final Product p5 = new ProductImpl(5, "ipad Air ", ViewAnalytic.APPLE_PRODUCT,  700.00,  300.00, "best ipad ever created", Category.HOME);
+    private final Product p6 = new ProductImpl(6, "ipad Pro", ViewAnalytic.APPLE_PRODUCT, 1000.00, 500.00, "best ipad Pro ever created", Category.HOME);
+    private final Product p7 = new ProductImpl(7, "ipad Pro Max", ViewAnalytic.APPLE_PRODUCT, 1200.00,  900.00, "best ipad pro max ever created", Category.HOME);
+    private final Product p8 = new ProductImpl(8, "ipad Pro Max v2", ViewAnalytic.APPLE_PRODUCT, 1200.00, 900.00, "best ipad pro max ever created", Category.HOME);
     /**
      * ALL THE SALES THAT WILL BE USED IN THIS TEST.
      */

@@ -20,7 +20,6 @@ public final class ProductImpl implements Product, Serializable {
 //    private Optional<Integer> discountPercentage;
     private String description;
     private Category category;
-    private final Supplier supplier;
     /**
      * Constructor of product with discount.
      * @param productCode
@@ -31,7 +30,6 @@ public final class ProductImpl implements Product, Serializable {
      * @param discount
      * @param description
      * @param category
-     * @param supplier
      */
     @JsonCreator
     public ProductImpl(
@@ -41,8 +39,7 @@ public final class ProductImpl implements Product, Serializable {
             @JsonProperty("sellingPrice")final Double sellingPrice, 
             @JsonProperty("purchasePrice")final Double purchasePrice, 
             @JsonProperty("description")final String description, 
-            @JsonProperty("category")final Category category, 
-            @JsonProperty("supplier")final Supplier supplier) {
+            @JsonProperty("category")final Category category) {
         this.productCode = productCode;
         this.name = name;
         this.brand = brand;
@@ -50,7 +47,6 @@ public final class ProductImpl implements Product, Serializable {
         this.purchasePrice = purchasePrice;
         this.description = description;
         this.category = category;
-        this.supplier = supplier;
     }
     @Override
     public int getProductCode() {
@@ -80,10 +76,6 @@ public final class ProductImpl implements Product, Serializable {
     @Override
     public Category getCategory() {
         return this.category;
-    }
-    @Override
-    public Supplier getSupplier() {
-        return this.supplier;
     }
     @Override
     public void setName(final String name) {

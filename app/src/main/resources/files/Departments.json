@@ -1,1 +1,50 @@
-[ ]
+[ {
+  "departmentName" : "depart1",
+  "staff" : [ {
+  "name" : "mario",
+  "surname" : "rossi",
+  "email" : "prova@gmail.com",
+  "id" : 0,
+  "password" : 1509442,
+  "birthday" : [ 2022, 4, 4 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 13, 33, 32, 141606000 ] ],
+  "endTimes" : [ [ 13, 33, 32, 141672000 ] ]
+}, {
+  "name" : "filippo",
+  "surname" : "verdi",
+  "email" : "prova@gmail.com",
+  "id" : 0,
+  "password" : 1509442,
+  "birthday" : [ 2022, 4, 4 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 13, 33, 32, 141897000 ] ],
+  "endTimes" : [ [ 13, 33, 32, 141914000 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "apple",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "apple",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "apple",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  } ],
+  "values" : [ 30, 100, 10 ]
+} ]

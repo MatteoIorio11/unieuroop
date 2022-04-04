@@ -5,15 +5,11 @@ import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import javafx.util.Pair;
 
@@ -85,6 +81,13 @@ public class Staff extends AbstractPerson implements Serializable {
         } else {
             throw new IllegalArgumentException("day out of workDays");
         }
+    }
+    /**
+     * @param day 
+     * @return return the workTime of the Staff based on the day of the week
+     */
+    public Map<DayOfWeek, Pair<LocalTime, LocalTime>> getWorkingTimeTable() {
+        return Map.copyOf(this.workTime);
     }
 
     /**

@@ -1,1 +1,9 @@
-[ ]
+[ {
+  "name" : "matteo",
+  "surname" : "iorio",
+  "birthdayDate" : [ 2022, 4, 4 ],
+  "clientCode" : {
+    "empty" : false,
+    "present" : true
+  }
+} ]

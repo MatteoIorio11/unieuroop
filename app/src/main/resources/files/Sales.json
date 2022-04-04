@@ -1,1 +1,201 @@
-[ ]
+[ {
+  "date" : [ 2010, 9, 20 ],
+  "client" : {
+    "empty" : true,
+    "present" : false
+  },
+  "products" : [ {
+    "productCode" : 4,
+    "name" : "mac book pro 16",
+    "brand" : "apple",
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "apple",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "apple",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  } ],
+  "totalSpent" : 631200.0
+}, {
+  "date" : [ 2010, 5, 20 ],
+  "client" : {
+    "empty" : true,
+    "present" : false
+  },
+  "products" : [ {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "apple",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "apple",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "apple",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  } ],
+  "totalSpent" : 65000.0
+}, {
+  "date" : [ 2011, 5, 20 ],
+  "client" : {
+    "empty" : true,
+    "present" : false
+  },
+  "products" : [ {
+    "productCode" : 4,
+    "name" : "mac book pro 16",
+    "brand" : "apple",
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "apple",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "apple",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  } ],
+  "totalSpent" : 615000.0
+}, {
+  "date" : [ 2017, 2, 10 ],
+  "client" : {
+    "empty" : true,
+    "present" : false
+  },
+  "products" : [ {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "apple",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "apple",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "apple",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  } ],
+  "totalSpent" : 81200.0
+}, {
+  "date" : [ 2013, 1, 10 ],
+  "client" : {
+    "empty" : true,
+    "present" : false
+  },
+  "products" : [ {
+    "productCode" : 4,
+    "name" : "mac book pro 16",
+    "brand" : "apple",
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "apple",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "apple",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  } ],
+  "totalSpent" : 68000.0
+}, {
+  "date" : [ 2015, 3, 20 ],
+  "client" : {
+    "empty" : true,
+    "present" : false
+  },
+  "products" : [ {
+    "productCode" : 4,
+    "name" : "mac book pro 16",
+    "brand" : "apple",
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "apple",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "apple",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "apple",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  } ],
+  "totalSpent" : 98000.0
+} ]

@@ -1,8 +1,21 @@
 [ {
   "name" : "mario",
   "surname" : "rossi",
-  "birthdayDate" : [ 2022, 3, 29 ],
-  "id" : 0,
   "email" : "prova@gmail.com",
-  "password" : 1509442
+  "id" : 0,
+  "password" : 1509442,
+  "birthday" : [ 2022, 4, 4 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 13, 33, 32, 141606000 ] ],
+  "endTimes" : [ [ 13, 33, 32, 141672000 ] ]
+}, {
+  "name" : "filippo",
+  "surname" : "verdi",
+  "email" : "prova@gmail.com",
+  "id" : 0,
+  "password" : 1509442,
+  "birthday" : [ 2022, 4, 4 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 13, 33, 32, 141897000 ] ],
+  "endTimes" : [ [ 13, 33, 32, 141914000 ] ]
 } ]
