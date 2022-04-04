@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import javafx.util.Pair;
+import unieuroop.controller.serialization.ObjectMapperFactory;
 
 public final class StaffSerializer extends JsonSerializer<Staff> {
 
@@ -31,10 +32,9 @@ public final class StaffSerializer extends JsonSerializer<Staff> {
         gen.writeStringField("email", value.getEmail());
         gen.writeNumberField("id", value.getId());
         gen.writeNumberField("password", value.getPassword());
-        final ObjectMapper mapper = (ObjectMapper) gen.getCodec();
+        final ObjectMapper mapper = ObjectMapperFactory.getMapper();
         gen.writeFieldName("birthday");
-        final String stringValue = mapper.writeValueAsString(value.getBirthdayDate());
-        gen.writeRawValue(stringValue);
+        gen.writeRawValue(mapper.writeValueAsString(value.getBirthdayDate()));
         gen.writeArrayFieldStart("days");
         for (final var el : k) {
           gen.writeObject(el);

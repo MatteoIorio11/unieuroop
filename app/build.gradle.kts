@@ -73,9 +73,9 @@ dependencies {
     }
     // Use JUnit test framework.
     testImplementation("junit:junit:4.13.2")
-    compile ("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
-implementation("com.fasterxml.jackson.core:jackson-databind:2.0.1")
-
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.2")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.0.1")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.2")
     implementation("com.thoughtworks.xstream:xstream:1.4.19")
 
     // This dependency is used by the application.

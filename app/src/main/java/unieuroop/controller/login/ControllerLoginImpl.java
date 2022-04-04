@@ -119,9 +119,9 @@ public final class ControllerLoginImpl {
         final var staff = Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<Staff>>() { });
         final var suppliers = Serialization.<Set<Supplier>>deserialize(Files.SUPPLIERS.getPath(), new TypeReference<Set<Supplier>>() { });
         final var sales = Serialization.<Set<Sale>>deserialize(Files.SALES.getPath(), new TypeReference<Set<Sale>>() { });
-        departments.forEach(a-> System.out.println(a.getDepartmentName()));
-//        final var clients = Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { });
+        final var clients = Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { });
 //        final var products = Serialization.<Set<Product>>deserialize(Files.PRODUCTS.getPath(), new TypeReference<Set<Product>>() { });
+        departments.forEach(a-> System.out.println(a.getDepartmentName()));
 //        final var productQuantity = Serialization.<Map<String, Integer>>deserialize(Files.STOCK.getPath(), new TypeReference<Map<String, Integer>>() { });
 //        final var stock = new StockImpl();
 //        stock.addProducts(

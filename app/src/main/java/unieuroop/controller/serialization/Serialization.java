@@ -26,25 +26,12 @@ public final class Serialization {
     private Serialization() { }
 
     public static <X> void serialize(final String filePath, final X obj) throws  IOException {
-        final ObjectMapper mapper = new ObjectMapper();
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        SimpleModule module = new SimpleModule();
-        module.addSerializer(SupplierImpl.class, new SupplierSerializer());
-        module.addSerializer(Department.class, new DepartmentSerializer());
-        module.addSerializer(Staff.class, new StaffSerializer());
-        mapper.registerModule(module);
-        mapper.registerModule(new JavaTimeModule());
+        final ObjectMapper mapper = ObjectMapperFactory.getMapper();
         mapper.writeValue(new File(filePath), obj);
     }
 
     public static <X> X deserialize(final String filePath, final TypeReference<?> c) throws IOException {
-        final ObjectMapper mapper = new ObjectMapper();
-        final SimpleModule module = new SimpleModule();
-        module.addDeserializer(Supplier.class, new SupplierDeserializer());
-        module.addDeserializer(Staff.class, new StaffDeserializer());
-        module.addDeserializer(Department.class, new DepartmentDeserializer());
-        mapper.registerModule(module);
-        mapper.registerModule(new JavaTimeModule());
+        final ObjectMapper mapper = ObjectMapperFactory.getMapper();
         return (X) mapper.readValue(new File(filePath), c);
     }
 

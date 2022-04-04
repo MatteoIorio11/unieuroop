@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import javafx.util.Pair;
+import unieuroop.controller.serialization.ObjectMapperFactory;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.product.Product;
 
@@ -35,8 +36,7 @@ public class StaffDeserializer extends JsonDeserializer<Staff>{
         final var days = new ArrayList<DayOfWeek>();
         final var endTimes = new ArrayList<LocalTime>();
         final var startTimes = new ArrayList<LocalTime>();
-        final ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
+        final ObjectMapper mapper = ObjectMapperFactory.getMapper();
         final LocalDate birthday = mapper.treeToValue(node.get("birthday"), LocalDate.class);
         for (final var el : node.get("days")) {
             days.add(mapper.treeToValue(el, DayOfWeek.class));
