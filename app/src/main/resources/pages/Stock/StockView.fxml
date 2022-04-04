@@ -23,17 +23,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Take Products">
+            <Button fx:id="btnTakeProducts" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Take Products">
                <GridPane.margin>
                   <Insets bottom="15.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Buy Products" GridPane.columnIndex="1">
+            <Button fx:id="btnBuyProducts" mnemonicParsing="false" text="Buy Products" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets bottom="15.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Delete Products" GridPane.columnIndex="2">
+            <Button fx:id="btnDeleteProducts" mnemonicParsing="false" text="Delete Products" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets bottom="15.0" />
                </GridPane.margin>
@@ -42,7 +42,7 @@
       </GridPane>
    </bottom>
    <center>
-      <ListView prefWidth="702.0" BorderPane.alignment="CENTER">
+      <ListView fx:id="listProductsStocked" prefWidth="702.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="20.0" top="10.0" />
          </BorderPane.margin>
@@ -59,7 +59,7 @@
             <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TextField alignment="BASELINE_LEFT" prefHeight="12.0" prefWidth="379.0">
+            <TextField fx:id="txtSearchProducts" alignment="BASELINE_LEFT" prefHeight="12.0" prefWidth="379.0">
                <GridPane.margin>
                   <Insets left="5.0" top="10.0" />
                </GridPane.margin>
@@ -70,17 +70,17 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <RadioButton mnemonicParsing="false" text="Increasing" GridPane.rowIndex="1">
+            <RadioButton fx:id="rdbtnIncreasing" mnemonicParsing="false" text="Increasing" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" top="15.0" />
                </GridPane.margin>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Decreasing" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <RadioButton fx:id="rdbtnDecreasing" mnemonicParsing="false" text="Decreasing" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="-250.0" top="16.0" />
                </GridPane.margin>
             </RadioButton>
-            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="35.0" GridPane.columnIndex="1">
+            <Button fx:id="btnSearchFilters" mnemonicParsing="false" prefHeight="24.0" prefWidth="35.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" top="10.0" />
                </GridPane.margin>

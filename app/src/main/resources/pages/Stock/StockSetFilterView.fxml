@@ -41,7 +41,7 @@
                                  <Insets left="10.0" />
                               </GridPane.margin>
                            </Label>
-                           <Slider majorTickUnit="50.0" max="500.0" showTickLabels="true" showTickMarks="true" GridPane.rowIndex="2">
+                           <Slider fx:id="sliderMinAmount" majorTickUnit="50.0" max="500.0" showTickLabels="true" showTickMarks="true" GridPane.rowIndex="2">
                               <GridPane.margin>
                                  <Insets left="5.0" right="10.0" />
                               </GridPane.margin>
@@ -51,18 +51,18 @@
                                  <Insets left="10.0" top="10.0" />
                               </GridPane.margin>
                            </Label>
-                           <ComboBox prefHeight="24.0" prefWidth="236.0" promptText="Categories" GridPane.rowIndex="6">
+                           <ComboBox fx:id="cmboxCategories" prefHeight="24.0" prefWidth="236.0" promptText="Categories" GridPane.rowIndex="6">
                               <GridPane.margin>
                                  <Insets left="5.0" />
                               </GridPane.margin>
                            </ComboBox>
-                           <Button mnemonicParsing="false" text="Confirm Filter" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                           <Button fx:id="btnConfirmFilter" mnemonicParsing="false" text="Confirm Filter" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
                            <Label text="Max Amount:" GridPane.rowIndex="3">
                               <GridPane.margin>
                                  <Insets left="10.0" />
                               </GridPane.margin>
                            </Label>
-                           <Slider majorTickUnit="50.0" max="500.0" showTickLabels="true" showTickMarks="true" GridPane.rowIndex="4">
+                           <Slider fx:id="sliderMaxAmount" majorTickUnit="50.0" max="500.0" showTickLabels="true" showTickMarks="true" GridPane.rowIndex="4">
                               <GridPane.margin>
                                  <Insets left="5.0" right="10.0" />
                               </GridPane.margin>
