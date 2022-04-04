@@ -35,13 +35,13 @@
          </GridPane.margin></ListView>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <right>
-            <Button mnemonicParsing="false" text="Add Staff" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="120.0" text="Add Staff" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="50.0" />
                </BorderPane.margin></Button>
          </right>
          <left>
-            <Button mnemonicParsing="false" text="Remove Staff" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="120.0" text="Remove Staff" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets left="50.0" />
                </BorderPane.margin>
@@ -50,16 +50,16 @@
       </BorderPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <left>
-            <Button mnemonicParsing="false" text="Remove Products" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="150.0" text="Remove Products" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets left="50.0" />
+                  <Insets left="40.0" />
                </BorderPane.margin>
             </Button>
          </left>
          <right>
-            <Button mnemonicParsing="false" text="Add Products" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="150.0" text="Add Products" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets right="50.0" />
+                  <Insets left="10.0" right="40.0" />
                </BorderPane.margin></Button>
          </right>
       </BorderPane>
@@ -79,27 +79,27 @@
          </center>
       </BorderPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-         <left>
-            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="135.0" text="Add Departments" BorderPane.alignment="CENTER">
+         <top>
+            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="152.0" text="Add Departments" BorderPane.alignment="TOP_LEFT">
                <BorderPane.margin>
-                  <Insets left="10.0" />
+                  <Insets left="10.0" top="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </top>
+         <left>
+            <Button mnemonicParsing="false" text="Delete Departments" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="10.0" top="5.0" />
                </BorderPane.margin>
             </Button>
          </left>
          <right>
-            <Button mnemonicParsing="false" text="Delete Departments" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="152.0" text="Merge Departments" BorderPane.alignment="TOP_CENTER">
                <BorderPane.margin>
-                  <Insets right="10.0" />
+                  <Insets right="10.0" top="-23.0" />
                </BorderPane.margin>
             </Button>
          </right>
-         <top>
-            <Button mnemonicParsing="false" text="Merge Departments" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets top="10.0" />
-               </BorderPane.margin>
-            </Button>
-         </top>
       </BorderPane>
    </children>
 </GridPane>

@@ -30,15 +30,31 @@
    <center>
       <ListView fx:id="listProductsTaken" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets top="10.0" />
+            <Insets bottom="10.0" top="10.0" />
          </BorderPane.margin>
       </ListView>
    </center>
    <bottom>
-      <Button fx:id="btnConfirm" mnemonicParsing="false" text="Confirm" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="10.0" top="5.0" />
-         </BorderPane.margin>
-      </Button>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnConfirm" mnemonicParsing="false" text="Confirm" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="btnRemoveProducts" mnemonicParsing="false" text="Remove Products" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
    </bottom>
 </BorderPane>
