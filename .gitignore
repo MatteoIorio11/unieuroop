@@ -6,3 +6,9 @@ build
 
 # Ignore Bin directory
 app/bin
+
+# Ignore .DS_Store 
+.DS_Store
+
+# Ignore JAVADOC
+app/doc

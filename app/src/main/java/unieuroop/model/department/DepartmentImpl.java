@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -126,4 +127,31 @@ public final class DepartmentImpl implements Department, Serializable{
         return true;
     }
 
+    /**
+     * Override of the method toString in order to have a better print of this class.
+     */
+    @Override
+    public String toString() {
+        return "Department Name : " + this.name;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DepartmentImpl other = (DepartmentImpl) obj;
+        return Objects.equals(name, other.name);
+    }
 }

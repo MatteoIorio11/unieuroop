@@ -147,14 +147,14 @@ public final class ShopImpl implements Shop {
     @Override
     public void removeSale(final Sale sale) {
         if (!this.sales.remove(sale)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input sale does not exist");
         }
     }
 
     @Override
     public void removeClient(final Client client) {
         if (!this.registeredClients.remove(client)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input client does not exist");
         }
     }
 
@@ -168,6 +168,7 @@ public final class ShopImpl implements Shop {
         //get all staff from the department i want to merge
         final Set<Staff> staff = departments.stream()
                 .flatMap(d -> d.getStaff().stream())
+                .distinct()
                 .collect(Collectors.toSet());
         //removing all departments
         departments.stream().forEach(d -> this.removeDepartment(d));

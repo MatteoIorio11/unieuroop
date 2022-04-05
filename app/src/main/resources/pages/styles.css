@@ -76,3 +76,6 @@
     -fx-stroke: transparent;
     -fx-stroke-width: 0;
 }
+.series-SELECTED *.chart-series-area-fill{
+    -fx-fill: #3278fa; 
+}

@@ -1,7 +1,5 @@
 package unieuroop.controller.serialization;
 
-import java.io.File;
-
 public enum Pages {
     /**
      * @param 
@@ -15,6 +13,14 @@ public enum Pages {
      * @param
      */
     STOCK_TAKE_PRODUCTS("/pages/Stock/StockTakeProductsView.fxml"),
+    /**
+     * @param
+     */
+    STOCK_SET_SEARCH_FILTER("/pages/Stock/StockSetFilterView.fxml"),
+    /**
+     * @param
+     */
+    STOCK_BUY_PRODUCTS("/pages/Stock/StockBuyProductsView.fxml"),
     /**
      * @param
      */
@@ -50,7 +56,11 @@ public enum Pages {
     /**
      * @param
      */
-    MAIN_DATE_SOLD("/pages/DateSold/MainDateChart.fxml");
+    MAIN_DATE_SOLD("/pages/DateSold/MainDateChart.fxml"),
+    /**
+     * @param
+     */
+    CHOSE_CLIENT("/pages/Client/ChoseClient.fxml");
 
     private final String fileName;
 
