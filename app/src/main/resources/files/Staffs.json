@@ -1,19 +1,21 @@
 [ {
-  "name" : "nome1",
-  "surname" : "cognome1",
-  "birthdayDate" : [ 2022, 3, 15 ],
-  "id" : 1,
-  "email" : "AAAA",
-  "password" : "askjda",
-  "startTime" : "1970-01-01",
-  "endTime" : "1970-01-01"
+  "name" : "mario",
+  "surname" : "rossi",
+  "email" : "prova@gmail.com",
+  "id" : 0,
+  "password" : 1509442,
+  "birthday" : [ 2022, 4, 5 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 9, 30, 39, 394122000 ] ],
+  "endTimes" : [ [ 9, 30, 39, 394153000 ] ]
 }, {
-  "name" : "nome",
-  "surname" : "cognome",
-  "birthdayDate" : [ 2022, 3, 15 ],
-  "id" : 1,
-  "email" : "ffff",
-  "password" : "passw",
-  "startTime" : "1970-01-01",
-  "endTime" : "1970-01-01"
+  "name" : "filippo",
+  "surname" : "verdi",
+  "email" : "prova@gmail.com",
+  "id" : 0,
+  "password" : 1509442,
+  "birthday" : [ 2022, 4, 5 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 9, 30, 39, 394294000 ] ],
+  "endTimes" : [ [ 9, 30, 39, 394324000 ] ]
 } ]

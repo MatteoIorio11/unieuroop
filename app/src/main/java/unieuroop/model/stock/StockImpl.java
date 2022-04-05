@@ -3,6 +3,7 @@ package unieuroop.model.stock;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import java.util.Map;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,7 +12,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.BiPredicate;
 
-public class StockImpl implements Stock {
+
+public class StockImpl implements Stock{
     private final Map<Product, Integer> productsStocked = new HashMap<>();
 
     /**

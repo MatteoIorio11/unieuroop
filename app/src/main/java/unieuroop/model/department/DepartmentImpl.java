@@ -1,5 +1,6 @@
 package unieuroop.model.department;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -10,8 +11,12 @@ import java.util.function.Predicate;
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 
-public final class DepartmentImpl implements Department {
+public final class DepartmentImpl implements Department, Serializable{
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private final String name;
     private final Set<Staff> staff;
     private final Map<Product, Integer> products;

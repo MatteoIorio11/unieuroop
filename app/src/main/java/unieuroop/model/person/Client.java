@@ -4,15 +4,17 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Optional;
 
-public class Client extends AbstractPerson implements Serializable {
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 2150913221610743492L;
-    private final int clientCode;
+public class Client extends AbstractPerson {
 
-    public Client(final String name, final String surname, final LocalDate birthdayDate, final int clientCode) {
+    private final Optional<Integer> clientCode;
+    @JsonCreator
+    public Client(@JsonProperty("name")final String name, 
+            @JsonProperty("surname")final String surname, 
+            @JsonProperty("birthdayDate")final LocalDate birthdayDate, 
+            @JsonProperty("clientCode")final int clientCode) {
         super(name, surname, birthdayDate);
         this.clientCode = clientCode;
     }

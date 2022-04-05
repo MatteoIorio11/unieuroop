@@ -20,18 +20,31 @@ import unieuroop.model.supplier.Supplier;
 
 public final class ShopImpl implements Shop {
     private String name;
-    private final Set<Department> departments = new HashSet<>();
-    private final Set<Staff> staffs = new HashSet<>();
-    private final Set<Supplier> suppliers = new HashSet<>();
-    private final Set<Sale> sales = new HashSet<>();
-    private final Set<Client> registeredClients = new HashSet<>();
-    private final Stock stock = new StockImpl();
-    private final Map<LocalDate, Double> bills = new HashMap<>();
+    private final Set<Department> departments;
+    private final Set<Staff> staffs;
+    private final Set<Supplier> suppliers;
+    private final Set<Sale> sales;
+    private final Set<Client> registeredClients;
+    private final Stock stock;
+    private final Map<LocalDate, Double> bills;
 
     public ShopImpl(final String name) {
-        this.name = name;
+        this(name, new HashSet<>(), new HashSet<>(), new HashSet<>(), new HashSet<>(), new HashSet<>(), new StockImpl(), new HashMap<>());
     }
-
+    public ShopImpl(final String name, final Set<Department> departments, 
+            final Set<Staff> staffs, final Set<Supplier> suppliers, 
+            final Set<Sale> sales, final Set<Client> registeredClients, 
+            final Stock stock, final Map<LocalDate, Double> bills) {
+        this.name = name;
+        this.departments = departments;
+        this.staffs = staffs;
+        this.suppliers = suppliers;
+        this.sales = sales;
+        this.registeredClients = registeredClients;
+        this.stock = stock;
+        this.bills = bills;
+    }
+   
     @Override
     public String getName() {
         return this.name;

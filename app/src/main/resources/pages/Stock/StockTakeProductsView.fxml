@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="444.0" prefWidth="660.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+
+<BorderPane prefHeight="444.0" prefWidth="660.0" stylesheets="@../Workspace-ProgettoOOP/unieuroop/app/src/main/resources/pages/styles.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <top>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>

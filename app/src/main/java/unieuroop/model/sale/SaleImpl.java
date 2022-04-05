@@ -3,14 +3,13 @@ package unieuroop.model.sale;
 import unieuroop.model.product.Product;
 import unieuroop.model.person.Client;
 
-
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
 public final class SaleImpl implements Sale {
-
 
     private final LocalDate date;
     private final Map<Product, Integer> productsBuyed;
