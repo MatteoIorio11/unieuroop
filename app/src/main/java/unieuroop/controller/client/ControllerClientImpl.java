@@ -2,9 +2,6 @@ package unieuroop.controller.client;
 
 import java.time.LocalDate;
 import java.util.Set;
-
-import com.google.common.base.FinalizablePhantomReference;
-
 import unieuroop.model.person.Client;
 import unieuroop.model.shop.Shop;
 
@@ -21,19 +18,25 @@ public final class ControllerClientImpl {
         this.shop = shop;
     }
 
-    public void AddClient(final String name, final String surname, final LocalDate birthday) {
-        int code = 0;
+    /**
+     * 
+     * @param name
+     * @param surname
+     * @param birthday
+     */
+    public void addClient(final String name, final String surname, final LocalDate birthday) {
         if (name.equals(emptyString) || surname.equals(emptyString) || birthday.isBefore(maxBirthday) && birthday.isAfter(minBirthday)) {
             throw new IllegalArgumentException(illegalArgumentString);
         }
+        final int code = 0;
         this.shop.registerClient(new Client(name, surname, birthday, code));
     }
 
-    public void EditClient() {
-        
+    public void editClient() {
+
     }
 
-    public void DeleteClient() {
+    public void deleteClient() {
 
     }
 
