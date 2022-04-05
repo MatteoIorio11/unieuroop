@@ -6,8 +6,8 @@
   "password" : 1509442,
   "birthday" : [ 2022, 4, 5 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 9, 12, 32, 688366000 ] ],
-  "endTimes" : [ [ 9, 12, 32, 688421000 ] ]
+  "startTimes" : [ [ 9, 30, 39, 394122000 ] ],
+  "endTimes" : [ [ 9, 30, 39, 394153000 ] ]
 }, {
   "name" : "filippo",
   "surname" : "verdi",
@@ -16,6 +16,6 @@
   "password" : 1509442,
   "birthday" : [ 2022, 4, 5 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 9, 12, 32, 688706000 ] ],
-  "endTimes" : [ [ 9, 12, 32, 688725000 ] ]
+  "startTimes" : [ [ 9, 30, 39, 394294000 ] ],
+  "endTimes" : [ [ 9, 30, 39, 394324000 ] ]
 } ]

@@ -8,11 +8,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 
-import unieuroop.model.person.Staff;
-import unieuroop.model.person.StaffDeserializer;
-import unieuroop.model.person.StaffSerializer;
+import unieuroop.controller.serialization.ObjectMapperFactory;
 import unieuroop.model.product.Product;
 
 public final class DepartmentSerializer extends JsonSerializer<Department> {
@@ -29,13 +26,9 @@ public final class DepartmentSerializer extends JsonSerializer<Department> {
         });
         gen.writeStartObject();
         gen.writeStringField("departmentName", value.getDepartmentName());
-        final ObjectMapper mapper = (ObjectMapper) gen.getCodec();
-        final SimpleModule module = new SimpleModule();
-        module.addSerializer(Staff.class, new StaffSerializer());
-        mapper.registerModule(module);
+        final ObjectMapper mapper = ObjectMapperFactory.getMapper();
         gen.writeFieldName("staff");
-        final String stringValue = mapper.writeValueAsString(value.getStaff());
-        gen.writeRawValue(stringValue);
+        gen.writeRawValue(mapper.writeValueAsString(value.getStaff()));
 
         gen.writeArrayFieldStart("products");
         for (final var el : k) {

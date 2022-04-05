@@ -6,27 +6,20 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
 import javafx.util.Pair;
 import unieuroop.controller.serialization.ObjectMapperFactory;
-import unieuroop.model.department.DepartmentImpl;
-import unieuroop.model.product.Product;
 
-public class StaffDeserializer extends JsonDeserializer<Staff>{
+public final class StaffDeserializer extends JsonDeserializer<Staff> {
 
     @Override
-    public Staff deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public Staff deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
         final String name = node.get("name").asText();
         final String surname = node.get("surname").asText();

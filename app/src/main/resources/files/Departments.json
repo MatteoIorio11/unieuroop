@@ -8,8 +8,8 @@
   "password" : 1509442,
   "birthday" : [ 2022, 4, 5 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 9, 12, 32, 688366000 ] ],
-  "endTimes" : [ [ 9, 12, 32, 688421000 ] ]
+  "startTimes" : [ [ 9, 30, 39, 394122000 ] ],
+  "endTimes" : [ [ 9, 30, 39, 394153000 ] ]
 }, {
   "name" : "filippo",
   "surname" : "verdi",
@@ -18,17 +18,17 @@
   "password" : 1509442,
   "birthday" : [ 2022, 4, 5 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 9, 12, 32, 688706000 ] ],
-  "endTimes" : [ [ 9, 12, 32, 688725000 ] ]
+  "startTimes" : [ [ 9, 30, 39, 394294000 ] ],
+  "endTimes" : [ [ 9, 30, 39, 394324000 ] ]
 } ],
   "products" : [ {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
     "brand" : "apple",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
   }, {
     "productCode" : 2,
     "name" : "applewatch",
@@ -38,13 +38,13 @@
     "description" : "best watch ever created",
     "category" : "SMARTWATCH"
   }, {
-    "productCode" : 3,
-    "name" : "mac book pro 14 ",
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
     "brand" : "apple",
-    "sellingPrice" : 3000.0,
-    "purchasePrice" : 2000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
   } ],
-  "values" : [ 10, 100, 30 ]
+  "values" : [ 30, 100, 10 ]
 } ]

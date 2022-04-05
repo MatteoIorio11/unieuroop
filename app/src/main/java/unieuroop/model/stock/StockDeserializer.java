@@ -15,7 +15,7 @@ import unieuroop.controller.serialization.ObjectMapperFactory;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
 
-public class StockDeserializer extends JsonDeserializer<Stock>{
+public final class StockDeserializer extends JsonDeserializer<Stock> {
 
     @Override
     public Stock deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException, JacksonException {

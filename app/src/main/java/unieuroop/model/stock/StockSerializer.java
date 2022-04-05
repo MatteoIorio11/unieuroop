@@ -9,26 +9,27 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 import unieuroop.model.product.Product;
 
-public class StockSerializer extends JsonSerializer<Stock> {
+public final class StockSerializer extends JsonSerializer<Stock> {
 
     @Override
-    public void serialize(Stock value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-        var m = value.getTotalStock();
-        var k = new ArrayList<Product>();
-        var v = new ArrayList<Integer>();
+    public void serialize(final Stock value, final JsonGenerator gen, final SerializerProvider serializers) 
+            throws IOException {
+        final var m = value.getTotalStock();
+        final var k = new ArrayList<Product>();
+        final var v = new ArrayList<Integer>();
         m.entrySet().stream().forEach(e -> {
             k.add(e.getKey());
             v.add(e.getValue());
         });
-        gen.writeStartObject();        
+        gen.writeStartObject();
         gen.writeArrayFieldStart("keys");
-        for (var el : k) {
+        for (final var el : k) {
           gen.writeObject(el);
         }
         gen.writeEndArray();
 
         gen.writeArrayFieldStart("values");
-        for (var el : v) {
+        for (final var el : v) {
           gen.writeObject(el);
         }
         gen.writeEndArray();

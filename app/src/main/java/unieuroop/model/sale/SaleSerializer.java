@@ -1,7 +1,6 @@
 package unieuroop.model.sale;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,9 +9,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import unieuroop.controller.serialization.ObjectMapperFactory;
-import unieuroop.model.product.Product;
 
-public class SaleSerializer extends JsonSerializer<Sale> {
+public final class SaleSerializer extends JsonSerializer<Sale> {
 
     @Override
     public void serialize(final Sale value, final JsonGenerator gen, final SerializerProvider serializers)

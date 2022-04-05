@@ -11,11 +11,9 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import unieuroop.controller.serialization.ObjectMapperFactory;
 import unieuroop.model.person.Staff;
-import unieuroop.model.person.StaffDeserializer;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
 
