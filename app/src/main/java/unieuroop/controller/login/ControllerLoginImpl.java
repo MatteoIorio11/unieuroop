@@ -87,7 +87,7 @@ public final class ControllerLoginImpl {
         this.shop.addBills(LocalDate.now(), 14232);
         this.shop.addBills(LocalDate.of(2013, 4, 20), 2123);
         this.shop.addDepartment(new DepartmentImpl("depart1", Set.of(st1,st2),Map.of(p1, 10, p2, 100, p3, 30)));
-        this.shop.registerClient(new Client("matteo", "iorio", LocalDate.now(),Optional.of(13)));
+        this.shop.registerClient(new Client("matteo", "iorio", LocalDate.now(),13));
         
         Serialization.<String>serialize(Files.SHOPNAME.getPath(), this.shop.getName());
         Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());

@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Client extends AbstractPerson {
 
-    private final Optional<Integer> clientCode;
+    private final int clientCode;
     @JsonCreator
     public Client(@JsonProperty("name")final String name, 
             @JsonProperty("surname")final String surname, 
