@@ -47,7 +47,11 @@ public class ViewClient implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         btnAddClient.setOnMouseClicked((e) -> {
-            this.controller.AddClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue());
+            try {
+                this.controller.AddClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue());
+            } catch (IllegalArgumentException illegalExc) {
+                illegalExc.printStackTrace();
+            }
         });
         
         btnEditClient.setOnMouseClicked((e) -> {
