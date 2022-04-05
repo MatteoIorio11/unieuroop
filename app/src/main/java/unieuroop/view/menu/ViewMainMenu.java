@@ -14,13 +14,15 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
 import unieuroop.controller.client.ControllerClientImpl;
+import unieuroop.controller.department.ControllerDepartmentImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
+import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.view.balance.ViewBalance;
 import unieuroop.view.categories.ViewCategoriesSold;
 import unieuroop.view.client.ViewClient;
 import unieuroop.view.dates.ViewDateSold;
-import unieuroop.view.department.ViewDepartments;
+import unieuroop.view.department.ViewDepartment;
 import unieuroop.view.sale.ViewSale;
 
 public final class ViewMainMenu implements Initializable {
@@ -75,7 +77,9 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnDepartmentsHandler(final ActionEvent event) {
-        this.loadPage(Pages.DEPARTMENTS, new ViewDepartments());
+        this.loadPage(Pages.DEPARTMENTS, new ViewDepartment(new ControllerDepartmentImpl(this.controller.getShop()),
+                new ControllerStaffImpl(this.controller.getShop()), 
+                        this.stage));
     }
     @FXML
     public void btnDateAnalyticsHandler(final ActionEvent event) {

@@ -21,15 +21,15 @@
       <RowConstraints maxHeight="286.6666564941406" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <ListView fx:id="lstView_departments" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+      <ListView fx:id="listDepartments" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="10.0" right="5.0" />
          </GridPane.margin></ListView>
-      <ListView fx:id="lstView_staff" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <ListView fx:id="listStaff" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="5.0" right="5.0" />
          </GridPane.margin></ListView>
-      <ListView fx:id="lstView_products" prefHeight="395.0" prefWidth="274.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <ListView fx:id="listProducts" prefHeight="395.0" prefWidth="274.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="5.0" right="10.0" />
          </GridPane.margin></ListView>
