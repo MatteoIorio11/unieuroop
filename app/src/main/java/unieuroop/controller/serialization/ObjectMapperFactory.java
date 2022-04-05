@@ -15,6 +15,9 @@ import unieuroop.model.person.StaffSerializer;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleDeserializer;
 import unieuroop.model.sale.SaleSerializer;
+import unieuroop.model.stock.Stock;
+import unieuroop.model.stock.StockDeserializer;
+import unieuroop.model.stock.StockSerializer;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierDeserializer;
 import unieuroop.model.supplier.SupplierImpl;
@@ -29,6 +32,8 @@ public class ObjectMapperFactory {
         module.addSerializer(Department.class, new DepartmentSerializer());
         module.addSerializer(Staff.class, new StaffSerializer());
         module.addSerializer(Sale.class, new SaleSerializer());
+        module.addSerializer(Stock.class, new StockSerializer());
+        module.addDeserializer(Stock.class, new StockDeserializer());
         module.addDeserializer(Sale.class, new SaleDeserializer());
         module.addDeserializer(Supplier.class, new SupplierDeserializer());
         module.addDeserializer(Staff.class, new StaffDeserializer());

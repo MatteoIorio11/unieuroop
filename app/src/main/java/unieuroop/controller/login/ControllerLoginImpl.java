@@ -88,19 +88,14 @@ public final class ControllerLoginImpl {
         this.shop.addBills(LocalDate.of(2013, 4, 20), 2123);
         this.shop.addDepartment(new DepartmentImpl("depart1", Set.of(st1,st2),Map.of(p1, 10, p2, 100, p3, 30)));
         this.shop.registerClient(new Client("matteo", "iorio", LocalDate.now(),Optional.of(13)));
-        final var products = this.shop.getStock().getTotalStock().keySet();
-        final var productQuantity = this.shop.getStock().getTotalStock().keySet().stream()
-                .collect(Collectors.toMap(a -> a.getProductCode(), 
-                        a -> this.shop.getStock().getTotalStock().get(a)));
-
+        
         Serialization.<String>serialize(Files.SHOPNAME.getPath(), this.shop.getName());
         Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
         Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
         Serialization.<Set<Supplier>>serialize(Files.SUPPLIERS.getPath(), this.shop.getSuppliers());
         Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), this.shop.getSales());
         Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), this.shop.getRegisteredClients());
-        Serialization.<Set<Product>>serialize(Files.PRODUCTS.getPath(), products);
-        Serialization.<Map<Integer, Integer>>serialize(Files.STOCK.getPath(), productQuantity);
+        Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
         Serialization.<Map<LocalDate, Double>>serialize(Files.BILLS.getPath(), this.shop.getBills());
 
     }
@@ -120,19 +115,10 @@ public final class ControllerLoginImpl {
         final var suppliers = Serialization.<Set<Supplier>>deserialize(Files.SUPPLIERS.getPath(), new TypeReference<Set<Supplier>>() { });
         final var sales = Serialization.<Set<Sale>>deserialize(Files.SALES.getPath(), new TypeReference<Set<Sale>>() { });
         final var clients = Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { });
-//        final var products = Serialization.<Set<Product>>deserialize(Files.PRODUCTS.getPath(), new TypeReference<Set<Product>>() { });
         departments.forEach(a-> System.out.println(a.getDepartmentName()));
-//        final var productQuantity = Serialization.<Map<String, Integer>>deserialize(Files.STOCK.getPath(), new TypeReference<Map<String, Integer>>() { });
-//        final var stock = new StockImpl();
-//        stock.addProducts(
-//                productQuantity.entrySet().stream()
-//                .collect(Collectors.toMap(a -> products.stream()
-//                        .filter(p -> p.getProductCode() == Integer.parseInt(a.getKey()))
-//                        .findFirst().get(), 
-//                        a -> a.getValue()))
-//                );
-//        final var m = Serialization.<Map<String, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<String, Double>>() { });
-//        final var bills = m.keySet().stream().collect(Collectors.toMap(a -> LocalDate.parse(a), a -> m.get(a)));
+        final var stock = Serialization.<Stock>deserialize(Files.STOCK.getPath(), new TypeReference<Stock>() { });
+        final var m = Serialization.<Map<String, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<String, Double>>() { });
+        final var bills = m.keySet().stream().collect(Collectors.toMap(a -> LocalDate.parse(a), a -> m.get(a)));
 //
 //        this.shop = new ShopImpl(shopName, departments, staff, suppliers, sales, clients, stock, bills);
 //                this.shop.getStaffs().forEach(a->System.out.println(a));

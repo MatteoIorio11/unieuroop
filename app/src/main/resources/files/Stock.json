@@ -1,5 +1,28 @@
 {
-  "1" : 10,
-  "2" : 10,
-  "3" : 3
+  "keys" : [ {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "apple",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "apple",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "apple",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  } ],
+  "values" : [ 10, 10, 3 ]
 }

@@ -7,11 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import unieuroop.model.supplier.Supplier;
 
-public final class ProductImpl implements Product, Serializable {
-    /**
-     * 
-     */
-    private static final long serialVersionUID = -8521815205261847580L;
+public final class ProductImpl implements Product {
     private final int productCode;
     private String name;
     private String brand;
@@ -27,7 +23,6 @@ public final class ProductImpl implements Product, Serializable {
      * @param brand
      * @param sellingPrice
      * @param purchasePrice
-     * @param discount
      * @param description
      * @param category
      */

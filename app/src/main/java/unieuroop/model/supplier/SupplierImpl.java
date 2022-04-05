@@ -13,8 +13,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import unieuroop.model.product.Product;
-import unieuroop.model.product.ProductDeserialization;
-import unieuroop.model.product.ProductSerialization;
 
 @JsonIdentityInfo(scope=SupplierImpl.class, generator=ObjectIdGenerators.IntSequenceGenerator.class)
 public class SupplierImpl implements Supplier {
