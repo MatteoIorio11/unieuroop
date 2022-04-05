@@ -79,5 +79,9 @@ public class ViewStock implements Initializable {
         // TODO Auto-generated method stub
         
     }
+    
+    private void addStockLabel() {
+        
+    }
 
 }
