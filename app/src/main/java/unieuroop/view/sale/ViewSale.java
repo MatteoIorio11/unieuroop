@@ -10,6 +10,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -85,56 +86,60 @@ public final class ViewSale implements Initializable {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.comboDepartments.getItems().addAll(this.controllerDepartment.getDepartments());
-        this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            if (this.controllerSale.isReserved()) {
-                this.viewMenu.disableButtons(true);
-            }
-            this.input = this.comboDepartments.getValue();
-            this.listLabel.getItems().clear();
-            this.addLabels(this.input.getAllProducts().keySet(), this.input);
-        });
-        this.btnCompleteSale.setOnMouseClicked((event) -> {
-            if (!this.controllerSale.isReserved()) {
-                    this.listLabel.getItems().clear();
-                    this.listSelectedProducts.getItems().clear();
-                    final Pane pane;
-                    try {
-                        final Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-                        final double xSize =  screenBounds.getMaxX() / 2;
-                        final double ySize = screenBounds.getMaxY() / 2;
-                        final Stage newWindow = new Stage();
-                        final var view = new ViewChoseClient(this.controllerSale, this.controllerClient, newWindow);
-                        final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
-                        loader.setController(view);
-                        pane = loader.load();
-                        final Scene secondScene = new Scene(pane, xSize, ySize);
-                        newWindow.setTitle("Client Selection");
-                        newWindow.setScene(secondScene);
-                        newWindow.setOnCloseRequest((closeEvent) -> {
-                            closeEvent.consume();
-                            final Alert alert = new Alert(AlertType.INFORMATION);
-                            alert.setContentText("You should chose a client or leave with the \"QUIT\" button.\n"
-                                    + "Remember if you choose QUIT the client will be always EMPTY.\n"
-                                    + "If you do not choose any Client and press \"SELECT\",\n the selected client will be EMPYT");
-                            alert.showAndWait();
-                        });
-                        this.stage.hide();
-                        newWindow.showAndWait();
-                        this.stage.show();
-                        this.viewMenu.disableButtons(false);
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                } 
-            });
+    }
 
-        this.btnQuit.setOnMouseClicked((event) -> {
-            this.controllerSale.clearReservedProducts();
+    @FXML
+    public void comboSelectDepartment(final ActionEvent event) {
+        if (this.controllerSale.isReserved()) {
+            this.viewMenu.disableButtons(true);
+        }
+        this.input = this.comboDepartments.getValue();
+        this.listLabel.getItems().clear();
+        this.addLabels(this.input.getAllProducts().keySet(), this.input);
+    }
+
+    @FXML
+    public void buttonSellHandler(final ActionEvent event) {
+        if (!this.controllerSale.isReserved()) {
             this.listLabel.getItems().clear();
             this.listSelectedProducts.getItems().clear();
-            this.viewMenu.disableButtons(false);
-        });
+            final Pane pane;
+            try {
+                final Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+                final double xSize =  screenBounds.getMaxX() / 2;
+                final double ySize = screenBounds.getMaxY() / 2;
+                final Stage newWindow = new Stage();
+                final var view = new ViewChoseClient(this.controllerSale, this.controllerClient, newWindow);
+                final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
+                loader.setController(view);
+                pane = loader.load();
+                final Scene secondScene = new Scene(pane, xSize, ySize);
+                newWindow.setTitle("Client Selection");
+                newWindow.setScene(secondScene);
+                newWindow.setOnCloseRequest((closeEvent) -> {
+                    closeEvent.consume();
+                    final Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setContentText("You should chose a client or leave with the \"QUIT\" button.\n"
+                            + "Remember if you choose QUIT the client will be always EMPTY.\n"
+                            + "If you do not choose any Client and press \"SELECT\",\n the selected client will be EMPYT");
+                    alert.showAndWait();
+                });
+                this.stage.hide();
+                newWindow.showAndWait();
+                this.stage.show();
+                this.viewMenu.disableButtons(false);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        } 
+    }
 
+    @FXML
+    public void buttonQuitHandler(final ActionEvent event) {
+        this.controllerSale.clearReservedProducts();
+        this.listLabel.getItems().clear();
+        this.listSelectedProducts.getItems().clear();
+        this.viewMenu.disableButtons(false);
     }
 
     private void addLabels(final Set<Product> products, final Department department) {
@@ -154,5 +159,4 @@ public final class ViewSale implements Initializable {
     public ListView<String> getListView() {
         return this.listSelectedProducts;
     }
-
 }

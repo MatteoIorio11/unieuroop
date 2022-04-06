@@ -35,15 +35,15 @@
          <bottom>
             <Pane prefHeight="76.0" prefWidth="810.0" BorderPane.alignment="CENTER">
                <children>
-                  <ComboBox id="comboCategories" fx:id="comboCategories" layoutX="172.0" layoutY="21.0" prefHeight="25.0" prefWidth="236.0" />
-                  <Button id="buttonClearAll" fx:id="buttonClear" layoutX="429.0" layoutY="21.0" mnemonicParsing="false" onAction="#clearEvent" prefHeight="25.0" prefWidth="101.0" text="CLEAR ALL" />
+                  <ComboBox id="comboCategories" fx:id="comboCategories" layoutX="172.0" layoutY="21.0" onAction="#comboSelectCategoryHandler" prefHeight="25.0" prefWidth="236.0" />
+                  <Button id="buttonClearAll" fx:id="buttonClear" layoutX="429.0" layoutY="21.0" mnemonicParsing="false" onAction="#buttonClearEvent" prefHeight="25.0" prefWidth="101.0" text="CLEAR ALL" />
                   <Label layoutX="14.0" layoutY="25.0" prefHeight="17.0" prefWidth="170.0" text="SELECT CATEGORIES : " />
                   <ListView fx:id="listSelectedCategories" layoutX="539.0" layoutY="12.0" prefHeight="42.0" prefWidth="317.0" />
                </children>
             </Pane>
          </bottom>
          <right>
-            <ListView fx:id="listLegend" prefHeight="244.0" prefWidth="171.0" BorderPane.alignment="CENTER">
+            <ListView fx:id="listLegend" onMouseClicked="#listSelectValueHandler" prefHeight="244.0" prefWidth="171.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="10.0" />
                </BorderPane.margin>
