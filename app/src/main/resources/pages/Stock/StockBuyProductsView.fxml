@@ -36,7 +36,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnConfimrBuyProducts" mnemonicParsing="false" text="Buy Products" GridPane.columnIndex="3">
+            <Button fx:id="btnConfimrBuyProducts" mnemonicParsing="false" onAction="#btnConfimrBuyProductsHandler" text="Buy Products" GridPane.columnIndex="3">
                <GridPane.margin>
                   <Insets bottom="15.0" />
                </GridPane.margin>

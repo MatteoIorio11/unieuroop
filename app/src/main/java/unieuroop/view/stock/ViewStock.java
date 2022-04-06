@@ -93,7 +93,7 @@ public class ViewStock implements Initializable {
         for (final Map.Entry<Product, Integer> entryProduct : products.entrySet()) {
             Pane pane;
             try {
-                final var loaderLabel = new FXMLLoader(getClass().getResource(Pages.STOCK_LABEL_FOR_STOCKVIEW.getPath()));
+                final var loaderLabel = new FXMLLoader(getClass().getResource(Pages.STOCK_LABEL_FOR_STOCK.getPath()));
                 loaderLabel.setController(new ViewStockLabelProduct(entryProduct, this, this.controllerShop));
                 pane = loaderLabel.load();
                 this.listProductsStocked.getItems().add(pane);
