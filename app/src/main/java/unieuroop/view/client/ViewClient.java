@@ -3,6 +3,9 @@ package unieuroop.view.client;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+
+import org.checkerframework.common.returnsreceiver.qual.This;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,9 +45,9 @@ public class ViewClient implements Initializable {
     public ViewClient(final ViewMainMenu view, final ControllerClientImpl controller) {
         this.viewMenu = view;
         this.controller = controller;
-        items.add(c1);
-        items.add(c2);
-        items.add(c3);
+        this.items.add(c1);
+        this.items.add(c2);
+        this.items.add(c3);
         this.listClients.setItems(items);
     }
 
@@ -52,7 +55,8 @@ public class ViewClient implements Initializable {
     public void initialize(final URL location, final ResourceBundle resources) {
         btnAddClient.setOnMouseClicked((e) -> {
             try {
-                this.controller.addClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue());
+                this.items.add(this.controller.addClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue()));
+                this.listClients.setItems(items);
             } catch (IllegalArgumentException illegalExc) {
                 illegalExc.printStackTrace();
             }
@@ -63,7 +67,10 @@ public class ViewClient implements Initializable {
         });
 
         btnDeleteClient.setOnMouseClicked((e) -> {
-            this.controller.deleteClient();
+            final Client client = this.listClients.getSelectionModel().getSelectedItem();
+            this.controller.deleteClient(client);
+            this.items.remove(client);
+            this.listClients.setItems(items);
         });
     }
 }

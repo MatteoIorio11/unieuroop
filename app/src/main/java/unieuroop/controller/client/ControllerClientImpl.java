@@ -15,17 +15,12 @@ public final class ControllerClientImpl {
     private final LocalDate maxBirthday = LocalDate.of(LocalDate.now().getYear() - ADULT, LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth());
     private final LocalDate minBirthday = LocalDate.of(MAXDATE, 1, 1);
     private final Shop shop;
+
     public ControllerClientImpl(final Shop shop) {
         this.shop = shop;
     }
 
-    /**
-     * 
-     * @param name
-     * @param surname
-     * @param birthday
-     */
-    public void addClient(final String name, final String surname, final LocalDate birthday) {
+    public Client addClient(final String name, final String surname, final LocalDate birthday) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(maxBirthday) && birthday.isAfter(minBirthday)) {
             throw new IllegalArgumentException("Impossible ");
         }
@@ -33,14 +28,15 @@ public final class ControllerClientImpl {
         final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
         final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
         this.shop.registerClient(new Client(name, surname, birthday, code));
+        return new Client(name, surname, birthday, code);
     }
 
     public void editClient() {
 
     }
 
-    public void deleteClient() {
-
+    public void deleteClient(final Client client) {
+        this.shop.removeClient(client);
     }
 
     public Set<Client> getRegisteredClients() {
