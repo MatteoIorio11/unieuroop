@@ -1,19 +1,17 @@
 package unieuroop.view.client;
 
-import java.awt.Label;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.model.person.Client;
-import unieuroop.view.menu.ViewMainMenu;
 
 public class ViewClient implements Initializable {
 
@@ -33,28 +31,27 @@ public class ViewClient implements Initializable {
     private Button btnEditClient;
     @FXML
     private Button btnDeleteClient;
-    private ObservableList<Client> items;
-    private final ViewMainMenu viewMenu;
     private final ControllerClientImpl controller;
     private final Client c1 = new Client("Mario", "Rossi", LocalDate.of(2000, 1, 10), 11);
     private final Client c2 = new Client("Luigi", "Verdi", LocalDate.of(1999, 2, 15), 12);
     private final Client c3 = new Client("Marco", "Bianchi", LocalDate.of(2002, 3, 16), 13);
 
-    public ViewClient(final ViewMainMenu view, final ControllerClientImpl controller) {
-        this.viewMenu = view;
+    public ViewClient(final ControllerClientImpl controller) {
         this.controller = controller;
-        this.items.add(c1);
-        this.items.add(c2);
-        this.items.add(c3);
-        this.listClients.setItems(items);
     }
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
+        this.listClients.getItems().addAll(this.controller.getRegisteredClients());
+        this.listClients.getItems().add(this.c1);
+        this.listClients.getItems().add(this.c2);
+        this.listClients.getItems().add(this.c3);
+
         btnAddClient.setOnMouseClicked((e) -> {
             try {
-                this.items.add(this.controller.addClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue()));
-                this.listClients.setItems(items);
+                this.controller.addClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue());
+                this.listClients.getItems().clear();
+                this.listClients.getItems().addAll(this.controller.getRegisteredClients());
             } catch (IllegalArgumentException illegalExc) {
                 illegalExc.printStackTrace();
             }
@@ -63,10 +60,10 @@ public class ViewClient implements Initializable {
         btnEditClient.setOnMouseClicked((e) -> {
             try {
                 final Client client = this.listClients.getSelectionModel().getSelectedItem();
-                this.items.add(this.controller.editClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue()));
+                this.controller.editClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue());
+                this.listClients.getItems().clear();
                 this.controller.deleteClient(client);
-                this.items.remove(client);
-                this.listClients.setItems(items);
+                this.listClients.getItems().addAll(this.controller.getRegisteredClients());
             } catch (IllegalArgumentException illegalExc) {
                 illegalExc.printStackTrace();
             }
@@ -75,8 +72,8 @@ public class ViewClient implements Initializable {
         btnDeleteClient.setOnMouseClicked((e) -> {
             final Client client = this.listClients.getSelectionModel().getSelectedItem();
             this.controller.deleteClient(client);
-            this.items.remove(client);
-            this.listClients.setItems(items);
+            this.listClients.getItems().clear();
+            this.listClients.getItems().addAll(this.controller.getRegisteredClients());
         });
 
         listClients.setOnMouseClicked((e) -> {
