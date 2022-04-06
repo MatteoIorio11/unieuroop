@@ -68,6 +68,7 @@ public final class ControllerShopImpl {
     public void clearReservedProducts() {
         this.reservedProductsMap.clear();
     }
+
     private int totalQuantityProduct(final Product product) {
         return this.reservedProductsMap.entrySet().stream()
                 .flatMapToInt((entry) -> entry.getValue().entrySet().stream()

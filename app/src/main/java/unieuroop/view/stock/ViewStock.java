@@ -5,6 +5,7 @@ import java.net.URL;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -13,6 +14,7 @@ import java.util.Set;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.LoadException;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -41,6 +43,7 @@ import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierImpl;
 import unieuroop.view.client.ViewChoseClient;
 import unieuroop.view.menu.ViewMainMenu;
+import unieuroop.view.sale.ViewLabelSale;
 
 public class ViewStock implements Initializable {
 
@@ -76,12 +79,28 @@ public class ViewStock implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
-        
+        //addStockLabel();
+        this.btnSearchFilters.setOnMouseClicked((event) -> {
+            
+        });
     }
-    
-    private void addStockLabel() {
-        
+
+    /**
+     * 
+     * @param products
+     */
+    private void addStockLabel(HashMap<Product, Integer> products) {
+        for (final Map.Entry<Product, Integer> entryProduct : products.entrySet()) {
+            Pane pane;
+            try {
+                final var loaderLabel = new FXMLLoader(getClass().getResource(Pages.STOCK_LABEL_FOR_STOCKVIEW.getPath()));
+                loaderLabel.setController(new ViewStockLabelProduct(entryProduct, this, this.controllerShop));
+                pane = loaderLabel.load();
+                this.listProductsStocked.getItems().add(pane);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
