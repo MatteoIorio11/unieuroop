@@ -42,7 +42,7 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label text="9821€" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblStockPrice" text="9821€" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
@@ -87,7 +87,7 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label text="129837€" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblTotalSpent" text="129837€" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
@@ -135,7 +135,7 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label text="921832€" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblShopEarnings" text="921832€" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
@@ -194,7 +194,7 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label text="14" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblStaff" text="14" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
@@ -239,7 +239,7 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label text="123" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblClients" text="123" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
@@ -298,7 +298,7 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label text="39" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblSuppliers" text="39" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
@@ -343,7 +343,7 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label text="18" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblDepartments" text="18" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>

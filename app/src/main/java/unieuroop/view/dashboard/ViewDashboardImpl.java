@@ -1,0 +1,43 @@
+package unieuroop.view.dashboard;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import unieuroop.controller.client.ControllerClientImpl;
+import unieuroop.controller.dashboard.ControllerDashboard;
+
+public final class ViewDashboardImpl implements Initializable {
+    @FXML
+    private Label lblStaff;
+    @FXML
+    private Label lblClients;
+    @FXML
+    private Label lblSuppliers;
+    @FXML
+    private Label lblDepartments;
+    @FXML
+    private Label lblStockPrice;
+    @FXML
+    private Label lblShopEarnings;
+    @FXML
+    private Label lblTotalSpent;
+    private final ControllerDashboard controller;
+
+    public ViewDashboardImpl(final ControllerDashboard controller) {
+        this.controller = controller;
+    }
+    @Override
+    public void initialize(final URL location, final ResourceBundle resources) {
+        this.lblClients.setText(String.valueOf(this.controller.getClients()));
+        this.lblDepartments.setText(String.valueOf(this.controller.getDepartments()));
+        this.lblShopEarnings.setText(String.valueOf(this.controller.getShopEarnings()));
+        this.lblStaff.setText(String.valueOf(this.controller.getStaff()));
+        this.lblStockPrice.setText(String.valueOf(this.controller.getStockPrice()));
+        this.lblSuppliers.setText(String.valueOf(this.controller.getSuppliers()));
+        this.lblTotalSpent.setText(String.valueOf(this.controller.getTotalSpent()));
+    }
+
+}

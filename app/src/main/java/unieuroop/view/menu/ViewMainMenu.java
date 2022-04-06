@@ -14,11 +14,14 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
 import unieuroop.controller.client.ControllerClientImpl;
+import unieuroop.controller.dashboard.ControllerDashboardImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
+import unieuroop.model.shop.Shop;
 import unieuroop.view.balance.ViewBalance;
 import unieuroop.view.categories.ViewCategoriesSold;
 import unieuroop.view.client.ViewClient;
+import unieuroop.view.dashboard.ViewDashboardImpl;
 import unieuroop.view.dates.ViewDateSold;
 import unieuroop.view.department.ViewDepartments;
 import unieuroop.view.sale.ViewSale;
@@ -44,10 +47,11 @@ public final class ViewMainMenu implements Initializable {
     private Button btnAnalytics;
     @FXML
     private Button btnDateAnalytics;
-    private final ControllerShopImpl controller = new ControllerShopImpl();
+    private final ControllerShopImpl controller;
     private final Stage stage;
-    public ViewMainMenu(final Stage stage) {
+    public ViewMainMenu(final Stage stage, final ControllerShopImpl controller) {
         this.stage = stage;
+        this.controller = controller;
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
@@ -55,7 +59,7 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnDashBoardHandler(final ActionEvent event) {
-        this.loadPage(Pages.DASHBOARD, null);
+        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop())));
     }
     @FXML
     public void btnStockHandler(final ActionEvent event) {
