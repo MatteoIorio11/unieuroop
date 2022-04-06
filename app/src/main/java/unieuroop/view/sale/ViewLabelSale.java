@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import unieuroop.controller.sale.ControllerSaleImpl;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.department.Department;
 import unieuroop.model.product.Product;
@@ -28,15 +29,15 @@ public final class ViewLabelSale implements Initializable {
     private final Product product;
     private int maxQuantity;
     private final ViewSale view;
-    private final ControllerShopImpl controller;
+    private final ControllerSaleImpl controllerSale;
     private final Department department;
     private int totalQuantity;
     public ViewLabelSale(final Product product, final Department department, final int maxQuantity,
-            final ViewSale view, final ControllerShopImpl controller) {
+            final ViewSale view, final ControllerSaleImpl controllerSale) {
         this.product = product;
         this.maxQuantity = maxQuantity;
         this.view = view;
-        this.controller = controller;
+        this.controllerSale = controllerSale;
         this.department = department;
         this.totalQuantity = 0;
     }
@@ -50,10 +51,9 @@ public final class ViewLabelSale implements Initializable {
             final int quantitySelected = this.spinnerQuantity.getValue();
             if (quantitySelected > 0) {
                 this.totalQuantity = this.totalQuantity + quantitySelected;
-                this.controller.reserveProducts(department, new HashMap<>(Map.of(this.product, totalQuantity)));
+                this.controllerSale.reserveProducts(department, new HashMap<>(Map.of(this.product, totalQuantity)));
                 this.view.getListView().getItems().clear();
-                System.out.println(this.controller.getReservedProducts());
-                this.controller.getReservedProducts().entrySet().forEach((entry) -> this.view.getListView().getItems().add("Product : " + entry.getKey().getName() + ", Quantity : " + entry.getValue()));
+                this.controllerSale.getReservedProducts().entrySet().forEach((entry) -> this.view.getListView().getItems().add("Product : " + entry.getKey().getName() + ", Quantity : " + entry.getValue()));
                 this.maxQuantity = this.maxQuantity - quantitySelected;
                 final SpinnerValueFactory<Integer> newLimit = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.maxQuantity > 0 ? 1 : 0, this.maxQuantity);
                 this.spinnerQuantity.setValueFactory(newLimit);

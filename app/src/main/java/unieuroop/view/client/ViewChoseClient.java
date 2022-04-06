@@ -13,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import unieuroop.controller.client.ControllerClientImpl;
+import unieuroop.controller.sale.ControllerSaleImpl;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.person.Client;
 
@@ -27,10 +28,10 @@ public final class ViewChoseClient extends Stage implements Initializable {
     private Button btnQuit;
     private Optional<Client> selectedClient;
     private final Stage window;
-    private final ControllerShopImpl controllerShop;
+    private final ControllerSaleImpl controllerSale;
     private final ControllerClientImpl controllerClient;
-    public ViewChoseClient(final ControllerShopImpl controller, final ControllerClientImpl controllerClient, final Stage window) {
-        this.controllerShop = controller;
+    public ViewChoseClient(final ControllerSaleImpl controller, final ControllerClientImpl controllerClient, final Stage window) {
+        this.controllerSale = controller;
         this.controllerClient = controllerClient;
         this.window = window;
         this.selectedClient = Optional.empty();
@@ -53,11 +54,11 @@ public final class ViewChoseClient extends Stage implements Initializable {
             this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
         });
         this.btnSelect.setOnMouseClicked((e) -> {
-            this.controllerShop.closeSale(selectedClient);
+            this.controllerSale.closeSale(selectedClient);
             this.window.close();
         });
         this.btnQuit.setOnMouseClicked((event) -> {
-            this.controllerShop.closeSale(Optional.empty());
+            this.controllerSale.closeSale(Optional.empty());
             this.window.close();
         });
     }

@@ -26,6 +26,8 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import unieuroop.controller.client.ControllerClientImpl;
+import unieuroop.controller.department.ControllerDepartmentImpl;
+import unieuroop.controller.sale.ControllerSaleImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.department.Department;
@@ -62,26 +64,29 @@ public final class ViewSale implements Initializable {
     private Button btnQuit;
     @FXML
     private ComboBox<Department> comboDepartments;
-    private final ControllerShopImpl controllerShop;
     private final ControllerClientImpl controllerClient;
+    private final ControllerDepartmentImpl controllerDepartment;
+    private final ControllerSaleImpl controllerSale;
+
     private final ViewMainMenu viewMenu;
-    private final Stage stage;
     private Department input;
-    private Supplier s1;
+    private final Stage stage;
 
 
-   public ViewSale(final ViewMainMenu view, final ControllerShopImpl controllerShop, final ControllerClientImpl controllerClient, final Stage primaryStage) {
-        this.viewMenu = view;
-        this.controllerShop = controllerShop;
+    public ViewSale(final ViewMainMenu viewMainMenu, final ControllerClientImpl controllerClient,
+        final ControllerDepartmentImpl controllerDepartment, final ControllerSaleImpl controllerSale, final Stage primaryStage) {
+        this.viewMenu = viewMainMenu;
         this.controllerClient = controllerClient;
+        this.controllerDepartment = controllerDepartment;
+        this.controllerSale = controllerSale;
         this.stage = primaryStage;
     }
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        this.comboDepartments.getItems().addAll(this.controllerShop.getDepartments());
+        this.comboDepartments.getItems().addAll(this.controllerDepartment.getDepartments());
         this.comboDepartments.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            if (this.controllerShop.isReserved()) {
+            if (this.controllerSale.isReserved()) {
                 this.viewMenu.disableButtons(true);
             }
             this.input = this.comboDepartments.getValue();
@@ -89,7 +94,7 @@ public final class ViewSale implements Initializable {
             this.addLabels(this.input.getAllProducts().keySet(), this.input);
         });
         this.btnCompleteSale.setOnMouseClicked((event) -> {
-            if (!this.controllerShop.isReserved()) {
+            if (!this.controllerSale.isReserved()) {
                     this.listLabel.getItems().clear();
                     this.listSelectedProducts.getItems().clear();
                     final Pane pane;
@@ -98,7 +103,7 @@ public final class ViewSale implements Initializable {
                         final double xSize =  screenBounds.getMaxX() / 2;
                         final double ySize = screenBounds.getMaxY() / 2;
                         final Stage newWindow = new Stage();
-                        final var view = new ViewChoseClient(this.controllerShop, this.controllerClient, newWindow);
+                        final var view = new ViewChoseClient(this.controllerSale, this.controllerClient, newWindow);
                         final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
                         loader.setController(view);
                         pane = loader.load();
@@ -124,7 +129,7 @@ public final class ViewSale implements Initializable {
             });
 
         this.btnQuit.setOnMouseClicked((event) -> {
-            this.controllerShop.clearReservedProducts();
+            this.controllerSale.clearReservedProducts();
             this.listLabel.getItems().clear();
             this.listSelectedProducts.getItems().clear();
             this.viewMenu.disableButtons(false);
@@ -137,7 +142,7 @@ public final class ViewSale implements Initializable {
             Pane pane;
             try {
                 final var loader = new FXMLLoader(getClass().getResource(Pages.LABEL_PRODUCT_SALE.getPath()));
-                loader.setController(new ViewLabelSale(product, department, this.controllerShop.getQuantityOf(product, department), this, this.controllerShop));
+                loader.setController(new ViewLabelSale(product, department, this.controllerSale.getQuantityOf(product, department), this, this.controllerSale));
                 pane = loader.load();
                 this.listLabel.getItems().add(pane);
             } catch (IOException e) {

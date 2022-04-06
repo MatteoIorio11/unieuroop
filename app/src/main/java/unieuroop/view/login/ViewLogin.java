@@ -40,7 +40,7 @@ public final class ViewLogin implements Initializable {
     public void btnLoginHandler(final ActionEvent event) throws IOException {
         if (this.controller.checkPassword(this.email.getText(), this.password.getText())) {
           final var loader = new FXMLLoader(getClass().getResource("/pages/MainMenu.fxml"));
-          loader.setController(new ViewMainMenu(this.primaryStage));
+//          loader.setController(new ViewMainMenu(this.primaryStage));
           final Parent root = loader.load();
           final Scene scene = new Scene(root, 1000, 600);
           primaryStage.setTitle("unieurOOP");
