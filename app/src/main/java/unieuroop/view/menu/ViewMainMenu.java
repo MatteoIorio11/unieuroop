@@ -55,7 +55,7 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnDashBoardHandler(final ActionEvent event) {
-
+        this.loadPage(Pages.DASHBOARD, null);
     }
     @FXML
     public void btnStockHandler(final ActionEvent event) {
@@ -91,6 +91,7 @@ public final class ViewMainMenu implements Initializable {
     }
     private <X> void loadPage(final Pages page, final X controller) {
         Pane pane;
+        System.out.println(page.getPath());
         try {
             final var loader = new FXMLLoader(getClass().getResource(page.getPath()));
             loader.setController(controller);
