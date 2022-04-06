@@ -17,8 +17,11 @@ import unieuroop.model.shop.ShopImpl;
 
 public final class ControllerShopImpl {
     private final Map<Department, Map<Product, Integer>> reservedProductsMap = new HashMap<>();
-    private final Shop shop = new ShopImpl("Test");
+    private final Shop shop;
 
+    public ControllerShopImpl(final Shop shop) {
+        this.shop = shop;
+    }
     public Set<Department> getDepartments() {
         return this.shop.getDepartments();
     }
