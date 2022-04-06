@@ -1,10 +1,9 @@
 package unieuroop.view.client;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -33,6 +32,7 @@ public class ViewClient implements Initializable {
     private Button btnEditClient;
     @FXML
     private Button btnDeleteClient;
+    private ObservableList<Client> items;
     private final ViewMainMenu viewMenu;
     private final ControllerClientImpl controller;
     private final Client c1 = new Client("Mario", "Rossi", LocalDate.of(2000, 1, 10), 11);
@@ -42,6 +42,10 @@ public class ViewClient implements Initializable {
     public ViewClient(final ViewMainMenu view, final ControllerClientImpl controller) {
         this.viewMenu = view;
         this.controller = controller;
+        items.add(c1);
+        items.add(c2);
+        items.add(c3);
+        this.listClients.setItems(items);
     }
 
     @Override
@@ -58,7 +62,7 @@ public class ViewClient implements Initializable {
             this.controller.editClient();
         });
 
-        btnDeleteClient.setOnMouseClicked((e) ->{
+        btnDeleteClient.setOnMouseClicked((e) -> {
             this.controller.deleteClient();
         });
     }
