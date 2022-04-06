@@ -18,6 +18,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import unieuroop.controller.login.ControllerLoginImpl;
 import unieuroop.controller.serialization.Pages;
+import unieuroop.view.menu.ViewMainMenu;
 
 public class ViewLoginImpl implements Initializable {
     private final ControllerLoginImpl controller;
