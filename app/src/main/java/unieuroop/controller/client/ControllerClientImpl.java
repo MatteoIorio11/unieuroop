@@ -20,7 +20,7 @@ public final class ControllerClientImpl {
         this.shop = shop;
     }
 
-    public Client addClient(final String name, final String surname, final LocalDate birthday) {
+    public void addClient(final String name, final String surname, final LocalDate birthday) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(maxBirthday) && birthday.isAfter(minBirthday)) {
             throw new IllegalArgumentException("Impossible ");
         }
@@ -28,11 +28,10 @@ public final class ControllerClientImpl {
         final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
         final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
         this.shop.registerClient(new Client(name, surname, birthday, code));
-        return new Client(name, surname, birthday, code);
     }
 
-    public Client editClient(final String name, final String surname, final LocalDate birthday) {
-        return addClient(name, surname, birthday);
+    public void editClient(final String name, final String surname, final LocalDate birthday) {
+        addClient(name, surname, birthday);
     }
 
     public void deleteClient(final Client client) {
