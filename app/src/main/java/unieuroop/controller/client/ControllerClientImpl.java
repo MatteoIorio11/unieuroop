@@ -31,8 +31,8 @@ public final class ControllerClientImpl {
         return new Client(name, surname, birthday, code);
     }
 
-    public void editClient() {
-
+    public Client editClient(final String name, final String surname, final LocalDate birthday) {
+        return addClient(name, surname, birthday);
     }
 
     public void deleteClient(final Client client) {

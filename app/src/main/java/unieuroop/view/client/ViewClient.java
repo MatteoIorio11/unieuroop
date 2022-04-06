@@ -1,11 +1,9 @@
 package unieuroop.view.client;
 
+import java.awt.Label;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
-import org.checkerframework.common.returnsreceiver.qual.This;
-
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,7 +26,7 @@ public class ViewClient implements Initializable {
     @FXML 
     private DatePicker dtBirthday;
     @FXML 
-    private TextField tbxCode;
+    private Label lblCode;
     @FXML
     private Button btnAddClient;
     @FXML
@@ -63,7 +61,15 @@ public class ViewClient implements Initializable {
         });
 
         btnEditClient.setOnMouseClicked((e) -> {
-            this.controller.editClient();
+            try {
+                final Client client = this.listClients.getSelectionModel().getSelectedItem();
+                this.items.add(this.controller.editClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue()));
+                this.controller.deleteClient(client);
+                this.items.remove(client);
+                this.listClients.setItems(items);
+            } catch (IllegalArgumentException illegalExc) {
+                illegalExc.printStackTrace();
+            }
         });
 
         btnDeleteClient.setOnMouseClicked((e) -> {
@@ -71,6 +77,14 @@ public class ViewClient implements Initializable {
             this.controller.deleteClient(client);
             this.items.remove(client);
             this.listClients.setItems(items);
+        });
+
+        listClients.setOnMouseClicked((e) -> {
+            final Client client = this.listClients.getSelectionModel().getSelectedItem();
+            this.tbxName.setText(client.getName());
+            this.tbxSurname.setText(client.getSurname());
+            this.dtBirthday.setValue(client.getBirthdayDate());
+            this.lblCode.setText(Integer.toString(client.getClientCode()));
         });
     }
 }
