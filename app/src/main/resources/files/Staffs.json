@@ -4,18 +4,8 @@
   "email" : "prova@gmail.com",
   "id" : 0,
   "password" : 1509442,
-  "birthday" : [ 2022, 4, 5 ],
+  "birthday" : [ 2022, 4, 6 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 9, 30, 39, 394122000 ] ],
-  "endTimes" : [ [ 9, 30, 39, 394153000 ] ]
-}, {
-  "name" : "filippo",
-  "surname" : "verdi",
-  "email" : "prova@gmail.com",
-  "id" : 0,
-  "password" : 1509442,
-  "birthday" : [ 2022, 4, 5 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 9, 30, 39, 394294000 ] ],
-  "endTimes" : [ [ 9, 30, 39, 394324000 ] ]
+  "startTimes" : [ [ 9, 2, 58, 66977000 ] ],
+  "endTimes" : [ [ 9, 2, 58, 67024000 ] ]
 } ]
