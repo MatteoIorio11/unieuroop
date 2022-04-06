@@ -4,7 +4,7 @@ public enum Pages {
     /**
      * @param 
      */
-    DASHBOARD("Dashboard.fxml"),
+    DASHBOARD("/pages/DashBoard/DashBoard.fxml"),
     /**
      * @param
      */
