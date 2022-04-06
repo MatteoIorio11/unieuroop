@@ -54,8 +54,6 @@ public class ViewStock implements Initializable {
     @FXML
     private Button btnSearchFilters;
     @FXML
-    private Button btnTakeProducts;
-    @FXML
     private Button btnBuyProducts;
     @FXML
     private Button btnDeleteProducts;
@@ -80,9 +78,6 @@ public class ViewStock implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //addStockLabel();
-        this.btnSearchFilters.setOnMouseClicked((event) -> {
-            
-        });
     }
 
     /**
