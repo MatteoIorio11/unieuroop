@@ -53,4 +53,8 @@ public final class ControllerDepartmentImpl {
             e.printStackTrace();
         }
     }
+
+    public void mergeDepartments(final Set<Department> departments, final String name) {
+        this.shop.mergeDepartments(departments, name);
+    }
 }
