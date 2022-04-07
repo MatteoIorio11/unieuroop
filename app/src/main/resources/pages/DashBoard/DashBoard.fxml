@@ -64,7 +64,7 @@
                      <right>
                         <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../../icons/sales.png" />
+                              <Image url="@../../icons/balance.png" />
                            </image>
                            <BorderPane.margin>
                               <Insets right="15.0" top="15.0" />
@@ -109,7 +109,7 @@
                      <right>
                         <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../../icons/sales.png" />
+                              <Image url="@../../icons/incomes.png" />
                            </image>
                            <BorderPane.margin>
                               <Insets right="15.0" top="15.0" />
@@ -157,7 +157,7 @@
                      <right>
                         <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../../icons/sales.png" />
+                              <Image url="@../../icons/incomes.png" />
                            </image>
                            <BorderPane.margin>
                               <Insets right="15.0" top="15.0" />
@@ -216,7 +216,7 @@
                      <right>
                         <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../../icons/sales.png" />
+                              <Image url="@../../icons/staff.png" />
                            </image>
                            <BorderPane.margin>
                               <Insets right="15.0" top="15.0" />
@@ -261,7 +261,7 @@
                      <right>
                         <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../../icons/sales.png" />
+                              <Image url="@../../icons/clients.png" />
                            </image>
                            <BorderPane.margin>
                               <Insets right="15.0" top="15.0" />
@@ -320,7 +320,7 @@
                      <right>
                         <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../../icons/sales.png" />
+                              <Image url="@../../icons/supplier.png" />
                            </image>
                            <BorderPane.margin>
                               <Insets right="15.0" top="15.0" />
@@ -365,7 +365,7 @@
                      <right>
                         <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../../icons/sales.png" />
+                              <Image url="@../../icons/department.png" />
                            </image>
                            <BorderPane.margin>
                               <Insets right="15.0" top="15.0" />
