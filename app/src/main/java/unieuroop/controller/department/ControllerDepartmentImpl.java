@@ -43,6 +43,14 @@ public final class ControllerDepartmentImpl {
         } else {
             throw new IllegalArgumentException("Staff or Products or BOTH are empty");
         }
-        
+    }
+
+    public void removeDepartment(final Department department) {
+        this.shop.removeDepartment(department);
+        try {
+            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
