@@ -12,15 +12,15 @@ public enum Pages {
     /**
      * @param
      */
-    STOCK_TAKE_PRODUCTS("/pages/Stock/StockTakeProductsView.fxml"),
-    /**
-     * @param
-     */
     STOCK_SET_SEARCH_FILTER("/pages/Stock/StockSetFilterView.fxml"),
     /**
      * @param
      */
     STOCK_BUY_PRODUCTS("/pages/Stock/StockBuyProductsView.fxml"),
+    /**
+     * @param
+     */
+    STOCK_LABEL_FOR_STOCK("/pages/Stock/StockLabelForStockView.fxml"),
     /**
      * @param
      */
@@ -33,6 +33,10 @@ public enum Pages {
      * @param
      */
     DEPARTMENTS("/pages/Department/DepartmentsView.fxml"),
+    /**
+     * @param
+     */
+    DEPARTMENTS_EDIT_PRODUCTS("/pages/Department/DepartmentsEditProductsView.fxml"),
     /**
      * @param
      */

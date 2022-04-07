@@ -16,6 +16,7 @@ import unieuroop.controller.analytic.ControllerAnalyticImpl;
 import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.dashboard.ControllerDashboardImpl;
 import unieuroop.controller.department.ControllerDepartmentImpl;
+import unieuroop.controller.sale.ControllerSaleImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.controller.staff.ControllerStaffImpl;
@@ -51,9 +52,9 @@ public final class ViewMainMenu implements Initializable {
     private Button btnDateAnalytics;
     private final ControllerShopImpl controller;
     private final Stage stage;
-    public ViewMainMenu(final Stage stage, final ControllerShopImpl controller) {
+    public ViewMainMenu(final Stage stage, final ControllerShopImpl controllerShop) {
         this.stage = stage;
-        this.controller = controller;
+        this.controller = controllerShop;
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
@@ -69,11 +70,13 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnSalesHandler(final ActionEvent event) {
-        this.loadPage(Pages.SALES, new ViewSale(this, this.controller, new ControllerClientImpl(this.controller.getShop()), this.stage));
+        this.loadPage(Pages.SALES, new ViewSale(this, new ControllerClientImpl(this.controller.getShop()), 
+                new ControllerDepartmentImpl(this.controller.getShop()), 
+                new ControllerSaleImpl(this.controller.getShop()),this.stage));
     }
     @FXML
     public void btnClientsHandler(final ActionEvent event) {
-        this.loadPage(Pages.CLIENTS, new ViewClient(this, new ControllerClientImpl(this.controller.getShop())));
+        this.loadPage(Pages.CLIENTS, new ViewClient(new ControllerClientImpl(this.controller.getShop())));
     }
     @FXML
     public void btnStaffHandler(final ActionEvent event) {

@@ -15,6 +15,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
 import unieuroop.model.product.Category;
 
@@ -54,21 +55,38 @@ public final class ViewCategoriesSold implements Initializable {
 
 
         this.comboCategories.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            if (!this.selectedCategories.contains(this.comboCategories.getValue())) {
-                this.selectedCategories.add(this.comboCategories.getValue());
-                this.displayChart();
-            }
+
          });
         this.listLegend.getSelectionModel().selectedItemProperty().addListener((e) -> {
-            final var string = this.listLegend.getSelectionModel().getSelectedItem();
-            if (string != null) {
-                final var code = string.split(":")[1].split("\n")[0].split(" ")[1];
-                final var d = this.barProductsSold.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
-                        d.get().getNode().setStyle("-fx-bar-fill: blue;");
-            }
+
         });
     }
 
+    @FXML
+    public void buttonClearEvent(final ActionEvent event) {
+        this.selectedCategories.clear();
+        this.barProductsSold.getData().clear();
+        this.listLegend.getItems().clear();
+        this.listSelectedCategories.getItems().clear();
+    }
+
+    @FXML
+    public void comboSelectCategoryHandler(final ActionEvent event) {
+        if (!this.selectedCategories.contains(this.comboCategories.getValue())) {
+            this.selectedCategories.add(this.comboCategories.getValue());
+            this.displayChart();
+        }
+    }
+
+    @FXML
+    public void listSelectValueHandler(final MouseEvent event) {
+        final var string = this.listLegend.getSelectionModel().getSelectedItem();
+        if (string != null) {
+            final var code = string.split(":")[1].split("\n")[0].split(" ")[1];
+            final var d = this.barProductsSold.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
+                    d.get().getNode().setStyle("-fx-bar-fill: blue;");
+        }
+    }
     private void displayChart() {
         this.barProductsSold.getData().clear();
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
@@ -88,12 +106,5 @@ public final class ViewCategoriesSold implements Initializable {
         this.listSelectedCategories.getItems().addAll(this.selectedCategories.stream()
                 .map((cat) -> cat.toString()).collect(Collectors.toList()));
         this.barProductsSold.getData().add(serie);
-    }
-    @FXML
-    public void clearEvent(final ActionEvent event) {
-        this.selectedCategories.clear();
-        this.barProductsSold.getData().clear();
-        this.listLegend.getItems().clear();
-        this.listSelectedCategories.getItems().clear();
     }
 }

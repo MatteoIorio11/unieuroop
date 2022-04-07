@@ -17,15 +17,15 @@
    <bottom>
       <Pane prefHeight="32.0" prefWidth="707.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="buttonSell" fx:id="btnQuit" layoutX="14.0" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: red;" text="QUIT" />
-            <Button id="buttonSell" fx:id="btnCompleteSale" layoutX="97.0" layoutY="1.0" mnemonicParsing="false" text="SELL" />
+            <Button id="buttonSell" fx:id="btnQuit" layoutX="14.0" layoutY="1.0" mnemonicParsing="false" onAction="#buttonQuitHandler" style="-fx-background-color: red;" text="QUIT" />
+            <Button id="buttonSell" fx:id="btnCompleteSale" layoutX="97.0" layoutY="1.0" mnemonicParsing="false" onAction="#buttonSellHandler" text="SELL" />
          </children>
       </Pane>
    </bottom>
    <top>
       <AnchorPane prefHeight="35.0" prefWidth="896.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox fx:id="comboDepartments" layoutY="1.0" prefHeight="25.0" prefWidth="342.0" promptText="Departments" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="5.0" />
+            <ComboBox fx:id="comboDepartments" layoutY="1.0" onAction="#comboSelectDepartment" prefHeight="25.0" prefWidth="342.0" promptText="Departments" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
    </top>

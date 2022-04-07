@@ -56,7 +56,7 @@
                                  <Insets left="5.0" />
                               </GridPane.margin>
                            </ComboBox>
-                           <Button fx:id="btnConfirmFilter" mnemonicParsing="false" text="Confirm Filter" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                           <Button fx:id="btnConfirmFilter" mnemonicParsing="false" onAction="#btnConfirmFilterHandler" text="Confirm Filter" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
                            <Label text="Max Amount:" GridPane.rowIndex="3">
                               <GridPane.margin>
                                  <Insets left="10.0" />

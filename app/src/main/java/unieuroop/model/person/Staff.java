@@ -13,11 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javafx.util.Pair;
 
-public class Staff extends AbstractPerson implements Serializable {
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
+public class Staff extends AbstractPerson {
     private final Integer id;
     private final String email;
     private final Integer password;

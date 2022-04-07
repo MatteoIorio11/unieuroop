@@ -24,4 +24,5 @@ public final class ControllerDepartmentImpl {
                 .flatMap((strDepartment) -> strDepartment.getAllProducts().keySet().stream())
                 .collect(Collectors.toSet());
     }
+
 }

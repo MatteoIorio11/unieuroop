@@ -39,8 +39,10 @@ public final class ControllerLoginImpl {
         final var m = Serialization.<Map<String, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<String, Double>>() { });
         final var bills = m.keySet().stream().collect(Collectors.toMap(a -> LocalDate.parse(a), a -> m.get(a)));
         this.shop = new ShopImpl(shopName, departments, staff, suppliers, sales, clients, stock, bills);
-        this.shop.getStaffs().stream().forEach(s-> System.out.println(s.getName()));
+    }
 
+    public Shop getShop() {
+        return this.shop;
     }
 
     public Shop getShop() {
