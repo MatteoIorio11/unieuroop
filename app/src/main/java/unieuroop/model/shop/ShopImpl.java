@@ -127,20 +127,22 @@ public final class ShopImpl implements Shop {
 
     @Override
     public void removeDepartment(final Department department) {
-        this.departments.add(department);
+        if (!this.departments.remove(department)) {
+            throw new NoSuchElementException("The input department does not exist");
+        }
     }
 
     @Override
     public void removeStaff(final Staff staff) {
         if (!this.staffs.remove(staff)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input staff does not exist");
         }
     }
 
     @Override
     public void removeSupplier(final Supplier supplier) {
         if (!this.suppliers.remove(supplier)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input supplier does not exist");
         }
     }
 
