@@ -44,8 +44,4 @@ public final class ControllerLoginImpl {
     public Shop getShop() {
         return this.shop;
     }
-
-    public Shop getShop() {
-        return this.shop;
-    }
 }
