@@ -1,0 +1,21 @@
+[ {
+  "name" : "nome1",
+  "surname" : "cognome1",
+  "email" : "AAAA",
+  "id" : 1,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 7 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 13, 48, 37, 584296000 ] ],
+  "endTimes" : [ [ 13, 48, 37, 584317000 ] ]
+}, {
+  "name" : "nome",
+  "surname" : "cognome",
+  "email" : "ffff",
+  "id" : 1,
+  "password" : 111,
+  "birthday" : [ 2022, 4, 7 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 13, 48, 37, 584034000 ] ],
+  "endTimes" : [ [ 13, 48, 37, 584086000 ] ]
+} ]
