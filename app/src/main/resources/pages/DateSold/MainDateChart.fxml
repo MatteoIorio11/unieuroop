@@ -13,13 +13,14 @@
 
 <BorderPane prefHeight="527.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
-      <Pane prefHeight="35.0" prefWidth="814.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="64.0" prefWidth="814.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="buttonClearAll" fx:id="btnClearAll" layoutX="477.0" layoutY="6.0" mnemonicParsing="false" text="CLEAR ALL" />
-            <DatePicker id="inputDatePicker" fx:id="datePicker" layoutX="115.0" layoutY="3.0" prefHeight="25.0" prefWidth="154.0" />
+            <Button id="buttonClearAll" fx:id="btnClearAll" layoutX="319.0" layoutY="26.0" mnemonicParsing="false" text="CLEAR ALL" />
+            <DatePicker id="inputDatePicker" fx:id="startDate" layoutX="115.0" layoutY="3.0" prefHeight="25.0" prefWidth="154.0" />
             <Label layoutX="23.0" layoutY="5.0" prefHeight="17.0" prefWidth="131.0" text="Select From: " />
             <Label fx:id="labelDates" layoutX="521.0" layoutY="5.0" prefHeight="17.0" prefWidth="288.0" />
-            <Label layoutX="282.0" layoutY="6.0" prefHeight="17.0" prefWidth="76.0" text="Select To: " />
+            <Label layoutX="30.0" layoutY="42.0" prefHeight="17.0" prefWidth="76.0" text="Select To: " />
+            <DatePicker id="inputDatePicker" fx:id="endDate" layoutX="115.0" layoutY="38.0" prefHeight="25.0" prefWidth="154.0" />
          </children>
       </Pane>
    </bottom>
