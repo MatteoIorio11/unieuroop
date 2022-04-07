@@ -42,7 +42,7 @@ public final class ControllerLoginImpl {
         this.shop.getStaffs().stream().forEach(s-> System.out.println(s.getName()));
 
     }
-    
+
     public Shop getShop() {
         return this.shop;
     }

@@ -24,6 +24,7 @@ public final class ViewDashboardImpl implements Initializable {
     private Label lblShopEarnings;
     @FXML
     private Label lblTotalSpent;
+    @FXML
     private final ControllerDashboard controller;
 
     public ViewDashboardImpl(final ControllerDashboard controller) {
@@ -38,6 +39,9 @@ public final class ViewDashboardImpl implements Initializable {
         this.lblStockPrice.setText(String.valueOf(this.controller.getStockPrice()));
         this.lblSuppliers.setText(String.valueOf(this.controller.getSuppliers()));
         this.lblTotalSpent.setText(String.valueOf(this.controller.getTotalSpent()));
+        if(this.controller.isEarning()) {
+            
+        }
     }
 
 }
