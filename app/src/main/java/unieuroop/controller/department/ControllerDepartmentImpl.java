@@ -66,4 +66,7 @@ public final class ControllerDepartmentImpl {
             throw new IllegalArgumentException("The set of Departments is empty");
         }
     }
+
+    public void removeProductsFrom(final Department department, final Map<Product, Integer> products) {
+    }
 }
