@@ -21,23 +21,14 @@ import unieuroop.model.product.Category;
 
 public final class ViewCategoriesSold implements Initializable {
 
-    @FXML
-    private BarChart<String, Integer> barCategories;
-    @FXML
-    private BarChart<String, Integer> barProductsSold;
-    @FXML
-    private ComboBox<Category> comboCategories;
+    @FXML private BarChart<String, Integer> barCategories;
+    @FXML private BarChart<String, Integer> barProductsSold;
+    @FXML private ComboBox<Category> comboCategories;
+    @FXML private final CategoryAxis xAxis = new CategoryAxis();
+    @FXML private final NumberAxis yAxis = new NumberAxis();
+    @FXML private ListView<String> listLegend;
+    @FXML private ListView<String> listSelectedCategories;
     private final Set<Category> selectedCategories = new HashSet<>();
-
-    @FXML
-    private final CategoryAxis xAxis = new CategoryAxis();
-    @FXML
-    private final NumberAxis yAxis = new NumberAxis();
-    @FXML
-    private ListView<String> listLegend;
-    @FXML
-    private ListView<String> listSelectedCategories;
-
     private final ControllerAnalyticImpl controller;
     public ViewCategoriesSold(final ControllerAnalyticImpl controller) {
         this.controller = controller;
@@ -82,7 +73,7 @@ public final class ViewCategoriesSold implements Initializable {
     private void displayChart() {
         this.barProductsSold.getData().clear();
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
-        serie.setName("Product");
+        serie.setName("Products");
         final var categoriesSold =  this.controller.getProductsSoldByCategory(selectedCategories);
         this.barProductsSold.getData().clear();
         categoriesSold.entrySet().forEach((entry) ->

@@ -1,9 +1,11 @@
 package unieuroop.controller.department;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import unieuroop.model.department.Department;
+import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 import unieuroop.model.shop.Shop;
 
@@ -25,4 +27,7 @@ public final class ControllerDepartmentImpl {
                 .collect(Collectors.toSet());
     }
 
+    public void addDepartment(final String name, final Set<Staff> staffs, final Map<Product, Integer> products) {
+        final var deoartment = new DepartmentImpl(name, staffs, products);
+    }
 }
