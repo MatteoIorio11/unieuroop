@@ -6,8 +6,8 @@
   "password" : 222,
   "birthday" : [ 2022, 4, 7 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 13, 48, 37, 584296000 ] ],
-  "endTimes" : [ [ 13, 48, 37, 584317000 ] ]
+  "startTimes" : [ [ 13, 57, 4, 928952000 ] ],
+  "endTimes" : [ [ 13, 57, 4, 928975000 ] ]
 }, {
   "name" : "nome",
   "surname" : "cognome",
@@ -16,6 +16,6 @@
   "password" : 111,
   "birthday" : [ 2022, 4, 7 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 13, 48, 37, 584034000 ] ],
-  "endTimes" : [ [ 13, 48, 37, 584086000 ] ]
+  "startTimes" : [ [ 13, 57, 4, 928665000 ] ],
+  "endTimes" : [ [ 13, 57, 4, 928719000 ] ]
 } ]

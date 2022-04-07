@@ -1,0 +1,44 @@
+{
+  "keys" : [ {
+    "productCode" : 1,
+    "name" : "prova",
+    "brand" : "provaBrand",
+    "sellingPrice" : 12.4,
+    "purchasePrice" : 15.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 2,
+    "name" : "prova1",
+    "brand" : "provaBrand1",
+    "sellingPrice" : 12.4,
+    "purchasePrice" : 15.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "HOME"
+  }, {
+    "productCode" : 3,
+    "name" : "prova2",
+    "brand" : "provaBrand2",
+    "sellingPrice" : 12.4,
+    "purchasePrice" : 15.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 4,
+    "name" : "prova3",
+    "brand" : "provaBrand1",
+    "sellingPrice" : 12.4,
+    "purchasePrice" : 15.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 5,
+    "name" : "prova4",
+    "brand" : "provaBrand2",
+    "sellingPrice" : 12.4,
+    "purchasePrice" : 15.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  } ],
+  "values" : [ 10, 10, 2, 32, 32 ]
+}
