@@ -55,6 +55,15 @@ public final class ControllerDepartmentImpl {
     }
 
     public void mergeDepartments(final Set<Department> departments, final String name) {
-        this.shop.mergeDepartments(departments, name);
+        if (!departments.isEmpty()) {
+            this.shop.mergeDepartments(departments, name);
+            try {
+                Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            throw new IllegalArgumentException("The set of Departments is empty");
+        }
     }
 }
