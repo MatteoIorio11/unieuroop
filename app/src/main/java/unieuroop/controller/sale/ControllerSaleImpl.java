@@ -1,11 +1,15 @@
 package unieuroop.controller.sale;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
+import unieuroop.controller.serialization.Files;
+import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
 import unieuroop.model.product.Product;
@@ -34,7 +38,6 @@ public final class ControllerSaleImpl {
                 (olderMap, newerMap) -> {
                     olderMap.putAll(newerMap); return olderMap;
                     });
-        System.out.println(this.reservedProductsMap);
     }
 
     public void closeSale(final Optional<Client> client) {
@@ -52,6 +55,12 @@ public final class ControllerSaleImpl {
                         .collect(Collectors.toMap((product) -> product, (product) -> this.totalQuantityProduct(product)));
             final Sale sale = new SaleImpl(LocalDate.now(), products, client);
             this.shop.addSale(sale);
+            try {
+                Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), this.shop.getSales());
+                Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             this.reservedProductsMap.clear();
         }
     }

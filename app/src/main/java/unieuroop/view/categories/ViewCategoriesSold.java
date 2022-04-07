@@ -52,14 +52,6 @@ public final class ViewCategoriesSold implements Initializable {
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
         this.controller.getCategoriesSold().entrySet().forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
         this.barCategories.getData().add(serie);
-
-
-        this.comboCategories.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-
-         });
-        this.listLegend.getSelectionModel().selectedItemProperty().addListener((e) -> {
-
-        });
     }
 
     @FXML

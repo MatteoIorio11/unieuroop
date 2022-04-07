@@ -14,7 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
 import unieuroop.controller.client.ControllerClientImpl;
-import unieuroop.controller.dashboard.ControllerDashboardImpl;
+//import unieuroop.controller.dashboard.ControllerDashboardImpl;
 import unieuroop.controller.department.ControllerDepartmentImpl;
 import unieuroop.controller.sale.ControllerSaleImpl;
 import unieuroop.controller.serialization.Pages;
@@ -24,8 +24,7 @@ import unieuroop.model.shop.Shop;
 import unieuroop.view.balance.ViewBalance;
 import unieuroop.view.categories.ViewCategoriesSold;
 import unieuroop.view.client.ViewClient;
-import unieuroop.view.dashboard.ViewDashboardImpl;
-import unieuroop.view.dates.ViewDateSold;
+import unieuroop.view.dateanalytic.ViewDateSold;
 import unieuroop.view.department.ViewDepartment;
 import unieuroop.view.sale.ViewSale;
 
@@ -62,7 +61,7 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnDashBoardHandler(final ActionEvent event) {
-        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop())));
+//        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop())));
     }
     @FXML
     public void btnStockHandler(final ActionEvent event) {

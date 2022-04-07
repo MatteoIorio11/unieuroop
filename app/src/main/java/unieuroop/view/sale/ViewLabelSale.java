@@ -55,7 +55,8 @@ public final class ViewLabelSale implements Initializable {
             this.totalQuantity = this.totalQuantity + quantitySelected;
             this.controllerSale.reserveProducts(department, new HashMap<>(Map.of(this.product, totalQuantity)));
             this.view.getListView().getItems().clear();
-            this.controllerSale.getReservedProducts().entrySet().forEach((entry) -> this.view.getListView().getItems().add("Product : " + entry.getKey().getName() + ", Quantity : " + entry.getValue()));
+            this.controllerSale.getReservedProducts().entrySet().forEach((entry) -> this.view.getListView().getItems().add("Product : " + entry.getKey().getName() + "\n"
+            + "Quantity : " + entry.getValue()));
             this.maxQuantity = this.maxQuantity - quantitySelected;
             final SpinnerValueFactory<Integer> newLimit = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.maxQuantity > 0 ? 1 : 0, this.maxQuantity);
             this.spinnerQuantity.setValueFactory(newLimit);
