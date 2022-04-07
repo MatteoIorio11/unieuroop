@@ -1,10 +1,14 @@
 package unieuroop.controller.department;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import unieuroop.controller.serialization.Files;
+import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
+import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 import unieuroop.model.shop.Shop;
@@ -28,6 +32,17 @@ public final class ControllerDepartmentImpl {
     }
 
     public void addDepartment(final String name, final Set<Staff> staffs, final Map<Product, Integer> products) {
-        final var deoartment = new DepartmentImpl(name, staffs, products);
+        if (!staffs.isEmpty() && !products.isEmpty()) {
+            final var deoartment = new DepartmentImpl(name, staffs, products);
+            this.shop.addDepartment(deoartment);
+            try {
+                Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            throw new IllegalArgumentException("Staff or Products or BOTH are empty");
+        }
+        
     }
 }
