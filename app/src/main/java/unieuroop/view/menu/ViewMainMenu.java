@@ -11,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
 import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.dashboard.ControllerDashboardImpl;
