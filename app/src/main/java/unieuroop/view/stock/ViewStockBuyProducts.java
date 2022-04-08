@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.product.Product;
 import unieuroop.model.supplier.Supplier;
 
@@ -24,6 +25,10 @@ public class ViewStockBuyProducts extends Stage implements Initializable {
     private Label lblTotalPrice;
     @FXML
     private Button btnConfimrBuyProducts;
+
+    public ViewStockBuyProducts(ViewStock viewStock, ControllerStockImpl controller) {
+        // TODO Auto-generated constructor stub
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
