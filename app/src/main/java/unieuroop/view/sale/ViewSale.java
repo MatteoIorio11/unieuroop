@@ -44,11 +44,6 @@ import unieuroop.view.client.ViewChoseClient;
 import unieuroop.view.menu.ViewMainMenu;
 
 public final class ViewSale implements Initializable {
-
-    private static final String APPLE_PRODUCT="apple";
-    private static final LocalTime TIME_START = LocalTime.of(1, 1);
-    private static final LocalTime TIME_FINISH = LocalTime.of(1, 1);
-    private static final LocalDate TIME_NOW = LocalDate.now();
     @FXML
     private Stage primaryStage;
     @FXML

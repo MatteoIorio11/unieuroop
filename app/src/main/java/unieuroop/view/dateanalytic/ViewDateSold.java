@@ -44,8 +44,8 @@ public final class ViewDateSold implements Initializable {
         this.barSelectedDates.setLegendVisible(false);
         this.barTotalSoldYear.setLegendVisible(false);
         final XYChart.Series<String, Double> serie1 = new XYChart.Series<>();
-        this.controller.getTotalEarnedByYear().forEach((year, earned) -> serie1.getData()
-                .add(new XYChart.Data<String, Double>(String.valueOf(year), earned)));
+        this.controller.getTotalEarnedByYear().entrySet().stream().sorted((entry1, entry2) -> Integer.compare(entry1.getKey(), entry2.getKey())).forEach((entry) -> serie1.getData()
+                .add(new XYChart.Data<String, Double>(String.valueOf(entry.getKey()), entry.getValue())));
         this.barTotalSoldYear.getData().add(serie1);
     }
 

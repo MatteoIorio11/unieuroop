@@ -32,45 +32,45 @@ public final class ControllerDepartmentImpl {
                 .collect(Collectors.toSet());
     }
 
-    public void addDepartment(final String name, final Set<Staff> staffs, final Map<Product, Integer> products) {
+    public void addDepartment(final String name, final Set<Staff> staffs, final Map<Product, Integer> products) throws IOException {
         if (!staffs.isEmpty() && !products.isEmpty()) {
             final var deoartment = new DepartmentImpl(name, staffs, products);
             this.shop.addDepartment(deoartment);
-            try {
-                Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
         } else {
             throw new IllegalArgumentException("Staff or Products or BOTH are empty");
         }
     }
 
-    public void removeDepartment(final Department department) {
+    public void removeDepartment(final Department department) throws IOException {
         this.shop.removeDepartment(department);
-        try {
-            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+
     }
 
-    public void mergeDepartments(final Set<Department> departments, final String name) {
+    public void mergeDepartments(final Set<Department> departments, final String name) throws IOException {
         if (!departments.isEmpty()) {
             this.shop.mergeDepartments(departments, name);
-            try {
-                Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+
         } else {
             throw new IllegalArgumentException("The set of Departments is empty");
         }
     }
 
-    public void removeProductsFrom(final Department inputDepartment, final Set<Staff> staff) {
+    public void removeProductsFrom(final Department inputDepartment, final Set<Staff> staff) throws IOException {
         if (!Objects.isNull(inputDepartment) && this.shop.getDepartments().contains(inputDepartment)) {
-            final Department department = this.shop.getDepartments().stream().filter((departmentInput) -> departmentInput.equals(department)).findFirst().get();
+            final Department department = this.shop.getDepartments().stream().filter((departmentInput) -> departmentInput.equals(inputDepartment)).findFirst().get();
+            department.removeStaff(staff);
+            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+        }
+    }
+
+    public void addProductsIn(final Department inputDepartment, final Map<Product, Integer> products) throws IOException {
+        if (!Objects.isNull(inputDepartment) && !products.isEmpty()){
+            final Department department = this.shop.getDepartments().stream().filter((dep) -> dep.equals(inputDepartment)).findAny().get();
+            department.addProducts(products);
+            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
         }
     }
 }
