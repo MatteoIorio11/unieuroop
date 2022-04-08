@@ -140,11 +140,9 @@ public final class ViewSale implements Initializable {
 
     private void addLabels(final Set<Product> products, final Department department) {
         for (final var product : products) {
-            Pane pane;
             try {
-                final var loader = new FXMLLoader(getClass().getResource(Pages.LABEL_PRODUCT_SALE.getPath()));
-                loader.setController(new ViewLabelSale(product, department, this.controllerSale.getQuantityOf(product, department), this, this.controllerSale));
-                pane = loader.load();
+                final var pane = Loader.<ViewLabelSale>loadPane(Pages.LABEL_PRODUCT_SALE.getPath(), new ViewLabelSale(product, department,
+                        this.controllerSale.getQuantityOf(product, department), this, this.controllerSale));
                 this.listLabel.getItems().add(pane);
             } catch (IOException e) {
                 e.printStackTrace();
