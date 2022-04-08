@@ -1,83 +1,4 @@
 [ {
-  "date" : [ 2021, 4, 6 ],
-  "products" : [ {
-    "productCode" : 6,
-    "name" : "ipad Pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1000.0,
-    "purchasePrice" : 500.0,
-    "description" : "best ipad Pro ever created",
-    "category" : "HOME"
-  }, {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
-  }, {
-    "productCode" : 5,
-    "name" : "ipad Air ",
-    "brand" : "APPLE",
-    "sellingPrice" : 700.0,
-    "purchasePrice" : 300.0,
-    "description" : "best ipad ever created",
-    "category" : "HOME"
-  } ],
-  "quantity" : [ 1, 100, 10 ],
-  "client" : null
-}, {
-  "date" : [ 2019, 4, 6 ],
-  "products" : [ {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
-  }, {
-    "productCode" : 5,
-    "name" : "ipad Air ",
-    "brand" : "APPLE",
-    "sellingPrice" : 700.0,
-    "purchasePrice" : 300.0,
-    "description" : "best ipad ever created",
-    "category" : "HOME"
-  } ],
-  "quantity" : [ 10, 100, 1 ],
-  "client" : null
-}, {
-  "date" : [ 2018, 4, 7 ],
-  "products" : [ {
-    "productCode" : 4,
-    "name" : "mac book pro 16",
-    "brand" : "APPLE",
-    "sellingPrice" : 6000.0,
-    "purchasePrice" : 3000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
-  }, {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
-  } ],
-  "quantity" : [ 2, 5 ],
-  "client" : null
-}, {
   "date" : [ 2022, 4, 8 ],
   "products" : [ {
     "productCode" : 2,
@@ -87,19 +8,6 @@
     "purchasePrice" : 200.0,
     "description" : "best watch ever created",
     "category" : "SMARTWATCH"
-  } ],
-  "quantity" : [ 1 ],
-  "client" : null
-}, {
-  "date" : [ 2020, 4, 8 ],
-  "products" : [ {
-    "productCode" : 3,
-    "name" : "mac book pro 14 ",
-    "brand" : "APPLE",
-    "sellingPrice" : 3000.0,
-    "purchasePrice" : 2000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
   } ],
   "quantity" : [ 1 ],
   "client" : null
@@ -126,53 +34,19 @@
     "purchasePrice" : 2000.0,
     "description" : "best mac book ever created",
     "category" : "PC"
-  } ],
-  "quantity" : [ 1 ],
-  "client" : null
-}, {
-  "date" : [ 2022, 4, 7 ],
-  "products" : [ {
-    "productCode" : 3,
-    "name" : "mac book pro 14 ",
-    "brand" : "APPLE",
-    "sellingPrice" : 3000.0,
-    "purchasePrice" : 2000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
-  }, {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
-  } ],
-  "quantity" : [ 2, 1 ],
-  "client" : null
-}, {
-  "date" : [ 2022, 4, 8 ],
-  "products" : [ {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
   } ],
   "quantity" : [ 1 ],
   "client" : null
 }, {
   "date" : [ 2016, 4, 6 ],
   "products" : [ {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
+    "productCode" : 5,
+    "name" : "ipad Air ",
     "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
+    "sellingPrice" : 700.0,
+    "purchasePrice" : 300.0,
+    "description" : "best ipad ever created",
+    "category" : "HOME"
   }, {
     "productCode" : 2,
     "name" : "applewatch",
@@ -182,13 +56,13 @@
     "description" : "best watch ever created",
     "category" : "SMARTWATCH"
   }, {
-    "productCode" : 5,
-    "name" : "ipad Air ",
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
     "brand" : "APPLE",
-    "sellingPrice" : 700.0,
-    "purchasePrice" : 300.0,
-    "description" : "best ipad ever created",
-    "category" : "HOME"
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
   }, {
     "productCode" : 7,
     "name" : "ipad Pro Max",
@@ -198,10 +72,23 @@
     "description" : "best ipad pro max ever created",
     "category" : "HOME"
   } ],
-  "quantity" : [ 10, 100, 1, 10 ],
+  "quantity" : [ 1, 100, 10, 10 ],
   "client" : null
 }, {
-  "date" : [ 2022, 1, 7 ],
+  "date" : [ 2022, 4, 8 ],
+  "products" : [ {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "APPLE",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  } ],
+  "quantity" : [ 1 ],
+  "client" : null
+}, {
+  "date" : [ 2018, 4, 7 ],
   "products" : [ {
     "productCode" : 1,
     "name" : "iphone 13 pro",
@@ -211,22 +98,6 @@
     "description" : "best phone ever created",
     "category" : "SMARTPHONE"
   }, {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
-  }, {
-    "productCode" : 3,
-    "name" : "mac book pro 14 ",
-    "brand" : "APPLE",
-    "sellingPrice" : 3000.0,
-    "purchasePrice" : 2000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
-  }, {
     "productCode" : 4,
     "name" : "mac book pro 16",
     "brand" : "APPLE",
@@ -235,7 +106,20 @@
     "description" : "best mac book ever created",
     "category" : "PC"
   } ],
-  "quantity" : [ 5, 1, 2, 2 ],
+  "quantity" : [ 5, 2 ],
+  "client" : null
+}, {
+  "date" : [ 2022, 4, 8 ],
+  "products" : [ {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "APPLE",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  } ],
+  "quantity" : [ 1 ],
   "client" : null
 }, {
   "date" : [ 2022, 4, 8 ],
@@ -261,14 +145,6 @@
     "description" : "best phone ever created",
     "category" : "SMARTPHONE"
   }, {
-    "productCode" : 3,
-    "name" : "mac book pro 14 ",
-    "brand" : "APPLE",
-    "sellingPrice" : 3000.0,
-    "purchasePrice" : 2000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
-  }, {
     "productCode" : 4,
     "name" : "mac book pro 16",
     "brand" : "APPLE",
@@ -276,27 +152,6 @@
     "purchasePrice" : 3000.0,
     "description" : "best mac book ever created",
     "category" : "PC"
-  } ],
-  "quantity" : [ 10, 1, 5 ],
-  "client" : null
-}, {
-  "date" : [ 2015, 4, 6 ],
-  "products" : [ {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 7,
-    "name" : "ipad Pro Max",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best ipad pro max ever created",
-    "category" : "HOME"
   }, {
     "productCode" : 3,
     "name" : "mac book pro 14 ",
@@ -306,7 +161,36 @@
     "description" : "best mac book ever created",
     "category" : "PC"
   } ],
-  "quantity" : [ 1, 100, 10 ],
+  "quantity" : [ 10, 5, 1 ],
+  "client" : null
+}, {
+  "date" : [ 2021, 4, 6 ],
+  "products" : [ {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "APPLE",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 6,
+    "name" : "ipad Pro",
+    "brand" : "APPLE",
+    "sellingPrice" : 1000.0,
+    "purchasePrice" : 500.0,
+    "description" : "best ipad Pro ever created",
+    "category" : "HOME"
+  }, {
+    "productCode" : 5,
+    "name" : "ipad Air ",
+    "brand" : "APPLE",
+    "sellingPrice" : 700.0,
+    "purchasePrice" : 300.0,
+    "description" : "best ipad ever created",
+    "category" : "HOME"
+  } ],
+  "quantity" : [ 100, 1, 10 ],
   "client" : null
 }, {
   "date" : [ 2022, 4, 8 ],
@@ -318,6 +202,135 @@
     "purchasePrice" : 200.0,
     "description" : "best watch ever created",
     "category" : "SMARTWATCH"
+  } ],
+  "quantity" : [ 1 ],
+  "client" : null
+}, {
+  "date" : [ 2015, 4, 6 ],
+  "products" : [ {
+    "productCode" : 7,
+    "name" : "ipad Pro Max",
+    "brand" : "APPLE",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best ipad pro max ever created",
+    "category" : "HOME"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "APPLE",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "APPLE",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  } ],
+  "quantity" : [ 100, 1, 10 ],
+  "client" : null
+}, {
+  "date" : [ 2022, 1, 7 ],
+  "products" : [ {
+    "productCode" : 4,
+    "name" : "mac book pro 16",
+    "brand" : "APPLE",
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "APPLE",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "APPLE",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "APPLE",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  } ],
+  "quantity" : [ 2, 2, 1, 5 ],
+  "client" : null
+}, {
+  "date" : [ 2019, 4, 6 ],
+  "products" : [ {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "APPLE",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "APPLE",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 5,
+    "name" : "ipad Air ",
+    "brand" : "APPLE",
+    "sellingPrice" : 700.0,
+    "purchasePrice" : 300.0,
+    "description" : "best ipad ever created",
+    "category" : "HOME"
+  } ],
+  "quantity" : [ 100, 10, 1 ],
+  "client" : null
+}, {
+  "date" : [ 2022, 4, 7 ],
+  "products" : [ {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "APPLE",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "APPLE",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  } ],
+  "quantity" : [ 1, 2 ],
+  "client" : null
+}, {
+  "date" : [ 2020, 4, 8 ],
+  "products" : [ {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "APPLE",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
   } ],
   "quantity" : [ 1 ],
   "client" : null

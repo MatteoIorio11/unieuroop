@@ -1,31 +1,11 @@
 [ {
-  "departmentName" : "department1",
+  "departmentName" : "department3",
   "staff" : [ {
   "name" : "Nome4",
   "surname" : "Cognome4",
   "email" : "email4@gmail.csom",
   "id" : 0,
   "password" : 444,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
-  "name" : "Nome2",
-  "surname" : "Cognome2",
-  "email" : "email2@gmail.csom",
-  "id" : 0,
-  "password" : 222,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
-  "name" : "Nome1",
-  "surname" : "Cognome1",
-  "email" : "prova@gmail.com",
-  "id" : 0,
-  "password" : 1509442,
   "birthday" : [ 2022, 4, 6 ],
   "days" : [ "MONDAY" ],
   "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
@@ -42,14 +22,6 @@
   "endTimes" : [ [ 10, 10 ] ]
 } ],
   "products" : [ {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
-  }, {
     "productCode" : 2,
     "name" : "applewatch",
     "brand" : "APPLE",
@@ -65,16 +37,8 @@
     "purchasePrice" : 2000.0,
     "description" : "best mac book ever created",
     "category" : "PC"
-  }, {
-    "productCode" : 4,
-    "name" : "mac book pro 16",
-    "brand" : "APPLE",
-    "sellingPrice" : 6000.0,
-    "purchasePrice" : 3000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
   } ],
-  "values" : [ 0, 0, 0, 0 ]
+  "values" : [ 36, 8 ]
 }, {
   "departmentName" : "department2",
   "staff" : [ {
@@ -99,14 +63,6 @@
   "endTimes" : [ [ 10, 10 ] ]
 } ],
   "products" : [ {
-    "productCode" : 4,
-    "name" : "mac book pro 16",
-    "brand" : "APPLE",
-    "sellingPrice" : 6000.0,
-    "purchasePrice" : 3000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
-  }, {
     "productCode" : 1,
     "name" : "iphone 13 pro",
     "brand" : "APPLE",
@@ -114,16 +70,44 @@
     "purchasePrice" : 900.0,
     "description" : "best phone ever created",
     "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 4,
+    "name" : "mac book pro 16",
+    "brand" : "APPLE",
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
   } ],
   "values" : [ 0, 0 ]
 }, {
-  "departmentName" : "department3",
+  "departmentName" : "department1",
   "staff" : [ {
   "name" : "Nome3",
   "surname" : "Cognome4",
   "email" : "email3@gmail.com",
   "id" : 0,
   "password" : 333,
+  "birthday" : [ 2022, 4, 6 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
+  "endTimes" : [ [ 10, 10 ] ]
+}, {
+  "name" : "Nome1",
+  "surname" : "Cognome1",
+  "email" : "prova@gmail.com",
+  "id" : 0,
+  "password" : 1509442,
+  "birthday" : [ 2022, 4, 6 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
+  "endTimes" : [ [ 10, 10 ] ]
+}, {
+  "name" : "Nome2",
+  "surname" : "Cognome2",
+  "email" : "email2@gmail.csom",
+  "id" : 0,
+  "password" : 222,
   "birthday" : [ 2022, 4, 6 ],
   "days" : [ "MONDAY" ],
   "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
@@ -140,13 +124,13 @@
   "endTimes" : [ [ 10, 10 ] ]
 } ],
   "products" : [ {
-    "productCode" : 2,
-    "name" : "applewatch",
+    "productCode" : 4,
+    "name" : "mac book pro 16",
     "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
   }, {
     "productCode" : 3,
     "name" : "mac book pro 14 ",
@@ -155,6 +139,22 @@
     "purchasePrice" : 2000.0,
     "description" : "best mac book ever created",
     "category" : "PC"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "APPLE",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "APPLE",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
   } ],
-  "values" : [ 37, 8 ]
+  "values" : [ 0, 0, 0, 0 ]
 } ]
