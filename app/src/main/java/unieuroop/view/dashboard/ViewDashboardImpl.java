@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import unieuroop.controller.dashboard.ControllerDashboard;
 
@@ -23,6 +24,10 @@ public final class ViewDashboardImpl implements Initializable {
     private Label lblShopEarnings;
     @FXML
     private Label lblTotalSpent;
+    @FXML
+    private ListView lstViewSales;
+    @FXML
+    private ListView lstViewSaledProducts;
     @FXML
     private GridPane cardShopEarnings;
     private final ControllerDashboard controller;
