@@ -6,6 +6,10 @@ public enum Pages {
      */
     DASHBOARD("/pages/DashBoard/DashBoard.fxml"),
     /**
+     * @param 
+     */
+    SALE_PRODUCTS("/pages/DashBoard/SaleProducts.fxml"),
+    /**
      * @param
      */
     STOCK("/pages/Stock/StockView.fxml"),

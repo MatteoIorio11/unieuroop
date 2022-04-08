@@ -1,12 +1,15 @@
 package unieuroop.view.dashboard;
 
 import java.net.URL;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import unieuroop.controller.dashboard.ControllerDashboard;
 
@@ -24,8 +27,6 @@ public final class ViewDashboardImpl implements Initializable {
     private Label lblTotalSpent;
     @FXML
     private ListView lstViewSales;
-    @FXML
-    private ListView lstViewSaledProducts;
     @FXML
     private GridPane cardShopEarnings;
     private final ControllerDashboard controller;
@@ -46,6 +47,12 @@ public final class ViewDashboardImpl implements Initializable {
             this.cardShopEarnings.setStyle("-fx-background-color: #15cf00; ");
         } else {
             this.cardShopEarnings.setStyle("-fx-background-color: #ff0000; ");
+        }
+    }
+    @FXML
+    public void lstSalesSelectClientHandler(final MouseEvent event) {
+        if (!Objects.isNull(this.listClients.getSelectionModel().getSelectedItem())) {
+            this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
         }
     }
 
