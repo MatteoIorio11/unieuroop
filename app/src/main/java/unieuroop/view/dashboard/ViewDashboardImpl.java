@@ -44,6 +44,7 @@ public final class ViewDashboardImpl implements Initializable {
         this.lblStockPrice.setText(String.valueOf(this.controller.getStockPrice()));
         this.lblSuppliers.setText(String.valueOf(this.controller.getSuppliers()));
         this.lblTotalSpent.setText(String.valueOf(this.controller.getTotalSpent()));
+        this.lstViewSales.getItems().addAll(this.controller.getSales());
         if (this.controller.isEarning()) {
             this.cardShopEarnings.setStyle("-fx-background-color: #15cf00; ");
         } else {

@@ -416,7 +416,7 @@
                   <ListView fx:id="lstViewSaledProducts" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                </center>
                <top>
-                  <Label text="Saled Products" BorderPane.alignment="CENTER" />
+                  <Label text="Sold Products" BorderPane.alignment="CENTER" />
                </top>
             </BorderPane>
          </children>

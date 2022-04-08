@@ -1,7 +1,10 @@
 package unieuroop.controller.dashboard;
 
+import java.util.Set;
+
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
+import unieuroop.model.sale.Sale;
 import unieuroop.model.shop.Shop;
 
 public final class ControllerDashboardImpl implements ControllerDashboard {
@@ -50,5 +53,10 @@ public final class ControllerDashboardImpl implements ControllerDashboard {
     @Override
     public boolean isEarning() {
         return this.getTotalSpent() < this.getShopEarnings();
+    }
+
+    @Override
+    public Set<Sale> getSales() {
+        return this.shop.getSales();
     }
 }

@@ -1,5 +1,10 @@
 package unieuroop.controller.dashboard;
 
+
+import java.util.Set;
+
+import unieuroop.model.sale.Sale;
+
 public interface ControllerDashboard {
 
     int getStaff();
@@ -15,6 +20,8 @@ public interface ControllerDashboard {
     Double getShopEarnings();
 
     Double getTotalSpent();
+
+    Set<Sale> getSales();
 
     boolean isEarning();
 
