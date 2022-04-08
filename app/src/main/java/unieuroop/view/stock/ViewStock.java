@@ -69,6 +69,13 @@ public class ViewStock implements Initializable {
 
     @FXML
     public void btnBuyProductsHandler() {
+        listProductsStocked.getItems().clear();
+        final Pane pane;
+        try {
+            
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
         
     }
 
