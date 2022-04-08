@@ -72,4 +72,6 @@ public final class SaleImpl implements Sale {
     public Optional<Client> getClient() {
         return this.client;
     }
+
+    
 }
