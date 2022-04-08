@@ -32,7 +32,7 @@ public final class ControllerClientImpl {
         final var date = LocalDateTime.now();
         final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
         final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
-        this.shop.registerClient(new Client(name, surname, birthday, code));
+        this.shop.registerClient(new Client(name, surname, birthday, Math.abs(code)));
         serializationClient();
     }
 
