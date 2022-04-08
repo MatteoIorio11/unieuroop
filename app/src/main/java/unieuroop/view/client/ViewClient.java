@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.model.person.Client;
 
-public class ViewClient implements Initializable {
+public final class ViewClient implements Initializable {
 
     @FXML
     private ListView<Client> listClients;
