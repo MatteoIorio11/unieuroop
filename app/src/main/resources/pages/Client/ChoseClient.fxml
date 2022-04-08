@@ -24,7 +24,8 @@
       <AnchorPane prefHeight="34.0" prefWidth="486.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnSelect" layoutX="215.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="56.0" text="Select" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="1.0" />
-            <Button fx:id="btnQuit" layoutX="14.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: RED;" text="NOBODY" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="1.0" />
+            <Button fx:id="btnQuit" layoutX="14.0" layoutY="1.0" mnemonicParsing="false" onAction="#buttonQuitHandler" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: RED;" text="NOBODY" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="1.0" />
+            <Button fx:id="btnSelect1" layoutX="210.0" layoutY="11.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="56.0" text="Select" />
          </children>
       </AnchorPane>
    </bottom>

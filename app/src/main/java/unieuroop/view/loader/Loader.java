@@ -21,12 +21,14 @@ public final class Loader {
         return pane;
     }
 
-    public static <X> Stage loadStage(final String path, final String title, final X controller) throws IOException {
+    public static <X> Stage loadStage(final String path, final String title, final X controller, final double minHeight, final double minWidth) throws IOException {
         final Pane pane;
         final Rectangle2D screenBounds = Screen.getPrimary().getBounds();
         final double xSize =  screenBounds.getMaxX() / 2;
         final double ySize = screenBounds.getMaxY() / 2;
         final Stage newWindow = new Stage();
+        newWindow.setMinHeight(minHeight);
+        newWindow.setMinWidth(minWidth);
         final var loader = new FXMLLoader(Loader.class.getResource(path));
         loader.setController(controller);
         pane = loader.load();
