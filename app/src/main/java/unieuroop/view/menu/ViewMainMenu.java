@@ -20,6 +20,7 @@ import unieuroop.controller.sale.ControllerSaleImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.controller.staff.ControllerStaffImpl;
+import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.view.balance.ViewBalance;
 import unieuroop.view.categories.ViewCategoriesSold;
 import unieuroop.view.client.ViewClient;
@@ -27,6 +28,7 @@ import unieuroop.view.dashboard.ViewDashboardImpl;
 import unieuroop.view.dateanalytic.ViewDateSold;
 import unieuroop.view.department.ViewDepartment;
 import unieuroop.view.sale.ViewSale;
+import unieuroop.view.stock.ViewStock;
 
 public final class ViewMainMenu implements Initializable {
     @FXML 
@@ -65,13 +67,13 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnStockHandler(final ActionEvent event) {
-        this.loadPage(Pages.STOCK, null);
+        this.loadPage(Pages.STOCK, new ViewStock(this, new ControllerStockImpl(this.controller.getShop()), this.stage));
     }
     @FXML
     public void btnSalesHandler(final ActionEvent event) {
         this.loadPage(Pages.SALES, new ViewSale(this, new ControllerClientImpl(this.controller.getShop()), 
                 new ControllerDepartmentImpl(this.controller.getShop()), 
-                new ControllerSaleImpl(this.controller.getShop()),this.stage));
+                new ControllerSaleImpl(this.controller.getShop()), this.stage));
     }
     @FXML
     public void btnClientsHandler(final ActionEvent event) {

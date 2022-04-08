@@ -23,12 +23,12 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="btnBuyProducts" mnemonicParsing="false" onAction="#btnBuyProducts" text="Buy Products">
+            <Button fx:id="btnBuyProducts" mnemonicParsing="false" onAction="#btnBuyProductsHandler" text="Buy Products">
                <GridPane.margin>
                   <Insets bottom="15.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnDeleteProducts" mnemonicParsing="false" onAction="#btnDeleteProducts" text="Delete Products" GridPane.columnIndex="2">
+            <Button fx:id="btnDeleteProducts" mnemonicParsing="false" onAction="#btnDeleteProductsHandler" text="Delete Products" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets bottom="15.0" />
                </GridPane.margin>
