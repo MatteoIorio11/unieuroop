@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -50,15 +51,18 @@ public final class ViewChoseClient extends Stage implements Initializable {
         this.listClients.getSelectionModel().selectedItemProperty().addListener((evenet) -> {
             this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
         });
-        this.btnSelect.setOnMouseClicked((e) -> {
-            this.controllerSale.closeSale(selectedClient);
-            final Stage stage = (Stage) this.btnSelect.getScene().getWindow();
-            stage.close();
-        });
-        this.btnQuit.setOnMouseClicked((event) -> {
-            this.controllerSale.closeSale(Optional.empty());
-            final Stage stage = (Stage) this.btnQuit.getScene().getWindow();
-            stage.close();
-        });
+    }
+    @FXML
+    public void buttonSelectHandler(final ActionEvent event) {
+        this.controllerSale.closeSale(selectedClient);
+        final Stage stage = (Stage) this.btnSelect.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void buttonQuitHandler(final ActionEvent event) {
+        this.controllerSale.closeSale(Optional.empty());
+        final Stage stage = (Stage) this.btnQuit.getScene().getWindow();
+        stage.close();
     }
 }

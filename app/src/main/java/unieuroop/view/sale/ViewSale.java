@@ -48,7 +48,6 @@ public final class ViewSale implements Initializable {
     private final ControllerSaleImpl controllerSale;
 
     private final ViewMainMenu viewMenu;
-    private Department input;
 
 
     public ViewSale(final ViewMainMenu viewMainMenu, final ControllerClientImpl controllerClient,
@@ -69,9 +68,9 @@ public final class ViewSale implements Initializable {
         if (this.controllerSale.isReserved()) {
             this.viewMenu.disableButtons(true);
         }
-        this.input = this.comboDepartments.getValue();
+        final Department input = this.comboDepartments.getValue();
         this.listLabel.getItems().clear();
-        this.addLabels(this.input.getAllProducts().keySet(), this.input);
+        this.addLabels(input.getAllProducts().keySet(), input);
     }
 
     @FXML
@@ -81,7 +80,7 @@ public final class ViewSale implements Initializable {
             this.listSelectedProducts.getItems().clear();
             try {
                 final Stage newWindow = Loader.<ViewChoseClient>loadStage(Pages.CHOSE_CLIENT.getPath(), "Chose Client", new ViewChoseClient(this.controllerSale, 
-                        this.controllerClient));
+                        this.controllerClient), 100, 100);
                 newWindow.setOnCloseRequest((closeEvent) -> {
                     closeEvent.consume();
                     final Alert alert = new Alert(AlertType.INFORMATION);
