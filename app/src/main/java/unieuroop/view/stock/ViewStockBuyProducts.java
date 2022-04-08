@@ -26,14 +26,36 @@ public class ViewStockBuyProducts extends Stage implements Initializable {
     @FXML
     private Button btnConfimrBuyProducts;
 
-    public ViewStockBuyProducts(ViewStock viewStock, ControllerStockImpl controller) {
-        // TODO Auto-generated constructor stub
+    private ViewStock viewStock;
+    private final ControllerStockImpl controllerStock;
+
+    public ViewStockBuyProducts(final ViewStock viewStock, final ControllerStockImpl controller) {
+        this.viewStock = viewStock;
+        this.controllerStock = controller;
     }
 
+    /**
+     * 
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
+        this.listSoldProducts.getItems().clear();
+        this.lblTotalPrice.setText("Total Price: ");
+        this.lblTotalProductsChoose.setText("Total Products: ");
+        loadSuppliersList();
+    }
+
+    @FXML
+    public void btnConfimrBuyProductsHandler() {
         
+    }
+
+    /**
+     * 
+     */
+    private void loadSuppliersList() {
+        this.listSupplier.getItems().clear();
+        this.listSupplier.getItems().addAll(this.controllerStock.getSuppliers());
     }
 
 }
