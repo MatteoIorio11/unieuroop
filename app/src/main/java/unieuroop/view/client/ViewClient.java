@@ -1,8 +1,8 @@
 package unieuroop.view.client;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -32,9 +32,6 @@ public class ViewClient implements Initializable {
     @FXML
     private Button btnDeleteClient;
     private final ControllerClientImpl controller;
-    private final Client c1 = new Client("Mario", "Rossi", LocalDate.of(2000, 1, 10), 11);
-    private final Client c2 = new Client("Luigi", "Verdi", LocalDate.of(1999, 2, 15), 12);
-    private final Client c3 = new Client("Marco", "Bianchi", LocalDate.of(2002, 3, 16), 13);
 
     public ViewClient(final ControllerClientImpl controller) {
         this.controller = controller;
@@ -43,9 +40,6 @@ public class ViewClient implements Initializable {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.listClients.getItems().addAll(this.controller.getRegisteredClients());
-        this.listClients.getItems().add(this.c1);
-        this.listClients.getItems().add(this.c2);
-        this.listClients.getItems().add(this.c3);
 
         btnAddClient.setOnMouseClicked((e) -> {
             try {
@@ -55,6 +49,7 @@ public class ViewClient implements Initializable {
             } catch (IllegalArgumentException illegalExc) {
                 illegalExc.printStackTrace();
             }
+            clearView();
         });
 
         btnEditClient.setOnMouseClicked((e) -> {
@@ -67,6 +62,7 @@ public class ViewClient implements Initializable {
             } catch (IllegalArgumentException illegalExc) {
                 illegalExc.printStackTrace();
             }
+            clearView();
         });
 
         btnDeleteClient.setOnMouseClicked((e) -> {
@@ -74,6 +70,7 @@ public class ViewClient implements Initializable {
             this.controller.deleteClient(client);
             this.listClients.getItems().clear();
             this.listClients.getItems().addAll(this.controller.getRegisteredClients());
+            clearView();
         });
 
         listClients.setOnMouseClicked((e) -> {
@@ -83,5 +80,12 @@ public class ViewClient implements Initializable {
             this.dtBirthday.setValue(client.getBirthdayDate());
             this.lblCode.setText(Integer.toString(client.getClientCode()));
         });
+    }
+
+    private void clearView() {
+        this.tbxName.setText("");
+        this.tbxSurname.setText("");
+        this.dtBirthday.setValue(null);
+        this.lblCode.setText("");
     }
 }
