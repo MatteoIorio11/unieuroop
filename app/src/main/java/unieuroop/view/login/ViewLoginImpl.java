@@ -18,18 +18,17 @@ import javafx.stage.Stage;
 import unieuroop.controller.login.ControllerLoginImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
+import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
 
 public final class ViewLoginImpl implements Initializable {
     private final ControllerLoginImpl controller;
-    private final Stage primaryStage;
     @FXML 
     private TextField email;
     @FXML
     private PasswordField password;
-    public ViewLoginImpl(final ControllerLoginImpl controller, final Stage primaryStage) {
+    public ViewLoginImpl(final ControllerLoginImpl controller) {
         this.controller = controller;
-        this.primaryStage = primaryStage;
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
@@ -42,15 +41,9 @@ public final class ViewLoginImpl implements Initializable {
     @FXML
     public void btnLoginHandler(final ActionEvent event) throws IOException {
         if (this.controller.checkPassword(this.email.getText(), this.password.getText())) {
-            final var loader = new FXMLLoader(getClass().getResource("/pages/MainMenu.fxml"));
-            loader.setController(new ViewMainMenu(new ControllerShopImpl(this.controller.getShop())));
-            final Parent root = loader.load();
-          final Scene scene = new Scene(root, 1000, 600);
-          primaryStage.setTitle("unieurOOP");
-          primaryStage.setScene(scene);
-          primaryStage.setMinHeight(500);
-          primaryStage.setMinWidth(1000);
-          primaryStage.show();
+            Loader.loadStage("/pages/MainMenu.fxml", "unieurOOP", new ViewMainMenu(new ControllerShopImpl(this.controller.getShop())), 600,1000).show();
+            final Stage stage = (Stage) this.email.getScene().getWindow();
+            stage.close();
         } else {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText("Wrong Password");
