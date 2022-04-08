@@ -73,5 +73,9 @@ public final class SaleImpl implements Sale {
         return this.client;
     }
 
+    @Override
+    public String toString() {
+        return null;
+    }
     
 }
