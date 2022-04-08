@@ -41,6 +41,7 @@ import unieuroop.model.product.ProductImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierImpl;
 import unieuroop.view.client.ViewChoseClient;
+import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
 
 public final class ViewSale implements Initializable {
