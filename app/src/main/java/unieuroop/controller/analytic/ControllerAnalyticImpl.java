@@ -48,4 +48,7 @@ public final class ControllerAnalyticImpl {
         return this.analytic.getSoldOnDay((date) -> date.isAfter(lowerBound) && date.isBefore(upperBound)
                 || date.isEqual(lowerBound) || date.isEqual(upperBound));
     }
+    public Set<Product> getProductsSold() {
+        return this.analytic.getTotalProductsSold();
+    }
 }
