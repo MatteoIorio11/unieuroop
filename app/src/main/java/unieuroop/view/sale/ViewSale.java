@@ -99,19 +99,9 @@ public final class ViewSale implements Initializable {
         if (!this.controllerSale.isReserved()) {
             this.listLabel.getItems().clear();
             this.listSelectedProducts.getItems().clear();
-            final Pane pane;
             try {
-                final Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-                final double xSize =  screenBounds.getMaxX() / 2;
-                final double ySize = screenBounds.getMaxY() / 2;
-                final Stage newWindow = new Stage();
-                final var view = new ViewChoseClient(this.controllerSale, this.controllerClient, newWindow);
-                final var loader = new FXMLLoader(getClass().getResource(Pages.CHOSE_CLIENT.getPath()));
-                loader.setController(view);
-                pane = loader.load();
-                final Scene secondScene = new Scene(pane, xSize, ySize);
-                newWindow.setTitle("Client Selection");
-                newWindow.setScene(secondScene);
+                final Stage newWindow = Loader.<ViewChoseClient>loadStage(Pages.CHOSE_CLIENT.getPath(), "", new ViewChoseClient(this.controllerSale, 
+                        this.controllerClient));
                 newWindow.setOnCloseRequest((closeEvent) -> {
                     closeEvent.consume();
                     final Alert alert = new Alert(AlertType.INFORMATION);

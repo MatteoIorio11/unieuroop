@@ -1,10 +1,10 @@
 package unieuroop.view.client;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
-import java.util.Objects;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -26,13 +26,11 @@ public final class ViewChoseClient extends Stage implements Initializable {
     @FXML
     private Button btnQuit;
     private Optional<Client> selectedClient;
-    private final Stage window;
     private final ControllerSaleImpl controllerSale;
     private final ControllerClientImpl controllerClient;
-    public ViewChoseClient(final ControllerSaleImpl controller, final ControllerClientImpl controllerClient, final Stage window) {
+    public ViewChoseClient(final ControllerSaleImpl controller, final ControllerClientImpl controllerClient) {
         this.controllerSale = controller;
         this.controllerClient = controllerClient;
-        this.window = window;
         this.selectedClient = Optional.empty();
     }
 
@@ -54,11 +52,13 @@ public final class ViewChoseClient extends Stage implements Initializable {
         });
         this.btnSelect.setOnMouseClicked((e) -> {
             this.controllerSale.closeSale(selectedClient);
-            this.window.close();
+            final Stage stage = (Stage) this.btnSelect.getScene().getWindow();
+            stage.close();
         });
         this.btnQuit.setOnMouseClicked((event) -> {
             this.controllerSale.closeSale(Optional.empty());
-            this.window.close();
+            final Stage stage = (Stage) this.btnQuit.getScene().getWindow();
+            stage.close();
         });
     }
 }
