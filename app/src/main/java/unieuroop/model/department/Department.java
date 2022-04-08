@@ -22,7 +22,7 @@ public interface Department {
      * Remove a Staff from the assigned Department.
      * @param deleteStaff
      */
-    void removeStaff(Staff deleteStaff);
+    void removeStaff(Set<Staff> deleteStaff);
     /**
      * Return the Department name.
      * @return departmentName

@@ -80,5 +80,4 @@ public final class SaleImpl implements Sale {
         final String totalEarned = this.getTotalSpent() + " euros ";
         return date + totalEarned + " Client :" + client;
     }
-    
 }

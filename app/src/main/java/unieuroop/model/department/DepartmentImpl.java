@@ -48,11 +48,11 @@ public final class DepartmentImpl implements Department{
      * Remove the Staff assigned to the department.
      */
     @Override
-    public void removeStaff(final Staff deleteStaff) {
-        if (this.staff.contains(deleteStaff)) {
-            this.staff.remove(deleteStaff);
+    public void removeStaff(final Set<Staff> deleteStaff) {
+        if (this.staff.containsAll(deleteStaff)) {
+            this.staff.removeAll(deleteStaff);
         } else {
-            throw new IllegalArgumentException("The staff : " + deleteStaff.toString() + " does not exist.");
+            throw new IllegalArgumentException("Some of the input staff does not work in this department.");
         }
     }
 

@@ -2,6 +2,7 @@ package unieuroop.controller.department;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -67,6 +68,9 @@ public final class ControllerDepartmentImpl {
         }
     }
 
-    public void removeProductsFrom(final Department department, final Map<Product, Integer> products) {
+    public void removeProductsFrom(final Department inputDepartment, final Set<Staff> staff) {
+        if (!Objects.isNull(inputDepartment) && this.shop.getDepartments().contains(inputDepartment)) {
+            final Department department = this.shop.getDepartments().stream().filter((departmentInput) -> departmentInput.equals(department)).findFirst().get();
+        }
     }
 }
