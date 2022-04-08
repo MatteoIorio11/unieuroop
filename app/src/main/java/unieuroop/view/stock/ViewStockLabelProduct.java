@@ -14,7 +14,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import unieuroop.controller.shop.ControllerShopImpl;
+import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.product.Product;
 
 public class ViewStockLabelProduct implements Initializable {
@@ -28,12 +28,12 @@ public class ViewStockLabelProduct implements Initializable {
 
     private ViewStock viewStock;
     private Map.Entry<Product, Integer> productEntry;
-    private ControllerShopImpl controller;
+    private ControllerStockImpl controllerStock;
 
-    public ViewStockLabelProduct(final Map.Entry<Product, Integer> product, final ViewStock viewStock, final ControllerShopImpl controller) {
+    public ViewStockLabelProduct(final Map.Entry<Product, Integer> product, final ViewStock viewStock, final ControllerStockImpl controller) {
         this.viewStock = viewStock;
         this.productEntry = product;
-        this.controller = controller;
+        this.controllerStock = controller;
     }
 
     /**
@@ -46,9 +46,11 @@ public class ViewStockLabelProduct implements Initializable {
         this.lblProductsInList.setText("Product: " + this.productEntry.getKey().toString());
         this.spinnerQuantities.setValueFactory(rangeAmount);
         chkboxProductTaken.setIndeterminate(false);
-        chkboxProductTaken.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
-            //Listener CheckBox
-        });
+    }
+
+    @FXML
+    public void chkboxProductTakenHandler() {
+        
     }
 
 }
