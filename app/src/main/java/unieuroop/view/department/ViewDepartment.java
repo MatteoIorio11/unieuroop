@@ -37,12 +37,9 @@ public final class ViewDepartment implements Initializable{
 
     private final ControllerDepartmentImpl controllerDepartment;
     private final ControllerStaffImpl controllerStaff;
-    private final Stage stage;
-    public ViewDepartment(final ControllerDepartmentImpl controllerDepartment, final ControllerStaffImpl controllerStaff,
-            final Stage primaryStage) {
+    public ViewDepartment(final ControllerDepartmentImpl controllerDepartment, final ControllerStaffImpl controllerStaff) {
         this.controllerDepartment = controllerDepartment;
         this.controllerStaff = controllerStaff;
-        this.stage = primaryStage;
     }
 
     @Override
