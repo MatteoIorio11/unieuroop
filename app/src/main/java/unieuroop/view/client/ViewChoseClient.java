@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.sale.ControllerSaleImpl;
@@ -38,19 +39,23 @@ public final class ViewChoseClient extends Stage implements Initializable {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients());
+    }
+    @FXML
+    public void textNameClient() {
+        this.listClients.getItems().clear();
+        if (Objects.isNull(this.textName.getText())) {
+            this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients());
+        } else {
+            this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients().stream()
+                    .filter((client) -> client.getName().contains(this.textName.getText())).collect(Collectors.toList()));
+        }
+    }
 
-        this.textName.textProperty().addListener((observable, oldValue, newValue) -> {
-            this.listClients.getItems().clear();
-            if (Objects.isNull(newValue)) {
-                this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients());
-            } else {
-                this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients().stream()
-                        .filter((client) -> client.getName().contains(newValue)).collect(Collectors.toList()));
-            }
-        });
-        this.listClients.getSelectionModel().selectedItemProperty().addListener((evenet) -> {
+    @FXML
+    public void listSelectClientHandler(final MouseEvent event) {
+        if (!Objects.isNull(this.listClients.getSelectionModel().getSelectedItem())) {
             this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
-        });
+        }
     }
     @FXML
     public void buttonSelectHandler(final ActionEvent event) {
