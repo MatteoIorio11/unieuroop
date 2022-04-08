@@ -14,8 +14,6 @@ public final class ViewDashboardImpl implements Initializable {
     @FXML
     private Label lblStaff;
     @FXML
-    private Label lblClients;
-    @FXML
     private Label lblSuppliers;
     @FXML private Label lblDepartments;
     @FXML
@@ -37,7 +35,6 @@ public final class ViewDashboardImpl implements Initializable {
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        this.lblClients.setText(String.valueOf(this.controller.getClients()));
         this.lblDepartments.setText(String.valueOf(this.controller.getDepartments()));
         this.lblShopEarnings.setText(String.valueOf(this.controller.getShopEarnings()));
         this.lblStaff.setText(String.valueOf(this.controller.getStaff()));
