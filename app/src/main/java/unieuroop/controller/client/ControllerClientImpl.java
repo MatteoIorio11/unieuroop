@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Objects;
 import java.util.Set;
 import unieuroop.model.person.Client;
 import unieuroop.model.shop.Shop;
@@ -22,12 +23,13 @@ public final class ControllerClientImpl {
 
     public void addClient(final String name, final String surname, final LocalDate birthday) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(maxBirthday) && birthday.isAfter(minBirthday)) {
-            throw new IllegalArgumentException("Impossible ");
+            throw new IllegalArgumentException("Impossible because one of the parameters are null");
         }
         final var date = LocalDateTime.now();
         final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
         final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
         this.shop.registerClient(new Client(name, surname, birthday, code));
+        //Aggiungi Serializzazzione dei clienti nel file 
     }
 
     public void editClient(final String name, final String surname, final LocalDate birthday) {
@@ -35,7 +37,11 @@ public final class ControllerClientImpl {
     }
 
     public void deleteClient(final Client client) {
-        this.shop.removeClient(client);
+        if (!Objects.isNull(client)) {
+            this.shop.removeClient(client);
+            //Aggiungi Serializzazzione dei clienti nel file 
+
+        }
     }
 
     public Set<Client> getRegisteredClients() {

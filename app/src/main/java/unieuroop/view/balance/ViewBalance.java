@@ -55,11 +55,11 @@ public final class ViewBalance implements Initializable {
 
         final var lowerEarned = this.controller.getYearsTotalEarned().entrySet().stream()
                 .map((entry) -> entry.getKey()).sorted(Integer::compare).findFirst();
-        final var lowerSpent = this.controller.getYearsTotalEarned().entrySet().stream()
+        final var upperEarned = this.controller.getYearsTotalEarned().entrySet().stream()
                 .map((entry) -> entry.getKey()).sorted((year1, year2) -> Integer.compare(year2, year1)).findFirst();
-        if (lowerEarned.isPresent() && lowerSpent.isPresent()) {
-            xAxis.setLowerBound(lowerEarned.get() > lowerSpent.get() ? lowerSpent.get() : lowerEarned.get());
-            xAxis.setUpperBound(lowerEarned.get() < lowerSpent.get() ? lowerSpent.get() : lowerEarned.get());
+        if (lowerEarned.isPresent() && upperEarned.isPresent()) {
+            xAxis.setLowerBound(lowerEarned.get() > upperEarned.get() ? upperEarned.get() : lowerEarned.get());
+            xAxis.setUpperBound(lowerEarned.get() < upperEarned.get() ? upperEarned.get() : lowerEarned.get());
         }
         areaChart.getData().add(serie1);
         areaChart.getData().add(serie2);

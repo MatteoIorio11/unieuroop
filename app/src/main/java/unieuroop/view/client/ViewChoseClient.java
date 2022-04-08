@@ -14,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.sale.ControllerSaleImpl;
-import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.model.person.Client;
 
 public final class ViewChoseClient extends Stage implements Initializable {
