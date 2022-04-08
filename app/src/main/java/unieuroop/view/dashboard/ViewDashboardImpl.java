@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import unieuroop.controller.dashboard.ControllerDashboard;
 
@@ -24,6 +25,10 @@ public final class ViewDashboardImpl implements Initializable {
     @FXML
     private Label lblTotalSpent;
     @FXML
+    private ListView lstViewSales;
+    @FXML
+    private ListView lstViewSaledProducts;
+    @FXML
     private GridPane cardShopEarnings;
     private final ControllerDashboard controller;
 
@@ -39,6 +44,7 @@ public final class ViewDashboardImpl implements Initializable {
         this.lblStockPrice.setText(String.valueOf(this.controller.getStockPrice()));
         this.lblSuppliers.setText(String.valueOf(this.controller.getSuppliers()));
         this.lblTotalSpent.setText(String.valueOf(this.controller.getTotalSpent()));
+        this.lstViewSales.getItems().addAll(this.controller.getSales());
         if (this.controller.isEarning()) {
             this.cardShopEarnings.setStyle("-fx-background-color: #15cf00; ");
         } else {
