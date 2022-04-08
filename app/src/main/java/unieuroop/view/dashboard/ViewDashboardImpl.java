@@ -1,5 +1,6 @@
 package unieuroop.view.dashboard;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,6 +13,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import unieuroop.controller.dashboard.ControllerDashboard;
+import unieuroop.controller.serialization.Pages;
+import unieuroop.model.sale.Sale;
+import unieuroop.view.loader.Loader;
 
 public final class ViewDashboardImpl implements Initializable {
     @FXML
@@ -26,7 +30,7 @@ public final class ViewDashboardImpl implements Initializable {
     @FXML
     private Label lblTotalSpent;
     @FXML
-    private ListView lstViewSales;
+    private ListView<Sale> lstViewSales;
     @FXML
     private GridPane cardShopEarnings;
     private final ControllerDashboard controller;
@@ -51,8 +55,13 @@ public final class ViewDashboardImpl implements Initializable {
     }
     @FXML
     public void lstSalesSelectClientHandler(final MouseEvent event) {
-        if (!Objects.isNull(this.listClients.getSelectionModel().getSelectedItem())) {
-            this.selectedClient = Optional.of(this.listClients.getSelectionModel().getSelectedItem());
+        final Optional<Sale> selected = Optional.of(this.lstViewSales.getSelectionModel().getSelectedItem());
+        if (selected.isPresent()) {
+            try {
+                Loader.loadStage(Pages.SALE_PRODUCTS.getPath(), "Products", new ViewSaleProductsImpl(selected.get()), 400, 400).show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
