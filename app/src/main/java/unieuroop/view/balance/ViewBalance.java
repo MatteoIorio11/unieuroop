@@ -54,9 +54,9 @@ public final class ViewBalance implements Initializable {
         this.controller.getYearsTotalSpent().entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
 
         final var lowerEarned = this.controller.getYearsTotalEarned().entrySet().stream()
-                .map((entry) -> entry.getKey()).sorted().findFirst();
+                .map((entry) -> entry.getKey()).sorted(Integer::compare).findFirst();
         final var lowerSpent = this.controller.getYearsTotalEarned().entrySet().stream()
-                .map((entry) -> entry.getKey()).sorted().findFirst();
+                .map((entry) -> entry.getKey()).sorted((year1, year2) -> Integer.compare(year2, year1)).findFirst();
         if (lowerEarned.isPresent() && lowerSpent.isPresent()) {
             xAxis.setLowerBound(lowerEarned.get() > lowerSpent.get() ? lowerSpent.get() : lowerEarned.get());
             xAxis.setUpperBound(lowerEarned.get() < lowerSpent.get() ? lowerSpent.get() : lowerEarned.get());
