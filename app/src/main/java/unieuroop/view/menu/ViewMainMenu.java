@@ -52,9 +52,7 @@ public final class ViewMainMenu implements Initializable {
     @FXML
     private Button btnDateAnalytics;
     private final ControllerShopImpl controller;
-    private final Stage stage;
-    public ViewMainMenu(final Stage stage, final ControllerShopImpl controllerShop) {
-        this.stage = stage;
+    public ViewMainMenu(final ControllerShopImpl controllerShop) {
         this.controller = controllerShop;
     }
     @Override
@@ -67,7 +65,7 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnStockHandler(final ActionEvent event) {
-        this.loadPage(Pages.STOCK, new ViewStock(this, new ControllerStockImpl(this.controller.getShop()), this.stage));
+        this.loadPage(Pages.STOCK, new ViewStock(this, new ControllerStockImpl(this.controller.getShop())));
     }
     @FXML
     public void btnSalesHandler(final ActionEvent event) {
@@ -86,8 +84,7 @@ public final class ViewMainMenu implements Initializable {
     @FXML
     public void btnDepartmentsHandler(final ActionEvent event) {
         this.loadPage(Pages.DEPARTMENTS, new ViewDepartment(new ControllerDepartmentImpl(this.controller.getShop()),
-                new ControllerStaffImpl(this.controller.getShop()), 
-                        this.stage));
+                new ControllerStaffImpl(this.controller.getShop())));
     }
     @FXML
     public void btnDateAnalyticsHandler(final ActionEvent event) {

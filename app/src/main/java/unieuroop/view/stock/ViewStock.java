@@ -32,8 +32,6 @@ import unieuroop.view.menu.ViewMainMenu;
 public class ViewStock implements Initializable {
 
     @FXML
-    private Stage primaryStage;
-    @FXML
     private TextField txtSearchProducts;
     @FXML
     private Button btnSearchFilters;
@@ -50,13 +48,11 @@ public class ViewStock implements Initializable {
 
     private final ControllerStockImpl controllerStock;
     private final ViewMainMenu viewMenu;
-    private final Stage stage;
 
 
-    public ViewStock(final ViewMainMenu view, final ControllerStockImpl controllerStock, final Stage primaryStage) {
+    public ViewStock(final ViewMainMenu view, final ControllerStockImpl controllerStock) {
         this.controllerStock = controllerStock;
         this.viewMenu = view;
-        this.stage = primaryStage;
     }
 
     /**
