@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -70,22 +70,22 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>
-                        <TextField promptText="new email" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" BorderPane.alignment="CENTER" />
+                        <TextField promptText="new email" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <TextField promptText="new password" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" BorderPane.alignment="CENTER" />
+                        <TextField promptText="new password" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <center>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #0598ff;" text="CHANGE EMAIL" textFill="WHITE" BorderPane.alignment="CENTER" />
+                        <Button mnemonicParsing="false" text="CHANGE EMAIL" textFill="WHITE" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <center>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #0598ff;" text="CHANGE PASSWORD" textFill="WHITE" BorderPane.alignment="CENTER" />
+                        <Button mnemonicParsing="false" text="CHANGE PASSWORD" textFill="WHITE" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                </children>
