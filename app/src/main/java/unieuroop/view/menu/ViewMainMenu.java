@@ -67,7 +67,7 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnStockHandler(final ActionEvent event) {
-        this.loadPage(Pages.STOCK, new ViewStock(this, new ControllerStockImpl(this.controller.getShop()), this.stage));
+        this.loadPage(Pages.STOCK, new ViewStock(this, new ControllerStockImpl(this.controller.getShop())));
     }
     @FXML
     public void btnSalesHandler(final ActionEvent event) {
