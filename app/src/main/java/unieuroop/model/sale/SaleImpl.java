@@ -75,7 +75,10 @@ public final class SaleImpl implements Sale {
 
     @Override
     public String toString() {
-        return null;
+        final String client = this.client.isEmpty() ? "Not a Registered Client" : this.client.get().toString();
+        final String date = " date : " + this.date;
+        final String totalEarned = " total earned : " + this.getTotalSpent();
+        return "Sale : " + date + totalEarned + " Client :" + client;
     }
     
 }
