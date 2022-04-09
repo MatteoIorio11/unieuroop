@@ -58,7 +58,7 @@ public final class ViewDashboardImpl implements Initializable {
         final Optional<Sale> selected = Optional.of(this.lstViewSales.getSelectionModel().getSelectedItem());
         if (selected.isPresent()) {
             try {
-                Loader.loadStage(Pages.SALE_PRODUCTS.getPath(), "Products", new ViewSaleProductsImpl(selected.get()), 400, 400).show();
+                Loader.loadStage(Pages.SALE_PRODUCTS.getPath(), "Products", new ViewSaleProductsImpl(selected.get()), 300, 300).show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
