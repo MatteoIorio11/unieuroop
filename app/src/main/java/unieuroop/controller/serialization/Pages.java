@@ -12,6 +12,10 @@ public enum Pages {
     /**
      * @param 
      */
+    PROTOTYPE_LABEL("/pages/Department/PrototypeLabel.fxml"),
+    /**
+     * @param 
+     */
     SALE_PRODUCTS("/pages/DashBoard/SaleProducts.fxml"),
     /**
      * @param

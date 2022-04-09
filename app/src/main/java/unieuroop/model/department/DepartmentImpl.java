@@ -126,7 +126,7 @@ public final class DepartmentImpl implements Department{
      */
     @Override
     public String toString() {
-        return "Department Name : " + this.name;
+        return this.name;
     }
 
     @Override

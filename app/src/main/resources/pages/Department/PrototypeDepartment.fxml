@@ -71,7 +71,7 @@
       </BorderPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
          <center>
-            <Button fx:id="btnAddDepartment" mnemonicParsing="false" prefHeight="24.0" prefWidth="152.0" text="Add Departments" BorderPane.alignment="CENTER">
+            <Button fx:id="btnAddDepartment" mnemonicParsing="false" onAction="#buttonAddDepartmentHandler" prefHeight="24.0" prefWidth="152.0" text="Add Departments" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets />
                </BorderPane.margin>
