@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,18 +40,16 @@ public final class ViewChoseClient extends Stage implements Initializable {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients());
+        this.textName.textProperty().addListener((ob, oldValue, newValue) -> {
+            this.listClients.getItems().clear();
+            if (Objects.isNull(newValue) || newValue.isEmpty()) {
+                this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients());
+            } else {
+                this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients().stream()
+                        .filter((client) -> client.getName().contains(newValue)).collect(Collectors.toList()));
+            }
+        });
     }
-    @FXML
-    public void textNameClient() {
-        this.listClients.getItems().clear();
-        if (Objects.isNull(this.textName.getText())) {
-            this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients());
-        } else {
-            this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients().stream()
-                    .filter((client) -> client.getName().contains(this.textName.getText())).collect(Collectors.toList()));
-        }
-    }
-
     @FXML
     public void listSelectClientHandler(final MouseEvent event) {
         if (!Objects.isNull(this.listClients.getSelectionModel().getSelectedItem())) {
@@ -66,7 +65,7 @@ public final class ViewChoseClient extends Stage implements Initializable {
 
     @FXML
     public void buttonQuitHandler(final ActionEvent event) {
-        this.controllerSale.closeSale(Optional.empty());
+        this.controllerSale.clearReservedProducts();
         final Stage stage = (Stage) this.btnQuit.getScene().getWindow();
         stage.close();
     }

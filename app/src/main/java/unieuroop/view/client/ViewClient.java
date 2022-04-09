@@ -5,11 +5,13 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.model.person.Client;
 
@@ -47,6 +49,7 @@ public final class ViewClient implements Initializable {
                 this.listClients.getItems().clear();
                 this.listClients.getItems().addAll(this.controller.getRegisteredClients());
             } catch (IllegalArgumentException illegalExc) {
+                setAlert();
                 illegalExc.printStackTrace();
             }
             clearView();
@@ -60,6 +63,7 @@ public final class ViewClient implements Initializable {
                 this.controller.deleteClient(client);
                 this.listClients.getItems().addAll(this.controller.getRegisteredClients());
             } catch (IllegalArgumentException illegalExc) {
+                setAlert();
                 illegalExc.printStackTrace();
             }
             clearView();
@@ -80,6 +84,14 @@ public final class ViewClient implements Initializable {
             this.dtBirthday.setValue(client.getBirthdayDate());
             this.lblCode.setText(Integer.toString(client.getClientCode()));
         });
+    }
+
+    private void setAlert() {
+        final Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Error");
+        alert.setHeaderText("Client error: ");
+        alert.setContentText("Impossible because one of the parameters are null");
+        alert.showAndWait();
     }
 
     private void clearView() {

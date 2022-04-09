@@ -1,5 +1,6 @@
 package unieuroop.view.stock;
 
+import java.awt.Desktop.Action;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -7,6 +8,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +16,7 @@ import javafx.fxml.LoadException;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
@@ -27,7 +30,10 @@ import javafx.util.Pair;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.product.Product;
+import unieuroop.view.client.ViewChoseClient;
+import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
+import unieuroop.view.sale.ViewLabelSale;
 
 public class ViewStock implements Initializable {
 
@@ -63,16 +69,22 @@ public class ViewStock implements Initializable {
         addStockLabel(this.controllerStock.getProductsStocked());
     }
 
+    /**
+     * 
+     */
     @FXML
     public void btnBuyProductsHandler() {
         listProductsStocked.getItems().clear();
-        final Pane pane;
         try {
-            
-        } catch (Exception e) {
-            // TODO: handle exception
+            final Stage windowBuyProducts = Loader.<ViewStockBuyProducts>loadStage(Pages.STOCK_BUY_PRODUCTS.getPath(), "Buy Products", new ViewStockBuyProducts(this, this.controllerStock), 500, 600);
+            final Stage mainStage = (Stage) this.btnBuyProducts.getScene().getWindow();
+            mainStage.hide();
+            windowBuyProducts.showAndWait();
+            mainStage.show();
+        } catch (IOException e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
         }
-        
     }
 
     @FXML
@@ -100,16 +112,14 @@ public class ViewStock implements Initializable {
      * @param products
      */
     private void addStockLabel(final Map<Product, Integer> products) {
-        listProductsStocked.getItems().clear();
+        this.listProductsStocked.getItems().clear();
         for (final Map.Entry<Product, Integer> entryProduct : products.entrySet()) {
-            Pane pane;
             try {
-                final var loaderLabel = new FXMLLoader(getClass().getResource(Pages.STOCK_LABEL_FOR_STOCK.getPath()));
-                loaderLabel.setController(new ViewStockLabelProduct(entryProduct, this, this.controllerStock));
-                pane = loaderLabel.load();
+                final var pane = Loader.<ViewStockLabelProduct>loadPane(Pages.STOCK_LABEL_FOR_STOCK.getPath(), new ViewStockLabelProduct(entryProduct, this, this.controllerStock));
                 this.listProductsStocked.getItems().add(pane);
             } catch (IOException e) {
-                e.printStackTrace();
+                final Alert alert = new Alert(AlertType.ERROR);
+                alert.setContentText(e.getMessage());
             }
         }
     }
