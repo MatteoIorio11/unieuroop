@@ -27,7 +27,7 @@ public class ViewStockLabelProduct implements Initializable {
     private CheckBox chkboxProductTaken;
 
     private ViewStock viewStock;
-    private Map.Entry<Product, Integer> productEntry;
+    private final Map.Entry<Product, Integer> productEntry;
     private ControllerStockImpl controllerStock;
 
     public ViewStockLabelProduct(final Map.Entry<Product, Integer> product, final ViewStock viewStock, final ControllerStockImpl controller) {

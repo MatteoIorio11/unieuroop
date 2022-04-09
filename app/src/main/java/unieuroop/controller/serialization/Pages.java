@@ -24,6 +24,10 @@ public enum Pages {
     /**
      * @param
      */
+    STOCK_LABEL_FOR_STOCKBUYPRODUCTS("/pages/Stock/StockLabelForStockBuyProductsView.fxml"),
+    /**
+     * @param
+     */
     SALES("/pages/Sale/MainSale.fxml"),
     /**
      * @param
