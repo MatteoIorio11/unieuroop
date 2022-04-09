@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -26,6 +28,7 @@ import unieuroop.view.client.ViewClient;
 import unieuroop.view.dashboard.ViewDashboardImpl;
 import unieuroop.view.dateanalytic.ViewDateSold;
 import unieuroop.view.department.ViewDepartment;
+import unieuroop.view.loader.Loader;
 import unieuroop.view.sale.ViewSale;
 import unieuroop.view.stock.ViewStock;
 
@@ -82,7 +85,7 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnDepartmentsHandler(final ActionEvent event) {
-        this.loadPage(Pages.DEPARTMENTS, new ViewDepartment(new ControllerDepartmentImpl(this.controller.getShop()),
+        this.loadPage(Pages.PROTOTYPE, new ViewDepartment(new ControllerDepartmentImpl(this.controller.getShop()),
                 new ControllerStaffImpl(this.controller.getShop())));
     }
     @FXML
@@ -100,13 +103,21 @@ public final class ViewMainMenu implements Initializable {
     private <X> void loadPage(final Pages page, final X controller) {
         Pane pane;
         try {
-            final var loader = new FXMLLoader(getClass().getResource(page.getPath()));
-            loader.setController(controller);
-            pane = loader.load();
+            pane = Loader.loadPane(page.getPath(), controller);
             this.mainPane.setCenter(pane);
         } catch (IOException e) {
-            e.printStackTrace();
+            final Alert errorMessage = new Alert(AlertType.ERROR);
+            errorMessage.setContentText(e.getMessage());
         }
+//
+//        try {
+//            final var loader = new FXMLLoader(getClass().getResource(page.getPath()));
+//            loader.setController(controller);
+//            pane = loader.load();
+//            this.mainPane.setCenter(pane);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void disableButtons(final boolean status) {

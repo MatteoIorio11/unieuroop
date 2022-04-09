@@ -67,10 +67,20 @@ public final class ControllerDepartmentImpl {
     }
 
     public void addProductsIn(final Department inputDepartment, final Map<Product, Integer> products) throws IOException {
-        if (!Objects.isNull(inputDepartment) && !products.isEmpty()){
+        if (!Objects.isNull(inputDepartment) && !products.isEmpty()) {
             final Department department = this.shop.getDepartments().stream().filter((dep) -> dep.equals(inputDepartment)).findAny().get();
             department.addProducts(products);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+        }
+    }
+
+    public Set<Staff> getStaffOf(final Department departmentInput)  {
+        if (this.shop.getDepartments().contains(departmentInput)) {
+            return this.shop.getDepartments().stream()
+                    .filter((department) -> department.equals(departmentInput))
+                    .map((department) -> department.getStaff()).findAny().get();
+        } else {
+            throw new IllegalArgumentException("The selected department does not exist");
         }
     }
 }

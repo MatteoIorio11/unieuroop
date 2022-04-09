@@ -41,7 +41,9 @@ public final class ViewCategoriesSold implements Initializable {
         this.comboCategories.getItems().addAll(this.controller.getCategoriesSold().keySet());
 
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
-        this.controller.getCategoriesSold().entrySet().forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
+        this.controller.getCategoriesSold().entrySet().stream()
+            .sorted((entry1, entry2) -> entry1.getKey().getName().compareTo(entry2.getKey().getName()))
+            .forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
         this.barCategories.getData().add(serie);
     }
 
