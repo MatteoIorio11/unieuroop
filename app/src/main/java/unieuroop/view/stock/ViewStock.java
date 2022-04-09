@@ -4,6 +4,7 @@ import java.awt.Desktop.Action;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -50,7 +51,7 @@ public class ViewStock implements Initializable {
     @FXML
     private RadioButton rdbtnDecreasing;
     @FXML
-    private ListView<Pane> listProductsStocked;
+    private ListView<Product> listProductsStocked;
 
     private final ControllerStockImpl controllerStock;
     private final ViewMainMenu viewMenu;
@@ -66,7 +67,7 @@ public class ViewStock implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        addStockLabel(this.controllerStock.getProductsStocked());
+        loadProducts(this.controllerStock.getProductsStocked());
     }
 
     /**
@@ -111,13 +112,12 @@ public class ViewStock implements Initializable {
      * 
      * @param products
      */
-    private void addStockLabel(final Map<Product, Integer> products) {
+    private void loadProducts(final Map<Product, Integer> products) {
         this.listProductsStocked.getItems().clear();
         for (final Map.Entry<Product, Integer> entryProduct : products.entrySet()) {
             try {
-                final var pane = Loader.<ViewStockLabelProduct>loadPane(Pages.STOCK_LABEL_FOR_STOCK.getPath(), new ViewStockLabelProduct(entryProduct, this, this.controllerStock));
-                this.listProductsStocked.getItems().add(pane);
-            } catch (IOException e) {
+                this.listProductsStocked.getItems().add(entryProduct.getKey());
+            } catch (InputMismatchException e) {
                 final Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText(e.getMessage());
             }
