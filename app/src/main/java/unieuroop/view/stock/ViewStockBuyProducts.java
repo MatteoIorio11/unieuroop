@@ -46,7 +46,7 @@ public class ViewStockBuyProducts implements Initializable {
      * 
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         this.listSoldProducts.getItems().clear();
         this.lblTotalPrice.setText("Total Price: ");
         this.lblTotalProductsChoose.setText("Total Products: ");
@@ -60,7 +60,7 @@ public class ViewStockBuyProducts implements Initializable {
 
     @FXML
     public void listSupplierHandler(final MouseEvent event) {
-        Supplier supplier = this.listSupplier.getSelectionModel().getSelectedItem();
+        final Supplier supplier = this.listSupplier.getSelectionModel().getSelectedItem();
     }
 
     /**
