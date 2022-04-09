@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Optional;
 
 import com.fasterxml.jackson.core.JsonParser;
@@ -37,7 +38,7 @@ public final class SaleDeserializer extends JsonDeserializer<Sale> {
         for (int i = 0; i < prod.size(); i++) {
             m.put(prod.get(i), qta.get(i));
         }
-        final Optional<Client> client = mapper.treeToValue(node.get("client"), Optional.class);
+        final var client = Optional.ofNullable(mapper.treeToValue(node.get("client"), Client.class));
         return new SaleImpl(date, m, client);
     }
 
