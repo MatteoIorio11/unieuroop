@@ -9,7 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
+import javafx.scene.control.Button;import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
@@ -85,7 +85,7 @@ public final class ViewSale implements Initializable {
                     closeEvent.consume();
                     final Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setContentText("You should chose a client or leave with the \"QUIT\" button.\n"
-                            + "Remember if you choose QUIT the client will be always EMPTY.\n"
+                            + "Remember if you choose CLEAR the sale will be cancelled.\n"
                             + "If you do not choose any Client and press \"SELECT\",\n the selected client will be EMPYT");
                     alert.showAndWait();
                 });
@@ -97,6 +97,7 @@ public final class ViewSale implements Initializable {
             } catch (IOException ex) {
                 final Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText(ex.getMessage());
+                alert.showAndWait();
             }
         } 
     }
@@ -118,6 +119,7 @@ public final class ViewSale implements Initializable {
             } catch (IOException e) {
                 final Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText(e.getMessage());
+                alert.showAndWait();
             }
         }
     }
