@@ -97,10 +97,9 @@ public final class ViewDateSold implements Initializable {
                     .map((date) -> String.valueOf("Code : " + this.selectedDates.indexOf(date) + "\n" + "Date : " + date))
                     .collect(Collectors.toList()));
         }
-        System.out.println(calculatedMap);
         final var lowerBound = this.start.get().isBefore(this.end.get()) ? this.start.get() : this.end.get();
         final var upperBound = this.start.get().isAfter(this.end.get()) ? this.start.get() : this.end.get();
-        this.labelDates.setText("Dare from : " + lowerBound + " to " + upperBound);
+        this.labelDates.setText("Date from : " + lowerBound + " to " + upperBound);
         this.barSelectedDates.getData().clear();
         this.barSelectedDates.getData().add(serie2);
     }
