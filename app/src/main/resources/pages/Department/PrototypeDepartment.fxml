@@ -21,7 +21,7 @@
       <RowConstraints maxHeight="286.6666564941406" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <ListView fx:id="listDepartments" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+      <ListView fx:id="listDepartments" onMouseClicked="#listSelectDepartmentHandler" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="10.0" right="5.0" />
          </GridPane.margin>
@@ -38,18 +38,18 @@
       </ListView>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <center>
-            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="152.0" text="Merge Departments" BorderPane.alignment="CENTER">
+            <Button fx:id="btnMergeDepartments" mnemonicParsing="false" onAction="#buttonMergeDepartmentsHandler" prefHeight="24.0" prefWidth="152.0" text="Merge Departments" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets right="10.0" top="-23.0" />
+                  <Insets />
                </BorderPane.margin>
             </Button>
          </center>
       </BorderPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <center>
-            <Button mnemonicParsing="false" text="Delete Departments" BorderPane.alignment="CENTER">
+            <Button fx:id="btnDeleteDepartment" mnemonicParsing="false" onAction="#buttonDeleteDepartmentHandler" text="Delete Departments" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets />
                </BorderPane.margin>
             </Button>
          </center>
@@ -71,9 +71,9 @@
       </BorderPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
          <center>
-            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="152.0" text="Add Departments" BorderPane.alignment="CENTER">
+            <Button fx:id="btnAddDepartment" mnemonicParsing="false" onAction="#buttonAddDepartmentHandler" prefHeight="24.0" prefWidth="152.0" text="Add Departments" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets />
                </BorderPane.margin>
             </Button>
          </center>

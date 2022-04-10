@@ -19,15 +19,15 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label fx:id="lblProductsInList" layoutX="5.0" layoutY="9.0" prefHeight="30.0" prefWidth="163.0" />
-            <Label layoutX="173.0" layoutY="8.0" prefHeight="30.0" prefWidth="99.0" />
+            <Label fx:id="lblProductSold" layoutX="5.0" layoutY="9.0" prefHeight="30.0" prefWidth="163.0" />
+            <Label fx:id="lblProductPrice" layoutX="173.0" layoutY="8.0" prefHeight="30.0" prefWidth="99.0" />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
             <Spinner fx:id="spinnerQuantities" layoutX="78.0" layoutY="13.0" prefHeight="24.0" prefWidth="90.0" />
             <Label layoutX="14.0" layoutY="17.0" text="Amount:" />
-            <CheckBox fx:id="chkboxProductTaken" layoutX="184.0" layoutY="16.0" mnemonicParsing="false" onAction="#chkboxProductTakenHandler" prefHeight="18.0" prefWidth="72.0" text="Taken" />
+            <CheckBox fx:id="chkboxProductBought" layoutX="184.0" layoutY="16.0" mnemonicParsing="false" onAction="#chkboxProductBoughtHandler" prefHeight="18.0" prefWidth="72.0" text="Taken" />
          </children>
       </Pane>
    </children>

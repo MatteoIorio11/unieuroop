@@ -1,4 +1,4 @@
-package unieuroop.view.categories;
+package unieuroop.view.categoryanalytic;
 
 import java.net.URL;
 import java.util.HashSet;
@@ -16,7 +16,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
-import unieuroop.controller.analytic.ControllerAnalyticImpl;
+import unieuroop.controller.analytic.ControllerAnalytic;
 import unieuroop.model.product.Category;
 
 public final class ViewCategoriesSold implements Initializable {
@@ -29,8 +29,8 @@ public final class ViewCategoriesSold implements Initializable {
     @FXML private ListView<String> listLegend;
     @FXML private ListView<String> listSelectedCategories;
     private final Set<Category> selectedCategories = new HashSet<>();
-    private final ControllerAnalyticImpl controller;
-    public ViewCategoriesSold(final ControllerAnalyticImpl controller) {
+    private final ControllerAnalytic controller;
+    public ViewCategoriesSold(final ControllerAnalytic controller) {
         this.controller = controller;
     }
     @Override
@@ -41,7 +41,9 @@ public final class ViewCategoriesSold implements Initializable {
         this.comboCategories.getItems().addAll(this.controller.getCategoriesSold().keySet());
 
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
-        this.controller.getCategoriesSold().entrySet().forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
+        this.controller.getCategoriesSold().entrySet().stream()
+            .sorted((entry1, entry2) -> entry1.getKey().getName().compareTo(entry2.getKey().getName()))
+            .forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
         this.barCategories.getData().add(serie);
     }
 

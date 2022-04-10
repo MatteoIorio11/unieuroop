@@ -32,10 +32,9 @@ public interface Analytic {
     int getQuantitySoldOf(Product product, Predicate<LocalDate> date);
 
     /**
-     * PR : inside the view we build the set of categories, then inside the predicate we only check 
-     * if ( a )  -> set.contains( a ).
+     * This method returns the Map with only the products that are positive to the predicate's test.
      * @param categories : specifies which categories we have to consider
-     * @return a Map that contains all the Product of the specified categories with theri quantity
+     * @return a Map that contains all the Product of the specified categories with their quantity
      */
     Map<Product, Integer> getOrderedByCategory(Predicate<Category> categories);
 

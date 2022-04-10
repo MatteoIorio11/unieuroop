@@ -13,7 +13,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.XYChart;
-import unieuroop.controller.analytic.ControllerAnalyticImpl;
+import unieuroop.controller.analytic.ControllerAnalytic;
 
 public final class ViewBalance implements Initializable {
     @FXML
@@ -25,8 +25,8 @@ public final class ViewBalance implements Initializable {
     @FXML
     private NumberAxis xAxis;
 
-    private final ControllerAnalyticImpl controller;
-    public ViewBalance(final ControllerAnalyticImpl controller) {
+    private final ControllerAnalytic controller;
+    public ViewBalance(final ControllerAnalytic controller) {
         this.controller = controller;
     }
 

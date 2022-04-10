@@ -46,7 +46,7 @@ public class ViewStockBuyProducts implements Initializable {
      * 
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         this.listSoldProducts.getItems().clear();
         this.lblTotalPrice.setText("Total Price: ");
         this.lblTotalProductsChoose.setText("Total Products: ");
@@ -58,9 +58,14 @@ public class ViewStockBuyProducts implements Initializable {
         
     }
 
+    /**
+     * 
+     * @param event
+     */
     @FXML
     public void listSupplierHandler(final MouseEvent event) {
-        Supplier supplier = this.listSupplier.getSelectionModel().getSelectedItem();
+        final Supplier supplier = this.listSupplier.getSelectionModel().getSelectedItem();
+        addStockLabelBuyProducts(supplier.getCatalog());
     }
 
     /**
@@ -75,7 +80,7 @@ public class ViewStockBuyProducts implements Initializable {
         this.listSoldProducts.getItems().clear();
         for (final Map.Entry<Product, Double> entryProductSold : productsSold.entrySet()) {
             try {
-                final var pane = Loader.<ViewStockLabelBuyProducts>loadPane(Pages.STOCK_LABEL_FOR_STOCKBUYPRODUCTS.getPath(), new ViewStockLabelBuyProducts());
+                final var pane = Loader.<ViewStockLabelBuyProducts>loadPane(Pages.STOCK_LABEL_FOR_STOCKBUYPRODUCTS.getPath(), new ViewStockLabelBuyProducts(entryProductSold, this, this.controllerStock));
                 this.listSoldProducts.getItems().add(pane);
             } catch (IOException e) {
                 final Alert alert = new Alert(AlertType.ERROR);

@@ -18,7 +18,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
-import unieuroop.controller.analytic.ControllerAnalyticImpl;
+import unieuroop.controller.analytic.ControllerAnalytic;
 
 public final class ViewDateSold implements Initializable {
 
@@ -29,12 +29,12 @@ public final class ViewDateSold implements Initializable {
     @FXML private Button btnClearAll;
     @FXML private ListView<String> listDates;
     @FXML private Label labelDates;
-    private final ControllerAnalyticImpl controller;
+    private final ControllerAnalytic controller;
     private List<LocalDate> selectedDates = new LinkedList<>();
     private Optional<LocalDate> start = Optional.empty();
     private Optional<LocalDate> end = Optional.of(LocalDate.now());
     private final XYChart.Series<String, Integer> serie2;
-    public ViewDateSold(final ControllerAnalyticImpl controller) {
+    public ViewDateSold(final ControllerAnalytic controller) {
         this.controller = controller;
         this.serie2 = new XYChart.Series<>();
     }

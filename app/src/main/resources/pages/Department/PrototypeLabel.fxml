@@ -4,11 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutY="14.0" prefHeight="17.0" prefWidth="135.0" />
-      <Button layoutX="193.0" layoutY="10.0" mnemonicParsing="false" text="Edit Staff" />
-      <Button layoutX="270.0" layoutY="10.0" mnemonicParsing="false" text="Edit Products" />
+      <Label fx:id="lblDepartment" layoutY="14.0" prefHeight="17.0" prefWidth="135.0" />
+      <Button fx:id="btnEditStaff" layoutX="138.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonEditStaffHandler" text="Edit Staff" />
+      <Button fx:id="btnEditProducts" layoutX="201.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonEditProductsHandler" prefHeight="25.0" prefWidth="87.0" text="Edit Products" />
    </children>
 </Pane>
