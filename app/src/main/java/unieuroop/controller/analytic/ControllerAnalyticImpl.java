@@ -35,7 +35,7 @@ public final class ControllerAnalyticImpl implements ControllerAnalytic {
     }
 
     @Override
-    public Map<Integer, Double> getYearsTotalEarned() {
+    public Map<Integer, Double> getTotalEarnedByYear() {
         return this.analytic.getTotalEarnedByYear();
     }
 
@@ -47,11 +47,6 @@ public final class ControllerAnalyticImpl implements ControllerAnalytic {
     @Override
     public Map<Category, Integer> getCategoriesSold() {
         return this.analytic.getCategoriesSold();
-    }
-
-    @Override
-    public Map<Integer, Double> getTotalEarnedByYear() {
-        return this.analytic.getTotalEarnedByYear();
     }
 
     @Override
