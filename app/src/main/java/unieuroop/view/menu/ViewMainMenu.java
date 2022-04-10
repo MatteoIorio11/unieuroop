@@ -59,7 +59,7 @@ public final class ViewMainMenu implements Initializable {
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-
+        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop())));
     }
     @FXML
     public void btnDashBoardHandler(final ActionEvent event) {
