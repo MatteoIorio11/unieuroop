@@ -8,8 +8,10 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import unieuroop.controller.dashboard.ControllerDashboard;
@@ -58,9 +60,11 @@ public final class ViewDashboardImpl implements Initializable {
         final Optional<Sale> selected = Optional.of(this.lstViewSales.getSelectionModel().getSelectedItem());
         if (selected.isPresent()) {
             try {
-                Loader.loadStage(Pages.SALE_PRODUCTS.getPath(), "Products", new ViewSaleProductsImpl(selected.get()), 300, 300).show();
+                Loader.loadStage(Pages.SALE_PRODUCTS.getPath(), "Products", new ViewSaleProductsImpl(selected.get()), 300, 300).showAndWait();
             } catch (IOException e) {
-                e.printStackTrace();
+                final Alert alert = new Alert(AlertType.ERROR);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
             }
         }
     }
