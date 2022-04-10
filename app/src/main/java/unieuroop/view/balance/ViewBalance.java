@@ -50,12 +50,12 @@ public final class ViewBalance implements Initializable {
         serie1.setName("Spent");
         final XYChart.Series<Integer, Double> serie2 = new XYChart.Series<>();
         serie2.setName("Earned");
-        this.controller.getYearsTotalEarned().entrySet().forEach((entry) ->  serie2.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
+        this.controller.getTotalEarnedByYear().entrySet().forEach((entry) ->  serie2.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
         this.controller.getYearsTotalSpent().entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
 
-        final var lowerEarned = this.controller.getYearsTotalEarned().entrySet().stream()
+        final var lowerEarned = this.controller.getTotalEarnedByYear().entrySet().stream()
                 .map((entry) -> entry.getKey()).sorted(Integer::compare).findFirst();
-        final var upperEarned = this.controller.getYearsTotalEarned().entrySet().stream()
+        final var upperEarned = this.controller.getTotalEarnedByYear().entrySet().stream()
                 .map((entry) -> entry.getKey()).sorted((year1, year2) -> Integer.compare(year2, year1)).findFirst();
         if (lowerEarned.isPresent() && upperEarned.isPresent()) {
             xAxis.setLowerBound(lowerEarned.get() > upperEarned.get() ? upperEarned.get() : lowerEarned.get());
