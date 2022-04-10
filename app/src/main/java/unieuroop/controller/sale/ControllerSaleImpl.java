@@ -89,7 +89,7 @@ public final class ControllerSaleImpl implements ControllerSale {
     }
 
     @Override
-    public boolean isReserved() {
+    public boolean isNotReserved() {
         return this.reservedProductsMap.isEmpty();
     }
 

@@ -65,7 +65,7 @@ public final class ViewSale implements Initializable {
 
     @FXML
     public void comboSelectDepartment(final ActionEvent event) {
-        if (this.controllerSale.isReserved()) {
+        if (this.controllerSale.isNotReserved()) {
             this.viewMenu.disableButtons(true);
         }
         final Department input = this.comboDepartments.getValue();
@@ -75,7 +75,7 @@ public final class ViewSale implements Initializable {
 
     @FXML
     public void buttonSellHandler(final ActionEvent event) {
-        if (!this.controllerSale.isReserved()) {
+        if (!this.controllerSale.isNotReserved()) {
             this.listLabel.getItems().clear();
             this.listSelectedProducts.getItems().clear();
             try {
