@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import unieuroop.controller.sale.ControllerSaleImpl;
+import unieuroop.controller.sale.ControllerSale;
 import unieuroop.model.department.Department;
 import unieuroop.model.product.Product;
 
@@ -28,11 +28,11 @@ public final class ViewLabelSale implements Initializable {
     private final Product product;
     private int maxQuantity;
     private final ViewSale view;
-    private final ControllerSaleImpl controllerSale;
+    private final ControllerSale controllerSale;
     private final Department department;
     private int totalQuantity;
     public ViewLabelSale(final Product product, final Department department, final int maxQuantity,
-            final ViewSale view, final ControllerSaleImpl controllerSale) {
+            final ViewSale view, final ControllerSale controllerSale) {
         this.product = product;
         this.maxQuantity = maxQuantity;
         this.view = view;

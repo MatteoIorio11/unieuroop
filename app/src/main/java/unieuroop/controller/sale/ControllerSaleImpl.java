@@ -17,7 +17,7 @@ import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.shop.Shop;
 
-public final class ControllerSaleImpl {
+public final class ControllerSaleImpl implements ControllerSale {
     private final Map<Department, Map<Product, Integer>> reservedProductsMap = new HashMap<>();
     private final Shop shop;
 
@@ -25,6 +25,7 @@ public final class ControllerSaleImpl {
         this.shop = shop;
     }
 
+    @Override
     public int getQuantityOf(final Product product, final Department department) {
         final int quantity = department.getAllProducts().get(product);
         return this.reservedProductsMap.containsKey(department) && this.reservedProductsMap.get(department).containsKey(product)
@@ -32,14 +33,15 @@ public final class ControllerSaleImpl {
 
     }
 
+    @Override
     public void reserveProducts(final Department departmentInput, final Map<Product, Integer> products) {
-        System.out.println(this.reservedProductsMap);
         this.reservedProductsMap.merge(departmentInput, products, 
                 (olderMap, newerMap) -> {
                     olderMap.putAll(newerMap); return olderMap;
                     });
     }
 
+    @Override
     public void closeSale(final Optional<Client> client) {
         if (!this.reservedProductsMap.isEmpty()) {
             System.out.println(this.reservedProductsMap);
@@ -65,6 +67,7 @@ public final class ControllerSaleImpl {
         }
     }
 
+    @Override
     public void clearReservedProducts() {
         this.reservedProductsMap.clear();
     }
@@ -76,6 +79,7 @@ public final class ControllerSaleImpl {
                         .mapToInt((e) -> e.getValue()))
                 .sum();
     }
+    @Override
     public Map<Product, Integer> getReservedProducts() {
         return Map.copyOf(this.reservedProductsMap.entrySet().stream()
                     .flatMap((entry) -> entry.getValue().entrySet().stream())
@@ -84,6 +88,7 @@ public final class ControllerSaleImpl {
                     .collect(Collectors.toMap((product) -> product, (product) -> this.totalQuantityProduct(product))));
     }
 
+    @Override
     public boolean isReserved() {
         return this.reservedProductsMap.isEmpty();
     }

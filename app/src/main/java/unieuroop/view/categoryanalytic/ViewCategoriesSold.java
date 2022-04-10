@@ -1,4 +1,4 @@
-package unieuroop.view.categories;
+package unieuroop.view.categoryanalytic;
 
 import java.net.URL;
 import java.util.HashSet;

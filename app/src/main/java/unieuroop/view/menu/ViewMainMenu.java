@@ -23,7 +23,7 @@ import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.view.balance.ViewBalance;
-import unieuroop.view.categories.ViewCategoriesSold;
+import unieuroop.view.categoryanalytic.ViewCategoriesSold;
 import unieuroop.view.client.ViewClient;
 import unieuroop.view.dashboard.ViewDashboardImpl;
 import unieuroop.view.dateanalytic.ViewDateSold;
