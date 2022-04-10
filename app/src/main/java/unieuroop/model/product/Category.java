@@ -22,6 +22,66 @@ public enum Category {
      */
     SMARTWATCH("Smartwatch"),
     /**
+     * Domestic Appliance category.
+     * @param name
+     */
+    DOMESTIC_APPLIANCE("Domestic Appliance"),
+    /**
+     * computer category.
+     * @param name
+     */
+    COMPUTER("Computer"),
+    /**
+     * Pc Desktop category.
+     * @param name
+     */
+    PC_DESKTOP("Pc Desktop"),
+    /**
+     * Monitor category.
+     * @param name
+     */
+    MONITOR("Monitor"),
+    /**
+     * Keyboard category.
+     * @param name
+     */
+    KEYBOARD("Keyboard"),
+    /**
+     * Mouse category.
+     * @param name
+     */
+    MOUSE("Mouse"),
+    /**
+     * Scanner category.
+     * @param name
+     */
+    SCANNER("Scanner"),
+    /**
+     * Printer category.
+     * @param name
+     */
+    PRINTER("Printer"),
+    /**
+     * NAS category.
+     * @param name
+     */
+    NAS("NAS"),
+    /**
+     * Hard disk and storage category.
+     * @param name
+     */
+    HARD_DISK_AND_STORAGE("Hard disk and storage"),
+    /**
+     * Networking category.
+     * @param name
+     */
+    NETWORKING("Networking"),
+    /**
+     * Video Surveillance category.
+     * @param name
+     */
+    VIDEO_SURVEILLANCE("Video Surveillance"),
+    /**
      * Tablet Category.
      * @param name
      */
