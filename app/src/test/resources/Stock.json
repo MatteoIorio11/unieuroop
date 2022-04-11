@@ -3,23 +3,23 @@
     "productCode" : 1,
     "name" : "prova",
     "brand" : "provaBrand",
-    "sellingPrice" : 12.4,
-    "purchasePrice" : 15.0,
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
     "description" : "bla bla bla bla bla",
     "category" : "PC"
   }, {
     "productCode" : 2,
     "name" : "prova1",
     "brand" : "provaBrand1",
-    "sellingPrice" : 12.4,
-    "purchasePrice" : 15.0,
+    "sellingPrice" : 19.4,
+    "purchasePrice" : 28.0,
     "description" : "bla bla bla bla bla",
     "category" : "HOME"
   }, {
     "productCode" : 3,
     "name" : "prova2",
     "brand" : "provaBrand2",
-    "sellingPrice" : 12.4,
+    "sellingPrice" : 22.0,
     "purchasePrice" : 15.0,
     "description" : "bla bla bla bla bla",
     "category" : "TABLET"
@@ -27,16 +27,16 @@
     "productCode" : 4,
     "name" : "prova3",
     "brand" : "provaBrand1",
-    "sellingPrice" : 12.4,
-    "purchasePrice" : 15.0,
+    "sellingPrice" : 18.5,
+    "purchasePrice" : 92.0,
     "description" : "bla bla bla bla bla",
     "category" : "PC"
   }, {
     "productCode" : 5,
     "name" : "prova4",
     "brand" : "provaBrand2",
-    "sellingPrice" : 12.4,
-    "purchasePrice" : 15.0,
+    "sellingPrice" : 102.4,
+    "purchasePrice" : 12.0,
     "description" : "bla bla bla bla bla",
     "category" : "PC"
   } ],

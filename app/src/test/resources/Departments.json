@@ -1,0 +1,188 @@
+[ {
+  "departmentName" : "department1",
+  "staff" : [ {
+  "name" : "nome",
+  "surname" : "cognome",
+  "email" : "ffff",
+  "id" : 1,
+  "password" : 111,
+  "birthday" : [ 2022, 4, 11 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 53, 5, 446400000 ] ],
+  "endTimes" : [ [ 14, 53, 5, 446443000 ] ]
+}, {
+  "name" : "nome1",
+  "surname" : "cognome1",
+  "email" : "AAAA",
+  "id" : 1,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 11 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 53, 5, 446495000 ] ],
+  "endTimes" : [ [ 14, 53, 5, 446508000 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 1,
+    "name" : "prova",
+    "brand" : "provaBrand",
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 2,
+    "name" : "prova1",
+    "brand" : "provaBrand1",
+    "sellingPrice" : 19.4,
+    "purchasePrice" : 28.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "HOME"
+  }, {
+    "productCode" : 3,
+    "name" : "prova2",
+    "brand" : "provaBrand2",
+    "sellingPrice" : 22.0,
+    "purchasePrice" : 15.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 4,
+    "name" : "prova3",
+    "brand" : "provaBrand1",
+    "sellingPrice" : 18.5,
+    "purchasePrice" : 92.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 5,
+    "name" : "prova4",
+    "brand" : "provaBrand2",
+    "sellingPrice" : 102.4,
+    "purchasePrice" : 12.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  } ],
+  "values" : [ 10, 10, 2, 32, 32 ]
+}, {
+  "departmentName" : "department2",
+  "staff" : [ {
+  "name" : "nome",
+  "surname" : "cognome",
+  "email" : "ffff",
+  "id" : 1,
+  "password" : 111,
+  "birthday" : [ 2022, 4, 11 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 53, 5, 446400000 ] ],
+  "endTimes" : [ [ 14, 53, 5, 446443000 ] ]
+}, {
+  "name" : "nome2",
+  "surname" : "cognome2",
+  "email" : "BBB",
+  "id" : 3,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 11 ],
+  "days" : [ "TUESDAY" ],
+  "startTimes" : [ [ 14, 53, 5, 446537000 ] ],
+  "endTimes" : [ [ 14, 53, 5, 446550000 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 6,
+    "name" : "prova5",
+    "brand" : "provaBrand2",
+    "sellingPrice" : 234.3,
+    "purchasePrice" : 125.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 7,
+    "name" : "prova6",
+    "brand" : "provaBrand3",
+    "sellingPrice" : 123.9,
+    "purchasePrice" : 135.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 1,
+    "name" : "prova",
+    "brand" : "provaBrand",
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 2,
+    "name" : "prova1",
+    "brand" : "provaBrand1",
+    "sellingPrice" : 19.4,
+    "purchasePrice" : 28.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "HOME"
+  } ],
+  "values" : [ 11, 34, 4, 2 ]
+}, {
+  "departmentName" : "department3",
+  "staff" : [ {
+  "name" : "nome1",
+  "surname" : "cognome1",
+  "email" : "AAAA",
+  "id" : 1,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 11 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 53, 5, 446495000 ] ],
+  "endTimes" : [ [ 14, 53, 5, 446508000 ] ]
+}, {
+  "name" : "nome2",
+  "surname" : "cognome2",
+  "email" : "BBB",
+  "id" : 3,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 11 ],
+  "days" : [ "TUESDAY" ],
+  "startTimes" : [ [ 14, 53, 5, 446537000 ] ],
+  "endTimes" : [ [ 14, 53, 5, 446550000 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 8,
+    "name" : "prova7",
+    "brand" : "provaBrand2",
+    "sellingPrice" : 1293.4,
+    "purchasePrice" : 1534.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 1,
+    "name" : "prova",
+    "brand" : "provaBrand",
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 3,
+    "name" : "prova2",
+    "brand" : "provaBrand2",
+    "sellingPrice" : 22.0,
+    "purchasePrice" : 15.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 5,
+    "name" : "prova4",
+    "brand" : "provaBrand2",
+    "sellingPrice" : 102.4,
+    "purchasePrice" : 12.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 6,
+    "name" : "prova5",
+    "brand" : "provaBrand2",
+    "sellingPrice" : 234.3,
+    "purchasePrice" : 125.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "TABLET"
+  } ],
+  "values" : [ 1, 15, 21, 16, 2 ]
+} ]

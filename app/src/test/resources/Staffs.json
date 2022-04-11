@@ -4,18 +4,18 @@
   "email" : "AAAA",
   "id" : 1,
   "password" : 222,
-  "birthday" : [ 2022, 4, 8 ],
+  "birthday" : [ 2022, 4, 11 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 8, 47, 14, 78798000 ] ],
-  "endTimes" : [ [ 8, 47, 14, 78810000 ] ]
+  "startTimes" : [ [ 14, 53, 4, 854974000 ] ],
+  "endTimes" : [ [ 14, 53, 4, 854991000 ] ]
 }, {
   "name" : "nome",
   "surname" : "cognome",
   "email" : "ffff",
   "id" : 1,
   "password" : 111,
-  "birthday" : [ 2022, 4, 8 ],
+  "birthday" : [ 2022, 4, 11 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 8, 47, 14, 78502000 ] ],
-  "endTimes" : [ [ 8, 47, 14, 78558000 ] ]
+  "startTimes" : [ [ 14, 53, 4, 854699000 ] ],
+  "endTimes" : [ [ 14, 53, 4, 854751000 ] ]
 } ]
