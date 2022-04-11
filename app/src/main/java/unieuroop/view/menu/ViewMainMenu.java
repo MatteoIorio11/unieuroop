@@ -6,12 +6,12 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import unieuroop.controller.analytic.ControllerAnalyticImpl;
 import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.dashboard.ControllerDashboardImpl;
@@ -20,14 +20,16 @@ import unieuroop.controller.sale.ControllerSaleImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.controller.staff.ControllerStaffImpl;
-import unieuroop.model.shop.Shop;
+import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.view.balance.ViewBalance;
-import unieuroop.view.categories.ViewCategoriesSold;
+import unieuroop.view.categoryanalytic.ViewCategoriesSold;
 import unieuroop.view.client.ViewClient;
 import unieuroop.view.dashboard.ViewDashboardImpl;
-import unieuroop.view.dates.ViewDateSold;
+import unieuroop.view.dateanalytic.ViewDateSold;
 import unieuroop.view.department.ViewDepartment;
+import unieuroop.view.loader.Loader;
 import unieuroop.view.sale.ViewSale;
+import unieuroop.view.stock.ViewStock;
 
 public final class ViewMainMenu implements Initializable {
     @FXML 
@@ -51,28 +53,28 @@ public final class ViewMainMenu implements Initializable {
     @FXML
     private Button btnDateAnalytics;
     private final ControllerShopImpl controller;
-    private final Stage stage;
-    public ViewMainMenu(final Stage stage, final ControllerShopImpl controllerShop) {
-        this.stage = stage;
+    public ViewMainMenu(final ControllerShopImpl controllerShop) {
         this.controller = controllerShop;
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-
+        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop()), 
+                new ControllerAnalyticImpl(this.controller.getShop())));
     }
     @FXML
     public void btnDashBoardHandler(final ActionEvent event) {
-        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop())));
+        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop()), 
+                new ControllerAnalyticImpl(this.controller.getShop())));
     }
     @FXML
     public void btnStockHandler(final ActionEvent event) {
-        this.loadPage(Pages.STOCK, null);
+        this.loadPage(Pages.STOCK, new ViewStock(this, new ControllerStockImpl(this.controller.getShop())));
     }
     @FXML
     public void btnSalesHandler(final ActionEvent event) {
         this.loadPage(Pages.SALES, new ViewSale(this, new ControllerClientImpl(this.controller.getShop()), 
                 new ControllerDepartmentImpl(this.controller.getShop()), 
-                new ControllerSaleImpl(this.controller.getShop()),this.stage));
+                new ControllerSaleImpl(this.controller.getShop())));
     }
     @FXML
     public void btnClientsHandler(final ActionEvent event) {
@@ -84,9 +86,8 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnDepartmentsHandler(final ActionEvent event) {
-        this.loadPage(Pages.DEPARTMENTS, new ViewDepartment(new ControllerDepartmentImpl(this.controller.getShop()),
-                new ControllerStaffImpl(this.controller.getShop()), 
-                        this.stage));
+        this.loadPage(Pages.PROTOTYPE, new ViewDepartment(new ControllerDepartmentImpl(this.controller.getShop()),
+                new ControllerStaffImpl(this.controller.getShop())));
     }
     @FXML
     public void btnDateAnalyticsHandler(final ActionEvent event) {
@@ -103,13 +104,21 @@ public final class ViewMainMenu implements Initializable {
     private <X> void loadPage(final Pages page, final X controller) {
         Pane pane;
         try {
-            final var loader = new FXMLLoader(getClass().getResource(page.getPath()));
-            loader.setController(controller);
-            pane = loader.load();
+            pane = Loader.loadPane(page.getPath(), controller);
             this.mainPane.setCenter(pane);
         } catch (IOException e) {
-            e.printStackTrace();
+            final Alert errorMessage = new Alert(AlertType.ERROR);
+            errorMessage.setContentText(e.getMessage());
         }
+//
+//        try {
+//            final var loader = new FXMLLoader(getClass().getResource(page.getPath()));
+//            loader.setController(controller);
+//            pane = loader.load();
+//            this.mainPane.setCenter(pane);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void disableButtons(final boolean status) {

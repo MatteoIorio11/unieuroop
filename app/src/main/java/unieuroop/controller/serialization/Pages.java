@@ -6,6 +6,18 @@ public enum Pages {
      */
     DASHBOARD("/pages/DashBoard/DashBoard.fxml"),
     /**
+     * @param 
+     */
+    PROTOTYPE("/pages/Department/PrototypeDepartment.fxml"),
+    /**
+     * @param 
+     */
+    PROTOTYPE_LABEL("/pages/Department/PrototypeLabel.fxml"),
+    /**
+     * @param 
+     */
+    SALE_PRODUCTS("/pages/DashBoard/SaleProducts.fxml"),
+    /**
      * @param
      */
     STOCK("/pages/Stock/StockView.fxml"),
@@ -21,6 +33,10 @@ public enum Pages {
      * @param
      */
     STOCK_LABEL_FOR_STOCK("/pages/Stock/StockLabelForStockView.fxml"),
+    /**
+     * @param
+     */
+    STOCK_LABEL_FOR_STOCKBUYPRODUCTS("/pages/Stock/StockLabelForStockBuyProductsView.fxml"),
     /**
      * @param
      */

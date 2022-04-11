@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedAreaChart?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="550.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="550.0" prefWidth="720.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -22,6 +23,9 @@
                      <yAxis>
                         <NumberAxis fx:id="yAxis" label="amount" minorTickLength="0.0" side="LEFT" tickLabelGap="1.0" tickLength="1.0" tickUnit="0.0" />
                      </yAxis>
+                     <BorderPane.margin>
+                        <Insets right="5.0" />
+                     </BorderPane.margin>
                   </StackedAreaChart>
                </bottom>
                <center>

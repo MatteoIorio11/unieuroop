@@ -80,7 +80,6 @@
     -fx-fill: #3278fa; 
 }
 .card{
-	-fx-background-color: rgb(216, 115, 250);
     -fx-background-radius: 10px;
 }
 .cardEarnings{

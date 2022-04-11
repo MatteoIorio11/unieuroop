@@ -1,4 +1,4 @@
-package unieuroop.view.categories;
+package unieuroop.view.categoryanalytic;
 
 import java.net.URL;
 import java.util.HashSet;
@@ -16,30 +16,21 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
-import unieuroop.controller.analytic.ControllerAnalyticImpl;
+import unieuroop.controller.analytic.ControllerAnalytic;
 import unieuroop.model.product.Category;
 
 public final class ViewCategoriesSold implements Initializable {
 
-    @FXML
-    private BarChart<String, Integer> barCategories;
-    @FXML
-    private BarChart<String, Integer> barProductsSold;
-    @FXML
-    private ComboBox<Category> comboCategories;
+    @FXML private BarChart<String, Integer> barCategories;
+    @FXML private BarChart<String, Integer> barProductsSold;
+    @FXML private ComboBox<Category> comboCategories;
+    @FXML private final CategoryAxis xAxis = new CategoryAxis();
+    @FXML private final NumberAxis yAxis = new NumberAxis();
+    @FXML private ListView<String> listLegend;
+    @FXML private ListView<String> listSelectedCategories;
     private final Set<Category> selectedCategories = new HashSet<>();
-
-    @FXML
-    private final CategoryAxis xAxis = new CategoryAxis();
-    @FXML
-    private final NumberAxis yAxis = new NumberAxis();
-    @FXML
-    private ListView<String> listLegend;
-    @FXML
-    private ListView<String> listSelectedCategories;
-
-    private final ControllerAnalyticImpl controller;
-    public ViewCategoriesSold(final ControllerAnalyticImpl controller) {
+    private final ControllerAnalytic controller;
+    public ViewCategoriesSold(final ControllerAnalytic controller) {
         this.controller = controller;
     }
     @Override
@@ -50,16 +41,10 @@ public final class ViewCategoriesSold implements Initializable {
         this.comboCategories.getItems().addAll(this.controller.getCategoriesSold().keySet());
 
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
-        this.controller.getCategoriesSold().entrySet().forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
+        this.controller.getCategoriesSold().entrySet().stream()
+            .sorted((entry1, entry2) -> entry1.getKey().getName().compareTo(entry2.getKey().getName()))
+            .forEach((entry) ->  serie.getData().add(new XYChart.Data<String, Integer>(entry.getKey().toString(), entry.getValue())));
         this.barCategories.getData().add(serie);
-
-
-        this.comboCategories.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-
-         });
-        this.listLegend.getSelectionModel().selectedItemProperty().addListener((e) -> {
-
-        });
     }
 
     @FXML
@@ -90,7 +75,7 @@ public final class ViewCategoriesSold implements Initializable {
     private void displayChart() {
         this.barProductsSold.getData().clear();
         final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
-        serie.setName("Product");
+        serie.setName("Products");
         final var categoriesSold =  this.controller.getProductsSoldByCategory(selectedCategories);
         this.barProductsSold.getData().clear();
         categoriesSold.entrySet().forEach((entry) ->

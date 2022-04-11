@@ -24,6 +24,8 @@ import unieuroop.model.supplier.SupplierImpl;
 import unieuroop.model.supplier.SupplierSerializer;
 
 public class ObjectMapperFactory {
+    private ObjectMapperFactory() {
+    }
     public static ObjectMapper getMapper() {
         final ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);

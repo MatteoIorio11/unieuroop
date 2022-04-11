@@ -54,29 +54,38 @@ public abstract class AbstractPerson {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(final Object obj) {
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
-        AbstractPerson other = (AbstractPerson) obj;
+        }
+        final AbstractPerson other = (AbstractPerson) obj;
         if (birthdayDate == null) {
-            if (other.birthdayDate != null)
+            if (other.birthdayDate != null) {
                 return false;
-        } else if (!birthdayDate.equals(other.birthdayDate))
+            }
+        } else if (!birthdayDate.equals(other.birthdayDate)) {
             return false;
+        }
         if (name == null) {
-            if (other.name != null)
+            if (other.name != null) {
                 return false;
-        } else if (!name.equals(other.name))
+            }
+        } else if (!name.equals(other.name)) {
             return false;
+        }
         if (surname == null) {
-            if (other.surname != null)
+            if (other.surname != null) {
                 return false;
-        } else if (!surname.equals(other.surname))
+            }
+        } else if (!surname.equals(other.surname)) {
             return false;
+        }
         return true;
     }
     

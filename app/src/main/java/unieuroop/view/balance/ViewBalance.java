@@ -13,7 +13,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.XYChart;
-import unieuroop.controller.analytic.ControllerAnalyticImpl;
+import unieuroop.controller.analytic.ControllerAnalytic;
 
 public final class ViewBalance implements Initializable {
     @FXML
@@ -25,8 +25,8 @@ public final class ViewBalance implements Initializable {
     @FXML
     private NumberAxis xAxis;
 
-    private final ControllerAnalyticImpl controller;
-    public ViewBalance(final ControllerAnalyticImpl controller) {
+    private final ControllerAnalytic controller;
+    public ViewBalance(final ControllerAnalytic controller) {
         this.controller = controller;
     }
 
@@ -50,16 +50,16 @@ public final class ViewBalance implements Initializable {
         serie1.setName("Spent");
         final XYChart.Series<Integer, Double> serie2 = new XYChart.Series<>();
         serie2.setName("Earned");
-        this.controller.getYearsTotalEarned().entrySet().forEach((entry) ->  serie2.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
+        this.controller.getTotalEarnedByYear().entrySet().forEach((entry) ->  serie2.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
         this.controller.getYearsTotalSpent().entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
 
-        final var lowerEarned = this.controller.getYearsTotalEarned().entrySet().stream()
-                .map((entry) -> entry.getKey()).sorted().findFirst();
-        final var lowerSpent = this.controller.getYearsTotalEarned().entrySet().stream()
-                .map((entry) -> entry.getKey()).sorted().findFirst();
-        if (lowerEarned.isPresent() && lowerSpent.isPresent()) {
-            xAxis.setLowerBound(lowerEarned.get() > lowerSpent.get() ? lowerSpent.get() : lowerEarned.get());
-            xAxis.setUpperBound(lowerEarned.get() < lowerSpent.get() ? lowerSpent.get() : lowerEarned.get());
+        final var lowerEarned = this.controller.getTotalEarnedByYear().entrySet().stream()
+                .map((entry) -> entry.getKey()).sorted(Integer::compare).findFirst();
+        final var upperEarned = this.controller.getTotalEarnedByYear().entrySet().stream()
+                .map((entry) -> entry.getKey()).sorted((year1, year2) -> Integer.compare(year2, year1)).findFirst();
+        if (lowerEarned.isPresent() && upperEarned.isPresent()) {
+            xAxis.setLowerBound(lowerEarned.get() > upperEarned.get() ? upperEarned.get() : lowerEarned.get());
+            xAxis.setUpperBound(lowerEarned.get() < upperEarned.get() ? upperEarned.get() : lowerEarned.get());
         }
         areaChart.getData().add(serie1);
         areaChart.getData().add(serie2);

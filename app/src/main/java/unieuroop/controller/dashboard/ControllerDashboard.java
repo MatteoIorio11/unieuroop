@@ -1,21 +1,33 @@
 package unieuroop.controller.dashboard;
 
+
+import java.util.List;
+import unieuroop.model.sale.Sale;
+
 public interface ControllerDashboard {
 
+    /**
+     * 
+     * @return the ammount of staff of the shop.
+     */
     int getStaff();
 
-    int getClients();
-
+    /**
+     * 
+     * @return the ammount of Suppliers of the shop.
+     */
     int getSuppliers();
 
+    /**
+     * 
+     * @return the ammount of Departments of the shop.
+     */
     int getDepartments();
 
-    Double getStockPrice();
-
-    Double getShopEarnings();
-
-    Double getTotalSpent();
-
-    boolean isEarning();
+    /**
+     * 
+     * @return an ordered list of sales by their dates.
+     */
+    List<Sale> getSales();
 
 }

@@ -37,7 +37,7 @@ public interface Sale {
 
     /**
      * 
-     * @return the sun of all Product's quantity.
+     * @return the sum of all Product's quantity.
      */
     int getTotalQuantity();
     /**

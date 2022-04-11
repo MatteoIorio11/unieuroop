@@ -83,7 +83,7 @@ public class TestDepartment {
     @Test
     public void testRemoveStaff1() {
         try {
-            this.department.removeStaff(staff1);
+            this.department.removeStaff(Set.of(staff1));
         } catch (IllegalArgumentException e) {
             fail("ERROR : this staff is present and the exception must not be throwned.");
         }
@@ -94,7 +94,7 @@ public class TestDepartment {
     @Test
     public void testRemoveStaff2() {
         try {
-            this.department.removeStaff(staff3);
+            this.department.removeStaff(Set.of(staff3));
             fail("ERROR : the exception must be thowned because " + staff3.toString() + "does not exist in Department");
         } catch (IllegalArgumentException e) {
             assertTrue(e.getMessage().contains("staff"));

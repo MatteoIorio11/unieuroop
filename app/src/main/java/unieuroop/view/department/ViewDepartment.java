@@ -1,59 +1,81 @@
 package unieuroop.view.department;
 
+import java.io.IOException;
 import java.net.URL;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.Set;
-import java.util.stream.Collectors;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
-import javafx.stage.Stage;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.util.Pair;
 import unieuroop.controller.department.ControllerDepartmentImpl;
+import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.model.department.Department;
-import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Staff;
-import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
-import unieuroop.model.product.ProductImpl;
-import unieuroop.model.supplier.Supplier;
-import unieuroop.model.supplier.SupplierImpl;
+import unieuroop.view.loader.Loader;
 
-public final class ViewDepartment implements Initializable{
-    @FXML
-    private ListView<Department> listDepartments;
-    @FXML
-    private ListView<Staff> listStaff;
-    @FXML
-    private ListView<Product> listProducts;
+public final class ViewDepartment implements Initializable {
+    @FXML private ListView<Pane> listDepartments;
+    @FXML private ListView<Staff> listStaff;
+    @FXML private ListView<Product> listProducts;
 
+    private final Map<Pane, Department> departmentPane = new HashMap<>();
     private final ControllerDepartmentImpl controllerDepartment;
     private final ControllerStaffImpl controllerStaff;
-    private final Stage stage;
-    public ViewDepartment(final ControllerDepartmentImpl controllerDepartment, final ControllerStaffImpl controllerStaff,
-            final Stage primaryStage) {
+    public ViewDepartment(final ControllerDepartmentImpl controllerDepartment, final ControllerStaffImpl controllerStaff) {
         this.controllerDepartment = controllerDepartment;
         this.controllerStaff = controllerStaff;
-        this.stage = primaryStage;
     }
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-       this.listDepartments.getItems().addAll(this.controllerDepartment.getDepartments());
-       this.listStaff.getItems().addAll(this.controllerStaff.getStaff());
+        this.populateList();
+    }
 
-       this.listDepartments.getSelectionModel().selectedItemProperty().addListener((e) -> {
-           this.listProducts.getItems().addAll(this.controllerDepartment.getProductsOf(this.listDepartments.getSelectionModel()
-                   .getSelectedItem()));
-       });
+    @FXML
+    public void listSelectDepartmentHandler(final MouseEvent event) {
+        final Pane pane = this.listDepartments.getSelectionModel().getSelectedItem();
+        final Department selectedDepartment = this.departmentPane.get(pane);
+        this.listProducts.getItems().clear();
+        this.listStaff.getItems().clear();
+        this.listProducts.getItems().addAll(this.controllerDepartment.getProductsOf(selectedDepartment));
+        this.listStaff.getItems().addAll(this.controllerDepartment.getStaffOf(selectedDepartment));
+    }
+
+    @FXML
+    public void buttonAddDepartmentHandler(final ActionEvent event) {
+    }
+
+    @FXML
+    public void buttonDeleteDepartmentHandler(final ActionEvent event) {
+    }
+
+    @FXML
+    public void buttonMergeDepartmentsHandler(final ActionEvent event) {
+    }
+
+    private void populateList() {
+        for (final Department department : this.controllerDepartment.getDepartments()){
+            try {
+                final Pane pane = Loader.<ViewLabelDepartment>loadPane(Pages.PROTOTYPE_LABEL.getPath(), 
+                        new ViewLabelDepartment(department, this.controllerStaff, this.controllerDepartment));
+                this.listDepartments.getItems().add(pane);
+                this.departmentPane.put(pane, department);
+            } catch (IOException e) {
+                final Alert errorMessage = new Alert(AlertType.ERROR);
+                errorMessage.setContentText(e.getMessage());
+                errorMessage.showAndWait();
+            }
+        }
     }
 
 }

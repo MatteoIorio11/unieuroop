@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -11,18 +12,18 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane minHeight="400.0" minWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane minHeight="400.0" minWidth="700.0" prefHeight="477.0" prefWidth="702.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="208.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <GridPane GridPane.rowIndex="3">
+      <GridPane GridPane.rowIndex="2">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -32,7 +33,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane styleClass="card">
+            <GridPane style="-fx-background-color: #0009b0;" styleClass="card">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -43,16 +44,26 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label fx:id="lblStockPrice" text="9821€" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblStockPrice" text="9821€" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
                         </Label>
                      </center>
+                     <right>
+                        <ImageView fitHeight="74.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../icons/balance.png" />
+                           </image>
+                           <BorderPane.margin>
+                              <Insets bottom="15.0" right="10.0" />
+                           </BorderPane.margin>
+                        </ImageView>
+                     </right>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <left>
-                        <Label text="STOK PRICE" BorderPane.alignment="CENTER">
+                        <Label text="STOK PRICE" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -61,23 +72,13 @@
                            </BorderPane.margin>
                         </Label>
                      </left>
-                     <right>
-                        <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <image>
-                              <Image url="@../../icons/balance.png" />
-                           </image>
-                           <BorderPane.margin>
-                              <Insets right="15.0" top="15.0" />
-                           </BorderPane.margin>
-                        </ImageView>
-                     </right>
                   </BorderPane>
                </children>
                <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                </GridPane.margin>
             </GridPane>
-            <GridPane styleClass="card" GridPane.columnIndex="2">
+            <GridPane style="-fx-background-color: #ff00fb;" styleClass="card" GridPane.columnIndex="2">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -88,16 +89,26 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label fx:id="lblTotalSpent" text="129837€" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblTotalSpent" text="129837€" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
                         </Label>
                      </center>
+                     <right>
+                        <ImageView fitHeight="74.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../icons/incomes.png" />
+                           </image>
+                           <BorderPane.margin>
+                              <Insets bottom="15.0" right="10.0" />
+                           </BorderPane.margin>
+                        </ImageView>
+                     </right>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <left>
-                        <Label text="TOTAL SPENT" BorderPane.alignment="CENTER">
+                        <Label text="TOTAL SPENT" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -106,23 +117,13 @@
                            </BorderPane.margin>
                         </Label>
                      </left>
-                     <right>
-                        <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <image>
-                              <Image url="@../../icons/incomes.png" />
-                           </image>
-                           <BorderPane.margin>
-                              <Insets right="15.0" top="15.0" />
-                           </BorderPane.margin>
-                        </ImageView>
-                     </right>
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </BorderPane>
                </children>
                <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                </GridPane.margin>
             </GridPane>
             <GridPane fx:id="cardShopEarnings" layoutX="415.0" layoutY="15.0" styleClass="cardEarnings" GridPane.columnIndex="1">
@@ -136,16 +137,26 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label fx:id="lblShopEarnings" text="921832€" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblShopEarnings" text="921832€" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
                         </Label>
                      </center>
+                     <right>
+                        <ImageView fitHeight="74.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../icons/incomes.png" />
+                           </image>
+                           <BorderPane.margin>
+                              <Insets bottom="15.0" right="10.0" />
+                           </BorderPane.margin>
+                        </ImageView>
+                     </right>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <left>
-                        <Label text="SHOP EARNINGS" BorderPane.alignment="CENTER">
+                        <Label text="SHOP EARNINGS" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -154,23 +165,13 @@
                            </BorderPane.margin>
                         </Label>
                      </left>
-                     <right>
-                        <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <image>
-                              <Image url="@../../icons/incomes.png" />
-                           </image>
-                           <BorderPane.margin>
-                              <Insets right="15.0" top="15.0" />
-                           </BorderPane.margin>
-                        </ImageView>
-                     </right>
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </BorderPane>
                </children>
                <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                </GridPane.margin>
             </GridPane>
          </children>
@@ -179,12 +180,13 @@
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <GridPane styleClass="card">
+            <GridPane style="-fx-background-color: ff9500;" styleClass="card">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -195,41 +197,41 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label fx:id="lblStaff" text="14" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblStaff" text="14" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
                         </Label>
                      </center>
-                  </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="STAFF" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <BorderPane.margin>
-                              <Insets left="15.0" top="15.0" />
-                           </BorderPane.margin>
-                        </Label>
-                     </left>
                      <right>
-                        <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                        <ImageView fitHeight="74.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;" BorderPane.alignment="CENTER">
                            <image>
                               <Image url="@../../icons/staff.png" />
                            </image>
                            <BorderPane.margin>
-                              <Insets right="15.0" top="15.0" />
+                              <Insets bottom="15.0" right="10.0" />
                            </BorderPane.margin>
                         </ImageView>
                      </right>
                   </BorderPane>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <left>
+                        <Label text="STAFF" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <BorderPane.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </BorderPane.margin>
+                        </Label>
+                     </left>
+                  </BorderPane>
                </children>
                <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                </GridPane.margin>
             </GridPane>
-            <GridPane styleClass="card" GridPane.columnIndex="1">
+            <GridPane style="-fx-background-color: #a600ff;" styleClass="card" GridPane.columnIndex="1">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -240,100 +242,41 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label fx:id="lblClients" text="123" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblSuppliers" text="39" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
                         </Label>
                      </center>
-                  </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="CLIENTS" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <BorderPane.margin>
-                              <Insets left="15.0" top="15.0" />
-                           </BorderPane.margin>
-                        </Label>
-                     </left>
                      <right>
-                        <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <image>
-                              <Image url="@../../icons/clients.png" />
-                           </image>
-                           <BorderPane.margin>
-                              <Insets right="15.0" top="15.0" />
-                           </BorderPane.margin>
-                        </ImageView>
-                     </right>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </BorderPane>
-               </children>
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </GridPane>
-         </children>
-      </GridPane>
-      <GridPane layoutX="10.0" layoutY="277.0" GridPane.rowIndex="2">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <GridPane styleClass="card">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <center>
-                        <Label fx:id="lblSuppliers" text="39" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font name="System Bold" size="33.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="SUPPLIERS" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <BorderPane.margin>
-                              <Insets left="15.0" top="15.0" />
-                           </BorderPane.margin>
-                        </Label>
-                     </left>
-                     <right>
-                        <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                        <ImageView fitHeight="74.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;" BorderPane.alignment="CENTER">
                            <image>
                               <Image url="@../../icons/supplier.png" />
                            </image>
                            <BorderPane.margin>
-                              <Insets right="15.0" top="15.0" />
+                              <Insets bottom="15.0" right="10.0" />
                            </BorderPane.margin>
                         </ImageView>
                      </right>
                   </BorderPane>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <left>
+                        <Label text="SUPPLIERS" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <BorderPane.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </BorderPane.margin>
+                        </Label>
+                     </left>
+                  </BorderPane>
                </children>
                <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                </GridPane.margin>
             </GridPane>
-            <GridPane styleClass="card" GridPane.columnIndex="1">
+            <GridPane style="-fx-background-color: #00bbff;" styleClass="card" GridPane.columnIndex="2">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -344,16 +287,26 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Label fx:id="lblDepartments" text="18" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblDepartments" text="18" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="33.0" />
                            </font>
                         </Label>
                      </center>
+                     <right>
+                        <ImageView fitHeight="74.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../icons/department.png" />
+                           </image>
+                           <BorderPane.margin>
+                              <Insets bottom="15.0" right="10.0" />
+                           </BorderPane.margin>
+                        </ImageView>
+                     </right>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <left>
-                        <Label text="DEPARTMENTS" BorderPane.alignment="CENTER">
+                        <Label text="DEPARTMENTS" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -362,28 +315,18 @@
                            </BorderPane.margin>
                         </Label>
                      </left>
-                     <right>
-                        <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <image>
-                              <Image url="@../../icons/department.png" />
-                           </image>
-                           <BorderPane.margin>
-                              <Insets right="15.0" top="15.0" />
-                           </BorderPane.margin>
-                        </ImageView>
-                     </right>
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </BorderPane>
                </children>
                <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                </GridPane.margin>
             </GridPane>
          </children>
       </GridPane>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
+      <BorderPane prefHeight="60.0" prefWidth="690.0">
          <center>
             <Label text="UnieurOOP" BorderPane.alignment="CENTER">
                <font>
@@ -391,6 +334,14 @@
                </font>
             </Label>
          </center>
+      </BorderPane>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+         <center>
+            <ListView fx:id="lstViewSales" onMouseClicked="#lstSalesSelectClientHandler" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+         <top>
+            <Label text="Sales" BorderPane.alignment="CENTER" />
+         </top>
       </BorderPane>
    </children>
    <padding>

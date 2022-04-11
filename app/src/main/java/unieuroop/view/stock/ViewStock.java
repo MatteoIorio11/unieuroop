@@ -1,24 +1,23 @@
 package unieuroop.view.stock;
 
+import java.awt.Desktop.Action;
 import java.io.IOException;
 import java.net.URL;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.LoadException;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
@@ -29,26 +28,16 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Pair;
-import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.serialization.Pages;
-import unieuroop.controller.shop.ControllerShopImpl;
-import unieuroop.model.department.Department;
-import unieuroop.model.department.DepartmentImpl;
-import unieuroop.model.person.Client;
-import unieuroop.model.person.Staff;
-import unieuroop.model.product.Category;
+import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.product.Product;
-import unieuroop.model.product.ProductImpl;
-import unieuroop.model.supplier.Supplier;
-import unieuroop.model.supplier.SupplierImpl;
 import unieuroop.view.client.ViewChoseClient;
+import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
 import unieuroop.view.sale.ViewLabelSale;
 
 public class ViewStock implements Initializable {
 
-    @FXML
-    private Stage primaryStage;
     @FXML
     private TextField txtSearchProducts;
     @FXML
@@ -62,38 +51,75 @@ public class ViewStock implements Initializable {
     @FXML
     private RadioButton rdbtnDecreasing;
     @FXML
-    private ListView<Pane> listProductsStocked;
+    private ListView<Product> listProductsStocked;
 
-    private final ControllerShopImpl controllerShop;
+    private final ControllerStockImpl controllerStock;
     private final ViewMainMenu viewMenu;
-    private final Stage stage;
 
 
-    public ViewStock(final ViewMainMenu view, final ControllerShopImpl controllerShop, final Stage primaryStage) {
-        this.controllerShop = controllerShop;
+    public ViewStock(final ViewMainMenu view, final ControllerStockImpl controllerStock) {
+        this.controllerStock = controllerStock;
         this.viewMenu = view;
-        this.stage = primaryStage;
     }
 
+    /**
+     * 
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //addStockLabel();
+        loadProducts(this.controllerStock.getProductsStocked());
+    }
+
+    /**
+     * 
+     */
+    @FXML
+    public void btnBuyProductsHandler() {
+        listProductsStocked.getItems().clear();
+        try {
+            final Stage windowBuyProducts = Loader.<ViewStockBuyProducts>loadStage(Pages.STOCK_BUY_PRODUCTS.getPath(), "Buy Products", new ViewStockBuyProducts(this, this.controllerStock), 500, 600);
+            final Stage mainStage = (Stage) this.btnBuyProducts.getScene().getWindow();
+            mainStage.hide();
+            windowBuyProducts.showAndWait();
+            mainStage.show();
+        } catch (IOException e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void btnDeleteProductsHandler() {
+        
+    }
+
+    @FXML
+    public void btnSearchFiltersHandler() {
+        
+    }
+
+    @FXML
+    public void rdbtnIncreasingHandler() {
+        
+    }
+
+    @FXML
+    public void rdbtnDecreasingHandler() {
+        
     }
 
     /**
      * 
      * @param products
      */
-    private void addStockLabel(HashMap<Product, Integer> products) {
+    private void loadProducts(final Map<Product, Integer> products) {
+        this.listProductsStocked.getItems().clear();
         for (final Map.Entry<Product, Integer> entryProduct : products.entrySet()) {
-            Pane pane;
             try {
-                final var loaderLabel = new FXMLLoader(getClass().getResource(Pages.STOCK_LABEL_FOR_STOCK.getPath()));
-                loaderLabel.setController(new ViewStockLabelProduct(entryProduct, this, this.controllerShop));
-                pane = loaderLabel.load();
-                this.listProductsStocked.getItems().add(pane);
-            } catch (IOException e) {
-                e.printStackTrace();
+                this.listProductsStocked.getItems().add(entryProduct.getKey());
+            } catch (InputMismatchException e) {
+                final Alert alert = new Alert(AlertType.ERROR);
+                alert.setContentText(e.getMessage());
             }
         }
     }

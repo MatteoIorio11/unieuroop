@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.stage.Stage?>
 
-<Stage xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<Stage xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
     <scene>
         <Scene>
             <AnchorPane prefHeight="368.0" prefWidth="514.0">
