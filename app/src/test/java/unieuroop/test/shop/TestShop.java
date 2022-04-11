@@ -37,16 +37,11 @@ public class TestShop {
     private static final LocalDate DATE_NOW = LocalDate.now();
     private static final LocalTime TIME_START = LocalTime.now();
     private static final LocalTime TIME_FINISH = LocalTime.of(10, 10);
-    private static final double P1_PRICE = 900.0;
-    private static final double P2_PRICE = 200.0;
-    private static final double P3_PRICE = 2000.0;
-    private static final double P4_PRICE = 3000.0;
     private Department department1;
     private Department department2;
     private Department department3;
     private Shop shop01;
     private final Set<Department> departments = new HashSet<>();
-    private Supplier s1;
     /**
      * ALL THE STAFF THAT WILL BE USED IN THIS TEST.
      */
@@ -68,7 +63,6 @@ public class TestShop {
 
     @Before
     public void setUp() {
-        this.s1 = new SupplierImpl("supp1", Map.of(p1, TestShop.P1_PRICE, p2, TestShop.P2_PRICE, p3, TestShop.P3_PRICE, p4, TestShop.P4_PRICE));
         this.shop01 = new ShopImpl("shop01");
         this.department1 = new DepartmentImpl("department1", Set.of(staff1, staff2, staff3, staff4), Map.of(p1, 2, p2, 1, p3, 2, p4, 2));
         this.department2 = new DepartmentImpl("department2", Set.of(staff1, staff2), Map.of(p1, 2, p4, 2));
