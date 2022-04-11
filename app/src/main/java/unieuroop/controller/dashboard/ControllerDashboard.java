@@ -16,14 +16,6 @@ public interface ControllerDashboard {
 
     int getDepartments();
 
-    Double getStockPrice();
-
-    Double getShopEarnings();
-
-    Double getTotalSpent();
-
     List<Sale> getSales();
-
-    boolean isEarning();
 
 }

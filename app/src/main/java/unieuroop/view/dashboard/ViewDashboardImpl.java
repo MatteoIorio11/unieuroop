@@ -16,6 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
+import unieuroop.controller.analytic.ControllerAnalytic;
 import unieuroop.controller.dashboard.ControllerDashboard;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.model.sale.Sale;
@@ -37,20 +38,22 @@ public final class ViewDashboardImpl implements Initializable {
     private ListView<Sale> lstViewSales;
     @FXML
     private GridPane cardShopEarnings;
-    private final ControllerDashboard controller;
+    private final ControllerDashboard controllerDashboard;
+    private final ControllerAnalytic controllerAnalytic;
 
-    public ViewDashboardImpl(final ControllerDashboard controller) {
-        this.controller = controller;
+    public ViewDashboardImpl(final ControllerDashboard controllerDashboard, final ControllerAnalytic controllerAnalytic) {
+        this.controllerDashboard = controllerDashboard;
+        this.controllerAnalytic = controllerAnalytic;
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        this.lblDepartments.setText(String.valueOf(this.controller.getDepartments()));
-        this.lblShopEarnings.setText(String.valueOf(this.controller.getShopEarnings()));
-        this.lblStaff.setText(String.valueOf(this.controller.getStaff()));
-        this.lblStockPrice.setText(String.valueOf(this.controller.getStockPrice()));
-        this.lblSuppliers.setText(String.valueOf(this.controller.getSuppliers()));
-        this.lblTotalSpent.setText(String.valueOf(this.controller.getTotalSpent()));
-        this.lstViewSales.getItems().addAll(this.controller.getSales());
+        this.lblDepartments.setText(String.valueOf(this.controllerDashboard.getDepartments()));
+        this.lblShopEarnings.setText(String.valueOf(this.controllerAnalytic.getShopEarnings()));
+        this.lblStaff.setText(String.valueOf(this.controllerDashboard.getStaff()));
+        this.lblStockPrice.setText(String.valueOf(this.controllerAnalytic.getStockPrice()));
+        this.lblSuppliers.setText(String.valueOf(this.controllerDashboard.getSuppliers()));
+        this.lblTotalSpent.setText(String.valueOf(this.controllerAnalytic.getTotalSpent()));
+        this.lstViewSales.getItems().addAll(this.controllerDashboard.getSales());
         if (this.controller.isEarning()) {
             this.cardShopEarnings.setStyle("-fx-background-color: #15cf00; ");
         } else {
