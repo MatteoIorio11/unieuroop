@@ -12,6 +12,7 @@ import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
+import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.stock.Stock;
@@ -182,6 +183,13 @@ public final class ShopImpl implements Shop {
     public void supplyDepartment(final Department department, final Map<Product, Integer> requestedProducts) {
         final var products = this.stock.takeFromStock(requestedProducts);
         department.addProducts(products);
+    }
+    @Override
+    public Set<Category> getAllCategories() {
+        return this.stock.getTotalStock().entrySet().stream()
+                .map((entry) -> entry.getKey().getCategory())
+                .distinct()
+                .collect(Collectors.toSet());
     }
 
 }
