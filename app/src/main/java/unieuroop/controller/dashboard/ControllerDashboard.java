@@ -14,12 +14,6 @@ public interface ControllerDashboard {
 
     /**
      * 
-     * @return the ammount of Clients of the shop.
-     */
-    int getClients();
-
-    /**
-     * 
      * @return the ammount of Suppliers of the shop.
      */
     int getSuppliers();

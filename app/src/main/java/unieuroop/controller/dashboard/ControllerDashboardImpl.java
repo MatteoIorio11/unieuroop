@@ -17,11 +17,6 @@ public final class ControllerDashboardImpl implements ControllerDashboard {
     }
 
     @Override
-    public int getClients() {
-        return this.shop.getRegisteredClients().size();
-    }
-
-    @Override
     public int getSuppliers() {
         return this.shop.getSuppliers().size();
     }
