@@ -1,6 +1,7 @@
 package unieuroop.controller.dashboard;
 
 
+import java.util.List;
 import java.util.Set;
 
 import unieuroop.model.sale.Sale;
@@ -21,7 +22,7 @@ public interface ControllerDashboard {
 
     Double getTotalSpent();
 
-    Set<Sale> getSales();
+    List<Sale> getSales();
 
     boolean isEarning();
 

@@ -1,6 +1,8 @@
 package unieuroop.controller.dashboard;
 
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
@@ -56,7 +58,9 @@ public final class ControllerDashboardImpl implements ControllerDashboard {
     }
 
     @Override
-    public Set<Sale> getSales() {
-        return this.shop.getSales();
+    public List<Sale> getSales() {
+        return this.shop.getSales().stream()
+                .sorted((sale1, sale2) -> sale2.getDate().compareTo(sale1.getDate()))
+                .collect(Collectors.toList());
     }
 }
