@@ -1,188 +1,188 @@
 [ {
-  "departmentName" : "department2",
+  "departmentName" : "department1",
   "staff" : [ {
-  "name" : "nome",
-  "surname" : "cognome",
+  "name" : "name1",
+  "surname" : "surname1",
+  "email" : "AAAA",
+  "id" : 1,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 12 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 9, 16, 31, 705970000 ] ],
+  "endTimes" : [ [ 9, 16, 31, 705979000 ] ]
+}, {
+  "name" : "name",
+  "surname" : "surname",
   "email" : "ffff",
   "id" : 1,
   "password" : 111,
-  "birthday" : [ 2022, 4, 11 ],
+  "birthday" : [ 2022, 4, 12 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 15, 0, 34, 495602000 ] ],
-  "endTimes" : [ [ 15, 0, 34, 495616000 ] ]
-}, {
-  "name" : "nome2",
-  "surname" : "cognome2",
-  "email" : "BBB",
-  "id" : 3,
-  "password" : 222,
-  "birthday" : [ 2022, 4, 11 ],
-  "days" : [ "TUESDAY" ],
-  "startTimes" : [ [ 15, 0, 34, 495693000 ] ],
-  "endTimes" : [ [ 15, 0, 34, 495700000 ] ]
+  "startTimes" : [ [ 9, 16, 31, 705930000 ] ],
+  "endTimes" : [ [ 9, 16, 31, 705944000 ] ]
 } ],
   "products" : [ {
-    "productCode" : 6,
-    "name" : "prova5",
-    "brand" : "provaBrand2",
-    "sellingPrice" : 234.3,
-    "purchasePrice" : 125.0,
+    "productCode" : 3,
+    "name" : "try2",
+    "brand" : "Brand4",
+    "sellingPrice" : 22.0,
+    "purchasePrice" : 15.0,
     "description" : "bla bla bla bla bla",
     "category" : "TABLET"
   }, {
-    "productCode" : 7,
-    "name" : "prova6",
-    "brand" : "provaBrand3",
-    "sellingPrice" : 123.9,
-    "purchasePrice" : 135.0,
+    "productCode" : 2,
+    "name" : "try1",
+    "brand" : "Brand1",
+    "sellingPrice" : 19.4,
+    "purchasePrice" : 28.0,
     "description" : "bla bla bla bla bla",
-    "category" : "PC"
+    "category" : "HOME"
   }, {
     "productCode" : 1,
-    "name" : "prova",
-    "brand" : "provaBrand",
+    "name" : "try",
+    "brand" : "Brand",
     "sellingPrice" : 11.4,
     "purchasePrice" : 84.0,
     "description" : "bla bla bla bla bla",
     "category" : "PC"
   }, {
-    "productCode" : 2,
-    "name" : "prova1",
-    "brand" : "provaBrand1",
-    "sellingPrice" : 19.4,
-    "purchasePrice" : 28.0,
+    "productCode" : 5,
+    "name" : "try4",
+    "brand" : "Brand2",
+    "sellingPrice" : 102.4,
+    "purchasePrice" : 12.0,
     "description" : "bla bla bla bla bla",
-    "category" : "HOME"
+    "category" : "PC"
+  }, {
+    "productCode" : 4,
+    "name" : "try3",
+    "brand" : "Brand1",
+    "sellingPrice" : 18.5,
+    "purchasePrice" : 92.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
   } ],
-  "values" : [ 11, 34, 4, 2 ]
+  "values" : [ 2, 10, 10, 32, 32 ]
 }, {
   "departmentName" : "department3",
   "staff" : [ {
-  "name" : "nome1",
-  "surname" : "cognome1",
+  "name" : "name1",
+  "surname" : "surname1",
   "email" : "AAAA",
   "id" : 1,
   "password" : 222,
-  "birthday" : [ 2022, 4, 11 ],
+  "birthday" : [ 2022, 4, 12 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 15, 0, 34, 495666000 ] ],
-  "endTimes" : [ [ 15, 0, 34, 495674000 ] ]
+  "startTimes" : [ [ 9, 16, 31, 705970000 ] ],
+  "endTimes" : [ [ 9, 16, 31, 705979000 ] ]
 }, {
-  "name" : "nome2",
-  "surname" : "cognome2",
+  "name" : "name2",
+  "surname" : "surname2",
   "email" : "BBB",
   "id" : 3,
   "password" : 222,
-  "birthday" : [ 2022, 4, 11 ],
+  "birthday" : [ 2022, 4, 12 ],
   "days" : [ "TUESDAY" ],
-  "startTimes" : [ [ 15, 0, 34, 495693000 ] ],
-  "endTimes" : [ [ 15, 0, 34, 495700000 ] ]
+  "startTimes" : [ [ 9, 16, 31, 706009000 ] ],
+  "endTimes" : [ [ 9, 16, 31, 706030000 ] ]
 } ],
   "products" : [ {
+    "productCode" : 3,
+    "name" : "try2",
+    "brand" : "Brand4",
+    "sellingPrice" : 22.0,
+    "purchasePrice" : 15.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 1,
+    "name" : "try",
+    "brand" : "Brand",
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
     "productCode" : 8,
-    "name" : "prova7",
-    "brand" : "provaBrand2",
+    "name" : "try7",
+    "brand" : "Brand2",
     "sellingPrice" : 1293.4,
     "purchasePrice" : 1534.0,
     "description" : "bla bla bla bla bla",
     "category" : "PC"
   }, {
-    "productCode" : 1,
-    "name" : "prova",
-    "brand" : "provaBrand",
-    "sellingPrice" : 11.4,
-    "purchasePrice" : 84.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
-  }, {
-    "productCode" : 3,
-    "name" : "prova2",
-    "brand" : "provaBrand4",
-    "sellingPrice" : 22.0,
-    "purchasePrice" : 15.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "TABLET"
-  }, {
-    "productCode" : 5,
-    "name" : "prova4",
-    "brand" : "provaBrand2",
-    "sellingPrice" : 102.4,
-    "purchasePrice" : 12.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
-  }, {
     "productCode" : 6,
-    "name" : "prova5",
-    "brand" : "provaBrand2",
+    "name" : "try5",
+    "brand" : "Brand2",
     "sellingPrice" : 234.3,
     "purchasePrice" : 125.0,
     "description" : "bla bla bla bla bla",
     "category" : "TABLET"
+  }, {
+    "productCode" : 5,
+    "name" : "try4",
+    "brand" : "Brand2",
+    "sellingPrice" : 102.4,
+    "purchasePrice" : 12.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
   } ],
-  "values" : [ 1, 15, 21, 16, 2 ]
+  "values" : [ 21, 15, 1, 2, 16 ]
 }, {
-  "departmentName" : "department1",
+  "departmentName" : "department2",
   "staff" : [ {
-  "name" : "nome",
-  "surname" : "cognome",
+  "name" : "name2",
+  "surname" : "surname2",
+  "email" : "BBB",
+  "id" : 3,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 12 ],
+  "days" : [ "TUESDAY" ],
+  "startTimes" : [ [ 9, 16, 31, 706009000 ] ],
+  "endTimes" : [ [ 9, 16, 31, 706030000 ] ]
+}, {
+  "name" : "name",
+  "surname" : "surname",
   "email" : "ffff",
   "id" : 1,
   "password" : 111,
-  "birthday" : [ 2022, 4, 11 ],
+  "birthday" : [ 2022, 4, 12 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 15, 0, 34, 495602000 ] ],
-  "endTimes" : [ [ 15, 0, 34, 495616000 ] ]
-}, {
-  "name" : "nome1",
-  "surname" : "cognome1",
-  "email" : "AAAA",
-  "id" : 1,
-  "password" : 222,
-  "birthday" : [ 2022, 4, 11 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 15, 0, 34, 495666000 ] ],
-  "endTimes" : [ [ 15, 0, 34, 495674000 ] ]
+  "startTimes" : [ [ 9, 16, 31, 705930000 ] ],
+  "endTimes" : [ [ 9, 16, 31, 705944000 ] ]
 } ],
   "products" : [ {
-    "productCode" : 1,
-    "name" : "prova",
-    "brand" : "provaBrand",
-    "sellingPrice" : 11.4,
-    "purchasePrice" : 84.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
-  }, {
     "productCode" : 2,
-    "name" : "prova1",
-    "brand" : "provaBrand1",
+    "name" : "try1",
+    "brand" : "Brand1",
     "sellingPrice" : 19.4,
     "purchasePrice" : 28.0,
     "description" : "bla bla bla bla bla",
     "category" : "HOME"
   }, {
-    "productCode" : 3,
-    "name" : "prova2",
-    "brand" : "provaBrand4",
-    "sellingPrice" : 22.0,
-    "purchasePrice" : 15.0,
+    "productCode" : 1,
+    "name" : "try",
+    "brand" : "Brand",
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 7,
+    "name" : "try6",
+    "brand" : "Brand3",
+    "sellingPrice" : 123.9,
+    "purchasePrice" : 135.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 6,
+    "name" : "try5",
+    "brand" : "Brand2",
+    "sellingPrice" : 234.3,
+    "purchasePrice" : 125.0,
     "description" : "bla bla bla bla bla",
     "category" : "TABLET"
-  }, {
-    "productCode" : 4,
-    "name" : "prova3",
-    "brand" : "provaBrand1",
-    "sellingPrice" : 18.5,
-    "purchasePrice" : 92.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
-  }, {
-    "productCode" : 5,
-    "name" : "prova4",
-    "brand" : "provaBrand2",
-    "sellingPrice" : 102.4,
-    "purchasePrice" : 12.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
   } ],
-  "values" : [ 10, 10, 2, 32, 32 ]
+  "values" : [ 2, 4, 34, 11 ]
 } ]
