@@ -10,6 +10,7 @@ import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -87,6 +88,14 @@ public class TestSerialization {
         Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), clients);
         final Set<Client> deserializedClients = Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { });
         assertEquals(clients, deserializedClients);
+    }
+    @Test
+    public void testBills() throws IOException, ClassNotFoundException {
+        final var bills = Map.of(LocalDate.now(), 10.3, LocalDate.ofYearDay(2019, 22), 
+                183.9, LocalDate.ofYearDay(2022, 35), 104.2, LocalDate.ofYearDay(2012, 273), 37.7);
+        Serialization.<Map<LocalDate, Double>>serialize(Files.BILLS.getPath(), bills);
+        final var deserializedBills = Serialization.<Map<LocalDate, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<LocalDate, Double>>() { });
+        assertEquals(deserializedBills, bills);
     }
 
 }
