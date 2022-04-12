@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
+import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.shop.Shop;
@@ -53,5 +54,21 @@ public class ControllerStockImpl {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
         }
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Set<Category> getCategory() {
+        return this.shop.getAllCategories();
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public int getMaxAmountproducts() {
+        return this.shop.getStock().getMaxAmountOfProducts();
     }
 }
