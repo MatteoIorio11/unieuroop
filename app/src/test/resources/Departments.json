@@ -8,8 +8,8 @@
   "password" : 222,
   "birthday" : [ 2022, 4, 12 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 11, 45, 7, 381103000 ] ],
-  "endTimes" : [ [ 11, 45, 7, 381112000 ] ]
+  "startTimes" : [ [ 11, 53, 44, 209950000 ] ],
+  "endTimes" : [ [ 11, 53, 44, 209959000 ] ]
 }, {
   "name" : "name2",
   "surname" : "surname2",
@@ -18,10 +18,26 @@
   "password" : 222,
   "birthday" : [ 2022, 4, 12 ],
   "days" : [ "TUESDAY" ],
-  "startTimes" : [ [ 11, 45, 7, 381133000 ] ],
-  "endTimes" : [ [ 11, 45, 7, 381141000 ] ]
+  "startTimes" : [ [ 11, 53, 44, 209977000 ] ],
+  "endTimes" : [ [ 11, 53, 44, 209984000 ] ]
 } ],
   "products" : [ {
+    "productCode" : 3,
+    "name" : "try2",
+    "brand" : "Brand4",
+    "sellingPrice" : 22.0,
+    "purchasePrice" : 15.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 1,
+    "name" : "try",
+    "brand" : "Brand",
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
     "productCode" : 8,
     "name" : "try7",
     "brand" : "Brand2",
@@ -45,24 +61,8 @@
     "purchasePrice" : 12.0,
     "description" : "bla bla bla bla bla",
     "category" : "PC"
-  }, {
-    "productCode" : 3,
-    "name" : "try2",
-    "brand" : "Brand4",
-    "sellingPrice" : 22.0,
-    "purchasePrice" : 15.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "TABLET"
-  }, {
-    "productCode" : 1,
-    "name" : "try",
-    "brand" : "Brand",
-    "sellingPrice" : 11.4,
-    "purchasePrice" : 84.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
   } ],
-  "values" : [ 1, 2, 16, 21, 15 ]
+  "values" : [ 21, 15, 1, 2, 16 ]
 }, {
   "departmentName" : "department2",
   "staff" : [ {
@@ -73,8 +73,8 @@
   "password" : 222,
   "birthday" : [ 2022, 4, 12 ],
   "days" : [ "TUESDAY" ],
-  "startTimes" : [ [ 11, 45, 7, 381133000 ] ],
-  "endTimes" : [ [ 11, 45, 7, 381141000 ] ]
+  "startTimes" : [ [ 11, 53, 44, 209977000 ] ],
+  "endTimes" : [ [ 11, 53, 44, 209984000 ] ]
 }, {
   "name" : "name",
   "surname" : "surname",
@@ -83,8 +83,8 @@
   "password" : 111,
   "birthday" : [ 2022, 4, 12 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 11, 45, 7, 381047000 ] ],
-  "endTimes" : [ [ 11, 45, 7, 381060000 ] ]
+  "startTimes" : [ [ 11, 53, 44, 209891000 ] ],
+  "endTimes" : [ [ 11, 53, 44, 209903000 ] ]
 } ],
   "products" : [ {
     "productCode" : 2,
@@ -130,8 +130,8 @@
   "password" : 222,
   "birthday" : [ 2022, 4, 12 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 11, 45, 7, 381103000 ] ],
-  "endTimes" : [ [ 11, 45, 7, 381112000 ] ]
+  "startTimes" : [ [ 11, 53, 44, 209950000 ] ],
+  "endTimes" : [ [ 11, 53, 44, 209959000 ] ]
 }, {
   "name" : "name",
   "surname" : "surname",
@@ -140,26 +140,10 @@
   "password" : 111,
   "birthday" : [ 2022, 4, 12 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 11, 45, 7, 381047000 ] ],
-  "endTimes" : [ [ 11, 45, 7, 381060000 ] ]
+  "startTimes" : [ [ 11, 53, 44, 209891000 ] ],
+  "endTimes" : [ [ 11, 53, 44, 209903000 ] ]
 } ],
   "products" : [ {
-    "productCode" : 5,
-    "name" : "try4",
-    "brand" : "Brand2",
-    "sellingPrice" : 102.4,
-    "purchasePrice" : 12.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
-  }, {
-    "productCode" : 4,
-    "name" : "try3",
-    "brand" : "Brand1",
-    "sellingPrice" : 18.5,
-    "purchasePrice" : 92.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
-  }, {
     "productCode" : 3,
     "name" : "try2",
     "brand" : "Brand4",
@@ -183,6 +167,22 @@
     "purchasePrice" : 84.0,
     "description" : "bla bla bla bla bla",
     "category" : "PC"
+  }, {
+    "productCode" : 5,
+    "name" : "try4",
+    "brand" : "Brand2",
+    "sellingPrice" : 102.4,
+    "purchasePrice" : 12.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 4,
+    "name" : "try3",
+    "brand" : "Brand1",
+    "sellingPrice" : 18.5,
+    "purchasePrice" : 92.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
   } ],
-  "values" : [ 32, 32, 2, 10, 10 ]
+  "values" : [ 2, 10, 10, 32, 32 ]
 } ]
