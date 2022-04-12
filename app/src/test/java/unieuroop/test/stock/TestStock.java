@@ -2,6 +2,8 @@ package unieuroop.test.stock;
 
 import static org.junit.Assert.*;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -100,5 +102,22 @@ public class TestStock {
         final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
         this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
         assertEquals(Map.of(p1, 1), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.SMARTPHONE));
+        assertEquals(Map.of(p2, 2), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.SMARTWATCH));
+        assertEquals(Map.of(p3, 1), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.PC));
+        assertEquals(Map.of(p1, 1, p3, 1), this.shop.getStock().getFilterProducts((quantity, category) -> quantity == 1));
+        assertEquals(Collections.emptyMap(), this.shop.getStock().getFilterProducts((quantity, category) -> quantity == 1 
+                && category == Category.DOMESTIC_APPLIANCE));
+    }
+
+    @Test
+    public void testSorted() {
+        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
+        final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+        this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
+        final var productsGrowing = this.shop.getStock().getProductsSorted((product1, product2) -> product1.getName().compareTo(product2.getName()));
+        final var productsDecreasing = this.shop.getStock().getProductsSorted((product1, product2) -> product2.getName().compareTo(product1.getName()));
+        assertEquals(List.of(p2, p1, p3), productsGrowing);
+        assertEquals(List.of(p3, p1, p2), productsDecreasing);
     }
 }
