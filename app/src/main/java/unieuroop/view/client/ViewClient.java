@@ -58,10 +58,8 @@ public final class ViewClient implements Initializable {
         btnEditClient.setOnMouseClicked((e) -> {
             try {
                 final Client client = this.listClients.getSelectionModel().getSelectedItem();
-                this.controller.editClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue());
-                this.listClients.getItems().clear();
-                this.controller.deleteClient(client);
-                this.listClients.getItems().addAll(this.controller.getRegisteredClients());
+                this.controller.editClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue(), client);
+                listClients.refresh();
             } catch (IllegalArgumentException illegalExc) {
                 setAlert();
                 illegalExc.printStackTrace();
