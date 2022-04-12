@@ -2,16 +2,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="550.0" prefWidth="500.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
@@ -25,49 +23,63 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Take Products" />
-            <Button mnemonicParsing="false" text="Add Products" GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" text="Delete Products" GridPane.columnIndex="2" />
+            <Button fx:id="btnBuyProducts" mnemonicParsing="false" onAction="#btnBuyProductsHandler" text="Buy Products">
+               <GridPane.margin>
+                  <Insets bottom="15.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="btnDeleteProducts" mnemonicParsing="false" onAction="#btnDeleteProductsHandler" text="Delete Products" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="15.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
    </bottom>
    <center>
-      <ListView BorderPane.alignment="CENTER" />
+      <ListView fx:id="listProductsStocked" prefWidth="702.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" top="10.0" />
+         </BorderPane.margin>
+      </ListView>
    </center>
    <top>
-      <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" BorderPane.alignment="TOP_CENTER">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="326.0" />
-            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="170.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="272.0" minWidth="10.0" prefWidth="265.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="550.0" minWidth="10.0" prefWidth="448.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="272.0" minWidth="10.0" prefWidth="180.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TextField>
+            <TextField fx:id="txtSearchProducts" alignment="BASELINE_LEFT" prefHeight="12.0" prefWidth="379.0">
                <GridPane.margin>
-                  <Insets left="5.0" />
+                  <Insets left="5.0" top="10.0" />
                </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
-            <RadioButton mnemonicParsing="false" text="Increasing" GridPane.rowIndex="1">
+            <RadioButton fx:id="rdbtnIncreasing" mnemonicParsing="false" onAction="#rdbtnIncreasingHandler" text="Increasing" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets left="10.0" top="15.0" />
                </GridPane.margin>
             </RadioButton>
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1">
+            <RadioButton fx:id="rdbtnDecreasing" mnemonicParsing="false" onAction="#rdbtnDecreasingHandler" text="Decreasing" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-            </ComboBox>
-            <RadioButton mnemonicParsing="false" text="Decreasing" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets left="-250.0" top="16.0" />
                </GridPane.margin>
             </RadioButton>
-            <Label contentDisplay="CENTER" text="Label" GridPane.columnIndex="2" />
-            <Slider blockIncrement="50.0" majorTickUnit="50.0" max="300.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="btnSearchFilters" mnemonicParsing="false" onAction="#btnSearchFiltersHandler" prefHeight="24.0" prefWidth="35.0" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" top="10.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
    </top>

@@ -1,16 +1,26 @@
 package unieuroop.model.supplier;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import unieuroop.model.product.Product;
 
+@JsonIdentityInfo(scope=SupplierImpl.class, generator=ObjectIdGenerators.IntSequenceGenerator.class)
 public class SupplierImpl implements Supplier {
-    // Add sales limit ?
     private final String supplierName;
     private final Map<Product, Double> salableProduct;
-
-    public SupplierImpl(final String name, final Map<Product, Double> products) {
+    @JsonCreator
+    public SupplierImpl(final String name, 
+            final Map<Product, Double> products) {
         this.supplierName = name;
         salableProduct = new HashMap<>(products);
     }
@@ -27,8 +37,8 @@ public class SupplierImpl implements Supplier {
      * Return all avaible supplier's products. 
      */
     @Override
-    public Set<Product> getCatalog() {
-        return Set.copyOf(this.salableProduct.keySet());
+    public Map<Product, Double> getCatalog() {
+        return Map.copyOf(this.salableProduct);
     }
 
     /**

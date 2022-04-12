@@ -3,6 +3,7 @@ package unieuroop.model.department;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -10,7 +11,6 @@ import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 
 public final class DepartmentImpl implements Department {
-
     private final String name;
     private final Set<Staff> staff;
     private final Map<Product, Integer> products;
@@ -47,11 +47,11 @@ public final class DepartmentImpl implements Department {
      * Remove the Staff assigned to the department.
      */
     @Override
-    public void removeStaff(final Staff deleteStaff) {
-        if (this.staff.contains(deleteStaff)) {
-            this.staff.remove(deleteStaff);
+    public void removeStaff(final Set<Staff> deleteStaff) {
+        if (this.staff.containsAll(deleteStaff)) {
+            this.staff.removeAll(deleteStaff);
         } else {
-            throw new IllegalArgumentException("The staff : " + deleteStaff.toString() + " does not exist.");
+            throw new IllegalArgumentException("Some of the input staff does not work in this department.");
         }
     }
 
@@ -121,4 +121,31 @@ public final class DepartmentImpl implements Department {
         return true;
     }
 
+    /**
+     * Override of the method toString in order to have a better print of this class.
+     */
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DepartmentImpl other = (DepartmentImpl) obj;
+        return Objects.equals(name, other.name);
+    }
 }

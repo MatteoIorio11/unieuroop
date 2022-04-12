@@ -3,7 +3,6 @@ package unieuroop.model.sale;
 import unieuroop.model.product.Product;
 import unieuroop.model.person.Client;
 
-
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.Optional;
@@ -11,11 +10,9 @@ import java.util.Set;
 
 public final class SaleImpl implements Sale {
 
-
     private final LocalDate date;
     private final Map<Product, Integer> productsBuyed;
     private final Optional<Client> client;
-    /*private final int id;ID created with the hashCode ???????????*/
 
     /**
      * Constructor of Sale, it requires.
@@ -64,8 +61,22 @@ public final class SaleImpl implements Sale {
     }
 
     @Override
+    public int getTotalQuantity() {
+        return this.productsBuyed.entrySet().stream()
+                .mapToInt((entry) -> entry.getValue())
+                .sum();
+    }
+
+    @Override
     public Optional<Client> getClient() {
         return this.client;
     }
 
+    @Override
+    public String toString() {
+        final String clientString = this.client.isEmpty() ? " Not a Registered Client" : this.client.get().toString();
+        final String date = " date : " + this.date;
+        final String totalEarned = this.getTotalSpent() + " euros ";
+        return date + " " + totalEarned + " Client : " + clientString;
+    }
 }

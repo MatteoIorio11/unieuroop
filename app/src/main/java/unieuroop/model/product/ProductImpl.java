@@ -1,25 +1,21 @@
 package unieuroop.model.product;
-
-
 import java.io.Serializable;
 import java.util.Optional;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import unieuroop.model.supplier.Supplier;
 
-public final class ProductImpl implements Product, Serializable {
-    /**
-     * 
-     */
-    private static final long serialVersionUID = -8521815205261847580L;
+public final class ProductImpl implements Product {
     private final int productCode;
     private String name;
     private String brand;
     private Double sellingPrice;
     private final Double purchasePrice;
-    private Optional<Integer> discountPercentage;
+//    private Optional<Integer> discountPercentage;
     private String description;
     private Category category;
-    private final Supplier supplier;
     /**
      * Constructor of product with discount.
      * @param productCode
@@ -27,39 +23,25 @@ public final class ProductImpl implements Product, Serializable {
      * @param brand
      * @param sellingPrice
      * @param purchasePrice
-     * @param discount
      * @param description
      * @param category
-     * @param supplier
      */
-    public ProductImpl(final int productCode, final String name, final String brand, final Double sellingPrice, 
-            final Double purchasePrice, final Optional<Integer> discount, final String description, final Category category, 
-            final Supplier supplier) {
+    @JsonCreator
+    public ProductImpl(
+            @JsonProperty("productCode")final int productCode, 
+            @JsonProperty("name")final String name, 
+            @JsonProperty("brand")final String brand, 
+            @JsonProperty("sellingPrice")final Double sellingPrice, 
+            @JsonProperty("purchasePrice")final Double purchasePrice, 
+            @JsonProperty("description")final String description, 
+            @JsonProperty("category")final Category category) {
         this.productCode = productCode;
         this.name = name;
         this.brand = brand;
         this.sellingPrice = sellingPrice;
         this.purchasePrice = purchasePrice;
-        this.discountPercentage = discount;
         this.description = description;
         this.category = category;
-        this.supplier = supplier;
-    }
-    /**
-     * Constructor of products without discount.
-     * @param productCode
-     * @param name
-     * @param brand
-     * @param sellingPrice
-     * @param purchasePrice
-     * @param description
-     * @param category
-     * @param supplier
-     */
-    public ProductImpl(final int productCode, final String name, final String brand, final Double sellingPrice, 
-            final Double purchasePrice, final String description, final Category category, 
-            final Supplier supplier) {
-        this(productCode, name, brand, sellingPrice, purchasePrice, Optional.empty(), description, category, supplier);
     }
     @Override
     public int getProductCode() {
@@ -81,10 +63,7 @@ public final class ProductImpl implements Product, Serializable {
     public Double getPurchasePrice() {
         return purchasePrice;
     }
-    @Override
-    public Optional<Integer> getDiscountPercentage() {
-            return this.discountPercentage;
-    }
+
     @Override
     public String getDescription() {
         return this.description;
@@ -92,13 +71,6 @@ public final class ProductImpl implements Product, Serializable {
     @Override
     public Category getCategory() {
         return this.category;
-    }
-    @Override
-    public Supplier getSupplier() {
-        return this.supplier;
-    }
-    public Double getDiscountedSallingPrice() {
-        return this.sellingPrice - this.sellingPrice * this.discountPercentage.orElse(0) / 100;
     }
     @Override
     public void setName(final String name) {
@@ -120,14 +92,7 @@ public final class ProductImpl implements Product, Serializable {
     public void setCategory(final Category category) {
         this.category = category;
     }
-    @Override
-    public void setDiscountPercentage(final int discount) {
-        if (discount < 0 || discount > 100) {
-            throw new IllegalArgumentException();
-        } else {
-            this.discountPercentage = Optional.of(discount);
-        }
-    }
+ 
     @Override
     public int hashCode() {
         final int prime = 31;

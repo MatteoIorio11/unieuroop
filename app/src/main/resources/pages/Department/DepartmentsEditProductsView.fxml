@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<BorderPane prefHeight="444.0" prefWidth="660.0" stylesheets="@../Workspace-ProgettoOOP/unieuroop/app/src/main/resources/pages/styles.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ComboBox fx:id="cmboxDepartments" prefWidth="150.0">
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+         </children>
+      </GridPane>
+   </top>
+   <center>
+      <ListView fx:id="listProductsTaken" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+      </ListView>
+   </center>
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnConfirm" mnemonicParsing="false" text="Confirm" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="btnRemoveProducts" mnemonicParsing="false" text="Remove Products" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </bottom>
+</BorderPane>

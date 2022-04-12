@@ -24,7 +24,7 @@ import unieuroop.model.product.ProductImpl;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.model.supplier.SupplierImpl;
 
-public class ViewDepartments implements Initializable{
+public class ViewDepartmentsImpl implements Initializable{
     @FXML
     ListView lstView_departments;
     @FXML
@@ -36,9 +36,9 @@ public class ViewDepartments implements Initializable{
     private static final LocalTime TIME_START = LocalTime.now();
     private static final LocalTime TIME_FINISH = LocalTime.of(10, 10);
     private Department department; 
-    private final Staff staff1 = new Staff("Nome1", "Cognome1", ViewDepartments.TIME_NOW,
-            0, "email1@gmail.com", 1, Map.of(DayOfWeek.of(0), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    private final Staff staff2 = new Staff("Nome2", "Cognome2", ViewDepartments.TIME_NOW,
+    private final Staff staff1 = new Staff("Nome1", "Cognome1", ViewDepartmentsImpl.TIME_NOW,
+            0, "email1@gmail.com", 1, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+    private final Staff staff2 = new Staff("Nome2", "Cognome2", ViewDepartmentsImpl.TIME_NOW,
             0, "email2@gmail.csom", 1, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
 
     @Override

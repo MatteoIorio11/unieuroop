@@ -1,9 +1,11 @@
 package unieuroop.model.person;
 
+import java.beans.ConstructorProperties;
 import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -11,9 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javafx.util.Pair;
 
-public class Staff extends AbstractPerson implements Serializable {
-
-    private static final long serialVersionUID = 3841944704413502446L;
+public class Staff extends AbstractPerson {
     private final Integer id;
     private final String email;
     private final Integer password;
@@ -33,7 +33,19 @@ public class Staff extends AbstractPerson implements Serializable {
         this.password = password;
         this.workTime = workTime;
     }
-
+//    public Staff(final String name, 
+//            final String surname, 
+//            final LocalDate birthdayDate,
+//            final Integer id,
+//            final String email,
+//            final Integer password,
+//            final Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime) {
+//        super(name, surname, birthdayDate);
+//        this.id = id;
+//        this.email = email;
+//        this.password = password;
+//        this.workTime = workTime;
+//    }
     /**
      * @return id of the Staff
      */
@@ -65,6 +77,13 @@ public class Staff extends AbstractPerson implements Serializable {
         } else {
             throw new IllegalArgumentException("day out of workDays");
         }
+    }
+    /**
+     * @param day 
+     * @return return the workTime of the Staff based on the day of the week
+     */
+    public Map<DayOfWeek, Pair<LocalTime, LocalTime>> getWorkingTimeTable() {
+        return Map.copyOf(this.workTime);
     }
 
     /**

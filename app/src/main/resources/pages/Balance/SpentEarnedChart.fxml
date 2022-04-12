@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedAreaChart?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="550.0" prefWidth="628.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<BorderPane prefHeight="550.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -17,11 +18,14 @@
                <bottom>
                   <StackedAreaChart id="areaChartSpentEarned" fx:id="areaChart" prefHeight="331.0" prefWidth="626.0" BorderPane.alignment="CENTER">
                      <xAxis>
-                        <NumberAxis label="amount" side="BOTTOM" fx:id="xAxis" />
+                        <NumberAxis label="year" side="BOTTOM" fx:id="xAxis" />
                      </xAxis>
                      <yAxis>
-                        <NumberAxis fx:id="yAxis" label="year" minorTickLength="0.0" side="LEFT" tickLabelGap="1.0" tickLength="1.0" tickUnit="0.0" />
+                        <NumberAxis fx:id="yAxis" label="amount" minorTickLength="0.0" side="LEFT" tickLabelGap="1.0" tickLength="1.0" tickUnit="0.0" />
                      </yAxis>
+                     <BorderPane.margin>
+                        <Insets right="5.0" />
+                     </BorderPane.margin>
                   </StackedAreaChart>
                </bottom>
                <center>
@@ -34,8 +38,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <PieChart id="pieChartSpent" fx:id="chartSpent" title="total spent (last 30 days)" />
-                        <PieChart id="pieChartEarned" fx:id="chartEarned" title="last earned (last 30 days)" GridPane.columnIndex="1" />
+                        <PieChart id="pieChartSpent" fx:id="chartSpent" title="total spent (this year)" />
+                        <PieChart id="pieChartEarned" fx:id="chartEarned" title="last earned (this year)" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                </center>

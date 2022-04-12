@@ -2,7 +2,6 @@ package unieuroop.model.analytic;
 
 import java.util.Set;
 import java.util.Map;
-import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.time.LocalDate;
 import java.time.Month;
@@ -33,10 +32,9 @@ public interface Analytic {
     int getQuantitySoldOf(Product product, Predicate<LocalDate> date);
 
     /**
-     * PR : inside the view we build the set of categories, then inside the predicate we only check 
-     * if ( a )  -> set.contains( a ).
+     * This method returns the Map with only the products that are positive to the predicate's test.
      * @param categories : specifies which categories we have to consider
-     * @return a Map that contains all the Product of the specified categories with theri quantity
+     * @return a Map that contains all the Product of the specified categories with their quantity
      */
     Map<Product, Integer> getOrderedByCategory(Predicate<Category> categories);
 
@@ -52,20 +50,13 @@ public interface Analytic {
      * @param datePredicate : specifies which dates we have to consider
      * @return a Map with key a Date and value the Set of all products sold in that specific day
      */
-    Map<LocalDate, Set<Product>> getSoldOnDay(Predicate<LocalDate> datePredicate);
-
-    /**
-     * This method find all the product sold in a date or a range of date which categories pass the test of the BiPredicate.
-     * @param predicate which categories have to be select in a specific Date
-     * @return the Set of all products sold in a specific Date of different categories
-     */
-    Set<Product> getProductByDateCategory(BiPredicate<LocalDate, Category> predicate);
+    Map<LocalDate, Integer> getSoldOnDay(Predicate<LocalDate> datePredicate);
 
     /**
      * This method return all categories sold with the complete Set of all product .
      * @return the Map contains the Category and the complete Set of all product sold of that specific Category 
      */
-    Map<Category, Set<Product>> getCategoriesSold();
+    Map<Category, Integer> getCategoriesSold();
     /**
      * This method return the sum of all bills in the same year.
      * @return a Map where the Key is the Year and in the Value we can find the total spent in that year.
