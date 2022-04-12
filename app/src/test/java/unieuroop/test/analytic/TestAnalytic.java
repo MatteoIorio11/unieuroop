@@ -272,7 +272,6 @@ public class TestAnalytic {
         final LocalDate dateTemp = LocalDate.of(TestAnalytic.YEAR_TEST, TestAnalytic.MONTH_TEST, TestAnalytic.DAY_TEST);
         final Sale saleTest = new SaleImpl(dateTemp, Map.of(p8, 1), Optional.empty());
         int totalProducts = products.get(LocalDate.now());
-        final int totalQuantityTemp = TestAnalytic.TOTAL_SOLD_NOW + 1;
 
         assertNotEquals(Collections.emptyMap(), products);
         assertEquals(1, products.size());
@@ -284,7 +283,7 @@ public class TestAnalytic {
         totalProducts = products.get(LocalDate.now());
         assertNotEquals(Collections.emptyMap(), products);
         assertEquals(2, products.size());
-        assertEquals(totalQuantityTemp, totalProducts);
+        assertEquals(TestAnalytic.TOTAL_SOLD_NOW, totalProducts);
     }
 
     /**
