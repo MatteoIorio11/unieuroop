@@ -120,4 +120,13 @@ public class TestStock {
         assertEquals(List.of(p2, p1, p3), productsGrowing);
         assertEquals(List.of(p3, p1, p2), productsDecreasing);
     }
+
+    @Test
+    public void testGetMax() {
+        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
+        this.shop.getStock().addProducts(Map.of(p1, 1, p2, 10));
+        assertEquals(10, this.shop.getStock().getMaxAmountOfProducts());
+
+    }
 }
