@@ -36,8 +36,10 @@ public final class ControllerClientImpl {
         serializationClient();
     }
 
-    public void editClient(final String name, final String surname, final LocalDate birthday) {
-        addClient(name, surname, birthday);
+    public void editClient(final String name, final String surname, final LocalDate birthday, final Client client) {
+        client.setClientName(name);
+        client.setClientSurname(surname);
+        client.setClientBirthday(birthday);
     }
 
     public void deleteClient(final Client client) {
