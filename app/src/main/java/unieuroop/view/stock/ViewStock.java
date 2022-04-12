@@ -64,7 +64,7 @@ public class ViewStock implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadProducts(this.controllerStock.getProductsStocked());
+        loadProducts();
     }
 
     /**
@@ -130,11 +130,10 @@ public class ViewStock implements Initializable {
 
     /**
      * 
-     * @param products
      */
-    private void loadProducts(final Map<Product, Integer> products) {
+    private void loadProducts() {
         this.listProductsStocked.getItems().clear();
-        for (final Map.Entry<Product, Integer> entryProduct : products.entrySet()) {
+        for (final Map.Entry<Product, Integer> entryProduct : this.controllerStock.getProductsStocked().entrySet()) {
             try {
                 this.listProductsStocked.getItems().add(entryProduct.getKey());
             } catch (InputMismatchException e) {
