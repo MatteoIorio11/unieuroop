@@ -9,8 +9,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +26,8 @@ import unieuroop.model.person.Staff;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
+import unieuroop.model.sale.Sale;
+import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.stock.Stock;
 import unieuroop.model.stock.StockImpl;
 
@@ -46,12 +48,19 @@ public class TestSerialization {
     private final Department d1 = new DepartmentImpl("department1", Set.of(this.s, this.s1), Map.of(p, 10, p1, 10, p2, 2, p3, 32, p4, 32));
     private final Department d2 = new DepartmentImpl("department2", Set.of(this.s, this.s2), Map.of(p, 4, p1, 2, p5, 11, p6, 34));
     private final Department d3 = new DepartmentImpl("department3", Set.of(this.s1, this.s2), Map.of(p, 15, p7, 1, p2, 21, p5, 2, p4, 16));
-   
+
     private final Client c1 = new Client("name1", "surname1", LocalDate.now(), 0);
     private final Client c2 = new Client("name2", "surname2", LocalDate.now(), 1);
     private final Client c3 = new Client("name3", "surname3", LocalDate.now(), 2);
     private final Client c4 = new Client("name4", "surname4", LocalDate.now(), 3);
     private final Client c5 = new Client("name5", "surname5", LocalDate.now(), 4);
+
+    private final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p, 10, p1, 13), Optional.of(c1));
+    private final Sale sale2 = new SaleImpl(LocalDate.of(2010, 3, 22), Map.of(p2, 140, p3, 82), Optional.of(c2));
+    private final Sale sale3 = new SaleImpl(LocalDate.of(2020, 10, 17), Map.of(p, 23, p5, 72, p4, 1), Optional.empty());
+    private final Sale sale4 = new SaleImpl(LocalDate.of(2022, 9, 1), Map.of(p, 10, p7, 13, p6, 72), Optional.of(c3));
+    private final Sale sale5 = new SaleImpl(LocalDate.of(2017, 12, 17), Map.of(p3, 23), Optional.of(c4));
+    private final Sale sale6 = new SaleImpl(LocalDate.of(2012, 3, 12), Map.of(p4, 3, p5, 3, p6, 1), Optional.of(c5));
     @Before
     public void setUp() throws Exception {
     }
@@ -96,6 +105,13 @@ public class TestSerialization {
         Serialization.<Map<LocalDate, Double>>serialize(Files.BILLS.getPath(), bills);
         final var deserializedBills = Serialization.<Map<LocalDate, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<LocalDate, Double>>() { });
         assertEquals(deserializedBills, bills);
+    }
+    @Test
+    public void testSales() throws IOException, ClassNotFoundException {
+        final Set<Sale> sales = Set.of(sale1, sale2, sale3, sale4, sale5, sale6);
+        Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), sales);
+        final Set<Sale> deserializedSales = Serialization.<Set<Sale>>deserialize(Files.SALES.getPath(), new TypeReference<Set<Sale>>() { });
+        assertEquals(deserializedSales, sales);
     }
 
 }

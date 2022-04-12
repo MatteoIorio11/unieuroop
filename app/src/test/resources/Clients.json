@@ -1,4 +1,9 @@
 [ {
+  "name" : "name2",
+  "surname" : "surname2",
+  "birthdayDate" : [ 2022, 4, 12 ],
+  "clientCode" : 1
+}, {
   "name" : "name3",
   "surname" : "surname3",
   "birthdayDate" : [ 2022, 4, 12 ],
@@ -18,9 +23,4 @@
   "surname" : "surname1",
   "birthdayDate" : [ 2022, 4, 12 ],
   "clientCode" : 0
-}, {
-  "name" : "name2",
-  "surname" : "surname2",
-  "birthdayDate" : [ 2022, 4, 12 ],
-  "clientCode" : 1
 } ]
