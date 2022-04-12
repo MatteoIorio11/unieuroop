@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -59,11 +58,13 @@ public final class ViewMainMenu implements Initializable {
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop())));
+        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop()), 
+                new ControllerAnalyticImpl(this.controller.getShop())));
     }
     @FXML
     public void btnDashBoardHandler(final ActionEvent event) {
-        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop())));
+        this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop()), 
+                new ControllerAnalyticImpl(this.controller.getShop())));
     }
     @FXML
     public void btnStockHandler(final ActionEvent event) {

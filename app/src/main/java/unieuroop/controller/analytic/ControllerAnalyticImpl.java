@@ -81,4 +81,8 @@ public final class ControllerAnalyticImpl implements ControllerAnalytic {
     public double getTotalSpent() {
         return this.analytic.getTotalAmountSpent();
     }
+    @Override
+    public boolean isEarning() {
+        return this.getTotalSpent() < this.getShopEarnings();
+    }
 }

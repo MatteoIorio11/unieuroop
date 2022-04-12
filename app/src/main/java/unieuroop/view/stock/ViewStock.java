@@ -1,6 +1,5 @@
 package unieuroop.view.stock;
 
-import java.awt.Desktop.Action;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -31,10 +30,8 @@ import javafx.util.Pair;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.product.Product;
-import unieuroop.view.client.ViewChoseClient;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
-import unieuroop.view.sale.ViewLabelSale;
 
 public class ViewStock implements Initializable {
 
@@ -75,7 +72,7 @@ public class ViewStock implements Initializable {
      */
     @FXML
     public void btnBuyProductsHandler() {
-        listProductsStocked.getItems().clear();
+        this.listProductsStocked.getItems().clear();
         try {
             final Stage windowBuyProducts = Loader.<ViewStockBuyProducts>loadStage(Pages.STOCK_BUY_PRODUCTS.getPath(), "Buy Products", new ViewStockBuyProducts(this, this.controllerStock), 500, 600);
             final Stage mainStage = (Stage) this.btnBuyProducts.getScene().getWindow();
@@ -88,14 +85,37 @@ public class ViewStock implements Initializable {
         }
     }
 
+    /**
+     * 
+     */
     @FXML
     public void btnDeleteProductsHandler() {
-        
+        if (this.listProductsStocked.getSelectionModel().getSelectedItem() != null) {
+            this.controllerStock.deleteSelectedProduct(this.listProductsStocked.getSelectionModel().getSelectedItem());
+        } else {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Impossible Delete a Product");
+            alert.setContentText("Select first the product to * Permanently Delete * from the Stock.");
+            alert.showAndWait();
+        }
     }
 
+    /**
+     * 
+     */
     @FXML
     public void btnSearchFiltersHandler() {
-        
+        this.listProductsStocked.getItems().clear();
+        try {
+            final Stage windowSetFilters = Loader.<ViewStockSetFilters>loadStage(Pages.STOCK_SET_SEARCH_FILTER.getPath(), "Set Search Filters", new ViewStockSetFilters(this, this.controllerStock), 500, 500);
+            final Stage mainStage = (Stage) this.btnBuyProducts.getScene().getWindow();
+            mainStage.hide();
+            windowSetFilters.showAndWait();
+            mainStage.show();
+        } catch (IOException e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+        }
     }
 
     @FXML

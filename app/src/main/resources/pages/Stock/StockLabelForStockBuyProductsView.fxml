@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane prefHeight="50.0" prefWidth="555.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="50.0" prefWidth="555.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <columnConstraints>
       <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="289.0" minWidth="10.0" prefWidth="270.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="230.0" />
