@@ -45,7 +45,34 @@ public class TestStock {
         final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
         final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
         this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
-        this.shop.getStock().takeFromStock(Map.of(p1, 1));
-        assertEquals(Map.of(p1, 0, p2, 2, p3, 1), this.shop.getStock().getTotalStock());
+        try {
+            this.shop.getStock().takeFromStock(Map.of(p1, 1));
+            assertEquals(Map.of(p1, 0, p2, 2, p3, 1), this.shop.getStock().getTotalStock());
+        } catch (IllegalArgumentException ex) {
+            fail("No exception have to be thrown");
+        }
+    }
+
+    @Test
+    public void testTakeFromStock2() {
+        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
+        final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+        this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
+        try {
+            this.shop.getStock().takeFromStock(Map.of(p1, 2));
+            fail("Exception must be throwned.");
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Some products can not be taken", ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testDeleteProduct() {
+        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
+        final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+        this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
+
     }
 }
