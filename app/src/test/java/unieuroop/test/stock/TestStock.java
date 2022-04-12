@@ -3,6 +3,7 @@ package unieuroop.test.stock;
 import static org.junit.Assert.*;
 
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -68,11 +69,36 @@ public class TestStock {
     }
 
     @Test
-    public void testDeleteProduct() {
+    public void testDeleteProduct1() {
+        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+        this.shop.getStock().addProducts(Map.of(p1, 1));
+        try {
+            this.shop.getStock().deleteProducts(Set.of(p1));
+        } catch (IllegalArgumentException ex) {
+            fail("product p1 exist inside the stock.");
+        }
+    }
+
+    @Test
+    public void testDeleteProduct2() {
+        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
+        final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+        this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2));
+        try {
+            this.shop.getStock().deleteProducts(Set.of(p3));
+            fail("product p3 does not exist inside the stock.");
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Some products can not be deleted", ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testFilterProducts() {
         final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
         final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
         final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
         this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
-
+        assertEquals(Map.of(p1, 1), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.SMARTPHONE));
     }
 }
