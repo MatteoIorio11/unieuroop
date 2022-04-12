@@ -37,6 +37,10 @@ public class TestShop {
     private static final LocalDate DATE_NOW = LocalDate.now();
     private static final LocalTime TIME_START = LocalTime.now();
     private static final LocalTime TIME_FINISH = LocalTime.of(10, 10);
+    private static final double P1_PRICE = 100;
+    private static final double P2_PRICE = 50;
+    private static final double P3_PRICE = 20;
+    private static final double P4_PRICE = 15;
     private Department department1;
     private Department department2;
     private Department department3;
@@ -91,6 +95,7 @@ public class TestShop {
      */
     @Test
     public void testSupplyDepartment() {
+        this.shop01.getStock().addProducts(Map.of(p1,5, p2, 2, p3, 3, p4, 1));
         this.shop01.supplyDepartment(department1, Map.of(p1,5, p2, 2, p3, 3, p4, 1));
         assertEquals(Map.of(p1, 10, p2, 3, p3, 5, p4, 3), this.department1.getAllProducts());
     }
