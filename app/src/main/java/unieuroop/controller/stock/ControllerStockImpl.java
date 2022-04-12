@@ -1,8 +1,10 @@
 package unieuroop.controller.stock;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -19,9 +21,27 @@ import unieuroop.model.supplier.Supplier;
 public class ControllerStockImpl {
 
     private final Shop shop;
+    private List<Product> listProductsStocked;
+    private Map<Product, Integer> productsBought;
 
     public ControllerStockImpl(final Shop shop) {
         this.shop = shop;
+        this.listProductsStocked = new ArrayList<>(this.shop.getStock().getTotalStock().keySet());
+    }
+
+    /**
+     * 
+     * @param productBuying
+     */
+    public void addProductBuying(Map<Product, Integer> productBuying) {
+        this.productsBought.putAll(productBuying);
+    }
+
+    /**
+     * 
+     */
+    public void addProductsBoughtInStock() {
+        this.shop.getStock().addProducts(this.productsBought);
     }
 
     /**
@@ -30,6 +50,21 @@ public class ControllerStockImpl {
      */
     public Map<Product, Integer> getProductsStocked() {
         return this.shop.getStock().getTotalStock();
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public List<Product> getListProductsStocke() {
+        return this.listProductsStocked;
+    }
+
+    /**
+     * 
+     */
+    public void resetListproductsStocked() {
+        this.listProductsStocked = new ArrayList<>(this.shop.getStock().getTotalStock().keySet());
     }
 
     /**

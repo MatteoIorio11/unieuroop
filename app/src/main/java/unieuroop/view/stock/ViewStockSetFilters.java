@@ -41,6 +41,8 @@ public class ViewStockSetFilters implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //this.sliderMaxAmount.setMax((double) this.controllerStock.getMaxAmountproducts());
         //this.sliderMinAmount.setMax((double) this.controllerStock.getMaxAmountproducts());
+        this.sliderMaxAmountHandler();
+        this.sliderMinAmountHandler();
         this.cmboxCategories.getItems().addAll(this.controllerStock.getCategory());
     }
 
