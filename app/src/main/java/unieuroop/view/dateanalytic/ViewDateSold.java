@@ -33,20 +33,20 @@ public final class ViewDateSold implements Initializable {
     private List<LocalDate> selectedDates = new LinkedList<>();
     private Optional<LocalDate> start = Optional.empty();
     private Optional<LocalDate> end = Optional.of(LocalDate.now());
-    private final XYChart.Series<String, Integer> serie2;
+    private final XYChart.Series<String, Integer> inpuDataSerie;
     public ViewDateSold(final ControllerAnalytic controller) {
         this.controller = controller;
-        this.serie2 = new XYChart.Series<>();
+        this.inpuDataSerie = new XYChart.Series<>();
     }
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.barSelectedDates.setLegendVisible(false);
         this.barTotalSoldYear.setLegendVisible(false);
-        final XYChart.Series<String, Double> serie1 = new XYChart.Series<>();
-        this.controller.getTotalEarnedByYear().entrySet().stream().sorted((entry1, entry2) -> Integer.compare(entry1.getKey(), entry2.getKey())).forEach((entry) -> serie1.getData()
+        final XYChart.Series<String, Double> dataSerie = new XYChart.Series<>();
+        this.controller.getTotalEarnedByYear().entrySet().stream().sorted((entry1, entry2) -> Integer.compare(entry1.getKey(), entry2.getKey())).forEach((entry) -> dataSerie.getData()
                 .add(new XYChart.Data<String, Double>(String.valueOf(entry.getKey()), entry.getValue())));
-        this.barTotalSoldYear.getData().add(serie1);
+        this.barTotalSoldYear.getData().add(dataSerie);
     }
 
     @FXML
@@ -70,8 +70,8 @@ public final class ViewDateSold implements Initializable {
         final var string = this.listDates.getSelectionModel().getSelectedItem();
         if (string != null) {
             final var code = string.split(":")[1].split("\n")[0].split(" ")[1];
-            final var d = this.barSelectedDates.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
-                    d.get().getNode().setStyle("-fx-bar-fill: blue;");
+            final var dataSerie = this.barSelectedDates.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
+                    dataSerie.get().getNode().setStyle("-fx-bar-fill: blue;");
         }
     }
 
@@ -85,14 +85,14 @@ public final class ViewDateSold implements Initializable {
     }
     private void calculateMap() {
         final var calculatedMap = this.controller.getSelectedDate(this.start.get(), this.end.get());
-        this.serie2.getData().clear();
+        this.inpuDataSerie.getData().clear();
         this.listDates.getItems().clear();
         if (!calculatedMap.isEmpty()) {
             this.selectedDates = calculatedMap.entrySet().stream()
                     .map((entry) -> entry.getKey())
                     .collect(Collectors.toList());
             calculatedMap.forEach((date, quantity) -> 
-            this.serie2.getData().add(new XYChart.Data<String, Integer>(String.valueOf(this.selectedDates.indexOf(date)), quantity)));
+            this.inpuDataSerie.getData().add(new XYChart.Data<String, Integer>(String.valueOf(this.selectedDates.indexOf(date)), quantity)));
             this.listDates.getItems().addAll(this.selectedDates.stream()
                     .map((date) -> String.valueOf("Code : " + this.selectedDates.indexOf(date) + "\n" + "Date : " + date))
                     .collect(Collectors.toList()));
@@ -101,6 +101,6 @@ public final class ViewDateSold implements Initializable {
         final var upperBound = this.start.get().isAfter(this.end.get()) ? this.start.get() : this.end.get();
         this.labelDates.setText("Date from : " + lowerBound + " to " + upperBound);
         this.barSelectedDates.getData().clear();
-        this.barSelectedDates.getData().add(serie2);
+        this.barSelectedDates.getData().add(inpuDataSerie);
     }
 }

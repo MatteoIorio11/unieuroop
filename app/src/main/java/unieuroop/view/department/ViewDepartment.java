@@ -64,7 +64,7 @@ public final class ViewDepartment implements Initializable {
     }
 
     private void populateList() {
-        for (final Department department : this.controllerDepartment.getDepartments()){
+        for (final Department department : this.controllerDepartment.getDepartments()) {
             try {
                 final Pane pane = Loader.<ViewLabelDepartment>loadPane(Pages.PROTOTYPE_LABEL.getPath(), 
                         new ViewLabelDepartment(department, this.controllerStaff, this.controllerDepartment));

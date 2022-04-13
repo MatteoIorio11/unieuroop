@@ -74,12 +74,12 @@ public final class ViewCategoriesSold implements Initializable {
     }
     private void displayChart() {
         this.barProductsSold.getData().clear();
-        final XYChart.Series<String, Integer> serie = new XYChart.Series<>();
-        serie.setName("Products");
+        final XYChart.Series<String, Integer> productSerie = new XYChart.Series<>();
+        productSerie.setName("Products");
         final var categoriesSold =  this.controller.getProductsSoldByCategory(selectedCategories);
         this.barProductsSold.getData().clear();
         categoriesSold.entrySet().forEach((entry) ->
-            serie.getData().add(new XYChart.Data<String, Integer>(String.valueOf(entry.getKey().getProductCode()), entry.getValue())));
+            productSerie.getData().add(new XYChart.Data<String, Integer>(String.valueOf(entry.getKey().getProductCode()), entry.getValue())));
         this.listLegend.getItems().clear();
         this.listSelectedCategories.getItems().clear();
         final var out = categoriesSold.entrySet().stream().map((entry) -> "Code : " + entry.getKey().getProductCode() + "\n" 
@@ -90,6 +90,6 @@ public final class ViewCategoriesSold implements Initializable {
 
         this.listSelectedCategories.getItems().addAll(this.selectedCategories.stream()
                 .map((cat) -> cat.toString()).collect(Collectors.toList()));
-        this.barProductsSold.getData().add(serie);
+        this.barProductsSold.getData().add(productSerie);
     }
 }

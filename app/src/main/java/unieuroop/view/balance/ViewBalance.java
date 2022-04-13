@@ -16,14 +16,10 @@ import javafx.scene.chart.XYChart;
 import unieuroop.controller.analytic.ControllerAnalytic;
 
 public final class ViewBalance implements Initializable {
-    @FXML
-    private PieChart chartSpent;
-    @FXML
-    private PieChart chartEarned;
-    @FXML
-    private StackedAreaChart<Integer, Double> areaChart;
-    @FXML
-    private NumberAxis xAxis;
+    @FXML private PieChart chartSpent;
+    @FXML private PieChart chartEarned;
+    @FXML private StackedAreaChart<Integer, Double> areaChart;
+    @FXML private NumberAxis xAxis;
 
     private final ControllerAnalytic controller;
     public ViewBalance(final ControllerAnalytic controller) {
@@ -46,12 +42,12 @@ public final class ViewBalance implements Initializable {
                         )
                 )
         );
-        final XYChart.Series<Integer, Double> serie1 = new XYChart.Series<>();
-        serie1.setName("Spent");
-        final XYChart.Series<Integer, Double> serie2 = new XYChart.Series<>();
-        serie2.setName("Earned");
-        this.controller.getTotalEarnedByYear().entrySet().forEach((entry) ->  serie2.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
-        this.controller.getYearsTotalSpent().entrySet().forEach((entry) -> serie1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
+        final XYChart.Series<Integer, Double> spentSerie = new XYChart.Series<>();
+        spentSerie.setName("Spent");
+        final XYChart.Series<Integer, Double> earnedSerie = new XYChart.Series<>();
+        earnedSerie.setName("Earned");
+        this.controller.getTotalEarnedByYear().entrySet().forEach((entry) ->  earnedSerie.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
+        this.controller.getYearsTotalSpent().entrySet().forEach((entry) -> spentSerie.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue())));
 
         final var lowerEarned = this.controller.getTotalEarnedByYear().entrySet().stream()
                 .map((entry) -> entry.getKey()).sorted(Integer::compare).findFirst();
@@ -61,13 +57,13 @@ public final class ViewBalance implements Initializable {
             xAxis.setLowerBound(lowerEarned.get() > upperEarned.get() ? upperEarned.get() : lowerEarned.get());
             xAxis.setUpperBound(lowerEarned.get() < upperEarned.get() ? upperEarned.get() : lowerEarned.get());
         }
-        areaChart.getData().add(serie1);
-        areaChart.getData().add(serie2);
         xAxis.setAutoRanging(false);
         xAxis.setTickUnit(2);
+        areaChart.getData().add(spentSerie);
+        areaChart.getData().add(earnedSerie);
         chartSpent.setData(pieChartData);
-        chartSpent.setLegendVisible(false);
         chartEarned.setData(secondPieChartData);
+        chartSpent.setLegendVisible(false);
         chartEarned.setLegendVisible(false);
     }
 }
