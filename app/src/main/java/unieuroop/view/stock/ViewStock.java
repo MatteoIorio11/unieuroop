@@ -52,6 +52,8 @@ public class ViewStock implements Initializable {
 
     private final ControllerStockImpl controllerStock;
     private final ViewMainMenu viewMenu;
+    private boolean increasingOrderList;
+    private boolean decreasingOrderList;
 
 
     public ViewStock(final ViewMainMenu view, final ControllerStockImpl controllerStock) {
@@ -64,7 +66,8 @@ public class ViewStock implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadProducts(this.controllerStock.getProductsStocked());
+        loadProducts();
+        this.rdbtnIncreasingHandler();
     }
 
     /**
@@ -118,25 +121,38 @@ public class ViewStock implements Initializable {
         }
     }
 
+    /**
+     * 
+     */
     @FXML
     public void rdbtnIncreasingHandler() {
-        
-    }
-
-    @FXML
-    public void rdbtnDecreasingHandler() {
-        
+        this.increasingOrderList = true;
+        this.decreasingOrderList = false;
+        this.rdbtnIncreasing.setSelected(increasingOrderList);
+        this.rdbtnDecreasing.setSelected(decreasingOrderList);
+        //Load List increasing
     }
 
     /**
      * 
-     * @param products
      */
-    private void loadProducts(final Map<Product, Integer> products) {
+    @FXML
+    public void rdbtnDecreasingHandler() {
+        this.increasingOrderList = false;
+        this.decreasingOrderList = true;
+        this.rdbtnIncreasing.setSelected(increasingOrderList);
+        this.rdbtnDecreasing.setSelected(decreasingOrderList);
+        //Load List decreasing
+    }
+
+    /**
+     * 
+     */
+    private void loadProducts() {
         this.listProductsStocked.getItems().clear();
-        for (final Map.Entry<Product, Integer> entryProduct : products.entrySet()) {
+        for (final Product product : this.controllerStock.getListProductsStocke()) {
             try {
-                this.listProductsStocked.getItems().add(entryProduct.getKey());
+                this.listProductsStocked.getItems().add(product);
             } catch (InputMismatchException e) {
                 final Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText(e.getMessage());

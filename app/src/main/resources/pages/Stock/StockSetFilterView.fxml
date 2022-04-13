@@ -33,7 +33,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <Slider fx:id="sliderMinAmount" majorTickUnit="50.0" max="500.0" showTickLabels="true" showTickMarks="true" GridPane.rowIndex="2">
+            <Slider fx:id="sliderMinAmount" majorTickUnit="50.0" max="500.0" onMouseReleased="#sliderMinAmountHandler" showTickLabels="true" showTickMarks="true" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" right="10.0" />
                </GridPane.margin>
@@ -54,7 +54,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <Slider fx:id="sliderMaxAmount" majorTickUnit="50.0" max="500.0" showTickLabels="true" showTickMarks="true" GridPane.rowIndex="4">
+            <Slider fx:id="sliderMaxAmount" majorTickUnit="50.0" max="500.0" onMouseReleased="#sliderMaxAmountHandler" showTickLabels="true" showTickMarks="true" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="5.0" right="10.0" />
                </GridPane.margin>
