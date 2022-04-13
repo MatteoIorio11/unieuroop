@@ -30,6 +30,8 @@ import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.stock.Stock;
 import unieuroop.model.stock.StockImpl;
+import unieuroop.model.supplier.Supplier;
+import unieuroop.model.supplier.SupplierImpl;
 
 public class TestSerialization {
 
@@ -61,6 +63,10 @@ public class TestSerialization {
     private final Sale sale4 = new SaleImpl(LocalDate.of(2022, 9, 1), Map.of(p, 10, p7, 13, p6, 72), Optional.of(c3));
     private final Sale sale5 = new SaleImpl(LocalDate.of(2017, 12, 17), Map.of(p3, 23), Optional.of(c4));
     private final Sale sale6 = new SaleImpl(LocalDate.of(2012, 3, 12), Map.of(p4, 3, p5, 3, p6, 1), Optional.of(c5));
+
+    private final Supplier supp1 = new SupplierImpl("name1", Map.of(p1, 100.0, p2, 120.0, p3, 620.0));
+    private final Supplier supp2 = new SupplierImpl("name2", Map.of(p3, 52.0, p6, 732.0, p1, 152.0, p5, 261.0));
+    private final Supplier supp3 = new SupplierImpl("name3", Map.of(p2, 100.0, p5, 823.0, p1, 220.5));
     @Before
     public void setUp() throws Exception {
     }
@@ -123,5 +129,15 @@ public class TestSerialization {
         Serialization.<String>serialize(Files.SHOPNAME.getPath(), shopName);
         final String deserializedShopName = Serialization.<String>deserialize(Files.SHOPNAME.getPath(), new TypeReference<String>() { });
         assertEquals(shopName, deserializedShopName);
+    }
+    @Test
+    public void testSuppliers() throws IOException, ClassNotFoundException {
+        final Set<Supplier> suppliers = Set.of(supp1, supp2, supp3);
+        Serialization.<Set<Supplier>>serialize(Files.SUPPLIERS.getPath(), suppliers);
+        final Set<Supplier> deserializedSuppliers = Serialization.<Set<Supplier>>deserialize(Files.SUPPLIERS.getPath(), new TypeReference<Set<Supplier>>() { });
+        assertTrue(suppliers.stream().allMatch((suppl) -> deserializedSuppliers.stream().anyMatch((supplD) -> suppl.getName().equals(supplD.getName()))));
+        assertTrue(suppliers.stream()
+                .allMatch(suppl1 -> deserializedSuppliers.stream().anyMatch((suppl2) -> suppl1.getCatalog().entrySet().stream()
+                        .anyMatch((product) -> suppl1.getCatalog().entrySet().contains(product)))));
     }
 }
