@@ -67,7 +67,7 @@ public final class ViewDashboardImpl implements Initializable {
             try {
                 final var stage = Loader.loadStage(Pages.SALE_PRODUCTS.getPath(), "Products", new ViewSaleProductsImpl(selected.get()), 300, 300);
                 stage.initModality(Modality.WINDOW_MODAL);
-                stage.initOwner(((Node)event.getSource()).getScene().getWindow());
+                stage.initOwner(((Node) event.getSource()).getScene().getWindow());
                 stage.show();
             } catch (IOException e) {
                 final Alert alert = new Alert(AlertType.ERROR);
