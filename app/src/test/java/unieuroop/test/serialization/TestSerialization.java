@@ -117,5 +117,11 @@ public class TestSerialization {
                 .allMatch(sale1 -> deserializedSales.stream().anyMatch((sale2) -> sale1.getProducts().stream()
                         .anyMatch((product) -> sale1.getProducts().contains(product)))));
     }
-
+    @Test
+    public void testShopName() throws IOException, ClassNotFoundException {
+        final String shopName = "unieurOOP";
+        Serialization.<String>serialize(Files.SHOPNAME.getPath(), shopName);
+        final String deserializedShopName = Serialization.<String>deserialize(Files.SHOPNAME.getPath(), new TypeReference<String>() { });
+        assertEquals(shopName, deserializedShopName);
+    }
 }

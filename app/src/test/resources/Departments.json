@@ -6,20 +6,20 @@
   "email" : "AAAA",
   "id" : 1,
   "password" : 222,
-  "birthday" : [ 2022, 4, 12 ],
+  "birthday" : [ 2022, 4, 13 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 11, 53, 44, 209950000 ] ],
-  "endTimes" : [ [ 11, 53, 44, 209959000 ] ]
+  "startTimes" : [ [ 11, 36, 14, 748514000 ] ],
+  "endTimes" : [ [ 11, 36, 14, 748523000 ] ]
 }, {
   "name" : "name2",
   "surname" : "surname2",
   "email" : "BBB",
   "id" : 3,
   "password" : 222,
-  "birthday" : [ 2022, 4, 12 ],
+  "birthday" : [ 2022, 4, 13 ],
   "days" : [ "TUESDAY" ],
-  "startTimes" : [ [ 11, 53, 44, 209977000 ] ],
-  "endTimes" : [ [ 11, 53, 44, 209984000 ] ]
+  "startTimes" : [ [ 11, 36, 14, 748543000 ] ],
+  "endTimes" : [ [ 11, 36, 14, 748551000 ] ]
 } ],
   "products" : [ {
     "productCode" : 3,
@@ -71,38 +71,22 @@
   "email" : "BBB",
   "id" : 3,
   "password" : 222,
-  "birthday" : [ 2022, 4, 12 ],
+  "birthday" : [ 2022, 4, 13 ],
   "days" : [ "TUESDAY" ],
-  "startTimes" : [ [ 11, 53, 44, 209977000 ] ],
-  "endTimes" : [ [ 11, 53, 44, 209984000 ] ]
+  "startTimes" : [ [ 11, 36, 14, 748543000 ] ],
+  "endTimes" : [ [ 11, 36, 14, 748551000 ] ]
 }, {
   "name" : "name",
   "surname" : "surname",
   "email" : "ffff",
   "id" : 1,
   "password" : 111,
-  "birthday" : [ 2022, 4, 12 ],
+  "birthday" : [ 2022, 4, 13 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 11, 53, 44, 209891000 ] ],
-  "endTimes" : [ [ 11, 53, 44, 209903000 ] ]
+  "startTimes" : [ [ 11, 36, 14, 748465000 ] ],
+  "endTimes" : [ [ 11, 36, 14, 748474000 ] ]
 } ],
   "products" : [ {
-    "productCode" : 2,
-    "name" : "try1",
-    "brand" : "Brand1",
-    "sellingPrice" : 19.4,
-    "purchasePrice" : 28.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "HOME"
-  }, {
-    "productCode" : 1,
-    "name" : "try",
-    "brand" : "Brand",
-    "sellingPrice" : 11.4,
-    "purchasePrice" : 84.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
-  }, {
     "productCode" : 7,
     "name" : "try6",
     "brand" : "Brand3",
@@ -118,8 +102,24 @@
     "purchasePrice" : 125.0,
     "description" : "bla bla bla bla bla",
     "category" : "TABLET"
+  }, {
+    "productCode" : 2,
+    "name" : "try1",
+    "brand" : "Brand1",
+    "sellingPrice" : 19.4,
+    "purchasePrice" : 28.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "HOME"
+  }, {
+    "productCode" : 1,
+    "name" : "try",
+    "brand" : "Brand",
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
   } ],
-  "values" : [ 2, 4, 34, 11 ]
+  "values" : [ 34, 11, 2, 4 ]
 }, {
   "departmentName" : "department1",
   "staff" : [ {
@@ -128,22 +128,30 @@
   "email" : "AAAA",
   "id" : 1,
   "password" : 222,
-  "birthday" : [ 2022, 4, 12 ],
+  "birthday" : [ 2022, 4, 13 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 11, 53, 44, 209950000 ] ],
-  "endTimes" : [ [ 11, 53, 44, 209959000 ] ]
+  "startTimes" : [ [ 11, 36, 14, 748514000 ] ],
+  "endTimes" : [ [ 11, 36, 14, 748523000 ] ]
 }, {
   "name" : "name",
   "surname" : "surname",
   "email" : "ffff",
   "id" : 1,
   "password" : 111,
-  "birthday" : [ 2022, 4, 12 ],
+  "birthday" : [ 2022, 4, 13 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 11, 53, 44, 209891000 ] ],
-  "endTimes" : [ [ 11, 53, 44, 209903000 ] ]
+  "startTimes" : [ [ 11, 36, 14, 748465000 ] ],
+  "endTimes" : [ [ 11, 36, 14, 748474000 ] ]
 } ],
   "products" : [ {
+    "productCode" : 4,
+    "name" : "try3",
+    "brand" : "Brand1",
+    "sellingPrice" : 18.5,
+    "purchasePrice" : 92.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
     "productCode" : 3,
     "name" : "try2",
     "brand" : "Brand4",
@@ -175,14 +183,6 @@
     "purchasePrice" : 12.0,
     "description" : "bla bla bla bla bla",
     "category" : "PC"
-  }, {
-    "productCode" : 4,
-    "name" : "try3",
-    "brand" : "Brand1",
-    "sellingPrice" : 18.5,
-    "purchasePrice" : 92.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
   } ],
-  "values" : [ 2, 10, 10, 32, 32 ]
+  "values" : [ 32, 2, 10, 10, 32 ]
 } ]

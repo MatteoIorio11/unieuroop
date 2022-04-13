@@ -1,4 +1,33 @@
 [ {
+  "date" : [ 2020, 10, 17 ],
+  "products" : [ {
+    "productCode" : 1,
+    "name" : "try",
+    "brand" : "Brand",
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
+    "productCode" : 6,
+    "name" : "try5",
+    "brand" : "Brand2",
+    "sellingPrice" : 234.3,
+    "purchasePrice" : 125.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 5,
+    "name" : "try4",
+    "brand" : "Brand2",
+    "sellingPrice" : 102.4,
+    "purchasePrice" : 12.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  } ],
+  "quantity" : [ 23, 72, 1 ],
+  "client" : null
+}, {
   "date" : [ 2012, 3, 12 ],
   "products" : [ {
     "productCode" : 7,
@@ -29,12 +58,20 @@
   "client" : {
     "name" : "name5",
     "surname" : "surname5",
-    "birthdayDate" : [ 2022, 4, 12 ],
+    "birthdayDate" : [ 2022, 4, 13 ],
     "clientCode" : 4
   }
 }, {
   "date" : [ 2022, 9, 1 ],
   "products" : [ {
+    "productCode" : 7,
+    "name" : "try6",
+    "brand" : "Brand3",
+    "sellingPrice" : 123.9,
+    "purchasePrice" : 135.0,
+    "description" : "bla bla bla bla bla",
+    "category" : "PC"
+  }, {
     "productCode" : 1,
     "name" : "try",
     "brand" : "Brand",
@@ -50,20 +87,12 @@
     "purchasePrice" : 1534.0,
     "description" : "bla bla bla bla bla",
     "category" : "PC"
-  }, {
-    "productCode" : 7,
-    "name" : "try6",
-    "brand" : "Brand3",
-    "sellingPrice" : 123.9,
-    "purchasePrice" : 135.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
   } ],
-  "quantity" : [ 10, 13, 72 ],
+  "quantity" : [ 72, 10, 13 ],
   "client" : {
     "name" : "name3",
     "surname" : "surname3",
-    "birthdayDate" : [ 2022, 4, 12 ],
+    "birthdayDate" : [ 2022, 4, 13 ],
     "clientCode" : 2
   }
 }, {
@@ -89,11 +118,11 @@
   "client" : {
     "name" : "name2",
     "surname" : "surname2",
-    "birthdayDate" : [ 2022, 4, 12 ],
+    "birthdayDate" : [ 2022, 4, 13 ],
     "clientCode" : 1
   }
 }, {
-  "date" : [ 2022, 4, 12 ],
+  "date" : [ 2022, 4, 13 ],
   "products" : [ {
     "productCode" : 1,
     "name" : "try",
@@ -115,7 +144,7 @@
   "client" : {
     "name" : "name1",
     "surname" : "surname1",
-    "birthdayDate" : [ 2022, 4, 12 ],
+    "birthdayDate" : [ 2022, 4, 13 ],
     "clientCode" : 0
   }
 }, {
@@ -133,36 +162,7 @@
   "client" : {
     "name" : "name4",
     "surname" : "surname4",
-    "birthdayDate" : [ 2022, 4, 12 ],
+    "birthdayDate" : [ 2022, 4, 13 ],
     "clientCode" : 3
   }
-}, {
-  "date" : [ 2020, 10, 17 ],
-  "products" : [ {
-    "productCode" : 1,
-    "name" : "try",
-    "brand" : "Brand",
-    "sellingPrice" : 11.4,
-    "purchasePrice" : 84.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
-  }, {
-    "productCode" : 6,
-    "name" : "try5",
-    "brand" : "Brand2",
-    "sellingPrice" : 234.3,
-    "purchasePrice" : 125.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "TABLET"
-  }, {
-    "productCode" : 5,
-    "name" : "try4",
-    "brand" : "Brand2",
-    "sellingPrice" : 102.4,
-    "purchasePrice" : 12.0,
-    "description" : "bla bla bla bla bla",
-    "category" : "PC"
-  } ],
-  "quantity" : [ 23, 72, 1 ],
-  "client" : null
 } ]
