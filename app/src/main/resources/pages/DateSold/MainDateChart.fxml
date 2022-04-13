@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="527.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="527.0" prefWidth="814.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <bottom>
       <Pane prefHeight="64.0" prefWidth="814.0" BorderPane.alignment="CENTER">
          <children>

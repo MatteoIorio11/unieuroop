@@ -41,7 +41,7 @@ public final class ViewLoginImpl implements Initializable {
     @FXML
     public void btnLoginHandler(final ActionEvent event) throws IOException {
         if (this.controller.checkPassword(this.email.getText(), this.password.getText())) {
-            Loader.loadStage("/pages/MainMenu.fxml", "unieurOOP", new ViewMainMenu(new ControllerShopImpl(this.controller.getShop())), 600,1000).show();
+            Loader.loadStage("/pages/MainMenu.fxml", "unieurOOP", new ViewMainMenu(new ControllerShopImpl(this.controller.getShop())), 600, 1000).show();
             final Stage stage = (Stage) this.email.getScene().getWindow();
             stage.close();
         } else {

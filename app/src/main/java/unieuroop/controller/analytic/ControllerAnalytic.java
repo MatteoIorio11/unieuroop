@@ -85,5 +85,11 @@ public interface ControllerAnalytic {
      * @return all the money spent with the suppliers.
      */
     double getTotalSpent();
+    
+    /**
+     * 
+     * @return true if the shopEarnings are more than the total spent, false otherwise.
+     */
+    boolean isEarning();
 
 }

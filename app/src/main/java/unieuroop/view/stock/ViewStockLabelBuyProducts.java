@@ -43,7 +43,7 @@ public class ViewStockLabelBuyProducts implements Initializable {
         this.lblProductPrice.setText("Price: " + this.productSold.getValue().toString());
         final SpinnerValueFactory<Integer> rangeAmount = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
         this.spinnerQuantities.setValueFactory(rangeAmount);
-        this.chkboxProductBought.setIndeterminate(false);
+        this.chkboxProductBought.setSelected(false);
     }
 
     @FXML

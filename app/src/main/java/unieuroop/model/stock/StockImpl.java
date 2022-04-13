@@ -51,7 +51,7 @@ public class StockImpl implements Stock{
     @Override
     public Map<Product, Integer> takeFromStock(final Map<Product, Integer> productsTaken) {
         if (!checkProductTaken(productsTaken)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Some products can not be taken");
         }
         for (final Product product : productsTaken.keySet()) {
             this.productsStocked.put(product, this.productsStocked.get(product) - productsTaken.get(product));
@@ -66,7 +66,7 @@ public class StockImpl implements Stock{
     public void deleteProducts(final Set<Product> productsDelete) {
         for (final Product productDeleted : productsDelete) {
             if (!this.productsStocked.containsKey(productDeleted)) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Some products can not be deleted");
             }
         }
         this.productsStocked.keySet().removeAll(productsDelete);

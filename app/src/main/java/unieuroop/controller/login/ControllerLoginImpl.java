@@ -36,8 +36,7 @@ public final class ControllerLoginImpl {
         final var sales = Serialization.<Set<Sale>>deserialize(Files.SALES.getPath(), new TypeReference<Set<Sale>>() { });
         final var clients = Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { });
         final var stock = Serialization.<Stock>deserialize(Files.STOCK.getPath(), new TypeReference<Stock>() { });
-        final var m = Serialization.<Map<String, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<String, Double>>() { });
-        final var bills = m.keySet().stream().collect(Collectors.toMap(a -> LocalDate.parse(a), a -> m.get(a)));
+        final var bills = Serialization.<Map<LocalDate, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<LocalDate, Double>>() { });
         this.shop = new ShopImpl(shopName, departments, staff, suppliers, sales, clients, stock, bills);
     }
 

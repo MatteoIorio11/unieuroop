@@ -12,6 +12,7 @@ import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
+import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.stock.Stock;
@@ -127,20 +128,22 @@ public final class ShopImpl implements Shop {
 
     @Override
     public void removeDepartment(final Department department) {
-        this.departments.add(department);
+        if (!this.departments.remove(department)) {
+            throw new NoSuchElementException("The input department does not exist");
+        }
     }
 
     @Override
     public void removeStaff(final Staff staff) {
         if (!this.staffs.remove(staff)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input staff does not exist");
         }
     }
 
     @Override
     public void removeSupplier(final Supplier supplier) {
         if (!this.suppliers.remove(supplier)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input supplier does not exist");
         }
     }
 
@@ -182,6 +185,13 @@ public final class ShopImpl implements Shop {
     public void supplyDepartment(final Department department, final Map<Product, Integer> requestedProducts) {
         final var products = this.stock.takeFromStock(requestedProducts);
         department.addProducts(products);
+    }
+    @Override
+    public Set<Category> getAllCategories() {
+        return this.stock.getTotalStock().entrySet().stream()
+                .map((entry) -> entry.getKey().getCategory())
+                .distinct()
+                .collect(Collectors.toSet());
     }
 
 }

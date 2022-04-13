@@ -1,6 +1,5 @@
 package unieuroop.view.stock;
 
-import java.awt.Desktop.Action;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -31,10 +30,8 @@ import javafx.util.Pair;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.product.Product;
-import unieuroop.view.client.ViewChoseClient;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
-import unieuroop.view.sale.ViewLabelSale;
 
 public class ViewStock implements Initializable {
 
@@ -55,6 +52,8 @@ public class ViewStock implements Initializable {
 
     private final ControllerStockImpl controllerStock;
     private final ViewMainMenu viewMenu;
+    private boolean increasingOrderList;
+    private boolean decreasingOrderList;
 
 
     public ViewStock(final ViewMainMenu view, final ControllerStockImpl controllerStock) {
@@ -67,7 +66,8 @@ public class ViewStock implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadProducts(this.controllerStock.getProductsStocked());
+        loadProducts();
+        this.rdbtnIncreasingHandler();
     }
 
     /**
@@ -75,7 +75,7 @@ public class ViewStock implements Initializable {
      */
     @FXML
     public void btnBuyProductsHandler() {
-        listProductsStocked.getItems().clear();
+        this.listProductsStocked.getItems().clear();
         try {
             final Stage windowBuyProducts = Loader.<ViewStockBuyProducts>loadStage(Pages.STOCK_BUY_PRODUCTS.getPath(), "Buy Products", new ViewStockBuyProducts(this, this.controllerStock), 500, 600);
             final Stage mainStage = (Stage) this.btnBuyProducts.getScene().getWindow();
@@ -88,35 +88,71 @@ public class ViewStock implements Initializable {
         }
     }
 
+    /**
+     * 
+     */
     @FXML
     public void btnDeleteProductsHandler() {
-        
-    }
-
-    @FXML
-    public void btnSearchFiltersHandler() {
-        
-    }
-
-    @FXML
-    public void rdbtnIncreasingHandler() {
-        
-    }
-
-    @FXML
-    public void rdbtnDecreasingHandler() {
-        
+        if (this.listProductsStocked.getSelectionModel().getSelectedItem() != null) {
+            this.controllerStock.deleteSelectedProduct(this.listProductsStocked.getSelectionModel().getSelectedItem());
+        } else {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Impossible Delete a Product");
+            alert.setContentText("Select first the product to * Permanently Delete * from the Stock.");
+            alert.showAndWait();
+        }
     }
 
     /**
      * 
-     * @param products
      */
-    private void loadProducts(final Map<Product, Integer> products) {
+    @FXML
+    public void btnSearchFiltersHandler() {
         this.listProductsStocked.getItems().clear();
-        for (final Map.Entry<Product, Integer> entryProduct : products.entrySet()) {
+        try {
+            final Stage windowSetFilters = Loader.<ViewStockSetFilters>loadStage(Pages.STOCK_SET_SEARCH_FILTER.getPath(), "Set Search Filters", new ViewStockSetFilters(this, this.controllerStock), 500, 500);
+            final Stage mainStage = (Stage) this.btnBuyProducts.getScene().getWindow();
+            mainStage.hide();
+            windowSetFilters.showAndWait();
+            mainStage.show();
+        } catch (IOException e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+        }
+    }
+
+    /**
+     * 
+     */
+    @FXML
+    public void rdbtnIncreasingHandler() {
+        this.increasingOrderList = true;
+        this.decreasingOrderList = false;
+        this.rdbtnIncreasing.setSelected(increasingOrderList);
+        this.rdbtnDecreasing.setSelected(decreasingOrderList);
+        //Load List increasing
+    }
+
+    /**
+     * 
+     */
+    @FXML
+    public void rdbtnDecreasingHandler() {
+        this.increasingOrderList = false;
+        this.decreasingOrderList = true;
+        this.rdbtnIncreasing.setSelected(increasingOrderList);
+        this.rdbtnDecreasing.setSelected(decreasingOrderList);
+        //Load List decreasing
+    }
+
+    /**
+     * 
+     */
+    private void loadProducts() {
+        this.listProductsStocked.getItems().clear();
+        for (final Product product : this.controllerStock.getListProductsStocke()) {
             try {
-                this.listProductsStocked.getItems().add(entryProduct.getKey());
+                this.listProductsStocked.getItems().add(product);
             } catch (InputMismatchException e) {
                 final Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText(e.getMessage());

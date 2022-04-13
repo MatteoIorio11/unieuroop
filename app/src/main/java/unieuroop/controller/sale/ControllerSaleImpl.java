@@ -44,7 +44,6 @@ public final class ControllerSaleImpl implements ControllerSale {
     @Override
     public void closeSale(final Optional<Client> client) {
         if (!this.reservedProductsMap.isEmpty()) {
-            System.out.println(this.reservedProductsMap);
             for (final var entry : this.reservedProductsMap.entrySet()) {
                 final Department department = this.shop.getDepartments().stream()
                         .filter((d) -> d.equals(entry.getKey())).findFirst().get();

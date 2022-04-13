@@ -4,14 +4,38 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public abstract class AbstractPerson {
-    private final String name;
-    private final String surname;
-    private final LocalDate birthdayDate;
+    private String name;
+    private String surname;
+    private LocalDate birthday;
 
-    protected AbstractPerson(final String name, final String surname, final LocalDate birthdayDate) {
+    protected AbstractPerson(final String name, final String surname, final LocalDate birthday) {
         this.name = name;
         this.surname = surname;
-        this.birthdayDate = birthdayDate;
+        this.birthday = birthday;
+    }
+
+    /**
+     * set client name.
+     * @param name
+     */
+    public void setClientName(final String name) {
+        this.name = name;
+    }
+
+    /**
+     * set client surname.
+     * @param surname
+     */
+    public void setClientSurname(final String surname) {
+        this.surname = surname;
+    }
+
+    /**
+     * set client birthday.
+     * @param birthday
+     */
+    public void setClientBirthday(final LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     /**
@@ -32,7 +56,7 @@ public abstract class AbstractPerson {
      * @return the birthday of the person 
      */
     public LocalDate getBirthdayDate() {
-        return this.birthdayDate;
+        return this.birthday;
     }
 
     /**
@@ -40,14 +64,14 @@ public abstract class AbstractPerson {
      */
     @Override
     public String toString() {
-        return this.name + " " + this.surname + " " + this.birthdayDate;
+        return this.name + " " + this.surname + " " + this.birthday;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((birthdayDate == null) ? 0 : birthdayDate.hashCode());
+        result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + ((surname == null) ? 0 : surname.hashCode());
         return result;
@@ -65,11 +89,11 @@ public abstract class AbstractPerson {
             return false;
         }
         final AbstractPerson other = (AbstractPerson) obj;
-        if (birthdayDate == null) {
-            if (other.birthdayDate != null) {
+        if (birthday == null) {
+            if (other.birthday != null) {
                 return false;
             }
-        } else if (!birthdayDate.equals(other.birthdayDate)) {
+        } else if (!birthday.equals(other.birthday)) {
             return false;
         }
         if (name == null) {

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="545.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="545.0" prefWidth="896.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <center>
       <ListView fx:id="listLabel" prefHeight="479.0" prefWidth="473.0" BorderPane.alignment="CENTER" />
    </center>

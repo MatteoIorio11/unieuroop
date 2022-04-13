@@ -23,7 +23,7 @@ import unieuroop.model.supplier.SupplierDeserializer;
 import unieuroop.model.supplier.SupplierImpl;
 import unieuroop.model.supplier.SupplierSerializer;
 
-public class ObjectMapperFactory {
+public final class ObjectMapperFactory {
     private ObjectMapperFactory() {
     }
     public static ObjectMapper getMapper() {
