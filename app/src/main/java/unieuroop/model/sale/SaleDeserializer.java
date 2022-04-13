@@ -35,10 +35,9 @@ public final class SaleDeserializer extends JsonDeserializer<Sale> {
             quantity.add(element.asInt());
         }
         final var map = new HashMap<Product, Integer>();
-        IntStream.iterate(0, (i) -> i + 1).limit(product.size()).peek((i) -> map.put(product.get(i), quantity.get(i)));
-//        for (int i = 0; i < product.size(); i++) {
-//            map.put(product.get(i), quantity.get(i));
-//        }
+        for (int i = 0; i < product.size(); i++) {
+            map.put(product.get(i), quantity.get(i));
+        }
         final var client = Optional.ofNullable(mapper.treeToValue(node.get("client"), Client.class));
         return new SaleImpl(date, map, client);
     }
