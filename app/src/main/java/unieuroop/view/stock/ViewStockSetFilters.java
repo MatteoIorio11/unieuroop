@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.stock.ControllerStockImpl;
@@ -27,10 +28,15 @@ public class ViewStockSetFilters implements Initializable {
     @FXML
     private ComboBox<Category> cmboxCategories;
     @FXML
+    private RadioButton rdbtnIncreasing;
+    @FXML
+    private RadioButton rdbtnDecreasing;
+    @FXML
     private Button btnConfirmFilter;
 
     private ViewStock viewStock;
     private ControllerStockImpl controllerStock;
+    private boolean increasing;
 
     public ViewStockSetFilters(final ViewStock viewStock, final ControllerStockImpl controller) {
         this.viewStock = viewStock;
@@ -39,16 +45,45 @@ public class ViewStockSetFilters implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //this.sliderMaxAmount.setMax((double) this.controllerStock.getMaxAmountproducts());
-        //this.sliderMinAmount.setMax((double) this.controllerStock.getMaxAmountproducts());
+        this.sliderMaxAmount.setMax((double) this.controllerStock.getMaxAmountproducts());
+        this.sliderMinAmount.setMax((double) this.controllerStock.getMaxAmountproducts());
+        this.sliderMaxAmount.setValue((double) this.controllerStock.getMaxAmountproducts());
         this.sliderMaxAmountHandler();
         this.sliderMinAmountHandler();
+        this.rdbtnIncreasingHandler();
         this.cmboxCategories.getItems().addAll(this.controllerStock.getCategory());
     }
 
     @FXML
     public void btnConfirmFilterHandler() {
-        
+        if (this.cmboxCategories.getValue() != null) {
+            this.controllerStock.getListProductsFilterBy(this.cmboxCategories.getValue(), (int) this.sliderMinAmount.getValue(), (int) this.sliderMaxAmount.getValue(), this.increasing);
+        } else {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Impossible Set Product Filters");
+            alert.setContentText("Select the Products Category before confirm and filter the all the products");
+            alert.showAndWait();
+        }
+    }
+
+    /**
+     * 
+     */
+    @FXML
+    public void rdbtnIncreasingHandler() {
+        this.increasing = true;
+        this.rdbtnIncreasing.setSelected(this.increasing);
+        this.rdbtnDecreasing.setSelected(!this.increasing);
+    }
+
+    /**
+     * 
+     */
+    @FXML
+    public void rdbtnDecreasingHandler() {
+        this.increasing = false;
+        this.rdbtnIncreasing.setSelected(this.increasing);
+        this.rdbtnDecreasing.setSelected(!this.increasing);
     }
 
     @FXML

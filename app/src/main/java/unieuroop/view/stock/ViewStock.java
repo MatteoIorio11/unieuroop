@@ -4,9 +4,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import org.checkerframework.common.returnsreceiver.qual.This;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,17 +48,12 @@ public class ViewStock implements Initializable {
     @FXML
     private Button btnDeleteProducts;
     @FXML
-    private RadioButton rdbtnIncreasing;
-    @FXML
-    private RadioButton rdbtnDecreasing;
+    private Button btnResetFilters;
     @FXML
     private ListView<Product> listProductsStocked;
 
     private final ControllerStockImpl controllerStock;
     private final ViewMainMenu viewMenu;
-    private boolean increasingOrderList;
-    private boolean decreasingOrderList;
-
 
     public ViewStock(final ViewMainMenu view, final ControllerStockImpl controllerStock) {
         this.controllerStock = controllerStock;
@@ -66,8 +65,7 @@ public class ViewStock implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadProducts();
-        this.rdbtnIncreasingHandler();
+        this.loadProducts();
     }
 
     /**
@@ -82,6 +80,7 @@ public class ViewStock implements Initializable {
             mainStage.hide();
             windowBuyProducts.showAndWait();
             mainStage.show();
+            this.loadProducts();
         } catch (IOException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
@@ -95,6 +94,7 @@ public class ViewStock implements Initializable {
     public void btnDeleteProductsHandler() {
         if (this.listProductsStocked.getSelectionModel().getSelectedItem() != null) {
             this.controllerStock.deleteSelectedProduct(this.listProductsStocked.getSelectionModel().getSelectedItem());
+            this.loadProducts();
         } else {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("Impossible Delete a Product");
@@ -125,24 +125,8 @@ public class ViewStock implements Initializable {
      * 
      */
     @FXML
-    public void rdbtnIncreasingHandler() {
-        this.increasingOrderList = true;
-        this.decreasingOrderList = false;
-        this.rdbtnIncreasing.setSelected(increasingOrderList);
-        this.rdbtnDecreasing.setSelected(decreasingOrderList);
-        //Load List increasing
-    }
-
-    /**
-     * 
-     */
-    @FXML
-    public void rdbtnDecreasingHandler() {
-        this.increasingOrderList = false;
-        this.decreasingOrderList = true;
-        this.rdbtnIncreasing.setSelected(increasingOrderList);
-        this.rdbtnDecreasing.setSelected(decreasingOrderList);
-        //Load List decreasing
+    public void btnResetFiltersHandler() {
+        this.loadProducts();
     }
 
     /**
@@ -150,14 +134,11 @@ public class ViewStock implements Initializable {
      */
     private void loadProducts() {
         this.listProductsStocked.getItems().clear();
-        for (final Product product : this.controllerStock.getListProductsStocke()) {
-            try {
-                this.listProductsStocked.getItems().add(product);
-            } catch (InputMismatchException e) {
-                final Alert alert = new Alert(AlertType.ERROR);
-                alert.setContentText(e.getMessage());
-            }
+        try {
+            this.listProductsStocked.getItems().addAll(this.controllerStock.getProductsStocked().keySet().stream().collect(Collectors.toList()));
+        } catch (InputMismatchException e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
         }
     }
-
 }

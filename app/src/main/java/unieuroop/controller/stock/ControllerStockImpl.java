@@ -2,11 +2,15 @@ package unieuroop.controller.stock;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.BiPredicate;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -21,12 +25,34 @@ import unieuroop.model.supplier.Supplier;
 public class ControllerStockImpl {
 
     private final Shop shop;
-    private List<Product> listProductsStocked;
     private Map<Product, Integer> productsBought;
 
     public ControllerStockImpl(final Shop shop) {
         this.shop = shop;
-        this.listProductsStocked = new ArrayList<>(this.shop.getStock().getTotalStock().keySet());
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Set<Supplier> getSuppliers() {
+        return this.shop.getSuppliers();
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Set<Category> getCategory() {
+        return this.shop.getAllCategories();
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public int getMaxAmountproducts() {
+        return this.shop.getStock().getMaxAmountOfProducts();
     }
 
     /**
@@ -54,25 +80,19 @@ public class ControllerStockImpl {
 
     /**
      * 
+     * @param category
+     * @param minAmount
+     * @param maxAmount
+     * @param increasing
      * @return
      */
-    public List<Product> getListProductsStocke() {
-        return this.listProductsStocked;
-    }
-
-    /**
-     * 
-     */
-    public void resetListproductsStocked() {
-        this.listProductsStocked = new ArrayList<>(this.shop.getStock().getTotalStock().keySet());
-    }
-
-    /**
-     * 
-     * @return
-     */
-    public Set<Supplier> getSuppliers() {
-        return this.shop.getSuppliers();
+    public List<Product> getListProductsFilterBy(Category category, int minAmount, int maxAmount, boolean increasing) {
+        List<Product> filteredProducts = null; //this.shop.getStock().getFilterProducts((minAmount, category) -> )
+        if (increasing) {
+            return this.getListProductsIncreasing(filteredProducts);
+        } else {
+            return this.getListProductsDecreasing(filteredProducts);
+        }
     }
 
     /**
@@ -93,17 +113,23 @@ public class ControllerStockImpl {
 
     /**
      * 
+     * @param filteredProducts
      * @return
      */
-    public Set<Category> getCategory() {
-        return this.shop.getAllCategories();
+    private List<Product> getListProductsIncreasing(final List<Product> filteredProducts) {
+        final Comparator<Product> productsSorter = (p1, p2) -> this.shop.getStock().getQuantityOfProduct(p1) - this.shop.getStock().getQuantityOfProduct(p2);
+        filteredProducts.sort(productsSorter);
+        return filteredProducts;
     }
 
     /**
      * 
+     * @param filteredProducts
      * @return
      */
-    public int getMaxAmountproducts() {
-        return this.shop.getStock().getMaxAmountOfProducts();
+    private List<Product> getListProductsDecreasing(final List<Product> filteredProducts) {
+        final Comparator<Product> productsSorter = (p1, p2) -> this.shop.getStock().getQuantityOfProduct(p2) - this.shop.getStock().getQuantityOfProduct(p1);
+        filteredProducts.sort(productsSorter);
+        return filteredProducts;
     }
 }
