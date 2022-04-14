@@ -37,16 +37,19 @@ public final class ControllerClientImpl {
     }
 
     public void editClient(final String name, final String surname, final LocalDate birthday, final Client client) {
-        client.setClientName(name);
-        client.setClientSurname(surname);
-        client.setClientBirthday(birthday);
+        if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
+            throw new IllegalArgumentException("Impossible because one of the parameters are null");
+        }
+        client.setPersonName(name);
+        client.setPersonSurname(surname);
+        client.setPersonBirthday(birthday);
+        serializationClient();
     }
 
     public void deleteClient(final Client client) {
         if (!Objects.isNull(client)) {
             this.shop.removeClient(client);
             serializationClient();
-
         }
     }
 

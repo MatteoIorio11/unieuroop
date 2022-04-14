@@ -14,10 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javafx.util.Pair;
 
 public class Staff extends AbstractPerson {
-    private final Integer id;
-    private final String email;
-    private final Integer password;
-    private final Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime;
+    private Integer id;
+    private String email;
+    private Integer password;
+    private Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime;
 
     @JsonCreator
     public Staff(@JsonProperty("name") final String name, 
@@ -46,6 +46,39 @@ public class Staff extends AbstractPerson {
 //        this.password = password;
 //        this.workTime = workTime;
 //    }
+
+    /**
+     * 
+     * @param id
+     */
+    public void setId(final Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * 
+     * @param email
+     */
+    public void setEmail(final String email) {
+        this.email = email;
+    }
+
+    /**
+     * 
+     * @param password
+     */
+    public void setPassword(final Integer password) {
+        this.password = password;
+    }
+
+    /**
+     * 
+     * @param worktime
+     */
+    public void setWorkTime(final Map<DayOfWeek, Pair<LocalTime, LocalTime>> worktime) {
+        this.workTime = worktime;
+    }
+
     /**
      * @return id of the Staff
      */

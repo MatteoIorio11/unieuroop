@@ -15,26 +15,26 @@ public abstract class AbstractPerson {
     }
 
     /**
-     * set client name.
+     * set person name.
      * @param name
      */
-    public void setClientName(final String name) {
+    public void setPersonName(final String name) {
         this.name = name;
     }
 
     /**
-     * set client surname.
+     * set person surname.
      * @param surname
      */
-    public void setClientSurname(final String surname) {
+    public void setPersonSurname(final String surname) {
         this.surname = surname;
     }
 
     /**
-     * set client birthday.
+     * set person birthday.
      * @param birthday
      */
-    public void setClientBirthday(final LocalDate birthday) {
+    public void setPersonBirthday(final LocalDate birthday) {
         this.birthday = birthday;
     }
 
