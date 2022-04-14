@@ -29,6 +29,7 @@ import unieuroop.view.dateanalytic.ViewDateSold;
 import unieuroop.view.department.ViewDepartment;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.sale.ViewSale;
+import unieuroop.view.staff.ViewStaffImpl;
 import unieuroop.view.stock.ViewStock;
 
 public final class ViewMainMenu implements Initializable {
@@ -82,7 +83,7 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnStaffHandler(final ActionEvent event) {
-        this.loadPage(Pages.STAFF, null);
+        this.loadPage(Pages.STAFF, new ViewStaffImpl());
     }
     @FXML
     public void btnDepartmentsHandler(final ActionEvent event) {

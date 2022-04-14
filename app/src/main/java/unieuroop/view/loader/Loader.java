@@ -31,7 +31,9 @@ public final class Loader {
         newWindow.setMinWidth(minWidth);
         final var loader = new FXMLLoader(Loader.class.getResource(path));
         loader.setController(controller);
+
         pane = loader.load();
+
         final Scene secondScene = new Scene(pane, xSize, ySize);
         newWindow.setTitle(title);
         newWindow.setScene(secondScene);
