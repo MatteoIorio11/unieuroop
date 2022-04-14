@@ -9,5 +9,17 @@ public class ControllerStaffImpl {
     public ControllerStaffImpl(final Shop shop) {
         this.shop = shop;
     }
+    
+    public void addStaff() {
+        
+    }
+    
+    public void editStaff() {
+        
+    }
+    
+    public void deleteStaff() {
+        
+    }
 
 }

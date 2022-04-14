@@ -1,19 +1,18 @@
 package unieuroop.view.staff;
 
-import java.awt.Button;
-import java.awt.Checkbox;
 import java.net.URL;
 import java.time.DayOfWeek;
 import java.util.ResourceBundle;
 
-import com.google.errorprone.annotations.FormatMethod;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.model.person.Staff;
 
 public final class ViewStaffImpl implements Initializable {
@@ -33,7 +32,7 @@ public final class ViewStaffImpl implements Initializable {
     @FXML
     private ComboBox<DayOfWeek> cbxDayOfWeek;
     @FXML
-    private Checkbox chxNotWorked;
+    private CheckBox chxNotWorked;
     @FXML
     private TextField tbxStartTime;
     @FXML
@@ -44,11 +43,27 @@ public final class ViewStaffImpl implements Initializable {
     private Button btnEditStaff;
     @FXML
     private Button btnDeleteStaff;
+    private final ControllerStaffImpl controller;
+
+    public ViewStaffImpl(final ControllerStaffImpl controller) {
+        this.controller = controller;
+    }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
-        
+    public void initialize(final URL location, final ResourceBundle resources) {
+        this.listStaffs.getItems().addAll(this.controller.getStaff());
+
+        btnAddStaff.setOnMouseClicked(e -> {
+            
+        });
+
+        btnAddStaff.setOnMouseClicked(e -> {
+            
+        });
+
+        btnAddStaff.setOnMouseClicked(e -> {
+            
+        });
     }
 
 }

@@ -83,7 +83,7 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnStaffHandler(final ActionEvent event) {
-        this.loadPage(Pages.STAFF, new ViewStaffImpl());
+        this.loadPage(Pages.STAFF, new ViewStaffImpl(new ControllerStaffImpl(this.controller.getShop())));
     }
     @FXML
     public void btnDepartmentsHandler(final ActionEvent event) {
