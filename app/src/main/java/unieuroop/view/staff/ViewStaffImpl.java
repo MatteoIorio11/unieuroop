@@ -104,24 +104,26 @@ public final class ViewStaffImpl implements Initializable {
             this.tbxEmail.setText(staff.getEmail());
             this.tbxPassword.setText(staff.getPassword().toString());
             this.chxNotWorked.setSelected(false);
-            this.tbxHoursEndTime.setText("");
+            this.tbxHoursStartTime.setText("");
             this.tbxMinutesStartTime.setText("");
             this.tbxHoursEndTime.setText("");
             this.tbxMinutesEndTime.setText("");
         });
 
-        cbxDayOfWeek.setOnMouseClicked(e -> {
-            final Staff staff = this.listStaffs.getSelectionModel().getSelectedItem();
-            if (staff.getWorkingTimeTable().containsKey(cbxDayOfWeek.getSelectionModel().getSelectedItem())) {
-                this.tbxHoursEndTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getKey().getHour()));
-                this.tbxMinutesStartTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getKey().getMinute()));
-                this.tbxHoursEndTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getValue().getHour()));
-                this.tbxMinutesEndTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getKey().getMinute()));
-            } else {
-                this.tbxHoursEndTime.setText("");
-                this.tbxMinutesStartTime.setText("");
-                this.tbxHoursEndTime.setText("");
-                this.tbxMinutesEndTime.setText("");
+        cbxDayOfWeek.setOnAction(e -> {
+            if (this.listStaffs.getSelectionModel().getSelectedItem() != null) {
+                final Staff staff = this.listStaffs.getSelectionModel().getSelectedItem();
+                if (staff.getWorkingTimeTable().containsKey(cbxDayOfWeek.getSelectionModel().getSelectedItem())) {
+                    this.tbxHoursStartTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getKey().getHour()));
+                    this.tbxMinutesStartTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getKey().getMinute()));
+                    this.tbxHoursEndTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getValue().getHour()));
+                    this.tbxMinutesEndTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getKey().getMinute()));
+                } else {
+                    this.tbxHoursStartTime.setText("");
+                    this.tbxMinutesStartTime.setText("");
+                    this.tbxHoursEndTime.setText("");
+                    this.tbxMinutesEndTime.setText("");
+                }
             }
         });
     }
@@ -142,7 +144,7 @@ public final class ViewStaffImpl implements Initializable {
         this.tbxEmail.setText("");
         this.tbxPassword.setText("");
         this.chxNotWorked.setSelected(false);
-        this.tbxHoursEndTime.setText("");
+        this.tbxHoursStartTime.setText("");
         this.tbxMinutesStartTime.setText("");
         this.tbxHoursEndTime.setText("");
         this.tbxMinutesEndTime.setText("");

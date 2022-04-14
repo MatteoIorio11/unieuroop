@@ -112,7 +112,7 @@ public class Staff extends AbstractPerson {
         }
     }
     /**
-     * @param day 
+     * 
      * @return return the workTime of the Staff based on the day of the week
      */
     public Map<DayOfWeek, Pair<LocalTime, LocalTime>> getWorkingTimeTable() {
