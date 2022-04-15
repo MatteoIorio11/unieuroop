@@ -57,7 +57,8 @@ public class ViewStockSetFilters implements Initializable {
     @FXML
     public void btnConfirmFilterHandler() {
         if (this.cmboxCategories.getValue() != null) {
-            this.controllerStock.getListProductsFilterBy(this.cmboxCategories.getValue(), (int) this.sliderMinAmount.getValue(), (int) this.sliderMaxAmount.getValue(), this.increasing);
+            this.viewStock.loadProductsByList(this.controllerStock.getListProductsFilterBy(
+            this.cmboxCategories.getValue(), (int) this.sliderMinAmount.getValue(), (int) this.sliderMaxAmount.getValue(), this.increasing));
         } else {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("Impossible Set Product Filters");
@@ -88,7 +89,7 @@ public class ViewStockSetFilters implements Initializable {
 
     @FXML
     public void cmboxCategoriesHandler() {
-        
+
     }
 
     /**

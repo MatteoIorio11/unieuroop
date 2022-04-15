@@ -80,14 +80,14 @@ public class ControllerStockImpl {
 
     /**
      * 
-     * @param category
+     * @param categoryChoose
      * @param minAmount
      * @param maxAmount
      * @param increasing
      * @return
      */
-    public List<Product> getListProductsFilterBy(Category category, int minAmount, int maxAmount, boolean increasing) {
-        List<Product> filteredProducts = null; //this.shop.getStock().getFilterProducts((minAmount, category) -> )
+    public List<Product> getListProductsFilterBy(final Category categoryChoose, final int minAmount, final int maxAmount, final boolean increasing) {
+        final List<Product> filteredProducts = this.shop.getStock().getFilterProducts((amount, category) -> minAmount <= amount && amount <= maxAmount && category == categoryChoose);
         if (increasing) {
             return this.getListProductsIncreasing(filteredProducts);
         } else {

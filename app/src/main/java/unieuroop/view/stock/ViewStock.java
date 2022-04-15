@@ -8,9 +8,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 import org.checkerframework.common.returnsreceiver.qual.This;
+
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,7 +68,7 @@ public class ViewStock implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.loadProducts();
+        this.loadAllProductsFromStock();
     }
 
     /**
@@ -80,7 +83,7 @@ public class ViewStock implements Initializable {
             mainStage.hide();
             windowBuyProducts.showAndWait();
             mainStage.show();
-            this.loadProducts();
+            this.loadAllProductsFromStock();
         } catch (IOException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
@@ -93,10 +96,20 @@ public class ViewStock implements Initializable {
     @FXML
     public void btnDeleteProductsHandler() {
         if (this.listProductsStocked.getSelectionModel().getSelectedItem() != null) {
-            this.controllerStock.deleteSelectedProduct(this.listProductsStocked.getSelectionModel().getSelectedItem());
-            this.loadProducts();
+            try {
+                this.controllerStock.deleteSelectedProduct(this.listProductsStocked.getSelectionModel().getSelectedItem());
+                this.loadAllProductsFromStock();
+                final Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Deleted");
+                alert.setHeaderText("Product Permantly Deleted");
+                alert.setContentText("The selected product has been permanently deleted.\n" + "All products have been reloaded");
+                alert.showAndWait();
+            } catch (InternalError e) {
+                final Alert alert = new Alert(AlertType.ERROR);
+                alert.setContentText(e.getMessage());
+            }
         } else {
-            final Alert alert = new Alert(AlertType.ERROR);
+            final Alert alert = new Alert(AlertType.WARNING);
             alert.setHeaderText("Impossible Delete a Product");
             alert.setContentText("Select first the product to * Permanently Delete * from the Stock.");
             alert.showAndWait();
@@ -126,13 +139,13 @@ public class ViewStock implements Initializable {
      */
     @FXML
     public void btnResetFiltersHandler() {
-        this.loadProducts();
+        this.loadAllProductsFromStock();
     }
 
     /**
      * 
      */
-    private void loadProducts() {
+    private void loadAllProductsFromStock() {
         this.listProductsStocked.getItems().clear();
         try {
             this.listProductsStocked.getItems().addAll(this.controllerStock.getProductsStocked().keySet().stream().collect(Collectors.toList()));
@@ -141,4 +154,19 @@ public class ViewStock implements Initializable {
             alert.setContentText(e.getMessage());
         }
     }
+
+    /**
+     * 
+     * @param products
+     */
+    public void loadProductsByList(final List<Product> products) {
+        this.listProductsStocked.getItems().clear();
+        try {
+            this.listProductsStocked.getItems().addAll(products);
+        } catch (InputMismatchException e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+        }
+    }
+
 }
