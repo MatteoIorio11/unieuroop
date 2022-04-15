@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.product.Category;
 
@@ -54,11 +55,16 @@ public class ViewStockSetFilters implements Initializable {
         this.cmboxCategories.getItems().addAll(this.controllerStock.getCategory());
     }
 
+    /**
+     * 
+     */
     @FXML
     public void btnConfirmFilterHandler() {
         if (this.cmboxCategories.getValue() != null) {
             this.viewStock.loadProductsByList(this.controllerStock.getListProductsFilterBy(
             this.cmboxCategories.getValue(), (int) this.sliderMinAmount.getValue(), (int) this.sliderMaxAmount.getValue(), this.increasing));
+            final Stage stage = (Stage) this.btnConfirmFilter.getScene().getWindow();
+            stage.close();
         } else {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("Impossible Set Product Filters");

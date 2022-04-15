@@ -130,7 +130,6 @@ public class ViewStock implements Initializable {
      */
     @FXML
     public void btnSearchFiltersHandler() {
-        this.listProductsStocked.getItems().clear();
         this.txtAreaInfoProducts.clear();
         try {
             final Stage windowSetFilters = Loader.<ViewStockSetFilters>loadStage(Pages.STOCK_SET_SEARCH_FILTER.getPath(), "Set Search Filters", new ViewStockSetFilters(this, this.controllerStock), 500, 500);
