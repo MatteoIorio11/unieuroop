@@ -73,6 +73,16 @@ public class ControllerStockImpl {
     /**
      * 
      * @return
+     * @param product
+     */
+    public String getInfoByProduct(final Product product) {
+        return "Category: " + product.getCategory() + "\nBrand: " + product.getBrand() + "\nDescription: " + product.getDescription() + "\n\nSelling Price: " + product.getSellingPrice()
+        + "\nPurchase Price: " + product.getPurchasePrice() + "\nQuantity in Stock: " + this.shop.getStock().getQuantityOfProduct(product);
+    }
+
+    /**
+     * 
+     * @return
      */
     public Map<Product, Integer> getProductsStocked() {
         return this.shop.getStock().getTotalStock();

@@ -11,10 +11,6 @@ import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import org.checkerframework.common.returnsreceiver.qual.This;
-
-import com.fasterxml.jackson.databind.exc.MismatchedInputException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +24,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
@@ -54,6 +51,8 @@ public class ViewStock implements Initializable {
     private Button btnResetFilters;
     @FXML
     private ListView<Product> listProductsStocked;
+    @FXML
+    private TextArea txtAreaInfoProducts;
 
     private final ControllerStockImpl controllerStock;
     private final ViewMainMenu viewMenu;
@@ -75,8 +74,18 @@ public class ViewStock implements Initializable {
      * 
      */
     @FXML
+    public void listProductsStockedHandler() {
+        if (this.listProductsStocked.getSelectionModel().getSelectedItem() != null) {
+            this.txtAreaInfoProducts.clear();
+            this.txtAreaInfoProducts.setText(this.controllerStock.getInfoByProduct(this.listProductsStocked.getSelectionModel().getSelectedItem()));
+        }
+    }
+
+    /**
+     * 
+     */
+    @FXML
     public void btnBuyProductsHandler() {
-        this.listProductsStocked.getItems().clear();
         try {
             final Stage windowBuyProducts = Loader.<ViewStockBuyProducts>loadStage(Pages.STOCK_BUY_PRODUCTS.getPath(), "Buy Products", new ViewStockBuyProducts(this, this.controllerStock), 500, 600);
             final Stage mainStage = (Stage) this.btnBuyProducts.getScene().getWindow();
@@ -122,6 +131,7 @@ public class ViewStock implements Initializable {
     @FXML
     public void btnSearchFiltersHandler() {
         this.listProductsStocked.getItems().clear();
+        this.txtAreaInfoProducts.clear();
         try {
             final Stage windowSetFilters = Loader.<ViewStockSetFilters>loadStage(Pages.STOCK_SET_SEARCH_FILTER.getPath(), "Set Search Filters", new ViewStockSetFilters(this, this.controllerStock), 500, 500);
             final Stage mainStage = (Stage) this.btnBuyProducts.getScene().getWindow();
@@ -147,6 +157,7 @@ public class ViewStock implements Initializable {
      */
     private void loadAllProductsFromStock() {
         this.listProductsStocked.getItems().clear();
+        this.txtAreaInfoProducts.clear();
         try {
             this.listProductsStocked.getItems().addAll(this.controllerStock.getProductsStocked().keySet().stream().collect(Collectors.toList()));
         } catch (InputMismatchException e) {
