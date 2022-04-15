@@ -13,16 +13,19 @@ import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.model.department.Department;
 
 public class ViewLabelDepartment implements Initializable {
-    @FXML private Button btnEditProducts;
-    @FXML private Button btnEditStaff;
-    @FXML private Label lblDepartment;
+
+    @FXML
+    private Button btnEditProducts;
+    @FXML
+    private Button btnEditStaff;
+    @FXML
+    private Label lblDepartment;
 
     private final Department department;
     private final ControllerStaffImpl controllerStaff;
     private final ControllerDepartmentImpl controllerDepartment;
 
-    public ViewLabelDepartment(final Department department, final ControllerStaffImpl controllerStaff,
-            final ControllerDepartmentImpl controllerDepartment) {
+    public ViewLabelDepartment(final Department department, final ControllerStaffImpl controllerStaff, final ControllerDepartmentImpl controllerDepartment) {
         this.department = department;
         this.controllerStaff = controllerStaff;
         this.controllerDepartment = controllerDepartment;

@@ -8,15 +8,15 @@ public enum Pages {
     /**
      * @param 
      */
-    PROTOTYPE("/pages/Department/PrototypeDepartment.fxml"),
+    DEPARTMENTS("/pages/Department/DepartmentsView.fxml"),
     /**
      * @param 
      */
-    PROTOTYPE_LABEL("/pages/Department/PrototypeLabel.fxml"),
+    DEPARTMENTS_LABEL("/pages/Department/DepartmentsLabelForDepartmentsView.fxml"),
     /**
-     * @param 
+     * @param
      */
-    SALE_PRODUCTS("/pages/DashBoard/SaleProducts.fxml"),
+    DEPARTMENTS_EDIT_PRODUCTS("/pages/Department/DepartmentsEditProductsView.fxml"),
     /**
      * @param
      */
@@ -32,10 +32,6 @@ public enum Pages {
     /**
      * @param
      */
-    STOCK_LABEL_FOR_STOCK("/pages/Stock/StockLabelForStockView.fxml"),
-    /**
-     * @param
-     */
     STOCK_LABEL_FOR_STOCKBUYPRODUCTS("/pages/Stock/StockLabelForStockBuyProductsView.fxml"),
     /**
      * @param
@@ -46,13 +42,13 @@ public enum Pages {
      */
     LABEL_PRODUCT_SALE("/pages/Sale/labelProduct.fxml"),
     /**
-     * @param
+     * @param 
      */
-    DEPARTMENTS("/pages/Department/DepartmentsView.fxml"),
+    SALE_PRODUCTS("/pages/DashBoard/SaleProducts.fxml"),
     /**
      * @param
      */
-    DEPARTMENTS_EDIT_PRODUCTS("/pages/Department/DepartmentsEditProductsView.fxml"),
+    CHOSE_CLIENT("/pages/Client/ChoseClient.fxml"),
     /**
      * @param
      */
@@ -76,11 +72,7 @@ public enum Pages {
     /**
      * @param
      */
-    MAIN_DATE_SOLD("/pages/DateSold/MainDateChart.fxml"),
-    /**
-     * @param
-     */
-    CHOSE_CLIENT("/pages/Client/ChoseClient.fxml");
+    MAIN_DATE_SOLD("/pages/DateSold/MainDateChart.fxml");
 
     private final String fileName;
 

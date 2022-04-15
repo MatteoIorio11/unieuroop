@@ -24,13 +24,18 @@ import unieuroop.model.product.Product;
 import unieuroop.view.loader.Loader;
 
 public final class ViewDepartment implements Initializable {
-    @FXML private ListView<Pane> listDepartments;
-    @FXML private ListView<Staff> listStaff;
-    @FXML private ListView<Product> listProducts;
+
+    @FXML
+    private ListView<Pane> listDepartments;
+    @FXML
+    private ListView<Staff> listStaff;
+    @FXML
+    private ListView<Product> listProducts;
 
     private final Map<Pane, Department> departmentPane = new HashMap<>();
     private final ControllerDepartmentImpl controllerDepartment;
     private final ControllerStaffImpl controllerStaff;
+
     public ViewDepartment(final ControllerDepartmentImpl controllerDepartment, final ControllerStaffImpl controllerStaff) {
         this.controllerDepartment = controllerDepartment;
         this.controllerStaff = controllerStaff;
@@ -66,7 +71,7 @@ public final class ViewDepartment implements Initializable {
     private void populateList() {
         for (final Department department : this.controllerDepartment.getDepartments()) {
             try {
-                final Pane pane = Loader.<ViewLabelDepartment>loadPane(Pages.PROTOTYPE_LABEL.getPath(), 
+                final Pane pane = Loader.<ViewLabelDepartment>loadPane(Pages.DEPARTMENTS_LABEL.getPath(), 
                         new ViewLabelDepartment(department, this.controllerStaff, this.controllerDepartment));
                 this.listDepartments.getItems().add(pane);
                 this.departmentPane.put(pane, department);

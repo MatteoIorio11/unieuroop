@@ -59,8 +59,20 @@ public class ControllerStockImpl {
      * 
      * @param productBuying
      */
-    public void addProductBuying(Map<Product, Integer> productBuying) {
-        this.productsBought.putAll(productBuying);
+    public void addProductBuying(final Map.Entry<Product, Integer> productBuying) {
+        this.productsBought.merge(productBuying.getKey(), productBuying.getValue(), (existingQuantity, newQuantity) -> existingQuantity + newQuantity);
+    }
+
+    /**
+     * 
+     * @param productBuying
+     */
+    public void removeProductsBuying(final Map.Entry<Product, Integer> productBuying) {
+        if (this.productsBought.containsKey(productBuying.getKey())) {
+            this.productsBought.remove(productBuying.getKey(), productBuying.getValue());
+        } else {
+            throw new IllegalArgumentException("Impossible Remove a Product from your Products Buying (Cart)");
+        }
     }
 
     /**
