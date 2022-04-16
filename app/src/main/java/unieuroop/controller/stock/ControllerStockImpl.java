@@ -20,6 +20,7 @@ import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.shop.Shop;
+import unieuroop.model.stock.Stock;
 import unieuroop.model.supplier.Supplier;
 
 public final class ControllerStockImpl {
@@ -127,7 +128,7 @@ public final class ControllerStockImpl {
         productDelete.add(productSelected);
         try {
             this.shop.getStock().deleteProducts(productDelete);
-            Serialization.<Map<Product, Integer>>serialize(Files.STOCK.getPath(), this.shop.getStock().getTotalStock());
+            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
         } catch (IOException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
