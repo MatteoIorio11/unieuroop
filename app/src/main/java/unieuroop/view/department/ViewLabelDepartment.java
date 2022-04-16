@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import unieuroop.controller.department.ControllerDepartmentImpl;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.staff.ControllerStaffImpl;
+import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.department.Department;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.staff.ViewEditStaff;
@@ -28,11 +29,14 @@ public final class ViewLabelDepartment implements Initializable {
     private final Department department;
     private final ControllerStaffImpl controllerStaff;
     private final ControllerDepartmentImpl controllerDepartment;
+    private final ControllerStockImpl controllerStock;
 
-    public ViewLabelDepartment(final Department department, final ControllerStaffImpl controllerStaff, final ControllerDepartmentImpl controllerDepartment) {
+    public ViewLabelDepartment(final Department department, final ControllerStaffImpl controllerStaff,
+            final ControllerDepartmentImpl controllerDepartment, final ControllerStockImpl controllerStock) {
         this.department = department;
         this.controllerStaff = controllerStaff;
         this.controllerDepartment = controllerDepartment;
+        this.controllerStock = controllerStock;
     }
 
     @Override
@@ -43,7 +47,7 @@ public final class ViewLabelDepartment implements Initializable {
     @FXML
     public void buttonEditStaffHandler(final ActionEvent event) {
         try {
-            final var controller = new ViewEditStaff(this.controllerStaff, this.controllerDepartment, department);
+            final var controller = new ViewEditStaff(this.controllerStaff, this.controllerDepartment, this.department);
             final Stage stage = Loader.loadStage(Pages.EDIT_STAFF_DEPARTMENTS.getPath(), "Edit Staff", controller, 500, 500);
             final Stage currentStage = (Stage) this.btnEditStaff.getScene().getWindow();
             currentStage.hide();
@@ -58,6 +62,17 @@ public final class ViewLabelDepartment implements Initializable {
 
     @FXML
     public void buttonEditProductsHandler(final ActionEvent event) {
-        
+        try {
+            final var controller = new ViewDepartmentEditProducts(this.department, this.controllerStaff, this.controllerDepartment, this.controllerStock);
+            final Stage stage = Loader.loadStage(Pages.EDIT_PRODUCTS_DEPARTMENTS.getPath(), "Edit Product", controller, 500, 500);
+            final Stage currentStage = (Stage) this.btnEditStaff.getScene().getWindow();
+            currentStage.hide();
+            stage.showAndWait();
+            currentStage.show();
+        } catch (IOException e) {
+            final Alert alertError = new Alert(AlertType.ERROR);
+            alertError.setContentText(e.getMessage());
+            alertError.showAndWait();
+        }
     }
 }
