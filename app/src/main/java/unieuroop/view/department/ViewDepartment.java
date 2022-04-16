@@ -72,6 +72,8 @@ public final class ViewDepartment implements Initializable {
             });
             stage.showAndWait();
             currentStage.show();
+            this.listDepartments.getItems().clear();
+            this.populateList();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -89,11 +91,20 @@ public final class ViewDepartment implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
     public void buttonMergeDepartmentsHandler(final ActionEvent event) {
+        final var controller = new ViewDeleteDepartment(this.controllerDepartment);
+        try {
+            final Stage stage = Loader.loadStage(Pages.MERGE_DEPARTMENTS.getPath(), "Merge Department", controller, 500, 500);
+            final Stage currentStage = (Stage) this.btnDeleteDepartment.getScene().getWindow();
+            currentStage.hide();
+            stage.showAndWait();
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void populateList() {

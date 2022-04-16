@@ -22,6 +22,10 @@ public enum Pages {
      */
     DELETE_DEPARTMENTS("/pages/Department/DepartmentDeleteDepartment.fxml"),
     /**
+     * @param 
+     */
+    MERGE_DEPARTMENTS("/pages/Department/DepartmentMergeDepartment.fxml"),
+    /**
      * @param
      */
     DEPARTMENTS_EDIT_PRODUCTS("/pages/Department/DepartmentsEditProductsView.fxml"),

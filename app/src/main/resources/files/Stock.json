@@ -4,7 +4,7 @@
     "name" : "Samsung Galaxy A52",
     "brand" : "Samsung",
     "sellingPrice" : 299.99,
-    "purchasePrice" : 100.00,
+    "purchasePrice" : 100.0,
     "description" : "5G SM-A528B 16,5 cm (6.5 inch) Double SIM Android 11 USB type-C 6 GB 128 GB 4500 mAh Black",
     "category" : "SMARTPHONE"
   }, {
@@ -12,7 +12,7 @@
     "name" : "Samsung Galaxy A22",
     "brand" : "Samsung",
     "sellingPrice" : 179.99,
-    "purchasePrice" : 70.00,
+    "purchasePrice" : 70.0,
     "description" : "5G 6.6 inch 64 GB Expandable Gray",
     "category" : "SMARTPHONE"
   }, {
@@ -20,15 +20,15 @@
     "name" : "Samsung Galaxy A13",
     "brand" : "Samsung",
     "sellingPrice" : 199.99,
-    "purchasePrice" : 90.00,
+    "purchasePrice" : 90.0,
     "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
     "category" : "SMARTPHONE"
   }, {
     "productCode" : 4,
     "name" : "Xiaomi 11 Lite",
     "brand" : "Xiaomi",
-    "sellingPrice" : 289.00,
-    "purchasePrice" : 100.00,
+    "sellingPrice" : 289.0,
+    "purchasePrice" : 100.0,
     "description" : "5G NE 16,6 cm (6.55 inch) Dual SIM Android 11 USB type-C 8 GB 128 GB 4250 mAh Black",
     "category" : "SMARTPHONE"
   }, {
@@ -36,135 +36,135 @@
     "name" : "Samsung Galaxy A53",
     "brand" : "Samsung",
     "sellingPrice" : 469.99,
-    "purchasePrice" : 200.00,
+    "purchasePrice" : 200.0,
     "description" : "5G Display 6.5 inch FHD+ Super AMOLED Double SIM Android 12, RAM 6 GB, 128 GB, 5.000 mAh, Awesome Black",
     "category" : "SMARTPHONE"
   }, {
     "productCode" : 6,
     "name" : "Samsung Galaxy S22",
     "brand" : "Samsung",
-    "sellingPrice" : 928.00,
-    "purchasePrice" : 450.00,
+    "sellingPrice" : 928.0,
+    "purchasePrice" : 450.0,
     "description" : "5G Display 6.1 inch Dynamic AMOLED 2X, 4 fotocamere, RAM 8 GB, 256 GB, 3.700mAh, Phantom Black",
     "category" : "SMARTPHONE"
   }, {
     "productCode" : 7,
     "name" : "Apple iPhone 13 Pro",
     "brand" : "Apple",
-    "sellingPrice" : 1259.00,
-    "purchasePrice" : 600.00,
+    "sellingPrice" : 1259.0,
+    "purchasePrice" : 600.0,
     "description" : "256GB Blue Sierra, 5G, iOS 15",
     "category" : "SMARTPHONE"
   }, {
     "productCode" : 8,
     "name" : "Apple iPhone 13",
     "brand" : "Apple",
-    "sellingPrice" : 829.00,
-    "purchasePrice" : 400.00,
+    "sellingPrice" : 829.0,
+    "purchasePrice" : 400.0,
     "description" : "128GB (PRODUCT)RED, 5G, iOS 15",
     "category" : "SMARTPHONE"
   }, {
     "productCode" : 9,
     "name" : "Apple iPhone 13 Pro Max",
     "brand" : "Apple",
-    "sellingPrice" : 1591.00,
-    "purchasePrice" : 800.00,
+    "sellingPrice" : 1591.0,
+    "purchasePrice" : 800.0,
     "description" : "512GB Alpine Green 5G, iOS 15",
     "category" : "SMARTPHONE"
   }, {
     "productCode" : 10,
     "name" : "OPPO A74 Smartphone",
     "brand" : "Oppo",
-    "sellingPrice" : 219.00,
-    "purchasePrice" : 70.00,
+    "sellingPrice" : 219.0,
+    "purchasePrice" : 70.0,
     "description" : "175g, Display 6.43 inch FHD+ AMOLED, 4 Fotocamere 48MP, RAM 6GB ROM 128GB, Battery 5000mAh, Rapid Charge, Dual Sim, Prism Black",
     "category" : "SMARTPHONE"
   }, {
     "productCode" : 11,
     "name" : "HP 15s-fq2004nlw11 PC",
     "brand" : "HP",
-    "sellingPrice" : 749.90,
-    "purchasePrice" : 300.00,
+    "sellingPrice" : 749.9,
+    "purchasePrice" : 300.0,
     "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i5 eleventh generation 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 11 Silver Home",
     "category" : "PC"
   }, {
     "productCode" : 12,
     "name" : "Samsung Galaxy Book",
     "brand" : "Samsung",
-    "sellingPrice" : 849.90,
-    "purchasePrice" : 350.00,
+    "sellingPrice" : 849.9,
+    "purchasePrice" : 350.0,
     "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
     "category" : "PC"
   }, {
     "productCode" : 13,
     "name" : "HP 250 G8 PC",
     "brand" : "HP",
-    "sellingPrice" : 649.00,
-    "purchasePrice" : 300.00,
+    "sellingPrice" : 649.0,
+    "purchasePrice" : 300.0,
     "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i5 8 GB DDR4-SDRAM 256 GB SSD Wi-Fi 5 (802.11ac) Windows 11 Silver Home",
     "category" : "PC"
   }, {
     "productCode" : 14,
     "name" : "Huawei MateBook D 14 53012JBB notebook PC",
     "brand" : "Huawei",
-    "sellingPrice" : 599.00,
-    "purchasePrice" : 200.00,
+    "sellingPrice" : 599.0,
+    "purchasePrice" : 200.0,
     "description" : "35,6 cm (14 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 10 Grey",
     "category" : "PC"
   }, {
     "productCode" : 15,
     "name" : "Lenovo IdeaPad 3 15ITL6 PC",
     "brand" : "Lenovo",
-    "sellingPrice" : 499.00,
-    "purchasePrice" : 150.00,
+    "sellingPrice" : 499.0,
+    "purchasePrice" : 150.0,
     "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
     "category" : "PC"
   }, {
     "productCode" : 16,
     "name" : "Samsung Galaxy Book Pro 15",
     "brand" : "Samsung",
-    "sellingPrice" : 1599.00,
-    "purchasePrice" : 400.00,
+    "sellingPrice" : 1599.0,
+    "purchasePrice" : 400.0,
     "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
     "category" : "PC"
   }, {
     "productCode" : 17,
     "name" : "Huawei MateBook D 15 2021",
     "brand" : "Huawei",
-    "sellingPrice" : 849.90,
-    "purchasePrice" : 220.00,
+    "sellingPrice" : 849.9,
+    "purchasePrice" : 220.0,
     "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
     "category" : "PC"
   }, {
     "productCode" : 18,
     "name" : "Apple MacBook Pro 14",
     "brand" : "Apple",
-    "sellingPrice" : 2099.00,
-    "purchasePrice" : 850.00,
+    "sellingPrice" : 2099.0,
+    "purchasePrice" : 850.0,
     "description" : "Chip M1 Pro 8‑core CPU 14‑core GPU 512GB SSD Space Gray 96 W",
     "category" : "PC"
   }, {
     "productCode" : 19,
     "name" : "Apple MacBook Air 13",
     "brand" : "Apple",
-    "sellingPrice" : 1299.00,
-    "purchasePrice" : 500.00,
+    "sellingPrice" : 1299.0,
+    "purchasePrice" : 500.0,
     "description" : "Chip M1 con GPU 8-core, 512GB SSD, 8GB RAM - Silver (2020)",
     "category" : "PC"
   }, {
     "productCode" : 20,
     "name" : "ASUS VivoBook 15 K513EA-L12251W PC",
     "brand" : "Asus",
-    "sellingPrice" : 999.00,
-    "purchasePrice" : 230.00,
+    "sellingPrice" : 999.0,
+    "purchasePrice" : 230.0,
     "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
     "category" : "PC"
   }, {
     "productCode" : 21,
     "name" : "Samsung HW-Q700A Soundbar",
     "brand" : "Samsung",
-    "sellingPrice" : 339.00,
-    "purchasePrice" : 120.00,
+    "sellingPrice" : 339.0,
+    "purchasePrice" : 120.0,
     "description" : "Black 3.1.2 channel, Width 980mm, Audio: DTS Digital Surround, Dolby Atmos, Dolby Digital Plus, Dolby TrueHD",
     "category" : "HOME"
   }, {
@@ -172,55 +172,55 @@
     "name" : "Bose UFS-20",
     "brand" : "Bose",
     "sellingPrice" : 129.99,
-    "purchasePrice" : 70.00,
+    "purchasePrice" : 70.0,
     "description" : "The Black Floor wall mount for loudspeakers",
     "category" : "HOME"
   }, {
     "productCode" : 23,
     "name" : "Dyson V10 Absolute",
     "brand" : "Dyson",
-    "sellingPrice" : 499.00,
-    "purchasePrice" : 150.00,
+    "sellingPrice" : 499.0,
+    "purchasePrice" : 150.0,
     "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
     "category" : "HOME"
   }, {
     "productCode" : 24,
     "name" : "Dyson V15 Detect Absolute",
     "brand" : "Dyson",
-    "sellingPrice" : 749.00,
-    "purchasePrice" : 200.00,
+    "sellingPrice" : 749.0,
+    "purchasePrice" : 200.0,
     "description" : "Cordless Vacuum Cleaner, Weight 3000g, Power Supply Battery, Charging Time 4.5h, Suction Power 240W, Color Copper, Niche, Yellow",
     "category" : "HOME"
   }, {
     "productCode" : 25,
     "name" : "Ariete 2474",
     "brand" : "Ariete",
-    "sellingPrice" : 249.00,
-    "purchasePrice" : 30.00,
+    "sellingPrice" : 249.0,
+    "purchasePrice" : 30.0,
     "description" : "Portable Vacuum Cleaner Bagless Black, Purple",
     "category" : "HOME"
   }, {
     "productCode" : 26,
     "name" : "iRobot Roomba Combo",
     "brand" : "Romba Combo",
-    "sellingPrice" : 299.90,
-    "purchasePrice" : 100.00,
+    "sellingPrice" : 299.9,
+    "purchasePrice" : 100.0,
     "description" : "Robot Vacuum 0,45 L Dust Bag, Black and Grey",
     "category" : "HOME"
   }, {
     "productCode" : 27,
     "name" : "Dyson Pure Cool",
     "brand" : "Dyson",
-    "sellingPrice" : 449.90,
-    "purchasePrice" : 200.00,
+    "sellingPrice" : 449.9,
+    "purchasePrice" : 200.0,
     "description" : "Pure Cool Dyson 36dB, Power 56W, Color Silver and White",
     "category" : "HOME"
   }, {
     "productCode" : 28,
     "name" : "LG OLED OLED65C15LA",
     "brand" : "LG",
-    "sellingPrice" : 1650.00,
-    "purchasePrice" : 350.00,
+    "sellingPrice" : 1650.0,
+    "purchasePrice" : 350.0,
     "description" : "65 inches Smart TV 4K Ultra HD New 2021 Wi-Fi Software α9 Gen4 AI Picture Pro",
     "category" : "HOME"
   }, {
@@ -228,47 +228,47 @@
     "name" : "Xiaomi Mi LED TV 4A",
     "brand" : "Xiaomi",
     "sellingPrice" : 199.99,
-    "purchasePrice" : 99.00,
+    "purchasePrice" : 99.0,
     "description" : "81,3 cm (32 inches) HD Smart TV Wi-Fi Black",
     "category" : "HOME"
   }, {
     "productCode" : 30,
     "name" : "Samsung MC32K7055CK Microwave",
     "brand" : "Samsung",
-    "sellingPrice" : 249.00,
-    "purchasePrice" : 70.00,
+    "sellingPrice" : 249.0,
+    "purchasePrice" : 70.0,
     "description" : "Flat Surface Combination Microwave 32 L 900 W Black",
     "category" : "HOME"
   }, {
     "productCode" : 31,
     "name" : "Apple Watch Series 3",
     "brand" : "Apple",
-    "sellingPrice" : 209.00,
-    "purchasePrice" : 60.00,
+    "sellingPrice" : 209.0,
+    "purchasePrice" : 60.0,
     "description" : "GPS, 38mm Space Gray Aluminum with Black Sport Band, Type Display OLED, OS WatchOS 5",
     "category" : "SMARTWATCH"
   }, {
     "productCode" : 32,
     "name" : "Samsung Galaxy Watch4",
     "brand" : "Samsung",
-    "sellingPrice" : 219.90,
-    "purchasePrice" : 90.00,
+    "sellingPrice" : 219.9,
+    "purchasePrice" : 90.0,
     "description" : "40mm Smartwatch Ghiera Touch Alluminium Memory 16GB Pink Gold",
     "category" : "SMARTWATCH"
   }, {
     "productCode" : 33,
     "name" : "Apple Watch Series 7",
     "brand" : "Apple",
-    "sellingPrice" : 399.00,
-    "purchasePrice" : 120.00,
+    "sellingPrice" : 399.0,
+    "purchasePrice" : 120.0,
     "description" : "GPS, 41mm Midnight Aluminum Case with Midnight Sport Band, Type Display OLED, OS WatchOS 8",
     "category" : "SMARTWATCH"
   }, {
     "productCode" : 34,
     "name" : "Huawei WATCH GT 2",
     "brand" : "Huawei",
-    "sellingPrice" : 109.00,
-    "purchasePrice" : 35.00,
+    "sellingPrice" : 109.0,
+    "purchasePrice" : 35.0,
     "description" : "3,53 cm (1.39 inches) 46mm AMOLED Black GPS (Satellite)",
     "category" : "SMARTWATCH"
   }, {
@@ -276,71 +276,71 @@
     "name" : "Xiaomi Redmi Watch 2",
     "brand" : "Xiaomi",
     "sellingPrice" : 59.99,
-    "purchasePrice" : 15.00,
+    "purchasePrice" : 15.0,
     "description" : "Lite (Black), Type Display TFT, NFC No, Display 1.55 inches",
     "category" : "SMARTWATCH"
   }, {
     "productCode" : 36,
     "name" : "HP Pavilion Gaming TG01-2133nl",
     "brand" : "HP",
-    "sellingPrice" : 999.00,
-    "purchasePrice" : 600.00,
+    "sellingPrice" : 999.0,
+    "purchasePrice" : 600.0,
     "description" : "DDR4-SDRAM 5600G Mini Tower AMD Ryzen™ 5 8 GB 512 GB SSD Windows 11 Black",
     "category" : "COMPUTER"
   }, {
     "productCode" : 37,
     "name" : "MSI MAG Infinite S3",
     "brand" : "MSI",
-    "sellingPrice" : 1799.00,
-    "purchasePrice" : 700.00,
+    "sellingPrice" : 1799.0,
+    "purchasePrice" : 700.0,
     "description" : "DDR4-SDRAM i7-11700F Desktop Intel Core i7 16 GB 1512 GB HDD+SSD Windows 10 Black",
     "category" : "COMPUTER"
   }, {
     "productCode" : 38,
     "name" : "Acer Aspire XC-1660",
     "brand" : "Acer",
-    "sellingPrice" : 529.00,
-    "purchasePrice" : 300.00,
+    "sellingPrice" : 529.0,
+    "purchasePrice" : 300.0,
     "description" : "DDR4-SDRAM i3-10105 Desktop Intel® Core™ i3 8 GB 256 GB SSD Windows 11 Black",
     "category" : "COMPUTER"
   }, {
     "productCode" : 39,
     "name" : "Acer NITRO 50 N50-620",
     "brand" : "Acer",
-    "sellingPrice" : 1099.00,
-    "purchasePrice" : 650.00,
+    "sellingPrice" : 1099.0,
+    "purchasePrice" : 650.0,
     "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
     "category" : "COMPUTER"
   }, {
     "productCode" : 40,
     "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
     "brand" : "Asus",
-    "sellingPrice" : 1699.00,
-    "purchasePrice" : 520.00,
+    "sellingPrice" : 1699.0,
+    "purchasePrice" : 520.0,
     "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
     "category" : "COMPUTER"
   }, {
     "productCode" : 41,
     "name" : "Apple iMac 24",
     "brand" : "Apple",
-    "sellingPrice" : 1499.00,
-    "purchasePrice" : 450.00,
+    "sellingPrice" : 1499.0,
+    "purchasePrice" : 450.0,
     "description" : "Display Retina 4.5K (Chip M1 con GPU 8-core, 256GB SSD) - Blue (2021)",
     "category" : "COMPUTER"
   }, {
     "productCode" : 42,
     "name" : "HP ProDesk 400 G7",
     "brand" : "HP",
-    "sellingPrice" : 699.90,
-    "purchasePrice" : 340.00,
+    "sellingPrice" : 699.9,
+    "purchasePrice" : 340.0,
     "description" : "DDR4-SDRAM i5-10400 Micro Tower Intel® Core™ i5 8 GB 512 GB SSD Windows 11 Black",
     "category" : "COMPUTER"
   }, {
     "productCode" : 43,
     "name" : "HP Essential Desktop M01-F1036nl",
     "brand" : "HP",
-    "sellingPrice" : 649.00,
-    "purchasePrice" : 220.00,
+    "sellingPrice" : 649.0,
+    "purchasePrice" : 220.0,
     "description" : "OS: Windows 11, Processor AMD Ryzen 5 RAM 16 GB SSD: 512 GB, Black",
     "category" : "COMPUTER"
   }, {
@@ -348,23 +348,23 @@
     "name" : "HP OMEN 25L GT12-1027nl",
     "brand" : "HP",
     "sellingPrice" : 1999.99,
-    "purchasePrice" : 850.00,
+    "purchasePrice" : 850.0,
     "description" : "DDR4-SDRAM 5800X Desktop AMD Ryzen™ 7 16 GB 1000 GB SSD Windows 11 Black",
     "category" : "COMPUTER"
   }, {
     "productCode" : 45,
     "name" : "Apple Mac Mini",
     "brand" : "Apple",
-    "sellingPrice" : 709.00,
-    "purchasePrice" : 230.00,
+    "sellingPrice" : 709.0,
+    "purchasePrice" : 230.0,
     "description" : "Chip M1 con GPU 8-core, 256GB SSD, 8GB RAM - Silver (2020)",
     "category" : "COMPUTER"
   }, {
     "productCode" : 46,
     "name" : "Samsung F24T350",
     "brand" : "Samsung",
-    "sellingPrice" : 149.00,
-    "purchasePrice" : 30.00,
+    "sellingPrice" : 149.0,
+    "purchasePrice" : 30.0,
     "description" : "Monitor LED 24 inches, Flat Resolution 1920x1080 Black",
     "category" : "MONITOR"
   }, {
@@ -372,39 +372,39 @@
     "name" : "HP M24f",
     "brand" : "HP",
     "sellingPrice" : 139.99,
-    "purchasePrice" : 40.00,
+    "purchasePrice" : 40.0,
     "description" : "60,5 cm (23.8 inches) 1920 x 1080 Pixel Full HD Black, Silver",
     "category" : "MONITOR"
   }, {
     "productCode" : 48,
     "name" : "Samsung F27T350",
     "brand" : "Samsung",
-    "sellingPrice" : 159.00,
-    "purchasePrice" : 45.00,
+    "sellingPrice" : 159.0,
+    "purchasePrice" : 45.0,
     "description" : "Monitor LED 27 inches, Flat Resolution 1920x1080 Black",
     "category" : "MONITOR"
   }, {
     "productCode" : 49,
     "name" : "Lenovo D27-30",
     "brand" : "Lenovo",
-    "sellingPrice" : 149.00,
-    "purchasePrice" : 45.00,
+    "sellingPrice" : 149.0,
+    "purchasePrice" : 45.0,
     "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
     "category" : "MONITOR"
   }, {
     "productCode" : 50,
     "name" : "Acer NITRO QG1 QG241Y",
     "brand" : "Acer",
-    "sellingPrice" : 139.90,
-    "purchasePrice" : 50.00,
+    "sellingPrice" : 139.9,
+    "purchasePrice" : 50.0,
     "description" : "60,5 cm (23.8 inches) 1920x1080 Pixel Full HD LED Black",
     "category" : "MONITOR"
   }, {
     "productCode" : 51,
     "name" : "ASUS VA27EHE",
     "brand" : "Asus",
-    "sellingPrice" : 174.00,
-    "purchasePrice" : 35.00,
+    "sellingPrice" : 174.0,
+    "purchasePrice" : 35.0,
     "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
     "category" : "MONITOR"
   }, {
@@ -412,7 +412,7 @@
     "name" : "LG 27MK600M-W",
     "brand" : "LG",
     "sellingPrice" : 169.99,
-    "purchasePrice" : 60.00,
+    "purchasePrice" : 60.0,
     "description" : "Monitor Full HD 27 inches, IPS 75Hz Silver",
     "category" : "MONITOR"
   }, {
@@ -420,23 +420,23 @@
     "name" : "ASUS VA24EHE",
     "brand" : "Asus",
     "sellingPrice" : 139.99,
-    "purchasePrice" : 30.00,
+    "purchasePrice" : 30.0,
     "description" : "60,5 cm (23.8 inches) 1920x1080 Pixel Full HD IPS Black",
     "category" : "MONITOR"
   }, {
     "productCode" : 54,
     "name" : "Apple Studio Display",
     "brand" : "Apple",
-    "sellingPrice" : 1799.00,
-    "purchasePrice" : 450.00,
+    "sellingPrice" : 1799.0,
+    "purchasePrice" : 450.0,
     "description" : "Adjustable Tilt - Standard glass, White and Black",
     "category" : "MONITOR"
   }, {
     "productCode" : 55,
     "name" : "Huawei MateView GT",
     "brand" : "Huawei",
-    "sellingPrice" : 349.90,
-    "purchasePrice" : 99.00,
+    "sellingPrice" : 349.9,
+    "purchasePrice" : 99.0,
     "description" : "68,6 cm (27 inches) 2560x1440 Pixel Quad HD LCD Black",
     "category" : "MONITOR"
   }, {
@@ -444,7 +444,7 @@
     "name" : "Logitech MK235",
     "brand" : "Logitech",
     "sellingPrice" : 19.99,
-    "purchasePrice" : 5.00,
+    "purchasePrice" : 5.0,
     "description" : "Keyboard Wireless for Windows, Unifying USB 2,4 GHz Wireless, Long Battery Life",
     "category" : "KEYBOARD"
   }, {
@@ -452,15 +452,15 @@
     "name" : "Logitech G G413",
     "brand" : "Logitech",
     "sellingPrice" : 54.99,
-    "purchasePrice" : 10.00,
+    "purchasePrice" : 10.0,
     "description" : "Mechanical Gaming Keyboard USB QWERTY Italy, Black",
     "category" : "KEYBOARD"
   }, {
     "productCode" : 58,
     "name" : "Apple Magic Keyboard",
     "brand" : "Apple",
-    "sellingPrice" : 320.00,
-    "purchasePrice" : 120.00,
+    "sellingPrice" : 320.0,
+    "purchasePrice" : 120.0,
     "description" : "For iPad Pro 11 inches (Third Generation) and iPad Air (Fourth Generation) - White",
     "category" : "KEYBOARD"
   }, {
@@ -468,15 +468,15 @@
     "name" : "Trust GXT 845",
     "brand" : "Trust",
     "sellingPrice" : 29.99,
-    "purchasePrice" : 9.00,
+    "purchasePrice" : 9.0,
     "description" : "Tural keyboard USB QWERTY italy Black",
     "category" : "KEYBOARD"
   }, {
     "productCode" : 60,
     "name" : "Logitech MK220",
     "brand" : "Logitech",
-    "sellingPrice" : 19.00,
-    "purchasePrice" : 9.00,
+    "sellingPrice" : 19.0,
+    "purchasePrice" : 9.0,
     "description" : "Wireless Keyboard USB, Black",
     "category" : "KEYBOARD"
   }, {
@@ -484,7 +484,7 @@
     "name" : "Apple Magic Mouse",
     "brand" : "Apple",
     "sellingPrice" : 69.99,
-    "purchasePrice" : 20.00,
+    "purchasePrice" : 20.0,
     "description" : "Ambidextrous Bluetooth Mouse, Rechargeable White",
     "category" : "MOUSE"
   }, {
@@ -492,7 +492,7 @@
     "name" : "Logitech MX Master 3",
     "brand" : "Logitech",
     "sellingPrice" : 72.98,
-    "purchasePrice" : 25.00,
+    "purchasePrice" : 25.0,
     "description" : "Advanced Wireless Mouse, 2.4 GHz Bluetooth or USB Receiver, Ultra-Fast Scrolling, 4000 DPI Any Surface, Ergonomic, 7 Buttons, PC-Mac-Laptop-iPadOS, Light Gray",
     "category" : "MOUSE"
   }, {
@@ -500,7 +500,7 @@
     "name" : "Logitech M100",
     "brand" : "Logitech",
     "sellingPrice" : 7.99,
-    "purchasePrice" : 2.00,
+    "purchasePrice" : 2.0,
     "description" : "USB Mouse Cable, 3 Buttons, 1000 DPI Optical Tracking, Ambidextrous, Compatible with PC, Mac and Laptop",
     "category" : "MOUSE"
   }, {
@@ -508,7 +508,7 @@
     "name" : "Logitech G G305",
     "brand" : "Logitech",
     "sellingPrice" : 32.99,
-    "purchasePrice" : 10.00,
+    "purchasePrice" : 10.0,
     "description" : "Right Hand Mouse, Wireless RF + Optical Bluetooth 12000 DPI, Black and Grey",
     "category" : "MOUSE"
   }, {
@@ -516,7 +516,7 @@
     "name" : "Microsoft Surface Mobile Mouse",
     "brand" : "Microsoft",
     "sellingPrice" : 24.99,
-    "purchasePrice" : 11.00,
+    "purchasePrice" : 11.0,
     "description" : "Bluetooth BlueTrack Ambidextrous Mouse, 4 Buttons, White and Platinum",
     "category" : "MOUSE"
   }, {
@@ -524,7 +524,7 @@
     "name" : "Xerox B225 A4",
     "brand" : "Xerox",
     "sellingPrice" : 296.99,
-    "purchasePrice" : 30.00,
+    "purchasePrice" : 30.0,
     "description" : "34 ppm Wireless Duplex Copy Print Scan, PS3 PCL5e 6 ADF 2 Trays, Total 251 Sheets, White",
     "category" : "PRINTER"
   }, {
@@ -532,23 +532,23 @@
     "name" : "HP DeskJet 2720e",
     "brand" : "HP",
     "sellingPrice" : 59.99,
-    "purchasePrice" : 15.00,
+    "purchasePrice" : 15.0,
     "description" : "Thermal inkjet A4 4800x1200 DPI 7.5 ppm Wi-Fi, White",
     "category" : "PRINTER"
   }, {
     "productCode" : 68,
     "name" : "Xiaomi Mi Pocket Photo Printer",
     "brand" : "Xiaomi",
-    "sellingPrice" : 59.90,
-    "purchasePrice" : 15.00,
+    "sellingPrice" : 59.9,
+    "purchasePrice" : 15.0,
     "description" : "ZINK Photo Printer (0 ink) 313x400 DPI 2x3 inches (5x7.6 cm) White, Black",
     "category" : "PRINTER"
   }, {
     "productCode" : 69,
     "name" : "HP LaserJet M140we",
     "brand" : "HP",
-    "sellingPrice" : 179.00,
-    "purchasePrice" : 35.00,
+    "sellingPrice" : 179.0,
+    "purchasePrice" : 35.0,
     "description" : "Laser A4 600x600 DPI 20 ppm Wi-Fi, White",
     "category" : "PRINTER"
   }, {
@@ -556,7 +556,7 @@
     "name" : "HP DeskJet Plus 4130e",
     "brand" : "HP",
     "sellingPrice" : 89.99,
-    "purchasePrice" : 25.00,
+    "purchasePrice" : 25.0,
     "description" : "Multifunction Printer, Thermal Ink Jet, Max Resolution 4800x1200 DPI, Paper Size A4, White",
     "category" : "PRINTER"
   }, {
@@ -564,7 +564,7 @@
     "name" : "Toshiba Canvio Basics",
     "brand" : "Toshiba",
     "sellingPrice" : 82.99,
-    "purchasePrice" : 30.00,
+    "purchasePrice" : 30.0,
     "description" : "External Hard Disk, Capacity 4000 GB, Black",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
@@ -572,7 +572,7 @@
     "name" : "Toshiba Canvio",
     "brand" : "Toshiba",
     "sellingPrice" : 39.99,
-    "purchasePrice" : 13.00,
+    "purchasePrice" : 13.0,
     "description" : "External Hard Disk, Capacity 1000 GB, Black",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
@@ -580,7 +580,7 @@
     "name" : "Samsung 870 EVO",
     "brand" : "Samsung",
     "sellingPrice" : 49.99,
-    "purchasePrice" : 15.00,
+    "purchasePrice" : 15.0,
     "description" : "250 GB Serial ATA III V-NAND, Write 530 MBps Read 560 MBps, Black",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
@@ -588,7 +588,7 @@
     "name" : "SanDisk Plus",
     "brand" : "SanDisk",
     "sellingPrice" : 87.99,
-    "purchasePrice" : 20.00,
+    "purchasePrice" : 20.0,
     "description" : "1000 GB Serial ATA III, Write 450 MBps Read 535 MBps, Black",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
@@ -596,7 +596,7 @@
     "name" : "Samsung MUF-128AB",
     "brand" : "Samsung",
     "sellingPrice" : 24.99,
-    "purchasePrice" : 10.00,
+    "purchasePrice" : 10.0,
     "description" : "USB Flash Drive 128GB USB TypeA 3.2 Gen 1 (3.1 Gen 1) Gray, Silver",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
@@ -604,7 +604,7 @@
     "name" : "Samsung MZ-77Q1T0",
     "brand" : "Samsung",
     "sellingPrice" : 83.99,
-    "purchasePrice" : 25.00,
+    "purchasePrice" : 25.0,
     "description" : "1000 GB Serial ATA III QLC, Write 530 MBps Read 560 MBps, Silver Gray",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
@@ -612,7 +612,7 @@
     "name" : "Seagate Backup Plus",
     "brand" : "Seagate",
     "sellingPrice" : 149.99,
-    "purchasePrice" : 25.00,
+    "purchasePrice" : 25.0,
     "description" : "4000 GB External Hard Disk Hub, Black",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
@@ -620,7 +620,7 @@
     "name" : "Apple SuperDrive",
     "brand" : "Apple",
     "sellingPrice" : 69.99,
-    "purchasePrice" : 20.00,
+    "purchasePrice" : 20.0,
     "description" : "Ultra-compact, Apple USB SuperDrive connects to your MacBook Pro with Retina display, or with a single USB cable, 2000 GB, White",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
@@ -628,7 +628,7 @@
     "name" : "Intenso 256GB Premium",
     "brand" : "Intenso",
     "sellingPrice" : 43.99,
-    "purchasePrice" : 15.00,
+    "purchasePrice" : 15.0,
     "description" : "External Hard Disk, Capacity 256 GB, Write 100MBps Read 320 MBps, Black",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
@@ -636,7 +636,7 @@
     "name" : "SanDisk Ultra Flash Unit",
     "brand" : "SanDisk",
     "sellingPrice" : 29.99,
-    "purchasePrice" : 11.00,
+    "purchasePrice" : 11.0,
     "description" : "USB 64 GB USB typeA 3.2 Gen 1 (3.1 Gen 1) Black",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
@@ -644,7 +644,7 @@
     "name" : "D-Link DGS-105 Unmanaged Switch",
     "brand" : "D-Link",
     "sellingPrice" : 29.99,
-    "purchasePrice" : 10.00,
+    "purchasePrice" : 10.0,
     "description" : "RJ-45 Ports: 5, Ethernet Technology: 1000BASE-T, 100BASE-TX, 10BASE-T, Supported Data Transfer: 10-100-1000MBps Max Transfer: 1GBps, Black",
     "category" : "NETWORKING"
   }, {
@@ -652,7 +652,7 @@
     "name" : "D-Link DGS-108 Unmanaged Switch",
     "brand" : "D-Link",
     "sellingPrice" : 39.99,
-    "purchasePrice" : 20.00,
+    "purchasePrice" : 20.0,
     "description" : "RJ-45 Ports: 8, Ethernet Technology: 1000BASE-T, 100BASE-TX, 10BASE-T, Supported Data Transfer: 10-100-1000MBps Max Transfer: 1GBps, Silver",
     "category" : "NETWORKING"
   }, {
@@ -660,7 +660,7 @@
     "name" : "TP-LINK TL-SG1005P Unmanaged Switch",
     "brand" : "TP-LINK",
     "sellingPrice" : 49.99,
-    "purchasePrice" : 15.00,
+    "purchasePrice" : 15.0,
     "description" : "RJ-45 Ports: 5, Ethernet Technology: 1000BASE-T, 100BASE-TX, 10BASE-T, Supported Data Transfer: 10-100-1000MBps Max Transfer: 1GBps, Power Support, Silver",
     "category" : "NETWORKING"
   }, {
@@ -668,7 +668,7 @@
     "name" : "Xiaomi Mi Router AX1800",
     "brand" : "Xiaomi",
     "sellingPrice" : 69.99,
-    "purchasePrice" : 15.00,
+    "purchasePrice" : 15.0,
     "description" : "Router Wireless Gigabit Ethernet Dual-band (2.4 GHz or 5 GHz) 5G, WAN:Yes, Ethernet LAN Port: 3, White",
     "category" : "NETWORKING"
   }, {
@@ -676,7 +676,7 @@
     "name" : "TP-LINK Archer VR1200 Router",
     "brand" : "TP-LINK",
     "sellingPrice" : 79.99,
-    "purchasePrice" : 18.00,
+    "purchasePrice" : 18.0,
     "description" : "Router Wireless Dual-band (2.4 GHz or 5 GHz) Gigabit Ethernet, WAN:Yes, Ethernet LAN Port: 5, Black",
     "category" : "NETWORKING"
   }, {
@@ -684,7 +684,7 @@
     "name" : "Hama Cable RJ45",
     "brand" : "Hama",
     "sellingPrice" : 14.99,
-    "purchasePrice" : 8.00,
+    "purchasePrice" : 8.0,
     "description" : "(RJ45) 1.5m, CAT 6, STP, Gold connector, Grey, 3 Stars",
     "category" : "NETWORKING"
   }, {
@@ -692,15 +692,15 @@
     "name" : "Tapo C200 Videocamera",
     "brand" : "Tapo",
     "sellingPrice" : 39.99,
-    "purchasePrice" : 10.00,
+    "purchasePrice" : 10.0,
     "description" : "Spherical Interior 1280x720 Pixel, Camera Ceiling with Night Vision, Wi-Fi:Yes, White",
     "category" : "VIDEO_SURVEILLANCE"
   }, {
     "productCode" : 88,
     "name" : "Netatmo Alarm System",
     "brand" : "Netatmo",
-    "sellingPrice" : 319.90,
-    "purchasePrice" : 90.00,
+    "sellingPrice" : 319.9,
+    "purchasePrice" : 90.0,
     "description" : "Intelligent Video Alarm System, Wi-Fi:Yes, Grey, Black",
     "category" : "VIDEO_SURVEILLANCE"
   }, {
@@ -708,7 +708,7 @@
     "name" : "Xiaomi MJSXJ10CM Videocamera",
     "brand" : "Xiaomi",
     "sellingPrice" : 39.99,
-    "purchasePrice" : 10.00,
+    "purchasePrice" : 10.0,
     "description" : "Indoor IP-Security Camera Light Bulb 1920x1080 Pixel, Ceiling-Wall-Desk, with Night Vision, Wi-Fi:Yes, White",
     "category" : "VIDEO_SURVEILLANCE"
   }, {
@@ -716,47 +716,47 @@
     "name" : "Arlo Essential Spotlight Telecamera",
     "brand" : "Arlo",
     "sellingPrice" : 149.99,
-    "purchasePrice" : 50.00,
+    "purchasePrice" : 50.0,
     "description" : "Spotlight IP Security Camera Indoor and Outdoor, Ceiling-Wall with Night Vision, Wi-Fi:Yes, White",
     "category" : "VIDEO_SURVEILLANCE"
   }, {
     "productCode" : 91,
     "name" : "Apple iPad 10.2",
     "brand" : "Apple",
-    "sellingPrice" : 559.00,
-    "purchasePrice" : 100.00,
+    "sellingPrice" : 559.0,
+    "purchasePrice" : 100.0,
     "description" : "10.2 inch 256GB Wi-Fi, Software: IPadOS15 - Space Grey",
     "category" : "TABLET"
   }, {
     "productCode" : 92,
     "name" : "Apple iPad Air 10.9",
     "brand" : "Apple",
-    "sellingPrice" : 809.00,
-    "purchasePrice" : 120.00,
+    "sellingPrice" : 809.0,
+    "purchasePrice" : 120.0,
     "description" : "10.9 inches (fourth gen.) Wi-Fi 256GB, Software: iOS14 - Space Grey",
     "category" : "TABLET"
   }, {
     "productCode" : 93,
     "name" : "Samsung Galaxy Tab A8",
     "brand" : "Samsung",
-    "sellingPrice" : 249.90,
-    "purchasePrice" : 90.00,
+    "sellingPrice" : 249.9,
+    "purchasePrice" : 90.0,
     "description" : "10.5 inches Wifi, Android 11, RAM 3 GB, 32 GB - Grey",
     "category" : "TABLET"
   }, {
     "productCode" : 94,
     "name" : "Samsung Galaxy Tab S6 Lite",
     "brand" : "Samsung",
-    "sellingPrice" : 399.90,
-    "purchasePrice" : 100.00,
+    "sellingPrice" : 399.9,
+    "purchasePrice" : 100.0,
     "description" : "10.4 inches, Wi-Fi 5 (802.11ac), 64GB, Android 11 - Space Grey",
     "category" : "TABLET"
   }, {
     "productCode" : 95,
     "name" : "Samsung Galaxy Tab S7+",
     "brand" : "Samsung",
-    "sellingPrice" : 1149.00,
-    "purchasePrice" : 300.00,
+    "sellingPrice" : 1149.0,
+    "purchasePrice" : 300.0,
     "description" : "Tablet S Pen, Snapdragon 865 Plus, Display 12.4 inches WQXGA SuperAMOLED, 128GB expandable, RAM 6GB, Battery 10.090 mAh, 5G, Android 10, Mystic Black",
     "category" : "TABLET"
   }, {
@@ -764,15 +764,15 @@
     "name" : "Lenovo Tab M10",
     "brand" : "Lenovo",
     "sellingPrice" : 149.99,
-    "purchasePrice" : 60.00,
+    "purchasePrice" : 60.0,
     "description" : "Tablet 2nd Gen 32 GB 25, 6 cm (10.1 inches) Mediatek 2 GB Wi-Fi 5 (802.11ac) Android 10 - Grey",
     "category" : "TABLET"
   }, {
     "productCode" : 97,
     "name" : "Realme Pad",
     "brand" : "Realme",
-    "sellingPrice" : 349.90,
-    "purchasePrice" : 70.00,
+    "sellingPrice" : 349.9,
+    "purchasePrice" : 70.0,
     "description" : "Tablet 4G TD-LTE & FDD-LTE 128 GB 26.4 cm (10.4 inches) Mediatek 6 GB Wi-Fi 5 (802.11ac) Android 11 - Grey",
     "category" : "TABLET"
   }, {
@@ -780,27 +780,25 @@
     "name" : "Microsoft Surface Go 3",
     "brand" : "Microsoft",
     "sellingPrice" : 599.99,
-    "purchasePrice" : 120.00,
+    "purchasePrice" : 120.0,
     "description" : "Tablet 10.5 inches Processor Dual-Core Intel® Pentium® Gold 6500Y 8GB/128GB Wi-Fi - Black",
     "category" : "TABLET"
   }, {
     "productCode" : 99,
     "name" : "Huawei MatePad T 10s",
     "brand" : "Huawei",
-    "sellingPrice" : 229.90,
-    "purchasePrice" : 60.00,
+    "sellingPrice" : 229.9,
+    "purchasePrice" : 60.0,
     "description" : "Tablet 4G TD-LTE & FDD-LTE 64 GB 25.6 cm (10.1 inches) Hisilicon Kirin 4 GB Wi-Fi 5 (802.11ac) EMUI 10.1 - Blue",
     "category" : "TABLET"
   }, {
     "productCode" : 100,
     "name" : "Huawei Tab T10s",
     "brand" : "Huawei",
-    "sellingPrice" : 279.90,
-    "purchasePrice" : 80.00,
+    "sellingPrice" : 279.9,
+    "purchasePrice" : 80.0,
     "description" : "Tablet LTE 4G 64 GB 25.6 cm (10.1 inches) Hisilicon Kirin 4 GB Wi-Fi 5 (802.11ac) EMUI 10.1 - Blue",
     "category" : "TABLET"
   } ],
-  "values" : [ 114, 61, 73, 110, 85, 38, 41, 41, 15, 9, 35, 73, 57, 9, 7, 114, 65, 53, 73, 7, 96, 89, 103, 42, 43, 22, 63, 90, 118, 78, 98, 81, 115, 30, 84, 23, 45, 112, 97, 6, 87, 48, 118, 17, 36, 99, 12,
-  83, 30, 1, 73, 67, 109, 100, 108, 9, 117, 77, 26, 23, 27, 99, 8, 50, 61, 39, 36, 85, 84, 70, 34, 71, 35, 40, 56, 65, 5, 6, 99, 48, 63, 96, 39, 30, 22, 86, 24, 44, 29, 54, 79, 73, 49, 105, 100, 72, 83, 115,
-  105, 60 ]
+  "values" : [ 78, 46, 63, 110, 85, 38, 41, 41, 15, 9, 35, 73, 57, 9, 7, 114, 65, 53, 73, 7, 96, 89, 103, 42, 43, 22, 63, 90, 118, 78, 98, 81, 115, 30, 84, 23, 45, 112, 97, 6, 87, 48, 118, 17, 36, 99, 12, 83, 30, 1, 73, 67, 109, 100, 108, 9, 117, 77, 26, 23, 27, 99, 8, 50, 61, 39, 36, 85, 84, 70, 34, 71, 35, 40, 56, 65, 5, 6, 99, 48, 63, 96, 39, 30, 22, 86, 24, 44, 29, 54, 79, 73, 49, 105, 100, 72, 83, 115, 105, 60 ]
 }

@@ -10,8 +10,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
@@ -63,10 +65,17 @@ public final class ViewAddDepartment implements Initializable {
     @FXML
     public void buttonAddHandler(final ActionEvent event) {
         try {
-            this.controllerDepartment.addDepartment(this.textName.getText(), this.selectedStaff, this.controllerStock.getReservedProducts());
-            this.controllerStock.closeAddProducts();
-            final Stage stage = (Stage) this.buttonAdd.getScene().getWindow();
-            stage.close();
+            final Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setContentText("Resume of the new Department : \n"
+            + this.controllerStock.getReservedProducts() + "\n" 
+            + this.selectedStaff + "\n"
+            + "Are you done on add elements in the staff?");
+            if (alert.getResult() == ButtonType.OK) {
+                this.controllerDepartment.addDepartment(this.textName.getText(), this.selectedStaff, this.controllerStock.getReservedProducts());
+                this.controllerStock.closeAddProducts();
+                final Stage stage = (Stage) this.buttonAdd.getScene().getWindow();
+                stage.close();
+            }
         } catch (IllegalArgumentException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
@@ -85,7 +94,7 @@ public final class ViewAddDepartment implements Initializable {
     }
 
     @FXML
-    public void listSelectStaffHandler(final ActionEvent event) {
+    public void listSelectStaffHandler(final MouseEvent event) {
         this.selectedStaff.add(this.listStaff.getSelectionModel().getSelectedItem());
     }
 }
