@@ -47,11 +47,9 @@ public class ViewStockLabelBuyProducts implements Initializable {
     @FXML
     public void chkboxProductBoughtHandler() {
         if (this.chkboxProductBought.isSelected()) {
-            //this.spinnerQuantities.setDisable(true);
             this.controllerStock.addProductBuying(this.productSold, this.spinnerQuantities.getValue());
             this.checkIfProductPresent();
         } else if (!this.chkboxProductBought.isSelected()) {
-            //this.spinnerQuantities.setDisable(false);
             this.controllerStock.removeProductsBuying(this.productSold, this.spinnerQuantities.getValue());
             this.checkIfProductPresent();
         }

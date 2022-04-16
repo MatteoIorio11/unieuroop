@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
@@ -155,6 +156,19 @@ public class ViewStock implements Initializable {
     /**
      * 
      */
+    @FXML
+    public void txtSearchProductsHandler() {
+       if (this.txtAreaInfoProducts.getText() == null || this.txtSearchProducts.getText().isBlank()) {
+           this.loadAllProductsFromStock();
+       } else {
+           this.loadProductsByList(this.controllerStock.getProductsStocked().keySet().stream()
+                   .filter((product) -> product.getName().contains(this.txtSearchProducts.getText())).collect(Collectors.toList()));
+       }
+    }
+
+    /**
+     * 
+     */
     private void loadAllProductsFromStock() {
         this.listProductsStocked.getItems().clear();
         this.txtAreaInfoProducts.clear();
@@ -179,5 +193,4 @@ public class ViewStock implements Initializable {
             alert.setContentText(e.getMessage());
         }
     }
-
 }
