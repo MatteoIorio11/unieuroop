@@ -73,6 +73,18 @@ public class ViewStockBuyProducts implements Initializable {
         this.listSupplier.getItems().addAll(this.controllerStock.getSuppliers());
     }
 
+    /**
+     * 
+     */
+    public void uploadInfoLabelBuying() {
+        this.lblTotalPrice.setText("Total Price: " + this.controllerStock.getTotalPriceOfAllProductsBuying());
+        this.lblTotalProductsChoose.setText("Amount of Products Buying: " + this.controllerStock.getAmountOfAllProductsBuying());
+    }
+
+    /**
+     * 
+     * @param productsSold
+     */
     private void addStockLabelBuyProducts(final Map<Product, Double> productsSold) {
         this.listSoldProducts.getItems().clear();
         for (final Map.Entry<Product, Double> entryProductSold : productsSold.entrySet()) {
@@ -85,5 +97,4 @@ public class ViewStockBuyProducts implements Initializable {
             }
         }
     }
-
 }

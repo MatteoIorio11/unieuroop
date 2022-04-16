@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -76,7 +77,7 @@ public final class ControllerStockImpl {
      * @param product
      * @return
      */
-    public boolean checkIfProductPresent(final Product product) {
+    public boolean checkIfProductBuyingPresent(final Product product) {
         return this.productsBought.containsKey(product);
     }
 
@@ -85,8 +86,24 @@ public final class ControllerStockImpl {
      * @param product
      * @return
      */
-    public int getAmountofProductsBuying(final Product product) {
+    public int getAmountofProductBuying(final Product product) {
         return this.productsBought.get(product);
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public int getAmountOfAllProductsBuying() {
+        return this.productsBought.entrySet().stream().mapToInt(entryProduct -> entryProduct.getValue()).sum();
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public double getTotalPriceOfAllProductsBuying() {
+        return this.productsBought.entrySet().stream().mapToDouble(entryProduct -> entryProduct.getKey().getSellingPrice() * entryProduct.getValue()).sum();
     }
 
     /**
