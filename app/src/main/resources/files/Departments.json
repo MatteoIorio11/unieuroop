@@ -1,104 +1,6 @@
 [ {
-  "departmentName" : "department2",
-  "staff" : [ {
-  "name" : "Nome2",
-  "surname" : "Cognome2",
-  "email" : "email2@gmail.csom",
-  "id" : 0,
-  "password" : 222,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
-  "name" : "Nome1",
-  "surname" : "Cognome1",
-  "email" : "prova@gmail.com",
-  "id" : 0,
-  "password" : 1509442,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 4,
-    "name" : "mac book pro 16",
-    "brand" : "APPLE",
-    "sellingPrice" : 6000.0,
-    "purchasePrice" : 3000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
-  }, {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
-  }, {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
-  } ],
-  "values" : [ 0, 4, 10 ]
-}, {
-  "departmentName" : "Department K",
-  "staff" : [ {
-  "name" : "jkfdsh",
-  "surname" : "kjh",
-  "email" : "iuhk",
-  "id" : 6,
-  "password" : 3589783,
-  "birthday" : [ 2002, 4, 10 ],
-  "days" : [ "WEDNESDAY", "SATURDAY", "TUESDAY", "THURSDAY", "MONDAY", "FRIDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 3,
-    "name" : "Samsung Galaxy A13",
-    "brand" : "Samsung",
-    "sellingPrice" : 199.99,
-    "purchasePrice" : 90.0,
-    "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 2,
-    "name" : "Samsung Galaxy A22",
-    "brand" : "Samsung",
-    "sellingPrice" : 179.99,
-    "purchasePrice" : 70.0,
-    "description" : "5G 6.6 inch 64 GB Expandable Gray",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 1,
-    "name" : "Samsung Galaxy A52",
-    "brand" : "Samsung",
-    "sellingPrice" : 299.99,
-    "purchasePrice" : 100.0,
-    "description" : "5G SM-A528B 16,5 cm (6.5 inch) Double SIM Android 11 USB type-C 6 GB 128 GB 4500 mAh Black",
-    "category" : "SMARTPHONE"
-  } ],
-  "values" : [ 10, 15, 36 ]
-}, {
   "departmentName" : "department3",
   "staff" : [ {
-  "name" : "Nome3",
-  "surname" : "Cognome4",
-  "email" : "email3@gmail.com",
-  "id" : 0,
-  "password" : 333,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
   "name" : "Nome1",
   "surname" : "Cognome1",
   "email" : "prova@gmail.com",
@@ -128,16 +30,18 @@
   "days" : [ "MONDAY" ],
   "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
   "endTimes" : [ [ 10, 10 ] ]
+}, {
+  "name" : "Nome3",
+  "surname" : "Cognome4",
+  "email" : "email3@gmail.com",
+  "id" : 0,
+  "password" : 333,
+  "birthday" : [ 2022, 4, 6 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
+  "endTimes" : [ [ 10, 10 ] ]
 } ],
   "products" : [ {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
-  }, {
     "productCode" : 1,
     "name" : "iphone 13 pro",
     "brand" : "APPLE",
@@ -146,13 +50,13 @@
     "description" : "best phone ever created",
     "category" : "SMARTPHONE"
   }, {
-    "productCode" : 4,
-    "name" : "mac book pro 16",
+    "productCode" : 2,
+    "name" : "applewatch",
     "brand" : "APPLE",
-    "sellingPrice" : 6000.0,
-    "purchasePrice" : 3000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
   }, {
     "productCode" : 3,
     "name" : "mac book pro 14 ",
@@ -161,6 +65,102 @@
     "purchasePrice" : 2000.0,
     "description" : "best mac book ever created",
     "category" : "PC"
+  }, {
+    "productCode" : 4,
+    "name" : "mac book pro 16",
+    "brand" : "APPLE",
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
   } ],
-  "values" : [ 23, 5, 10, 0 ]
+  "values" : [ 4, 23, 0, 10 ]
+}, {
+  "departmentName" : "Department K",
+  "staff" : [ {
+  "name" : "jkfdsh",
+  "surname" : "kjh",
+  "email" : "iuhk",
+  "id" : 6,
+  "password" : 3589783,
+  "birthday" : [ 2002, 4, 10 ],
+  "days" : [ "WEDNESDAY", "SATURDAY", "MONDAY", "TUESDAY", "THURSDAY", "FRIDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 1,
+    "name" : "Samsung Galaxy A52",
+    "brand" : "Samsung",
+    "sellingPrice" : 299.99,
+    "purchasePrice" : 100.0,
+    "description" : "5G SM-A528B 16,5 cm (6.5 inch) Double SIM Android 11 USB type-C 6 GB 128 GB 4500 mAh Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 2,
+    "name" : "Samsung Galaxy A22",
+    "brand" : "Samsung",
+    "sellingPrice" : 179.99,
+    "purchasePrice" : 70.0,
+    "description" : "5G 6.6 inch 64 GB Expandable Gray",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 3,
+    "name" : "Samsung Galaxy A13",
+    "brand" : "Samsung",
+    "sellingPrice" : 199.99,
+    "purchasePrice" : 90.0,
+    "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
+    "category" : "SMARTPHONE"
+  } ],
+  "values" : [ 36, 15, 10 ]
+}, {
+  "departmentName" : "department2",
+  "staff" : [ {
+  "name" : "Nome1",
+  "surname" : "Cognome1",
+  "email" : "prova@gmail.com",
+  "id" : 0,
+  "password" : 1509442,
+  "birthday" : [ 2022, 4, 6 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
+  "endTimes" : [ [ 10, 10 ] ]
+}, {
+  "name" : "Nome2",
+  "surname" : "Cognome2",
+  "email" : "email2@gmail.csom",
+  "id" : 0,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 6 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
+  "endTimes" : [ [ 10, 10 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "APPLE",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "APPLE",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 4,
+    "name" : "mac book pro 16",
+    "brand" : "APPLE",
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  } ],
+  "values" : [ 10, 4, 0 ]
 } ]

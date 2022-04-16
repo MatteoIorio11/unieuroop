@@ -8,6 +8,10 @@ public enum Pages {
     /**
      * @param 
      */
+    LOGIN("/pages/Login/Login.fxml"),
+    /**
+     * @param 
+     */
     DEPARTMENTS("/pages/Department/DepartmentsView.fxml"),
     /**
      * @param 

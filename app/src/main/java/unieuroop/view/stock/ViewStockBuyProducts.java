@@ -34,7 +34,7 @@ public class ViewStockBuyProducts implements Initializable {
     @FXML
     private Button btnConfimrBuyProducts;
 
-    private ViewStock viewStock;
+    private final ViewStock viewStock;
     private final ControllerStockImpl controllerStock;
 
     public ViewStockBuyProducts(final ViewStock viewStock, final ControllerStockImpl controller) {

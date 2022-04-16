@@ -24,8 +24,8 @@ public class ViewStockLabelBuyProducts implements Initializable {
     @FXML
     private CheckBox chkboxProductBought;
 
-    private ViewStockBuyProducts viewStockBuyProducts;
-    private ControllerStockImpl controllerStock;
+    private final ViewStockBuyProducts viewStockBuyProducts;
+    private final ControllerStockImpl controllerStock;
     private final Map.Entry<Product, Double> productSold;
 
     public ViewStockLabelBuyProducts(final Map.Entry<Product, Double> product, final ViewStockBuyProducts viewStockBuyProducts, final ControllerStockImpl controller) {
@@ -38,7 +38,7 @@ public class ViewStockLabelBuyProducts implements Initializable {
      * 
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         this.lblProductSold.setText("Product: " + this.productSold.getKey().toString());
         this.lblProductPrice.setText("Price: " + this.productSold.getValue().toString());
         final SpinnerValueFactory<Integer> rangeAmount = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);

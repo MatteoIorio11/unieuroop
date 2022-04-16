@@ -1,29 +1,27 @@
 package unieuroop;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import unieuroop.controller.login.ControllerLoginImpl;
-import unieuroop.model.shop.ShopImpl;
+import unieuroop.controller.serialization.Pages;
+import unieuroop.view.loader.Loader;
 import unieuroop.view.login.ViewLoginImpl;
 
 public final class Launcher extends Application {
-    
+
+    private static final int MIN_HEIGHT = 100;
+    private static final int MIN_WIDTH = 400;
+
     @Override
     public void start(final Stage primaryStage) throws Exception {
-        final var loader = new FXMLLoader(getClass().getResource("/pages/Login.fxml"));
-        loader.setController(new ViewLoginImpl(new ControllerLoginImpl()));
-        final Parent root = loader.load();
-        final Scene scene = new Scene(root, 700, 500);
+        final Pane pane = Loader.loadPane(Pages.LOGIN.getPath(), new ViewLoginImpl(new ControllerLoginImpl()));
+        final Scene scene = new Scene(pane, 700, 500);
         primaryStage.setTitle("unieurOOP");
         primaryStage.setScene(scene);
-        primaryStage.setMinHeight(100);
-        primaryStage.setMinWidth(400);
+        primaryStage.setMinHeight(Launcher.MIN_HEIGHT);
+        primaryStage.setMinWidth(Launcher.MIN_WIDTH);
         primaryStage.show();
     }
 

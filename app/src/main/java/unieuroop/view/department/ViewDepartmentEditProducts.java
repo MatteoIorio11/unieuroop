@@ -27,9 +27,9 @@ public class ViewDepartmentEditProducts implements Initializable {
     @FXML
     private Button btnRemoveProducts;
 
-    private Department department;
-    private ControllerStaffImpl controllerStaff;
-    private ControllerDepartmentImpl controllerDepartment;
+    private final Department department;
+    private final ControllerStaffImpl controllerStaff;
+    private final ControllerDepartmentImpl controllerDepartment;
 
     public ViewDepartmentEditProducts(final Department currentDepartment, final ControllerStaffImpl controllerStaff, final ControllerDepartmentImpl controllerDepartment) {
         this.department = currentDepartment;
@@ -38,7 +38,7 @@ public class ViewDepartmentEditProducts implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         // TODO Auto-generated method stub
         
     }

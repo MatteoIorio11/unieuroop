@@ -45,7 +45,7 @@ public class ViewStockSetFilters implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         this.sliderMaxAmount.setMax((double) this.controllerStock.getMaxAmountproducts());
         this.sliderMinAmount.setMax((double) this.controllerStock.getMaxAmountproducts());
         this.sliderMaxAmount.setValue((double) this.controllerStock.getMaxAmountproducts());
