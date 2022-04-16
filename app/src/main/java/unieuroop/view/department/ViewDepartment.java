@@ -67,10 +67,12 @@ public final class ViewDepartment implements Initializable {
             final Stage stage = Loader.loadStage(Pages.ADD_DEPARTMENTS.getPath(), "Add Department", controller, 500, 500);
             final Stage currentStage = (Stage) this.btnAddDepartment.getScene().getWindow();
             currentStage.hide();
+            stage.setOnCloseRequest((closeEvent) -> {
+                closeEvent.consume();
+            });
             stage.showAndWait();
             currentStage.show();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

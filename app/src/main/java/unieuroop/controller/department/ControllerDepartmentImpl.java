@@ -33,12 +33,12 @@ public final class ControllerDepartmentImpl {
     }
 
     public void addDepartment(final String name, final Set<Staff> staffs, final Map<Product, Integer> products) throws IOException {
-        if (!staffs.isEmpty() && !products.isEmpty()) {
+        if (name.isBlank() || !staffs.isEmpty() && !products.isEmpty()) {
             final var deoartment = new DepartmentImpl(name, staffs, products);
             this.shop.addDepartment(deoartment);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
         } else {
-            throw new IllegalArgumentException("Staff or Products or BOTH are empty");
+            throw new IllegalArgumentException("One of the input or more than one are empty");
         }
     }
 

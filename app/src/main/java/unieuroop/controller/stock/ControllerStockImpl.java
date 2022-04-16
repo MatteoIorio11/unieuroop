@@ -22,10 +22,11 @@ import unieuroop.model.sale.Sale;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.supplier.Supplier;
 
-public class ControllerStockImpl {
+public final class ControllerStockImpl {
 
     private final Shop shop;
     private Map<Product, Integer> productsBought;
+    private final Map<Product, Integer> reservedProduct = new HashMap<>();
 
     public ControllerStockImpl(final Shop shop) {
         this.shop = shop;
@@ -153,5 +154,23 @@ public class ControllerStockImpl {
         final Comparator<Product> productsSorter = (p1, p2) -> this.shop.getStock().getQuantityOfProduct(p2) - this.shop.getStock().getQuantityOfProduct(p1);
         filteredProducts.sort(productsSorter);
         return filteredProducts;
+    }
+
+    public void reserveProduct(final Product product, final int quantity) {
+        this.reservedProduct.merge(product, quantity, (oldQuantity, newQuantity) -> oldQuantity + newQuantity);
+    }
+
+    public void removeAllReservedProducts() {
+        this.reservedProduct.clear();
+    }
+
+    public Map<Product, Integer> getReservedProducts() {
+        return this.reservedProduct;
+    }
+
+    public void closeAddProducts() {
+        for (final var product : this.reservedProduct.entrySet()) {
+            this.removeProductsBuying(product);
+        }
     }
 }

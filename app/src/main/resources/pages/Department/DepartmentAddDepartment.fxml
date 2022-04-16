@@ -10,7 +10,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <left>
-      <ListView fx:id="listStaff" prefHeight="400.0" prefWidth="288.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="listStaff" onMouseClicked="#listSelectStaffHandler" prefHeight="400.0" prefWidth="288.0" BorderPane.alignment="CENTER" />
    </left>
    <center>
       <ListView fx:id="listProducts" prefHeight="200.0" prefWidth="267.0" BorderPane.alignment="CENTER" />
@@ -18,8 +18,8 @@
    <bottom>
       <Pane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonAdd" layoutX="274.0" layoutY="8.0" mnemonicParsing="false" text="Add" />
-            <Button fx:id="buttonExit" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: red;" text="EXIT" />
+            <Button fx:id="buttonAdd" layoutX="274.0" layoutY="8.0" mnemonicParsing="false" onAction="#buttonAddHandler" text="Add" />
+            <Button fx:id="buttonExit" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#buttonExitHandler" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: red;" text="EXIT" />
          </children>
       </Pane>
    </bottom>
