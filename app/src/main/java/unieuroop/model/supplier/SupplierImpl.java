@@ -77,4 +77,12 @@ public class SupplierImpl implements Supplier {
         }
         throw new IllegalArgumentException();
     }
+
+    /**
+     * 
+     */
+    @Override
+    public String toString() {
+        return "Supplier: " + supplierName;
+    }
 }
