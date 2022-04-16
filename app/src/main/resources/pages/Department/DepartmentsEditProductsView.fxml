@@ -28,37 +28,29 @@
          </children>
       </GridPane>
    </top>
+   <right>
+      <ListView fx:id="listDepartmentProducts" prefHeight="469.0" prefWidth="429.0" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <ListView fx:id="listStockProducts" onMouseClicked="#listProductsDepartmentHandler" prefHeight="471.0" prefWidth="474.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </ListView>
+   </center>
    <bottom>
-      <GridPane prefHeight="50.0" prefWidth="859.0" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="41.0" prefWidth="859.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="598.0" minWidth="10.0" prefWidth="581.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="278.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAddProducts" mnemonicParsing="false" onAction="#btnAddProductsHandler" text="Add Products" GridPane.halignment="CENTER">
-               <GridPane.margin>
-                  <Insets bottom="15.0" />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="btnRemoveProducts" alignment="CENTER" mnemonicParsing="false" onAction="#btnRemoveProductsHandler" text="Remove Products" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-               <GridPane.margin>
-                  <Insets bottom="15.0" />
-               </GridPane.margin>
-            </Button>
+            <Button mnemonicParsing="false" text="ADD" />
+            <Button mnemonicParsing="false" text="REMOVE" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </bottom>
-   <center>
-      <ListView fx:id="listStockProducts" onMouseClicked="#listProductsDepartmentHandler" prefHeight="471.0" prefWidth="558.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="12.0" left="10.0" right="5.0" top="10.0" />
-         </BorderPane.margin>
-      </ListView>
-   </center>
-   <right>
-      <ListView fx:id="listDepartmentProducts" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </right>
 </BorderPane>

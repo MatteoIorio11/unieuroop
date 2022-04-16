@@ -67,8 +67,8 @@ public class ViewDepartmentEditProducts implements Initializable {
     private void loadDepartmentProducts() {
         for (final var product : this.department.getAllProducts().entrySet()) {
             try {
-                final var controller = new ViewDepartmentProducts(this.department, this.controllerStaff, this.controllerDepartment);
-                final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCTS.getPath(), controller);
+                final var controller = new ViewDepartmentProducts(product.getKey(), product.getValue(), this.controllerStaff, this.controllerDepartment);
+                final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT.getPath(), controller);
                 this.listDepartmentProducts.getItems().add(pane);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -80,7 +80,7 @@ public class ViewDepartmentEditProducts implements Initializable {
         for (final var product : this.controllerStock.getProductsStocked().entrySet()) {
             try {
                 final var controller = new ViewStockProducts(this.department, this.controllerStaff, this.controllerDepartment);
-                final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCTS.getPath(), controller);
+                final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT.getPath(), controller);
                 this.listStockProducts.getItems().add(pane);
             } catch (IOException e) {
                 // TODO Auto-generated catch block

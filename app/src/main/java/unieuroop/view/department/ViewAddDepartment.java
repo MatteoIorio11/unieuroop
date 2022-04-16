@@ -53,7 +53,7 @@ public final class ViewAddDepartment implements Initializable {
         for (final var product : this.controllerStock.getProductsStocked().entrySet()) {
             try {
                 final var controller = new ViewDepartmentLabelProduct(this.controllerStock, product.getKey(), product.getValue());
-                final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT_SALE.getPath(), controller);
+                final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT.getPath(), controller);
                 this.listProducts.getItems().add(pane);
             } catch (IOException e) {
                 e.printStackTrace();

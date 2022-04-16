@@ -18,12 +18,9 @@ import unieuroop.model.product.Product;
 
 public final class ViewLabelSale implements Initializable {
 
-    @FXML
-    private Spinner<Integer> spinnerQuantity;
-    @FXML
-    private Button btnAdd;
-    @FXML
-    private Label labelProductName;
+    @FXML private Spinner<Integer> spinnerQuantity;
+    @FXML private Button btnAdd;
+    @FXML private Label labelProductName;
 
     private final Product product;
     private int maxQuantity;
