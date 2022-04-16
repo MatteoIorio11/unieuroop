@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
@@ -43,9 +44,15 @@ public final class ViewMergeDepartment implements Initializable {
     @FXML
     public void buttonMergeDepartmentHandler(final ActionEvent event) {
         try {
-            this.controllerDepartment.mergeDepartments(this.selectedDepartments, this.textName.getText());
-            final Stage stage = (Stage) this.buttonMergeDepartment.getScene().getWindow();
-            stage.close();
+            final Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setContentText("Are you sure to merge the selected department" + "\n" 
+            + this.selectedDepartments);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                this.controllerDepartment.mergeDepartments(this.selectedDepartments, this.textName.getText());
+                final Stage stage = (Stage) this.buttonMergeDepartment.getScene().getWindow();
+                stage.close();
+            }
         } catch (IOException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
