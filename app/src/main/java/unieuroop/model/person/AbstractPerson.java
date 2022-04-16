@@ -111,5 +111,5 @@ public abstract class AbstractPerson {
         }
         return true;
     }
-    
+
 }

@@ -19,7 +19,7 @@ import unieuroop.model.department.Department;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.stock.ViewStockProducts;
 
-public class ViewDepartmentEditProducts implements Initializable {
+public final class ViewDepartmentEditProducts implements Initializable {
 
     @FXML private Label lblDepartmentName;
     @FXML private ListView<Pane> listStockProducts;
@@ -50,17 +50,17 @@ public class ViewDepartmentEditProducts implements Initializable {
 
     @FXML
     public void listProductsDepartmentHandler() {
-        
+
     }
 
     @FXML
     public void btnAddProductsHandler() {
-        
+
     }
 
     @FXML
     public void btnRemoveProductsHandler() {
-        
+
     }
 
     private void loadDepartmentProducts() {

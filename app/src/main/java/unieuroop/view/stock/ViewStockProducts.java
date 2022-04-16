@@ -15,6 +15,6 @@ public class ViewStockProducts {
 
     @FXML
     public void buttonAddHandler(final ActionEvent event) {
-    
+
     }
 }
