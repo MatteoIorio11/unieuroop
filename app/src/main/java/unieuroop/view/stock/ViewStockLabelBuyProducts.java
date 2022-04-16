@@ -41,14 +41,20 @@ public class ViewStockLabelBuyProducts implements Initializable {
     public void initialize(final URL location, final ResourceBundle resources) {
         this.lblProductSold.setText("Product: " + this.productSold.getKey().toString());
         this.lblProductPrice.setText("Price: " + this.productSold.getValue().toString());
-        final SpinnerValueFactory<Integer> rangeAmount = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
+        final SpinnerValueFactory<Integer> rangeAmount = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100);
         this.spinnerQuantities.setValueFactory(rangeAmount);
         this.chkboxProductBought.setSelected(false);
     }
 
     @FXML
     public void chkboxProductBoughtHandler() {
-        
+        if (this.chkboxProductBought.isSelected()) {
+            this.spinnerQuantities.setDisable(true);
+            this.controllerStock.addProductBuying(this.productSold, this.spinnerQuantities.getValue());
+        } else if (!this.chkboxProductBought.isSelected()) {
+            this.spinnerQuantities.setDisable(false);
+            this.controllerStock.removeProductsBuying(this.productSold, this.spinnerQuantities.getValue());
+        }
     }
 
 }

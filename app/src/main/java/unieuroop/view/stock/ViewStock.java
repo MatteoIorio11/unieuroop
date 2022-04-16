@@ -92,6 +92,7 @@ public class ViewStock implements Initializable {
             mainStage.hide();
             windowBuyProducts.showAndWait();
             mainStage.show();
+            this.controllerStock.resetProductsBoughtBuying();
             this.loadAllProductsFromStock();
         } catch (IOException e) {
             final Alert alert = new Alert(AlertType.ERROR);
