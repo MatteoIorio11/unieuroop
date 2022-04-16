@@ -7,6 +7,7 @@ import java.time.LocalTime;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javafx.util.Pair;
 import unieuroop.controller.serialization.Files;
@@ -27,13 +28,13 @@ public final class ControllerStaffImpl {
     }
 
     public void addStaff(final String name, final String surname, final LocalDate birthday, final String id, final String email, final String password, 
-            final DayOfWeek day, final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWord) {
+            final DayOfWeek day, final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || id.isEmpty() || email.isEmpty() 
-                || password.isEmpty() || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() || hoursEndWork.isEmpty() || minutesEndWord.isEmpty() || Integer.parseInt(hoursStartWork) >= Integer.parseInt(minutesEndWord)) {
+                || password.isEmpty() || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() || hoursEndWork.isEmpty() || minutesEndWork.isEmpty() || Integer.parseInt(hoursStartWork) >= Integer.parseInt(minutesEndWork)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
         }
         this.shop.addStaff(new Staff(name, surname, birthday, Integer.valueOf(id), email, Integer.valueOf(password), 
-                Map.of(day, new Pair<LocalTime, LocalTime>(LocalTime.of(Integer.parseInt(hoursStartWork), Integer.parseInt(minutesStartWork)), LocalTime.of(Integer.parseInt(hoursEndWork), Integer.parseInt(minutesEndWord))))));
+                Map.of(day, new Pair<LocalTime, LocalTime>(LocalTime.of(Integer.parseInt(hoursStartWork), Integer.parseInt(minutesStartWork)), LocalTime.of(Integer.parseInt(hoursEndWork), Integer.parseInt(minutesEndWork))))));
         serializationStaff();
     }
  
@@ -41,7 +42,7 @@ public final class ControllerStaffImpl {
             final DayOfWeek day, final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWord, final Staff staff) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || id.isEmpty() || email.isEmpty() 
                 || password.isEmpty() || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() || hoursEndWork.isEmpty() || minutesEndWord.isEmpty() || Integer.parseInt(hoursStartWork) >= Integer.parseInt(hoursEndWork)) {
-            throw new IllegalArgumentException("Impossible because one of the parameters are null");
+            throw new IllegalArgumentException("Impossible because one of the parameters is null");
         }
         staff.setPersonName(name);
         staff.setPersonSurname(surname);
@@ -70,5 +71,11 @@ public final class ControllerStaffImpl {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Set<Staff> getUnsignedStaff() {
+        return this.shop.getStaffs().stream()
+                .filter((staff) -> this.shop.getDepartments().stream().allMatch((department) -> !department.getStaff().contains(staff)))
+                .collect(Collectors.toSet());
     }
 }

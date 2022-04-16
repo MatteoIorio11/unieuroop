@@ -44,7 +44,7 @@ public enum Pages {
     /**
      * @param
      */
-    LABEL_PRODUCT_SALE("/pages/Sale/labelProduct.fxml"),
+    LABEL_PRODUCT("/pages/Labels/labelProduct.fxml"),
     /**
      * @param 
      */
