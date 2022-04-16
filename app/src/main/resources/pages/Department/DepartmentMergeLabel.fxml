@@ -7,21 +7,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane prefHeight="50.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="50.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <columnConstraints>
-      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="647.0" minWidth="10.0" prefWidth="647.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="403.0" minWidth="10.0" prefWidth="84.0" />
+      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="450.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="403.0" minWidth="10.0" prefWidth="31.0" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <Pane prefHeight="50.0" prefWidth="326.0" GridPane.rowIndex="1">
+      <Pane prefHeight="50.0" prefWidth="506.0" GridPane.rowIndex="1">
          <children>
-            <Label fx:id="lblDepartment" layoutX="5.0" layoutY="9.0" prefHeight="30.0" prefWidth="294.0" />
+            <Label fx:id="lblDepartment" layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="294.0" />
          </children>
       </Pane>
-      <CheckBox fx:id="chkboxDepartmentSelected" mnemonicParsing="false" onAction="#chkboxDepartmentSelectedHandler" prefHeight="18.0" prefWidth="72.0" text="Taken" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <CheckBox fx:id="chkboxDepartmentSelected" mnemonicParsing="false" onAction="#chkboxDepartmentSelectedHandler" prefHeight="18.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>
