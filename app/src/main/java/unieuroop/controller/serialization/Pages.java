@@ -12,6 +12,10 @@ public enum Pages {
     /**
      * @param 
      */
+    ADD_DEPARTMENTS("/pages/Department/DepartmentAddDepartment.fxml"),
+    /**
+     * @param 
+     */
     DEPARTMENTS_LABEL("/pages/Department/DepartmentsLabelForDepartmentsView.fxml"),
     /**
      * @param
