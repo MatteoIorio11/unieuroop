@@ -3,7 +3,6 @@ package unieuroop.view.department;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -32,7 +31,6 @@ public final class ViewMergeDepartment implements Initializable {
 
     private final Map<Pane, ViewMergeLabelImpl> paneLabel = new HashMap<>();
     private final ControllerDepartmentImpl controllerDepartment;
-    private final Set<Department> selectedDepartments = new HashSet<>();
     public ViewMergeDepartment(final ControllerDepartmentImpl controllerDepartment) {
         this.controllerDepartment = controllerDepartment;
     }
@@ -69,7 +67,7 @@ public final class ViewMergeDepartment implements Initializable {
             + this.getSelectedDepartments());
             alert.showAndWait();
             if (alert.getResult() == ButtonType.OK) {
-                this.controllerDepartment.mergeDepartments(this.selectedDepartments, this.textName.getText());
+                this.controllerDepartment.mergeDepartments(this.getSelectedDepartments(), this.textName.getText());
                 final Stage stage = (Stage) this.buttonMergeDepartment.getScene().getWindow();
                 stage.close();
             }

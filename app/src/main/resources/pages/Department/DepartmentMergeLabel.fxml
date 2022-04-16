@@ -22,6 +22,6 @@
             <Label fx:id="lblDepartment" layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="294.0" />
          </children>
       </Pane>
-      <CheckBox fx:id="chkboxDepartmentSelected" mnemonicParsing="false" onAction="#chkboxDepartmentSelectedHandler" prefHeight="18.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <CheckBox fx:id="chkboxDepartmentSelected" mnemonicParsing="false" prefHeight="18.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>
