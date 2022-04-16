@@ -4,15 +4,31 @@
     "productCode" : 101,
     "name" : "Rakuten Kobo Clara",
     "brand" : "Kobo",
-    "sellingPrice" : 40.00,
-    "purchasePrice" : 139.00,
+    "sellingPrice" : 40.0,
+    "purchasePrice" : 139.0,
     "description" : "HD lettore e-book Touch Screen, 8 GB Wi-Fi Black",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 92,
+    "name" : "Apple iPad Air 10.9",
+    "brand" : "Apple",
+    "sellingPrice" : 120.0,
+    "purchasePrice" : 809.0,
+    "description" : "10.9 inches (fourth gen.) Wi-Fi 256GB, Software: iOS14 - Space Grey",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 93,
+    "name" : "Samsung Galaxy Tab A8",
+    "brand" : "Samsung",
+    "sellingPrice" : 90.0,
+    "purchasePrice" : 249.9,
+    "description" : "10.5 inches Wifi, Android 11, RAM 3 GB, 32 GB - Grey",
     "category" : "TABLET"
   }, {
     "productCode" : 102,
     "name" : "New Majestic TAB-911",
     "brand" : "New Majestic",
-    "sellingPrice" : 20.00,
+    "sellingPrice" : 20.0,
     "purchasePrice" : 99.99,
     "description" : "3G 16 GB 25,6 cm (10.1 inches) Mediatek 2 GB Wi-Fi 4 (802.11n) Android 10 Black",
     "category" : "TABLET"
@@ -20,59 +36,103 @@
     "productCode" : 103,
     "name" : "Mediacom SmartPad Iyo 10",
     "brand" : "Mediacom",
-    "sellingPrice" : 45.00,
+    "sellingPrice" : 45.0,
     "purchasePrice" : 119.99,
     "description" : "16 GB 25,6 cm (10.1 inches) ARM 2 GB Wi-Fi 4 (802.11n) Android 11 Black",
     "category" : "TABLET"
-  }, {
-    "productCode" : 92,
-    "name" : "Apple iPad Air 10.9",
-    "brand" : "Apple",
-    "sellingPrice" : 120.00,
-    "purchasePrice" : 809.00,
-    "description" : "10.9 inches (fourth gen.) Wi-Fi 256GB, Software: iOS14 - Space Grey",
-    "category" : "TABLET"
-  }, {
-    "productCode" : 93,
-    "name" : "Samsung Galaxy Tab A8",
-    "brand" : "Samsung",
-    "sellingPrice" : 90.00,
-    "purchasePrice" : 249.90,
-    "description" : "10.5 inches Wifi, Android 11, RAM 3 GB, 32 GB - Grey",
-    "category" : "TABLET"
   } ],
-  "values" : [ 40.0, 20.0, 45.0, 120.00, 90.00 ]
+  "values" : [ 40.0, 120.0, 90.0, 20.0, 45.0 ]
+}, {
+  "name" : "Supplier PC and Computer",
+  "keys" : [ {
+    "productCode" : 39,
+    "name" : "Acer NITRO 50 N50-620",
+    "brand" : "Acer",
+    "sellingPrice" : 650.0,
+    "purchasePrice" : 1099.0,
+    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 40,
+    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
+    "brand" : "Asus",
+    "sellingPrice" : 520.0,
+    "purchasePrice" : 1699.0,
+    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 107,
+    "name" : "Agando 5600",
+    "brand" : "Agando",
+    "sellingPrice" : 250.0,
+    "purchasePrice" : 549.0,
+    "description" : "Gamers Edition, AMD Ryzen 5 PRO, 4,4 GHz, 16 GB DDR4-RAM PC-3000, Windows 10 Professional - Black and Red",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 108,
+    "name" : "Agando Agua 1235",
+    "brand" : "Agando",
+    "sellingPrice" : 430.0,
+    "purchasePrice" : 1049.9,
+    "description" : "RTX Intel Core i5 12400F 6x 4.40GHz, 16 GB DDR4-RAM PC-3200, Nvidia GeForce RTX3050 8GB, Windows 10 Professional - Blue and Black",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 109,
+    "name" : "HP EliteDesk 800 G6 Tower",
+    "brand" : "HP",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 1939.8,
+    "description" : "Windows 10 Pro, Intel® Core ™ i7-10700 (2.9 GHz), 16 MB L3 cache, 8 cores, 32GB DDR4-2933MHz, NVIDIA® Quadro® - Black",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 110,
+    "name" : "Lenovo IdeaPad 4 15IML05",
+    "brand" : "Lenovo",
+    "sellingPrice" : 300.0,
+    "purchasePrice" : 749.9,
+    "description" : "PC 39,6 cm (15.6 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD, NVIDIA® GeForce® MX130 Wi-Fi 5 (802.11ac) Windows 10 - Grey",
+    "category" : "PC"
+  }, {
+    "productCode" : 111,
+    "name" : "Acer TravelMate P2",
+    "brand" : "Acer",
+    "sellingPrice" : 200.0,
+    "purchasePrice" : 749.9,
+    "description" : "35,6 cm (14 inches) Full HD Intel Core i5, 8 GB DDR4-SDRAM 512 GB SSD, Wi-Fi 6 (802.11ax) Windows 10 Pro - Black",
+    "category" : "PC"
+  }, {
+    "productCode" : 112,
+    "name" : "HP Chromebook",
+    "brand" : "HP",
+    "sellingPrice" : 90.0,
+    "purchasePrice" : 349.9,
+    "description" : "35,6 cm (14 inches) Full HD Intel® Celeron® 4 GB, LPDDR4-SDRAM 64 GB, Wi-Fi 5 (802.11ac) Chrome OS - Silver",
+    "category" : "PC"
+  }, {
+    "productCode" : 16,
+    "name" : "Samsung Galaxy Book Pro 15",
+    "brand" : "Samsung",
+    "sellingPrice" : 400.0,
+    "purchasePrice" : 1599.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
+    "category" : "PC"
+  }, {
+    "productCode" : 17,
+    "name" : "Huawei MateBook D 15 2021",
+    "brand" : "Huawei",
+    "sellingPrice" : 220.0,
+    "purchasePrice" : 849.9,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
+    "category" : "PC"
+  } ],
+  "values" : [ 650.0, 520.0, 250.0, 430.0, 500.0, 300.0, 200.0, 90.0, 400.0, 220.0 ]
 }, {
   "name" : "Supplier Smartphone",
   "keys" : [ {
-    "productCode" : 104,
-    "name" : "Brondi Amico S",
-    "brand" : "Brondi",
-    "sellingPrice" : 35.00,
-    "purchasePrice" : 149.00,
-    "description" : "14,5 cm (5.7 inches) Doppia SIM Android 8.1 4G USB type-C 1 GB 8 GB 2800 mAh - Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 105,
-    "name" : "Brondi Amico Flip",
-    "brand" : "Brondi",
-    "sellingPrice" : 20.00,
-    "purchasePrice" : 99.99,
-    "description" : "4G 8,89 cm (3.5 inches) 136 g Silver Smartphone Basic",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 106,
-    "name" : "Motorola Edge 30 Pro",
-    "brand" : "Motorola",
-    "sellingPrice" : 300.00,
-    "purchasePrice" : 849.90,
-    "description" : "16,9 cm (6.67 inches) Dual SIM Android 12 5G USB type-C 12 GB 256 GB 4800 mAh, Blue",
-    "category" : "SMARTPHONE"
-  }, {
     "productCode" : 3,
     "name" : "Samsung Galaxy A13",
     "brand" : "Samsung",
-    "sellingPrice" : 90.00,
+    "sellingPrice" : 90.0,
     "purchasePrice" : 199.99,
     "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
     "category" : "SMARTPHONE"
@@ -80,94 +140,34 @@
     "productCode" : 4,
     "name" : "Xiaomi 11 Lite",
     "brand" : "Xiaomi",
-    "sellingPrice" : 100.00,
-    "purchasePrice" : 289.00,
+    "sellingPrice" : 100.0,
+    "purchasePrice" : 289.0,
     "description" : "5G NE 16,6 cm (6.55 inch) Dual SIM Android 11 USB type-C 8 GB 128 GB 4250 mAh Black",
     "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 105,
+    "name" : "Brondi Amico Flip",
+    "brand" : "Brondi",
+    "sellingPrice" : 20.0,
+    "purchasePrice" : 99.99,
+    "description" : "4G 8,89 cm (3.5 inches) 136 g Silver Smartphone Basic",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 106,
+    "name" : "Motorola Edge 30 Pro",
+    "brand" : "Motorola",
+    "sellingPrice" : 300.0,
+    "purchasePrice" : 849.9,
+    "description" : "16,9 cm (6.67 inches) Dual SIM Android 12 5G USB type-C 12 GB 256 GB 4800 mAh, Blue",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 104,
+    "name" : "Brondi Amico S",
+    "brand" : "Brondi",
+    "sellingPrice" : 35.0,
+    "purchasePrice" : 149.0,
+    "description" : "14,5 cm (5.7 inches) Doppia SIM Android 8.1 4G USB type-C 1 GB 8 GB 2800 mAh - Black",
+    "category" : "SMARTPHONE"
   } ],
-  "values" : [ 35.00, 20.00, 300.00, 90.00, 100.00 ]
-}, {
-  "name" : "Supplier PC and Computer",
-  "keys" : [ {
-    "productCode" : 107,
-    "name" : "Agando 5600",
-    "brand" : "Agando",
-    "sellingPrice" : 250.00,
-    "purchasePrice" : 549.00,
-    "description" : "Gamers Edition, AMD Ryzen 5 PRO, 4,4 GHz, 16 GB DDR4-RAM PC-3000, Windows 10 Professional - Black and Red",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 108,
-    "name" : "Agando Agua 1235",
-    "brand" : "Agando",
-    "sellingPrice" : 430.00,
-    "purchasePrice" : 1049.90,
-    "description" : "RTX Intel Core i5 12400F 6x 4.40GHz, 16 GB DDR4-RAM PC-3200, Nvidia GeForce RTX3050 8GB, Windows 10 Professional - Blue and Black",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 109,
-    "name" : "HP EliteDesk 800 G6 Tower",
-    "brand" : "HP",
-    "sellingPrice" : 500.00,
-    "purchasePrice" : 1939.80,
-    "description" : "Windows 10 Pro, Intel® Core ™ i7-10700 (2.9 GHz), 16 MB L3 cache, 8 cores, 32GB DDR4-2933MHz, NVIDIA® Quadro® - Black",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 39,
-    "name" : "Acer NITRO 50 N50-620",
-    "brand" : "Acer",
-    "sellingPrice" : 650.00,
-    "purchasePrice" : 1099.00,
-    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 40,
-    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
-    "brand" : "Asus",
-    "sellingPrice" : 520.00,
-    "purchasePrice" : 1699.00,
-    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 110,
-    "name" : "Lenovo IdeaPad 4 15IML05",
-    "brand" : "Lenovo",
-    "sellingPrice" : 300.00,
-    "purchasePrice" : 749.90,
-    "description" : "PC 39,6 cm (15.6 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD, NVIDIA® GeForce® MX130 Wi-Fi 5 (802.11ac) Windows 10 - Grey",
-    "category" : "PC"
-  }, {
-    "productCode" : 111,
-    "name" : "Acer TravelMate P2",
-    "brand" : "Acer",
-    "sellingPrice" : 200.00,
-    "purchasePrice" : 749.90,
-    "description" : "35,6 cm (14 inches) Full HD Intel Core i5, 8 GB DDR4-SDRAM 512 GB SSD, Wi-Fi 6 (802.11ax) Windows 10 Pro - Black",
-    "category" : "PC"
-  }, {
-    "productCode" : 112,
-    "name" : "HP Chromebook",
-    "brand" : "HP",
-    "sellingPrice" : 90.00,
-    "purchasePrice" : 349.90,
-    "description" : "35,6 cm (14 inches) Full HD Intel® Celeron® 4 GB, LPDDR4-SDRAM 64 GB, Wi-Fi 5 (802.11ac) Chrome OS - Silver",
-    "category" : "PC"
-  }, {
-    "productCode" : 16,
-    "name" : "Samsung Galaxy Book Pro 15",
-    "brand" : "Samsung",
-    "sellingPrice" : 400.00,
-    "purchasePrice" : 1599.00,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
-    "category" : "PC"
-  }, {
-    "productCode" : 17,
-    "name" : "Huawei MateBook D 15 2021",
-    "brand" : "Huawei",
-    "sellingPrice" : 220.00,
-    "purchasePrice" : 849.90,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
-    "category" : "PC"
-  } ],
-  "values" : [ 250.00, 430.00, 500.00, 650.00, 520.00, 300.00, 200.00, 90.00, 400.00, 220.00 ]
+  "values" : [ 90.0, 100.0, 20.0, 300.0, 35.0 ]
 } ]

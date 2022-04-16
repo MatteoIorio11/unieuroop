@@ -6,10 +6,12 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import unieuroop.controller.department.ControllerDepartmentImpl;
 import unieuroop.controller.serialization.Pages;
@@ -71,20 +73,22 @@ public class ViewDepartmentEditProducts implements Initializable {
                 final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT_DEPARTMENT.getPath(), controller);
                 this.listDepartmentProducts.getItems().add(pane);
             } catch (IOException e) {
-                e.printStackTrace();
-            }
+                final Alert alert = new Alert(AlertType.ERROR);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();            }
         }
     }
 
     private void loadStockProducts() {
         for (final var product : this.controllerStock.getProductsStocked().entrySet()) {
             try {
-                final var controller = new ViewStockProducts(this.department, this.controllerStaff, this.controllerDepartment);
+                final var controller = new ViewStockProducts(this.department, product.getKey(), product.getValue(), this.controllerStock, this.controllerDepartment);
                 final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT.getPath(), controller);
                 this.listStockProducts.getItems().add(pane);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                final Alert alert = new Alert(AlertType.ERROR);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
             }
         }
     }
