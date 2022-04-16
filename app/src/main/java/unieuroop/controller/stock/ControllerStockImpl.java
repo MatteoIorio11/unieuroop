@@ -1,24 +1,18 @@
 package unieuroop.controller.stock;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.BiPredicate;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
-import unieuroop.model.sale.Sale;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.stock.Stock;
 import unieuroop.model.supplier.Supplier;

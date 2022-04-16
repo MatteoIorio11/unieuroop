@@ -16,7 +16,6 @@ import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.department.Department;
-import unieuroop.model.product.Product;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.stock.ViewStockProducts;
 

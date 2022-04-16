@@ -2,7 +2,6 @@ package unieuroop.view.department;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -18,7 +17,7 @@ import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.model.department.Department;
 import unieuroop.model.product.Product;
 
-public class ViewDepartmentProducts implements Initializable {
+public final class ViewDepartmentProducts implements Initializable {
 
     @FXML private Spinner<Integer> spinnerQuantity;
     @FXML private Button btnRemove;
@@ -29,7 +28,7 @@ public class ViewDepartmentProducts implements Initializable {
     private final Department department;
     private final ControllerStaffImpl controllerStaff;
     private final ControllerDepartmentImpl controllerDepartment;
-    
+
     public ViewDepartmentProducts(final Department department, final Product product, final int quantity, final ControllerStaffImpl controllerStaff,
             final ControllerDepartmentImpl controllerDepartment) {
         this.department = department;
@@ -41,7 +40,7 @@ public class ViewDepartmentProducts implements Initializable {
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        this.setSpinner();       
+        this.setSpinner();
     }
     private void setSpinner() {
         final int minValue = this.maxQuantity > 0 ? 1 : 0;
