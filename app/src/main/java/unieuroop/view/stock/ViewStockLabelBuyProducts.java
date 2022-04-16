@@ -41,14 +41,37 @@ public class ViewStockLabelBuyProducts implements Initializable {
     public void initialize(final URL location, final ResourceBundle resources) {
         this.lblProductSold.setText("Product: " + this.productSold.getKey().toString());
         this.lblProductPrice.setText("Price: " + this.productSold.getValue().toString());
-        final SpinnerValueFactory<Integer> rangeAmount = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
-        this.spinnerQuantities.setValueFactory(rangeAmount);
-        this.chkboxProductBought.setSelected(false);
+        this.checkIfProductPresent();
     }
 
     @FXML
     public void chkboxProductBoughtHandler() {
-        
+        if (this.chkboxProductBought.isSelected()) {
+            //this.spinnerQuantities.setDisable(true);
+            this.controllerStock.addProductBuying(this.productSold, this.spinnerQuantities.getValue());
+            this.checkIfProductPresent();
+        } else if (!this.chkboxProductBought.isSelected()) {
+            //this.spinnerQuantities.setDisable(false);
+            this.controllerStock.removeProductsBuying(this.productSold, this.spinnerQuantities.getValue());
+            this.checkIfProductPresent();
+        }
+    }
+
+    /**
+     * 
+     */
+    private void checkIfProductPresent() {
+        if (this.controllerStock.checkIfProductPresent(this.productSold.getKey())) {
+            this.spinnerQuantities.setDisable(true);
+            this.chkboxProductBought.setSelected(true);
+            final SpinnerValueFactory<Integer> rangeAmount = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.controllerStock.getAmountofProductsBuying(this.productSold.getKey()), 100);
+            this.spinnerQuantities.setValueFactory(rangeAmount);
+        } else {
+            this.spinnerQuantities.setDisable(false);
+            final SpinnerValueFactory<Integer> rangeAmount = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100);
+            this.spinnerQuantities.setValueFactory(rangeAmount);
+            this.chkboxProductBought.setSelected(false);
+        }
     }
 
 }

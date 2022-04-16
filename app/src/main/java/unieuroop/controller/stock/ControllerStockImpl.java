@@ -26,7 +26,7 @@ import unieuroop.model.supplier.Supplier;
 public final class ControllerStockImpl {
 
     private final Shop shop;
-    private Map<Product, Integer> productsBought;
+    private final Map<Product, Integer> productsBought = new HashMap<>();
     private final Map<Product, Integer> reservedProduct = new HashMap<>();
 
     public ControllerStockImpl(final Shop shop) {
@@ -61,17 +61,17 @@ public final class ControllerStockImpl {
      * 
      * @param productBuying
      */
-    public void addProductBuying(final Map.Entry<Product, Integer> productBuying) {
-        this.productsBought.merge(productBuying.getKey(), productBuying.getValue(), (existingQuantity, newQuantity) -> existingQuantity + newQuantity);
+    public void addProductBuying(final Map.Entry<Product, Double> productBuying, final int amount) {
+        this.productsBought.merge(productBuying.getKey(), amount, (existingQuantity, newQuantity) -> existingQuantity + newQuantity);
     }
 
     /**
      * 
      * @param productBuying
      */
-    public void removeProductsBuying(final Map.Entry<Product, Integer> productBuying) {
+    public void removeProductsBuying(final Map.Entry<Product, Double> productBuying, final int amount) {
         if (this.productsBought.containsKey(productBuying.getKey())) {
-            this.productsBought.remove(productBuying.getKey(), productBuying.getValue());
+            this.productsBought.remove(productBuying.getKey(), amount);
         } else {
             throw new IllegalArgumentException("Impossible Remove a Product from your Products Buying (Cart)");
         }
@@ -79,9 +79,40 @@ public final class ControllerStockImpl {
 
     /**
      * 
+     * @param product
+     * @return
+     */
+    public boolean checkIfProductPresent(final Product product) {
+        return this.productsBought.containsKey(product);
+    }
+
+    /**
+     * 
+     * @param product
+     * @return
+     */
+    public int getAmountofProductsBuying(final Product product) {
+        return this.productsBought.get(product);
+    }
+
+    /**
+     * 
      */
     public void addProductsBoughtInStock() {
-        this.shop.getStock().addProducts(this.productsBought);
+        try {
+            this.shop.getStock().addProducts(this.productsBought);
+            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
+        } catch (IOException e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+        }
+    }
+
+    /**
+     * 
+     */
+    public void resetProductsBoughtBuying() {
+        this.productsBought.clear();
     }
 
     /**
