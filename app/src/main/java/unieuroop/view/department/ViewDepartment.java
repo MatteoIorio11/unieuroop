@@ -88,6 +88,8 @@ public final class ViewDepartment implements Initializable {
             currentStage.hide();
             stage.showAndWait();
             currentStage.show();
+            this.listDepartments.getItems().clear();
+            this.populateList();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,12 +104,15 @@ public final class ViewDepartment implements Initializable {
             currentStage.hide();
             stage.showAndWait();
             currentStage.show();
+            this.listDepartments.getItems().clear();
+            this.populateList();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private void populateList() {
+        this.departmentPane.clear();
         for (final Department department : this.controllerDepartment.getDepartments()) {
             try {
                 final Pane pane = Loader.<ViewLabelDepartment>loadPane(Pages.DEPARTMENTS_LABEL.getPath(), 

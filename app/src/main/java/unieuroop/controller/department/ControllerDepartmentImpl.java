@@ -43,9 +43,12 @@ public final class ControllerDepartmentImpl {
     }
 
     public void removeDepartment(final Department department) throws IOException {
-        this.shop.removeDepartment(department);
-        Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-
+        if (!Objects.isNull(department)) {
+            this.shop.removeDepartment(department);
+            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+        } else {
+            throw new IllegalArgumentException("The department is null");
+        }
     }
 
     public void mergeDepartments(final Set<Department> departments, final String name) throws IOException {
@@ -71,6 +74,28 @@ public final class ControllerDepartmentImpl {
             final Department department = this.shop.getDepartments().stream().filter((dep) -> dep.equals(inputDepartment)).findAny().get();
             department.addProducts(products);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+        }
+    }
+
+    public void addStaff(final Department inputDepartment, final Set<Staff> staffs) throws IOException {
+        if (!Objects.isNull(inputDepartment) && !staffs.isEmpty()) {
+            final var dep = this.shop.getDepartments().stream().filter((department) -> department.equals(inputDepartment)).findAny().get();
+            for (final var staff : staffs) {
+                dep.addStaff(staff);
+            }
+            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+        } else {
+            throw new IllegalArgumentException("One or both of the parameters are null");
+        }
+    }
+
+    public void removeStaff(final Department inputDepartment, final Set<Staff> staffs) throws IOException {
+        if (!Objects.isNull(inputDepartment) && !staffs.isEmpty()) {
+            final var dep = this.shop.getDepartments().stream().filter((department) -> department.equals(inputDepartment)).findAny().get();
+            dep.removeStaff(staffs);
+            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+        } else {
+            throw new IllegalArgumentException("One or both of the parameters are null");
         }
     }
 

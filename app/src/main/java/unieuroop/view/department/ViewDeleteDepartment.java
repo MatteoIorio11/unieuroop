@@ -45,6 +45,7 @@ public final class ViewDeleteDepartment implements Initializable {
                 } catch (IOException e) {
                     final Alert alertError = new Alert(AlertType.ERROR);
                     alertError.setContentText(e.getMessage());
+                    alertError.showAndWait();
                 }
             }
         }
