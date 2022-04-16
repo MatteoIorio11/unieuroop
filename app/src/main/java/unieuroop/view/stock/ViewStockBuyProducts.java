@@ -73,11 +73,23 @@ public class ViewStockBuyProducts implements Initializable {
         this.listSupplier.getItems().addAll(this.controllerStock.getSuppliers());
     }
 
+    /**
+     * 
+     */
+    public void uploadInfoLabelBuying() {
+        this.lblTotalPrice.setText("Total Price: " + this.controllerStock.getTotalPriceOfAllProductsBuying());
+        this.lblTotalProductsChoose.setText("Amount of Products Buying: " + this.controllerStock.getAmountOfAllProductsBuying());
+    }
+
+    /**
+     * 
+     * @param productsSold
+     */
     private void addStockLabelBuyProducts(final Map<Product, Double> productsSold) {
         this.listSoldProducts.getItems().clear();
         for (final Map.Entry<Product, Double> entryProductSold : productsSold.entrySet()) {
             try {
-                final var pane = Loader.<ViewStockLabelBuyProducts>loadPane(Pages.LABEL_PRODUCT.getPath(), new ViewStockLabelBuyProducts(entryProductSold, this, this.controllerStock));
+                final var pane = Loader.<ViewStockLabelBuyProducts>loadPane(Pages.STOCK_LABEL_FOR_STOCKBUYPRODUCTS.getPath(), new ViewStockLabelBuyProducts(entryProductSold, this, this.controllerStock));
                 this.listSoldProducts.getItems().add(pane);
             } catch (IOException e) {
                 final Alert alert = new Alert(AlertType.ERROR);
@@ -85,5 +97,4 @@ public class ViewStockBuyProducts implements Initializable {
             }
         }
     }
-
 }
