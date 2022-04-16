@@ -17,39 +17,39 @@ import unieuroop.controller.serialization.ObjectMapperFactory;
 public final class StaffSerializer extends JsonSerializer<Staff> {
 
     @Override
-    public void serialize(final Staff value, final JsonGenerator gen, final SerializerProvider serializers)
+    public void serialize(final Staff value, final JsonGenerator generator, final SerializerProvider serializers)
             throws IOException, JsonProcessingException {
-        final var k = new ArrayList<DayOfWeek>();
-        final var v = new ArrayList<Pair<LocalTime, LocalTime>>();
+        final var keys = new ArrayList<DayOfWeek>();
+        final var values = new ArrayList<Pair<LocalTime, LocalTime>>();
         value.getWorkingTimeTable().entrySet().forEach(e -> {
-            k.add(e.getKey());
-            v.add(e.getValue());
+            keys.add(e.getKey());
+            values.add(e.getValue());
         });
-        gen.writeStartObject();
-        gen.writeStringField("name", value.getName());
-        gen.writeStringField("surname", value.getSurname());
-        gen.writeStringField("email", value.getEmail());
-        gen.writeNumberField("id", value.getId());
-        gen.writeNumberField("password", value.getPassword());
+        generator.writeStartObject();
+        generator.writeStringField("name", value.getName());
+        generator.writeStringField("surname", value.getSurname());
+        generator.writeStringField("email", value.getEmail());
+        generator.writeNumberField("id", value.getId());
+        generator.writeNumberField("password", value.getPassword());
         final ObjectMapper mapper = ObjectMapperFactory.getMapper();
-        gen.writeFieldName("birthday");
-        gen.writeRawValue(mapper.writeValueAsString(value.getBirthdayDate()));
-        gen.writeArrayFieldStart("days");
-        for (final var el : k) {
-          gen.writeObject(el);
+        generator.writeFieldName("birthday");
+        generator.writeRawValue(mapper.writeValueAsString(value.getBirthdayDate()));
+        generator.writeArrayFieldStart("days");
+        for (final var el : keys) {
+          generator.writeObject(el);
         }
-        gen.writeEndArray();
-        gen.writeArrayFieldStart("startTimes");
-        for (final var el : v) {
-          gen.writeObject(el.getKey());
+        generator.writeEndArray();
+        generator.writeArrayFieldStart("startTimes");
+        for (final var el : values) {
+          generator.writeObject(el.getKey());
         }
-        gen.writeEndArray();
-        gen.writeArrayFieldStart("endTimes");
-        for (final var el : v) {
-          gen.writeObject(el.getValue());
+        generator.writeEndArray();
+        generator.writeArrayFieldStart("endTimes");
+        for (final var el : values) {
+          generator.writeObject(el.getValue());
         }
-        gen.writeEndArray();
-        gen.writeEndObject();
+        generator.writeEndArray();
+        generator.writeEndObject();
     }
 
 }

@@ -21,7 +21,7 @@ import unieuroop.model.product.ProductImpl;
 public final class SaleDeserializer extends JsonDeserializer<Sale> {
 
     @Override
-    public Sale deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public Sale deserialize(final JsonParser p, final DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
         final var product = new ArrayList<Product>();
         final var quantity = new ArrayList<Integer>();

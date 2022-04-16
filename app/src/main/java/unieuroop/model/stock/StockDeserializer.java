@@ -18,24 +18,24 @@ import unieuroop.model.product.ProductImpl;
 public final class StockDeserializer extends JsonDeserializer<Stock> {
 
     @Override
-    public Stock deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException, JacksonException {
-        final JsonNode node = p.getCodec().readTree(p);
-        final var k = node.get("keys");
-        final var v = node.get("values");
-        final var prod = new ArrayList<Product>();
-        final var val = new ArrayList<Integer>();
+    public Stock deserialize(final JsonParser parser, final DeserializationContext deserializationContext) throws IOException, JacksonException {
+        final JsonNode node = parser.getCodec().readTree(parser);
+        final var keys = node.get("keys");
+        final var values = node.get("values");
+        final var productsArray = new ArrayList<Product>();
+        final var valuesArray = new ArrayList<Integer>();
         final ObjectMapper mapper = ObjectMapperFactory.getMapper();
-        for (final var el : k) {
+        for (final var el : keys) {
             final Product product = mapper.treeToValue(el, ProductImpl.class);
-            prod.add(product);
+            productsArray.add(product);
         }
-        for (final var el : v) {
+        for (final var el : values) {
             final var price = el.asInt();
-            val.add(price);
+            valuesArray.add(price);
         }
         final var m = new HashMap<Product, Integer>();
-        for (int i = 0; i < prod.size(); i++) {
-            m.put(prod.get(i), val.get(i));
+        for (int i = 0; i < productsArray.size(); i++) {
+            m.put(productsArray.get(i), valuesArray.get(i));
         }
         final var stock = new StockImpl();
         stock.addProducts(m);

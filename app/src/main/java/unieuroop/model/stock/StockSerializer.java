@@ -12,28 +12,28 @@ import unieuroop.model.product.Product;
 public final class StockSerializer extends JsonSerializer<Stock> {
 
     @Override
-    public void serialize(final Stock value, final JsonGenerator gen, final SerializerProvider serializers) 
+    public void serialize(final Stock value, final JsonGenerator generator, final SerializerProvider serializers) 
             throws IOException {
-        final var m = value.getTotalStock();
-        final var k = new ArrayList<Product>();
-        final var v = new ArrayList<Integer>();
-        m.entrySet().stream().forEach(e -> {
-            k.add(e.getKey());
-            v.add(e.getValue());
+        final var map = value.getTotalStock();
+        final var keys = new ArrayList<Product>();
+        final var values = new ArrayList<Integer>();
+        map.entrySet().stream().forEach(e -> {
+            keys.add(e.getKey());
+            values.add(e.getValue());
         });
-        gen.writeStartObject();
-        gen.writeArrayFieldStart("keys");
-        for (final var el : k) {
-          gen.writeObject(el);
+        generator.writeStartObject();
+        generator.writeArrayFieldStart("keys");
+        for (final var el : keys) {
+          generator.writeObject(el);
         }
-        gen.writeEndArray();
+        generator.writeEndArray();
 
-        gen.writeArrayFieldStart("values");
-        for (final var el : v) {
-          gen.writeObject(el);
+        generator.writeArrayFieldStart("values");
+        for (final var el : values) {
+          generator.writeObject(el);
         }
-        gen.writeEndArray();
-        gen.writeEndObject();
+        generator.writeEndArray();
+        generator.writeEndObject();
     }
 
 }

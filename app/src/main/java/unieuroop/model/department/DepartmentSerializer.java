@@ -15,31 +15,31 @@ import unieuroop.model.product.Product;
 public final class DepartmentSerializer extends JsonSerializer<Department> {
 
     @Override
-    public void serialize(final Department value, final JsonGenerator gen, final SerializerProvider serializers)
+    public void serialize(final Department value, final JsonGenerator generator, final SerializerProvider serializers)
             throws IOException, JsonProcessingException {
         final var products = value.getAllProducts();
-        final var k = new ArrayList<Product>();
-        final var v = new ArrayList<Integer>();
+        final var keys = new ArrayList<Product>();
+        final var values = new ArrayList<Integer>();
         products.entrySet().stream().forEach(e -> {
-            k.add(e.getKey());
-            v.add(e.getValue());
+            keys.add(e.getKey());
+            values.add(e.getValue());
         });
-        gen.writeStartObject();
-        gen.writeStringField("departmentName", value.getDepartmentName());
+        generator.writeStartObject();
+        generator.writeStringField("departmentName", value.getDepartmentName());
         final ObjectMapper mapper = ObjectMapperFactory.getMapper();
-        gen.writeFieldName("staff");
-        gen.writeRawValue(mapper.writeValueAsString(value.getStaff()));
+        generator.writeFieldName("staff");
+        generator.writeRawValue(mapper.writeValueAsString(value.getStaff()));
 
-        gen.writeArrayFieldStart("products");
-        for (final var el : k) {
-          gen.writeObject(el);
+        generator.writeArrayFieldStart("products");
+        for (final var el : keys) {
+          generator.writeObject(el);
         }
-        gen.writeEndArray();
-        gen.writeArrayFieldStart("values");
-        for (final var el : v) {
-          gen.writeObject(el);
+        generator.writeEndArray();
+        generator.writeArrayFieldStart("values");
+        for (final var el : values) {
+          generator.writeObject(el);
         }
-        gen.writeEndArray();
-        gen.writeEndObject();
+        generator.writeEndArray();
+        generator.writeEndObject();
     }
 }

@@ -25,7 +25,7 @@ public final class DepartmentDeserializer extends JsonDeserializer<Department> {
         final JsonNode node = p.getCodec().readTree(p);
         final String name = node.get("departmentName").asText();
         final var products = new ArrayList<Product>();
-        final var qta = new ArrayList<Integer>();
+        final var quantity = new ArrayList<Integer>();
         final var staff = new HashSet<Staff>();
         final ObjectMapper mapper = ObjectMapperFactory.getMapper();
 
@@ -36,11 +36,11 @@ public final class DepartmentDeserializer extends JsonDeserializer<Department> {
             products.add(mapper.treeToValue(el, ProductImpl.class));
         }
         for (final var el : node.get("values")) {
-            qta.add(el.asInt());
+            quantity.add(el.asInt());
         }
         final var m = new HashMap<Product, Integer>();
         for (int i = 0; i < products.size(); i++) {
-            m.put(products.get(i), qta.get(i));
+            m.put(products.get(i), quantity.get(i));
         }
         return new DepartmentImpl(name, staff, m);
     }
