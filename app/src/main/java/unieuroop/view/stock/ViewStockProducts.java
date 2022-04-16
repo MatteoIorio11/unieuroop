@@ -66,9 +66,7 @@ public final class ViewStockProducts implements Initializable {
             this.spinnerQuantity.setValueFactory(newLimit);
             try {
                 this.controllerDepartment.addProductsIn(this.department, this.controllerStock.getReservedProducts());
-                this.controllerStock.closeAddProducts();
-                this.viewDepartment.getList().getItems().clear();
-                this.viewDepartment.loadDepartmentProducts();
+                this.viewDepartment.updateView();
             } catch (IOException e) {
                 final Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText(e.getMessage());

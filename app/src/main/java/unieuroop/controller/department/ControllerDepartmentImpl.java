@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
@@ -34,6 +35,11 @@ public final class ControllerDepartmentImpl {
                 .collect(Collectors.toSet());
     }
 
+    public Map<Product,Integer> getProductsQuantityOf(final Department department){
+        return this.shop.getDepartments().stream()
+                .filter(d -> d.equals(department))
+                .findAny().get().getAllProducts();
+    }
     public void addDepartment(final String name, final Set<Staff> staffs, final Map<Product, Integer> products) throws IOException {
         if (name.isBlank() || !staffs.isEmpty() && !products.isEmpty()) {
             final var deoartment = new DepartmentImpl(name, staffs, products);
@@ -65,9 +71,9 @@ public final class ControllerDepartmentImpl {
 
     public void removeProductsFrom(final Department inputDepartment, final Map<Product, Integer> products) throws IOException {
         if (!Objects.isNull(inputDepartment) && this.shop.getDepartments().contains(inputDepartment) && !products.isEmpty()) {
-            final Department department = this.shop.getDepartments().stream().filter((departmentInput) -> departmentInput.equals(inputDepartment)).findFirst().get();
-            department.takeProductFromDepartment(products);
+            this.shop.putProductsBackInStock(inputDepartment, products);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
         } else {
             throw new IllegalArgumentException("One of the parameter of more than one are empty.");
         }
@@ -75,8 +81,7 @@ public final class ControllerDepartmentImpl {
 
     public void addProductsIn(final Department inputDepartment, final Map<Product, Integer> products) throws IOException {
         if (!Objects.isNull(inputDepartment) && !products.isEmpty()) {
-            final Department department = this.shop.getDepartments().stream().filter((dep) -> dep.equals(inputDepartment)).findAny().get();
-            department.addProducts(products);
+            this.shop.supplyDepartment(inputDepartment, products);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
             Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
         }

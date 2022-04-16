@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import unieuroop.controller.department.ControllerDepartmentImpl;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.product.Product;
 

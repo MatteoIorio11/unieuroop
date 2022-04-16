@@ -1,24 +1,19 @@
 package unieuroop.controller.stock;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
-import java.util.function.BiPredicate;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
-import unieuroop.model.sale.Sale;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.stock.Stock;
 import unieuroop.model.supplier.Supplier;
@@ -82,7 +77,7 @@ public final class ControllerStockImpl {
      * @param product
      * @return
      */
-    public boolean checkIfProductPresent(final Product product) {
+    public boolean checkIfProductBuyingPresent(final Product product) {
         return this.productsBought.containsKey(product);
     }
 
@@ -91,8 +86,24 @@ public final class ControllerStockImpl {
      * @param product
      * @return
      */
-    public int getAmountofProductsBuying(final Product product) {
+    public int getAmountofProductBuying(final Product product) {
         return this.productsBought.get(product);
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public int getAmountOfAllProductsBuying() {
+        return this.productsBought.entrySet().stream().mapToInt(entryProduct -> entryProduct.getValue()).sum();
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public double getTotalPriceOfAllProductsBuying() {
+        return this.productsBought.entrySet().stream().mapToDouble(entryProduct -> entryProduct.getKey().getSellingPrice() * entryProduct.getValue()).sum();
     }
 
     /**
@@ -199,13 +210,14 @@ public final class ControllerStockImpl {
     public Map<Product, Integer> getReservedProducts() {
         return this.reservedProduct;
     }
-
     public void closeAddProducts() throws IOException {
         if (!this.reservedProduct.isEmpty()) {
-            this.shop.getStock().takeFromStock(this.reservedProduct);
-            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
+//            this.shop.getStock().takeFromStock(this.reservedProduct);
+//            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
+            this.reservedProduct.clear();
         } else {
             throw new IllegalArgumentException("The map of products is empty");
         }
     }
+
 }

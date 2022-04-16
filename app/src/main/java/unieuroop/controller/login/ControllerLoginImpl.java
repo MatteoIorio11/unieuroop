@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 import com.fasterxml.jackson.core.type.TypeReference;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;

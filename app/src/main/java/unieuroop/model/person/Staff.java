@@ -1,11 +1,8 @@
 package unieuroop.model.person;
 
-import java.beans.ConstructorProperties;
-import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonCreator;

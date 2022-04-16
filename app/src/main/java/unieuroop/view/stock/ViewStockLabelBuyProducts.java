@@ -48,9 +48,11 @@ public class ViewStockLabelBuyProducts implements Initializable {
     public void chkboxProductBoughtHandler() {
         if (this.chkboxProductBought.isSelected()) {
             this.controllerStock.addProductBuying(this.productSold, this.spinnerQuantities.getValue());
+            this.viewStockBuyProducts.uploadInfoLabelBuying();
             this.checkIfProductPresent();
         } else if (!this.chkboxProductBought.isSelected()) {
             this.controllerStock.removeProductsBuying(this.productSold, this.spinnerQuantities.getValue());
+            this.viewStockBuyProducts.uploadInfoLabelBuying();
             this.checkIfProductPresent();
         }
     }
@@ -59,10 +61,10 @@ public class ViewStockLabelBuyProducts implements Initializable {
      * 
      */
     private void checkIfProductPresent() {
-        if (this.controllerStock.checkIfProductPresent(this.productSold.getKey())) {
+        if (this.controllerStock.checkIfProductBuyingPresent(this.productSold.getKey())) {
             this.spinnerQuantities.setDisable(true);
             this.chkboxProductBought.setSelected(true);
-            final SpinnerValueFactory<Integer> rangeAmount = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.controllerStock.getAmountofProductsBuying(this.productSold.getKey()), 100);
+            final SpinnerValueFactory<Integer> rangeAmount = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.controllerStock.getAmountofProductBuying(this.productSold.getKey()), 100);
             this.spinnerQuantities.setValueFactory(rangeAmount);
         } else {
             this.spinnerQuantities.setDisable(false);
