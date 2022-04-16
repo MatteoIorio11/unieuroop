@@ -55,7 +55,9 @@ public class ViewStockBuyProducts implements Initializable {
 
     @FXML
     public void btnConfimrBuyProductsHandler() {
-        
+        this.controllerStock.addProductsBoughtInStock();
+        final Stage stage = (Stage) this.btnConfimrBuyProducts.getScene().getWindow();
+        stage.close();
     }
 
     /**
