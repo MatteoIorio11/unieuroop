@@ -105,7 +105,7 @@ public final class ControllerDepartmentImpl {
     }
 
     public Set<Staff> getStaffOf(final Department departmentInput)  {
-        if (this.shop.getDepartments().contains(departmentInput)) {
+        if (!Objects.isNull(departmentInput) && this.shop.getDepartments().contains(departmentInput)) {
             return this.shop.getDepartments().stream()
                     .filter((department) -> department.equals(departmentInput))
                     .map((department) -> department.getStaff()).findAny().get();

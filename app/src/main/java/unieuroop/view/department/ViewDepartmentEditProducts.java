@@ -22,7 +22,7 @@ import unieuroop.model.product.Product;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.stock.ViewStockProducts;
 
-public class ViewDepartmentEditProducts implements Initializable {
+public final class ViewDepartmentEditProducts implements Initializable {
 
     @FXML private Label lblDepartmentName;
     @FXML private ListView<Pane> listStockProducts;
@@ -66,7 +66,7 @@ public class ViewDepartmentEditProducts implements Initializable {
         
     }
 
-    private void loadDepartmentProducts() {
+    public void loadDepartmentProducts() {
         for (final var product : this.department.getAllProducts().entrySet()) {
             try {
                 final var controller = new ViewDepartmentProducts(this.department, product.getKey(), product.getValue(), this.controllerStaff, this.controllerDepartment);
@@ -82,7 +82,8 @@ public class ViewDepartmentEditProducts implements Initializable {
     private void loadStockProducts() {
         for (final var product : this.controllerStock.getProductsStocked().entrySet()) {
             try {
-                final var controller = new ViewStockProducts(this.department, product.getKey(), product.getValue(), this.controllerStock, this.controllerDepartment);
+                final var controller = new ViewStockProducts(this.department, product.getKey(), product.getValue(), this.controllerStock, this.controllerDepartment,
+                        this);
                 final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT.getPath(), controller);
                 this.listStockProducts.getItems().add(pane);
             } catch (IOException e) {
@@ -91,5 +92,9 @@ public class ViewDepartmentEditProducts implements Initializable {
                 alert.showAndWait();
             }
         }
+    }
+
+    public ListView<Pane> getList() {
+        return this.listDepartmentProducts;
     }
 }
