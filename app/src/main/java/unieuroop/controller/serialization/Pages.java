@@ -34,6 +34,10 @@ public enum Pages {
      */
     EDIT_STAFF_DEPARTMENTS("/pages/Department/DepartmentEditStaff.fxml"),
     /**
+     * @param 
+     */
+    EDIT_PRODUCTS_DEPARTMENTS("/pages/Department/DepartmentsEditProductsView.fxml"),
+    /**
      * @param
      */
     DEPARTMENTS_EDIT_PRODUCTS("/pages/Department/DepartmentsEditProductsView.fxml"),

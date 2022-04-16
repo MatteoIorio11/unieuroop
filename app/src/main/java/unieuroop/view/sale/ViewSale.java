@@ -113,7 +113,7 @@ public final class ViewSale implements Initializable {
     private void addLabels(final Set<Product> products, final Department department) {
         for (final var product : products) {
             try {
-                final var pane = Loader.<ViewLabelSale>loadPane(Pages.LABEL_PRODUCT_SALE.getPath(), new ViewLabelSale(product, department,
+                final var pane = Loader.<ViewLabelSale>loadPane(Pages.LABEL_PRODUCT.getPath(), new ViewLabelSale(product, department,
                         this.controllerSale.getQuantityOf(product, department), this, this.controllerSale));
                 this.listLabel.getItems().add(pane);
             } catch (IOException e) {
