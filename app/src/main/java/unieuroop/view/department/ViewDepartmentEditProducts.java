@@ -46,6 +46,11 @@ public final class ViewDepartmentEditProducts implements Initializable {
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
+        this.updateView();
+    }
+    public void updateView() {
+        this.listDepartmentProducts.getItems().clear();
+        this.listStockProducts.getItems().clear();
         this.loadStockProducts();
         this.loadDepartmentProducts();
     }
@@ -65,16 +70,17 @@ public final class ViewDepartmentEditProducts implements Initializable {
 
     }
 
-    public void loadDepartmentProducts() {
-        for (final var product : this.department.getAllProducts().entrySet()) {
+    private void loadDepartmentProducts() {
+        for (final var product : this.controllerDepartment.getProductsQuantityOf(this.department).entrySet()) {
             try {
-                final var controller = new ViewDepartmentProducts(this.department, product.getKey(), product.getValue(), this.controllerStaff, this.controllerDepartment);
+                final var controller = new ViewDepartmentProducts(this, this.department, product.getKey(), product.getValue(), this.controllerStaff, this.controllerDepartment);
                 final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT_DEPARTMENT.getPath(), controller);
                 this.listDepartmentProducts.getItems().add(pane);
             } catch (IOException e) {
                 final Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText(e.getMessage());
-                alert.showAndWait();            }
+                alert.showAndWait();
+            }
         }
     }
 
@@ -91,9 +97,5 @@ public final class ViewDepartmentEditProducts implements Initializable {
                 alert.showAndWait();
             }
         }
-    }
-
-    public ListView<Pane> getList() {
-        return this.listDepartmentProducts;
     }
 }

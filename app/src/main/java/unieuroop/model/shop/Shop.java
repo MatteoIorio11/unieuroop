@@ -128,6 +128,7 @@ public interface Shop {
      * @param requestedProduct
      */
     void supplyDepartment(Department department, Map<Product, Integer> requestedProduct);
+    public void putProductsBackInStock(final Department department, final Map<Product, Integer> requestedProducts);
     Department mergeDepartments(Set<Department> departments, String newName);
     Set<Category> getAllCategories();
 }

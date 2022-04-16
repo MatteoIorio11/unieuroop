@@ -182,9 +182,21 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
+    public void putProductsBackInStock(final Department department, final Map<Product, Integer> requestedProducts) {
+        final var dep = this.departments.stream().filter(d -> d.equals(department)).findAny();
+        if (dep.isPresent()) {
+            dep.get().takeProductFromDepartment(requestedProducts);
+            this.stock.addProducts(requestedProducts);
+        }
+
+    }
+    @Override
     public void supplyDepartment(final Department department, final Map<Product, Integer> requestedProducts) {
-        final var products = this.stock.takeFromStock(requestedProducts);
-        department.addProducts(products);
+        final var dep = this.departments.stream().filter(d -> d.equals(department)).findAny();
+        if (dep.isPresent()) {
+            final var products = this.stock.takeFromStock(requestedProducts);
+            dep.get().addProducts(products);
+        }
     }
     @Override
     public Set<Category> getAllCategories() {

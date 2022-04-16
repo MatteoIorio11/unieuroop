@@ -194,12 +194,4 @@ public final class ControllerStockImpl {
         return this.reservedProduct;
     }
 
-    public void closeAddProducts() throws IOException {
-        if (!this.reservedProduct.isEmpty()) {
-            this.shop.getStock().takeFromStock(this.reservedProduct);
-            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
-        } else {
-            throw new IllegalArgumentException("The map of products is empty");
-        }
-    }
 }

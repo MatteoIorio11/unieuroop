@@ -28,9 +28,11 @@ public final class ViewDepartmentProducts implements Initializable {
     private final Department department;
     private final ControllerStaffImpl controllerStaff;
     private final ControllerDepartmentImpl controllerDepartment;
+    private final ViewDepartmentEditProducts viewDepartment;
 
-    public ViewDepartmentProducts(final Department department, final Product product, final int quantity, final ControllerStaffImpl controllerStaff,
+    public ViewDepartmentProducts(final ViewDepartmentEditProducts viewDepartment, final Department department, final Product product, final int quantity, final ControllerStaffImpl controllerStaff,
             final ControllerDepartmentImpl controllerDepartment) {
+        this.viewDepartment = viewDepartment;
         this.department = department;
         this.product = product;
         this.maxQuantity = quantity;
@@ -55,6 +57,7 @@ public final class ViewDepartmentProducts implements Initializable {
         this.maxQuantity -= qta;
         this.setSpinner();
         this.controllerDepartment.removeProductsFrom(this.department, Map.of(this.product, qta));
+        this.viewDepartment.updateView();
     }
 
 }
