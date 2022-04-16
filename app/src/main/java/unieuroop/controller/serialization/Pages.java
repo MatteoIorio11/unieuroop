@@ -16,6 +16,10 @@ public enum Pages {
     /**
      * @param 
      */
+    LABEL_MERGE_DEPARTMENT("/pages/Department/DepartmentMergeLabel.fxml"),
+    /**
+     * @param 
+     */
     ADD_DEPARTMENTS("/pages/Department/DepartmentAddDepartment.fxml"),
     /**
      * @param 

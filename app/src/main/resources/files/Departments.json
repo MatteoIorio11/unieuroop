@@ -84,6 +84,22 @@
     "purchasePrice" : 3000.0,
     "description" : "best mac book ever created",
     "category" : "PC"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "APPLE",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "APPLE",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
   } ],
   "values" : [ 478, 4, 0 ]
 }, {

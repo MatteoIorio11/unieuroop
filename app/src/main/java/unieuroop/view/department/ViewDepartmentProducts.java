@@ -1,5 +1,6 @@
 package unieuroop.view.department;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,11 +26,13 @@ public class ViewDepartmentProducts implements Initializable {
 
     private final Product product;
     private int maxQuantity;
+    private final Department department;
     private final ControllerStaffImpl controllerStaff;
     private final ControllerDepartmentImpl controllerDepartment;
     
-    public ViewDepartmentProducts(final Product product, final int quantity, final ControllerStaffImpl controllerStaff,
+    public ViewDepartmentProducts(final Department department, final Product product, final int quantity, final ControllerStaffImpl controllerStaff,
             final ControllerDepartmentImpl controllerDepartment) {
+        this.department = department;
         this.product = product;
         this.maxQuantity = quantity;
         this.controllerStaff = controllerStaff;
@@ -38,6 +41,9 @@ public class ViewDepartmentProducts implements Initializable {
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
+        this.setSpinner();       
+    }
+    private void setSpinner() {
         final int minValue = this.maxQuantity > 0 ? 1 : 0;
         final SpinnerValueFactory<Integer> values = new SpinnerValueFactory.IntegerSpinnerValueFactory(minValue, this.maxQuantity);
         this.labelProductName.setText("Product : " + this.product.toString());
@@ -45,8 +51,11 @@ public class ViewDepartmentProducts implements Initializable {
     }
 
     @FXML
-    public void buttonRemoveHandler(final ActionEvent event) {
-
+    public void buttonRemoveHandler(final ActionEvent event) throws IOException {
+        final var qta = this.spinnerQuantity.getValue();
+        this.maxQuantity -= qta;
+        this.setSpinner();
+        this.controllerDepartment.removeProductsFrom(this.department, Map.of(this.product, qta));
     }
 
 }

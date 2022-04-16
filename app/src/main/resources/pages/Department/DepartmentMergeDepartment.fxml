@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
       <Pane prefHeight="38.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -23,6 +22,6 @@
       </Pane>
    </top>
    <center>
-      <ListView fx:id="listDepartments" onMouseClicked="#listSelectDepartmentHandler" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="listDepartments" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
