@@ -95,7 +95,7 @@ public final class ViewDepartment implements Initializable {
 
     @FXML
     public void buttonMergeDepartmentsHandler(final ActionEvent event) {
-        final var controller = new ViewDeleteDepartment(this.controllerDepartment);
+        final var controller = new ViewMergeDepartment(this.controllerDepartment);
         try {
             final Stage stage = Loader.loadStage(Pages.MERGE_DEPARTMENTS.getPath(), "Merge Department", controller, 500, 500);
             final Stage currentStage = (Stage) this.btnDeleteDepartment.getScene().getWindow();

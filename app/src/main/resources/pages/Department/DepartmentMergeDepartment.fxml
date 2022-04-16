@@ -4,40 +4,25 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
       <Pane prefHeight="38.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonMergeDepartment" layoutX="274.0" layoutY="7.0" mnemonicParsing="false" text="MERGE" />
+            <Button fx:id="buttonMergeDepartment" layoutX="274.0" layoutY="7.0" mnemonicParsing="false" onAction="#buttonMergeDepartmentHandler" text="MERGE" />
          </children>
       </Pane>
    </bottom>
    <top>
       <Pane prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="226.0" layoutY="10.0" text="New Name" />
+            <TextField fx:id="textName" layoutX="226.0" layoutY="10.0" text="Name" />
          </children>
       </Pane>
    </top>
    <center>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <ListView fx:id="listLeftDepartment" prefHeight="200.0" prefWidth="200.0" />
-            <ListView fx:id="listRightDepartment" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-         </children>
-      </GridPane>
+      <ListView fx:id="listDepartments" onMouseClicked="#listSelectDepartmentHandler" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

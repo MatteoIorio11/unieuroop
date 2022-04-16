@@ -49,12 +49,12 @@ public final class ControllerDepartmentImpl {
     }
 
     public void mergeDepartments(final Set<Department> departments, final String name) throws IOException {
-        if (!departments.isEmpty()) {
+        if (!departments.isEmpty() || name.isBlank()) {
             this.shop.mergeDepartments(departments, name);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
 
         } else {
-            throw new IllegalArgumentException("The set of Departments is empty");
+            throw new IllegalArgumentException("The set of Departments is empty or the name is blank");
         }
     }
 
