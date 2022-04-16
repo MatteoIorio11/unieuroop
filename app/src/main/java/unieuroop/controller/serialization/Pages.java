@@ -18,6 +18,10 @@ public enum Pages {
      */
     DEPARTMENTS_LABEL("/pages/Department/DepartmentsLabelForDepartmentsView.fxml"),
     /**
+     * @param 
+     */
+    DELETE_DEPARTMENTS("/pages/Department/DepartmentDeleteDepartment.fxml"),
+    /**
      * @param
      */
     DEPARTMENTS_EDIT_PRODUCTS("/pages/Department/DepartmentsEditProductsView.fxml"),

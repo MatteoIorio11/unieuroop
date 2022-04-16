@@ -79,6 +79,17 @@ public final class ViewDepartment implements Initializable {
 
     @FXML
     public void buttonDeleteDepartmentHandler(final ActionEvent event) {
+        final var controller = new ViewDeleteDepartment(this.controllerDepartment);
+        try {
+            final Stage stage = Loader.loadStage(Pages.DELETE_DEPARTMENTS.getPath(), "Delete Department", controller, 500, 500);
+            final Stage currentStage = (Stage) this.btnDeleteDepartment.getScene().getWindow();
+            currentStage.hide();
+            stage.showAndWait();
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
