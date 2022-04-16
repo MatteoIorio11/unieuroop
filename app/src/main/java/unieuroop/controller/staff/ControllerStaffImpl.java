@@ -3,14 +3,15 @@ package unieuroop.controller.staff;
 import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 import javafx.util.Pair;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
@@ -29,23 +30,26 @@ public final class ControllerStaffImpl {
         this.shop = shop;
     }
 
-    public void addStaff(final String name, final String surname, final LocalDate birthday, final String id, final String email, final String password, 
+    public void addStaff(final String name, final String surname, final LocalDate birthday, final String email, final String password, 
             final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork) {
-        if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || id.isEmpty() || email.isEmpty() 
-                || password.isEmpty() || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() || hoursEndWork.isEmpty() || minutesEndWork.isEmpty() || Integer.parseInt(hoursStartWork) >= Integer.parseInt(hoursEndWork)) {
+        if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || email.isEmpty() || password.isEmpty() 
+                || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() || hoursEndWork.isEmpty() || minutesEndWork.isEmpty() || Integer.parseInt(hoursStartWork) >= Integer.parseInt(hoursEndWork)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
         }
         final var days = new HashMap<DayOfWeek, Pair<LocalTime, LocalTime>>();
         final var times = new Pair<>(LocalTime.of(Integer.parseInt(hoursStartWork), Integer.parseInt(minutesStartWork)), LocalTime.of(Integer.parseInt(hoursEndWork), Integer.parseInt(minutesEndWork)));
-        IntStream.range(DayOfWeek.MONDAY.getValue(), DayOfWeek.SUNDAY.getValue()).forEach(i -> days.put(DayOfWeek.of(i), times));
-        this.shop.addStaff(new Staff(name, surname, birthday, Integer.valueOf(id), email, password.hashCode(), days));
+        IntStream.range(DayOfWeek.MONDAY.getValue(), DayOfWeek.SATURDAY.getValue()).forEach(i -> days.put(DayOfWeek.of(i), times));
+        final var date = LocalDateTime.now();
+        final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
+        final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
+        this.shop.addStaff(new Staff(name, surname, birthday, Math.abs(code), email, password.hashCode(), days));
         serializationStaff();
     }
  
-    public void editStaff(final String name, final String surname, final LocalDate birthday, final String id, final String email, final String password, 
+    public void editStaff(final String name, final String surname, final LocalDate birthday, final String email, final String password, 
             final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork, final Staff staff) {
-        if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || id.isEmpty() || email.isEmpty() 
-                || password.isEmpty() || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() || hoursEndWork.isEmpty() || minutesEndWork.isEmpty() || Integer.parseInt(hoursStartWork) >= Integer.parseInt(hoursEndWork)) {
+        if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || email.isEmpty() || password.isEmpty() 
+                || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() || hoursEndWork.isEmpty() || minutesEndWork.isEmpty() || Integer.parseInt(hoursStartWork) >= Integer.parseInt(hoursEndWork)) {
             throw new IllegalArgumentException("Impossible because one of the parameters is null");
         }
         final var days = new HashMap<DayOfWeek, Pair<LocalTime, LocalTime>>();
@@ -54,7 +58,6 @@ public final class ControllerStaffImpl {
         staff.setPersonName(name);
         staff.setPersonSurname(surname);
         staff.setPersonBirthday(birthday);
-        staff.setId(Integer.parseInt(id));
         staff.setEmail(email);
         staff.setPassword(Integer.parseInt(password));
         staff.setWorkTime(days);
