@@ -33,10 +33,6 @@ public final class ViewStaffImpl implements Initializable {
     @FXML
     private TextField tbxPassword;
     @FXML
-    private ComboBox<DayOfWeek> cbxDayOfWeek;
-    @FXML
-    private CheckBox chxNotWorked;
-    @FXML
     private TextField tbxHoursStartTime;
     @FXML
     private TextField tbxMinutesStartTime;
@@ -59,12 +55,10 @@ public final class ViewStaffImpl implements Initializable {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.listStaffs.getItems().addAll(this.controller.getStaff());
-        cbxDayOfWeek.getItems().addAll(DayOfWeek.MONDAY, DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY, DayOfWeek.THURSDAY, DayOfWeek.FRIDAY, DayOfWeek.SATURDAY, DayOfWeek.SUNDAY);
-
         btnAddStaff.setOnMouseClicked(e -> {
             try {
                 this.controller.addStaff(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue(), this.tbxId.getText(), this.tbxEmail.getText(), this.tbxPassword.getText(), 
-                        this.cbxDayOfWeek.getValue(), this.tbxHoursStartTime.getText(), this.tbxMinutesStartTime.getText(), this.tbxHoursEndTime.getText(), this.tbxMinutesEndTime.getText());
+                        this.tbxHoursStartTime.getText(), this.tbxMinutesStartTime.getText(), this.tbxHoursEndTime.getText(), this.tbxMinutesEndTime.getText());
                 this.listStaffs.getItems().clear();
                 this.listStaffs.getItems().addAll(this.controller.getStaff());
             } catch (IllegalArgumentException illegalExc) {
@@ -78,7 +72,7 @@ public final class ViewStaffImpl implements Initializable {
             try {
                 final Staff staff = this.listStaffs.getSelectionModel().getSelectedItem();
                 this.controller.editStaff(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue(), this.tbxId.getText(), this.tbxEmail.getText(), this.tbxPassword.getText(),
-                        this.cbxDayOfWeek.getValue(), this.tbxHoursStartTime.getText(), this.tbxMinutesStartTime.getText(), this.tbxHoursEndTime.getText(), this.tbxMinutesEndTime.getText(), staff);
+                        this.tbxHoursStartTime.getText(), this.tbxMinutesStartTime.getText(), this.tbxHoursEndTime.getText(), this.tbxMinutesEndTime.getText(), staff);
                 listStaffs.refresh();
             } catch (IllegalArgumentException illegalExc) {
                 setAlert();
@@ -103,28 +97,10 @@ public final class ViewStaffImpl implements Initializable {
             this.tbxId.setText(staff.getId().toString());
             this.tbxEmail.setText(staff.getEmail());
             this.tbxPassword.setText(staff.getPassword().toString());
-            this.chxNotWorked.setSelected(false);
             this.tbxHoursStartTime.setText("");
             this.tbxMinutesStartTime.setText("");
             this.tbxHoursEndTime.setText("");
             this.tbxMinutesEndTime.setText("");
-        });
-
-        cbxDayOfWeek.setOnAction(e -> {
-            if (this.listStaffs.getSelectionModel().getSelectedItem() != null) {
-                final Staff staff = this.listStaffs.getSelectionModel().getSelectedItem();
-                if (staff.getWorkingTimeTable().containsKey(cbxDayOfWeek.getSelectionModel().getSelectedItem())) {
-                    this.tbxHoursStartTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getKey().getHour()));
-                    this.tbxMinutesStartTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getKey().getMinute()));
-                    this.tbxHoursEndTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getValue().getHour()));
-                    this.tbxMinutesEndTime.setText(Integer.toString(staff.getWorkTime(cbxDayOfWeek.getSelectionModel().getSelectedItem()).getKey().getMinute()));
-                } else {
-                    this.tbxHoursStartTime.setText("");
-                    this.tbxMinutesStartTime.setText("");
-                    this.tbxHoursEndTime.setText("");
-                    this.tbxMinutesEndTime.setText("");
-                }
-            }
         });
     }
 
@@ -143,7 +119,6 @@ public final class ViewStaffImpl implements Initializable {
         this.tbxId.setText("");
         this.tbxEmail.setText("");
         this.tbxPassword.setText("");
-        this.chxNotWorked.setSelected(false);
         this.tbxHoursStartTime.setText("");
         this.tbxMinutesStartTime.setText("");
         this.tbxHoursEndTime.setText("");
