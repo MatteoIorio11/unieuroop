@@ -20,7 +20,7 @@ import unieuroop.model.product.Product;
 public class ViewDepartmentProducts implements Initializable {
 
     @FXML private Spinner<Integer> spinnerQuantity;
-    @FXML private Button btnAdd;
+    @FXML private Button btnRemove;
     @FXML private Label labelProductName;
 
     private final Product product;
@@ -45,7 +45,7 @@ public class ViewDepartmentProducts implements Initializable {
     }
 
     @FXML
-    public void buttonAddHandler(final ActionEvent event) {
+    public void buttonRemoveHandler(final ActionEvent event) {
 
     }
 

@@ -36,6 +36,10 @@ public enum Pages {
     /**
      * @param 
      */
+    LABEL_PRODUCT_DEPARTMENT("/pages/Department/DepartmentLabelProduct.fxml"),
+    /**
+     * @param 
+     */
     EDIT_PRODUCTS_DEPARTMENTS("/pages/Department/DepartmentsEditProductsView.fxml"),
     /**
      * @param

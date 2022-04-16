@@ -68,7 +68,7 @@ public class ViewDepartmentEditProducts implements Initializable {
         for (final var product : this.department.getAllProducts().entrySet()) {
             try {
                 final var controller = new ViewDepartmentProducts(product.getKey(), product.getValue(), this.controllerStaff, this.controllerDepartment);
-                final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT.getPath(), controller);
+                final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT_DEPARTMENT.getPath(), controller);
                 this.listDepartmentProducts.getItems().add(pane);
             } catch (IOException e) {
                 e.printStackTrace();
