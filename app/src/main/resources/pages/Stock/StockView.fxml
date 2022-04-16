@@ -47,7 +47,7 @@
             <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TextField fx:id="txtSearchProducts" alignment="BASELINE_LEFT" prefHeight="12.0" prefWidth="379.0">
+            <TextField fx:id="txtSearchProducts" alignment="BOTTOM_LEFT" onKeyTyped="#txtSearchProductsHandler" prefHeight="12.0" prefWidth="282.0">
                <GridPane.margin>
                   <Insets left="5.0" top="10.0" />
                </GridPane.margin>

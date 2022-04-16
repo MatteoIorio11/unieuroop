@@ -1,4 +1,152 @@
 [ {
+  "departmentName" : "department3",
+  "staff" : [ {
+  "name" : "Nome4",
+  "surname" : "Cognome4",
+  "email" : "email4@gmail.csom",
+  "id" : 0,
+  "password" : 444,
+  "birthday" : [ 2022, 4, 6 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
+  "endTimes" : [ [ 10, 10 ] ]
+}, {
+  "name" : "Nome3",
+  "surname" : "Cognome4",
+  "email" : "email3@gmail.com",
+  "id" : 0,
+  "password" : 333,
+  "birthday" : [ 2022, 4, 6 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
+  "endTimes" : [ [ 10, 10 ] ]
+}, {
+  "name" : "Nome2",
+  "surname" : "Cognome2",
+  "email" : "email2@gmail.csom",
+  "id" : 0,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 6 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
+  "endTimes" : [ [ 10, 10 ] ]
+}, {
+  "name" : "Nome1",
+  "surname" : "Cognome1",
+  "email" : "prova@gmail.com",
+  "id" : 0,
+  "password" : 1509442,
+  "birthday" : [ 2022, 4, 6 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
+  "endTimes" : [ [ 10, 10 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 25,
+    "name" : "Ariete 2474",
+    "brand" : "Ariete",
+    "sellingPrice" : 249.0,
+    "purchasePrice" : 30.0,
+    "description" : "Portable Vacuum Cleaner Bagless Black, Purple",
+    "category" : "HOME"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "APPLE",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 2,
+    "name" : "applewatch",
+    "brand" : "APPLE",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 3,
+    "name" : "mac book pro 14 ",
+    "brand" : "APPLE",
+    "sellingPrice" : 3000.0,
+    "purchasePrice" : 2000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 4,
+    "name" : "mac book pro 16",
+    "brand" : "APPLE",
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
+  }, {
+    "productCode" : 29,
+    "name" : "Xiaomi Mi LED TV 4A",
+    "brand" : "Xiaomi",
+    "sellingPrice" : 199.99,
+    "purchasePrice" : 99.0,
+    "description" : "81,3 cm (32 inches) HD Smart TV Wi-Fi Black",
+    "category" : "HOME"
+  }, {
+    "productCode" : 23,
+    "name" : "Dyson V10 Absolute",
+    "brand" : "Dyson",
+    "sellingPrice" : 499.0,
+    "purchasePrice" : 150.0,
+    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
+    "category" : "HOME"
+  } ],
+  "values" : [ 1, 4, 161, 2, 112, 1, 2 ]
+}, {
+  "departmentName" : "Department K",
+  "staff" : [ {
+  "name" : "jkfdsh",
+  "surname" : "kjh",
+  "email" : "iuhk",
+  "id" : 6,
+  "password" : 3589783,
+  "birthday" : [ 2002, 4, 10 ],
+  "days" : [ "FRIDAY", "TUESDAY", "THURSDAY", "SATURDAY", "MONDAY", "WEDNESDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 1,
+    "name" : "Samsung Galaxy A52",
+    "brand" : "Samsung",
+    "sellingPrice" : 299.99,
+    "purchasePrice" : 100.0,
+    "description" : "5G SM-A528B 16,5 cm (6.5 inch) Double SIM Android 11 USB type-C 6 GB 128 GB 4500 mAh Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 2,
+    "name" : "Samsung Galaxy A22",
+    "brand" : "Samsung",
+    "sellingPrice" : 179.99,
+    "purchasePrice" : 70.0,
+    "description" : "5G 6.6 inch 64 GB Expandable Gray",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 3,
+    "name" : "Samsung Galaxy A13",
+    "brand" : "Samsung",
+    "sellingPrice" : 199.99,
+    "purchasePrice" : 90.0,
+    "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 4,
+    "name" : "Xiaomi 11 Lite",
+    "brand" : "Xiaomi",
+    "sellingPrice" : 289.0,
+    "purchasePrice" : 100.0,
+    "description" : "5G NE 16,6 cm (6.55 inch) Dual SIM Android 11 USB type-C 8 GB 128 GB 4250 mAh Black",
+    "category" : "SMARTPHONE"
+  } ],
+  "values" : [ 36, 15, 10, 65 ]
+}, {
   "departmentName" : "department2",
   "staff" : [ {
   "name" : "Nome1",
@@ -22,13 +170,37 @@
   "endTimes" : [ [ 10, 10 ] ]
 } ],
   "products" : [ {
-    "productCode" : 4,
-    "name" : "mac book pro 16",
-    "brand" : "APPLE",
-    "sellingPrice" : 6000.0,
-    "purchasePrice" : 3000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
+    "productCode" : 5,
+    "name" : "Samsung Galaxy A53",
+    "brand" : "Samsung",
+    "sellingPrice" : 469.99,
+    "purchasePrice" : 200.0,
+    "description" : "5G Display 6.5 inch FHD+ Super AMOLED Double SIM Android 12, RAM 6 GB, 128 GB, 5.000 mAh, Awesome Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 6,
+    "name" : "Samsung Galaxy S22",
+    "brand" : "Samsung",
+    "sellingPrice" : 928.0,
+    "purchasePrice" : 450.0,
+    "description" : "5G Display 6.1 inch Dynamic AMOLED 2X, 4 fotocamere, RAM 8 GB, 256 GB, 3.700mAh, Phantom Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 7,
+    "name" : "Apple iPhone 13 Pro",
+    "brand" : "Apple",
+    "sellingPrice" : 1259.0,
+    "purchasePrice" : 600.0,
+    "description" : "256GB Blue Sierra, 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 9,
+    "name" : "Apple iPhone 13 Pro Max",
+    "brand" : "Apple",
+    "sellingPrice" : 1591.0,
+    "purchasePrice" : 800.0,
+    "description" : "512GB Alpine Green 5G, iOS 15",
+    "category" : "SMARTPHONE"
   }, {
     "productCode" : 1,
     "name" : "iphone 13 pro",
@@ -45,99 +217,7 @@
     "purchasePrice" : 200.0,
     "description" : "best watch ever created",
     "category" : "SMARTWATCH"
-  } ],
-  "values" : [ 0, 4, 0 ]
-}, {
-  "departmentName" : "department3",
-  "staff" : [ {
-  "name" : "Nome1",
-  "surname" : "Cognome1",
-  "email" : "prova@gmail.com",
-  "id" : 0,
-  "password" : 1509442,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
-  "name" : "Nome2",
-  "surname" : "Cognome2",
-  "email" : "email2@gmail.csom",
-  "id" : 0,
-  "password" : 222,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
-  "name" : "Nome4",
-  "surname" : "Cognome4",
-  "email" : "email4@gmail.csom",
-  "id" : 0,
-  "password" : 444,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
-  "name" : "Nome3",
-  "surname" : "Cognome4",
-  "email" : "email3@gmail.com",
-  "id" : 0,
-  "password" : 333,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 3,
-    "name" : "mac book pro 14 ",
-    "brand" : "APPLE",
-    "sellingPrice" : 3000.0,
-    "purchasePrice" : 2000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
   }, {
-    "productCode" : 4,
-    "name" : "mac book pro 16",
-    "brand" : "APPLE",
-    "sellingPrice" : 6000.0,
-    "purchasePrice" : 3000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
-  }, {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
-  } ],
-  "values" : [ 0, 0, 4, 23 ]
-}, {
-  "departmentName" : "Department K",
-  "staff" : [ {
-  "name" : "jkfdsh",
-  "surname" : "kjh",
-  "email" : "iuhk",
-  "id" : 6,
-  "password" : 3589783,
-  "birthday" : [ 2002, 4, 10 ],
-  "days" : [ "WEDNESDAY", "TUESDAY", "SATURDAY", "FRIDAY", "MONDAY", "THURSDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
-} ],
-  "products" : [ {
     "productCode" : 3,
     "name" : "Samsung Galaxy A13",
     "brand" : "Samsung",
@@ -146,21 +226,13 @@
     "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
     "category" : "SMARTPHONE"
   }, {
-    "productCode" : 1,
-    "name" : "Samsung Galaxy A52",
-    "brand" : "Samsung",
-    "sellingPrice" : 299.99,
-    "purchasePrice" : 100.0,
-    "description" : "5G SM-A528B 16,5 cm (6.5 inch) Double SIM Android 11 USB type-C 6 GB 128 GB 4500 mAh Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 2,
-    "name" : "Samsung Galaxy A22",
-    "brand" : "Samsung",
-    "sellingPrice" : 179.99,
-    "purchasePrice" : 70.0,
-    "description" : "5G 6.6 inch 64 GB Expandable Gray",
-    "category" : "SMARTPHONE"
+    "productCode" : 4,
+    "name" : "mac book pro 16",
+    "brand" : "APPLE",
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
   } ],
-  "values" : [ 10, 36, 15 ]
+  "values" : [ 4, 3, 2, 5, 4, 0, 378, 5 ]
 } ]

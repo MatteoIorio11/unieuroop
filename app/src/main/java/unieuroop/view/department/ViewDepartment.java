@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -52,12 +53,14 @@ public final class ViewDepartment implements Initializable {
 
     @FXML
     public void listSelectDepartmentHandler(final MouseEvent event) {
-        final Pane pane = this.listDepartments.getSelectionModel().getSelectedItem();
-        final Department selectedDepartment = this.departmentPane.get(pane);
-        this.listProducts.getItems().clear();
-        this.listStaff.getItems().clear();
-        this.listProducts.getItems().addAll(this.controllerDepartment.getProductsOf(selectedDepartment));
-        this.listStaff.getItems().addAll(this.controllerDepartment.getStaffOf(selectedDepartment));
+        final var pane = this.listDepartments.getSelectionModel().getSelectedItem();
+        if (!Objects.isNull(pane)) {
+            final Department selectedDepartment = this.departmentPane.get(pane);
+            this.listProducts.getItems().clear();
+            this.listStaff.getItems().clear();
+            this.listProducts.getItems().addAll(this.controllerDepartment.getProductsOf(selectedDepartment));
+            this.listStaff.getItems().addAll(this.controllerDepartment.getStaffOf(selectedDepartment));
+        }
     }
 
     @FXML

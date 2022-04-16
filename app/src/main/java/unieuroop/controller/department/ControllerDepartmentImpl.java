@@ -13,6 +13,7 @@ import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 import unieuroop.model.shop.Shop;
+import unieuroop.model.stock.Stock;
 import unieuroop.model.supplier.Supplier;
 
 public final class ControllerDepartmentImpl {
@@ -77,7 +78,7 @@ public final class ControllerDepartmentImpl {
             final Department department = this.shop.getDepartments().stream().filter((dep) -> dep.equals(inputDepartment)).findAny().get();
             department.addProducts(products);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-            Serialization.<Set<Supplier>>serialize(Files.SUPPLIERS.getPath(), this.shop.getSuppliers());
+            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
         }
     }
 
@@ -104,7 +105,7 @@ public final class ControllerDepartmentImpl {
     }
 
     public Set<Staff> getStaffOf(final Department departmentInput)  {
-        if (this.shop.getDepartments().contains(departmentInput)) {
+        if (!Objects.isNull(departmentInput) && this.shop.getDepartments().contains(departmentInput)) {
             return this.shop.getDepartments().stream()
                     .filter((department) -> department.equals(departmentInput))
                     .map((department) -> department.getStaff()).findAny().get();
