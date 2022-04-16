@@ -1,43 +1,4 @@
 [ {
-  "departmentName" : "Department K",
-  "staff" : [ {
-  "name" : "jkfdsh",
-  "surname" : "kjh",
-  "email" : "iuhk",
-  "id" : 6,
-  "password" : 3589783,
-  "birthday" : [ 2002, 4, 10 ],
-  "days" : [ "MONDAY", "SATURDAY", "FRIDAY", "TUESDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 1,
-    "name" : "Samsung Galaxy A52",
-    "brand" : "Samsung",
-    "sellingPrice" : 299.99,
-    "purchasePrice" : 100.0,
-    "description" : "5G SM-A528B 16,5 cm (6.5 inch) Double SIM Android 11 USB type-C 6 GB 128 GB 4500 mAh Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 2,
-    "name" : "Samsung Galaxy A22",
-    "brand" : "Samsung",
-    "sellingPrice" : 179.99,
-    "purchasePrice" : 70.0,
-    "description" : "5G 6.6 inch 64 GB Expandable Gray",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 3,
-    "name" : "Samsung Galaxy A13",
-    "brand" : "Samsung",
-    "sellingPrice" : 199.99,
-    "purchasePrice" : 90.0,
-    "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
-    "category" : "SMARTPHONE"
-  } ],
-  "values" : [ 270, 107, 73 ]
-}, {
   "departmentName" : "department2",
   "staff" : [ {
   "name" : "Nome1",
@@ -61,21 +22,29 @@
   "endTimes" : [ [ 10, 10 ] ]
 } ],
   "products" : [ {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
+    "productCode" : 7,
+    "name" : "Apple iPhone 13 Pro",
+    "brand" : "Apple",
+    "sellingPrice" : 1259.0,
+    "purchasePrice" : 600.0,
+    "description" : "256GB Blue Sierra, 5G, iOS 15",
     "category" : "SMARTPHONE"
   }, {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
+    "productCode" : 6,
+    "name" : "Samsung Galaxy S22",
+    "brand" : "Samsung",
+    "sellingPrice" : 928.0,
+    "purchasePrice" : 450.0,
+    "description" : "5G Display 6.1 inch Dynamic AMOLED 2X, 4 fotocamere, RAM 8 GB, 256 GB, 3.700mAh, Phantom Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 5,
+    "name" : "Samsung Galaxy A53",
+    "brand" : "Samsung",
+    "sellingPrice" : 469.99,
     "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
+    "description" : "5G Display 6.5 inch FHD+ Super AMOLED Double SIM Android 12, RAM 6 GB, 128 GB, 5.000 mAh, Awesome Black",
+    "category" : "SMARTPHONE"
   }, {
     "productCode" : 4,
     "name" : "mac book pro 16",
@@ -85,12 +54,12 @@
     "description" : "best mac book ever created",
     "category" : "PC"
   }, {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
+    "productCode" : 3,
+    "name" : "Samsung Galaxy A13",
+    "brand" : "Samsung",
+    "sellingPrice" : 199.99,
+    "purchasePrice" : 90.0,
+    "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
     "category" : "SMARTPHONE"
   }, {
     "productCode" : 2,
@@ -100,26 +69,81 @@
     "purchasePrice" : 200.0,
     "description" : "best watch ever created",
     "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "APPLE",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 9,
+    "name" : "Apple iPhone 13 Pro Max",
+    "brand" : "Apple",
+    "sellingPrice" : 1591.0,
+    "purchasePrice" : 800.0,
+    "description" : "512GB Alpine Green 5G, iOS 15",
+    "category" : "SMARTPHONE"
   } ],
-  "values" : [ 478, 4, 0 ]
+  "values" : [ 2, 3, 4, 5, 378, 0, 4, 5 ]
+}, {
+  "departmentName" : "Department K",
+  "staff" : [ {
+  "name" : "jkfdsh",
+  "surname" : "kjh",
+  "email" : "iuhk",
+  "id" : 6,
+  "password" : 3589783,
+  "birthday" : [ 2002, 4, 10 ],
+  "days" : [ "MONDAY", "FRIDAY", "TUESDAY", "SATURDAY", "THURSDAY", "WEDNESDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 3,
+    "name" : "Samsung Galaxy A13",
+    "brand" : "Samsung",
+    "sellingPrice" : 199.99,
+    "purchasePrice" : 90.0,
+    "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 2,
+    "name" : "Samsung Galaxy A22",
+    "brand" : "Samsung",
+    "sellingPrice" : 179.99,
+    "purchasePrice" : 70.0,
+    "description" : "5G 6.6 inch 64 GB Expandable Gray",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 1,
+    "name" : "Samsung Galaxy A52",
+    "brand" : "Samsung",
+    "sellingPrice" : 299.99,
+    "purchasePrice" : 100.0,
+    "description" : "5G SM-A528B 16,5 cm (6.5 inch) Double SIM Android 11 USB type-C 6 GB 128 GB 4500 mAh Black",
+    "category" : "SMARTPHONE"
+  } ],
+  "values" : [ 10, 15, 36 ]
 }, {
   "departmentName" : "department3",
   "staff" : [ {
-  "name" : "Nome4",
+  "name" : "Nome3",
   "surname" : "Cognome4",
-  "email" : "email4@gmail.csom",
+  "email" : "email3@gmail.com",
   "id" : 0,
-  "password" : 444,
+  "password" : 333,
   "birthday" : [ 2022, 4, 6 ],
   "days" : [ "MONDAY" ],
   "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
   "endTimes" : [ [ 10, 10 ] ]
 }, {
-  "name" : "Nome2",
-  "surname" : "Cognome2",
-  "email" : "email2@gmail.csom",
+  "name" : "Nome4",
+  "surname" : "Cognome4",
+  "email" : "email4@gmail.csom",
   "id" : 0,
-  "password" : 222,
+  "password" : 444,
   "birthday" : [ 2022, 4, 6 ],
   "days" : [ "MONDAY" ],
   "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
@@ -135,32 +159,24 @@
   "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
   "endTimes" : [ [ 10, 10 ] ]
 }, {
-  "name" : "Nome3",
-  "surname" : "Cognome4",
-  "email" : "email3@gmail.com",
+  "name" : "Nome2",
+  "surname" : "Cognome2",
+  "email" : "email2@gmail.csom",
   "id" : 0,
-  "password" : 333,
+  "password" : 222,
   "birthday" : [ 2022, 4, 6 ],
   "days" : [ "MONDAY" ],
   "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
   "endTimes" : [ [ 10, 10 ] ]
 } ],
   "products" : [ {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
+    "productCode" : 4,
+    "name" : "mac book pro 16",
     "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
+    "sellingPrice" : 6000.0,
+    "purchasePrice" : 3000.0,
+    "description" : "best mac book ever created",
+    "category" : "PC"
   }, {
     "productCode" : 3,
     "name" : "mac book pro 14 ",
@@ -170,13 +186,21 @@
     "description" : "best mac book ever created",
     "category" : "PC"
   }, {
-    "productCode" : 4,
-    "name" : "mac book pro 16",
+    "productCode" : 2,
+    "name" : "applewatch",
     "brand" : "APPLE",
-    "sellingPrice" : 6000.0,
-    "purchasePrice" : 3000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 200.0,
+    "description" : "best watch ever created",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 1,
+    "name" : "iphone 13 pro",
+    "brand" : "APPLE",
+    "sellingPrice" : 1200.0,
+    "purchasePrice" : 900.0,
+    "description" : "best phone ever created",
+    "category" : "SMARTPHONE"
   } ],
-  "values" : [ 775, 23, 0, 10 ]
+  "values" : [ 110, 2, 161, 4 ]
 } ]
