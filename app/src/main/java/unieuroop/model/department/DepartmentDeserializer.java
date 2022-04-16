@@ -24,7 +24,7 @@ public final class DepartmentDeserializer extends JsonDeserializer<Department> {
             throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
         final String name = node.get("departmentName").asText();
-        final var prod = new ArrayList<Product>();
+        final var products = new ArrayList<Product>();
         final var qta = new ArrayList<Integer>();
         final var staff = new HashSet<Staff>();
         final ObjectMapper mapper = ObjectMapperFactory.getMapper();
@@ -33,14 +33,14 @@ public final class DepartmentDeserializer extends JsonDeserializer<Department> {
             staff.add(mapper.treeToValue(el, Staff.class));
         }
         for (final var el : node.get("products")) {
-            prod.add(mapper.treeToValue(el, ProductImpl.class));
+            products.add(mapper.treeToValue(el, ProductImpl.class));
         }
         for (final var el : node.get("values")) {
             qta.add(el.asInt());
         }
         final var m = new HashMap<Product, Integer>();
-        for (int i = 0; i < prod.size(); i++) {
-            m.put(prod.get(i), qta.get(i));
+        for (int i = 0; i < products.size(); i++) {
+            m.put(products.get(i), qta.get(i));
         }
         return new DepartmentImpl(name, staff, m);
     }

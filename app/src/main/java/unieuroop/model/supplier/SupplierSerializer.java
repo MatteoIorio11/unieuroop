@@ -15,23 +15,23 @@ public final class SupplierSerializer extends JsonSerializer<Supplier> {
     @Override
     public void serialize(final Supplier value, final JsonGenerator gen, final SerializerProvider serializers)
             throws IOException, JsonProcessingException {
-        final var m = value.getCatalog();
-        final var k = new ArrayList<Product>();
-        final var v = new ArrayList<Double>();
-        m.entrySet().stream().forEach(e -> {
-            k.add(e.getKey());
-            v.add(e.getValue());
+        final var map = value.getCatalog();
+        final var keys = new ArrayList<Product>();
+        final var values = new ArrayList<Double>();
+        map.entrySet().stream().forEach(e -> {
+            keys.add(e.getKey());
+            values.add(e.getValue());
         });
         gen.writeStartObject();
         gen.writeStringField("name", value.getName());
         gen.writeArrayFieldStart("keys");
-        for (final var el : k) {
+        for (final var el : keys) {
           gen.writeObject(el);
         }
         gen.writeEndArray();
 
         gen.writeArrayFieldStart("values");
-        for (final var el : v) {
+        for (final var el : values) {
           gen.writeObject(el);
         }
         gen.writeEndArray();

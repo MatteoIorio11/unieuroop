@@ -20,24 +20,24 @@ public final class SupplierDeserializer extends JsonDeserializer<Supplier> {
     public Supplier deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
         final String name = node.get("name").asText();
-        final var k = node.get("keys");
-        final var v = node.get("values");
-        final var prod = new ArrayList<Product>();
-        final var val = new ArrayList<Double>();
+        final var keys = node.get("keys");
+        final var values = node.get("values");
+        final var products = new ArrayList<Product>();
+        final var arrayValues = new ArrayList<Double>();
         final ObjectMapper mapper = new ObjectMapper();
-        for (final var el : k) {
+        for (final var el : keys) {
             final Product product = mapper.treeToValue(el, ProductImpl.class);
-            prod.add(product);
+            products.add(product);
         }
-        for (final var el : v) {
+        for (final var el : values) {
             final var price = el.asDouble();
-            val.add(price);
+            arrayValues.add(price);
         }
-        final var m = new HashMap<Product, Double>();
-        for (int i = 0; i < prod.size(); i++) {
-            m.put(prod.get(i), val.get(i));
+        final var map = new HashMap<Product, Double>();
+        for (int i = 0; i < products.size(); i++) {
+            map.put(products.get(i), arrayValues.get(i));
         }
-        return new SupplierImpl(name, m);
+        return new SupplierImpl(name, map);
     }
 
 }

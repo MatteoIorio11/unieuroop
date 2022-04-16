@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import unieuroop.model.product.Product;
 
-@JsonIdentityInfo(scope=SupplierImpl.class, generator=ObjectIdGenerators.IntSequenceGenerator.class)
+@JsonIdentityInfo(scope = SupplierImpl.class, generator = ObjectIdGenerators.IntSequenceGenerator.class)
 public class SupplierImpl implements Supplier {
     private final String supplierName;
     private final Map<Product, Double> salableProduct;
