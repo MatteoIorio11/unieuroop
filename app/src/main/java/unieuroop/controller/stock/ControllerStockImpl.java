@@ -12,8 +12,6 @@ import java.util.function.BiPredicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import org.checkerframework.common.returnsreceiver.qual.This;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.serialization.Files;
@@ -28,7 +26,7 @@ import unieuroop.model.supplier.Supplier;
 public final class ControllerStockImpl {
 
     private final Shop shop;
-    private Map<Product, Integer> productsBought = new HashMap<>();
+    private final Map<Product, Integer> productsBought = new HashMap<>();
     private final Map<Product, Integer> reservedProduct = new HashMap<>();
 
     public ControllerStockImpl(final Shop shop) {
@@ -77,6 +75,24 @@ public final class ControllerStockImpl {
         } else {
             throw new IllegalArgumentException("Impossible Remove a Product from your Products Buying (Cart)");
         }
+    }
+
+    /**
+     * 
+     * @param product
+     * @return
+     */
+    public boolean checkIfProductPresent(final Product product) {
+        return this.productsBought.containsKey(product);
+    }
+
+    /**
+     * 
+     * @param product
+     * @return
+     */
+    public int getAmountofProductsBuying(final Product product) {
+        return this.productsBought.get(product);
     }
 
     /**
