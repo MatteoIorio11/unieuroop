@@ -22,7 +22,6 @@ public final class ControllerStockImpl {
 
     private final Shop shop;
     private final Map<Product, Integer> productsBought = new HashMap<>();
-    private final Map<Product, Integer> reservedProduct = new HashMap<>();
 
     public ControllerStockImpl(final Shop shop) {
         this.shop = shop;
@@ -198,26 +197,4 @@ public final class ControllerStockImpl {
         filteredProducts.sort(productsSorter);
         return filteredProducts;
     }
-
-    public void reserveProduct(final Product product, final int quantity) {
-        this.reservedProduct.merge(product, quantity, (oldQuantity, newQuantity) -> oldQuantity + newQuantity);
-    }
-
-    public void removeAllReservedProducts() {
-        this.reservedProduct.clear();
-    }
-
-    public Map<Product, Integer> getReservedProducts() {
-        return this.reservedProduct;
-    }
-    public void closeAddProducts() throws IOException {
-        if (!this.reservedProduct.isEmpty()) {
-//            this.shop.getStock().takeFromStock(this.reservedProduct);
-//            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
-            this.reservedProduct.clear();
-        } else {
-            throw new IllegalArgumentException("The map of products is empty");
-        }
-    }
-
 }

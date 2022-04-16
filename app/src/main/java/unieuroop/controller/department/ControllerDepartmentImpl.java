@@ -1,6 +1,7 @@
 package unieuroop.controller.department;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -19,6 +20,7 @@ import unieuroop.model.supplier.Supplier;
 
 public final class ControllerDepartmentImpl {
     private final Shop shop;
+    private final Map<Product, Integer> reservedProduct = new HashMap<>();
 
     public ControllerDepartmentImpl(final Shop shop) {
         this.shop = shop;
@@ -116,6 +118,28 @@ public final class ControllerDepartmentImpl {
                     .map((department) -> department.getStaff()).findAny().get();
         } else {
             throw new IllegalArgumentException("The selected department does not exist");
+        }
+    }
+
+    public void reserveProduct(final Product product, final int quantity) {
+        this.reservedProduct.merge(product, quantity, (oldQuantity, newQuantity) -> oldQuantity + newQuantity);
+    }
+
+    public void removeAllReservedProducts() {
+        this.reservedProduct.clear();
+    }
+
+    public Map<Product, Integer> getReservedProducts() {
+        return this.reservedProduct;
+    }
+
+    public void closeAddProducts() throws IOException {
+        if (!this.reservedProduct.isEmpty()) {
+//            this.shop.getStock().takeFromStock(this.reservedProduct);
+//            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
+            this.reservedProduct.clear();
+        } else {
+            throw new IllegalArgumentException("The map of products is empty");
         }
     }
 }

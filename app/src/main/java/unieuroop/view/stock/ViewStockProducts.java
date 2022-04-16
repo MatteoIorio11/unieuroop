@@ -32,15 +32,13 @@ public final class ViewStockProducts implements Initializable {
     private final Product product;
     private int totalQuantity;
     private int maxQuantity;
-    private final ControllerStockImpl controllerStock;
     private final ControllerDepartmentImpl controllerDepartment;
     private final ViewDepartmentEditProducts viewDepartment;
-    public ViewStockProducts(final Department department, final Product product, final int maxQuantity, final ControllerStockImpl controllerStock,
+    public ViewStockProducts(final Department department, final Product product, final int maxQuantity,
             final ControllerDepartmentImpl controllerDepartment, final ViewDepartmentEditProducts viewDepartment) {
         this.department = department;
         this.product = product;
         this.maxQuantity = maxQuantity;
-        this.controllerStock = controllerStock;
         this.controllerDepartment = controllerDepartment;
         this.totalQuantity = 0;
         this.viewDepartment = viewDepartment;
@@ -59,13 +57,12 @@ public final class ViewStockProducts implements Initializable {
         final int quantitySelected = this.spinnerQuantity.getValue();
         if (quantitySelected > 0) {
             this.totalQuantity = this.totalQuantity + quantitySelected;
-            this.controllerStock.reserveProduct(this.product, this.totalQuantity);
             this.totalQuantity = this.totalQuantity - quantitySelected;
             this.maxQuantity = this.maxQuantity - quantitySelected;
             final SpinnerValueFactory<Integer> newLimit = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.maxQuantity > 0 ? 1 : 0, this.maxQuantity);
             this.spinnerQuantity.setValueFactory(newLimit);
             try {
-                this.controllerDepartment.addProductsIn(this.department, this.controllerStock.getReservedProducts());
+                this.controllerDepartment.addProductsIn(this.department, Map.of(this.product, quantitySelected));
                 this.viewDepartment.updateView();
             } catch (IOException e) {
                 final Alert alert = new Alert(AlertType.ERROR);

@@ -52,7 +52,7 @@ public final class ViewAddDepartment implements Initializable {
     private void loadProducts() {
         for (final var product : this.controllerStock.getProductsStocked().entrySet()) {
             try {
-                final var controller = new ViewDepartmentLabelProduct(this.controllerStock, product.getKey(), product.getValue());
+                final var controller = new ViewDepartmentLabelProduct(this.controllerDepartment, product.getKey(), product.getValue());
                 final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT.getPath(), controller);
                 this.listProducts.getItems().add(pane);
             } catch (IOException e) {
@@ -66,12 +66,12 @@ public final class ViewAddDepartment implements Initializable {
         try {
             final Alert alert = new Alert(AlertType.INFORMATION);
             alert.setContentText("Resume of the new Department : \n"
-            + this.controllerStock.getReservedProducts() + "\n" 
+            + this.controllerDepartment.getReservedProducts() + "\n" 
             + this.selectedStaff + "\n"
             + "Are you done on add elements in the staff?");
             if (alert.getResult() == ButtonType.OK) {
-                this.controllerDepartment.addDepartment(this.textName.getText(), this.selectedStaff, this.controllerStock.getReservedProducts());
-                this.controllerStock.closeAddProducts();
+                this.controllerDepartment.addDepartment(this.textName.getText(), this.selectedStaff, this.controllerDepartment.getReservedProducts());
+                this.controllerDepartment.closeAddProducts();
                 final Stage stage = (Stage) this.buttonAdd.getScene().getWindow();
                 stage.close();
             }
@@ -87,7 +87,7 @@ public final class ViewAddDepartment implements Initializable {
     }
     @FXML
     public void buttonExitHandler(final ActionEvent event) {
-        this.controllerStock.removeAllReservedProducts();
+        this.controllerDepartment.removeAllReservedProducts();
         final Stage stage = (Stage) this.buttonExit.getScene().getWindow();
         stage.close();
     }

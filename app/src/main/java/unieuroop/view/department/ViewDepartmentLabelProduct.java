@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import unieuroop.controller.department.ControllerDepartmentImpl;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.product.Product;
 
@@ -18,13 +19,13 @@ public final class ViewDepartmentLabelProduct implements Initializable {
     @FXML private Button btnAdd;
     @FXML private Label labelProductName;
 
-    private final ControllerStockImpl controllerStockImpl;
+    private final ControllerDepartmentImpl controllerDepartment;
     private final Product product;
     private int maxQuantity;
     private int totalQuantity;
 
-    public ViewDepartmentLabelProduct(final ControllerStockImpl controllerStock, final Product product, final int maxQuantity) {
-        this.controllerStockImpl = controllerStock;
+    public ViewDepartmentLabelProduct(final ControllerDepartmentImpl controllerDepartment, final Product product, final int maxQuantity) {
+        this.controllerDepartment = controllerDepartment;
         this.product = product;
         this.maxQuantity = maxQuantity;
     }
@@ -43,7 +44,7 @@ public final class ViewDepartmentLabelProduct implements Initializable {
         final int quantitySelected = this.spinnerQuantity.getValue();
         if (quantitySelected > 0) {
             this.totalQuantity = this.totalQuantity + quantitySelected;
-            this.controllerStockImpl.reserveProduct(product, this.totalQuantity);
+            this.controllerDepartment.reserveProduct(product, this.totalQuantity);
             this.maxQuantity = this.maxQuantity - quantitySelected;
             final SpinnerValueFactory<Integer> newLimit = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.maxQuantity > 0 ? 1 : 0, this.maxQuantity);
             this.spinnerQuantity.setValueFactory(newLimit);
