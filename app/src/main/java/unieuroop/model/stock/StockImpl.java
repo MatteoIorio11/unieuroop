@@ -3,7 +3,6 @@ package unieuroop.model.stock;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import java.util.Map;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

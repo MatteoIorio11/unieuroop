@@ -20,8 +20,6 @@ import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
-import unieuroop.model.supplier.Supplier;
-import unieuroop.model.supplier.SupplierImpl;
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
 import unieuroop.model.shop.Shop;
@@ -49,7 +47,6 @@ public class TestAnalytic {
     private static final LocalDate TIME_NOW = LocalDate.now();
     private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
-    private final Supplier s1 = new SupplierImpl("nome", Map.of());
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */

@@ -1,9 +1,6 @@
 package unieuroop.view.department;
 
 import java.net.URL;
-import java.util.Map.Entry;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -22,15 +19,12 @@ public final class ViewDepartmentLabelProduct implements Initializable {
     @FXML private Button btnAdd;
     @FXML private Label labelProductName;
 
-    private final ControllerDepartmentImpl controllerDepartment;
     private final ControllerStockImpl controllerStockImpl;
     private final Product product;
     private int maxQuantity;
     private int totalQuantity;
 
-    public ViewDepartmentLabelProduct(final ControllerDepartmentImpl controllerDepartment,
-            final ControllerStockImpl controllerStock, final Product product, final int maxQuantity) {
-        this.controllerDepartment = controllerDepartment;
+    public ViewDepartmentLabelProduct(final ControllerStockImpl controllerStock, final Product product, final int maxQuantity) {
         this.controllerStockImpl = controllerStock;
         this.product = product;
         this.maxQuantity = maxQuantity;

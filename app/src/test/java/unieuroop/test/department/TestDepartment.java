@@ -9,7 +9,6 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 
 import org.junit.Before;
@@ -22,8 +21,6 @@ import unieuroop.model.person.Staff;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
-import unieuroop.model.supplier.Supplier;
-import unieuroop.model.supplier.SupplierImpl;
 
 public class TestDepartment {
 
@@ -36,7 +33,6 @@ public class TestDepartment {
     private static final int FINAL_QUANTITY_P2 = 200;
 
     private Department department;
-    private final Supplier s1 = new SupplierImpl("nome", Map.of());
     private final Product p1 = new ProductImpl(1, "iphone 13 pro", TestDepartment.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
     private final Product p2 = new ProductImpl(2, "applewatch", TestDepartment.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
     private final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestDepartment.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);

@@ -1,11 +1,8 @@
 package unieuroop.model.product;
-import java.io.Serializable;
-import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import unieuroop.model.supplier.Supplier;
 
 public final class ProductImpl implements Product {
     private final int productCode;

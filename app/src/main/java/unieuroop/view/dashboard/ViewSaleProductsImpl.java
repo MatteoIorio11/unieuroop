@@ -7,10 +7,6 @@ import java.util.stream.Collectors;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 
 public final class ViewSaleProductsImpl implements Initializable {

@@ -1,13 +1,13 @@
 package unieuroop.test.stock;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import unieuroop.model.product.Category;
@@ -19,12 +19,19 @@ import unieuroop.model.shop.ShopImpl;
 public class TestStock {
 
     private static final String APPLE_PRODUCT = "apple";
+    private static final String IPHONE_13_PRO = "iphone 13 pro";
+    private static final String APPLEWATCH = "applewatch";
+    private static final String MAC_BOOK_14 = "mac book pro 14 ";
+    private static final String DESCRIPTION_P1 = "best phone ever created";
+    private static final String DESCRIPTION_P2 = "best phone ever created";
+    private static final String DESCRIPTION_P3 = "best mac book ever created";
+
     private final Shop shop = new ShopImpl("Shop test");
     @Test
     public void testAddProducts() {
-        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
-        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
-        final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+        final Product p1 = new ProductImpl(1, TestStock.IPHONE_13_PRO, TestStock.APPLE_PRODUCT,  1200.00,  900.00, TestStock.DESCRIPTION_P1, Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, TestStock.APPLEWATCH, TestStock.APPLE_PRODUCT, 500.00,  200.00, TestStock.DESCRIPTION_P2, Category.SMARTWATCH);
+        final Product p3 = new ProductImpl(3, TestStock.MAC_BOOK_14, TestStock.APPLE_PRODUCT,  3000.00, 2000.00, TestStock.DESCRIPTION_P3, Category.PC);
         this.shop.getStock().addProducts(Map.of(p1, 2, p2, 4, p3, 1));
         assertEquals(Map.of(p1, 2, p2, 4, p3, 1), this.shop.getStock().getTotalStock());
     }
@@ -44,9 +51,9 @@ public class TestStock {
 
     @Test
     public void testTakeFromStock1() {
-        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
-        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
-        final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+        final Product p1 = new ProductImpl(1, TestStock.IPHONE_13_PRO, TestStock.APPLE_PRODUCT,  1200.00,  900.00, TestStock.DESCRIPTION_P1, Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, TestStock.APPLEWATCH, TestStock.APPLE_PRODUCT, 500.00,  200.00, TestStock.DESCRIPTION_P2, Category.SMARTWATCH);
+        final Product p3 = new ProductImpl(3, TestStock.MAC_BOOK_14, TestStock.APPLE_PRODUCT,  3000.00, 2000.00,  TestStock.DESCRIPTION_P3, Category.PC);
         this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
         try {
             this.shop.getStock().takeFromStock(Map.of(p1, 1));
@@ -58,9 +65,9 @@ public class TestStock {
 
     @Test
     public void testTakeFromStock2() {
-        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
-        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
-        final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+        final Product p1 = new ProductImpl(1, TestStock.IPHONE_13_PRO, TestStock.APPLE_PRODUCT,  1200.00,  900.00, TestStock.DESCRIPTION_P1, Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, TestStock.APPLEWATCH, TestStock.APPLE_PRODUCT, 500.00,  200.00, TestStock.DESCRIPTION_P2, Category.SMARTWATCH);
+        final Product p3 = new ProductImpl(3, TestStock.MAC_BOOK_14, TestStock.APPLE_PRODUCT,  3000.00, 2000.00,  TestStock.DESCRIPTION_P3, Category.PC);
         this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
         try {
             this.shop.getStock().takeFromStock(Map.of(p1, 2));
@@ -72,7 +79,7 @@ public class TestStock {
 
     @Test
     public void testDeleteProduct1() {
-        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+        final Product p1 = new ProductImpl(1, TestStock.IPHONE_13_PRO, TestStock.APPLE_PRODUCT,  1200.00,  900.00, TestStock.DESCRIPTION_P1, Category.SMARTPHONE);
         this.shop.getStock().addProducts(Map.of(p1, 1));
         try {
             this.shop.getStock().deleteProducts(Set.of(p1));
@@ -83,9 +90,9 @@ public class TestStock {
 
     @Test
     public void testDeleteProduct2() {
-        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
-        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
-        final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+        final Product p1 = new ProductImpl(1, TestStock.IPHONE_13_PRO, TestStock.APPLE_PRODUCT,  1200.00,  900.00, TestStock.DESCRIPTION_P1, Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, TestStock.APPLEWATCH, TestStock.APPLE_PRODUCT, 500.00,  200.00, TestStock.DESCRIPTION_P2, Category.SMARTWATCH);
+        final Product p3 = new ProductImpl(3, TestStock.MAC_BOOK_14, TestStock.APPLE_PRODUCT,  3000.00, 2000.00,  TestStock.DESCRIPTION_P3, Category.PC);
         this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2));
         try {
             this.shop.getStock().deleteProducts(Set.of(p3));
@@ -97,9 +104,9 @@ public class TestStock {
 
     @Test
     public void testFilterProducts() {
-        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
-        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
-        final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+        final Product p1 = new ProductImpl(1, TestStock.IPHONE_13_PRO, TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, TestStock.APPLEWATCH, TestStock.APPLE_PRODUCT, 500.00,  200.00, TestStock.DESCRIPTION_P2, Category.SMARTWATCH);
+        final Product p3 = new ProductImpl(3, TestStock.MAC_BOOK_14, TestStock.APPLE_PRODUCT,  3000.00, 2000.00,  TestStock.DESCRIPTION_P3, Category.PC);
         this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
         assertEquals(Map.of(p1, 1), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.SMARTPHONE));
         assertEquals(Map.of(p2, 2), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.SMARTWATCH));
@@ -111,9 +118,9 @@ public class TestStock {
 
     @Test
     public void testSorted() {
-        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
-        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
-        final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestStock.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+        final Product p1 = new ProductImpl(1, TestStock.IPHONE_13_PRO, TestStock.APPLE_PRODUCT,  1200.00,  900.00, TestStock.DESCRIPTION_P1, Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, TestStock.APPLEWATCH, TestStock.APPLE_PRODUCT, 500.00,  200.00, TestStock.DESCRIPTION_P2, Category.SMARTWATCH);
+        final Product p3 = new ProductImpl(3, TestStock.MAC_BOOK_14, TestStock.APPLE_PRODUCT,  3000.00, 2000.00,  TestStock.DESCRIPTION_P3, Category.PC);
         this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
         final var productsGrowing = this.shop.getStock().getProductsSorted((product1, product2) -> product1.getName().compareTo(product2.getName()));
         final var productsDecreasing = this.shop.getStock().getProductsSorted((product1, product2) -> product2.getName().compareTo(product1.getName()));
@@ -123,8 +130,8 @@ public class TestStock {
 
     @Test
     public void testGetMax() {
-        final Product p1 = new ProductImpl(1, "iphone 13 pro", TestStock.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
-        final Product p2 = new ProductImpl(2, "applewatch", TestStock.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
+        final Product p1 = new ProductImpl(1, TestStock.IPHONE_13_PRO, TestStock.APPLE_PRODUCT,  1200.00,  900.00, TestStock.DESCRIPTION_P1, Category.SMARTPHONE);
+        final Product p2 = new ProductImpl(2, TestStock.APPLEWATCH, TestStock.APPLE_PRODUCT, 500.00,  200.00, TestStock.DESCRIPTION_P2, Category.SMARTWATCH);
         this.shop.getStock().addProducts(Map.of(p1, 1, p2, 10));
         assertEquals(10, this.shop.getStock().getMaxAmountOfProducts());
 

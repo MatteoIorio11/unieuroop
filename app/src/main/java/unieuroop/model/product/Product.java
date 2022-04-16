@@ -1,9 +1,5 @@
 package unieuroop.model.product;
 
-import java.util.Optional;
-
-import unieuroop.model.supplier.Supplier;
-
 public interface Product {
     /**
      * 
@@ -30,7 +26,7 @@ public interface Product {
      * @return : the price payed by the shop to get this product
      */
     Double getPurchasePrice();
-   
+
     /**
      * 
      * @return : a general description of the product
@@ -41,7 +37,7 @@ public interface Product {
      * @return : the category of the product
      */
     Category getCategory();
-    
+
     /**
      * change the name of the product.
      * @param name

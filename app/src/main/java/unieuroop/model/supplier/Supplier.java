@@ -1,7 +1,6 @@
 package unieuroop.model.supplier;
 
 import java.util.Map;
-import java.util.Set;
 
 import unieuroop.model.product.Product;
 

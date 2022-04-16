@@ -35,17 +35,19 @@ import unieuroop.model.supplier.SupplierImpl;
 
 public class TestSerialization {
 
+    private static final String DESCRIPTION = "Description test";
+
     private final Staff s = new Staff("name", "surname", LocalDate.now(), 1, "ffff", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
     private final Staff s1 = new Staff("name1", "surname1", LocalDate.now(), 1, "AAAA", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
     private final Staff s2 = new Staff("name2", "surname2", LocalDate.now(), 3, "BBB", 222, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
-    private final Product p = new ProductImpl(1, "try", "Brand", 11.4, 84.0, "bla bla bla bla bla", Category.PC);
-    private final Product p1 = new ProductImpl(2, "try1", "Brand1", 19.4, 28.0, "bla bla bla bla bla", Category.HOME);
-    private final Product p2 = new ProductImpl(3, "try2", "Brand4", 22.0, 15.0, "bla bla bla bla bla", Category.TABLET);
-    private final Product p3 = new ProductImpl(4, "try3", "Brand1", 18.5, 92.0, "bla bla bla bla bla", Category.PC);
-    private final Product p4 = new ProductImpl(5, "try4", "Brand2", 102.4, 12.0, "bla bla bla bla bla", Category.PC);
-    private final Product p5 = new ProductImpl(6, "try5", "Brand2", 234.3, 125.0, "bla bla bla bla bla", Category.TABLET);
-    private final Product p6 = new ProductImpl(7, "try6", "Brand3", 123.9, 135.0, "bla bla bla bla bla", Category.PC);
-    private final Product p7 = new ProductImpl(8, "try7", "Brand2", 1293.4, 1534.0, "bla bla bla bla bla", Category.PC);
+    private final Product p = new ProductImpl(1, "try", "Brand", 11.4, 84.0, TestSerialization.DESCRIPTION, Category.PC);
+    private final Product p1 = new ProductImpl(2, "try1", "Brand1", 19.4, 28.0, TestSerialization.DESCRIPTION, Category.HOME);
+    private final Product p2 = new ProductImpl(3, "try2", "Brand4", 22.0, 15.0, TestSerialization.DESCRIPTION, Category.TABLET);
+    private final Product p3 = new ProductImpl(4, "try3", "Brand1", 18.5, 92.0, TestSerialization.DESCRIPTION, Category.PC);
+    private final Product p4 = new ProductImpl(5, "try4", "Brand2", 102.4, 12.0, TestSerialization.DESCRIPTION, Category.PC);
+    private final Product p5 = new ProductImpl(6, "try5", "Brand2", 234.3, 125.0, TestSerialization.DESCRIPTION, Category.TABLET);
+    private final Product p6 = new ProductImpl(7, "try6", "Brand3", 123.9, 135.0, TestSerialization.DESCRIPTION, Category.PC);
+    private final Product p7 = new ProductImpl(8, "try7", "Brand2", 1293.4, 1534.0, TestSerialization.DESCRIPTION, Category.PC);
  
     private final Department d1 = new DepartmentImpl("department1", Set.of(this.s, this.s1), Map.of(p, 10, p1, 10, p2, 2, p3, 32, p4, 32));
     private final Department d2 = new DepartmentImpl("department2", Set.of(this.s, this.s2), Map.of(p, 4, p1, 2, p5, 11, p6, 34));
