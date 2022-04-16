@@ -20,6 +20,7 @@ import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.department.Department;
 import unieuroop.model.product.Product;
+import unieuroop.view.department.ViewDepartmentEditProducts;
 
 public final class ViewStockProducts implements Initializable {
 
@@ -33,14 +34,16 @@ public final class ViewStockProducts implements Initializable {
     private int maxQuantity;
     private final ControllerStockImpl controllerStock;
     private final ControllerDepartmentImpl controllerDepartment;
+    private final ViewDepartmentEditProducts viewDepartment;
     public ViewStockProducts(final Department department, final Product product, final int maxQuantity, final ControllerStockImpl controllerStock,
-            final ControllerDepartmentImpl controllerDepartment) {
+            final ControllerDepartmentImpl controllerDepartment, final ViewDepartmentEditProducts viewDepartment) {
         this.department = department;
         this.product = product;
         this.maxQuantity = maxQuantity;
         this.controllerStock = controllerStock;
         this.controllerDepartment = controllerDepartment;
         this.totalQuantity = 0;
+        this.viewDepartment = viewDepartment;
     }
 
     @Override
@@ -59,11 +62,13 @@ public final class ViewStockProducts implements Initializable {
             this.controllerStock.reserveProduct(this.product, this.totalQuantity);
             this.totalQuantity = this.totalQuantity - quantitySelected;
             this.maxQuantity = this.maxQuantity - quantitySelected;
-            final SpinnerValueFactory<Integer> newLimit = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.totalQuantity > 0 ? 1 : 0, this.totalQuantity);
+            final SpinnerValueFactory<Integer> newLimit = new SpinnerValueFactory.IntegerSpinnerValueFactory(this.maxQuantity > 0 ? 1 : 0, this.maxQuantity);
             this.spinnerQuantity.setValueFactory(newLimit);
             try {
                 this.controllerDepartment.addProductsIn(this.department, this.controllerStock.getReservedProducts());
                 this.controllerStock.closeAddProducts();
+                this.viewDepartment.getList().getItems().clear();
+                this.viewDepartment.loadDepartmentProducts();
             } catch (IOException e) {
                 final Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText(e.getMessage());

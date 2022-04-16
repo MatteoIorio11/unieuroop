@@ -3,7 +3,6 @@ package unieuroop.model.person;
 import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
 
 public class Client extends AbstractPerson {
 

@@ -1,6 +1,5 @@
 package unieuroop.model.person;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 public abstract class AbstractPerson {
@@ -112,5 +111,5 @@ public abstract class AbstractPerson {
         }
         return true;
     }
-    
+
 }
