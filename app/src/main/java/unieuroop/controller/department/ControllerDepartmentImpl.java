@@ -13,6 +13,7 @@ import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 import unieuroop.model.shop.Shop;
+import unieuroop.model.supplier.Supplier;
 
 public final class ControllerDepartmentImpl {
     private final Shop shop;
@@ -61,11 +62,13 @@ public final class ControllerDepartmentImpl {
         }
     }
 
-    public void removeProductsFrom(final Department inputDepartment, final Set<Staff> staff) throws IOException {
-        if (!Objects.isNull(inputDepartment) && this.shop.getDepartments().contains(inputDepartment)) {
+    public void removeProductsFrom(final Department inputDepartment, final Map<Product, Integer> products) throws IOException {
+        if (!Objects.isNull(inputDepartment) && this.shop.getDepartments().contains(inputDepartment) && !products.isEmpty()) {
             final Department department = this.shop.getDepartments().stream().filter((departmentInput) -> departmentInput.equals(inputDepartment)).findFirst().get();
-            department.removeStaff(staff);
+            department.takeProductFromDepartment(products);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+        } else {
+            throw new IllegalArgumentException("One of the parameter of more than one are empty.");
         }
     }
 
@@ -74,6 +77,7 @@ public final class ControllerDepartmentImpl {
             final Department department = this.shop.getDepartments().stream().filter((dep) -> dep.equals(inputDepartment)).findAny().get();
             department.addProducts(products);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            Serialization.<Set<Supplier>>serialize(Files.SUPPLIERS.getPath(), this.shop.getSuppliers());
         }
     }
 

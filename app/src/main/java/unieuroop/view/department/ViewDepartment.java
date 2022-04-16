@@ -116,7 +116,7 @@ public final class ViewDepartment implements Initializable {
         for (final Department department : this.controllerDepartment.getDepartments()) {
             try {
                 final Pane pane = Loader.<ViewLabelDepartment>loadPane(Pages.DEPARTMENTS_LABEL.getPath(), 
-                        new ViewLabelDepartment(department, this.controllerStaff, this.controllerDepartment));
+                        new ViewLabelDepartment(department, this.controllerStaff, this.controllerDepartment, this.controllerStock));
                 this.listDepartments.getItems().add(pane);
                 this.departmentPane.put(pane, department);
             } catch (IOException e) {
