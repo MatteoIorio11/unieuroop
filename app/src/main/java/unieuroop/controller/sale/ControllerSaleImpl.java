@@ -17,7 +17,7 @@ import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.shop.Shop;
 
-public final class ControllerSaleImpl implements ControllerSale {
+public final class ControllerSaleImpl extends Thread implements ControllerSale {
     private final Map<Department, Map<Product, Integer>> reservedProductsMap = new HashMap<>();
     private final Shop shop;
 
@@ -56,15 +56,12 @@ public final class ControllerSaleImpl implements ControllerSale {
                         .collect(Collectors.toMap((product) -> product, (product) -> this.totalQuantityProduct(product)));
             final Sale sale = new SaleImpl(LocalDate.now(), products, client);
             this.shop.addSale(sale);
-            try {
-                Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), this.shop.getSales());
-                Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            this.run();
             this.reservedProductsMap.clear();
         }
     }
+
+
 
     @Override
     public void clearReservedProducts() {
@@ -92,4 +89,17 @@ public final class ControllerSaleImpl implements ControllerSale {
         return this.reservedProductsMap.isEmpty();
     }
 
+    private void serializaSale() throws IOException {
+        Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), this.shop.getSales());
+        Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+    }
+
+    @Override
+    public void run() {
+        try {
+            this.serializaSale();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

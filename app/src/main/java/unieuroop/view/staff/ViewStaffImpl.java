@@ -1,6 +1,8 @@
 package unieuroop.view.staff;
 
 import javafx.scene.control.Label;
+
+import java.io.IOException;
 import java.net.URL;
 import java.time.DayOfWeek;
 import java.util.ResourceBundle;
@@ -55,9 +57,12 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
             this.listStaffs.getItems().clear();
             this.listStaffs.getItems().addAll(this.controller.getStaff());
         } catch (IllegalArgumentException illegalExc) {
-            this.setAlert();
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(illegalExc.getMessage());
+            alert.showAndWait();
+        } catch (IOException e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
         this.clearView();
@@ -72,9 +77,12 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
                     this.tbxHoursStartTime.getText(), this.tbxMinutesStartTime.getText(), this.tbxHoursEndTime.getText(), this.tbxMinutesEndTime.getText(), staff);
             this.listStaffs.refresh();
         } catch (IllegalArgumentException illegalExc) {
-            this.setAlert();
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(illegalExc.getMessage());
+            alert.showAndWait();
+        } catch (IOException e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
         this.clearView();
@@ -83,11 +91,18 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
     @Override
     @FXML
     public void buttonDeleteHandler(final ActionEvent event) {
-        final Staff staff = this.listStaffs.getSelectionModel().getSelectedItem();
-        this.controller.deleteStaff(staff);
-        this.listStaffs.getItems().clear();
-        this.listStaffs.getItems().addAll(this.controller.getStaff());
-        this.clearView();
+        try {
+            final Staff staff = this.listStaffs.getSelectionModel().getSelectedItem();
+            this.controller.deleteStaff(staff);
+            this.listStaffs.getItems().clear();
+            this.listStaffs.getItems().addAll(this.controller.getStaff());
+            this.clearView();
+        } catch (IOException e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+
     }
 
     @Override
@@ -104,13 +119,6 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
         this.tbxMinutesStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getMinute()));
         this.tbxHoursEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getHour()));
         this.tbxMinutesEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getMinute()));
-    }
-    private void setAlert() {
-        final Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Error");
-        alert.setHeaderText("Staff error: ");
-        alert.setContentText("Impossible because one of the parameters are null");
-        alert.showAndWait();
     }
 
     private void clearView() {

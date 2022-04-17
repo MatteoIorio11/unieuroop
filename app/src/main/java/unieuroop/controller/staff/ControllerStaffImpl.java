@@ -15,6 +15,7 @@ import java.util.stream.IntStream;
 import javafx.util.Pair;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
+import unieuroop.model.department.Department;
 import unieuroop.model.person.Staff;
 import unieuroop.model.shop.Shop;
 
@@ -31,7 +32,7 @@ public final class ControllerStaffImpl {
     }
 
     public void addStaff(final String name, final String surname, final LocalDate birthday, final String email, final String password, 
-            final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork) {
+            final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork) throws IOException {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || email.isEmpty() || password.isEmpty() 
                 || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() || hoursEndWork.isEmpty() || minutesEndWork.isEmpty() || Integer.parseInt(hoursStartWork) >= Integer.parseInt(hoursEndWork)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
@@ -43,11 +44,11 @@ public final class ControllerStaffImpl {
         final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
         final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
         this.shop.addStaff(new Staff(name, surname, birthday, Math.abs(code), email, password.hashCode(), days));
-        serializationStaff();
+        this.serializationStaff();
     }
  
     public void editStaff(final String name, final String surname, final LocalDate birthday, final String email, final String password, 
-            final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork, final Staff staff) {
+            final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork, final Staff staff) throws IOException {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || email.isEmpty() || password.isEmpty() 
                 || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() || hoursEndWork.isEmpty() || minutesEndWork.isEmpty() || Integer.parseInt(hoursStartWork) >= Integer.parseInt(hoursEndWork)) {
             throw new IllegalArgumentException("Impossible because one of the parameters is null");
@@ -61,10 +62,10 @@ public final class ControllerStaffImpl {
         staff.setEmail(email);
         staff.setPassword(Integer.parseInt(password));
         staff.setWorkTime(days);
-        serializationStaff();
+        this.serializationStaff();
     }
 
-    public void deleteStaff(final Staff staff) {
+    public void deleteStaff(final Staff staff) throws IOException {
         if (!Objects.isNull(staff)) {
             this.shop.removeStaff(staff);
             serializationStaff();
@@ -75,11 +76,12 @@ public final class ControllerStaffImpl {
         return this.shop.getStaffs();
     }
 
-    private void serializationStaff() {
+    private void serializationStaff() throws IOException {
         try {
             Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
+            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw e;
         }
     }
 

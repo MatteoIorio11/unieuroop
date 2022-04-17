@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,11 +29,7 @@ public final class ViewLoginImpl implements Initializable, ViewLogin {
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        try {
-            this.controller.loadData();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.controller.run();
     }
     @Override
     @FXML
@@ -48,5 +45,6 @@ public final class ViewLoginImpl implements Initializable, ViewLogin {
             alert.showAndWait();
         }
     }
+
 
 }

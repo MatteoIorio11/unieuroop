@@ -16,9 +16,10 @@ import unieuroop.model.product.Product;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.stock.Stock;
 
-public final class ControllerDepartmentImpl implements ControllerDepartment {
+public final class ControllerDepartmentImpl extends Thread implements ControllerDepartment {
     private final Shop shop;
     private final Map<Product, Integer> reservedProduct = new HashMap<>();
+    private boolean serializeStock;
 
     public ControllerDepartmentImpl(final Shop shop) {
         this.shop = shop;
@@ -48,7 +49,8 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
         if (name.isBlank() || !staffs.isEmpty() && !products.isEmpty()) {
             final var deoartment = new DepartmentImpl(name, staffs, products);
             this.shop.addDepartment(deoartment);
-            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            this.serializeStock = false;
+            this.run();
         } else {
             throw new IllegalArgumentException("One of the input or more than one are empty");
         }
@@ -58,6 +60,7 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     public void removeDepartment(final Department department) throws IOException {
         if (!Objects.isNull(department)) {
             this.shop.removeDepartment(department);
+            this.serializeStock = false;
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
         } else {
             throw new IllegalArgumentException("The department is null");
@@ -68,7 +71,8 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     public void mergeDepartments(final Set<Department> departments, final String name) throws IOException {
         if (!departments.isEmpty() || name.isBlank()) {
             this.shop.mergeDepartments(departments, name);
-            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            this.serializeStock = false;
+            this.run();
 
         } else {
             throw new IllegalArgumentException("The set of Departments is empty or the name is blank");
@@ -79,8 +83,8 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     public void removeProductsFrom(final Department inputDepartment, final Map<Product, Integer> products) throws IOException {
         if (!Objects.isNull(inputDepartment) && this.shop.getDepartments().contains(inputDepartment) && !products.isEmpty()) {
             this.shop.putProductsBackInStock(inputDepartment, products);
-            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
+            this.serializeStock = true;
+            this.run();
         } else {
             throw new IllegalArgumentException("One of the parameter of more than one are empty.");
         }
@@ -90,8 +94,8 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     public void addProductsIn(final Department inputDepartment, final Map<Product, Integer> products) throws IOException {
         if (!Objects.isNull(inputDepartment) && !products.isEmpty()) {
             this.shop.supplyDepartment(inputDepartment, products);
-            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-            Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
+            this.serializeStock = true;
+
         }
     }
 
@@ -102,7 +106,8 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
             for (final var staff : staffs) {
                 dep.addStaff(staff);
             }
-            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            this.serializeStock = false;
+            this.run();
         } else {
             throw new IllegalArgumentException("One or both of the parameters are null");
         }
@@ -113,7 +118,8 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
         if (!Objects.isNull(inputDepartment) && !staffs.isEmpty()) {
             final var dep = this.shop.getDepartments().stream().filter((department) -> department.equals(inputDepartment)).findAny().get();
             dep.removeStaff(staffs);
-            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            this.serializeStock = false;
+            this.run();
         } else {
             throw new IllegalArgumentException("One or both of the parameters are null");
         }
@@ -152,5 +158,20 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
         } else {
             throw new IllegalArgumentException("The map of products is empty");
         }
+    }
+
+    @Override
+    public void run() {
+        try {
+            if (!this.serializeStock) {
+                Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            } else {
+                Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+                Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
