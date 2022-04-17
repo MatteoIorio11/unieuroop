@@ -15,9 +15,9 @@ import javafx.stage.Stage;
 import unieuroop.controller.login.ControllerLogin;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.view.loader.Loader;
-import unieuroop.view.menu.ViewMainMenu;
+import unieuroop.view.menu.ViewMainMenuImpl;
 
-public final class ViewLoginImpl implements Initializable {
+public final class ViewLoginImpl implements Initializable, ViewLogin {
     @FXML  private TextField email;
     @FXML private PasswordField password;
     private final ControllerLogin controller;
@@ -34,10 +34,11 @@ public final class ViewLoginImpl implements Initializable {
             e.printStackTrace();
         }
     }
+    @Override
     @FXML
     public void btnLoginHandler(final ActionEvent event) throws IOException {
         if (this.controller.checkPassword(this.email.getText(), this.password.getText())) {
-            Loader.loadStage("/pages/MainMenu.fxml", "unieurOOP", new ViewMainMenu(new ControllerShopImpl(this.controller.getShop())), 
+            Loader.loadStage("/pages/MainMenu.fxml", "unieurOOP", new ViewMainMenuImpl(new ControllerShopImpl(this.controller.getShop())), 
                     ViewLoginImpl.MIN_HEIGHT, ViewLoginImpl.MIN_WIDTH).show();
             final Stage stage = (Stage) this.email.getScene().getWindow();
             stage.close();

@@ -19,7 +19,7 @@ import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.department.Department;
 import unieuroop.view.loader.Loader;
-import unieuroop.view.stock.ViewStockProducts;
+import unieuroop.view.stock.ViewStockProductsImpl;
 
 public final class ViewDepartmentEditProducts implements Initializable {
 
@@ -87,7 +87,7 @@ public final class ViewDepartmentEditProducts implements Initializable {
     private void loadStockProducts() {
         for (final var product : this.controllerStock.getProductsStocked().entrySet()) {
             try {
-                final var controller = new ViewStockProducts(this.department, product.getKey(), product.getValue(), this.controllerDepartment,
+                final var controller = new ViewStockProductsImpl(this.department, product.getKey(), product.getValue(), this.controllerDepartment,
                         this);
                 final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT.getPath(), controller);
                 this.listStockProducts.getItems().add(pane);

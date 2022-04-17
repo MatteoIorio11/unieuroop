@@ -19,6 +19,7 @@ import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.department.Department;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.staff.ViewEditStaff;
+import unieuroop.view.staff.ViewEditStaffImpl;
 
 public final class ViewLabelDepartmentImpl implements Initializable, ViewLabelDepartment {
 
@@ -48,7 +49,7 @@ public final class ViewLabelDepartmentImpl implements Initializable, ViewLabelDe
     @FXML
     public void buttonEditStaffHandler(final ActionEvent event) {
         try {
-            final var controller = new ViewEditStaff(this.controllerStaff, this.controllerDepartment, this.department);
+            final ViewEditStaff controller = new ViewEditStaffImpl(this.controllerStaff, this.controllerDepartment, this.department);
             final Stage stage = Loader.loadStage(Pages.EDIT_STAFF_DEPARTMENTS.getPath(), "Edit Staff", controller, 500, 500);
             final Stage currentStage = (Stage) this.btnEditStaff.getScene().getWindow();
             currentStage.hide();
