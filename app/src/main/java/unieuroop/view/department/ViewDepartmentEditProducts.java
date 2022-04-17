@@ -13,10 +13,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
-import unieuroop.controller.department.ControllerDepartmentImpl;
+import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.staff.ControllerStaffImpl;
-import unieuroop.controller.stock.ControllerStockImpl;
+import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.department.Department;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.stock.ViewStockProducts;
@@ -32,12 +32,12 @@ public final class ViewDepartmentEditProducts implements Initializable {
 
     private final Department department;
     private final ControllerStaffImpl controllerStaff;
-    private final ControllerDepartmentImpl controllerDepartment;
-    private final ControllerStockImpl controllerStock;
+    private final ControllerDepartment controllerDepartment;
+    private final ControllerStock controllerStock;
 
 
     public ViewDepartmentEditProducts(final Department currentDepartment, final ControllerStaffImpl controllerStaff, 
-            final ControllerDepartmentImpl controllerDepartment, final ControllerStockImpl controllerStock) {
+            final ControllerDepartment controllerDepartment, final ControllerStock controllerStock) {
         this.department = currentDepartment;
         this.controllerStaff = controllerStaff;
         this.controllerDepartment = controllerDepartment;
@@ -73,7 +73,7 @@ public final class ViewDepartmentEditProducts implements Initializable {
     private void loadDepartmentProducts() {
         for (final var product : this.controllerDepartment.getProductsQuantityOf(this.department).entrySet()) {
             try {
-                final var controller = new ViewDepartmentProducts(this, this.department, product.getKey(), product.getValue(), this.controllerStaff, this.controllerDepartment);
+                final ViewDepartmentProducts controller = new ViewDepartmentProductsImpl(this, this.department, product.getKey(), product.getValue(), this.controllerStaff, this.controllerDepartment);
                 final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT_DEPARTMENT.getPath(), controller);
                 this.listDepartmentProducts.getItems().add(pane);
             } catch (IOException e) {

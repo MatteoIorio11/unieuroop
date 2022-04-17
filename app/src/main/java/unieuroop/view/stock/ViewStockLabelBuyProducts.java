@@ -10,7 +10,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import unieuroop.controller.stock.ControllerStockImpl;
+import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.product.Product;
 
 public class ViewStockLabelBuyProducts implements Initializable {
@@ -25,10 +25,10 @@ public class ViewStockLabelBuyProducts implements Initializable {
     private CheckBox chkboxProductBought;
 
     private final ViewStockBuyProducts viewStockBuyProducts;
-    private final ControllerStockImpl controllerStock;
+    private final ControllerStock controllerStock;
     private final Map.Entry<Product, Double> productSold;
 
-    public ViewStockLabelBuyProducts(final Map.Entry<Product, Double> product, final ViewStockBuyProducts viewStockBuyProducts, final ControllerStockImpl controller) {
+    public ViewStockLabelBuyProducts(final Map.Entry<Product, Double> product, final ViewStockBuyProducts viewStockBuyProducts, final ControllerStock controller) {
         this.viewStockBuyProducts = viewStockBuyProducts;
         this.controllerStock = controller;
         this.productSold = product;

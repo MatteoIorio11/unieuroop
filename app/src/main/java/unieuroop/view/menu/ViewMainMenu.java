@@ -18,7 +18,7 @@ import unieuroop.controller.dashboard.ControllerDashboardImpl;
 import unieuroop.controller.department.ControllerDepartmentImpl;
 import unieuroop.controller.sale.ControllerSaleImpl;
 import unieuroop.controller.serialization.Pages;
-import unieuroop.controller.shop.ControllerShopImpl;
+import unieuroop.controller.shop.ControllerShop;
 import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.view.balance.ViewBalance;
@@ -26,7 +26,7 @@ import unieuroop.view.categoryanalytic.ViewCategoriesSold;
 import unieuroop.view.client.ViewClient;
 import unieuroop.view.dashboard.ViewDashboardImpl;
 import unieuroop.view.dateanalytic.ViewDateSold;
-import unieuroop.view.department.ViewDepartment;
+import unieuroop.view.department.ViewDepartmentImpl;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.sale.ViewSale;
 import unieuroop.view.staff.ViewStaffImpl;
@@ -53,8 +53,8 @@ public final class ViewMainMenu implements Initializable {
     private Button btnAnalytics;
     @FXML
     private Button btnDateAnalytics;
-    private final ControllerShopImpl controller;
-    public ViewMainMenu(final ControllerShopImpl controllerShop) {
+    private final ControllerShop controller;
+    public ViewMainMenu(final ControllerShop controllerShop) {
         this.controller = controllerShop;
     }
     @Override
@@ -87,7 +87,7 @@ public final class ViewMainMenu implements Initializable {
     }
     @FXML
     public void btnDepartmentsHandler(final ActionEvent event) {
-        this.loadPage(Pages.DEPARTMENTS, new ViewDepartment(new ControllerDepartmentImpl(this.controller.getShop()),
+        this.loadPage(Pages.DEPARTMENTS, new ViewDepartmentImpl(new ControllerDepartmentImpl(this.controller.getShop()),
                 new ControllerStaffImpl(this.controller.getShop()), new ControllerStockImpl(this.controller.getShop())));
     }
     @FXML

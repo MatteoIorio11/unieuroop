@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import unieuroop.controller.serialization.Pages;
-import unieuroop.controller.stock.ControllerStockImpl;
+import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.product.Product;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
@@ -39,10 +39,10 @@ public class ViewStock implements Initializable {
     @FXML
     private TextArea txtAreaInfoProducts;
 
-    private final ControllerStockImpl controllerStock;
+    private final ControllerStock controllerStock;
     private final ViewMainMenu viewMenu;
 
-    public ViewStock(final ViewMainMenu view, final ControllerStockImpl controllerStock) {
+    public ViewStock(final ViewMainMenu view, final ControllerStock controllerStock) {
         this.controllerStock = controllerStock;
         this.viewMenu = view;
     }

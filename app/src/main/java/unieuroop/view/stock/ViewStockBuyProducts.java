@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import unieuroop.controller.serialization.Pages;
-import unieuroop.controller.stock.ControllerStockImpl;
+import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.product.Product;
 import unieuroop.model.supplier.Supplier;
 import unieuroop.view.loader.Loader;
@@ -30,9 +30,9 @@ public class ViewStockBuyProducts implements Initializable {
     @FXML private Button btnConfimrBuyProducts;
 
     private final ViewStock viewStock;
-    private final ControllerStockImpl controllerStock;
+    private final ControllerStock controllerStock;
 
-    public ViewStockBuyProducts(final ViewStock viewStock, final ControllerStockImpl controller) {
+    public ViewStockBuyProducts(final ViewStock viewStock, final ControllerStock controller) {
         this.viewStock = viewStock;
         this.controllerStock = controller;
     }

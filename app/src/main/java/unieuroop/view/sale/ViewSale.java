@@ -17,7 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import unieuroop.controller.client.ControllerClientImpl;
-import unieuroop.controller.department.ControllerDepartmentImpl;
+import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.sale.ControllerSale;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.model.department.Department;
@@ -44,14 +44,14 @@ public final class ViewSale implements Initializable {
     @FXML
     private ComboBox<Department> comboDepartments;
     private final ControllerClientImpl controllerClient;
-    private final ControllerDepartmentImpl controllerDepartment;
+    private final ControllerDepartment controllerDepartment;
     private final ControllerSale controllerSale;
 
     private final ViewMainMenu viewMenu;
 
 
     public ViewSale(final ViewMainMenu viewMainMenu, final ControllerClientImpl controllerClient,
-        final ControllerDepartmentImpl controllerDepartment, final ControllerSale controllerSale) {
+        final ControllerDepartment controllerDepartment, final ControllerSale controllerSale) {
         this.viewMenu = viewMainMenu;
         this.controllerClient = controllerClient;
         this.controllerDepartment = controllerDepartment;

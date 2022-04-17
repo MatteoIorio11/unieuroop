@@ -3,13 +3,14 @@ package unieuroop.view.department;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+import unieuroop.model.department.Department;
 
-public interface ViewMergeDepartment {
+public interface ViewMergeLabel {
 
     void initialize(URL location, ResourceBundle resources);
 
-    void buttonMergeDepartmentHandler(ActionEvent event);
+    boolean isSelected();
+
+    Department getDepartment();
 
 }

@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import unieuroop.controller.department.ControllerDepartmentImpl;
+import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Staff;
@@ -31,9 +31,9 @@ public final class ViewEditStaff implements Initializable {
     private final Set<Staff> selectedAddStaff = new HashSet<>();
     private final Set<Staff> selectedRemoveStaff = new HashSet<>();
     private final ControllerStaffImpl controllerStaff;
-    private final ControllerDepartmentImpl controllerDepartment;
+    private final ControllerDepartment controllerDepartment;
     private final Department department;
-    public ViewEditStaff(final ControllerStaffImpl controllerStaff, final ControllerDepartmentImpl controllerDepartment, 
+    public ViewEditStaff(final ControllerStaffImpl controllerStaff, final ControllerDepartment controllerDepartment, 
             final Department department) {
         this.controllerStaff = controllerStaff;
         this.controllerDepartment = controllerDepartment;

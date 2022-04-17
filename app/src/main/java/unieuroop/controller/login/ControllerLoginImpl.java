@@ -16,17 +16,20 @@ import unieuroop.model.shop.ShopImpl;
 import unieuroop.model.stock.Stock;
 import unieuroop.model.supplier.Supplier;
 
-public final class ControllerLoginImpl {
+public final class ControllerLoginImpl implements ControllerLogin {
     private Shop shop;
 
+    @Override
     public boolean checkPassword(final String email, final String password) {
         return this.shop.getStaffs().stream().anyMatch(s -> s.getEmail().equals(email) && s.getPassword().equals(password.hashCode()));
     }
 
+    @Override
     public void showMainMenu() {
 
     }
 
+    @Override
     public void loadData() throws  IOException, ClassNotFoundException {
         final var shopName = Serialization.<String>deserialize(Files.SHOPNAME.getPath(), new TypeReference<String>() { });
         final var departments = Serialization.<Set<Department>>deserialize(Files.DEPARTMENTS.getPath(), new TypeReference<Set<Department>>() { });
@@ -39,6 +42,7 @@ public final class ControllerLoginImpl {
         this.shop = new ShopImpl(shopName, departments, staff, suppliers, sales, clients, stock, bills);
     }
 
+    @Override
     public Shop getShop() {
         return this.shop;
     }

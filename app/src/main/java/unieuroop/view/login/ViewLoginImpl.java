@@ -12,7 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import unieuroop.controller.login.ControllerLoginImpl;
+import unieuroop.controller.login.ControllerLogin;
 import unieuroop.controller.shop.ControllerShopImpl;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
@@ -20,10 +20,10 @@ import unieuroop.view.menu.ViewMainMenu;
 public final class ViewLoginImpl implements Initializable {
     @FXML  private TextField email;
     @FXML private PasswordField password;
-    private final ControllerLoginImpl controller;
+    private final ControllerLogin controller;
     private static final double MIN_HEIGHT = 600;
     private static final double MIN_WIDTH = 1000;
-    public ViewLoginImpl(final ControllerLoginImpl controller) {
+    public ViewLoginImpl(final ControllerLogin controller) {
         this.controller = controller;
     }
     @Override

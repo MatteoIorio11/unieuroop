@@ -9,7 +9,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import unieuroop.model.department.Department;
 
-public final class ViewMergeLabelImpl implements Initializable {
+public final class ViewMergeLabelImpl implements Initializable, ViewMergeLabel {
     @FXML
     private Label lblDepartment;
     @FXML
@@ -24,10 +24,12 @@ public final class ViewMergeLabelImpl implements Initializable {
         this.lblDepartment.setText(this.department.toString());
     }
 
+    @Override
     public boolean isSelected() {
         return this.chkboxDepartmentSelected.isSelected();
     }
 
+    @Override
     public Department getDepartment() {
         return this.department;
     }

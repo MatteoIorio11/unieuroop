@@ -13,7 +13,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-import unieuroop.controller.stock.ControllerStockImpl;
+import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.product.Category;
 
 public class ViewStockSetFilters implements Initializable {
@@ -36,10 +36,10 @@ public class ViewStockSetFilters implements Initializable {
     private Button btnConfirmFilter;
 
     private ViewStock viewStock;
-    private ControllerStockImpl controllerStock;
+    private ControllerStock controllerStock;
     private boolean increasing;
 
-    public ViewStockSetFilters(final ViewStock viewStock, final ControllerStockImpl controller) {
+    public ViewStockSetFilters(final ViewStock viewStock, final ControllerStock controller) {
         this.viewStock = viewStock;
         this.controllerStock = controller;
     }
