@@ -33,6 +33,7 @@ import unieuroop.view.staff.ViewStaffImpl;
 import unieuroop.view.stock.ViewStockImpl;
 
 public final class ViewMainMenuImpl implements Initializable, ViewMainMenu {
+
     @FXML private BorderPane mainPane;
     @FXML private Button btnDashBoard;
     @FXML private Button btnStock;
@@ -43,26 +44,32 @@ public final class ViewMainMenuImpl implements Initializable, ViewMainMenu {
     @FXML private Button btnBalances;
     @FXML private Button btnAnalytics;
     @FXML private Button btnDateAnalytics;
+
     private final ControllerShop controller;
+
     public ViewMainMenuImpl(final ControllerShop controllerShop) {
         this.controller = controllerShop;
     }
+
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop()), 
                 new ControllerAnalyticImpl(this.controller.getShop())));
     }
+
     @Override
     @FXML
     public void btnDashBoardHandler(final ActionEvent event) {
         this.loadPage(Pages.DASHBOARD, new ViewDashboardImpl(new ControllerDashboardImpl(this.controller.getShop()), 
                 new ControllerAnalyticImpl(this.controller.getShop())));
     }
+
     @Override
     @FXML
     public void btnStockHandler(final ActionEvent event) {
         this.loadPage(Pages.STOCK, new ViewStockImpl(new ControllerStockImpl(this.controller.getShop())));
     }
+
     @Override
     @FXML
     public void btnSalesHandler(final ActionEvent event) {
@@ -70,55 +77,42 @@ public final class ViewMainMenuImpl implements Initializable, ViewMainMenu {
                 new ControllerDepartmentImpl(this.controller.getShop()), 
                 new ControllerSaleImpl(this.controller.getShop())));
     }
+
     @Override
     @FXML
     public void btnClientsHandler(final ActionEvent event) {
         this.loadPage(Pages.CLIENTS, new ViewClient(new ControllerClientImpl(this.controller.getShop())));
     }
+
     @Override
     @FXML
     public void btnStaffHandler(final ActionEvent event) {
         this.loadPage(Pages.STAFF, new ViewStaffImpl(new ControllerStaffImpl(this.controller.getShop())));
     }
+
     @Override
     @FXML
     public void btnDepartmentsHandler(final ActionEvent event) {
         this.loadPage(Pages.DEPARTMENTS, new ViewDepartmentImpl(new ControllerDepartmentImpl(this.controller.getShop()),
                 new ControllerStaffImpl(this.controller.getShop()), new ControllerStockImpl(this.controller.getShop())));
     }
+
     @Override
     @FXML
     public void btnDateAnalyticsHandler(final ActionEvent event) {
         this.loadPage(Pages.MAIN_DATE_SOLD, new ViewDateSold(new ControllerAnalyticImpl(this.controller.getShop())));
     }
+
     @Override
     @FXML
     public void btnBalancesHandler(final ActionEvent event) {
         this.loadPage(Pages.BALANCE, new ViewBalance(new ControllerAnalyticImpl(this.controller.getShop())));
     }
+
     @Override
     @FXML
     public void btnAnalyticsHandler(final ActionEvent event) {
         this.loadPage(Pages.MAIN_CATEGORIES_SOLD, new ViewCategoriesSold(new ControllerAnalyticImpl(this.controller.getShop())));
-    }
-    private <X> void loadPage(final Pages page, final X controller) {
-        Pane pane;
-        try {
-            pane = Loader.loadPane(page.getPath(), controller);
-            this.mainPane.setCenter(pane);
-        } catch (IOException e) {
-            final Alert errorMessage = new Alert(AlertType.ERROR);
-            errorMessage.setContentText(e.getMessage());
-        }
-//
-//        try {
-//            final var loader = new FXMLLoader(getClass().getResource(page.getPath()));
-//            loader.setController(controller);
-//            pane = loader.load();
-//            this.mainPane.setCenter(pane);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Override
@@ -134,4 +128,20 @@ public final class ViewMainMenuImpl implements Initializable, ViewMainMenu {
         this.btnDateAnalytics.setDisable(status);
     }
 
+    /**
+     * 
+     * @param <X>
+     * @param page
+     * @param controller
+     */
+    private <X> void loadPage(final Pages page, final X controller) {
+        Pane pane;
+        try {
+            pane = Loader.loadPane(page.getPath(), controller);
+            this.mainPane.setCenter(pane);
+        } catch (IOException e) {
+            final Alert errorMessage = new Alert(AlertType.ERROR);
+            errorMessage.setContentText(e.getMessage());
+        }
+    }
 }

@@ -7,8 +7,17 @@ import javafx.event.ActionEvent;
 
 public interface ViewStockProducts {
 
+    /**
+     * 
+     * @param location
+     * @param resources
+     */
     void initialize(URL location, ResourceBundle resources);
 
+    /**
+     * 
+     * @param event
+     */
     void buttonAddHandler(ActionEvent event);
 
 }

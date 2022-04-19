@@ -27,6 +27,7 @@ import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
 
 public final class ViewSaleImpl implements Initializable, ViewSale {
+
     @FXML
     private Stage primaryStage;
     @FXML
@@ -113,6 +114,16 @@ public final class ViewSaleImpl implements Initializable, ViewSale {
         this.viewMenu.disableButtons(false);
     }
 
+    @Override
+    public ListView<String> getListView() {
+        return this.listSelectedProducts;
+    }
+
+    /**
+     * 
+     * @param products
+     * @param department
+     */
     private void addLabels(final Set<Product> products, final Department department) {
         for (final var product : products) {
             try {
@@ -125,10 +136,5 @@ public final class ViewSaleImpl implements Initializable, ViewSale {
                 alert.showAndWait();
             }
         }
-    }
-
-    @Override
-    public ListView<String> getListView() {
-        return this.listSelectedProducts;
     }
 }

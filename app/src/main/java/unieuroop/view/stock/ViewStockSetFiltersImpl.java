@@ -55,9 +55,6 @@ public final class ViewStockSetFiltersImpl implements Initializable, ViewStockSe
         this.cmboxCategories.getItems().addAll(this.controllerStock.getCategory());
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void btnConfirmFilterHandler() {
@@ -74,9 +71,6 @@ public final class ViewStockSetFiltersImpl implements Initializable, ViewStockSe
         }
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void rdbtnIncreasingHandler() {
@@ -85,9 +79,6 @@ public final class ViewStockSetFiltersImpl implements Initializable, ViewStockSe
         this.rdbtnDecreasing.setSelected(!this.increasing);
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void rdbtnDecreasingHandler() {
@@ -102,9 +93,6 @@ public final class ViewStockSetFiltersImpl implements Initializable, ViewStockSe
 
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void sliderMinAmountHandler() {
@@ -116,9 +104,6 @@ public final class ViewStockSetFiltersImpl implements Initializable, ViewStockSe
         }
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void sliderMaxAmountHandler() {

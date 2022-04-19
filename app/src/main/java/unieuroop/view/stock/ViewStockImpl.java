@@ -148,12 +148,13 @@ public class ViewStockImpl implements Initializable, ViewStock {
 
     /**
      * 
+     * @param products
      */
-    private void loadAllProductsFromStock() {
+    @Override
+    public void loadProductsByList(final List<Product> products) {
         this.listProductsStocked.getItems().clear();
-        this.txtAreaInfoProducts.clear();
         try {
-            this.listProductsStocked.getItems().addAll(this.controllerStock.getProductsStocked().keySet().stream().collect(Collectors.toList()));
+            this.listProductsStocked.getItems().addAll(products);
         } catch (InputMismatchException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
@@ -162,13 +163,12 @@ public class ViewStockImpl implements Initializable, ViewStock {
 
     /**
      * 
-     * @param products
      */
-    @Override
-    public void loadProductsByList(final List<Product> products) {
+    private void loadAllProductsFromStock() {
         this.listProductsStocked.getItems().clear();
+        this.txtAreaInfoProducts.clear();
         try {
-            this.listProductsStocked.getItems().addAll(products);
+            this.listProductsStocked.getItems().addAll(this.controllerStock.getProductsStocked().keySet().stream().collect(Collectors.toList()));
         } catch (InputMismatchException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
