@@ -80,6 +80,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation("com.google.guava:guava:30.1.1-jre")
+    implementation("com.itextpdf:itext7-core:7.1.1")
+    
 }
 
 application {
