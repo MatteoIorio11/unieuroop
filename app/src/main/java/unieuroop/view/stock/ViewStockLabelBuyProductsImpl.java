@@ -56,7 +56,7 @@ public final class ViewStockLabelBuyProductsImpl implements Initializable, ViewS
     }
 
     /**
-     * 
+     * Check if the products if already present in the sale, and in that case it's already checked.
      */
     private void checkIfProductPresent() {
         if (this.controllerStock.checkIfProductBuyingPresent(this.productSold.getKey())) {

@@ -55,7 +55,7 @@ public final class ViewStockBuyProductsImpl implements Initializable, ViewStockB
     @FXML
     public void listSupplierHandler(final MouseEvent event) {
         final Supplier supplier = this.listSupplier.getSelectionModel().getSelectedItem();
-        this.addStockLabelBuyProducts(supplier.getCatalog());
+        this.addLabelProductsSold(supplier.getCatalog());
     }
 
     @Override
@@ -65,7 +65,7 @@ public final class ViewStockBuyProductsImpl implements Initializable, ViewStockB
     }
 
     /**
-     * 
+     * Load the ListView of Supplier with all the Supplier present.
      */
     private void loadSuppliersList() {
         this.listSupplier.getItems().clear();
@@ -73,10 +73,10 @@ public final class ViewStockBuyProductsImpl implements Initializable, ViewStockB
     }
 
     /**
-     * 
+     * Load the Pane in the ListView of Products, with a Label for every products sold by a Supplier.
      * @param productsSold
      */
-    private void addStockLabelBuyProducts(final Map<Product, Double> productsSold) {
+    private void addLabelProductsSold(final Map<Product, Double> productsSold) {
         this.listSoldProducts.getItems().clear();
         for (final Map.Entry<Product, Double> entryProductSold : productsSold.entrySet()) {
             try {

@@ -137,7 +137,7 @@ public final class ViewStockImpl implements Initializable, ViewStock {
     }
 
     /**
-     * 
+     * Load the ListView with all the products present in the Stock.
      */
     private void loadAllProductsFromStock() {
         this.listProductsStocked.getItems().clear();

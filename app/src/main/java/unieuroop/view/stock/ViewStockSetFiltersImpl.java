@@ -117,7 +117,7 @@ public final class ViewStockSetFiltersImpl implements Initializable, ViewStockSe
     }
 
     /**
-     * 
+     * Check if the value of the sliderMinAmount does not exceed that of the sliderMaxAmount.
      * @return
      */
     private boolean checkSliderAmount() {
