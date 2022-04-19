@@ -25,7 +25,7 @@ public interface ViewClient {
     /**
      * handler for list on mouse clicked.
      */
-    void listClienHandler();
+    void listClientHandler();
 
     /**
      * handler for delete client.

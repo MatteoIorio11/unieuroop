@@ -7,7 +7,6 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.Set;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.serialization.Files;

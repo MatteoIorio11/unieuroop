@@ -2,7 +2,6 @@ package unieuroop.view.client;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -74,7 +73,7 @@ public final class ViewClientImpl implements Initializable, ViewClient {
 
     @Override
     @FXML
-    public void listClienHandler() {
+    public void listClientHandler() {
         final Client client = this.listClients.getSelectionModel().getSelectedItem();
         this.tbxName.setText(client.getName());
         this.tbxSurname.setText(client.getSurname());
