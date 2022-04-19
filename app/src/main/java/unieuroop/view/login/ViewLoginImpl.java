@@ -32,7 +32,6 @@ public final class ViewLoginImpl implements Initializable, ViewLogin {
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        final long startTime = System.nanoTime();
         Platform.runLater(new Runnable() {
 
             @Override
@@ -41,9 +40,6 @@ public final class ViewLoginImpl implements Initializable, ViewLogin {
             }
 
         });
-        final long endTime = System.nanoTime();
-        final long duration = endTime - startTime;
-        System.out.println((double) duration/1000000);
     }
 
     @Override
