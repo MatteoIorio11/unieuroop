@@ -13,6 +13,7 @@ plugins {
     java
     checkstyle
     pmd
+    id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
 
