@@ -6,6 +6,7 @@ import java.util.Optional;
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
 import unieuroop.model.product.Product;
+import unieuroop.model.sale.Sale;
 
 public interface ControllerSale {
 
@@ -27,13 +28,20 @@ public interface ControllerSale {
     /**
      * Close the sale with the input client, remember that the input client can be Empty.
      * @param client
+     * @return the new sale.
      */
-    void closeSale(Optional<Client> client);
+    Optional<Sale> closeSale(Optional<Client> client);
 
     /**
      * Remove all the reserved products inside the Map and their reserved quantity.
      */
     void clearReservedProducts();
+    /**
+     * Create the invoice PDF.
+     * @param path
+     * @param sale
+     */
+    void createInvoice(String path, Sale sale);
 
     /**
      * 

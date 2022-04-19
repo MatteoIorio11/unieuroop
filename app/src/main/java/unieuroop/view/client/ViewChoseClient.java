@@ -1,5 +1,6 @@
 package unieuroop.view.client;
 
+import java.io.File;
 import java.net.URL;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.sale.ControllerSale;
@@ -54,8 +57,14 @@ public final class ViewChoseClient extends Stage implements Initializable {
     }
     @FXML
     public void buttonSelectHandler(final ActionEvent event) {
-        this.controllerSale.closeSale(selectedClient);
+        final var sale = this.controllerSale.closeSale(selectedClient);
         final Stage stage = (Stage) this.btnSelect.getScene().getWindow();
+        final DirectoryChooser directoryChooser = new DirectoryChooser();
+        final File selectedDirectory = directoryChooser.showDialog(stage);
+        System.out.println(selectedDirectory.getAbsolutePath());
+        if (sale.isPresent()) {
+            this.controllerSale.createInvoice(selectedDirectory.getAbsolutePath(), sale.get());
+        }
         stage.close();
     }
 

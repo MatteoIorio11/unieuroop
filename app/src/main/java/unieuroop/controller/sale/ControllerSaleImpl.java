@@ -44,7 +44,7 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
     }
 
     @Override
-    public void closeSale(final Optional<Client> client) {
+    public Optional<Sale> closeSale(final Optional<Client> client) {
         if (!this.reservedProductsMap.isEmpty()) {
             for (final var entry : this.reservedProductsMap.entrySet()) {
                 final Department department = this.shop.getDepartments().stream()
@@ -58,15 +58,11 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
                         .collect(Collectors.toMap((product) -> product, (product) -> this.totalQuantityProduct(product)));
             final Sale sale = new SaleImpl(LocalDate.now(), products, client);
             this.shop.addSale(sale);
-            try {
-                InvoicesFactory.createInvoice(sale, "/home/fabio/Desktop/prova.pdf");
-            } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
             this.run();
             this.reservedProductsMap.clear();
+            return Optional.of(sale);
         }
+        return Optional.empty();
     }
 
 
@@ -107,6 +103,15 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
         try {
             this.serializaSale();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void createInvoice(final String path, final Sale sale) {
+        try {
+            InvoicesFactory.createInvoice(sale, path + "/invoice.pdf");
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
