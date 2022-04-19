@@ -40,6 +40,7 @@ public interface Sale {
      * @return the sum of all Product's quantity.
      */
     int getTotalQuantity();
+
     /**
      * 
      * @return the client of this specific Sale, is optional
