@@ -7,28 +7,23 @@ import unieuroop.model.shop.Shop;
 public interface ControllerLogin {
 
     /**
-     * 
+     * Return true or false if the password is correct or not.
      * @param email
      * @param password
-     * @return
+     * @return result.
      */
     boolean checkPassword(String email, String password);
 
     /**
-     * 
-     */
-    void showMainMenu();
-
-    /**
-     * 
+     * Load all the file in the Shop.
      * @throws IOException
      * @throws ClassNotFoundException
      */
     void loadData() throws IOException, ClassNotFoundException;
 
     /**
-     * 
-     * @return
+     * Return the entire Shop.
+     * @return shop.
      */
     Shop getShop();
 

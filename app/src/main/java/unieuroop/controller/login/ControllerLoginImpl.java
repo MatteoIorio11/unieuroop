@@ -17,16 +17,12 @@ import unieuroop.model.stock.Stock;
 import unieuroop.model.supplier.Supplier;
 
 public final class ControllerLoginImpl extends Thread implements ControllerLogin {
+
     private Shop shop;
 
     @Override
     public boolean checkPassword(final String email, final String password) {
         return this.shop.getStaffs().stream().anyMatch(s -> s.getEmail().equals(email) && s.getPassword().equals(password.hashCode()));
-    }
-
-    @Override
-    public void showMainMenu() {
-
     }
 
     @Override
