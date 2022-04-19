@@ -66,7 +66,7 @@ public final class ViewLabelDepartmentImpl implements Initializable, ViewLabelDe
     @FXML
     public void buttonEditProductsHandler(final ActionEvent event) {
         try {
-            final var controller = new ViewDepartmentEditProducts(this.department, this.controllerStaff, this.controllerDepartment, this.controllerStock);
+            final var controller = new ViewDepartmentEditProductsImpl(this.department, this.controllerDepartment, this.controllerStock);
             final Stage stage = Loader.loadStage(Pages.EDIT_PRODUCTS_DEPARTMENTS.getPath(), "Edit Product", controller, 500, 500);
             final Stage currentStage = (Stage) this.btnEditStaff.getScene().getWindow();
             currentStage.hide();
