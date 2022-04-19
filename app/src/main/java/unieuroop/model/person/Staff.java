@@ -30,19 +30,6 @@ public class Staff extends AbstractPerson {
         this.password = password;
         this.workTime = workTime;
     }
-//    public Staff(final String name, 
-//            final String surname, 
-//            final LocalDate birthdayDate,
-//            final Integer id,
-//            final String email,
-//            final Integer password,
-//            final Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime) {
-//        super(name, surname, birthdayDate);
-//        this.id = id;
-//        this.email = email;
-//        this.password = password;
-//        this.workTime = workTime;
-//    }
 
     /**
      * 

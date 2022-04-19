@@ -77,12 +77,8 @@ public final class ControllerStaffImpl {
     }
 
     private void serializationStaff() throws IOException {
-        try {
-            Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
-            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-        } catch (IOException e) {
-            throw e;
-        }
+        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
+        Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
     }
 
     public Set<Staff> getUnsignedStaff() {
