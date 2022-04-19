@@ -21,9 +21,11 @@ public final class ViewDeleteDepartmentImpl implements Initializable, ViewDelete
     @FXML private ListView<Department> listDepartments;
 
     private final ControllerDepartment controllerDepartment;
+
     public ViewDeleteDepartmentImpl(final ControllerDepartment controllerDepartment) {
         this.controllerDepartment = controllerDepartment;
     }
+
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.listDepartments.getItems().addAll(this.controllerDepartment.getDepartments());

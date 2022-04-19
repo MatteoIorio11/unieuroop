@@ -31,6 +31,7 @@ public final class ViewMergeDepartmentImpl implements Initializable, ViewMergeDe
 
     private final Map<Pane, ViewMergeLabelImpl> paneLabel = new HashMap<>();
     private final ControllerDepartment controllerDepartment;
+
     public ViewMergeDepartmentImpl(final ControllerDepartment controllerDepartment) {
         this.controllerDepartment = controllerDepartment;
     }
@@ -49,14 +50,6 @@ public final class ViewMergeDepartmentImpl implements Initializable, ViewMergeDe
                 alert.showAndWait();
             }
         });
-    }
-
-    private Set<Department> getSelectedDepartments() {
-        return this.listDepartments.getItems().stream()
-        .map(d -> this.paneLabel.get(d))
-        .filter(d -> d.isSelected())
-        .map(l -> l.getDepartment())
-        .collect(Collectors.toSet());
     }
 
     @Override
@@ -81,5 +74,17 @@ public final class ViewMergeDepartmentImpl implements Initializable, ViewMergeDe
             alert.setContentText(ex.getMessage());
             alert.showAndWait();
         }
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private Set<Department> getSelectedDepartments() {
+        return this.listDepartments.getItems().stream()
+        .map(d -> this.paneLabel.get(d))
+        .filter(d -> d.isSelected())
+        .map(l -> l.getDepartment())
+        .collect(Collectors.toSet());
     }
 }

@@ -11,10 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import unieuroop.controller.department.ControllerDepartment;
-import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.model.product.Product;
 
 public final class ViewDepartmentLabelProductImpl implements Initializable, ViewDepartmentLabelProduct {
+
     @FXML private Spinner<Integer> spinnerQuantity;
     @FXML private Button btnAdd;
     @FXML private Label labelProductName;

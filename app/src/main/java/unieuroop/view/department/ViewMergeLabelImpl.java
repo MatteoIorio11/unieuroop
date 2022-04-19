@@ -10,11 +10,14 @@ import javafx.scene.control.Label;
 import unieuroop.model.department.Department;
 
 public final class ViewMergeLabelImpl implements Initializable, ViewMergeLabel {
+
     @FXML
     private Label lblDepartment;
     @FXML
     private CheckBox chkboxDepartmentSelected;
+
     private final Department department;
+
     public ViewMergeLabelImpl(final Department department) {
         this.department = department;
     }

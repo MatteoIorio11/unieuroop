@@ -118,6 +118,9 @@ public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
         }
     }
 
+    /**
+     * 
+     */
     private void populateList() {
         this.departmentPane.clear();
         for (final Department department : this.controllerDepartment.getDepartments()) {
