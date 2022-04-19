@@ -13,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import unieuroop.controller.department.ControllerDepartment;
-import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.model.department.Department;
 import unieuroop.model.product.Product;
 
@@ -26,17 +25,15 @@ public final class ViewDepartmentProductsImpl implements Initializable, ViewDepa
     private final Product product;
     private int maxQuantity;
     private final Department department;
-    private final ControllerStaff controllerStaff;
     private final ControllerDepartment controllerDepartment;
     private final ViewDepartmentEditProducts viewDepartment;
 
-    public ViewDepartmentProductsImpl(final ViewDepartmentEditProducts viewDepartment, final Department department, final Product product, final int quantity, final ControllerStaff controllerStaff,
+    public ViewDepartmentProductsImpl(final ViewDepartmentEditProducts viewDepartment, final Department department, final Product product, final int quantity,
             final ControllerDepartment controllerDepartment) {
         this.viewDepartment = viewDepartment;
         this.department = department;
         this.product = product;
         this.maxQuantity = quantity;
-        this.controllerStaff = controllerStaff;
         this.controllerDepartment = controllerDepartment;
     }
 
