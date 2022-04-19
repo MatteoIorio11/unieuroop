@@ -14,21 +14,25 @@ public interface ViewStaff extends Initializable {
      * @param resources
      */
     void initialize(URL location, ResourceBundle resources);
+
     /**
      * 
      * @param event
      */
     void buttonAddHandler(ActionEvent event);
+
     /**
      * 
      * @param event
      */
     void buttonEditHandler(ActionEvent event);
+
     /**
      * 
      * @param event
      */
     void buttonDeleteHandler(ActionEvent event);
+
     /**
      * 
      * @param event

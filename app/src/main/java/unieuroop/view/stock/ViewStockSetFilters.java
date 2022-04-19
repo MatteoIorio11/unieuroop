@@ -6,6 +6,11 @@ import java.util.ResourceBundle;
 
 public interface ViewStockSetFilters {
 
+    /**
+     * 
+     * @param location
+     * @param resources
+     */
     void initialize(URL location, ResourceBundle resources);
 
     /**
@@ -23,6 +28,9 @@ public interface ViewStockSetFilters {
      */
     void rdbtnDecreasingHandler();
 
+    /**
+     * 
+     */
     void cmboxCategoriesHandler();
 
     /**
