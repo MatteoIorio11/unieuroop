@@ -71,8 +71,8 @@ public final class ViewCategoriesSoldImpl implements Initializable, ViewCategori
         final var string = this.listLegend.getSelectionModel().getSelectedItem();
         if (string != null) {
             final var code = string.split(":")[1].split("\n")[0].split(" ")[1];
-            final var d = this.barProductsSold.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
-                    d.get().getNode().setStyle("-fx-bar-fill: blue;");
+            final var dataSerie = this.barProductsSold.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
+                    dataSerie.get().getNode().setStyle("-fx-bar-fill: blue;");
         }
     }
     private void displayChart() {
@@ -87,7 +87,8 @@ public final class ViewCategoriesSoldImpl implements Initializable, ViewCategori
         this.listSelectedCategories.getItems().clear();
         final var out = categoriesSold.entrySet().stream().map((entry) -> "Code : " + entry.getKey().getProductCode() + "\n" 
                 + "Name : " + entry.getKey().getName() + "\n"
-                + "Category : " + entry.getKey().getCategory())
+                + "Category : " + entry.getKey().getCategory() + "\n"
+                + "Quantity : " + entry.getValue())
                    .collect(Collectors.toList());
         this.listLegend.getItems().addAll(out);
 
