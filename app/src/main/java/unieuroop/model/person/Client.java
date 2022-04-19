@@ -22,12 +22,4 @@ public class Client extends AbstractPerson {
     public int getClientCode() {
         return this.clientCode;
     }
-
-    /**
-     * @return toString of the client
-     */
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }
