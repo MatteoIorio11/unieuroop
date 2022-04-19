@@ -85,7 +85,7 @@ public enum Pages {
     /**
      * @param
      */
-    CLIENTS("/pages/Client/clientView.fxml"),
+    CLIENTS("/pages/Client/ClientView.fxml"),
     /**
      * @param
      */
