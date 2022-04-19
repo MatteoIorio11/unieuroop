@@ -23,7 +23,7 @@ import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.controller.stock.ControllerStockImpl;
 import unieuroop.view.balance.ViewBalance;
 import unieuroop.view.categoryanalytic.ViewCategoriesSold;
-import unieuroop.view.client.ViewClient;
+import unieuroop.view.client.ViewClientImpl;
 import unieuroop.view.dashboard.ViewDashboardImpl;
 import unieuroop.view.dateanalytic.ViewDateSold;
 import unieuroop.view.department.ViewDepartmentImpl;
@@ -81,7 +81,7 @@ public final class ViewMainMenuImpl implements Initializable, ViewMainMenu {
     @Override
     @FXML
     public void btnClientsHandler(final ActionEvent event) {
-        this.loadPage(Pages.CLIENTS, new ViewClient(new ControllerClientImpl(this.controller.getShop())));
+        this.loadPage(Pages.CLIENTS, new ViewClientImpl(new ControllerClientImpl(this.controller.getShop())));
     }
 
     @Override
