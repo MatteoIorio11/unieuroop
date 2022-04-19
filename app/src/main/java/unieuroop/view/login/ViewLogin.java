@@ -9,14 +9,14 @@ import javafx.event.ActionEvent;
 public interface ViewLogin {
 
     /**
-     * 
+     * initialize new ViewLogin.
      * @param location
      * @param resources
      */
     void initialize(URL location, ResourceBundle resources);
 
     /**
-     * 
+     * handler for login in the application.
      * @param event
      * @throws IOException
      */

@@ -98,7 +98,9 @@ public final class ViewDateSoldImpl implements Initializable, ViewDataSold {
             calculatedMap.forEach((date, quantity) -> 
             this.inpuDataSerie.getData().add(new XYChart.Data<String, Integer>(String.valueOf(this.selectedDates.indexOf(date)), quantity)));
             this.listDates.getItems().addAll(this.selectedDates.stream()
-                    .map((date) -> String.valueOf("Code : " + this.selectedDates.indexOf(date) + "\n" + "Date : " + date))
+                    .map((date) -> String.valueOf("Code : " + this.selectedDates.indexOf(date) + "\n" 
+                            + "Date : " + date + "\n" 
+                            + "Quantity : " + calculatedMap.get(date)))
                     .collect(Collectors.toList()));
         }
         final var lowerBound = this.start.get().isBefore(this.end.get()) ? this.start.get() : this.end.get();
