@@ -34,9 +34,6 @@ public final class ViewStockLabelBuyProductsImpl implements Initializable, ViewS
         this.productSold = product;
     }
 
-    /**
-     * 
-     */
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.lblProductSold.setText("Product: " + this.productSold.getKey().toString());

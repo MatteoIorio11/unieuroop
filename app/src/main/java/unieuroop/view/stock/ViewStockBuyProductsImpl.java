@@ -35,9 +35,6 @@ public final class ViewStockBuyProductsImpl implements Initializable, ViewStockB
         this.controllerStock = controller;
     }
 
-    /**
-     * 
-     */
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.listSoldProducts.getItems().clear();
@@ -54,15 +51,17 @@ public final class ViewStockBuyProductsImpl implements Initializable, ViewStockB
         stage.close();
     }
 
-    /**
-     * 
-     * @param event
-     */
     @Override
     @FXML
     public void listSupplierHandler(final MouseEvent event) {
         final Supplier supplier = this.listSupplier.getSelectionModel().getSelectedItem();
         this.addStockLabelBuyProducts(supplier.getCatalog());
+    }
+
+    @Override
+    public void uploadInfoLabelBuying() {
+        this.lblTotalPrice.setText("Total Price: " + this.controllerStock.getTotalPriceOfAllProductsBuying());
+        this.lblTotalProductsChoose.setText("Amount of Products Buying: " + this.controllerStock.getAmountOfAllProductsBuying());
     }
 
     /**
@@ -71,15 +70,6 @@ public final class ViewStockBuyProductsImpl implements Initializable, ViewStockB
     private void loadSuppliersList() {
         this.listSupplier.getItems().clear();
         this.listSupplier.getItems().addAll(this.controllerStock.getSuppliers());
-    }
-
-    /**
-     * 
-     */
-    @Override
-    public void uploadInfoLabelBuying() {
-        this.lblTotalPrice.setText("Total Price: " + this.controllerStock.getTotalPriceOfAllProductsBuying());
-        this.lblTotalProductsChoose.setText("Amount of Products Buying: " + this.controllerStock.getAmountOfAllProductsBuying());
     }
 
     /**
