@@ -1,6 +1,7 @@
 package unieuroop.view.client;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 import unieuroop.controller.client.ControllerClientImpl;
 import unieuroop.controller.sale.ControllerSale;
 import unieuroop.model.person.Client;
+import unieuroop.model.sale.Sale;
 
 public final class ViewChoseClient extends Stage implements Initializable {
     @FXML private ListView<Client> listClients;
@@ -57,7 +59,12 @@ public final class ViewChoseClient extends Stage implements Initializable {
     }
     @FXML
     public void buttonSelectHandler(final ActionEvent event) {
-        final var sale = this.controllerSale.closeSale(selectedClient);
+        Optional<Sale> sale = Optional.empty();
+        try {
+            sale = this.controllerSale.closeSale(selectedClient);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         final Stage stage = (Stage) this.btnSelect.getScene().getWindow();
         final DirectoryChooser directoryChooser = new DirectoryChooser();
         final File selectedDirectory = directoryChooser.showDialog(stage);
@@ -77,7 +84,12 @@ public final class ViewChoseClient extends Stage implements Initializable {
 
     @FXML
     public void buttonEmptyHandler(final ActionEvent event) {
-        this.controllerSale.closeSale(Optional.empty());
+        try {
+            this.controllerSale.closeSale(Optional.empty());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         final Stage stage = (Stage) this.btnEmpty.getScene().getWindow();
         stage.close();
     }

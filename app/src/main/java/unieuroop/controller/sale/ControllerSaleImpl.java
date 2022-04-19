@@ -18,8 +18,9 @@ import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.shop.Shop;
+import unieuroop.model.stock.Stock;
 
-public final class ControllerSaleImpl extends Thread implements ControllerSale {
+public final class ControllerSaleImpl implements ControllerSale {
     private final Map<Department, Map<Product, Integer>> reservedProductsMap = new HashMap<>();
     private final Shop shop;
 
@@ -44,7 +45,7 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
     }
 
     @Override
-    public Optional<Sale> closeSale(final Optional<Client> client) {
+    public Optional<Sale> closeSale(final Optional<Client> client) throws IOException {
         if (!this.reservedProductsMap.isEmpty()) {
             for (final var entry : this.reservedProductsMap.entrySet()) {
                 final Department department = this.shop.getDepartments().stream()
@@ -58,7 +59,8 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
                         .collect(Collectors.toMap((product) -> product, (product) -> this.totalQuantityProduct(product)));
             final Sale sale = new SaleImpl(LocalDate.now(), products, client);
             this.shop.addSale(sale);
-            this.run();
+            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
+            Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), this.shop.getSales());
             this.reservedProductsMap.clear();
             return Optional.of(sale);
         }
@@ -96,15 +98,6 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
     private void serializaSale() throws IOException {
         Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), this.shop.getSales());
         Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-    }
-
-    @Override
-    public void run() {
-        try {
-            this.serializaSale();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

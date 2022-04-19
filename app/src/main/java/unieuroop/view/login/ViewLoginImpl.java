@@ -29,17 +29,16 @@ public final class ViewLoginImpl implements Initializable, ViewLogin {
     }
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        long startTime = System.nanoTime();
-        Platform.runLater(new Runnable() {
-
-            @Override
-            public void run() {
-                controller.run();
-            }
-            
-        });
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime);
+        final long startTime = System.nanoTime();
+        try {
+            this.controller.loadData();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        final long endTime = System.nanoTime();
+        final long duration = (endTime - startTime);
         System.out.println((double) duration/1000000 );
     }
     @Override

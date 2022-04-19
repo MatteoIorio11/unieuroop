@@ -14,5 +14,4 @@ public interface ControllerLogin {
 
     Shop getShop();
 
-    void run();
 }

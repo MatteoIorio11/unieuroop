@@ -16,7 +16,7 @@ import unieuroop.model.shop.ShopImpl;
 import unieuroop.model.stock.Stock;
 import unieuroop.model.supplier.Supplier;
 
-public final class ControllerLoginImpl extends Thread implements ControllerLogin {
+public final class ControllerLoginImpl implements ControllerLogin {
     private Shop shop;
 
     @Override
@@ -45,16 +45,5 @@ public final class ControllerLoginImpl extends Thread implements ControllerLogin
     @Override
     public Shop getShop() {
         return this.shop;
-    }
-
-    @Override
-    public void run() {
-        try {
-            this.loadData();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
     }
 }
