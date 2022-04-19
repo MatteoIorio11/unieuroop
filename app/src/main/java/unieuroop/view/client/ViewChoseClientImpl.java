@@ -7,6 +7,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
+import javax.swing.JFileChooser;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -62,8 +64,7 @@ public final class ViewChoseClientImpl extends Stage implements Initializable, V
         final Stage stage = (Stage) this.btnSelect.getScene().getWindow();
         final DirectoryChooser directoryChooser = new DirectoryChooser();
         final File selectedDirectory = directoryChooser.showDialog(stage);
-        System.out.println(selectedDirectory.getAbsolutePath());
-        if (sale.isPresent()) {
+        if (sale.isPresent() && !Objects.isNull(selectedDirectory)) {
             this.controllerSale.createInvoice(selectedDirectory.getAbsolutePath(), sale.get());
         }
         stage.close();
