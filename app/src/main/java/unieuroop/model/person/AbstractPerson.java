@@ -2,6 +2,7 @@ package unieuroop.model.person;
 
 import java.time.LocalDate;
 
+@SuppressWarnings("PMD.AbstractClassWithoutAbstractMethod")
 public abstract class AbstractPerson {
     private String name;
     private String surname;

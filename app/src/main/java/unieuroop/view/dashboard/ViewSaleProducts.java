@@ -5,6 +5,11 @@ import java.util.ResourceBundle;
 
 public interface ViewSaleProducts {
 
+    /**
+     * initialize new ViewSaleProducts.
+     * @param location
+     * @param resources
+     */
     void initialize(URL location, ResourceBundle resources);
 
 }
