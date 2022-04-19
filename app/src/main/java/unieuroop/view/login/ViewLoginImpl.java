@@ -19,29 +19,33 @@ import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenuImpl;
 
 public final class ViewLoginImpl implements Initializable, ViewLogin {
+
     @FXML  private TextField email;
-    @FXML private PasswordField password;
+    @FXML  private PasswordField password;
     private final ControllerLogin controller;
     private static final double MIN_HEIGHT = 600;
     private static final double MIN_WIDTH = 1000;
+
     public ViewLoginImpl(final ControllerLogin controller) {
         this.controller = controller;
     }
+
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        long startTime = System.nanoTime();
+        final long startTime = System.nanoTime();
         Platform.runLater(new Runnable() {
 
             @Override
             public void run() {
                 controller.run();
             }
-            
+
         });
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime);
-        System.out.println((double) duration/1000000 );
+        final long endTime = System.nanoTime();
+        final long duration = endTime - startTime;
+        System.out.println((double) duration/1000000);
     }
+
     @Override
     @FXML
     public void btnLoginHandler(final ActionEvent event) throws IOException {
