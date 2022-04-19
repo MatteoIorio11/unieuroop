@@ -1,5 +1,6 @@
 package unieuroop.controller.sale;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -8,6 +9,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import unieuroop.controller.invoice.InvoicesFactory;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
@@ -42,7 +44,7 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
     }
 
     @Override
-    public void closeSale(final Optional<Client> client) {
+    public Optional<Sale> closeSale(final Optional<Client> client) {
         if (!this.reservedProductsMap.isEmpty()) {
             for (final var entry : this.reservedProductsMap.entrySet()) {
                 final Department department = this.shop.getDepartments().stream()
@@ -58,7 +60,9 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
             this.shop.addSale(sale);
             this.run();
             this.reservedProductsMap.clear();
+            return Optional.of(sale);
         }
+        return Optional.empty();
     }
 
 
@@ -99,6 +103,15 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
         try {
             this.serializaSale();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void createInvoice(final String path, final Sale sale) {
+        try {
+            InvoicesFactory.createInvoice(sale, path + "/invoice.pdf");
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
