@@ -69,6 +69,9 @@ public abstract class AbstractPerson {
         return this.name + " " + this.surname + " " + this.birthday;
     }
 
+    /**
+     * override of hashCode.
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -79,6 +82,9 @@ public abstract class AbstractPerson {
         return result;
     }
 
+    /**
+     * override of equals.
+     */
     @Override
     public boolean equals(final Object obj) {
         if (this == obj) {
