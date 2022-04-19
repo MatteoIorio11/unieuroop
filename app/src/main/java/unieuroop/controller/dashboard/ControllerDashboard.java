@@ -1,6 +1,5 @@
 package unieuroop.controller.dashboard;
 
-
 import java.util.List;
 import unieuroop.model.sale.Sale;
 

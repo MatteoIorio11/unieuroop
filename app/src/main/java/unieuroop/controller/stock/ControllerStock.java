@@ -104,5 +104,4 @@ public interface ControllerStock {
      * @param productSelected
      */
     void deleteSelectedProduct(Product productSelected);
-
 }

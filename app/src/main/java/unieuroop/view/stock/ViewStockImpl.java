@@ -21,7 +21,7 @@ import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.product.Product;
 import unieuroop.view.loader.Loader;
 
-public class ViewStockImpl implements Initializable, ViewStock {
+public final class ViewStockImpl implements Initializable, ViewStock {
 
     @FXML private TextField txtSearchProducts;
     @FXML private Button btnSearchFilters;
@@ -37,17 +37,11 @@ public class ViewStockImpl implements Initializable, ViewStock {
         this.controllerStock = controllerStock;
     }
 
-    /**
-     * 
-     */
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.loadAllProductsFromStock();
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void listProductsStockedHandler() {
@@ -57,9 +51,6 @@ public class ViewStockImpl implements Initializable, ViewStock {
         }
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void btnBuyProductsHandler() {
@@ -77,9 +68,6 @@ public class ViewStockImpl implements Initializable, ViewStock {
         }
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void btnDeleteProductsHandler() {
@@ -104,9 +92,6 @@ public class ViewStockImpl implements Initializable, ViewStock {
         }
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void btnSearchFiltersHandler() {
@@ -123,18 +108,12 @@ public class ViewStockImpl implements Initializable, ViewStock {
         }
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void btnResetFiltersHandler() {
         this.loadAllProductsFromStock();
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void txtSearchProductsHandler() {
@@ -146,10 +125,6 @@ public class ViewStockImpl implements Initializable, ViewStock {
        }
     }
 
-    /**
-     * 
-     * @param products
-     */
     @Override
     public void loadProductsByList(final List<Product> products) {
         this.listProductsStocked.getItems().clear();
