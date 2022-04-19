@@ -19,6 +19,15 @@ import unieuroop.model.sale.Sale;
 
 public final class InvoicesFactory {
 
+    private static final int SIZE_MARGIN = 30;
+    private static final int SIZE_FONT = 30;
+    private static final int BACKGROUND_RED_TONE = 111;
+    private static final int BACKGROUND_GREEN_TONE = 92;
+    private static final int BACKGROUND_BLUE_TONE = 194;
+    private static final int FONT_RED_TONE = 255;
+    private static final int FONT_GREEN_TONE = 255;
+    private static final int FONT_BLUE_TONE = 255;
+
     private InvoicesFactory() {
 
     }
@@ -30,26 +39,26 @@ public final class InvoicesFactory {
         final Document document = new Document(pdfDocument);
         pdfDocument.setDefaultPageSize(PageSize.A4);
 
-        final float col = 280;
-        final float colWidth[] = {col, col};
+        final float[] colWidth = {280, 280};
         final Table table = new Table(colWidth);
-        table.setBackgroundColor(new DeviceRgb(111, 92, 194)).setFontColor(new DeviceRgb(255, 255, 255));
+        table.setBackgroundColor(new DeviceRgb(InvoicesFactory.BACKGROUND_RED_TONE, InvoicesFactory.BACKGROUND_GREEN_TONE, InvoicesFactory.BACKGROUND_BLUE_TONE))
+        .setFontColor(new DeviceRgb(InvoicesFactory.FONT_RED_TONE, InvoicesFactory.FONT_GREEN_TONE, InvoicesFactory.FONT_BLUE_TONE));
         table.addCell(new Cell().add(new Paragraph("INVOICE")
         .setTextAlignment(TextAlignment.CENTER)
         .setVerticalAlignment(VerticalAlignment.MIDDLE)
-        .setMarginTop(30)
-        .setMarginBottom(30)
-        .setFontSize(30)
+        .setMarginTop(InvoicesFactory.SIZE_MARGIN)
+        .setMarginBottom(InvoicesFactory.SIZE_MARGIN)
+        .setFontSize(InvoicesFactory.SIZE_FONT)
         .setBorder(Border.NO_BORDER)));
         table.addCell(new Cell().add(new Paragraph("unieurOOP")
                 .setTextAlignment(TextAlignment.CENTER)
                 .setVerticalAlignment(VerticalAlignment.MIDDLE)
-                .setMarginTop(30)
-                .setMarginBottom(30)
-                .setFontSize(30)
+                .setMarginTop(InvoicesFactory.SIZE_MARGIN)
+                .setMarginBottom(InvoicesFactory.SIZE_MARGIN)
+                .setFontSize(InvoicesFactory.SIZE_FONT)
                 .setBorder(Border.NO_BORDER)));
 
-        final float colWidth1[] = {80, 300, 100, 80};
+        final float[] colWidth1 = {80, 300, 100, 80};
         final Table customerInfo = new Table(colWidth1);
         customerInfo.addCell(new Cell(0, 4)
                 .add(new Paragraph("Customer Informations"))
@@ -64,16 +73,20 @@ public final class InvoicesFactory {
         customerInfo.addCell(new Cell().add(new Paragraph("Date")).setBorder(Border.NO_BORDER));
         customerInfo.addCell(new Cell().add(new Paragraph(sale.getDate().toString())).setBorder(Border.NO_BORDER));
 
-        final float colWidth2[] = {140, 140, 140, 140};
+        final float[] colWidth2 = {140, 140, 140, 140};
         final Table productsInfo = new Table(colWidth2);
         productsInfo.addCell(new Cell().add(new Paragraph("Product"))
-                .setBackgroundColor(new DeviceRgb(111, 92, 194)).setFontColor(new DeviceRgb(255, 255, 255)));
+                .setBackgroundColor(new DeviceRgb(InvoicesFactory.BACKGROUND_RED_TONE, InvoicesFactory.BACKGROUND_GREEN_TONE, InvoicesFactory.BACKGROUND_BLUE_TONE))
+                .setFontColor(new DeviceRgb(InvoicesFactory.FONT_RED_TONE, InvoicesFactory.FONT_GREEN_TONE, InvoicesFactory.FONT_BLUE_TONE)));
         productsInfo.addCell(new Cell().add(new Paragraph("Quantity"))
-                .setBackgroundColor(new DeviceRgb(111, 92, 194)).setFontColor(new DeviceRgb(255, 255, 255)));
+                .setBackgroundColor(new DeviceRgb(InvoicesFactory.BACKGROUND_RED_TONE, InvoicesFactory.BACKGROUND_GREEN_TONE, InvoicesFactory.BACKGROUND_BLUE_TONE))
+                .setFontColor(new DeviceRgb(InvoicesFactory.FONT_RED_TONE, InvoicesFactory.FONT_GREEN_TONE, InvoicesFactory.FONT_BLUE_TONE)));
         productsInfo.addCell(new Cell().add(new Paragraph("Price per item"))
-                .setBackgroundColor(new DeviceRgb(111, 92, 194)).setFontColor(new DeviceRgb(255, 255, 255)));
+                .setBackgroundColor(new DeviceRgb(InvoicesFactory.BACKGROUND_RED_TONE, InvoicesFactory.BACKGROUND_GREEN_TONE, InvoicesFactory.BACKGROUND_BLUE_TONE))
+                .setFontColor(new DeviceRgb(InvoicesFactory.FONT_RED_TONE, InvoicesFactory.FONT_GREEN_TONE, InvoicesFactory.FONT_BLUE_TONE)));
         productsInfo.addCell(new Cell().add(new Paragraph("Total price"))
-                .setBackgroundColor(new DeviceRgb(111, 92, 194)).setFontColor(new DeviceRgb(255, 255, 255)));
+                .setBackgroundColor(new DeviceRgb(InvoicesFactory.BACKGROUND_RED_TONE, InvoicesFactory.BACKGROUND_GREEN_TONE, InvoicesFactory.BACKGROUND_BLUE_TONE))
+                .setFontColor(new DeviceRgb(InvoicesFactory.FONT_RED_TONE, InvoicesFactory.FONT_GREEN_TONE, InvoicesFactory.FONT_BLUE_TONE)));
 
         sale.getProducts().stream().forEach(p -> {
             productsInfo.addCell(new Cell().add(new Paragraph(p.getName())));
@@ -83,20 +96,20 @@ public final class InvoicesFactory {
         });
 
         productsInfo.addCell(new Cell().add(new Paragraph(""))
-                .setBackgroundColor(new DeviceRgb(111, 92, 194))
-                .setFontColor(new DeviceRgb(255, 255, 255))
+                .setBackgroundColor(new DeviceRgb(InvoicesFactory.BACKGROUND_RED_TONE, InvoicesFactory.BACKGROUND_GREEN_TONE, InvoicesFactory.BACKGROUND_BLUE_TONE))
+                .setFontColor(new DeviceRgb(InvoicesFactory.FONT_RED_TONE, InvoicesFactory.FONT_GREEN_TONE, InvoicesFactory.FONT_BLUE_TONE))
                 .setBorder(Border.NO_BORDER));
         productsInfo.addCell(new Cell().add(new Paragraph(""))
-                .setBackgroundColor(new DeviceRgb(111, 92, 194))
-                .setFontColor(new DeviceRgb(255, 255, 255))
+                .setBackgroundColor(new DeviceRgb(InvoicesFactory.BACKGROUND_RED_TONE, InvoicesFactory.BACKGROUND_GREEN_TONE, InvoicesFactory.BACKGROUND_BLUE_TONE))
+                .setFontColor(new DeviceRgb(InvoicesFactory.FONT_RED_TONE, InvoicesFactory.FONT_GREEN_TONE, InvoicesFactory.FONT_BLUE_TONE))
                 .setBorder(Border.NO_BORDER));
         productsInfo.addCell(new Cell().add(new Paragraph("Total Amount"))
-                .setBackgroundColor(new DeviceRgb(111, 92, 194))
-                .setFontColor(new DeviceRgb(255, 255, 255))
+                .setBackgroundColor(new DeviceRgb(InvoicesFactory.BACKGROUND_RED_TONE, InvoicesFactory.BACKGROUND_GREEN_TONE, InvoicesFactory.BACKGROUND_BLUE_TONE))
+                .setFontColor(new DeviceRgb(InvoicesFactory.FONT_RED_TONE, InvoicesFactory.FONT_GREEN_TONE, InvoicesFactory.FONT_BLUE_TONE))
                 .setBorder(Border.NO_BORDER));
         productsInfo.addCell(new Cell().add(new Paragraph(sale.getTotalSpent() + "€"))
-                .setBackgroundColor(new DeviceRgb(111, 92, 194))
-                .setFontColor(new DeviceRgb(255, 255, 255))
+                .setBackgroundColor(new DeviceRgb(InvoicesFactory.BACKGROUND_RED_TONE, InvoicesFactory.BACKGROUND_GREEN_TONE, InvoicesFactory.BACKGROUND_BLUE_TONE))
+                .setFontColor(new DeviceRgb(InvoicesFactory.FONT_RED_TONE, InvoicesFactory.FONT_GREEN_TONE, InvoicesFactory.FONT_BLUE_TONE))
                 .setBorder(Border.NO_BORDER));
 
         document.add(table);
