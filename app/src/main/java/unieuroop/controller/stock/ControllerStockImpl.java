@@ -126,9 +126,9 @@ public final class ControllerStockImpl implements ControllerStock {
     }
 
     /**
-     * 
+     * Return the filteredProducts list, sorted increasing.
      * @param filteredProducts
-     * @return
+     * @return sortedList.
      */
     private List<Product> getListProductsIncreasing(final List<Product> filteredProducts) {
         final Comparator<Product> productsSorter = (p1, p2) -> this.shop.getStock().getQuantityOfProduct(p1) - this.shop.getStock().getQuantityOfProduct(p2);
@@ -137,9 +137,9 @@ public final class ControllerStockImpl implements ControllerStock {
     }
 
     /**
-     * 
+     * Return the filteredProducts list, sorted decreasing.
      * @param filteredProducts
-     * @return
+     * @return sortedList.
      */
     private List<Product> getListProductsDecreasing(final List<Product> filteredProducts) {
         final Comparator<Product> productsSorter = (p1, p2) -> this.shop.getStock().getQuantityOfProduct(p2) - this.shop.getStock().getQuantityOfProduct(p1);
