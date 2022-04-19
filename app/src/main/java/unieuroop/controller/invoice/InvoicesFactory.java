@@ -3,12 +3,10 @@ package unieuroop.controller.invoice;
 
 import java.io.FileNotFoundException;
 
-import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.kernel.pdf.colorspace.PdfColorSpace;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.element.Cell;
@@ -39,7 +37,13 @@ public class InvoicesFactory {
         .setMarginBottom(30)
         .setFontSize(30)
         .setBorder(Border.NO_BORDER)));
-        table.addCell(new Cell().add(new Paragraph("unieurOOP")));
+        table.addCell(new Cell().add(new Paragraph("unieurOOP")
+                .setTextAlignment(TextAlignment.CENTER)
+                .setVerticalAlignment(VerticalAlignment.MIDDLE)
+                .setMarginTop(30)
+                .setMarginBottom(30)
+                .setFontSize(30)
+                .setBorder(Border.NO_BORDER)));
 
         float colWidth1[] = {80, 300, 100, 80};
         Table customerInfo = new Table(colWidth1);
@@ -48,7 +52,7 @@ public class InvoicesFactory {
                 .setBold()
                 .setBorder(Border.NO_BORDER));
         customerInfo.addCell(new Cell().add(new Paragraph("Client Code")).setBorder(Border.NO_BORDER));
-        customerInfo.addCell(new Cell().add(new Paragraph(String.valueOf(client.getClientCode())).setBorder(Border.NO_BORDER)));
+        customerInfo.addCell(new Cell().add(new Paragraph(String.valueOf(client.getClientCode()))).setBorder(Border.NO_BORDER));
         customerInfo.addCell(new Cell().add(new Paragraph("Name")).setBorder(Border.NO_BORDER));
         customerInfo.addCell(new Cell().add(new Paragraph(client.getName())).setBorder(Border.NO_BORDER));
         customerInfo.addCell(new Cell().add(new Paragraph("Surname")).setBorder(Border.NO_BORDER));
@@ -71,8 +75,8 @@ public class InvoicesFactory {
         sale.getProducts().stream().forEach(p -> {
             productsInfo.addCell(new Cell().add(new Paragraph(p.getName())));
             productsInfo.addCell(new Cell().add(new Paragraph(String.valueOf(sale.getQuantityOf(p)))));
-            productsInfo.addCell(new Cell().add(new Paragraph(String.valueOf(p.getSellingPrice()))));
-            productsInfo.addCell(new Cell().add(new Paragraph(String.valueOf(sale.getQuantityOf(p)*p.getSellingPrice()))));
+            productsInfo.addCell(new Cell().add(new Paragraph(p.getSellingPrice() + "€")));
+            productsInfo.addCell(new Cell().add(new Paragraph(sale.getQuantityOf(p)*p.getSellingPrice()+ "€")));
         });
 
         productsInfo.addCell(new Cell().add(new Paragraph(""))
@@ -87,7 +91,7 @@ public class InvoicesFactory {
                 .setBackgroundColor(new DeviceRgb(111, 92, 194))
                 .setFontColor(new DeviceRgb(255, 255, 255))
                 .setBorder(Border.NO_BORDER));
-        productsInfo.addCell(new Cell().add(new Paragraph(String.valueOf(sale.getTotalSpent())))
+        productsInfo.addCell(new Cell().add(new Paragraph(sale.getTotalSpent() + "€"))
                 .setBackgroundColor(new DeviceRgb(111, 92, 194))
                 .setFontColor(new DeviceRgb(255, 255, 255))
                 .setBorder(Border.NO_BORDER));

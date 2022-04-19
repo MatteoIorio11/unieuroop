@@ -1,5 +1,6 @@
 package unieuroop.controller.sale;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -8,6 +9,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import unieuroop.controller.invoice.InvoicesFactory;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
@@ -56,6 +58,12 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
                         .collect(Collectors.toMap((product) -> product, (product) -> this.totalQuantityProduct(product)));
             final Sale sale = new SaleImpl(LocalDate.now(), products, client);
             this.shop.addSale(sale);
+            try {
+                InvoicesFactory.createInvoice(sale, "/home/fabio/Desktop/prova.pdf");
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
             this.run();
             this.reservedProductsMap.clear();
         }
