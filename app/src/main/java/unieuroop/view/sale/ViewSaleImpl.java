@@ -23,6 +23,7 @@ import unieuroop.controller.serialization.Pages;
 import unieuroop.model.department.Department;
 import unieuroop.model.product.Product;
 import unieuroop.view.client.ViewChoseClient;
+import unieuroop.view.client.ViewChoseClientImpl;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
 
@@ -82,7 +83,7 @@ public final class ViewSaleImpl implements Initializable, ViewSale {
             this.listLabel.getItems().clear();
             this.listSelectedProducts.getItems().clear();
             try {
-                final Stage newWindow = Loader.<ViewChoseClient>loadStage(Pages.CHOSE_CLIENT.getPath(), "Chose Client", new ViewChoseClient(this.controllerSale, 
+                final Stage newWindow = Loader.<ViewChoseClient>loadStage(Pages.CHOSE_CLIENT.getPath(), "Chose Client", new ViewChoseClientImpl(this.controllerSale, 
                         this.controllerClient), 100, 100);
                 newWindow.setOnCloseRequest((closeEvent) -> {
                     closeEvent.consume();

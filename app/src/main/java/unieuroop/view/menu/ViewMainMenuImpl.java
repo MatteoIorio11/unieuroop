@@ -21,11 +21,11 @@ import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.shop.ControllerShop;
 import unieuroop.controller.staff.ControllerStaffImpl;
 import unieuroop.controller.stock.ControllerStockImpl;
-import unieuroop.view.balance.ViewBalance;
-import unieuroop.view.categoryanalytic.ViewCategoriesSold;
+import unieuroop.view.balance.ViewBalanceImpl;
+import unieuroop.view.categoryanalytic.ViewCategoriesSoldImpl;
 import unieuroop.view.client.ViewClientImpl;
 import unieuroop.view.dashboard.ViewDashboardImpl;
-import unieuroop.view.dateanalytic.ViewDateSold;
+import unieuroop.view.dateanalytic.ViewDateSoldImpl;
 import unieuroop.view.department.ViewDepartmentImpl;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.sale.ViewSaleImpl;
@@ -100,19 +100,19 @@ public final class ViewMainMenuImpl implements Initializable, ViewMainMenu {
     @Override
     @FXML
     public void btnDateAnalyticsHandler(final ActionEvent event) {
-        this.loadPage(Pages.MAIN_DATE_SOLD, new ViewDateSold(new ControllerAnalyticImpl(this.controller.getShop())));
+        this.loadPage(Pages.MAIN_DATE_SOLD, new ViewDateSoldImpl(new ControllerAnalyticImpl(this.controller.getShop())));
     }
 
     @Override
     @FXML
     public void btnBalancesHandler(final ActionEvent event) {
-        this.loadPage(Pages.BALANCE, new ViewBalance(new ControllerAnalyticImpl(this.controller.getShop())));
+        this.loadPage(Pages.BALANCE, new ViewBalanceImpl(new ControllerAnalyticImpl(this.controller.getShop())));
     }
 
     @Override
     @FXML
     public void btnAnalyticsHandler(final ActionEvent event) {
-        this.loadPage(Pages.MAIN_CATEGORIES_SOLD, new ViewCategoriesSold(new ControllerAnalyticImpl(this.controller.getShop())));
+        this.loadPage(Pages.MAIN_CATEGORIES_SOLD, new ViewCategoriesSoldImpl(new ControllerAnalyticImpl(this.controller.getShop())));
     }
 
     @Override

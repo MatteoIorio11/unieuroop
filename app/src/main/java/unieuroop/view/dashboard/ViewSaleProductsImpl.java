@@ -9,7 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import unieuroop.model.sale.Sale;
 
-public final class ViewSaleProductsImpl implements Initializable {
+public final class ViewSaleProductsImpl implements Initializable, ViewSaleProducts {
     private final Sale sale;
     @FXML
     private ListView<String> lstProducts;
