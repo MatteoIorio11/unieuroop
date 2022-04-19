@@ -42,46 +42,50 @@ public final class ViewClient implements Initializable {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.listClients.getItems().addAll(this.controller.getRegisteredClients());
+    }
 
-        btnAddClient.setOnMouseClicked((e) -> {
-            try {
-                this.controller.addClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue());
-                this.listClients.getItems().clear();
-                this.listClients.getItems().addAll(this.controller.getRegisteredClients());
-            } catch (IllegalArgumentException illegalExc) {
-                setAlert();
-                illegalExc.printStackTrace();
-            }
-            clearView();
-        });
-
-        btnEditClient.setOnMouseClicked((e) -> {
-            try {
-                final Client client = this.listClients.getSelectionModel().getSelectedItem();
-                this.controller.editClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue(), client);
-                listClients.refresh();
-            } catch (IllegalArgumentException illegalExc) {
-                setAlert();
-                illegalExc.printStackTrace();
-            }
-            clearView();
-        });
-
-        btnDeleteClient.setOnMouseClicked((e) -> {
-            final Client client = this.listClients.getSelectionModel().getSelectedItem();
-            this.controller.deleteClient(client);
+    @FXML
+    public void btnAddClientHandler() {
+        try {
+            this.controller.addClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue());
             this.listClients.getItems().clear();
             this.listClients.getItems().addAll(this.controller.getRegisteredClients());
-            clearView();
-        });
+        } catch (IllegalArgumentException illegalExc) {
+            setAlert();
+            illegalExc.printStackTrace();
+        }
+        clearView();
+    }
 
-        listClients.setOnMouseClicked((e) -> {
+    @FXML
+    public void btnEditClientHandler() {
+        try {
             final Client client = this.listClients.getSelectionModel().getSelectedItem();
-            this.tbxName.setText(client.getName());
-            this.tbxSurname.setText(client.getSurname());
-            this.dtBirthday.setValue(client.getBirthdayDate());
-            this.lblCode.setText(Integer.toString(client.getClientCode()));
-        });
+            this.controller.editClient(this.tbxName.getText(), this.tbxSurname.getText(), this.dtBirthday.getValue(), client);
+            listClients.refresh();
+        } catch (IllegalArgumentException illegalExc) {
+            setAlert();
+            illegalExc.printStackTrace();
+        }
+        clearView();
+    }
+
+    @FXML
+    public void listClienHandler() {
+        final Client client = this.listClients.getSelectionModel().getSelectedItem();
+        this.tbxName.setText(client.getName());
+        this.tbxSurname.setText(client.getSurname());
+        this.dtBirthday.setValue(client.getBirthdayDate());
+        this.lblCode.setText(Integer.toString(client.getClientCode()));
+    }
+
+    @FXML 
+    public void btnDeleteClientHandler() {
+        final Client client = this.listClients.getSelectionModel().getSelectedItem();
+        this.controller.deleteClient(client);
+        this.listClients.getItems().clear();
+        this.listClients.getItems().addAll(this.controller.getRegisteredClients());
+        clearView();
     }
 
     private void setAlert() {
