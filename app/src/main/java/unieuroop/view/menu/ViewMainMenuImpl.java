@@ -130,7 +130,7 @@ public final class ViewMainMenuImpl implements Initializable, ViewMainMenu {
 
     /**
      * 
-     * @param <X>
+     * @param <X> parameter
      * @param page
      * @param controller
      */
