@@ -15,7 +15,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.serialization.Pages;
-import unieuroop.controller.staff.ControllerStaffImpl;
+import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.department.Department;
 import unieuroop.view.loader.Loader;
@@ -31,12 +31,12 @@ public final class ViewDepartmentEditProducts implements Initializable {
     @FXML private Button btnRemoveProducts;
 
     private final Department department;
-    private final ControllerStaffImpl controllerStaff;
+    private final ControllerStaff controllerStaff;
     private final ControllerDepartment controllerDepartment;
     private final ControllerStock controllerStock;
 
 
-    public ViewDepartmentEditProducts(final Department currentDepartment, final ControllerStaffImpl controllerStaff, 
+    public ViewDepartmentEditProducts(final Department currentDepartment, final ControllerStaff controllerStaff, 
             final ControllerDepartment controllerDepartment, final ControllerStock controllerStock) {
         this.department = currentDepartment;
         this.controllerStaff = controllerStaff;

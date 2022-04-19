@@ -17,7 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import unieuroop.controller.client.ControllerClientImpl;
+import unieuroop.controller.client.ControllerClient;
 import unieuroop.controller.sale.ControllerSale;
 import unieuroop.model.person.Client;
 
@@ -29,8 +29,8 @@ public final class ViewChoseClient extends Stage implements Initializable {
     @FXML private Button btnEmpty;
     private Optional<Client> selectedClient;
     private final ControllerSale controllerSale;
-    private final ControllerClientImpl controllerClient;
-    public ViewChoseClient(final ControllerSale controller, final ControllerClientImpl controllerClient) {
+    private final ControllerClient controllerClient;
+    public ViewChoseClient(final ControllerSale controller, final ControllerClient controllerClient) {
         this.controllerSale = controller;
         this.controllerClient = controllerClient;
         this.selectedClient = Optional.empty();

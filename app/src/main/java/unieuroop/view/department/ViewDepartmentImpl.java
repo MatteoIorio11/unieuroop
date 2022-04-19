@@ -19,7 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.serialization.Pages;
-import unieuroop.controller.staff.ControllerStaffImpl;
+import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Staff;
@@ -37,10 +37,10 @@ public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
 
     private final Map<Pane, Department> departmentPane = new HashMap<>();
     private final ControllerDepartment controllerDepartment;
-    private final ControllerStaffImpl controllerStaff;
+    private final ControllerStaff controllerStaff;
     private final ControllerStock controllerStock;
 
-    public ViewDepartmentImpl(final ControllerDepartment controllerDepartment, final ControllerStaffImpl controllerStaff, final ControllerStock controllerStock) {
+    public ViewDepartmentImpl(final ControllerDepartment controllerDepartment, final ControllerStaff controllerStaff, final ControllerStock controllerStock) {
         this.controllerDepartment = controllerDepartment;
         this.controllerStaff = controllerStaff;
         this.controllerStock = controllerStock;

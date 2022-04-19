@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import unieuroop.controller.client.ControllerClientImpl;
+import unieuroop.controller.client.ControllerClient;
 import unieuroop.model.person.Client;
 
 public final class ViewClient implements Initializable {
@@ -33,9 +33,9 @@ public final class ViewClient implements Initializable {
     private Button btnEditClient;
     @FXML
     private Button btnDeleteClient;
-    private final ControllerClientImpl controller;
+    private final ControllerClient controller;
 
-    public ViewClient(final ControllerClientImpl controller) {
+    public ViewClient(final ControllerClient controller) {
         this.controller = controller;
     }
 

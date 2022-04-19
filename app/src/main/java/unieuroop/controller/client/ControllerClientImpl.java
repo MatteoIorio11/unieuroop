@@ -15,7 +15,7 @@ import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.person.Client;
 import unieuroop.model.shop.Shop;
 
-public final class ControllerClientImpl {
+public final class ControllerClientImpl implements ControllerClient {
 
     private static final int ADULT = 18;
     private static final int MAXDATE = 1900;
@@ -33,6 +33,7 @@ public final class ControllerClientImpl {
      * @param surname
      * @param birthday
      */
+    @Override
     public void addClient(final String name, final String surname, final LocalDate birthday) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
@@ -51,6 +52,7 @@ public final class ControllerClientImpl {
      * @param birthday
      * @param client
      */
+    @Override
     public void editClient(final String name, final String surname, final LocalDate birthday, final Client client) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
@@ -65,6 +67,7 @@ public final class ControllerClientImpl {
      * 
      * @param client
      */
+    @Override
     public void deleteClient(final Client client) {
         if (!Objects.isNull(client)) {
             this.shop.removeClient(client);
@@ -76,6 +79,7 @@ public final class ControllerClientImpl {
      * 
      * @return all clients registered to the shop
      */
+    @Override
     public Set<Client> getRegisteredClients() {
         return this.shop.getRegisteredClients();
     }

@@ -14,7 +14,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.serialization.Pages;
-import unieuroop.controller.staff.ControllerStaffImpl;
+import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.department.Department;
 import unieuroop.view.loader.Loader;
@@ -28,11 +28,11 @@ public final class ViewLabelDepartmentImpl implements Initializable, ViewLabelDe
     @FXML private Label lblDepartment;
 
     private final Department department;
-    private final ControllerStaffImpl controllerStaff;
+    private final ControllerStaff controllerStaff;
     private final ControllerDepartment controllerDepartment;
     private final ControllerStock controllerStock;
 
-    public ViewLabelDepartmentImpl(final Department department, final ControllerStaffImpl controllerStaff,
+    public ViewLabelDepartmentImpl(final Department department, final ControllerStaff controllerStaff,
             final ControllerDepartment controllerDepartment, final ControllerStock controllerStock) {
         this.department = department;
         this.controllerStaff = controllerStaff;

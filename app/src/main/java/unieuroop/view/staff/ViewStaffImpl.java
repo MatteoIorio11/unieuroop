@@ -17,7 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
-import unieuroop.controller.staff.ControllerStaffImpl;
+import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.model.person.Staff;
 
 public final class ViewStaffImpl implements Initializable, ViewStaff {
@@ -36,9 +36,9 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
     @FXML private Button btnAddStaff;
     @FXML private Button btnEditStaff;
     @FXML private Button btnDeleteStaff;
-    private final ControllerStaffImpl controller;
+    private final ControllerStaff controller;
 
-    public ViewStaffImpl(final ControllerStaffImpl controller) {
+    public ViewStaffImpl(final ControllerStaff controller) {
         this.controller = controller;
     }
 

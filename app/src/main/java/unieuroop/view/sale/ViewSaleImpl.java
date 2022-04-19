@@ -16,7 +16,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import unieuroop.controller.client.ControllerClientImpl;
+import unieuroop.controller.client.ControllerClient;
 import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.sale.ControllerSale;
 import unieuroop.controller.serialization.Pages;
@@ -44,14 +44,14 @@ public final class ViewSaleImpl implements Initializable, ViewSale {
     private Button btnQuit;
     @FXML
     private ComboBox<Department> comboDepartments;
-    private final ControllerClientImpl controllerClient;
+    private final ControllerClient controllerClient;
     private final ControllerDepartment controllerDepartment;
     private final ControllerSale controllerSale;
 
     private final ViewMainMenu viewMenu;
 
 
-    public ViewSaleImpl(final ViewMainMenu viewMainMenu, final ControllerClientImpl controllerClient,
+    public ViewSaleImpl(final ViewMainMenu viewMainMenu, final ControllerClient controllerClient,
         final ControllerDepartment controllerDepartment, final ControllerSale controllerSale) {
         this.viewMenu = viewMainMenu;
         this.controllerClient = controllerClient;

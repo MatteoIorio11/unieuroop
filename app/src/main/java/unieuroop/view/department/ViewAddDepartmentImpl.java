@@ -20,7 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.serialization.Pages;
-import unieuroop.controller.staff.ControllerStaffImpl;
+import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.person.Staff;
 import unieuroop.view.loader.Loader;
@@ -34,11 +34,11 @@ public final class ViewAddDepartmentImpl implements Initializable, ViewAddDepart
     @FXML private Button buttonAdd;
 
     private final ControllerDepartment controllerDepartment;
-    private final ControllerStaffImpl controllerStaff;
+    private final ControllerStaff controllerStaff;
     private final ControllerStock controllerStock;
     private final Set<Staff> selectedStaff = new HashSet<>();
 
-    public ViewAddDepartmentImpl(final ControllerDepartment controllerDepartment, final ControllerStaffImpl controllerStaff,
+    public ViewAddDepartmentImpl(final ControllerDepartment controllerDepartment, final ControllerStaff controllerStaff,
             final ControllerStock controllerStock) {
         this.controllerDepartment = controllerDepartment;
         this.controllerStaff = controllerStaff;
