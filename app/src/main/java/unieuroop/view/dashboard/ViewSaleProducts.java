@@ -1,12 +1,12 @@
-package unieuroop.view.balance;
+package unieuroop.view.dashboard;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public interface ViewBalance {
+public interface ViewSaleProducts {
 
     /**
-     * initialize new ViewBalance.
+     * initialize new ViewSaleProducts.
      * @param location
      * @param resources
      */

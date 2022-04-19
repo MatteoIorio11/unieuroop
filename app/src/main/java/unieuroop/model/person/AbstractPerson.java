@@ -2,6 +2,9 @@ package unieuroop.model.person;
 
 import java.time.LocalDate;
 
+@SuppressWarnings("PMD.AbstractClassWithoutAbstractMethod")
+// NOMPD
+// Need to suppress the warning cause our abstract class don't need an abstract method
 public abstract class AbstractPerson {
     private String name;
     private String surname;

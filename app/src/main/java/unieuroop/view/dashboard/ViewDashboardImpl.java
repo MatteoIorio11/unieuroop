@@ -21,7 +21,7 @@ import unieuroop.controller.serialization.Pages;
 import unieuroop.model.sale.Sale;
 import unieuroop.view.loader.Loader;
 
-public final class ViewDashboardImpl implements Initializable {
+public final class ViewDashboardImpl implements Initializable, ViewDashboard {
     @FXML
     private Label lblStaff;
     @FXML
@@ -59,6 +59,7 @@ public final class ViewDashboardImpl implements Initializable {
             this.cardShopEarnings.setStyle("-fx-background-color: #ff0000; ");
         }
     }
+    @Override
     @FXML
     public void lstSalesSelectClientHandler(final MouseEvent event) {
         final Optional<Sale> selected = Optional.of(this.lstViewSales.getSelectionModel().getSelectedItem());

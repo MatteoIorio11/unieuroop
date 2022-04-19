@@ -23,7 +23,7 @@ public interface ViewClient {
     void btnEditClientHandler();
 
     /**
-     * handler for list on mouse clicked.
+     * handler for list clients.
      */
     void listClientHandler();
 
