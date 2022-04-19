@@ -29,11 +29,13 @@ public final class ViewDateSold implements Initializable {
     @FXML private Button btnClearAll;
     @FXML private ListView<String> listDates;
     @FXML private Label labelDates;
+
     private final ControllerAnalytic controller;
     private List<LocalDate> selectedDates = new LinkedList<>();
     private Optional<LocalDate> start = Optional.empty();
     private Optional<LocalDate> end = Optional.of(LocalDate.now());
     private final XYChart.Series<String, Integer> inpuDataSerie;
+
     public ViewDateSold(final ControllerAnalytic controller) {
         this.controller = controller;
         this.inpuDataSerie = new XYChart.Series<>();
@@ -83,6 +85,10 @@ public final class ViewDateSold implements Initializable {
         this.barSelectedDates.getData().clear();
         this.listDates.getItems().clear();
     }
+
+    /**
+     * 
+     */
     private void calculateMap() {
         final var calculatedMap = this.controller.getSelectedDate(this.start.get(), this.end.get());
         this.inpuDataSerie.getData().clear();

@@ -30,9 +30,11 @@ public final class ViewCategoriesSold implements Initializable {
     @FXML private ListView<String> listSelectedCategories;
     private final Set<Category> selectedCategories = new HashSet<>();
     private final ControllerAnalytic controller;
+
     public ViewCategoriesSold(final ControllerAnalytic controller) {
         this.controller = controller;
     }
+
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.barCategories.setLegendVisible(false);
@@ -68,10 +70,14 @@ public final class ViewCategoriesSold implements Initializable {
         final var string = this.listLegend.getSelectionModel().getSelectedItem();
         if (string != null) {
             final var code = string.split(":")[1].split("\n")[0].split(" ")[1];
-            final var d = this.barProductsSold.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
-                    d.get().getNode().setStyle("-fx-bar-fill: blue;");
+            final var dataInput = this.barProductsSold.getData().stream().flatMap((s) -> s.getData().stream().filter((data) -> data.getXValue().equals(code))).findAny();
+            dataInput.get().getNode().setStyle("-fx-bar-fill: blue;");
         }
     }
+
+    /**
+     * 
+     */
     private void displayChart() {
         this.barProductsSold.getData().clear();
         final XYChart.Series<String, Integer> productSerie = new XYChart.Series<>();

@@ -5,14 +5,15 @@ import java.util.ResourceBundle;
 
 public interface ViewDepartmentEditProducts {
 
+    /**
+     * 
+     * @param location
+     * @param resources
+     */
     void initialize(URL location, ResourceBundle resources);
 
+    /**
+     * 
+     */
     void updateView();
-
-    void listProductsDepartmentHandler();
-
-    void btnAddProductsHandler();
-
-    void btnRemoveProductsHandler();
-
 }

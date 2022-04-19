@@ -7,10 +7,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import unieuroop.controller.department.ControllerDepartment;
@@ -25,9 +23,6 @@ public final class ViewDepartmentEditProductsImpl implements Initializable, View
     @FXML private Label lblDepartmentName;
     @FXML private ListView<Pane> listStockProducts;
     @FXML private ListView<Pane> listDepartmentProducts;
-    @FXML private TextArea txtAreaInfoProducts;
-    @FXML private Button btnAddProducts;
-    @FXML private Button btnRemoveProducts;
 
     private final Department department;
     private final ControllerDepartment controllerDepartment;
@@ -47,30 +42,16 @@ public final class ViewDepartmentEditProductsImpl implements Initializable, View
 
     @Override
     public void updateView() {
+        this.lblDepartmentName.setText("Department Name: " + this.department.getDepartmentName());
         this.listDepartmentProducts.getItems().clear();
         this.listStockProducts.getItems().clear();
         this.loadStockProducts();
         this.loadDepartmentProducts();
     }
 
-    @Override
-    @FXML
-    public void listProductsDepartmentHandler() {
-
-    }
-
-    @Override
-    @FXML
-    public void btnAddProductsHandler() {
-
-    }
-
-    @Override
-    @FXML
-    public void btnRemoveProductsHandler() {
-
-    }
-
+    /**
+     * 
+     */
     private void loadDepartmentProducts() {
         for (final var product : this.controllerDepartment.getProductsQuantityOf(this.department).entrySet()) {
             try {
@@ -85,6 +66,9 @@ public final class ViewDepartmentEditProductsImpl implements Initializable, View
         }
     }
 
+    /**
+     * 
+     */
     private void loadStockProducts() {
         for (final var product : this.controllerStock.getProductsStocked().entrySet()) {
             try {
