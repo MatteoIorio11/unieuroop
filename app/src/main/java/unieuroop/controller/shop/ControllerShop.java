@@ -5,9 +5,8 @@ import unieuroop.model.shop.Shop;
 public interface ControllerShop {
 
     /**
-     * 
-     * @return
+     * Return the entire Shop.
+     * @return shop.
      */
     Shop getShop();
-
 }
