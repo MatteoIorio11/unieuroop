@@ -110,7 +110,7 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
         this.tbxName.setText(staff.getName());
         this.tbxSurname.setText(staff.getSurname());
         this.dtBirthday.setValue(staff.getBirthdayDate());
-        this.lblId.setText(staff.getId().toString());
+        this.lblId.setText(String.valueOf(staff.getCode()));
         this.tbxEmail.setText(staff.getEmail());
         this.pfPassword.setText(staff.getPassword().toString());
         this.tbxHoursStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getHour()));

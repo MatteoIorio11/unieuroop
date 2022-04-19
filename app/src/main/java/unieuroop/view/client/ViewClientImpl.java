@@ -78,7 +78,7 @@ public final class ViewClientImpl implements Initializable, ViewClient {
         this.tbxName.setText(client.getName());
         this.tbxSurname.setText(client.getSurname());
         this.dtBirthday.setValue(client.getBirthdayDate());
-        this.lblCode.setText(Integer.toString(client.getClientCode()));
+        this.lblCode.setText(Integer.toString(client.getCode()));
     }
 
     @Override

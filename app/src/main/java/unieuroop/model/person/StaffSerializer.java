@@ -29,7 +29,7 @@ public final class StaffSerializer extends JsonSerializer<Staff> {
         generator.writeStringField("name", value.getName());
         generator.writeStringField("surname", value.getSurname());
         generator.writeStringField("email", value.getEmail());
-        generator.writeNumberField("id", value.getId());
+        generator.writeNumberField("id", value.getCode());
         generator.writeNumberField("password", value.getPassword());
         final ObjectMapper mapper = ObjectMapperFactory.getMapper();
         generator.writeFieldName("birthday");

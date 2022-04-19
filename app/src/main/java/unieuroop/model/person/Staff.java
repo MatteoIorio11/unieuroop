@@ -24,7 +24,7 @@ public class Staff extends AbstractPerson {
             @JsonProperty("email") final String email,
             @JsonProperty("password") final Integer password,
             @JsonProperty("workTime") final Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime) {
-        super(name, surname, birthdayDate);
+        super(name, surname, birthdayDate, id);
         this.id = id;
         this.email = email;
         this.password = password;
@@ -66,7 +66,7 @@ public class Staff extends AbstractPerson {
     /**
      * @return id of the Staff
      */
-    public Integer getId() {
+    public int getCode() {
         return this.id;
     }
 
