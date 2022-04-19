@@ -84,7 +84,8 @@ public final class ViewCategoriesSold implements Initializable {
         this.listSelectedCategories.getItems().clear();
         final var out = categoriesSold.entrySet().stream().map((entry) -> "Code : " + entry.getKey().getProductCode() + "\n" 
                 + "Name : " + entry.getKey().getName() + "\n"
-                + "Category : " + entry.getKey().getCategory())
+                + "Category : " + entry.getKey().getCategory() + "\n"
+                + "Quantity : " + entry.getValue())
                    .collect(Collectors.toList());
         this.listLegend.getItems().addAll(out);
 
