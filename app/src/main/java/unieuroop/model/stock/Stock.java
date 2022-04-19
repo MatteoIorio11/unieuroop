@@ -44,11 +44,11 @@ public interface Stock {
     void deleteProducts(Set<Product> productsDelete);
 
     /**
-     * Return the products and their quantities filter by a Bipredicate.
+     * Return the products filter by a Bipredicate.
      * @param filter
      * @return filterProducts
      */
-    Map<Product, Integer> getFilterProducts(BiPredicate<Integer, Category> filter);
+    List<Product> getFilterProducts(BiPredicate<Integer, Category> filter);
 
     /**
      * Return the list of products sorted by increasing or decreasing.

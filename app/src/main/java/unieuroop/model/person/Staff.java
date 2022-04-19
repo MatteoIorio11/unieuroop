@@ -1,6 +1,5 @@
 package unieuroop.model.person;
 
-import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -11,13 +10,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javafx.util.Pair;
 
-public class Staff extends AbstractPerson implements Serializable {
-
-    private static final long serialVersionUID = 3841944704413502446L;
-    private final Integer id;
-    private final String email;
-    private final Integer password;
-    private final Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime;
+public class Staff extends AbstractPerson {
+    private Integer id;
+    private String email;
+    private Integer password;
+    private Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime;
 
     @JsonCreator
     public Staff(@JsonProperty("name") final String name, 
@@ -32,6 +29,51 @@ public class Staff extends AbstractPerson implements Serializable {
         this.email = email;
         this.password = password;
         this.workTime = workTime;
+    }
+//    public Staff(final String name, 
+//            final String surname, 
+//            final LocalDate birthdayDate,
+//            final Integer id,
+//            final String email,
+//            final Integer password,
+//            final Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime) {
+//        super(name, surname, birthdayDate);
+//        this.id = id;
+//        this.email = email;
+//        this.password = password;
+//        this.workTime = workTime;
+//    }
+
+    /**
+     * 
+     * @param id
+     */
+    public void setId(final Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * 
+     * @param email
+     */
+    public void setEmail(final String email) {
+        this.email = email;
+    }
+
+    /**
+     * 
+     * @param password
+     */
+    public void setPassword(final Integer password) {
+        this.password = password;
+    }
+
+    /**
+     * 
+     * @param worktime
+     */
+    public void setWorkTime(final Map<DayOfWeek, Pair<LocalTime, LocalTime>> worktime) {
+        this.workTime = worktime;
     }
 
     /**
@@ -65,6 +107,13 @@ public class Staff extends AbstractPerson implements Serializable {
         } else {
             throw new IllegalArgumentException("day out of workDays");
         }
+    }
+    /**
+     * 
+     * @return return the workTime of the Staff based on the day of the week
+     */
+    public Map<DayOfWeek, Pair<LocalTime, LocalTime>> getWorkingTimeTable() {
+        return Map.copyOf(this.workTime);
     }
 
     /**

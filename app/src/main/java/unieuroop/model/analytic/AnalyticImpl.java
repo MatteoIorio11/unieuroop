@@ -2,7 +2,6 @@ package unieuroop.model.analytic;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.time.LocalDate;
@@ -72,6 +71,12 @@ public final class AnalyticImpl implements Analytic {
                 .collect(Collectors.toSet());
     }
 
+    private int totalQuantitySold(final LocalDate date) {
+        return this.shop.getSales((sale) -> date.isEqual(sale.getDate())).stream()
+                .mapToInt((sale) -> sale.getTotalQuantity())
+                .sum();
+    }
+
     @Override 
     public Map<LocalDate, Integer> getSoldOnDay(final Predicate<LocalDate> datePredicate) {
         return this.shop.getSales((sale) -> datePredicate.test(sale.getDate())).stream()
@@ -79,17 +84,7 @@ public final class AnalyticImpl implements Analytic {
                 .distinct()
                 .sorted((date1, date2) -> date1.compareTo(date2))
                 .collect(Collectors.toMap((date) -> date, 
-                        (date) -> this.getProductByDate((inputDate) -> datePredicate.test(inputDate)).size()));
-    }
-
-    @Override
-    public Set<Product> getProductByDateCategory(final BiPredicate<LocalDate, Category> predicate) {
-        return this.shop.getSales().stream()
-                .flatMap((sale) -> sale.getProducts().stream()
-                        .filter((product) -> predicate.test(sale.getDate(), product.getCategory())))
-                .distinct()
-                .sorted((product1, product2) -> product1.getName().compareTo(product2.getName())) 
-                .collect(Collectors.toSet());
+                        (date) -> this.totalQuantitySold(date)));
     }
 
     private Set<Product> allSalesCategory(final Category category) {

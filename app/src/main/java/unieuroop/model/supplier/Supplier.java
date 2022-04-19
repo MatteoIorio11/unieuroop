@@ -1,7 +1,6 @@
 package unieuroop.model.supplier;
 
 import java.util.Map;
-import java.util.Set;
 
 import unieuroop.model.product.Product;
 
@@ -15,7 +14,7 @@ public interface Supplier {
      * Return all the supplier products. 
      * @return supplierProducts
      */
-    Set<Product> getCatalog();
+    Map<Product, Double> getCatalog();
     /**
      * Return the price of the product by their quantities.
      * @param product

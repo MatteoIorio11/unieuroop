@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <ListView fx:id="listStaff" onMouseClicked="#listSelectStaffHandler" prefHeight="400.0" prefWidth="288.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <ListView fx:id="listProducts" prefHeight="200.0" prefWidth="267.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <Pane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="buttonAdd" layoutX="274.0" layoutY="8.0" mnemonicParsing="false" onAction="#buttonAddHandler" text="Add" />
+            <Button fx:id="buttonExit" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#buttonExitHandler" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: red;" text="EXIT" />
+         </children>
+      </Pane>
+   </bottom>
+   <top>
+      <Pane prefHeight="41.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="222.0" layoutY="12.0" prefHeight="17.0" prefWidth="56.0" text="STAFF" />
+            <Label layoutX="422.0" layoutY="12.0" prefHeight="17.0" prefWidth="164.0" text="PRODUCTS" />
+            <TextField fx:id="textName" layoutX="14.0" layoutY="8.0" prefHeight="25.0" prefWidth="197.0" text="Name" />
+         </children>
+      </Pane>
+   </top>
+</BorderPane>

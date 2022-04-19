@@ -11,7 +11,6 @@ import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 
 public final class DepartmentImpl implements Department {
-
     private final String name;
     private final Set<Staff> staff;
     private final Map<Product, Integer> products;
@@ -48,11 +47,11 @@ public final class DepartmentImpl implements Department {
      * Remove the Staff assigned to the department.
      */
     @Override
-    public void removeStaff(final Staff deleteStaff) {
-        if (this.staff.contains(deleteStaff)) {
-            this.staff.remove(deleteStaff);
+    public void removeStaff(final Set<Staff> deleteStaff) {
+        if (this.staff.containsAll(deleteStaff)) {
+            this.staff.removeAll(deleteStaff);
         } else {
-            throw new IllegalArgumentException("The staff : " + deleteStaff.toString() + " does not exist.");
+            throw new IllegalArgumentException("Some of the input staff does not work in this department.");
         }
     }
 
@@ -127,7 +126,7 @@ public final class DepartmentImpl implements Department {
      */
     @Override
     public String toString() {
-        return "Department Name : " + this.name;
+        return this.name;
     }
 
     @Override

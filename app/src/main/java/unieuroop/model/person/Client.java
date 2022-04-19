@@ -1,18 +1,17 @@
 package unieuroop.model.person;
 
-import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Optional;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Client extends AbstractPerson implements Serializable {
+public class Client extends AbstractPerson {
 
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 2150913221610743492L;
-    private final Optional<Integer> clientCode;
-
-    public Client(final String name, final String surname, final LocalDate birthdayDate, final Optional<Integer> clientCode) {
+    private final int clientCode;
+    @JsonCreator
+    public Client(@JsonProperty("name")final String name, 
+            @JsonProperty("surname")final String surname, 
+            @JsonProperty("birthdayDate")final LocalDate birthdayDate, 
+            @JsonProperty("clientCode")final int clientCode) {
         super(name, surname, birthdayDate);
         this.clientCode = clientCode;
     }
@@ -20,7 +19,7 @@ public class Client extends AbstractPerson implements Serializable {
     /**
      * @return the code of the client
      */
-    public Optional<Integer> getClientCode() {
+    public int getClientCode() {
         return this.clientCode;
     }
 
@@ -29,6 +28,6 @@ public class Client extends AbstractPerson implements Serializable {
      */
     @Override
     public String toString() {
-        return super.toString() + " " + this.clientCode;
+        return super.toString();
     }
 }

@@ -2,57 +2,31 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="484.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="545.0" prefWidth="896.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <center>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="487.2000244140625" minWidth="10.0" prefWidth="487.2000244140625" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.79998779296875" minWidth="10.0" prefWidth="258.3999755859375" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints maxHeight="127.79999389648438" minHeight="0.0" prefHeight="33.200004959106444" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="392.0000137269497" minHeight="10.0" prefHeight="383.99999504089357" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="75.79996337890628" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <ListView fx:id="listLabel" prefHeight="397.0" prefWidth="495.0" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ComboBox fx:id="comboDepartments" layoutX="226.0" layoutY="8.0" prefHeight="25.0" prefWidth="248.0" />
-                  <Label layoutX="97.0" layoutY="12.0" prefHeight="17.0" prefWidth="122.0" text="Departments : " />
-               </children>
-            </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="12.0" prefHeight="17.0" prefWidth="248.0" text="SALE" textAlignment="CENTER">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <Button id="buttonSell" fx:id="btnCompleteSale" layoutX="112.0" layoutY="2.0" mnemonicParsing="false" onAction="#btnSell" text="SELL" />
-               </children>
-            </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-               <children>
-                  <Button id="buttonSell" fx:id="btnQuit" layoutX="233.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnSell" style="-fx-background-color: red;" text="QUIT" />
-               </children>
-            </Pane>
-            <ListView id="listViewSale" fx:id="listSelectedProducts" prefHeight="397.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         </children>
-      </GridPane>
+      <ListView fx:id="listLabel" prefHeight="479.0" prefWidth="473.0" BorderPane.alignment="CENTER" />
    </center>
+   <right>
+      <ListView fx:id="listSelectedProducts" prefHeight="479.0" prefWidth="241.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Pane prefHeight="32.0" prefWidth="707.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="buttonSell" fx:id="btnQuit" layoutX="14.0" layoutY="1.0" mnemonicParsing="false" onAction="#buttonQuitHandler" style="-fx-background-color: red;" text="QUIT" />
+            <Button id="buttonSell" fx:id="btnCompleteSale" layoutX="97.0" layoutY="1.0" mnemonicParsing="false" onAction="#buttonSellHandler" text="SELL" />
+         </children>
+      </Pane>
+   </bottom>
+   <top>
+      <AnchorPane prefHeight="35.0" prefWidth="896.0" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="comboDepartments" layoutY="1.0" onAction="#comboSelectDepartment" prefHeight="25.0" prefWidth="342.0" promptText="Departments" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>

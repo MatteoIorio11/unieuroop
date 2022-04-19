@@ -28,7 +28,19 @@ public enum Files {
     /**
      * @param fileName Departments.json
      */
-    DEPARTMENTS("Departments.json");
+    DEPARTMENTS("Departments.json"),
+    /**
+     * @param fileName Clients.json
+     */
+    CLIENTS("Clients.json"),
+    /**
+     * @param fileName Bills.json
+     */
+    BILLS("Bills.json"),
+    /**
+     * @param fileName ShopName.json
+     */
+    SHOPNAME("ShopName.json");
 
     private final String fileName;
     private final String separator = System.getProperty("file.separator");

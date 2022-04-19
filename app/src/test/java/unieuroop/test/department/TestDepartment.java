@@ -9,7 +9,6 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 
 import org.junit.Before;
@@ -22,8 +21,6 @@ import unieuroop.model.person.Staff;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
-import unieuroop.model.supplier.Supplier;
-import unieuroop.model.supplier.SupplierImpl;
 
 public class TestDepartment {
 
@@ -35,13 +32,11 @@ public class TestDepartment {
     private static final int FINAL_QUANTITY_P1 = 11;
     private static final int FINAL_QUANTITY_P2 = 200;
 
-    
     private Department department;
-    private final Supplier s1 = new SupplierImpl("nome", Map.of());
-    private final Product p1 = new ProductImpl(1, "iphone 13 pro", TestDepartment.APPLE_PRODUCT,  1200.00,  900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
-    private final Product p2 = new ProductImpl(2, "applewatch", TestDepartment.APPLE_PRODUCT, 500.00,  200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
-    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestDepartment.APPLE_PRODUCT,  3000.00, 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p4 = new ProductImpl(4, "mac book pro 16", TestDepartment.APPLE_PRODUCT,  6000.00,  3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
+    private final Product p1 = new ProductImpl(1, "iphone 13 pro", TestDepartment.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+    private final Product p2 = new ProductImpl(2, "applewatch", TestDepartment.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
+    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestDepartment.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+    private final Product p4 = new ProductImpl(4, "mac book pro 16", TestDepartment.APPLE_PRODUCT,  6000.00,  3000.00, "best mac book ever created", Category.PC);
     private final Staff staff1 = new Staff("Nome1", "Cognome1", TestDepartment.TIME_NOW,
             0, "email1@gmail.com", 12, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff2 = new Staff("Nome2", "Cognome2", TestDepartment.TIME_NOW,
@@ -84,7 +79,7 @@ public class TestDepartment {
     @Test
     public void testRemoveStaff1() {
         try {
-            this.department.removeStaff(staff1);
+            this.department.removeStaff(Set.of(staff1));
         } catch (IllegalArgumentException e) {
             fail("ERROR : this staff is present and the exception must not be throwned.");
         }
@@ -95,7 +90,7 @@ public class TestDepartment {
     @Test
     public void testRemoveStaff2() {
         try {
-            this.department.removeStaff(staff3);
+            this.department.removeStaff(Set.of(staff3));
             fail("ERROR : the exception must be thowned because " + staff3.toString() + "does not exist in Department");
         } catch (IllegalArgumentException e) {
             assertTrue(e.getMessage().contains("staff"));

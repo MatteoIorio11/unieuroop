@@ -2,92 +2,79 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <left>
-      <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ListView fx:id="listSupplier" onMouseClicked="#listSupplierHandler" prefHeight="315.0" prefWidth="313.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets bottom="20.0" left="10.0" />
+            <Insets bottom="20.0" left="10.0" right="10.0" top="5.0" />
          </BorderPane.margin>
       </ListView>
    </left>
-   <top>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-               <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suppliers:" wrappingWidth="53.68212890625" />
-                        <Text layoutX="232.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Products:" />
-                     </children>
-                  </AnchorPane>
-               </center>
-            </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-               </center>
-            </BorderPane>
-         </children>
-      </GridPane>
-   </top>
+   <center>
+      <ListView fx:id="listSoldProducts" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="10.0" right="10.0" top="5.0" />
+         </BorderPane.margin>
+      </ListView>
+   </center>
    <bottom>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="232.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="298.0" minWidth="10.0" prefWidth="121.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="125.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="145.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-               <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button layoutX="199.0" layoutY="1.0" mnemonicParsing="false" text="Buy Products" />
-                        <Spinner editable="true" layoutX="-69.0" layoutY="1.0" />
-                     </children>
-                     <BorderPane.margin>
-                        <Insets bottom="20.0" />
-                     </BorderPane.margin>
-                  </AnchorPane>
-               </center>
-            </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets bottom="20.0" />
-                     </BorderPane.margin>
-                  </AnchorPane>
-               </center>
-            </BorderPane>
+            <Button fx:id="btnConfimrBuyProducts" mnemonicParsing="false" onAction="#btnConfimrBuyProductsHandler" text="Buy Products" GridPane.columnIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="15.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="lblTotalProductsChoose" text="Total Products: " GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="15.0" right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblTotalPrice" text="Total Price:" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="15.0" left="5.0" right="5.0" />
+               </GridPane.margin>
+            </Label>
          </children>
       </GridPane>
    </bottom>
-   <center>
-      <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" left="20.0" right="10.0" />
-         </BorderPane.margin>
-      </ListView>
-   </center>
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="233.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="367.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Suppliers:">
+               <GridPane.margin>
+                  <Insets left="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label prefHeight="16.0" prefWidth="123.0" text="Sold Products: " GridPane.columnIndex="1" GridPane.halignment="LEFT">
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+   </top>
 </BorderPane>

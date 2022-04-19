@@ -79,3 +79,9 @@
 .series-SELECTED *.chart-series-area-fill{
     -fx-fill: #3278fa; 
 }
+.card{
+    -fx-background-radius: 10px;
+}
+.cardEarnings{
+    -fx-background-radius: 10px;
+}

@@ -12,6 +12,7 @@ import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
+import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.stock.Stock;
@@ -20,16 +21,29 @@ import unieuroop.model.supplier.Supplier;
 
 public final class ShopImpl implements Shop {
     private String name;
-    private final Set<Department> departments = new HashSet<>();
-    private final Set<Staff> staffs = new HashSet<>();
-    private final Set<Supplier> suppliers = new HashSet<>();
-    private final Set<Sale> sales = new HashSet<>();
-    private final Set<Client> registeredClients = new HashSet<>();
-    private final Stock stock = new StockImpl();
-    private final Map<LocalDate, Double> bills = new HashMap<>();
+    private final Set<Department> departments;
+    private final Set<Staff> staffs;
+    private final Set<Supplier> suppliers;
+    private final Set<Sale> sales;
+    private final Set<Client> registeredClients;
+    private final Stock stock;
+    private final Map<LocalDate, Double> bills;
 
     public ShopImpl(final String name) {
+        this(name, new HashSet<>(), new HashSet<>(), new HashSet<>(), new HashSet<>(), new HashSet<>(), new StockImpl(), new HashMap<>());
+    }
+    public ShopImpl(final String name, final Set<Department> departments, 
+            final Set<Staff> staffs, final Set<Supplier> suppliers, 
+            final Set<Sale> sales, final Set<Client> registeredClients, 
+            final Stock stock, final Map<LocalDate, Double> bills) {
         this.name = name;
+        this.departments = departments;
+        this.staffs = staffs;
+        this.suppliers = suppliers;
+        this.sales = sales;
+        this.registeredClients = registeredClients;
+        this.stock = stock;
+        this.bills = bills;
     }
 
     @Override
@@ -114,20 +128,22 @@ public final class ShopImpl implements Shop {
 
     @Override
     public void removeDepartment(final Department department) {
-        this.departments.add(department);
+        if (!this.departments.remove(department)) {
+            throw new NoSuchElementException("The input department does not exist");
+        }
     }
 
     @Override
     public void removeStaff(final Staff staff) {
         if (!this.staffs.remove(staff)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input staff does not exist");
         }
     }
 
     @Override
     public void removeSupplier(final Supplier supplier) {
         if (!this.suppliers.remove(supplier)) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("The input supplier does not exist");
         }
     }
 
@@ -166,9 +182,28 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
+    public void putProductsBackInStock(final Department department, final Map<Product, Integer> requestedProducts) {
+        final var dep = this.departments.stream().filter(d -> d.equals(department)).findAny();
+        if (dep.isPresent()) {
+            dep.get().takeProductFromDepartment(requestedProducts);
+            this.stock.addProducts(requestedProducts);
+        }
+
+    }
+    @Override
     public void supplyDepartment(final Department department, final Map<Product, Integer> requestedProducts) {
-        final var products = this.stock.takeFromStock(requestedProducts);
-        department.addProducts(products);
+        final var dep = this.departments.stream().filter(d -> d.equals(department)).findAny();
+        if (dep.isPresent()) {
+            final var products = this.stock.takeFromStock(requestedProducts);
+            dep.get().addProducts(products);
+        }
+    }
+    @Override
+    public Set<Category> getAllCategories() {
+        return this.stock.getTotalStock().entrySet().stream()
+                .map((entry) -> entry.getKey().getCategory())
+                .distinct()
+                .collect(Collectors.toSet());
     }
 
 }

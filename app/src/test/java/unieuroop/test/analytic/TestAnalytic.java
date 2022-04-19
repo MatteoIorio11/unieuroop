@@ -20,14 +20,10 @@ import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
-import unieuroop.model.supplier.Supplier;
-import unieuroop.model.supplier.SupplierImpl;
 import unieuroop.model.analytic.Analytic;
 import unieuroop.model.analytic.AnalyticImpl;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.shop.ShopImpl;
-import unieuroop.model.stock.Stock;
-import unieuroop.model.stock.StockImpl;
 
 public class TestAnalytic {
 
@@ -37,6 +33,7 @@ public class TestAnalytic {
     /*All the money earned from sales*/
     private static final double TOTAL_SHOP_EARNED = 961_600;
     private static final double TOTAL_SPENT_NOW = 16;
+    private static final int TOTAL_SOLD_NOW = 565;
     /*ERROR tolerance*/
     private static final double ERROR_TOLLERANCE = 0.01;
     /*Data for a temporary local date*/
@@ -50,18 +47,17 @@ public class TestAnalytic {
     private static final LocalDate TIME_NOW = LocalDate.now();
     private Analytic analytic;
     private final Shop shop = new ShopImpl("TEST");
-    private final Supplier s1 = new SupplierImpl("nome", Map.of());
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */
-    private final Product p1 = new ProductImpl(1, "iphone 13 pro", TestAnalytic.APPLE_PRODUCT,  1200.00,  900.00, Optional.empty(), "best phone ever created", Category.SMARTPHONE, s1);
-    private final Product p2 = new ProductImpl(2, "applewatch", TestAnalytic.APPLE_PRODUCT, 500.00,  200.00, Optional.empty(), "best watch ever created", Category.SMARTWATCH, s1);
-    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestAnalytic.APPLE_PRODUCT,  3000.00, 2000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p4 = new ProductImpl(4, "mac book pro 16", TestAnalytic.APPLE_PRODUCT,  6000.00,  3000.00, Optional.empty(), "best mac book ever created", Category.PC, s1);
-    private final Product p5 = new ProductImpl(5, "ipad Air ", TestAnalytic.APPLE_PRODUCT,  700.00,  300.00, Optional.empty(), "best ipad ever created", Category.HOME, s1);
-    private final Product p6 = new ProductImpl(6, "ipad Pro", TestAnalytic.APPLE_PRODUCT, 1000.00, 500.00, Optional.empty(), "best ipad Pro ever created", Category.HOME, s1);
-    private final Product p7 = new ProductImpl(7, "ipad Pro Max", TestAnalytic.APPLE_PRODUCT, 1200.00,  900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
-    private final Product p8 = new ProductImpl(8, "ipad Pro Max v2", TestAnalytic.APPLE_PRODUCT, 1200.00, 900.00, Optional.empty(), "best ipad pro max ever created", Category.HOME, s1);
+    private final Product p1 = new ProductImpl(1, "iphone 13 pro", TestAnalytic.APPLE_PRODUCT,  1200.00,  900.00, "best phone ever created", Category.SMARTPHONE);
+    private final Product p2 = new ProductImpl(2, "applewatch", TestAnalytic.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
+    private final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestAnalytic.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
+    private final Product p4 = new ProductImpl(4, "mac book pro 16", TestAnalytic.APPLE_PRODUCT,  6000.00,  3000.00, "best mac book ever created", Category.PC);
+    private final Product p5 = new ProductImpl(5, "ipad Air ", TestAnalytic.APPLE_PRODUCT,  700.00,  300.00, "best ipad ever created", Category.HOME);
+    private final Product p6 = new ProductImpl(6, "ipad Pro", TestAnalytic.APPLE_PRODUCT, 1000.00, 500.00, "best ipad Pro ever created", Category.HOME);
+    private final Product p7 = new ProductImpl(7, "ipad Pro Max", TestAnalytic.APPLE_PRODUCT, 1200.00,  900.00, "best ipad pro max ever created", Category.HOME);
+    private final Product p8 = new ProductImpl(8, "ipad Pro Max v2", TestAnalytic.APPLE_PRODUCT, 1200.00, 900.00, "best ipad pro max ever created", Category.HOME);
     /**
      * ALL THE SALES THAT WILL BE USED IN THIS TEST.
      */
@@ -276,7 +272,7 @@ public class TestAnalytic {
 
         assertNotEquals(Collections.emptyMap(), products);
         assertEquals(1, products.size());
-        assertEquals(7, totalProducts);
+        assertEquals(TestAnalytic.TOTAL_SOLD_NOW, totalProducts);
 
         this.shop.addSale(saleTest);
         dates.add(dateTemp);
@@ -284,26 +280,9 @@ public class TestAnalytic {
         totalProducts = products.get(LocalDate.now());
         assertNotEquals(Collections.emptyMap(), products);
         assertEquals(2, products.size());
-        assertEquals(8, totalProducts);
+        assertEquals(TestAnalytic.TOTAL_SOLD_NOW, totalProducts);
     }
-    /**
-     * TEST FOR : analytic.getProductByDateCategory(BiPredicate<LocalDate, Category> b); {@link Analytic}
-     * This test return all the Products and only them searching inside the sales, return all the 
-     * products of a specified categories or more categories in a Date or a time lapse.
-     */
-    @Test
-    public void testDateCategory() {
-        final Set<LocalDate> dates = new HashSet<>(Set.of(TestAnalytic.TIME_NOW));
-        final Set<Category> categories = new HashSet<>(Set.of(Category.SMARTPHONE, Category.SMARTWATCH));
-        Set<Product> products = this.analytic.getProductByDateCategory(
-                (date, category) -> dates.contains(date) && categories.contains(category));
-        assertNotEquals(Collections.emptySet(), products);
-        assertEquals(Set.of(p1, p2), products);
 
-        categories.add(Category.PC);
-        products = this.analytic.getProductByDateCategory((date, category) -> dates.contains(date) && categories.contains(category));
-        assertEquals(Set.of(p1, p2, p3, p4), products);
-    }
     /**
      * TEST FOR : analytic.getCategoriesSold(); {@link Analytic}
      * This test is for the method getCategoriesSold, where the method return a Map

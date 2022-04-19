@@ -71,13 +71,19 @@ dependencies {
             implementation("org.openjfx:javafx-$module:$javaFxVersion:$platform")
         }
     }
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.6")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.0.1")
     // Use JUnit test framework.
     testImplementation("junit:junit:4.13.2")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.2")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.0.1")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.2")
+    implementation("com.thoughtworks.xstream:xstream:1.4.19")
 
     // This dependency is used by the application.
     implementation("com.google.guava:guava:30.1.1-jre")
+    implementation("com.itextpdf:itext7-core:7.1.1")
+    implementation ("org.slf4j:slf4j-simple:1.7.30")
+    
+    
 }
 
 application {

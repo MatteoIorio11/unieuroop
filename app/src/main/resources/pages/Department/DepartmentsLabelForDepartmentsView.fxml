@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="442.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="lblDepartment" layoutX="4.0" layoutY="5.0" prefHeight="25.0" prefWidth="167.0" />
+      <Button fx:id="btnEditStaff" layoutX="180.0" layoutY="5.0" mnemonicParsing="false" onAction="#buttonEditStaffHandler" prefHeight="25.0" prefWidth="115.0" text="Edit Staff" />
+      <Button fx:id="btnEditProducts" layoutX="310.0" layoutY="5.0" mnemonicParsing="false" onAction="#buttonEditProductsHandler" prefHeight="25.0" prefWidth="115.0" text="Edit Products" />
+   </children>
+</Pane>

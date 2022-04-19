@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.BiPredicate;
 
+
 public class StockImpl implements Stock {
     private final Map<Product, Integer> productsStocked = new HashMap<>();
 
@@ -49,7 +50,7 @@ public class StockImpl implements Stock {
     @Override
     public Map<Product, Integer> takeFromStock(final Map<Product, Integer> productsTaken) {
         if (!checkProductTaken(productsTaken)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Some products can not be taken");
         }
         for (final Product product : productsTaken.keySet()) {
             this.productsStocked.put(product, this.productsStocked.get(product) - productsTaken.get(product));
@@ -64,21 +65,21 @@ public class StockImpl implements Stock {
     public void deleteProducts(final Set<Product> productsDelete) {
         for (final Product productDeleted : productsDelete) {
             if (!this.productsStocked.containsKey(productDeleted)) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Some products can not be deleted");
             }
         }
         this.productsStocked.keySet().removeAll(productsDelete);
     }
 
     /**
-     * Return the the products and their quantities filter by their amount and categories.
+     * Return the the products filter by their amount and categories.
      */
     @Override
-    public Map<Product, Integer> getFilterProducts(final BiPredicate<Integer, Category> filter) {
-        final Map<Product, Integer> productsFilter = new HashMap<>();
-        for (final var entryProduct : this.productsStocked.entrySet()) {
+    public List<Product> getFilterProducts(final BiPredicate<Integer, Category> filter) {
+        final List<Product> productsFilter = new ArrayList<>();
+        for (final Map.Entry<Product, Integer> entryProduct : this.productsStocked.entrySet()) {
             if (filter.test(entryProduct.getValue(), entryProduct.getKey().getCategory())) {
-                productsFilter.put(entryProduct.getKey(), entryProduct.getValue());
+                productsFilter.add(entryProduct.getKey());
             }
         }
         return productsFilter;

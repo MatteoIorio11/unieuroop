@@ -8,6 +8,7 @@ import java.util.function.Predicate;
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
+import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.stock.Stock;
@@ -127,5 +128,7 @@ public interface Shop {
      * @param requestedProduct
      */
     void supplyDepartment(Department department, Map<Product, Integer> requestedProduct);
+    public void putProductsBackInStock(final Department department, final Map<Product, Integer> requestedProducts);
     Department mergeDepartments(Set<Department> departments, String newName);
+    Set<Category> getAllCategories();
 }

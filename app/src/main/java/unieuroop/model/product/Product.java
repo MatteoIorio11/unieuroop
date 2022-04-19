@@ -1,9 +1,5 @@
 package unieuroop.model.product;
 
-import java.util.Optional;
-
-import unieuroop.model.supplier.Supplier;
-
 public interface Product {
     /**
      * 
@@ -30,11 +26,7 @@ public interface Product {
      * @return : the price payed by the shop to get this product
      */
     Double getPurchasePrice();
-    /**
-     * 
-     * @return : the percentage of discount applied to the price of the product
-     */
-    Optional<Integer> getDiscountPercentage();
+
     /**
      * 
      * @return : a general description of the product
@@ -45,11 +37,7 @@ public interface Product {
      * @return : the category of the product
      */
     Category getCategory();
-    /**
-     * 
-     * @return : the supplier that sold the product to the shop
-     */
-    Supplier getSupplier();
+
     /**
      * change the name of the product.
      * @param name
@@ -65,11 +53,7 @@ public interface Product {
      * @param price
      */
     void setSellingPrice(Double price);
-    /**
-     * change the discount of the product.
-     * @param discount
-     */
-    void setDiscountPercentage(int discount);
+
     /**
      * change the description of the product.
      * @param description
