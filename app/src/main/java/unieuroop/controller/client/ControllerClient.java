@@ -7,7 +7,7 @@ import unieuroop.model.person.Client;
 public interface ControllerClient {
 
     /**
-     * 
+     * add new client.
      * @param name
      * @param surname
      * @param birthday
@@ -15,7 +15,7 @@ public interface ControllerClient {
     void addClient(String name, String surname, LocalDate birthday);
 
     /**
-     * 
+     * edit client.
      * @param name
      * @param surname
      * @param birthday
@@ -24,7 +24,7 @@ public interface ControllerClient {
     void editClient(String name, String surname, LocalDate birthday, Client client);
 
     /**
-     * 
+     * delete client.
      * @param client
      */
     void deleteClient(Client client);

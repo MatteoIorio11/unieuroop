@@ -49,8 +49,16 @@ public interface ControllerStaff {
      */
     void deleteStaff(Staff staff) throws IOException;
 
+    /**
+     * 
+     * @return all the staffs in the shop.
+     */
     Set<Staff> getStaff();
 
+    /**
+     * 
+     * @return all the staffs unsigned at the department.
+     */
     Set<Staff> getUnsignedStaff();
 
 }

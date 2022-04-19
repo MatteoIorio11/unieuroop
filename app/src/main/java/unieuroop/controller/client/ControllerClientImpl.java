@@ -27,12 +27,6 @@ public final class ControllerClientImpl implements ControllerClient {
         this.shop = shop;
     }
 
-    /**
-     * 
-     * @param name
-     * @param surname
-     * @param birthday
-     */
     @Override
     public void addClient(final String name, final String surname, final LocalDate birthday) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
@@ -45,13 +39,6 @@ public final class ControllerClientImpl implements ControllerClient {
         serializationClient();
     }
 
-    /**
-     * 
-     * @param name
-     * @param surname
-     * @param birthday
-     * @param client
-     */
     @Override
     public void editClient(final String name, final String surname, final LocalDate birthday, final Client client) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
@@ -63,10 +50,6 @@ public final class ControllerClientImpl implements ControllerClient {
         serializationClient();
     }
 
-    /**
-     * 
-     * @param client
-     */
     @Override
     public void deleteClient(final Client client) {
         if (!Objects.isNull(client)) {
@@ -75,19 +58,11 @@ public final class ControllerClientImpl implements ControllerClient {
         }
     }
 
-    /**
-     * 
-     * @return all clients registered to the shop
-     */
     @Override
     public Set<Client> getRegisteredClients() {
         return this.shop.getRegisteredClients();
     }
 
-    /**
-     * 
-     * client serialization.
-     */
     private void serializationClient() {
         try {
             Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), this.shop.getRegisteredClients());
