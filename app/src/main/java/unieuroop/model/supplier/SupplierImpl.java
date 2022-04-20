@@ -13,6 +13,7 @@ import unieuroop.model.product.Product;
 public class SupplierImpl implements Supplier {
     private final String supplierName;
     private final Map<Product, Double> salableProduct;
+
     @JsonCreator
     public SupplierImpl(final String name, 
             final Map<Product, Double> products) {

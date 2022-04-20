@@ -7,6 +7,7 @@ import unieuroop.model.shop.Shop;
 
 public final class ControllerDashboardImpl implements ControllerDashboard {
     private final Shop shop;
+
     public ControllerDashboardImpl(final Shop shop) {
         this.shop = shop;
     }

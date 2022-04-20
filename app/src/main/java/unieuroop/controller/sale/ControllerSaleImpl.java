@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -102,10 +103,14 @@ public final class ControllerSaleImpl implements ControllerSale {
 
     @Override
     public void createInvoice(final String path, final Sale sale) {
-        try {
-            InvoicesFactory.createInvoice(sale, path + "/invoice.pdf");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        if (!Objects.isNull(path) && !Objects.isNull(sale)) {
+            try {
+                InvoicesFactory.createInvoice(sale, path + "/invoice.pdf");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else {
+            throw new IllegalArgumentException("One of the parameters is null");
         }
     }
 }

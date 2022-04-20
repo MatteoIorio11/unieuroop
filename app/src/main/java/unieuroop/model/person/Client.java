@@ -12,22 +12,14 @@ public class Client extends AbstractPerson {
             @JsonProperty("surname")final String surname, 
             @JsonProperty("birthdayDate")final LocalDate birthdayDate, 
             @JsonProperty("clientCode")final int clientCode) {
-        super(name, surname, birthdayDate);
+        super(name, surname, birthdayDate, clientCode);
         this.clientCode = clientCode;
     }
 
     /**
      * @return the code of the client
      */
-    public int getClientCode() {
+    public int getCode() {
         return this.clientCode;
-    }
-
-    /**
-     * @return toString of the client
-     */
-    @Override
-    public String toString() {
-        return super.toString();
     }
 }

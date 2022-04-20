@@ -16,17 +16,19 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import unieuroop.controller.client.ControllerClientImpl;
+import unieuroop.controller.client.ControllerClient;
 import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.sale.ControllerSale;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.model.department.Department;
 import unieuroop.model.product.Product;
 import unieuroop.view.client.ViewChoseClient;
+import unieuroop.view.client.ViewChoseClientImpl;
 import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenu;
 
 public final class ViewSaleImpl implements Initializable, ViewSale {
+
     @FXML
     private Stage primaryStage;
     @FXML
@@ -43,14 +45,14 @@ public final class ViewSaleImpl implements Initializable, ViewSale {
     private Button btnQuit;
     @FXML
     private ComboBox<Department> comboDepartments;
-    private final ControllerClientImpl controllerClient;
+    private final ControllerClient controllerClient;
     private final ControllerDepartment controllerDepartment;
     private final ControllerSale controllerSale;
 
     private final ViewMainMenu viewMenu;
 
 
-    public ViewSaleImpl(final ViewMainMenu viewMainMenu, final ControllerClientImpl controllerClient,
+    public ViewSaleImpl(final ViewMainMenu viewMainMenu, final ControllerClient controllerClient,
         final ControllerDepartment controllerDepartment, final ControllerSale controllerSale) {
         this.viewMenu = viewMainMenu;
         this.controllerClient = controllerClient;
@@ -81,7 +83,7 @@ public final class ViewSaleImpl implements Initializable, ViewSale {
             this.listLabel.getItems().clear();
             this.listSelectedProducts.getItems().clear();
             try {
-                final Stage newWindow = Loader.<ViewChoseClient>loadStage(Pages.CHOSE_CLIENT.getPath(), "Chose Client", new ViewChoseClient(this.controllerSale, 
+                final Stage newWindow = Loader.<ViewChoseClient>loadStage(Pages.CHOSE_CLIENT.getPath(), "Chose Client", new ViewChoseClientImpl(this.controllerSale, 
                         this.controllerClient), 100, 100);
                 newWindow.setOnCloseRequest((closeEvent) -> {
                     closeEvent.consume();
@@ -113,6 +115,16 @@ public final class ViewSaleImpl implements Initializable, ViewSale {
         this.viewMenu.disableButtons(false);
     }
 
+    @Override
+    public ListView<String> getListView() {
+        return this.listSelectedProducts;
+    }
+
+    /**
+     * 
+     * @param products
+     * @param department
+     */
     private void addLabels(final Set<Product> products, final Department department) {
         for (final var product : products) {
             try {
@@ -125,10 +137,5 @@ public final class ViewSaleImpl implements Initializable, ViewSale {
                 alert.showAndWait();
             }
         }
-    }
-
-    @Override
-    public ListView<String> getListView() {
-        return this.listSelectedProducts;
     }
 }

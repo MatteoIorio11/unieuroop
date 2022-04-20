@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -20,7 +19,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="lblDepartmentName" contentDisplay="CENTER" prefHeight="20.0" prefWidth="254.0" text="Department Name:" GridPane.halignment="CENTER">
+            <Label fx:id="lblDepartmentName" contentDisplay="CENTER" prefHeight="20.0" prefWidth="254.0" text="Department Name:" GridPane.halignment="LEFT">
                <GridPane.margin>
                   <Insets left="10.0" top="10.0" />
                </GridPane.margin>
@@ -28,16 +27,6 @@
          </children>
       </GridPane>
    </top>
-   <right>
-      <ListView fx:id="listDepartmentProducts" prefHeight="469.0" prefWidth="429.0" BorderPane.alignment="CENTER" />
-   </right>
-   <center>
-      <ListView fx:id="listStockProducts" onMouseClicked="#listProductsDepartmentHandler" prefHeight="471.0" prefWidth="474.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-      </ListView>
-   </center>
    <bottom>
       <GridPane prefHeight="41.0" prefWidth="859.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -47,10 +36,19 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-         <children>
-            <Button mnemonicParsing="false" text="ADD" />
-            <Button mnemonicParsing="false" text="REMOVE" GridPane.columnIndex="1" />
-         </children>
       </GridPane>
    </bottom>
+   <left>
+      <ListView fx:id="listStockProducts" prefHeight="472.0" prefWidth="564.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </ListView>
+   </left>
+   <center>
+      <ListView fx:id="listDepartmentProducts" prefHeight="469.0" prefWidth="429.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="5.0" right="5.0" />
+         </BorderPane.margin></ListView>
+   </center>
 </BorderPane>

@@ -1,12 +1,10 @@
 package unieuroop.view.staff;
 
 import javafx.scene.control.Label;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.DayOfWeek;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
-import unieuroop.controller.staff.ControllerStaffImpl;
+import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.model.person.Staff;
 
 public final class ViewStaffImpl implements Initializable, ViewStaff {
@@ -37,9 +35,9 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
     @FXML private Button btnAddStaff;
     @FXML private Button btnEditStaff;
     @FXML private Button btnDeleteStaff;
-    private final ControllerStaffImpl controller;
+    private final ControllerStaff controller;
 
-    public ViewStaffImpl(final ControllerStaffImpl controller) {
+    public ViewStaffImpl(final ControllerStaff controller) {
         this.controller = controller;
     }
 
@@ -112,7 +110,7 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
         this.tbxName.setText(staff.getName());
         this.tbxSurname.setText(staff.getSurname());
         this.dtBirthday.setValue(staff.getBirthdayDate());
-        this.lblId.setText(staff.getId().toString());
+        this.lblId.setText(String.valueOf(staff.getCode()));
         this.tbxEmail.setText(staff.getEmail());
         this.pfPassword.setText(staff.getPassword().toString());
         this.tbxHoursStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getHour()));

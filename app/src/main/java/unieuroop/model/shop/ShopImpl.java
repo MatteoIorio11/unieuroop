@@ -20,6 +20,7 @@ import unieuroop.model.stock.StockImpl;
 import unieuroop.model.supplier.Supplier;
 
 public final class ShopImpl implements Shop {
+
     private String name;
     private final Set<Department> departments;
     private final Set<Staff> staffs;
@@ -32,6 +33,7 @@ public final class ShopImpl implements Shop {
     public ShopImpl(final String name) {
         this(name, new HashSet<>(), new HashSet<>(), new HashSet<>(), new HashSet<>(), new HashSet<>(), new StockImpl(), new HashMap<>());
     }
+
     public ShopImpl(final String name, final Set<Department> departments, 
             final Set<Staff> staffs, final Set<Supplier> suppliers, 
             final Set<Sale> sales, final Set<Client> registeredClients, 
@@ -163,19 +165,19 @@ public final class ShopImpl implements Shop {
 
     @Override
     public Department mergeDepartments(final Set<Department> departments, final String newName) {
-        //get all products from the departments i want to merge
+        //Get all products from the departments i want to merge.
         final Map<Product, Integer> products = departments.stream()
                 .map(d -> d.getAllProducts())
                 .flatMap(m -> m.entrySet().stream())
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, Integer::sum));
-        //get all staff from the department i want to merge
+        //Get all staff from the department i want to merge.
         final Set<Staff> staff = departments.stream()
                 .flatMap(d -> d.getStaff().stream())
                 .distinct()
                 .collect(Collectors.toSet());
-        //removing all departments
+        //Removing all departments.
         departments.stream().forEach(d -> this.removeDepartment(d));
-        //creating new department
+        //Creating new department.
         final var dep = new DepartmentImpl(newName, staff, products);
         this.addDepartment(dep);
         return dep;
@@ -190,6 +192,7 @@ public final class ShopImpl implements Shop {
         }
 
     }
+
     @Override
     public void supplyDepartment(final Department department, final Map<Product, Integer> requestedProducts) {
         final var dep = this.departments.stream().filter(d -> d.equals(department)).findAny();
@@ -198,6 +201,7 @@ public final class ShopImpl implements Shop {
             dep.get().addProducts(products);
         }
     }
+
     @Override
     public Set<Category> getAllCategories() {
         return this.stock.getTotalStock().entrySet().stream()
@@ -205,5 +209,4 @@ public final class ShopImpl implements Shop {
                 .distinct()
                 .collect(Collectors.toSet());
     }
-
 }

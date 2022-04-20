@@ -20,7 +20,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import unieuroop.controller.analytic.ControllerAnalytic;
 
-public final class ViewDateSold implements Initializable {
+public final class ViewDateSoldImpl implements Initializable, ViewDataSold {
 
     @FXML private BarChart<String, Double> barTotalSoldYear;
     @FXML private BarChart<String, Integer> barSelectedDates;
@@ -34,7 +34,7 @@ public final class ViewDateSold implements Initializable {
     private Optional<LocalDate> start = Optional.empty();
     private Optional<LocalDate> end = Optional.of(LocalDate.now());
     private final XYChart.Series<String, Integer> inpuDataSerie;
-    public ViewDateSold(final ControllerAnalytic controller) {
+    public ViewDateSoldImpl(final ControllerAnalytic controller) {
         this.controller = controller;
         this.inpuDataSerie = new XYChart.Series<>();
     }
@@ -49,12 +49,14 @@ public final class ViewDateSold implements Initializable {
         this.barTotalSoldYear.getData().add(dataSerie);
     }
 
+    @Override
     @FXML
     public void dateSelectStartHandler(final ActionEvent event) {
         this.start = Optional.of(this.startDate.getValue());
         this.calculateMap();
     }
 
+    @Override
     @FXML
     public void dateSelectEndHandler(final ActionEvent event) {
         if (this.start.isEmpty()) {
@@ -65,6 +67,7 @@ public final class ViewDateSold implements Initializable {
         }
     }
 
+    @Override
     @FXML
     public void listSelectDateHandler(final MouseEvent event) {
         final var string = this.listDates.getSelectionModel().getSelectedItem();
@@ -75,6 +78,7 @@ public final class ViewDateSold implements Initializable {
         }
     }
 
+    @Override
     @FXML
     public void buttonClearAllHandler(final ActionEvent event) {
         this.start = Optional.empty();
@@ -94,7 +98,9 @@ public final class ViewDateSold implements Initializable {
             calculatedMap.forEach((date, quantity) -> 
             this.inpuDataSerie.getData().add(new XYChart.Data<String, Integer>(String.valueOf(this.selectedDates.indexOf(date)), quantity)));
             this.listDates.getItems().addAll(this.selectedDates.stream()
-                    .map((date) -> String.valueOf("Code : " + this.selectedDates.indexOf(date) + "\n" + "Date : " + date))
+                    .map((date) -> String.valueOf("Code : " + this.selectedDates.indexOf(date) + "\n" 
+                            + "Date : " + date + "\n" 
+                            + "Quantity : " + calculatedMap.get(date)))
                     .collect(Collectors.toList()));
         }
         final var lowerBound = this.start.get().isBefore(this.end.get()) ? this.start.get() : this.end.get();

@@ -19,7 +19,7 @@ import unieuroop.model.department.Department;
 import unieuroop.model.person.Staff;
 import unieuroop.model.shop.Shop;
 
-public final class ControllerStaffImpl {
+public final class ControllerStaffImpl implements ControllerStaff {
 
     private static final int ADULT = 18;
     private static final int MAXDATE = 1900;
@@ -31,6 +31,7 @@ public final class ControllerStaffImpl {
         this.shop = shop;
     }
 
+    @Override
     public void addStaff(final String name, final String surname, final LocalDate birthday, final String email, final String password, 
             final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork) throws IOException {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || email.isEmpty() || password.isEmpty() 
@@ -47,6 +48,7 @@ public final class ControllerStaffImpl {
         this.serializationStaff();
     }
  
+    @Override
     public void editStaff(final String name, final String surname, final LocalDate birthday, final String email, final String password, 
             final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork, final Staff staff) throws IOException {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || email.isEmpty() || password.isEmpty() 
@@ -65,6 +67,7 @@ public final class ControllerStaffImpl {
         this.serializationStaff();
     }
 
+    @Override
     public void deleteStaff(final Staff staff) throws IOException {
         if (!Objects.isNull(staff)) {
             this.shop.removeStaff(staff);
@@ -72,19 +75,17 @@ public final class ControllerStaffImpl {
         }
     }
 
+    @Override
     public Set<Staff> getStaff() {
         return this.shop.getStaffs();
     }
 
     private void serializationStaff() throws IOException {
-        try {
-            Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
-            Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-        } catch (IOException e) {
-            throw e;
-        }
+        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
+        Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
     }
 
+    @Override
     public Set<Staff> getUnsignedStaff() {
         return this.shop.getStaffs().stream()
                 .filter((staff) -> this.shop.getDepartments().stream().allMatch((department) -> !department.getStaff().contains(staff)))

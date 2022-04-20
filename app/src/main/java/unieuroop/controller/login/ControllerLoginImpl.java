@@ -25,11 +25,6 @@ public final class ControllerLoginImpl implements ControllerLogin {
     }
 
     @Override
-    public void showMainMenu() {
-
-    }
-
-    @Override
     public void loadData() throws  IOException, ClassNotFoundException {
         final var shopName = Serialization.<String>deserialize(Files.SHOPNAME.getPath(), new TypeReference<String>() { });
         final var departments = Serialization.<Set<Department>>deserialize(Files.DEPARTMENTS.getPath(), new TypeReference<Set<Department>>() { });

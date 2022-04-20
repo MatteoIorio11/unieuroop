@@ -5,12 +5,21 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 
 public interface ViewLogin {
 
+    /**
+     * initialize new ViewLogin.
+     * @param location
+     * @param resources
+     */
     void initialize(URL location, ResourceBundle resources);
 
+    /**
+     * handler for login in the application.
+     * @param event
+     * @throws IOException
+     */
     void btnLoginHandler(ActionEvent event) throws IOException;
 
 }
