@@ -2,6 +2,7 @@ package unieuroop.view.dashboard;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -62,8 +63,8 @@ public final class ViewDashboardImpl implements Initializable, ViewDashboard {
     @Override
     @FXML
     public void lstSalesSelectClientHandler(final MouseEvent event) {
-        final Optional<Sale> selected = Optional.of(this.lstViewSales.getSelectionModel().getSelectedItem());
-        if (selected.isPresent()) {
+        final Optional<Sale> selected = Optional.ofNullable(this.lstViewSales.getSelectionModel().getSelectedItem());
+        if (!Objects.isNull(selected) && selected.isPresent()) {
             try {
                 final var stage = Loader.loadStage(Pages.SALE_PRODUCTS.getPath(), "Products", new ViewSaleProductsImpl(selected.get()), 300, 300);
                 stage.initModality(Modality.WINDOW_MODAL);

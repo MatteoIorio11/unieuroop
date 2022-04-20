@@ -4,6 +4,7 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.time.DayOfWeek;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -108,16 +109,18 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
     @FXML
     public void listSelectHandler(final MouseEvent event) {
         final Staff staff = this.listStaffs.getSelectionModel().getSelectedItem();
-        this.tbxName.setText(staff.getPerson().getName());
-        this.tbxSurname.setText(staff.getPerson().getSurname());
-        this.dtBirthday.setValue(staff.getPerson().getBirthdayDate());
-        this.lblId.setText(String.valueOf(staff.getPerson().getCode()));
-        this.tbxEmail.setText(staff.getEmail());
-        this.pfPassword.setText(staff.getPassword().toString());
-        this.tbxHoursStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getHour()));
-        this.tbxMinutesStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getMinute()));
-        this.tbxHoursEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getHour()));
-        this.tbxMinutesEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getMinute()));
+        if (!Objects.isNull(staff)) {
+            this.tbxName.setText(staff.getPerson().getName());
+            this.tbxSurname.setText(staff.getPerson().getSurname());
+            this.dtBirthday.setValue(staff.getPerson().getBirthdayDate());
+            this.lblId.setText(String.valueOf(staff.getPerson().getCode()));
+            this.tbxEmail.setText(staff.getEmail());
+            this.pfPassword.setText(staff.getPassword().toString());
+            this.tbxHoursStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getHour()));
+            this.tbxMinutesStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getMinute()));
+            this.tbxHoursEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getHour()));
+            this.tbxMinutesEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getMinute()));
+        }
     }
 
     private void clearView() {

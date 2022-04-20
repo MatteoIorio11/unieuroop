@@ -1,6 +1,7 @@
 package unieuroop.view.client;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -76,10 +77,12 @@ public final class ViewClientImpl implements Initializable, ViewClient {
     @FXML
     public void listClientHandler() {
         final Client client = this.listClients.getSelectionModel().getSelectedItem();
-        this.tbxName.setText(client.getPerson().getName());
-        this.tbxSurname.setText(client.getPerson().getSurname());
-        this.dtBirthday.setValue(client.getPerson().getBirthdayDate());
-        this.lblCode.setText(Integer.toString(client.getPerson().getCode()));
+        if (!Objects.isNull(client)) {
+            this.tbxName.setText(client.getPerson().getName());
+            this.tbxSurname.setText(client.getPerson().getSurname());
+            this.dtBirthday.setValue(client.getPerson().getBirthdayDate());
+            this.lblCode.setText(Integer.toString(client.getPerson().getCode()));
+        }
     }
 
     @Override
