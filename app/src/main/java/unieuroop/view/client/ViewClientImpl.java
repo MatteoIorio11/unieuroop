@@ -18,22 +18,14 @@ import unieuroop.model.person.ClientImpl;
 
 public final class ViewClientImpl implements Initializable, ViewClient {
 
-    @FXML
-    private ListView<Client> listClients;
-    @FXML 
-    private TextField tbxName;
-    @FXML 
-    private TextField tbxSurname;
-    @FXML 
-    private DatePicker dtBirthday;
-    @FXML 
-    private Label lblCode;
-    @FXML
-    private Button btnAddClient;
-    @FXML
-    private Button btnEditClient;
-    @FXML
-    private Button btnDeleteClient;
+    @FXML private ListView<Client> listClients;
+    @FXML private TextField tbxName;
+    @FXML private TextField tbxSurname;
+    @FXML private DatePicker dtBirthday;
+    @FXML private Label lblCode;
+    @FXML private Button btnAddClient;
+    @FXML private Button btnEditClient;
+    @FXML private Button btnDeleteClient;
     private final ControllerClient controller;
 
     public ViewClientImpl(final ControllerClient controller) {
