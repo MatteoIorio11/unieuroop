@@ -11,7 +11,9 @@ import java.util.stream.Collectors;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
+import unieuroop.model.person.ClientImpl;
 import unieuroop.model.person.Staff;
+import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
@@ -23,10 +25,10 @@ public final class ShopImpl implements Shop {
 
     private String name;
     private final Set<Department> departments;
-    private final Set<Staff> staffs;
+    private final Set<StaffImpl> staffs;
     private final Set<Supplier> suppliers;
     private final Set<Sale> sales;
-    private final Set<Client> registeredClients;
+    private final Set<ClientImpl> registeredClients;
     private final Stock stock;
     private final Map<LocalDate, Double> bills;
 
@@ -35,8 +37,8 @@ public final class ShopImpl implements Shop {
     }
 
     public ShopImpl(final String name, final Set<Department> departments, 
-            final Set<Staff> staffs, final Set<Supplier> suppliers, 
-            final Set<Sale> sales, final Set<Client> registeredClients, 
+            final Set<StaffImpl> staffs, final Set<Supplier> suppliers, 
+            final Set<Sale> sales, final Set<ClientImpl> registeredClients, 
             final Stock stock, final Map<LocalDate, Double> bills) {
         this.name = name;
         this.departments = departments;
@@ -64,7 +66,7 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
-    public Set<Staff> getStaffs() {
+    public Set<StaffImpl> getStaffs() {
         return Set.copyOf(this.staffs);
     }
 
@@ -84,7 +86,7 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
-    public Set<Client> getRegisteredClients() {
+    public Set<ClientImpl> getRegisteredClients() {
         return Set.copyOf(this.registeredClients);
     }
 
@@ -109,7 +111,7 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
-    public void addStaff(final Staff staff) {
+    public void addStaff(final StaffImpl staff) {
         this.staffs.add(staff);
     }
 
@@ -124,7 +126,7 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
-    public void registerClient(final Client client) {
+    public void registerClient(final ClientImpl client) {
         this.registeredClients.add(client);
     }
 
@@ -171,7 +173,7 @@ public final class ShopImpl implements Shop {
                 .flatMap(m -> m.entrySet().stream())
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, Integer::sum));
         //Get all staff from the department i want to merge.
-        final Set<Staff> staff = departments.stream()
+        final Set<StaffImpl> staff = departments.stream()
                 .flatMap(d -> d.getStaff().stream())
                 .distinct()
                 .collect(Collectors.toSet());

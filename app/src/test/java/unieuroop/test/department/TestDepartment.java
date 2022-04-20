@@ -17,7 +17,7 @@ import org.junit.Test;
 import javafx.util.Pair;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
-import unieuroop.model.person.Staff;
+import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
@@ -37,11 +37,11 @@ public class TestDepartment {
     private final Product p2 = new ProductImpl(2, "applewatch", TestDepartment.APPLE_PRODUCT, 500.00,  200.00, "best watch ever created", Category.SMARTWATCH);
     private final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestDepartment.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
     private final Product p4 = new ProductImpl(4, "mac book pro 16", TestDepartment.APPLE_PRODUCT,  6000.00,  3000.00, "best mac book ever created", Category.PC);
-    private final Staff staff1 = new Staff("Nome1", "Cognome1", TestDepartment.TIME_NOW,
+    private final StaffImpl staff1 = new StaffImpl("Nome1", "Cognome1", TestDepartment.TIME_NOW,
             0, "email1@gmail.com", 12, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    private final Staff staff2 = new Staff("Nome2", "Cognome2", TestDepartment.TIME_NOW,
+    private final StaffImpl staff2 = new StaffImpl("Nome2", "Cognome2", TestDepartment.TIME_NOW,
             0, "email2@gmail.csom", 123, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    private final Staff staff3 = new Staff("NomeProva", "CognomeProva", TestDepartment.TIME_NOW,
+    private final StaffImpl staff3 = new StaffImpl("NomeProva", "CognomeProva", TestDepartment.TIME_NOW,
             0, "email3@gmail.com", 12, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     @Before
     public void setUp() throws Exception {
@@ -49,7 +49,7 @@ public class TestDepartment {
     }
 
     /**
-     * TESTING : department.addStaff(Staff staff {@link Staff}); {@link Department}.
+     * TESTING : department.addStaff(Staff staff {@link StaffImpl}); {@link Department}.
      */
     @Test
     public void testAddStaff1() {
@@ -63,7 +63,7 @@ public class TestDepartment {
         }
     }
     /**
-     * TESTING : department.addStaff(Staff staff {@link Staff}); {@link Department}.
+     * TESTING : department.addStaff(Staff staff {@link StaffImpl}); {@link Department}.
      */
     @Test
     public void testAddStaff2() {
@@ -74,7 +74,7 @@ public class TestDepartment {
         }
     }
     /**
-     *  TESTING : department.removeStaff(Staff staff {@link Staff}); {@link Department}.
+     *  TESTING : department.removeStaff(Staff staff {@link StaffImpl}); {@link Department}.
      */
     @Test
     public void testRemoveStaff1() {
@@ -85,7 +85,7 @@ public class TestDepartment {
         }
     }
     /**
-     *  TESTING : department.removeStaff(Staff staff {@link Staff}); {@link Department}.
+     *  TESTING : department.removeStaff(Staff staff {@link StaffImpl}); {@link Department}.
      */
     @Test
     public void testRemoveStaff2() {

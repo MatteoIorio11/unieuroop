@@ -2,7 +2,9 @@ package unieuroop.controller.client;
 
 import java.time.LocalDate;
 import java.util.Set;
+
 import unieuroop.model.person.Client;
+import unieuroop.model.person.ClientImpl;
 
 public interface ControllerClient {
 
@@ -33,6 +35,6 @@ public interface ControllerClient {
      * 
      * @return all clients registered to the shop
      */
-    Set<Client> getRegisteredClients();
+    Set<ClientImpl> getRegisteredClients();
 
 }

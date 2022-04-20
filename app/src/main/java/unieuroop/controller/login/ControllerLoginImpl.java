@@ -8,8 +8,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
-import unieuroop.model.person.Client;
-import unieuroop.model.person.Staff;
+import unieuroop.model.person.ClientImpl;
+import unieuroop.model.person.StaffImpl;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.shop.ShopImpl;
@@ -29,10 +29,10 @@ public final class ControllerLoginImpl extends Thread implements ControllerLogin
     public void loadData() throws  IOException, ClassNotFoundException {
         final var shopName = Serialization.<String>deserialize(Files.SHOPNAME.getPath(), new TypeReference<String>() { });
         final var departments = Serialization.<Set<Department>>deserialize(Files.DEPARTMENTS.getPath(), new TypeReference<Set<Department>>() { });
-        final var staff = Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<Staff>>() { });
+        final var staff = Serialization.<Set<StaffImpl>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<StaffImpl>>() { });
         final var suppliers = Serialization.<Set<Supplier>>deserialize(Files.SUPPLIERS.getPath(), new TypeReference<Set<Supplier>>() { });
         final var sales = Serialization.<Set<Sale>>deserialize(Files.SALES.getPath(), new TypeReference<Set<Sale>>() { });
-        final var clients = Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { });
+        final var clients = Serialization.<Set<ClientImpl>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<ClientImpl>>() { });
         final var stock = Serialization.<Stock>deserialize(Files.STOCK.getPath(), new TypeReference<Stock>() { });
         final var bills = Serialization.<Map<LocalDate, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<LocalDate, Double>>() { });
         this.shop = new ShopImpl(shopName, departments, staff, suppliers, sales, clients, stock, bills);

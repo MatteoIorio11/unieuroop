@@ -18,10 +18,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.model.person.Staff;
+import unieuroop.model.person.StaffImpl;
 
 public final class ViewStaffImpl implements Initializable, ViewStaff {
 
-    @FXML private ListView<Staff> listStaffs;
+    @FXML private ListView<StaffImpl> listStaffs;
     @FXML private TextField tbxName;
     @FXML private TextField tbxSurname;
     @FXML private DatePicker dtBirthday;

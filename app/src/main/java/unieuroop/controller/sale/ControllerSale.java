@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import unieuroop.model.department.Department;
-import unieuroop.model.person.Client;
+import unieuroop.model.person.ClientImpl;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 
@@ -30,7 +30,7 @@ public interface ControllerSale {
      * @param client
      * @return the new sale.
      */
-    Optional<Sale> closeSale(Optional<Client> client);
+    Optional<Sale> closeSale(Optional<ClientImpl> client);
 
     /**
      * Remove all the reserved products inside the Map and their reserved quantity.

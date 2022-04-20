@@ -17,6 +17,7 @@ import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Staff;
+import unieuroop.model.person.StaffImpl;
 import unieuroop.model.shop.Shop;
 
 public final class ControllerStaffImpl implements ControllerStaff {
@@ -44,7 +45,7 @@ public final class ControllerStaffImpl implements ControllerStaff {
         final var date = LocalDateTime.now();
         final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
         final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
-        this.shop.addStaff(new Staff(name, surname, birthday, Math.abs(code), email, password.hashCode(), days));
+        this.shop.addStaff(new StaffImpl(name, surname, birthday, Math.abs(code), email, password.hashCode(), days));
         this.serializationStaff();
     }
  
@@ -76,17 +77,17 @@ public final class ControllerStaffImpl implements ControllerStaff {
     }
 
     @Override
-    public Set<Staff> getStaff() {
+    public Set<StaffImpl> getStaff() {
         return this.shop.getStaffs();
     }
 
     private void serializationStaff() throws IOException {
-        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
+        Serialization.<Set<StaffImpl>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
         Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
     }
 
     @Override
-    public Set<Staff> getUnsignedStaff() {
+    public Set<StaffImpl> getUnsignedStaff() {
         return this.shop.getStaffs().stream()
                 .filter((staff) -> this.shop.getDepartments().stream().allMatch((department) -> !department.getStaff().contains(staff)))
                 .collect(Collectors.toSet());

@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import unieuroop.controller.serialization.ObjectMapperFactory;
-import unieuroop.model.person.Client;
+import unieuroop.model.person.ClientImpl;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
 
@@ -37,7 +37,7 @@ public final class SaleDeserializer extends JsonDeserializer<Sale> {
         for (int i = 0; i < product.size(); i++) {
             map.put(product.get(i), quantity.get(i));
         }
-        final var client = Optional.ofNullable(mapper.treeToValue(node.get("client"), Client.class));
+        final var client = Optional.ofNullable(mapper.treeToValue(node.get("client"), ClientImpl.class));
         return new SaleImpl(date, map, client);
     }
 

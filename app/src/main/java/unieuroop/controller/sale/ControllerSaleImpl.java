@@ -14,7 +14,7 @@ import unieuroop.controller.invoice.InvoicesFactory;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
-import unieuroop.model.person.Client;
+import unieuroop.model.person.ClientImpl;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
@@ -45,7 +45,7 @@ public final class ControllerSaleImpl extends Thread implements ControllerSale {
     }
 
     @Override
-    public Optional<Sale> closeSale(final Optional<Client> client) {
+    public Optional<Sale> closeSale(final Optional<ClientImpl> client) {
         if (!this.reservedProductsMap.isEmpty()) {
             for (final var entry : this.reservedProductsMap.entrySet()) {
                 final Department department = this.shop.getDepartments().stream()

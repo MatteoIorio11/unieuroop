@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 import unieuroop.model.department.Department;
-import unieuroop.model.person.Staff;
+import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Product;
 
 public interface ControllerDepartment {
@@ -37,7 +37,7 @@ public interface ControllerDepartment {
      * @param products
      * @throws IOException
      */
-    void addDepartment(String name, Set<Staff> staffs, Map<Product, Integer> products) throws IOException;
+    void addDepartment(String name, Set<StaffImpl> staffs, Map<Product, Integer> products) throws IOException;
 
     /**
      * Remove a Department from the Shop.
@@ -76,7 +76,7 @@ public interface ControllerDepartment {
      * @param staffs
      * @throws IOException
      */
-    void addStaff(Department inputDepartment, Set<Staff> staffs) throws IOException;
+    void addStaff(Department inputDepartment, Set<StaffImpl> staffs) throws IOException;
 
     /**
      * Remove new Staff in a specify Department.
@@ -84,14 +84,14 @@ public interface ControllerDepartment {
      * @param staffs
      * @throws IOException
      */
-    void removeStaff(Department inputDepartment, Set<Staff> staffs) throws IOException;
+    void removeStaff(Department inputDepartment, Set<StaffImpl> staffs) throws IOException;
 
     /**
      * Return Department's Staff.
      * @param departmentInput
      * @return departmentStaff.
      */
-    Set<Staff> getStaffOf(Department departmentInput);
+    Set<StaffImpl> getStaffOf(Department departmentInput);
 
     /**
      * Reserve the selected product and their amount from the stock.

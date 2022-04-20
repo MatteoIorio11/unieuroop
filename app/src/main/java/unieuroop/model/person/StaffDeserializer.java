@@ -16,10 +16,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.util.Pair;
 import unieuroop.controller.serialization.ObjectMapperFactory;
 
-public final class StaffDeserializer extends JsonDeserializer<Staff> {
+public final class StaffDeserializer extends JsonDeserializer<StaffImpl> {
 
     @Override
-    public Staff deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public StaffImpl deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
         final String name = node.get("name").asText();
         final String surname = node.get("surname").asText();
@@ -44,7 +44,7 @@ public final class StaffDeserializer extends JsonDeserializer<Staff> {
         for (int i = 0; i < endTimes.size(); i++) {
             m.put(days.get(i), new Pair<>(startTimes.get(i), endTimes.get(i)));
         }
-        return new Staff(name, surname, birthday, id, email, password, m);
+        return new StaffImpl(name, surname, birthday, id, email, password, m);
     }
 
 }

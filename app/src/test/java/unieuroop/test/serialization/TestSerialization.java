@@ -21,8 +21,8 @@ import javafx.util.Pair;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
-import unieuroop.model.person.Client;
-import unieuroop.model.person.Staff;
+import unieuroop.model.person.ClientImpl;
+import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
@@ -37,9 +37,9 @@ public class TestSerialization {
 
     private static final String DESCRIPTION = "Description test";
 
-    private final Staff s = new Staff("name", "surname", LocalDate.now(), 1, "ffff", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
-    private final Staff s1 = new Staff("name1", "surname1", LocalDate.now(), 1, "AAAA", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
-    private final Staff s2 = new Staff("name2", "surname2", LocalDate.now(), 3, "BBB", 222, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
+    private final StaffImpl s = new StaffImpl("name", "surname", LocalDate.now(), 1, "ffff", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
+    private final StaffImpl s1 = new StaffImpl("name1", "surname1", LocalDate.now(), 1, "AAAA", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
+    private final StaffImpl s2 = new StaffImpl("name2", "surname2", LocalDate.now(), 3, "BBB", 222, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
     private final Product p = new ProductImpl(1, "try", "Brand", 11.4, 84.0, TestSerialization.DESCRIPTION, Category.PC);
     private final Product p1 = new ProductImpl(2, "try1", "Brand1", 19.4, 28.0, TestSerialization.DESCRIPTION, Category.HOME);
     private final Product p2 = new ProductImpl(3, "try2", "Brand4", 22.0, 15.0, TestSerialization.DESCRIPTION, Category.TABLET);
@@ -53,11 +53,11 @@ public class TestSerialization {
     private final Department d2 = new DepartmentImpl("department2", Set.of(this.s, this.s2), Map.of(p, 4, p1, 2, p5, 11, p6, 34));
     private final Department d3 = new DepartmentImpl("department3", Set.of(this.s1, this.s2), Map.of(p, 15, p7, 1, p2, 21, p5, 2, p4, 16));
 
-    private final Client c1 = new Client("name1", "surname1", LocalDate.now(), 0);
-    private final Client c2 = new Client("name2", "surname2", LocalDate.now(), 1);
-    private final Client c3 = new Client("name3", "surname3", LocalDate.now(), 2);
-    private final Client c4 = new Client("name4", "surname4", LocalDate.now(), 3);
-    private final Client c5 = new Client("name5", "surname5", LocalDate.now(), 4);
+    private final ClientImpl c1 = new ClientImpl("name1", "surname1", LocalDate.now(), 0);
+    private final ClientImpl c2 = new ClientImpl("name2", "surname2", LocalDate.now(), 1);
+    private final ClientImpl c3 = new ClientImpl("name3", "surname3", LocalDate.now(), 2);
+    private final ClientImpl c4 = new ClientImpl("name4", "surname4", LocalDate.now(), 3);
+    private final ClientImpl c5 = new ClientImpl("name5", "surname5", LocalDate.now(), 4);
 
     private final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p, 10, p1, 13), Optional.of(c1));
     private final Sale sale2 = new SaleImpl(LocalDate.of(2010, 3, 22), Map.of(p2, 140, p3, 82), Optional.of(c2));
@@ -75,11 +75,11 @@ public class TestSerialization {
 
     @Test
     public void testStaff() throws IOException, ClassNotFoundException {
-        final Set<Staff> staff = new HashSet<>();
+        final Set<StaffImpl> staff = new HashSet<>();
         staff.add(s);
         staff.add(s1);
-        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), staff);
-        final Set<Staff> deserializedStaff = Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<Staff>>() { });
+        Serialization.<Set<StaffImpl>>serialize(Files.STAFFS.getPath(), staff);
+        final Set<StaffImpl> deserializedStaff = Serialization.<Set<StaffImpl>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<StaffImpl>>() { });
         assertEquals(staff, deserializedStaff);
     }
     @Test
@@ -102,8 +102,8 @@ public class TestSerialization {
     @Test
     public void testClients() throws IOException, ClassNotFoundException {
         final var clients = Set.of(c1, c2, c3, c4, c5);
-        Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), clients);
-        final Set<Client> deserializedClients = Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { });
+        Serialization.<Set<ClientImpl>>serialize(Files.CLIENTS.getPath(), clients);
+        final Set<ClientImpl> deserializedClients = Serialization.<Set<ClientImpl>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<ClientImpl>>() { });
         assertEquals(clients, deserializedClients);
     }
     @Test
