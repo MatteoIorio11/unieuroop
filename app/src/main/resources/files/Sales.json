@@ -1,6 +1,70 @@
 [ {
   "date" : [ 2022, 4, 20 ],
   "products" : [ {
+    "productCode" : 77,
+    "name" : "Seagate Backup Plus",
+    "brand" : "Seagate",
+    "sellingPrice" : 149.99,
+    "purchasePrice" : 25.0,
+    "description" : "4000 GB External Hard Disk Hub, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 78,
+    "name" : "Apple SuperDrive",
+    "brand" : "Apple",
+    "sellingPrice" : 69.99,
+    "purchasePrice" : 20.0,
+    "description" : "Ultra-compact, Apple USB SuperDrive connects to your MacBook Pro with Retina display, or with a single USB cable, 2000 GB, White",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 7,
+    "name" : "Apple iPhone 13 Pro",
+    "brand" : "Apple",
+    "sellingPrice" : 1259.0,
+    "purchasePrice" : 600.0,
+    "description" : "256GB Blue Sierra, 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 31,
+    "name" : "Apple Watch Series 3",
+    "brand" : "Apple",
+    "sellingPrice" : 209.0,
+    "purchasePrice" : 60.0,
+    "description" : "GPS, 38mm Space Gray Aluminum with Black Sport Band, Type Display OLED, OS WatchOS 5",
+    "category" : "SMARTWATCH"
+  } ],
+  "quantity" : [ 1, 1, 1, 1 ],
+  "client" : {
+    "basePerson" : {
+      "name" : "Filippo",
+      "surname" : "Romano",
+      "birthdayDate" : [ 2001, 7, 22 ],
+      "code" : 1479707598
+    }
+  }
+}, {
+  "date" : [ 2022, 4, 20 ],
+  "products" : [ {
+    "productCode" : 72,
+    "name" : "Toshiba Canvio",
+    "brand" : "Toshiba",
+    "sellingPrice" : 39.99,
+    "purchasePrice" : 13.0,
+    "description" : "External Hard Disk, Capacity 1000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  } ],
+  "quantity" : [ 1 ],
+  "client" : {
+    "basePerson" : {
+      "name" : "Francesco",
+      "surname" : "Campanini",
+      "birthdayDate" : [ 2001, 4, 23 ],
+      "code" : 1016127317
+    }
+  }
+}, {
+  "date" : [ 2022, 4, 20 ],
+  "products" : [ {
     "productCode" : 10,
     "name" : "OPPO A74 Smartphone",
     "brand" : "Oppo",
@@ -14,8 +78,160 @@
     "basePerson" : {
       "name" : "Matteo",
       "surname" : "Iorio",
-      "code" : 240592299,
-      "birthdayDate" : [ 2001, 4, 25 ]
+      "birthdayDate" : [ 2001, 4, 25 ],
+      "code" : 240592299
+    }
+  }
+}, {
+  "date" : [ 2022, 4, 20 ],
+  "products" : [ {
+    "productCode" : 16,
+    "name" : "Samsung Galaxy Book Pro 15",
+    "brand" : "Samsung",
+    "sellingPrice" : 1599.0,
+    "purchasePrice" : 400.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
+    "category" : "PC"
+  }, {
+    "productCode" : 25,
+    "name" : "Ariete 2474",
+    "brand" : "Ariete",
+    "sellingPrice" : 249.0,
+    "purchasePrice" : 30.0,
+    "description" : "Portable Vacuum Cleaner Bagless Black, Purple",
+    "category" : "HOME"
+  }, {
+    "productCode" : 20,
+    "name" : "ASUS VivoBook 15 K513EA-L12251W PC",
+    "brand" : "Asus",
+    "sellingPrice" : 999.0,
+    "purchasePrice" : 230.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
+    "category" : "PC"
+  } ],
+  "quantity" : [ 10, 3, 1 ],
+  "client" : {
+    "basePerson" : {
+      "name" : "Ilaria",
+      "surname" : "Endrizzi",
+      "birthdayDate" : [ 1998, 8, 12 ],
+      "code" : 1527167449
+    }
+  }
+}, {
+  "date" : [ 2022, 4, 20 ],
+  "products" : [ {
+    "productCode" : 40,
+    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
+    "brand" : "Asus",
+    "sellingPrice" : 1699.0,
+    "purchasePrice" : 520.0,
+    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 41,
+    "name" : "Apple iMac 24",
+    "brand" : "Apple",
+    "sellingPrice" : 1499.0,
+    "purchasePrice" : 450.0,
+    "description" : "Display Retina 4.5K (Chip M1 con GPU 8-core, 256GB SSD) - Blue (2021)",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 39,
+    "name" : "Acer NITRO 50 N50-620",
+    "brand" : "Acer",
+    "sellingPrice" : 1099.0,
+    "purchasePrice" : 650.0,
+    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
+    "category" : "COMPUTER"
+  } ],
+  "quantity" : [ 1, 1, 1 ],
+  "client" : {
+    "basePerson" : {
+      "name" : "Giorgia",
+      "surname" : "Arpaia",
+      "birthdayDate" : [ 2002, 11, 7 ],
+      "code" : 910457297
+    }
+  }
+}, {
+  "date" : [ 2022, 4, 20 ],
+  "products" : [ {
+    "productCode" : 19,
+    "name" : "Apple MacBook Air 13",
+    "brand" : "Apple",
+    "sellingPrice" : 1299.0,
+    "purchasePrice" : 500.0,
+    "description" : "Chip M1 con GPU 8-core, 512GB SSD, 8GB RAM - Silver (2020)",
+    "category" : "PC"
+  }, {
+    "productCode" : 39,
+    "name" : "Acer NITRO 50 N50-620",
+    "brand" : "Acer",
+    "sellingPrice" : 1099.0,
+    "purchasePrice" : 650.0,
+    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 40,
+    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
+    "brand" : "Asus",
+    "sellingPrice" : 1699.0,
+    "purchasePrice" : 520.0,
+    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 48,
+    "name" : "Samsung F27T350",
+    "brand" : "Samsung",
+    "sellingPrice" : 159.0,
+    "purchasePrice" : 45.0,
+    "description" : "Monitor LED 27 inches, Flat Resolution 1920x1080 Black",
+    "category" : "MONITOR"
+  } ],
+  "quantity" : [ 1, 1, 1, 1 ],
+  "client" : {
+    "basePerson" : {
+      "name" : "Filippo",
+      "surname" : "Belletti",
+      "birthdayDate" : [ 2000, 4, 10 ],
+      "code" : 1088645318
+    }
+  }
+}, {
+  "date" : [ 2022, 4, 20 ],
+  "products" : [ {
+    "productCode" : 59,
+    "name" : "Trust GXT 845",
+    "brand" : "Trust",
+    "sellingPrice" : 29.99,
+    "purchasePrice" : 9.0,
+    "description" : "Tural keyboard USB QWERTY italy Black",
+    "category" : "KEYBOARD"
+  }, {
+    "productCode" : 72,
+    "name" : "Toshiba Canvio",
+    "brand" : "Toshiba",
+    "sellingPrice" : 39.99,
+    "purchasePrice" : 13.0,
+    "description" : "External Hard Disk, Capacity 1000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 8,
+    "name" : "Apple iPhone 13",
+    "brand" : "Apple",
+    "sellingPrice" : 829.0,
+    "purchasePrice" : 400.0,
+    "description" : "128GB (PRODUCT)RED, 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  } ],
+  "quantity" : [ 1, 1, 1 ],
+  "client" : {
+    "basePerson" : {
+      "name" : "Luigi",
+      "surname" : "Iogio",
+      "birthdayDate" : [ 1980, 5, 22 ],
+      "code" : 1141533007
     }
   }
 } ]
