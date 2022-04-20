@@ -2,14 +2,14 @@ package unieuroop.model.person;
 
 import java.time.LocalDate;
 
-// NOMPD
-// Need to suppress the warning cause our abstract class don't need an abstract method
-public abstract class AbstractPerson {
+public class BasePerson {
+
     private String name;
     private String surname;
     private LocalDate birthday;
     private final int code;
-    protected AbstractPerson(final String name, final String surname, final LocalDate birthday, final int code) {
+
+    protected BasePerson(final String name, final String surname, final LocalDate birthday, final int code) {
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
@@ -62,14 +62,20 @@ public abstract class AbstractPerson {
     }
 
     /**
+     * 
+     * @return person code
+     */
+    public int getCode() {
+        return this.code;
+    }
+
+    /**
      * @return toString of the person
      */
     @Override
     public String toString() {
-        return this.name + " " + this.surname + " " + this.birthday;
+        return this.name + " " + this.surname + " " + this.birthday + " " + this.code;
     }
-
-    abstract int getCode();
 
     /**
      * override of hashCode.
@@ -92,13 +98,13 @@ public abstract class AbstractPerson {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final AbstractPerson other = (AbstractPerson) obj;
+        final BasePerson other = (BasePerson) obj;
         return this.code == other.getCode() ? true : false;
     }
 

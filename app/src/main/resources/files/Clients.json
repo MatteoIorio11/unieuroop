@@ -1,51 +1,92 @@
 [ {
-  "name" : "Mike",
-  "surname" : "Tyson",
-  "birthdayDate" : [ 2000, 3, 30 ],
-  "clientCode" : 1400871929
+  "person" : {
+    "name" : "Nicola ",
+    "surname" : "Strada",
+    "code" : 1421987332,
+    "birthdayDate" : [ 2002, 4, 11 ]
+  }
 }, {
-  "name" : "Federic",
-  "surname" : "Bluu",
-  "birthdayDate" : [ 2000, 3, 29 ],
-  "clientCode" : 1429951377
+  "person" : {
+    "name" : "Fabio",
+    "surname" : "Vincenzi",
+    "code" : 486369737,
+    "birthdayDate" : [ 1999, 4, 2 ]
+  }
 }, {
-  "name" : "Matteo",
-  "surname" : "Iorio",
-  "birthdayDate" : [ 2000, 3, 29 ],
-  "clientCode" : 428432816
+  "person" : {
+    "name" : "Samuele",
+    "surname" : "Ferri",
+    "code" : 1505471665,
+    "birthdayDate" : [ 2002, 4, 3 ]
+  }
 }, {
-  "name" : "Mario",
-  "surname" : "Verdi",
-  "birthdayDate" : [ 2002, 4, 11 ],
-  "clientCode" : 172111597
+  "person" : {
+    "name" : "Mike",
+    "surname" : "Tyson",
+    "code" : 1400871929,
+    "birthdayDate" : [ 2000, 3, 30 ]
+  }
 }, {
-  "name" : "Ciro",
-  "surname" : "Alfano",
-  "birthdayDate" : [ 1999, 4, 16 ],
-  "clientCode" : 421265539
+  "person" : {
+    "name" : "Mario",
+    "surname" : "Verdi",
+    "code" : 172111597,
+    "birthdayDate" : [ 2002, 4, 11 ]
+  }
 }, {
-  "name" : "Fabio",
-  "surname" : "Vincenzi",
-  "birthdayDate" : [ 1999, 4, 2 ],
-  "clientCode" : 486369737
+  "person" : {
+    "name" : "Mrek",
+    "surname" : "Hamsik",
+    "code" : 184316254,
+    "birthdayDate" : [ 2000, 4, 4 ]
+  }
 }, {
-  "name" : "Mario",
-  "surname" : "Rossi",
-  "birthdayDate" : [ 1985, 3, 5 ],
-  "clientCode" : 90233139
+  "person" : {
+    "name" : "Matteo",
+    "surname" : "Iorio",
+    "code" : 708096341,
+    "birthdayDate" : [ 2000, 3, 29 ]
+  }
 }, {
-  "name" : "Nicola ",
-  "surname" : "Strada",
-  "birthdayDate" : [ 2002, 4, 11 ],
-  "clientCode" : 1421987332
+  "person" : {
+    "name" : "Ciro",
+    "surname" : "Alfano",
+    "code" : 421265539,
+    "birthdayDate" : [ 1999, 4, 16 ]
+  }
 }, {
-  "name" : "Samuele",
-  "surname" : "Ferri",
-  "birthdayDate" : [ 2002, 4, 3 ],
-  "clientCode" : 1505471665
+  "person" : {
+    "name" : "Mario",
+    "surname" : "Rossi",
+    "code" : 90233139,
+    "birthdayDate" : [ 1985, 3, 5 ]
+  }
 }, {
-  "name" : "Mrek",
-  "surname" : "Hamsik",
-  "birthdayDate" : [ 2000, 4, 4 ],
-  "clientCode" : 184316254
+  "person" : {
+    "name" : "Federic",
+    "surname" : "Bluu",
+    "code" : 1429951377,
+    "birthdayDate" : [ 2000, 3, 29 ]
+  }
+}, {
+  "person" : {
+    "name" : "Fabio",
+    "surname" : "Vincenzi",
+    "code" : 1296197968,
+    "birthdayDate" : [ 1999, 4, 2 ]
+  }
+}, {
+  "person" : {
+    "name" : "Matteo",
+    "surname" : "Iorio",
+    "code" : 428432816,
+    "birthdayDate" : [ 2000, 3, 29 ]
+  }
+}, {
+  "person" : {
+    "name" : "Matteo",
+    "surname" : "Bianchi",
+    "code" : 1453418,
+    "birthdayDate" : [ 2000, 3, 17 ]
+  }
 } ]

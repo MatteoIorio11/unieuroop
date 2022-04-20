@@ -65,11 +65,11 @@ public final class InvoicesFactory {
                 .setBold()
                 .setBorder(Border.NO_BORDER));
         customerInfo.addCell(new Cell().add(new Paragraph("Client Code")).setBorder(Border.NO_BORDER));
-        customerInfo.addCell(new Cell().add(new Paragraph(String.valueOf(client.getCode()))).setBorder(Border.NO_BORDER));
+        customerInfo.addCell(new Cell().add(new Paragraph(String.valueOf(client.getPerson().getCode()))).setBorder(Border.NO_BORDER));
         customerInfo.addCell(new Cell().add(new Paragraph("Name")).setBorder(Border.NO_BORDER));
-        customerInfo.addCell(new Cell().add(new Paragraph(client.getName())).setBorder(Border.NO_BORDER));
+        customerInfo.addCell(new Cell().add(new Paragraph(client.getPerson().getName())).setBorder(Border.NO_BORDER));
         customerInfo.addCell(new Cell().add(new Paragraph("Surname")).setBorder(Border.NO_BORDER));
-        customerInfo.addCell(new Cell().add(new Paragraph(client.getSurname())).setBorder(Border.NO_BORDER));
+        customerInfo.addCell(new Cell().add(new Paragraph(client.getPerson().getSurname())).setBorder(Border.NO_BORDER));
         customerInfo.addCell(new Cell().add(new Paragraph("Date")).setBorder(Border.NO_BORDER));
         customerInfo.addCell(new Cell().add(new Paragraph(sale.getDate().toString())).setBorder(Border.NO_BORDER));
 

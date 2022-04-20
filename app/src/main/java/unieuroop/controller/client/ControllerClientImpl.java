@@ -43,9 +43,9 @@ public final class ControllerClientImpl implements ControllerClient {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
         }
-        client.setPersonName(name);
-        client.setPersonSurname(surname);
-        client.setPersonBirthday(birthday);
+        client.getPerson().setPersonName(name);
+        client.getPerson().setPersonSurname(surname);
+        client.getPerson().setPersonBirthday(birthday);
         serializationClient();
     }
 

@@ -107,10 +107,10 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
     @FXML
     public void listSelectHandler(final MouseEvent event) {
         final Staff staff = this.listStaffs.getSelectionModel().getSelectedItem();
-        this.tbxName.setText(staff.getName());
-        this.tbxSurname.setText(staff.getSurname());
-        this.dtBirthday.setValue(staff.getBirthdayDate());
-        this.lblId.setText(String.valueOf(staff.getCode()));
+        this.tbxName.setText(staff.getPerson().getName());
+        this.tbxSurname.setText(staff.getPerson().getSurname());
+        this.dtBirthday.setValue(staff.getPerson().getBirthdayDate());
+        this.lblId.setText(String.valueOf(staff.getPerson().getCode()));
         this.tbxEmail.setText(staff.getEmail());
         this.pfPassword.setText(staff.getPassword().toString());
         this.tbxHoursStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getHour()));

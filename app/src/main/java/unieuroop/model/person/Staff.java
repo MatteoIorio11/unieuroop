@@ -10,11 +10,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javafx.util.Pair;
 
-public class Staff extends AbstractPerson {
-    private Integer id;
+public class Staff {
+
     private String email;
     private Integer password;
     private Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime;
+    private final BasePerson person;
 
     @JsonCreator
     public Staff(@JsonProperty("name") final String name, 
@@ -24,21 +25,11 @@ public class Staff extends AbstractPerson {
             @JsonProperty("email") final String email,
             @JsonProperty("password") final Integer password,
             @JsonProperty("workTime") final Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime) {
-        super(name, surname, birthdayDate, id);
-        this.id = id;
+        person = new BasePerson(name, surname, birthdayDate, id);
         this.email = email;
         this.password = password;
         this.workTime = workTime;
     }
-
-    /**
-     * 
-     * @param id
-     */
-    public void setId(final Integer id) {
-        this.id = id;
-    }
-
     /**
      * 
      * @param email
@@ -61,13 +52,6 @@ public class Staff extends AbstractPerson {
      */
     public void setWorkTime(final Map<DayOfWeek, Pair<LocalTime, LocalTime>> worktime) {
         this.workTime = worktime;
-    }
-
-    /**
-     * @return id of the Staff
-     */
-    public int getCode() {
-        return this.id;
     }
 
     /**
@@ -104,10 +88,18 @@ public class Staff extends AbstractPerson {
     }
 
     /**
+     * 
+     * @return base person
+     */
+    public BasePerson getPerson() {
+        return this.person;
+    }
+
+    /**
      * @return toString of the Staff
      */
     @Override
     public String toString() {
-        return super.toString() + " " + this.id + " " + this.email;
+        return this.person.toString() + " " + this.email;
     }
 }

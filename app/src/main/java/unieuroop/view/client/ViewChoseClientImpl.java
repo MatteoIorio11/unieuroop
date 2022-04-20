@@ -44,7 +44,7 @@ public final class ViewChoseClientImpl extends Stage implements Initializable, V
                 this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients());
             } else {
                 this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients().stream()
-                        .filter((client) -> client.getName().contains(newValue)).collect(Collectors.toList()));
+                        .filter((client) -> client.getPerson().getName().contains(newValue)).collect(Collectors.toList()));
             }
         });
     }
