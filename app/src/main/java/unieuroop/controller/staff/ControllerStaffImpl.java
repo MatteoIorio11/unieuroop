@@ -84,7 +84,7 @@ public final class ControllerStaffImpl implements ControllerStaff {
     }
 
     private boolean checkWorkTime(final int hourStart, final int minStart, final int hourEnd, final int minEnd) {
-        return hourEnd <= MAXHOUR || hourEnd - hourStart <= 8 || hourEnd != hourStart || hourStart < hourEnd || minStart <= MAXMINUTE || minEnd <= MAXMINUTE;
+        return hourEnd > MAXHOUR || hourEnd - hourStart > 8 || hourStart >= hourEnd || minStart > MAXMINUTE || minEnd > MAXMINUTE;
     }
 
     private void serializationStaff() throws IOException {
