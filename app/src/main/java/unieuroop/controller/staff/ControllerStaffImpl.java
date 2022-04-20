@@ -25,6 +25,7 @@ public final class ControllerStaffImpl implements ControllerStaff {
     private static final int ADULT = 18;
     private static final int MAXDATE = 1900;
     private static final int MAXMINUTE = 59;
+    private static final int MAXHOUR = 23;
     private final LocalDate maxBirthday = LocalDate.of(LocalDate.now().getYear() - ADULT, LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth());
     private final LocalDate minBirthday = LocalDate.of(MAXDATE, 1, 1);
     private final Shop shop;
@@ -38,7 +39,7 @@ public final class ControllerStaffImpl implements ControllerStaff {
             final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork) throws IOException {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || email.isEmpty() || password.isEmpty() || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() 
                 || hoursEndWork.isEmpty() || minutesEndWork.isEmpty() || checkWorkTime(Integer.parseInt(hoursStartWork), Integer.parseInt(minutesStartWork), Integer.parseInt(hoursEndWork), Integer.parseInt(minutesEndWork))) {
-            throw new IllegalArgumentException("Impossible because one of the parameters are null");
+            throw new IllegalArgumentException("Impossible because one of the parameters are null, hours range from 0 to 23, minutes range from 0 to 59");
         }
         final var days = new HashMap<DayOfWeek, Pair<LocalTime, LocalTime>>();
         final var times = new Pair<>(LocalTime.of(Integer.parseInt(hoursStartWork), Integer.parseInt(minutesStartWork)), LocalTime.of(Integer.parseInt(hoursEndWork), Integer.parseInt(minutesEndWork)));
@@ -55,7 +56,7 @@ public final class ControllerStaffImpl implements ControllerStaff {
             final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork, final Staff staff) throws IOException {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday) || email.isEmpty() || password.isEmpty() || hoursStartWork.isEmpty() || minutesStartWork.isEmpty() 
                 || hoursEndWork.isEmpty() || minutesEndWork.isEmpty() || checkWorkTime(Integer.parseInt(hoursStartWork), Integer.parseInt(minutesStartWork), Integer.parseInt(hoursEndWork), Integer.parseInt(minutesEndWork))) {
-            throw new IllegalArgumentException("Impossible because one of the parameters is null");
+            throw new IllegalArgumentException("Impossible because one of the parameters is null, hours range from 0 to 23, minutes range from 0 to 59");
         }
         final var days = new HashMap<DayOfWeek, Pair<LocalTime, LocalTime>>();
         final var times = new Pair<>(LocalTime.of(Integer.parseInt(hoursStartWork), Integer.parseInt(minutesStartWork)), LocalTime.of(Integer.parseInt(hoursEndWork), Integer.parseInt(minutesEndWork)));
@@ -83,7 +84,7 @@ public final class ControllerStaffImpl implements ControllerStaff {
     }
 
     private boolean checkWorkTime(final int hourStart, final int minStart, final int hourEnd, final int minEnd) {
-        return hourEnd - hourStart > 8 || hourEnd == hourStart || hourStart > hourEnd || minStart > MAXMINUTE || minEnd > MAXMINUTE;
+        return hourEnd <= MAXHOUR || hourEnd - hourStart <= 8 || hourEnd != hourStart || hourStart < hourEnd || minStart <= MAXMINUTE || minEnd <= MAXMINUTE;
     }
 
     private void serializationStaff() throws IOException {
