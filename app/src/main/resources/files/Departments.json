@@ -1,4 +1,118 @@
 [ {
+  "departmentName" : "Smartphone & TV",
+  "staff" : [ {
+  "name" : "Sofia",
+  "surname" : "Zoffoli",
+  "email" : "sofi.zoff@gmail.com",
+  "id" : 2019713670,
+  "password" : 3237900,
+  "birthday" : [ 2001, 7, 27 ],
+  "days" : [ "WEDNESDAY", "FRIDAY", "TUESDAY", "THURSDAY", "MONDAY" ],
+  "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
+  "endTimes" : [ [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ] ]
+}, {
+  "name" : "Samuele",
+  "surname" : "Ferri",
+  "email" : "samueleferri1301@gmail.com",
+  "id" : 1925175868,
+  "password" : 1661526827,
+  "birthday" : [ 2001, 6, 6 ],
+  "days" : [ "WEDNESDAY", "FRIDAY", "TUESDAY", "THURSDAY", "MONDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 10,
+    "name" : "OPPO A74 Smartphone",
+    "brand" : "Oppo",
+    "sellingPrice" : 219.0,
+    "purchasePrice" : 70.0,
+    "description" : "175g, Display 6.43 inch FHD+ AMOLED, 4 Fotocamere 48MP, RAM 6GB ROM 128GB, Battery 5000mAh, Rapid Charge, Dual Sim, Prism Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 12,
+    "name" : "Samsung Galaxy Book",
+    "brand" : "Samsung",
+    "sellingPrice" : 849.9,
+    "purchasePrice" : 350.0,
+    "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
+    "category" : "PC"
+  }, {
+    "productCode" : 7,
+    "name" : "Apple iPhone 13 Pro",
+    "brand" : "Apple",
+    "sellingPrice" : 1259.0,
+    "purchasePrice" : 600.0,
+    "description" : "256GB Blue Sierra, 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 8,
+    "name" : "Apple iPhone 13",
+    "brand" : "Apple",
+    "sellingPrice" : 829.0,
+    "purchasePrice" : 400.0,
+    "description" : "128GB (PRODUCT)RED, 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  } ],
+  "values" : [ 5, 10, 9, 4 ]
+}, {
+  "departmentName" : "Tablet",
+  "staff" : [ {
+  "name" : "Mario",
+  "surname" : "Rossi",
+  "email" : "mario.rossi@gmail.com",
+  "id" : 1917962234,
+  "password" : 46793748,
+  "birthday" : [ 2002, 4, 19 ],
+  "days" : [ "WEDNESDAY", "FRIDAY", "TUESDAY", "THURSDAY", "MONDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
+}, {
+  "name" : "Lucia",
+  "surname" : "Martinelli",
+  "email" : "lucia.mar00@gmail.com",
+  "id" : 1336425467,
+  "password" : 46792755,
+  "birthday" : [ 2000, 11, 17 ],
+  "days" : [ "WEDNESDAY", "FRIDAY", "TUESDAY", "THURSDAY", "MONDAY" ],
+  "startTimes" : [ [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ] ],
+  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 20,
+    "name" : "ASUS VivoBook 15 K513EA-L12251W PC",
+    "brand" : "Asus",
+    "sellingPrice" : 999.0,
+    "purchasePrice" : 230.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
+    "category" : "PC"
+  }, {
+    "productCode" : 14,
+    "name" : "Huawei MateBook D 14 53012JBB notebook PC",
+    "brand" : "Huawei",
+    "sellingPrice" : 599.0,
+    "purchasePrice" : 200.0,
+    "description" : "35,6 cm (14 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 10 Grey",
+    "category" : "PC"
+  }, {
+    "productCode" : 15,
+    "name" : "Lenovo IdeaPad 3 15ITL6 PC",
+    "brand" : "Lenovo",
+    "sellingPrice" : 499.0,
+    "purchasePrice" : 150.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
+    "category" : "PC"
+  }, {
+    "productCode" : 16,
+    "name" : "Samsung Galaxy Book Pro 15",
+    "brand" : "Samsung",
+    "sellingPrice" : 1599.0,
+    "purchasePrice" : 400.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
+    "category" : "PC"
+  } ],
+  "values" : [ 6, 8, 6, 0 ]
+}, {
   "departmentName" : "PC & Computer",
   "staff" : [ {
   "name" : "Matteo",
@@ -7,19 +121,9 @@
   "id" : 821220106,
   "password" : 1509442,
   "birthday" : [ 2001, 2, 11 ],
-  "days" : [ "TUESDAY", "SATURDAY", "FRIDAY", "WEDNESDAY", "THURSDAY", "MONDAY" ],
+  "days" : [ "MONDAY", "SATURDAY", "TUESDAY", "FRIDAY", "WEDNESDAY", "THURSDAY" ],
   "startTimes" : [ [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ] ],
   "endTimes" : [ [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ] ]
-}, {
-  "name" : "Nicola",
-  "surname" : "Strada",
-  "email" : "nicola.strada4@gmail.com",
-  "id" : 1590664781,
-  "password" : -1293335239,
-  "birthday" : [ 2001, 10, 27 ],
-  "days" : [ "MONDAY", "THURSDAY", "FRIDAY", "TUESDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
 }, {
   "name" : "Simone",
   "surname" : "Cefariello",
@@ -27,27 +131,21 @@
   "id" : 1438068174,
   "password" : 1509442,
   "birthday" : [ 2001, 10, 5 ],
-  "days" : [ "TUESDAY", "SATURDAY", "FRIDAY", "WEDNESDAY", "THURSDAY", "MONDAY" ],
+  "days" : [ "MONDAY", "SATURDAY", "TUESDAY", "FRIDAY", "WEDNESDAY", "THURSDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
+}, {
+  "name" : "Nicola",
+  "surname" : "Strada",
+  "email" : "nicola.strada4@gmail.com",
+  "id" : 1590664781,
+  "password" : -1293335239,
+  "birthday" : [ 2001, 10, 27 ],
+  "days" : [ "WEDNESDAY", "FRIDAY", "TUESDAY", "THURSDAY", "MONDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
 } ],
   "products" : [ {
-    "productCode" : 39,
-    "name" : "Acer NITRO 50 N50-620",
-    "brand" : "Acer",
-    "sellingPrice" : 1099.0,
-    "purchasePrice" : 650.0,
-    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 40,
-    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
-    "brand" : "Asus",
-    "sellingPrice" : 1699.0,
-    "purchasePrice" : 520.0,
-    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
-    "category" : "COMPUTER"
-  }, {
     "productCode" : 41,
     "name" : "Apple iMac 24",
     "brand" : "Apple",
@@ -127,8 +225,24 @@
     "purchasePrice" : 35.0,
     "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
     "category" : "MONITOR"
+  }, {
+    "productCode" : 39,
+    "name" : "Acer NITRO 50 N50-620",
+    "brand" : "Acer",
+    "sellingPrice" : 1099.0,
+    "purchasePrice" : 650.0,
+    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 40,
+    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
+    "brand" : "Asus",
+    "sellingPrice" : 1699.0,
+    "purchasePrice" : 520.0,
+    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
+    "category" : "COMPUTER"
   } ],
-  "values" : [ 2, 0, 9, 10, 4, 5, 2, 4, 0, 1, 1, 1 ]
+  "values" : [ 8, 9, 4, 4, 1, 3, 0, 0, 0, 1, 2, 0 ]
 }, {
   "departmentName" : "Mouse",
   "staff" : [ {
@@ -138,7 +252,7 @@
   "id" : 709413956,
   "password" : 112212417,
   "birthday" : [ 2002, 6, 3 ],
-  "days" : [ "MONDAY", "THURSDAY", "FRIDAY", "TUESDAY", "WEDNESDAY" ],
+  "days" : [ "WEDNESDAY", "FRIDAY", "TUESDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ],
   "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
 }, {
@@ -148,35 +262,11 @@
   "id" : 537341718,
   "password" : 1098694324,
   "birthday" : [ 2002, 4, 24 ],
-  "days" : [ "MONDAY", "THURSDAY", "FRIDAY", "TUESDAY", "WEDNESDAY" ],
+  "days" : [ "WEDNESDAY", "FRIDAY", "TUESDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
   "endTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ]
 } ],
   "products" : [ {
-    "productCode" : 71,
-    "name" : "Toshiba Canvio Basics",
-    "brand" : "Toshiba",
-    "sellingPrice" : 82.99,
-    "purchasePrice" : 30.0,
-    "description" : "External Hard Disk, Capacity 4000 GB, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 72,
-    "name" : "Toshiba Canvio",
-    "brand" : "Toshiba",
-    "sellingPrice" : 39.99,
-    "purchasePrice" : 13.0,
-    "description" : "External Hard Disk, Capacity 1000 GB, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 73,
-    "name" : "Samsung 870 EVO",
-    "brand" : "Samsung",
-    "sellingPrice" : 49.99,
-    "purchasePrice" : 15.0,
-    "description" : "250 GB Serial ATA III V-NAND, Write 530 MBps Read 560 MBps, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
     "productCode" : 58,
     "name" : "Apple Magic Keyboard",
     "brand" : "Apple",
@@ -232,8 +322,32 @@
     "purchasePrice" : 10.0,
     "description" : "Right Hand Mouse, Wireless RF + Optical Bluetooth 12000 DPI, Black and Grey",
     "category" : "MOUSE"
+  }, {
+    "productCode" : 71,
+    "name" : "Toshiba Canvio Basics",
+    "brand" : "Toshiba",
+    "sellingPrice" : 82.99,
+    "purchasePrice" : 30.0,
+    "description" : "External Hard Disk, Capacity 4000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 72,
+    "name" : "Toshiba Canvio",
+    "brand" : "Toshiba",
+    "sellingPrice" : 39.99,
+    "purchasePrice" : 13.0,
+    "description" : "External Hard Disk, Capacity 1000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 73,
+    "name" : "Samsung 870 EVO",
+    "brand" : "Samsung",
+    "sellingPrice" : 49.99,
+    "purchasePrice" : 15.0,
+    "description" : "250 GB Serial ATA III V-NAND, Write 530 MBps Read 560 MBps, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
   } ],
-  "values" : [ 3, 3, 1, 0, 0, 4, 20, 15, 4, 4 ]
+  "values" : [ 0, 0, 4, 20, 15, 4, 4, 3, 3, 1 ]
 }, {
   "departmentName" : "Home & Utilities",
   "staff" : [ {
@@ -243,7 +357,7 @@
   "id" : 1145359388,
   "password" : 2101431141,
   "birthday" : [ 1999, 9, 21 ],
-  "days" : [ "TUESDAY", "SATURDAY", "FRIDAY", "WEDNESDAY", "THURSDAY", "MONDAY" ],
+  "days" : [ "MONDAY", "SATURDAY", "TUESDAY", "FRIDAY", "WEDNESDAY", "THURSDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ] ]
 }, {
@@ -253,19 +367,11 @@
   "id" : 738962461,
   "password" : 46792755,
   "birthday" : [ 2001, 7, 22 ],
-  "days" : [ "MONDAY", "THURSDAY", "FRIDAY", "TUESDAY", "WEDNESDAY" ],
+  "days" : [ "WEDNESDAY", "FRIDAY", "TUESDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
 } ],
   "products" : [ {
-    "productCode" : 82,
-    "name" : "D-Link DGS-108 Unmanaged Switch",
-    "brand" : "D-Link",
-    "sellingPrice" : 39.99,
-    "purchasePrice" : 20.0,
-    "description" : "RJ-45 Ports: 8, Ethernet Technology: 1000BASE-T, 100BASE-TX, 10BASE-T, Supported Data Transfer: 10-100-1000MBps Max Transfer: 1GBps, Silver",
-    "category" : "NETWORKING"
-  }, {
     "productCode" : 22,
     "name" : "Bose UFS-20",
     "brand" : "Bose",
@@ -353,120 +459,14 @@
     "purchasePrice" : 90.0,
     "description" : "40mm Smartwatch Ghiera Touch Alluminium Memory 16GB Pink Gold",
     "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 82,
+    "name" : "D-Link DGS-108 Unmanaged Switch",
+    "brand" : "D-Link",
+    "sellingPrice" : 39.99,
+    "purchasePrice" : 20.0,
+    "description" : "RJ-45 Ports: 8, Ethernet Technology: 1000BASE-T, 100BASE-TX, 10BASE-T, Supported Data Transfer: 10-100-1000MBps Max Transfer: 1GBps, Silver",
+    "category" : "NETWORKING"
   } ],
-  "values" : [ 1, 5, 5, 1, 0, 5, 3, 3, 3, 2, 1, 3 ]
-}, {
-  "departmentName" : "Smartphone & TV",
-  "staff" : [ {
-  "name" : "Samuele",
-  "surname" : "Ferri",
-  "email" : "samueleferri1301@gmail.com",
-  "id" : 1925175868,
-  "password" : 1661526827,
-  "birthday" : [ 2001, 6, 6 ],
-  "days" : [ "MONDAY", "THURSDAY", "FRIDAY", "TUESDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
-}, {
-  "name" : "Sofia",
-  "surname" : "Zoffoli",
-  "email" : "sofi.zoff@gmail.com",
-  "id" : 2019713670,
-  "password" : 3237900,
-  "birthday" : [ 2001, 7, 27 ],
-  "days" : [ "MONDAY", "THURSDAY", "FRIDAY", "TUESDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
-  "endTimes" : [ [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 10,
-    "name" : "OPPO A74 Smartphone",
-    "brand" : "Oppo",
-    "sellingPrice" : 219.0,
-    "purchasePrice" : 70.0,
-    "description" : "175g, Display 6.43 inch FHD+ AMOLED, 4 Fotocamere 48MP, RAM 6GB ROM 128GB, Battery 5000mAh, Rapid Charge, Dual Sim, Prism Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 12,
-    "name" : "Samsung Galaxy Book",
-    "brand" : "Samsung",
-    "sellingPrice" : 849.9,
-    "purchasePrice" : 350.0,
-    "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
-    "category" : "PC"
-  }, {
-    "productCode" : 7,
-    "name" : "Apple iPhone 13 Pro",
-    "brand" : "Apple",
-    "sellingPrice" : 1259.0,
-    "purchasePrice" : 600.0,
-    "description" : "256GB Blue Sierra, 5G, iOS 15",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 8,
-    "name" : "Apple iPhone 13",
-    "brand" : "Apple",
-    "sellingPrice" : 829.0,
-    "purchasePrice" : 400.0,
-    "description" : "128GB (PRODUCT)RED, 5G, iOS 15",
-    "category" : "SMARTPHONE"
-  } ],
-  "values" : [ 5, 10, 9, 4 ]
-}, {
-  "departmentName" : "Tablet",
-  "staff" : [ {
-  "name" : "Mario",
-  "surname" : "Rossi",
-  "email" : "mario.rossi@gmail.com",
-  "id" : 1917962234,
-  "password" : 46793748,
-  "birthday" : [ 2002, 4, 19 ],
-  "days" : [ "MONDAY", "THURSDAY", "FRIDAY", "TUESDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
-}, {
-  "name" : "Lucia",
-  "surname" : "Martinelli",
-  "email" : "lucia.mar00@gmail.com",
-  "id" : 1336425467,
-  "password" : 46792755,
-  "birthday" : [ 2000, 11, 17 ],
-  "days" : [ "MONDAY", "THURSDAY", "FRIDAY", "TUESDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ] ],
-  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 20,
-    "name" : "ASUS VivoBook 15 K513EA-L12251W PC",
-    "brand" : "Asus",
-    "sellingPrice" : 999.0,
-    "purchasePrice" : 230.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
-    "category" : "PC"
-  }, {
-    "productCode" : 14,
-    "name" : "Huawei MateBook D 14 53012JBB notebook PC",
-    "brand" : "Huawei",
-    "sellingPrice" : 599.0,
-    "purchasePrice" : 200.0,
-    "description" : "35,6 cm (14 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 10 Grey",
-    "category" : "PC"
-  }, {
-    "productCode" : 15,
-    "name" : "Lenovo IdeaPad 3 15ITL6 PC",
-    "brand" : "Lenovo",
-    "sellingPrice" : 499.0,
-    "purchasePrice" : 150.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
-    "category" : "PC"
-  }, {
-    "productCode" : 16,
-    "name" : "Samsung Galaxy Book Pro 15",
-    "brand" : "Samsung",
-    "sellingPrice" : 1599.0,
-    "purchasePrice" : 400.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
-    "category" : "PC"
-  } ],
-  "values" : [ 6, 9, 6, 0 ]
+  "values" : [ 0, 3, 0, 0, 5, 3, 3, 3, 1, 0, 2, 1 ]
 } ]
