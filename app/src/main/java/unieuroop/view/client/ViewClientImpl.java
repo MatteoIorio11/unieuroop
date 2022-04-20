@@ -13,11 +13,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.client.ControllerClient;
 import unieuroop.model.person.Client;
+import unieuroop.model.person.ClientImpl;
 
 public final class ViewClientImpl implements Initializable, ViewClient {
 
     @FXML
-    private ListView<Client> listClients;
+    private ListView<ClientImpl> listClients;
     @FXML 
     private TextField tbxName;
     @FXML 
@@ -75,10 +76,10 @@ public final class ViewClientImpl implements Initializable, ViewClient {
     @FXML
     public void listClientHandler() {
         final Client client = this.listClients.getSelectionModel().getSelectedItem();
-        this.tbxName.setText(client.getName());
-        this.tbxSurname.setText(client.getSurname());
-        this.dtBirthday.setValue(client.getBirthdayDate());
-        this.lblCode.setText(Integer.toString(client.getCode()));
+        this.tbxName.setText(client.getPerson().getName());
+        this.tbxSurname.setText(client.getPerson().getSurname());
+        this.dtBirthday.setValue(client.getPerson().getBirthdayDate());
+        this.lblCode.setText(Integer.toString(client.getPerson().getCode()));
     }
 
     @Override

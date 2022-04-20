@@ -7,16 +7,16 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import unieuroop.model.person.Staff;
+import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Product;
 
 public final class DepartmentImpl implements Department {
 
     private final String name;
-    private final Set<Staff> staff;
+    private final Set<StaffImpl> staff;
     private final Map<Product, Integer> products;
 
-    public DepartmentImpl(final String nameDepartment, final Set<Staff> staff, final Map<Product, Integer> products) {
+    public DepartmentImpl(final String nameDepartment, final Set<StaffImpl> staff, final Map<Product, Integer> products) {
         this.name = nameDepartment;
         this.staff = new HashSet<>(staff);
         this.products = new HashMap<>(products);
@@ -36,7 +36,7 @@ public final class DepartmentImpl implements Department {
      * Add Staff to the department.
      */
     @Override
-    public void addStaff(final Staff newStaff) {
+    public void addStaff(final StaffImpl newStaff) {
         if (!this.staff.contains(newStaff)) {
             this.staff.add(newStaff);
         } else {
@@ -48,7 +48,7 @@ public final class DepartmentImpl implements Department {
      * Remove the Staff assigned to the department.
      */
     @Override
-    public void removeStaff(final Set<Staff> deleteStaff) {
+    public void removeStaff(final Set<StaffImpl> deleteStaff) {
         if (this.staff.containsAll(deleteStaff)) {
             this.staff.removeAll(deleteStaff);
         } else {
@@ -82,7 +82,7 @@ public final class DepartmentImpl implements Department {
      * Return all the staff assigned to the department.
      */
     @Override
-    public Set<Staff> getStaff() {
+    public Set<StaffImpl> getStaff() {
         return Set.copyOf(this.staff);
     }
 

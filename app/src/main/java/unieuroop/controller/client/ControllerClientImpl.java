@@ -12,6 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.person.Client;
+import unieuroop.model.person.ClientImpl;
 import unieuroop.model.shop.Shop;
 
 public final class ControllerClientImpl implements ControllerClient {
@@ -34,7 +35,7 @@ public final class ControllerClientImpl implements ControllerClient {
         final var date = LocalDateTime.now();
         final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
         final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
-        this.shop.registerClient(new Client(name, surname, birthday, Math.abs(code)));
+        this.shop.registerClient(new ClientImpl(name, surname, birthday, Math.abs(code)));
         serializationClient();
     }
 
@@ -43,9 +44,9 @@ public final class ControllerClientImpl implements ControllerClient {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
         }
-        client.setPersonName(name);
-        client.setPersonSurname(surname);
-        client.setPersonBirthday(birthday);
+        client.getPerson().setPersonName(name);
+        client.getPerson().setPersonSurname(surname);
+        client.getPerson().setPersonBirthday(birthday);
         serializationClient();
     }
 
@@ -58,13 +59,13 @@ public final class ControllerClientImpl implements ControllerClient {
     }
 
     @Override
-    public Set<Client> getRegisteredClients() {
+    public Set<ClientImpl> getRegisteredClients() {
         return this.shop.getRegisteredClients();
     }
 
     private void serializationClient() {
         try {
-            Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), this.shop.getRegisteredClients());
+            Serialization.<Set<ClientImpl>>serialize(Files.CLIENTS.getPath(), this.shop.getRegisteredClients());
         } catch (IOException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());

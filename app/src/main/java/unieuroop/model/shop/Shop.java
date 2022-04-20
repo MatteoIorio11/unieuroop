@@ -7,7 +7,9 @@ import java.util.function.Predicate;
 
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
+import unieuroop.model.person.ClientImpl;
 import unieuroop.model.person.Staff;
+import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
@@ -38,7 +40,7 @@ public interface Shop {
      * 
      * @return a set containing all the staffs of the shop
      */
-    Set<Staff> getStaffs();
+    Set<StaffImpl> getStaffs();
 
     /**
      * 
@@ -63,7 +65,7 @@ public interface Shop {
      * 
      * @return a set containing all the registered clients of the shop
      */
-    Set<Client> getRegisteredClients();
+    Set<ClientImpl> getRegisteredClients();
 
     /**
      * 
@@ -94,7 +96,7 @@ public interface Shop {
      * Adds a new person to the staff of the shop.
      * @param staff
      */
-    void addStaff(Staff staff);
+    void addStaff(StaffImpl staff);
 
     /**
      * Adds a new supplier to the shop.
@@ -112,7 +114,7 @@ public interface Shop {
      * Registers a new client.
      * @param client
      */
-    void registerClient(Client client);
+    void registerClient(ClientImpl client);
 
     /**
      * Removes an existing department.

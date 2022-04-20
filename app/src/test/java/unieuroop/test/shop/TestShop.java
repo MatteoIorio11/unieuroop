@@ -19,7 +19,8 @@ import javafx.util.Pair;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
-import unieuroop.model.person.Staff;
+import unieuroop.model.person.ClientImpl;
+import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
@@ -45,13 +46,13 @@ public class TestShop {
     /**
      * ALL THE STAFF THAT WILL BE USED IN THIS TEST.
      */
-    private final Staff staff1 = new Staff("Nome1", "Cognome1", TestShop.DATE_NOW,
+    private final StaffImpl staff1 = new StaffImpl("Nome1", "Cognome1", TestShop.DATE_NOW,
             0, "email1@gmail.com", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    private final Staff staff2 = new Staff("Nome2", "Cognome2", TestShop.DATE_NOW,
+    private final StaffImpl staff2 = new StaffImpl("Nome2", "Cognome2", TestShop.DATE_NOW,
             0, "email2@gmail.csom", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    private final Staff staff3 = new Staff("Nome3", "Cognome4", TestShop.DATE_NOW,
+    private final StaffImpl staff3 = new StaffImpl("Nome3", "Cognome4", TestShop.DATE_NOW,
             0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    private final Staff staff4 = new Staff("Nome4", "Cognome4", TestShop.DATE_NOW,
+    private final StaffImpl staff4 = new StaffImpl("Nome4", "Cognome4", TestShop.DATE_NOW,
             0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
@@ -99,13 +100,13 @@ public class TestShop {
         assertEquals(Map.of(p2, 1, p3, 2, p4, 1), this.department3.getAllProducts());
     }
     /**
-     * TESTING : removeClient(Client {@link Client}) {@link Shop}.
+     * TESTING : removeClient(Client {@link ClientImpl}) {@link Shop}.
      */
     @Test
     public void testRemoveClient1() {
-        final Client client1 = new Client("Name1", "Surname1", TestShop.DATE_NOW, 1);
-        final Client client2 = new Client("Name2", "Surname2", TestShop.DATE_NOW, 2);
-        final Client client3 = new Client("Name3", "Surname3", TestShop.DATE_NOW, 3);
+        final ClientImpl client1 = new ClientImpl("Name1", "Surname1", TestShop.DATE_NOW, 1);
+        final ClientImpl client2 = new ClientImpl("Name2", "Surname2", TestShop.DATE_NOW, 2);
+        final Client client3 = new ClientImpl("Name3", "Surname3", TestShop.DATE_NOW, 3);
         this.shop01.registerClient(client1);
         this.shop01.registerClient(client2);
 
@@ -117,12 +118,12 @@ public class TestShop {
         }
     }
     /**
-     * TESTING : removeClient(Client {@link Client}) {@link Shop}.
+     * TESTING : removeClient(Client {@link ClientImpl}) {@link Shop}.
      */
     @Test
     public void testRemoveClient2() {
-        final Client client1 = new Client("Name1", "Surname1", TestShop.DATE_NOW, 1);
-        final Client client2 = new Client("Name2", "Surname2", TestShop.DATE_NOW, 2);
+        final ClientImpl client1 = new ClientImpl("Name1", "Surname1", TestShop.DATE_NOW, 1);
+        final ClientImpl client2 = new ClientImpl("Name2", "Surname2", TestShop.DATE_NOW, 2);
         this.shop01.registerClient(client1);
         this.shop01.registerClient(client2);
 
@@ -206,7 +207,7 @@ public class TestShop {
         }
     }
     /**
-     * TESTING : removeStaff(Staff {@link Staff} ) {@link Shop}.
+     * TESTING : removeStaff(Staff {@link StaffImpl} ) {@link Shop}.
      */
     @Test
     public void testRemoveStaff1() {
@@ -222,7 +223,7 @@ public class TestShop {
         }
     }
     /**
-     * TESTING : removeStaff(Staff {@link Staff} ) {@link Shop}.
+     * TESTING : removeStaff(Staff {@link StaffImpl} ) {@link Shop}.
      */
     @Test
     public void testRemoveStaff2() {

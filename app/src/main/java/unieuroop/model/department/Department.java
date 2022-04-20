@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import unieuroop.model.person.Staff;
+import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Product;
 
 public interface Department {
@@ -19,13 +19,13 @@ public interface Department {
      * assigns new Staff in the Department.
      * @param newStaff
      */
-    void addStaff(Staff newStaff);
+    void addStaff(StaffImpl newStaff);
 
     /**
      * Remove a set of Staff from the assigned Department.
      * @param deleteStaff
      */
-    void removeStaff(Set<Staff> deleteStaff);
+    void removeStaff(Set<StaffImpl> deleteStaff);
 
     /**
      * Return the Department name.
@@ -44,7 +44,7 @@ public interface Department {
      * Return the entire Staff assigned in the Department.
      * @return staffsDepartment
      */
-    Set<Staff> getStaff();
+    Set<StaffImpl> getStaff();
 
     /**
      * Return all products presents in the Department.

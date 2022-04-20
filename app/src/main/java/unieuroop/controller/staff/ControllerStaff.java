@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 import unieuroop.model.person.Staff;
+import unieuroop.model.person.StaffImpl;
 
 public interface ControllerStaff {
 
@@ -53,12 +54,12 @@ public interface ControllerStaff {
      * 
      * @return all the staffs in the shop.
      */
-    Set<Staff> getStaff();
+    Set<StaffImpl> getStaff();
 
     /**
      * 
      * @return all the staffs unsigned at the department.
      */
-    Set<Staff> getUnsignedStaff();
+    Set<StaffImpl> getUnsignedStaff();
 
 }

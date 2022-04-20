@@ -18,15 +18,15 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import unieuroop.controller.client.ControllerClient;
 import unieuroop.controller.sale.ControllerSale;
-import unieuroop.model.person.Client;
+import unieuroop.model.person.ClientImpl;
 
 public final class ViewChoseClientImpl extends Stage implements Initializable, ViewChoseClient {
-    @FXML private ListView<Client> listClients;
+    @FXML private ListView<ClientImpl> listClients;
     @FXML private TextField textName;
     @FXML private Button btnSelect;
     @FXML private Button btnCancel;
     @FXML private Button btnEmpty;
-    private Optional<Client> selectedClient;
+    private Optional<ClientImpl> selectedClient;
     private final ControllerSale controllerSale;
     private final ControllerClient controllerClient;
     public ViewChoseClientImpl(final ControllerSale controller, final ControllerClient controllerClient) {
@@ -44,7 +44,7 @@ public final class ViewChoseClientImpl extends Stage implements Initializable, V
                 this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients());
             } else {
                 this.listClients.getItems().addAll(this.controllerClient.getRegisteredClients().stream()
-                        .filter((client) -> client.getName().contains(newValue)).collect(Collectors.toList()));
+                        .filter((client) -> client.getPerson().getName().contains(newValue)).collect(Collectors.toList()));
             }
         });
     }

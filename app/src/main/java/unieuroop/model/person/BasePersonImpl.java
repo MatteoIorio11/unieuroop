@@ -2,78 +2,60 @@ package unieuroop.model.person;
 
 import java.time.LocalDate;
 
-// NOMPD
-// Need to suppress the warning cause our abstract class don't need an abstract method
-public abstract class AbstractPerson {
+public final class BasePersonImpl implements BasePerson {
+
     private String name;
     private String surname;
     private LocalDate birthday;
     private final int code;
-    protected AbstractPerson(final String name, final String surname, final LocalDate birthday, final int code) {
+
+    protected BasePersonImpl(final String name, final String surname, final LocalDate birthday, final int code) {
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
         this.code = code;
     }
 
-    /**
-     * set person name.
-     * @param name
-     */
+    @Override
     public void setPersonName(final String name) {
         this.name = name;
     }
 
-    /**
-     * set person surname.
-     * @param surname
-     */
+    @Override
     public void setPersonSurname(final String surname) {
         this.surname = surname;
     }
 
-    /**
-     * set person birthday.
-     * @param birthday
-     */
+    @Override
     public void setPersonBirthday(final LocalDate birthday) {
         this.birthday = birthday;
     }
 
-    /**
-     * @return the name of the person 
-     */
+    @Override
     public String getName() {
         return this.name;
     }
 
-    /**
-     * @return the surname of the person 
-     */
+    @Override
     public String getSurname() {
         return this.surname;
     }
 
-    /**
-     * @return the birthday of the person 
-     */
+    @Override
     public LocalDate getBirthdayDate() {
         return this.birthday;
     }
 
-    /**
-     * @return toString of the person
-     */
     @Override
-    public String toString() {
-        return this.name + " " + this.surname + " " + this.birthday;
+    public int getCode() {
+        return this.code;
     }
 
-    abstract int getCode();
+    @Override
+    public String toString() {
+        return this.name + " " + this.surname + " " + this.birthday + " " + this.code;
+    }
 
-    /**
-     * override of hashCode.
-     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -84,21 +66,18 @@ public abstract class AbstractPerson {
         return result;
     }
 
-    /**
-     * override of equals.
-     */
     @Override
     public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final AbstractPerson other = (AbstractPerson) obj;
+        final BasePerson other = (BasePerson) obj;
         return this.code == other.getCode() ? true : false;
     }
 
