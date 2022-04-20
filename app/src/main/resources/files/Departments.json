@@ -1,231 +1,90 @@
 [ {
-  "departmentName" : "Department K",
+  "departmentName" : "Home & Utilities",
   "staff" : [ {
+  "name" : "Luca",
+  "surname" : "Dimitri",
+  "email" : "lucadm99@gmail.com",
+  "id" : 1145359388,
+  "password" : 2101431141,
+  "birthday" : [ 1999, 9, 21 ],
+  "days" : [ "MONDAY", "THURSDAY", "SATURDAY", "FRIDAY", "WEDNESDAY", "TUESDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ] ]
+}, {
   "name" : "Filippo",
   "surname" : "Romano",
   "email" : "filipppo.romano00@gmail.com",
   "id" : 738962461,
   "password" : 46792755,
   "birthday" : [ 2001, 7, 22 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
-}, {
-  "name" : "Ciao",
-  "surname" : "Cognome",
-  "email" : "ciao@gmail.com",
-  "id" : 243754011,
-  "password" : 46792755,
-  "birthday" : [ 2003, 4, 18 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 5, 0 ], [ 5, 0 ], [ 5, 0 ], [ 5, 0 ], [ 5, 0 ] ],
-  "endTimes" : [ [ 15, 0 ], [ 15, 0 ], [ 15, 0 ], [ 15, 0 ], [ 15, 0 ] ]
-}, {
-  "name" : "jkfdsh",
-  "surname" : "kjh",
-  "email" : "iuhk",
-  "id" : 6,
-  "password" : 3589783,
-  "birthday" : [ 2002, 4, 10 ],
-  "days" : [ "TUESDAY", "THURSDAY", "MONDAY", "WEDNESDAY", "SATURDAY", "FRIDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
-}, {
-  "name" : "Marco",
-  "surname" : "Turci",
-  "email" : "marco.turci2001@gmail.com",
-  "id" : 346557560,
-  "password" : 64550777,
-  "birthday" : [ 2002, 5, 10 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
-  "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
-}, {
-  "name" : "Matteo",
-  "surname" : "Iorio",
-  "email" : "matteo.iorio01@gmail.com",
-  "id" : 744987603,
-  "password" : -2039966210,
-  "birthday" : [ 2001, 2, 11 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
-}, {
-  "name" : "Simone",
-  "surname" : "Cefariello",
-  "email" : "simoneCefariello@gmail.com",
-  "id" : 1438068174,
-  "password" : 1509442,
-  "birthday" : [ 2001, 10, 5 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
 } ],
   "products" : [ {
-    "productCode" : 75,
-    "name" : "Samsung MUF-128AB",
+    "productCode" : 82,
+    "name" : "D-Link DGS-108 Unmanaged Switch",
+    "brand" : "D-Link",
+    "sellingPrice" : 39.99,
+    "purchasePrice" : 20.0,
+    "description" : "RJ-45 Ports: 8, Ethernet Technology: 1000BASE-T, 100BASE-TX, 10BASE-T, Supported Data Transfer: 10-100-1000MBps Max Transfer: 1GBps, Silver",
+    "category" : "NETWORKING"
+  }, {
+    "productCode" : 32,
+    "name" : "Samsung Galaxy Watch4",
     "brand" : "Samsung",
-    "sellingPrice" : 24.99,
-    "purchasePrice" : 10.0,
-    "description" : "USB Flash Drive 128GB USB TypeA 3.2 Gen 1 (3.1 Gen 1) Gray, Silver",
+    "sellingPrice" : 219.9,
+    "purchasePrice" : 90.0,
+    "description" : "40mm Smartwatch Ghiera Touch Alluminium Memory 16GB Pink Gold",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 80,
+    "name" : "SanDisk Ultra Flash Unit",
+    "brand" : "SanDisk",
+    "sellingPrice" : 29.99,
+    "purchasePrice" : 11.0,
+    "description" : "USB 64 GB USB typeA 3.2 Gen 1 (3.1 Gen 1) Black",
     "category" : "HARD_DISK_AND_STORAGE"
   }, {
-    "productCode" : 44,
-    "name" : "HP OMEN 25L GT12-1027nl",
-    "brand" : "HP",
-    "sellingPrice" : 1999.99,
-    "purchasePrice" : 850.0,
-    "description" : "DDR4-SDRAM 5800X Desktop AMD Ryzen™ 7 16 GB 1000 GB SSD Windows 11 Black",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 30,
-    "name" : "Samsung MC32K7055CK Microwave",
-    "brand" : "Samsung",
-    "sellingPrice" : 249.0,
-    "purchasePrice" : 70.0,
-    "description" : "Flat Surface Combination Microwave 32 L 900 W Black",
-    "category" : "HOME"
-  }, {
-    "productCode" : 9,
-    "name" : "Apple iPhone 13 Pro Max",
+    "productCode" : 31,
+    "name" : "Apple Watch Series 3",
     "brand" : "Apple",
-    "sellingPrice" : 1591.0,
-    "purchasePrice" : 800.0,
-    "description" : "512GB Alpine Green 5G, iOS 15",
-    "category" : "SMARTPHONE"
+    "sellingPrice" : 209.0,
+    "purchasePrice" : 60.0,
+    "description" : "GPS, 38mm Space Gray Aluminum with Black Sport Band, Type Display OLED, OS WatchOS 5",
+    "category" : "SMARTWATCH"
   }, {
-    "productCode" : 37,
-    "name" : "MSI MAG Infinite S3",
-    "brand" : "MSI",
-    "sellingPrice" : 1799.0,
-    "purchasePrice" : 700.0,
-    "description" : "DDR4-SDRAM i7-11700F Desktop Intel Core i7 16 GB 1512 GB HDD+SSD Windows 10 Black",
-    "category" : "COMPUTER"
+    "productCode" : 78,
+    "name" : "Apple SuperDrive",
+    "brand" : "Apple",
+    "sellingPrice" : 69.99,
+    "purchasePrice" : 20.0,
+    "description" : "Ultra-compact, Apple USB SuperDrive connects to your MacBook Pro with Retina display, or with a single USB cable, 2000 GB, White",
+    "category" : "HARD_DISK_AND_STORAGE"
   }, {
-    "productCode" : 29,
-    "name" : "Xiaomi Mi LED TV 4A",
-    "brand" : "Xiaomi",
-    "sellingPrice" : 199.99,
-    "purchasePrice" : 99.0,
-    "description" : "81,3 cm (32 inches) HD Smart TV Wi-Fi Black",
-    "category" : "HOME"
+    "productCode" : 77,
+    "name" : "Seagate Backup Plus",
+    "brand" : "Seagate",
+    "sellingPrice" : 149.99,
+    "purchasePrice" : 25.0,
+    "description" : "4000 GB External Hard Disk Hub, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
   }, {
-    "productCode" : 57,
-    "name" : "Logitech G G413",
-    "brand" : "Logitech",
-    "sellingPrice" : 54.99,
-    "purchasePrice" : 10.0,
-    "description" : "Mechanical Gaming Keyboard USB QWERTY Italy, Black",
-    "category" : "KEYBOARD"
-  }, {
-    "productCode" : 6,
-    "name" : "Samsung Galaxy S22",
-    "brand" : "Samsung",
-    "sellingPrice" : 928.0,
-    "purchasePrice" : 450.0,
-    "description" : "5G Display 6.1 inch Dynamic AMOLED 2X, 4 fotocamere, RAM 8 GB, 256 GB, 3.700mAh, Phantom Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 5,
-    "name" : "Samsung Galaxy A53",
-    "brand" : "Samsung",
-    "sellingPrice" : 469.99,
+    "productCode" : 27,
+    "name" : "Dyson Pure Cool",
+    "brand" : "Dyson",
+    "sellingPrice" : 449.9,
     "purchasePrice" : 200.0,
-    "description" : "5G Display 6.5 inch FHD+ Super AMOLED Double SIM Android 12, RAM 6 GB, 128 GB, 5.000 mAh, Awesome Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 4,
-    "name" : "Xiaomi 11 Lite",
-    "brand" : "Xiaomi",
-    "sellingPrice" : 289.0,
-    "purchasePrice" : 100.0,
-    "description" : "5G NE 16,6 cm (6.55 inch) Dual SIM Android 11 USB type-C 8 GB 128 GB 4250 mAh Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 3,
-    "name" : "Samsung Galaxy A13",
-    "brand" : "Samsung",
-    "sellingPrice" : 199.99,
-    "purchasePrice" : 90.0,
-    "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 2,
-    "name" : "Samsung Galaxy A22",
-    "brand" : "Samsung",
-    "sellingPrice" : 179.99,
-    "purchasePrice" : 70.0,
-    "description" : "5G 6.6 inch 64 GB Expandable Gray",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 1,
-    "name" : "Samsung Galaxy A52",
-    "brand" : "Samsung",
-    "sellingPrice" : 299.99,
-    "purchasePrice" : 100.0,
-    "description" : "5G SM-A528B 16,5 cm (6.5 inch) Double SIM Android 11 USB type-C 6 GB 128 GB 4500 mAh Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 28,
-    "name" : "LG OLED OLED65C15LA",
-    "brand" : "LG",
-    "sellingPrice" : 1650.0,
-    "purchasePrice" : 350.0,
-    "description" : "65 inches Smart TV 4K Ultra HD New 2021 Wi-Fi Software α9 Gen4 AI Picture Pro",
+    "description" : "Pure Cool Dyson 36dB, Power 56W, Color Silver and White",
     "category" : "HOME"
-  } ],
-  "values" : [ 56, 74, 154, 4, 0, 350, 115, 2, 91, 64, 10, 0, 35, 0 ]
-}, {
-  "departmentName" : "department3",
-  "staff" : [ {
-  "name" : "Nome2",
-  "surname" : "Cognome2",
-  "email" : "email2@gmail.csom",
-  "id" : 0,
-  "password" : 222,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
-  "name" : "Nome4",
-  "surname" : "Cognome4",
-  "email" : "email4@gmail.csom",
-  "id" : 0,
-  "password" : 444,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
-  "name" : "Nome3",
-  "surname" : "Cognome4",
-  "email" : "email3@gmail.com",
-  "id" : 0,
-  "password" : 333,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
-  "name" : "Nome1",
-  "surname" : "Cognome1",
-  "email" : "prova@gmail.com",
-  "id" : 0,
-  "password" : 1509442,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 55,
-    "name" : "Huawei MateView GT",
-    "brand" : "Huawei",
-    "sellingPrice" : 349.9,
-    "purchasePrice" : 99.0,
-    "description" : "68,6 cm (27 inches) 2560x1440 Pixel Quad HD LCD Black",
-    "category" : "MONITOR"
+  }, {
+    "productCode" : 26,
+    "name" : "iRobot Roomba Combo",
+    "brand" : "Romba Combo",
+    "sellingPrice" : 299.9,
+    "purchasePrice" : 100.0,
+    "description" : "Robot Vacuum 0,45 L Dust Bag, Black and Grey",
+    "category" : "HOME"
   }, {
     "productCode" : 25,
     "name" : "Ariete 2474",
@@ -233,6 +92,14 @@
     "sellingPrice" : 249.0,
     "purchasePrice" : 30.0,
     "description" : "Portable Vacuum Cleaner Bagless Black, Purple",
+    "category" : "HOME"
+  }, {
+    "productCode" : 24,
+    "name" : "Dyson V15 Detect Absolute",
+    "brand" : "Dyson",
+    "sellingPrice" : 749.0,
+    "purchasePrice" : 200.0,
+    "description" : "Cordless Vacuum Cleaner, Weight 3000g, Power Supply Battery, Charging Time 4.5h, Suction Power 240W, Color Copper, Niche, Yellow",
     "category" : "HOME"
   }, {
     "productCode" : 23,
@@ -243,13 +110,298 @@
     "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
     "category" : "HOME"
   }, {
-    "productCode" : 76,
-    "name" : "Samsung MZ-77Q1T0",
+    "productCode" : 22,
+    "name" : "Bose UFS-20",
+    "brand" : "Bose",
+    "sellingPrice" : 129.99,
+    "purchasePrice" : 70.0,
+    "description" : "The Black Floor wall mount for loudspeakers",
+    "category" : "HOME"
+  } ],
+  "values" : [ 1, 3, 1, 3, 4, 4, 3, 5, 3, 1, 5, 5 ]
+}, {
+  "departmentName" : "Mouse",
+  "staff" : [ {
+  "name" : "Fabio",
+  "surname" : "Vincenzi",
+  "email" : "fabio.vincenzi2001@gmail.com",
+  "id" : 537341718,
+  "password" : 1098694324,
+  "birthday" : [ 2002, 4, 24 ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
+  "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
+  "endTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ]
+}, {
+  "name" : "Giulia",
+  "surname" : "Merli",
+  "email" : "giulia.merli@icloud.com",
+  "id" : 709413956,
+  "password" : 112212417,
+  "birthday" : [ 2002, 6, 3 ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
+  "startTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ],
+  "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 73,
+    "name" : "Samsung 870 EVO",
     "brand" : "Samsung",
-    "sellingPrice" : 83.99,
-    "purchasePrice" : 25.0,
-    "description" : "1000 GB Serial ATA III QLC, Write 530 MBps Read 560 MBps, Silver Gray",
+    "sellingPrice" : 49.99,
+    "purchasePrice" : 15.0,
+    "description" : "250 GB Serial ATA III V-NAND, Write 530 MBps Read 560 MBps, Black",
     "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 72,
+    "name" : "Toshiba Canvio",
+    "brand" : "Toshiba",
+    "sellingPrice" : 39.99,
+    "purchasePrice" : 13.0,
+    "description" : "External Hard Disk, Capacity 1000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 71,
+    "name" : "Toshiba Canvio Basics",
+    "brand" : "Toshiba",
+    "sellingPrice" : 82.99,
+    "purchasePrice" : 30.0,
+    "description" : "External Hard Disk, Capacity 4000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 64,
+    "name" : "Logitech G G305",
+    "brand" : "Logitech",
+    "sellingPrice" : 32.99,
+    "purchasePrice" : 10.0,
+    "description" : "Right Hand Mouse, Wireless RF + Optical Bluetooth 12000 DPI, Black and Grey",
+    "category" : "MOUSE"
+  }, {
+    "productCode" : 63,
+    "name" : "Logitech M100",
+    "brand" : "Logitech",
+    "sellingPrice" : 7.99,
+    "purchasePrice" : 2.0,
+    "description" : "USB Mouse Cable, 3 Buttons, 1000 DPI Optical Tracking, Ambidextrous, Compatible with PC, Mac and Laptop",
+    "category" : "MOUSE"
+  }, {
+    "productCode" : 62,
+    "name" : "Logitech MX Master 3",
+    "brand" : "Logitech",
+    "sellingPrice" : 72.98,
+    "purchasePrice" : 25.0,
+    "description" : "Advanced Wireless Mouse, 2.4 GHz Bluetooth or USB Receiver, Ultra-Fast Scrolling, 4000 DPI Any Surface, Ergonomic, 7 Buttons, PC-Mac-Laptop-iPadOS, Light Gray",
+    "category" : "MOUSE"
+  }, {
+    "productCode" : 61,
+    "name" : "Apple Magic Mouse",
+    "brand" : "Apple",
+    "sellingPrice" : 69.99,
+    "purchasePrice" : 20.0,
+    "description" : "Ambidextrous Bluetooth Mouse, Rechargeable White",
+    "category" : "MOUSE"
+  }, {
+    "productCode" : 60,
+    "name" : "Logitech MK220",
+    "brand" : "Logitech",
+    "sellingPrice" : 19.0,
+    "purchasePrice" : 9.0,
+    "description" : "Wireless Keyboard USB, Black",
+    "category" : "KEYBOARD"
+  }, {
+    "productCode" : 59,
+    "name" : "Trust GXT 845",
+    "brand" : "Trust",
+    "sellingPrice" : 29.99,
+    "purchasePrice" : 9.0,
+    "description" : "Tural keyboard USB QWERTY italy Black",
+    "category" : "KEYBOARD"
+  }, {
+    "productCode" : 58,
+    "name" : "Apple Magic Keyboard",
+    "brand" : "Apple",
+    "sellingPrice" : 320.0,
+    "purchasePrice" : 120.0,
+    "description" : "For iPad Pro 11 inches (Third Generation) and iPad Air (Fourth Generation) - White",
+    "category" : "KEYBOARD"
+  } ],
+  "values" : [ 1, 5, 3, 4, 4, 15, 20, 4, 1, 0 ]
+}, {
+  "departmentName" : "PC & Computer",
+  "staff" : [ {
+  "name" : "Simone",
+  "surname" : "Cefariello",
+  "email" : "simone.cefariello@gmail.com",
+  "id" : 1438068174,
+  "password" : 1509442,
+  "birthday" : [ 2001, 10, 5 ],
+  "days" : [ "MONDAY", "THURSDAY", "SATURDAY", "FRIDAY", "WEDNESDAY", "TUESDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
+}, {
+  "name" : "Matteo",
+  "surname" : "Iorio",
+  "email" : "matteo.iorio01@gmail.com",
+  "id" : 821220106,
+  "password" : 1509442,
+  "birthday" : [ 2001, 2, 11 ],
+  "days" : [ "MONDAY", "THURSDAY", "SATURDAY", "FRIDAY", "WEDNESDAY", "TUESDAY" ],
+  "startTimes" : [ [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ] ],
+  "endTimes" : [ [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ] ]
+}, {
+  "name" : "Nicola",
+  "surname" : "Strada",
+  "email" : "nicola.strada4@gmail.com",
+  "id" : 1590664781,
+  "password" : -1293335239,
+  "birthday" : [ 2001, 10, 27 ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 51,
+    "name" : "ASUS VA27EHE",
+    "brand" : "Asus",
+    "sellingPrice" : 174.0,
+    "purchasePrice" : 35.0,
+    "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
+    "category" : "MONITOR"
+  }, {
+    "productCode" : 50,
+    "name" : "Acer NITRO QG1 QG241Y",
+    "brand" : "Acer",
+    "sellingPrice" : 139.9,
+    "purchasePrice" : 50.0,
+    "description" : "60,5 cm (23.8 inches) 1920x1080 Pixel Full HD LED Black",
+    "category" : "MONITOR"
+  }, {
+    "productCode" : 49,
+    "name" : "Lenovo D27-30",
+    "brand" : "Lenovo",
+    "sellingPrice" : 149.0,
+    "purchasePrice" : 45.0,
+    "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
+    "category" : "MONITOR"
+  }, {
+    "productCode" : 48,
+    "name" : "Samsung F27T350",
+    "brand" : "Samsung",
+    "sellingPrice" : 159.0,
+    "purchasePrice" : 45.0,
+    "description" : "Monitor LED 27 inches, Flat Resolution 1920x1080 Black",
+    "category" : "MONITOR"
+  }, {
+    "productCode" : 21,
+    "name" : "Samsung HW-Q700A Soundbar",
+    "brand" : "Samsung",
+    "sellingPrice" : 339.0,
+    "purchasePrice" : 120.0,
+    "description" : "Black 3.1.2 channel, Width 980mm, Audio: DTS Digital Surround, Dolby Atmos, Dolby Digital Plus, Dolby TrueHD",
+    "category" : "HOME"
+  }, {
+    "productCode" : 46,
+    "name" : "Samsung F24T350",
+    "brand" : "Samsung",
+    "sellingPrice" : 149.0,
+    "purchasePrice" : 30.0,
+    "description" : "Monitor LED 24 inches, Flat Resolution 1920x1080 Black",
+    "category" : "MONITOR"
+  }, {
+    "productCode" : 45,
+    "name" : "Apple Mac Mini",
+    "brand" : "Apple",
+    "sellingPrice" : 709.0,
+    "purchasePrice" : 230.0,
+    "description" : "Chip M1 con GPU 8-core, 256GB SSD, 8GB RAM - Silver (2020)",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 19,
+    "name" : "Apple MacBook Air 13",
+    "brand" : "Apple",
+    "sellingPrice" : 1299.0,
+    "purchasePrice" : 500.0,
+    "description" : "Chip M1 con GPU 8-core, 512GB SSD, 8GB RAM - Silver (2020)",
+    "category" : "PC"
+  }, {
+    "productCode" : 18,
+    "name" : "Apple MacBook Pro 14",
+    "brand" : "Apple",
+    "sellingPrice" : 2099.0,
+    "purchasePrice" : 850.0,
+    "description" : "Chip M1 Pro 8‑core CPU 14‑core GPU 512GB SSD Space Gray 96 W",
+    "category" : "PC"
+  }, {
+    "productCode" : 41,
+    "name" : "Apple iMac 24",
+    "brand" : "Apple",
+    "sellingPrice" : 1499.0,
+    "purchasePrice" : 450.0,
+    "description" : "Display Retina 4.5K (Chip M1 con GPU 8-core, 256GB SSD) - Blue (2021)",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 40,
+    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
+    "brand" : "Asus",
+    "sellingPrice" : 1699.0,
+    "purchasePrice" : 520.0,
+    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 39,
+    "name" : "Acer NITRO 50 N50-620",
+    "brand" : "Acer",
+    "sellingPrice" : 1099.0,
+    "purchasePrice" : 650.0,
+    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
+    "category" : "COMPUTER"
+  } ],
+  "values" : [ 1, 1, 1, 1, 4, 2, 5, 5, 10, 10, 2, 4 ]
+}, {
+  "departmentName" : "Tablet",
+  "staff" : [ {
+  "name" : "Mario",
+  "surname" : "Rossi",
+  "email" : "mario.rossi@gmail.com",
+  "id" : 1917962234,
+  "password" : 46793748,
+  "birthday" : [ 2002, 4, 19 ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
+}, {
+  "name" : "Lucia",
+  "surname" : "Martinelli",
+  "email" : "lucia.mar00@gmail.com",
+  "id" : 1336425467,
+  "password" : 46792755,
+  "birthday" : [ 2000, 11, 17 ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
+  "startTimes" : [ [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ] ],
+  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 14,
+    "name" : "Huawei MateBook D 14 53012JBB notebook PC",
+    "brand" : "Huawei",
+    "sellingPrice" : 599.0,
+    "purchasePrice" : 200.0,
+    "description" : "35,6 cm (14 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 10 Grey",
+    "category" : "PC"
+  }, {
+    "productCode" : 20,
+    "name" : "ASUS VivoBook 15 K513EA-L12251W PC",
+    "brand" : "Asus",
+    "sellingPrice" : 999.0,
+    "purchasePrice" : 230.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
+    "category" : "PC"
+  }, {
+    "productCode" : 16,
+    "name" : "Samsung Galaxy Book Pro 15",
+    "brand" : "Samsung",
+    "sellingPrice" : 1599.0,
+    "purchasePrice" : 400.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
+    "category" : "PC"
   }, {
     "productCode" : 15,
     "name" : "Lenovo IdeaPad 3 15ITL6 PC",
@@ -258,126 +410,38 @@
     "purchasePrice" : 150.0,
     "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
     "category" : "PC"
-  }, {
-    "productCode" : 99,
-    "name" : "Huawei MatePad T 10s",
-    "brand" : "Huawei",
-    "sellingPrice" : 229.9,
-    "purchasePrice" : 60.0,
-    "description" : "Tablet 4G TD-LTE & FDD-LTE 64 GB 25.6 cm (10.1 inches) Hisilicon Kirin 4 GB Wi-Fi 5 (802.11ac) EMUI 10.1 - Blue",
-    "category" : "TABLET"
-  }, {
-    "productCode" : 69,
-    "name" : "HP LaserJet M140we",
-    "brand" : "HP",
-    "sellingPrice" : 179.0,
-    "purchasePrice" : 35.0,
-    "description" : "Laser A4 600x600 DPI 20 ppm Wi-Fi, White",
-    "category" : "PRINTER"
-  }, {
-    "productCode" : 7,
-    "name" : "Apple iPhone 13 Pro",
-    "brand" : "Apple",
-    "sellingPrice" : 1259.0,
-    "purchasePrice" : 600.0,
-    "description" : "256GB Blue Sierra, 5G, iOS 15",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 29,
-    "name" : "Xiaomi Mi LED TV 4A",
-    "brand" : "Xiaomi",
-    "sellingPrice" : 199.99,
-    "purchasePrice" : 99.0,
-    "description" : "81,3 cm (32 inches) HD Smart TV Wi-Fi Black",
-    "category" : "HOME"
-  }, {
-    "productCode" : 4,
-    "name" : "mac book pro 16",
-    "brand" : "APPLE",
-    "sellingPrice" : 6000.0,
-    "purchasePrice" : 3000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
-  }, {
-    "productCode" : 3,
-    "name" : "mac book pro 14 ",
-    "brand" : "APPLE",
-    "sellingPrice" : 3000.0,
-    "purchasePrice" : 2000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
-  }, {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
-  }, {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 56,
-    "name" : "Logitech MK235",
-    "brand" : "Logitech",
-    "sellingPrice" : 19.99,
-    "purchasePrice" : 5.0,
-    "description" : "Keyboard Wireless for Windows, Unifying USB 2,4 GHz Wireless, Long Battery Life",
-    "category" : "KEYBOARD"
   } ],
-  "values" : [ 108, 0, 1, 65, 0, 105, 83, 32, 1, 112, 1, 161, 4, 8 ]
+  "values" : [ 9, 7, 10, 6 ]
 }, {
-  "departmentName" : "department2",
+  "departmentName" : "Smartphone & TV",
   "staff" : [ {
-  "name" : "Nome2",
-  "surname" : "Cognome2",
-  "email" : "email2@gmail.csom",
-  "id" : 0,
-  "password" : 222,
-  "birthday" : [ 2022, 4, 6 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 14, 4, 27, 961304000 ] ],
-  "endTimes" : [ [ 10, 10 ] ]
-}, {
-  "name" : "Fabio",
-  "surname" : "Vincenzi",
-  "email" : "fabio.vincenzi2001@gmail.com",
-  "id" : 537341718,
-  "password" : 1098694324,
-  "birthday" : [ 2002, 4, 24 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
+  "name" : "Sofia",
+  "surname" : "Zoffoli",
+  "email" : "sofi.zoff@gmail.com",
+  "id" : 2019713670,
+  "password" : 3237900,
+  "birthday" : [ 2001, 7, 27 ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
   "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
-  "endTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ]
+  "endTimes" : [ [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ] ]
+}, {
+  "name" : "Samuele",
+  "surname" : "Ferri",
+  "email" : "samueleferri1301@gmail.com",
+  "id" : 1925175868,
+  "password" : 1661526827,
+  "birthday" : [ 2001, 6, 6 ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
 } ],
   "products" : [ {
-    "productCode" : 39,
-    "name" : "Acer NITRO 50 N50-620",
-    "brand" : "Acer",
-    "sellingPrice" : 1099.0,
-    "purchasePrice" : 650.0,
-    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 38,
-    "name" : "Acer Aspire XC-1660",
-    "brand" : "Acer",
-    "sellingPrice" : 529.0,
-    "purchasePrice" : 300.0,
-    "description" : "DDR4-SDRAM i3-10105 Desktop Intel® Core™ i3 8 GB 256 GB SSD Windows 11 Black",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 11,
-    "name" : "HP 15s-fq2004nlw11 PC",
-    "brand" : "HP",
-    "sellingPrice" : 749.9,
-    "purchasePrice" : 300.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i5 eleventh generation 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 11 Silver Home",
+    "productCode" : 12,
+    "name" : "Samsung Galaxy Book",
+    "brand" : "Samsung",
+    "sellingPrice" : 849.9,
+    "purchasePrice" : 350.0,
+    "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
     "category" : "PC"
   }, {
     "productCode" : 10,
@@ -386,14 +450,6 @@
     "sellingPrice" : 219.0,
     "purchasePrice" : 70.0,
     "description" : "175g, Display 6.43 inch FHD+ AMOLED, 4 Fotocamere 48MP, RAM 6GB ROM 128GB, Battery 5000mAh, Rapid Charge, Dual Sim, Prism Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 9,
-    "name" : "Apple iPhone 13 Pro Max",
-    "brand" : "Apple",
-    "sellingPrice" : 1591.0,
-    "purchasePrice" : 800.0,
-    "description" : "512GB Alpine Green 5G, iOS 15",
     "category" : "SMARTPHONE"
   }, {
     "productCode" : 8,
@@ -411,164 +467,6 @@
     "purchasePrice" : 600.0,
     "description" : "256GB Blue Sierra, 5G, iOS 15",
     "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 6,
-    "name" : "Samsung Galaxy S22",
-    "brand" : "Samsung",
-    "sellingPrice" : 928.0,
-    "purchasePrice" : 450.0,
-    "description" : "5G Display 6.1 inch Dynamic AMOLED 2X, 4 fotocamere, RAM 8 GB, 256 GB, 3.700mAh, Phantom Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 5,
-    "name" : "Samsung Galaxy A53",
-    "brand" : "Samsung",
-    "sellingPrice" : 469.99,
-    "purchasePrice" : 200.0,
-    "description" : "5G Display 6.5 inch FHD+ Super AMOLED Double SIM Android 12, RAM 6 GB, 128 GB, 5.000 mAh, Awesome Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 4,
-    "name" : "mac book pro 16",
-    "brand" : "APPLE",
-    "sellingPrice" : 6000.0,
-    "purchasePrice" : 3000.0,
-    "description" : "best mac book ever created",
-    "category" : "PC"
-  }, {
-    "productCode" : 3,
-    "name" : "Samsung Galaxy A13",
-    "brand" : "Samsung",
-    "sellingPrice" : 199.99,
-    "purchasePrice" : 90.0,
-    "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 2,
-    "name" : "applewatch",
-    "brand" : "APPLE",
-    "sellingPrice" : 500.0,
-    "purchasePrice" : 200.0,
-    "description" : "best watch ever created",
-    "category" : "SMARTWATCH"
-  }, {
-    "productCode" : 1,
-    "name" : "iphone 13 pro",
-    "brand" : "APPLE",
-    "sellingPrice" : 1200.0,
-    "purchasePrice" : 900.0,
-    "description" : "best phone ever created",
-    "category" : "SMARTPHONE"
   } ],
-  "values" : [ 303, 0, 20, 1, 30, 18, 31, 39, 4, 200, 377, 0, 4 ]
-}, {
-  "departmentName" : "Name",
-  "staff" : [ {
-  "name" : "Luca ",
-  "surname" : "Verdi",
-  "email" : "luca@gverdi.com",
-  "id" : 1025453068,
-  "password" : 1480159904,
-  "birthday" : [ 2001, 6, 19 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 12, 12 ], [ 12, 12 ], [ 12, 12 ], [ 12, 12 ], [ 12, 12 ] ],
-  "endTimes" : [ [ 18, 18 ], [ 18, 18 ], [ 18, 18 ], [ 18, 18 ], [ 18, 18 ] ]
-}, {
-  "name" : "Samuele",
-  "surname" : "Ferri",
-  "email" : "samueleferri1301@gmail.com",
-  "id" : 1925175868,
-  "password" : 1661526827,
-  "birthday" : [ 2001, 6, 6 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 10,
-    "name" : "OPPO A74 Smartphone",
-    "brand" : "Oppo",
-    "sellingPrice" : 219.0,
-    "purchasePrice" : 70.0,
-    "description" : "175g, Display 6.43 inch FHD+ AMOLED, 4 Fotocamere 48MP, RAM 6GB ROM 128GB, Battery 5000mAh, Rapid Charge, Dual Sim, Prism Black",
-    "category" : "SMARTPHONE"
-  } ],
-  "values" : [ 0 ]
-}, {
-  "departmentName" : "Department Test",
-  "staff" : [ {
-  "name" : "Samuele",
-  "surname" : "Ferri",
-  "email" : "samuele@gmail.com",
-  "id" : 622519465,
-  "password" : 1509442,
-  "birthday" : [ 1999, 4, 8 ],
-  "days" : [ "TUESDAY", "THURSDAY", "MONDAY", "WEDNESDAY", "SATURDAY", "FRIDAY" ],
-  "startTimes" : [ [ 9, 0 ], [ 9, 0 ], [ 9, 0 ], [ 9, 0 ], [ 9, 0 ], [ 9, 0 ] ],
-  "endTimes" : [ [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ] ]
-}, {
-  "name" : "Nicola",
-  "surname" : "Strada",
-  "email" : "nicola.strada5@gmail.com",
-  "id" : 655003026,
-  "password" : -1006077568,
-  "birthday" : [ 2001, 10, 27 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
-}, {
-  "name" : "Luca",
-  "surname" : "Dimitri",
-  "email" : "samuele@gmail.com",
-  "id" : 1145359388,
-  "password" : 2101431141,
-  "birthday" : [ 1999, 9, 21 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ] ]
-}, {
-  "name" : "Mario",
-  "surname" : "Rossi",
-  "email" : "mario.rossi@gmail.com",
-  "id" : 1917962234,
-  "password" : 46793748,
-  "birthday" : [ 2002, 4, 19 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 16,
-    "name" : "Samsung Galaxy Book Pro 15",
-    "brand" : "Samsung",
-    "sellingPrice" : 1599.0,
-    "purchasePrice" : 400.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
-    "category" : "PC"
-  }, {
-    "productCode" : 15,
-    "name" : "Lenovo IdeaPad 3 15ITL6 PC",
-    "brand" : "Lenovo",
-    "sellingPrice" : 499.0,
-    "purchasePrice" : 150.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
-    "category" : "PC"
-  }, {
-    "productCode" : 14,
-    "name" : "Huawei MateBook D 14 53012JBB notebook PC",
-    "brand" : "Huawei",
-    "sellingPrice" : 599.0,
-    "purchasePrice" : 200.0,
-    "description" : "35,6 cm (14 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 10 Grey",
-    "category" : "PC"
-  }, {
-    "productCode" : 13,
-    "name" : "HP 250 G8 PC",
-    "brand" : "HP",
-    "sellingPrice" : 649.0,
-    "purchasePrice" : 300.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i5 8 GB DDR4-SDRAM 256 GB SSD Wi-Fi 5 (802.11ac) Windows 11 Silver Home",
-    "category" : "PC"
-  } ],
-  "values" : [ 9, 6, 7, 5 ]
+  "values" : [ 10, 5, 5, 10 ]
 } ]

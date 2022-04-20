@@ -47,8 +47,8 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     @Override
     public void addDepartment(final String name, final Set<StaffImpl> staffs, final Map<Product, Integer> products) throws IOException {
         if (name.isBlank() || !staffs.isEmpty() && !products.isEmpty()) {
-            final var deoartment = new DepartmentImpl(name, staffs, products);
-            this.shop.addDepartment(deoartment);
+            final var department = new DepartmentImpl(name, staffs, products);
+            this.shop.addDepartment(department);
         } else {
             throw new IllegalArgumentException("One of the input or more than one are empty");
         }
