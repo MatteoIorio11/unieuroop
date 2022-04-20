@@ -55,7 +55,6 @@ public final class ViewAddDepartmentImpl implements Initializable, ViewAddDepart
     @FXML
     public void buttonAddHandler(final ActionEvent event) {
         try {
-            System.out.println("AOO");
             final Alert alert = new Alert(AlertType.INFORMATION);
             alert.setContentText("Resume of the new Department : \n"
             + this.controllerDepartment.getReservedProducts() + "\n" 
