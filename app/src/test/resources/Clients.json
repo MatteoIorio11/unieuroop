@@ -1,26 +1,36 @@
 [ {
-  "name" : "name4",
-  "surname" : "surname4",
-  "birthdayDate" : [ 2022, 4, 13 ],
-  "clientCode" : 3
+  "person" : {
+    "name" : "name2",
+    "surname" : "surname2",
+    "code" : 1,
+    "birthdayDate" : [ 2022, 4, 20 ]
+  }
 }, {
-  "name" : "name3",
-  "surname" : "surname3",
-  "birthdayDate" : [ 2022, 4, 13 ],
-  "clientCode" : 2
+  "person" : {
+    "name" : "name5",
+    "surname" : "surname5",
+    "code" : 4,
+    "birthdayDate" : [ 2022, 4, 20 ]
+  }
 }, {
-  "name" : "name2",
-  "surname" : "surname2",
-  "birthdayDate" : [ 2022, 4, 13 ],
-  "clientCode" : 1
+  "person" : {
+    "name" : "name1",
+    "surname" : "surname1",
+    "code" : 0,
+    "birthdayDate" : [ 2022, 4, 20 ]
+  }
 }, {
-  "name" : "name1",
-  "surname" : "surname1",
-  "birthdayDate" : [ 2022, 4, 13 ],
-  "clientCode" : 0
+  "person" : {
+    "name" : "name4",
+    "surname" : "surname4",
+    "code" : 3,
+    "birthdayDate" : [ 2022, 4, 20 ]
+  }
 }, {
-  "name" : "name5",
-  "surname" : "surname5",
-  "birthdayDate" : [ 2022, 4, 13 ],
-  "clientCode" : 4
+  "person" : {
+    "name" : "name3",
+    "surname" : "surname3",
+    "code" : 2,
+    "birthdayDate" : [ 2022, 4, 20 ]
+  }
 } ]

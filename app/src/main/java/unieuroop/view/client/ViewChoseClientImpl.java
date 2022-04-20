@@ -1,6 +1,7 @@
 package unieuroop.view.client;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,15 +19,16 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import unieuroop.controller.client.ControllerClient;
 import unieuroop.controller.sale.ControllerSale;
-import unieuroop.model.person.ClientImpl;
+import unieuroop.model.person.Client;
+import unieuroop.model.sale.Sale;
 
 public final class ViewChoseClientImpl extends Stage implements Initializable, ViewChoseClient {
-    @FXML private ListView<ClientImpl> listClients;
+    @FXML private ListView<Client> listClients;
     @FXML private TextField textName;
     @FXML private Button btnSelect;
     @FXML private Button btnCancel;
     @FXML private Button btnEmpty;
-    private Optional<ClientImpl> selectedClient;
+    private Optional<Client> selectedClient;
     private final ControllerSale controllerSale;
     private final ControllerClient controllerClient;
     public ViewChoseClientImpl(final ControllerSale controller, final ControllerClient controllerClient) {
@@ -58,14 +60,19 @@ public final class ViewChoseClientImpl extends Stage implements Initializable, V
     @Override
     @FXML
     public void buttonSelectHandler(final ActionEvent event) {
-        final var sale = this.controllerSale.closeSale(selectedClient);
-        final Stage stage = (Stage) this.btnSelect.getScene().getWindow();
-        final DirectoryChooser directoryChooser = new DirectoryChooser();
-        final File selectedDirectory = directoryChooser.showDialog(stage);
-        if (sale.isPresent() && !Objects.isNull(selectedDirectory)) {
-            this.controllerSale.createInvoice(selectedDirectory.getAbsolutePath(), sale.get());
+        Optional<Sale> sale;
+        try {
+            sale = this.controllerSale.closeSale(this.selectedClient);
+            final Stage stage = (Stage) this.btnSelect.getScene().getWindow();
+            final DirectoryChooser directoryChooser = new DirectoryChooser();
+            final File selectedDirectory = directoryChooser.showDialog(stage);
+            if (sale.isPresent() && !Objects.isNull(selectedDirectory)) {
+                this.controllerSale.createInvoice(selectedDirectory.getAbsolutePath(), sale.get());
+            }
+            stage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        stage.close();
     }
 
     @Override
@@ -79,7 +86,11 @@ public final class ViewChoseClientImpl extends Stage implements Initializable, V
     @Override
     @FXML
     public void buttonEmptyHandler(final ActionEvent event) {
-        this.controllerSale.closeSale(Optional.empty());
+        try {
+            this.controllerSale.closeSale(Optional.empty());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         final Stage stage = (Stage) this.btnEmpty.getScene().getWindow();
         stage.close();
     }

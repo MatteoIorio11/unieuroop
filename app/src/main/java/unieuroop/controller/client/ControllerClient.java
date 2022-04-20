@@ -35,6 +35,6 @@ public interface ControllerClient {
      * 
      * @return all clients registered to the shop
      */
-    Set<ClientImpl> getRegisteredClients();
+    Set<Client> getRegisteredClients();
 
 }

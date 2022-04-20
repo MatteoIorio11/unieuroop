@@ -18,7 +18,7 @@ import unieuroop.model.person.ClientImpl;
 public final class ViewClientImpl implements Initializable, ViewClient {
 
     @FXML
-    private ListView<ClientImpl> listClients;
+    private ListView<Client> listClients;
     @FXML 
     private TextField tbxName;
     @FXML 

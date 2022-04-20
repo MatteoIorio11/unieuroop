@@ -7,11 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public final class ClientImpl implements Client {
 
     private final BasePerson person;
-    @JsonCreator
-    public ClientImpl(@JsonProperty("name")final String name, 
-            @JsonProperty("surname")final String surname, 
-            @JsonProperty("birthdayDate")final LocalDate birthdayDate, 
-            @JsonProperty("clientCode")final int clientCode) {
+    public ClientImpl(final String name, final String surname, final LocalDate birthdayDate, final int clientCode) {
         person = new BasePersonImpl(name, surname, birthdayDate, clientCode);
     }
 

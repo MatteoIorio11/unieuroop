@@ -2,14 +2,20 @@ package unieuroop.model.person;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public final class BasePersonImpl implements BasePerson {
 
     private String name;
     private String surname;
     private LocalDate birthday;
     private final int code;
-
-    protected BasePersonImpl(final String name, final String surname, final LocalDate birthday, final int code) {
+    @JsonCreator
+    protected BasePersonImpl(@JsonProperty("name")final String name, 
+            @JsonProperty("surname")final String surname, 
+            @JsonProperty("birthdayDate")final LocalDate birthday, 
+            @JsonProperty("code")final int code) {
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;

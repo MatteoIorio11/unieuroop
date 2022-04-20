@@ -1,92 +1,15 @@
 [ {
-  "person" : {
-    "name" : "Nicola ",
-    "surname" : "Strada",
-    "code" : 1421987332,
-    "birthdayDate" : [ 2002, 4, 11 ]
-  }
-}, {
-  "person" : {
-    "name" : "Fabio",
-    "surname" : "Vincenzi",
-    "code" : 486369737,
-    "birthdayDate" : [ 1999, 4, 2 ]
-  }
-}, {
-  "person" : {
-    "name" : "Samuele",
-    "surname" : "Ferri",
-    "code" : 1505471665,
-    "birthdayDate" : [ 2002, 4, 3 ]
-  }
-}, {
-  "person" : {
-    "name" : "Mike",
-    "surname" : "Tyson",
-    "code" : 1400871929,
-    "birthdayDate" : [ 2000, 3, 30 ]
-  }
-}, {
-  "person" : {
-    "name" : "Mario",
-    "surname" : "Verdi",
-    "code" : 172111597,
-    "birthdayDate" : [ 2002, 4, 11 ]
-  }
-}, {
-  "person" : {
-    "name" : "Mrek",
-    "surname" : "Hamsik",
-    "code" : 184316254,
-    "birthdayDate" : [ 2000, 4, 4 ]
-  }
-}, {
-  "person" : {
+  "basePerson" : {
     "name" : "Matteo",
     "surname" : "Iorio",
-    "code" : 708096341,
-    "birthdayDate" : [ 2000, 3, 29 ]
+    "code" : 240592299,
+    "birthdayDate" : [ 2001, 4, 25 ]
   }
 }, {
-  "person" : {
-    "name" : "Ciro",
-    "surname" : "Alfano",
-    "code" : 421265539,
-    "birthdayDate" : [ 1999, 4, 16 ]
-  }
-}, {
-  "person" : {
-    "name" : "Mario",
-    "surname" : "Rossi",
-    "code" : 90233139,
-    "birthdayDate" : [ 1985, 3, 5 ]
-  }
-}, {
-  "person" : {
-    "name" : "Federic",
-    "surname" : "Bluu",
-    "code" : 1429951377,
-    "birthdayDate" : [ 2000, 3, 29 ]
-  }
-}, {
-  "person" : {
+  "basePerson" : {
     "name" : "Fabio",
     "surname" : "Vincenzi",
-    "code" : 1296197968,
-    "birthdayDate" : [ 1999, 4, 2 ]
-  }
-}, {
-  "person" : {
-    "name" : "Matteo",
-    "surname" : "Iorio",
-    "code" : 428432816,
-    "birthdayDate" : [ 2000, 3, 29 ]
-  }
-}, {
-  "person" : {
-    "name" : "Matteo",
-    "surname" : "Bianchi",
-    "code" : 1453418,
-    "birthdayDate" : [ 2000, 3, 17 ]
+    "code" : 1804864423,
+    "birthdayDate" : [ 2000, 2, 1 ]
   }
 } ]

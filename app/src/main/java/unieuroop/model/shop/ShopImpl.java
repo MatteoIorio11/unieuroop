@@ -28,7 +28,7 @@ public final class ShopImpl implements Shop {
     private final Set<StaffImpl> staffs;
     private final Set<Supplier> suppliers;
     private final Set<Sale> sales;
-    private final Set<ClientImpl> registeredClients;
+    private final Set<Client> registeredClients;
     private final Stock stock;
     private final Map<LocalDate, Double> bills;
 
@@ -38,7 +38,7 @@ public final class ShopImpl implements Shop {
 
     public ShopImpl(final String name, final Set<Department> departments, 
             final Set<StaffImpl> staffs, final Set<Supplier> suppliers, 
-            final Set<Sale> sales, final Set<ClientImpl> registeredClients, 
+            final Set<Sale> sales, final Set<Client> registeredClients, 
             final Stock stock, final Map<LocalDate, Double> bills) {
         this.name = name;
         this.departments = departments;
@@ -86,7 +86,7 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
-    public Set<ClientImpl> getRegisteredClients() {
+    public Set<Client> getRegisteredClients() {
         return Set.copyOf(this.registeredClients);
     }
 
@@ -126,7 +126,7 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
-    public void registerClient(final ClientImpl client) {
+    public void registerClient(final Client client) {
         this.registeredClients.add(client);
     }
 

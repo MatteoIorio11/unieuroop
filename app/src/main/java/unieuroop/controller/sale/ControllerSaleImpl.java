@@ -14,12 +14,11 @@ import unieuroop.controller.invoice.InvoicesFactory;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
-import unieuroop.model.person.ClientImpl;
+import unieuroop.model.person.Client;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.sale.SaleImpl;
 import unieuroop.model.shop.Shop;
-import unieuroop.model.stock.Stock;
 
 public final class ControllerSaleImpl implements ControllerSale {
     private final Map<Department, Map<Product, Integer>> reservedProductsMap = new HashMap<>();
@@ -113,4 +112,5 @@ public final class ControllerSaleImpl implements ControllerSale {
             throw new IllegalArgumentException("One of the parameters is null");
         }
     }
+
 }

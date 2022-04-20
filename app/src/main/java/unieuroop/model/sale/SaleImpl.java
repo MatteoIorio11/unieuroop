@@ -1,6 +1,7 @@
 package unieuroop.model.sale;
 
 import unieuroop.model.product.Product;
+import unieuroop.model.person.Client;
 import unieuroop.model.person.ClientImpl;
 
 import java.time.LocalDate;
@@ -12,7 +13,7 @@ public final class SaleImpl implements Sale {
 
     private final LocalDate date;
     private final Map<Product, Integer> productsBuyed;
-    private final Optional<ClientImpl> client;
+    private final Optional<Client> client;
 
     /**
      * Constructor of Sale, it requires.
@@ -20,7 +21,7 @@ public final class SaleImpl implements Sale {
      * @param products : the map of product buyed and their quantity. Product-Quantity
      * @param client   : this parameter can be Empty, the most important thing is the Sale not who buyed 
      */
-    public SaleImpl(final LocalDate dateSale, final Map<Product, Integer> products, final Optional<ClientImpl> client) {
+    public SaleImpl(final LocalDate dateSale, final Map<Product, Integer> products, final Optional<Client> client) {
         this.date = dateSale;
         this.productsBuyed = Map.copyOf(products);
         this.client = client;
@@ -68,7 +69,7 @@ public final class SaleImpl implements Sale {
     }
 
     @Override
-    public Optional<ClientImpl> getClient() {
+    public Optional<Client> getClient() {
         return this.client;
     }
 

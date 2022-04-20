@@ -21,6 +21,7 @@ import javafx.util.Pair;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
+import unieuroop.model.person.Client;
 import unieuroop.model.person.ClientImpl;
 import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;
@@ -53,11 +54,11 @@ public class TestSerialization {
     private final Department d2 = new DepartmentImpl("department2", Set.of(this.s, this.s2), Map.of(p, 4, p1, 2, p5, 11, p6, 34));
     private final Department d3 = new DepartmentImpl("department3", Set.of(this.s1, this.s2), Map.of(p, 15, p7, 1, p2, 21, p5, 2, p4, 16));
 
-    private final ClientImpl c1 = new ClientImpl("name1", "surname1", LocalDate.now(), 0);
-    private final ClientImpl c2 = new ClientImpl("name2", "surname2", LocalDate.now(), 1);
-    private final ClientImpl c3 = new ClientImpl("name3", "surname3", LocalDate.now(), 2);
-    private final ClientImpl c4 = new ClientImpl("name4", "surname4", LocalDate.now(), 3);
-    private final ClientImpl c5 = new ClientImpl("name5", "surname5", LocalDate.now(), 4);
+    private final Client c1 = new ClientImpl("name1", "surname1", LocalDate.now(), 0);
+    private final Client c2 = new ClientImpl("name2", "surname2", LocalDate.now(), 1);
+    private final Client c3 = new ClientImpl("name3", "surname3", LocalDate.now(), 2);
+    private final Client c4 = new ClientImpl("name4", "surname4", LocalDate.now(), 3);
+    private final Client c5 = new ClientImpl("name5", "surname5", LocalDate.now(), 4);
 
     private final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p, 10, p1, 13), Optional.of(c1));
     private final Sale sale2 = new SaleImpl(LocalDate.of(2010, 3, 22), Map.of(p2, 140, p3, 82), Optional.of(c2));
@@ -102,8 +103,8 @@ public class TestSerialization {
     @Test
     public void testClients() throws IOException, ClassNotFoundException {
         final var clients = Set.of(c1, c2, c3, c4, c5);
-        Serialization.<Set<ClientImpl>>serialize(Files.CLIENTS.getPath(), clients);
-        final Set<ClientImpl> deserializedClients = Serialization.<Set<ClientImpl>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<ClientImpl>>() { });
+        Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), clients);
+        final Set<Client> deserializedClients = Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { });
         assertEquals(clients, deserializedClients);
     }
     @Test

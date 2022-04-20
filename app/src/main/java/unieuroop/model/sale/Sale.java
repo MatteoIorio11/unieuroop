@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 import java.util.Set;
 
-import unieuroop.model.person.ClientImpl;
+import unieuroop.model.person.Client;
 import unieuroop.model.product.Product;
 
 public interface Sale {
@@ -45,5 +45,5 @@ public interface Sale {
      * 
      * @return the client of this specific Sale, is optional
      */
-    Optional<ClientImpl> getClient();
+    Optional<Client> getClient();
 }

@@ -104,8 +104,8 @@ public class TestShop {
      */
     @Test
     public void testRemoveClient1() {
-        final ClientImpl client1 = new ClientImpl("Name1", "Surname1", TestShop.DATE_NOW, 1);
-        final ClientImpl client2 = new ClientImpl("Name2", "Surname2", TestShop.DATE_NOW, 2);
+        final Client client1 = new ClientImpl("Name1", "Surname1", TestShop.DATE_NOW, 1);
+        final Client client2 = new ClientImpl("Name2", "Surname2", TestShop.DATE_NOW, 2);
         final Client client3 = new ClientImpl("Name3", "Surname3", TestShop.DATE_NOW, 3);
         this.shop01.registerClient(client1);
         this.shop01.registerClient(client2);
@@ -122,8 +122,8 @@ public class TestShop {
      */
     @Test
     public void testRemoveClient2() {
-        final ClientImpl client1 = new ClientImpl("Name1", "Surname1", TestShop.DATE_NOW, 1);
-        final ClientImpl client2 = new ClientImpl("Name2", "Surname2", TestShop.DATE_NOW, 2);
+        final Client client1 = new ClientImpl("Name1", "Surname1", TestShop.DATE_NOW, 1);
+        final Client client2 = new ClientImpl("Name2", "Surname2", TestShop.DATE_NOW, 2);
         this.shop01.registerClient(client1);
         this.shop01.registerClient(client2);
 

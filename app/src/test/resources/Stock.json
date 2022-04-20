@@ -5,7 +5,7 @@
     "brand" : "Brand",
     "sellingPrice" : 11.4,
     "purchasePrice" : 84.0,
-    "description" : "bla bla bla bla bla",
+    "description" : "Description test",
     "category" : "PC"
   }, {
     "productCode" : 2,
@@ -13,7 +13,7 @@
     "brand" : "Brand1",
     "sellingPrice" : 19.4,
     "purchasePrice" : 28.0,
-    "description" : "bla bla bla bla bla",
+    "description" : "Description test",
     "category" : "HOME"
   }, {
     "productCode" : 3,
@@ -21,7 +21,7 @@
     "brand" : "Brand4",
     "sellingPrice" : 22.0,
     "purchasePrice" : 15.0,
-    "description" : "bla bla bla bla bla",
+    "description" : "Description test",
     "category" : "TABLET"
   }, {
     "productCode" : 4,
@@ -29,7 +29,7 @@
     "brand" : "Brand1",
     "sellingPrice" : 18.5,
     "purchasePrice" : 92.0,
-    "description" : "bla bla bla bla bla",
+    "description" : "Description test",
     "category" : "PC"
   }, {
     "productCode" : 5,
@@ -37,7 +37,7 @@
     "brand" : "Brand2",
     "sellingPrice" : 102.4,
     "purchasePrice" : 12.0,
-    "description" : "bla bla bla bla bla",
+    "description" : "Description test",
     "category" : "PC"
   } ],
   "values" : [ 10, 10, 2, 32, 32 ]

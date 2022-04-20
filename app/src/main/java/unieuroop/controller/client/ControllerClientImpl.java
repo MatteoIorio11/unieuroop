@@ -59,13 +59,13 @@ public final class ControllerClientImpl implements ControllerClient {
     }
 
     @Override
-    public Set<ClientImpl> getRegisteredClients() {
+    public Set<Client> getRegisteredClients() {
         return this.shop.getRegisteredClients();
     }
 
     private void serializationClient() {
         try {
-            Serialization.<Set<ClientImpl>>serialize(Files.CLIENTS.getPath(), this.shop.getRegisteredClients());
+            Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), this.shop.getRegisteredClients());
         } catch (IOException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());

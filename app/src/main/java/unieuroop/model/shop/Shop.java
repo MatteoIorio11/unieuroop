@@ -65,7 +65,7 @@ public interface Shop {
      * 
      * @return a set containing all the registered clients of the shop
      */
-    Set<ClientImpl> getRegisteredClients();
+    Set<Client> getRegisteredClients();
 
     /**
      * 
@@ -114,7 +114,7 @@ public interface Shop {
      * Registers a new client.
      * @param client
      */
-    void registerClient(ClientImpl client);
+    void registerClient(Client client);
 
     /**
      * Removes an existing department.
