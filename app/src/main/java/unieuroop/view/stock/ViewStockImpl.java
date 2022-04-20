@@ -46,7 +46,8 @@ public final class ViewStockImpl implements Initializable, ViewStock {
     @Override
     @FXML
     public void listProductsStockedHandler() {
-        if (this.listProductsStocked.getSelectionModel().getSelectedItem() != null) {
+        final var product = this.listProductsStocked.getSelectionModel().getSelectedItem();
+        if (!Objects.isNull(product)) {
             this.txtAreaInfoProducts.clear();
             this.txtAreaInfoProducts.setText(this.controllerStock.getInfoByProduct(this.listProductsStocked.getSelectionModel().getSelectedItem()));
         }

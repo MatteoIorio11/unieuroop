@@ -1,6 +1,7 @@
 package unieuroop.controller.stock;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -80,6 +81,7 @@ public final class ControllerStockImpl implements ControllerStock {
         try {
             this.shop.getStock().addProducts(this.productsBought);
             Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
+            this.shop.addBills(LocalDate.now(), this.getTotalPriceOfAllProductsBuying());
         } catch (IOException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
