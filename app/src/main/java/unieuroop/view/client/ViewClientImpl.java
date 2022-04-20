@@ -14,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.client.ControllerClient;
 import unieuroop.model.person.Client;
-import unieuroop.model.person.ClientImpl;
 
 public final class ViewClientImpl implements Initializable, ViewClient {
 

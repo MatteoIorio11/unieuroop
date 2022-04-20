@@ -7,7 +7,6 @@ import java.util.function.Predicate;
 
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
-import unieuroop.model.person.ClientImpl;
 import unieuroop.model.person.Staff;
 import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;

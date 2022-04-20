@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.Set;
 
 import unieuroop.model.person.Client;
-import unieuroop.model.person.ClientImpl;
 
 public interface ControllerClient {
 

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,7 +31,6 @@ public final class ViewLoginImpl implements Initializable, ViewLogin {
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        final long startTime = System.nanoTime();
         try {
             this.controller.loadData();
         } catch (ClassNotFoundException e) {
@@ -40,9 +38,6 @@ public final class ViewLoginImpl implements Initializable, ViewLogin {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        final long endTime = System.nanoTime();
-        final long duration = (endTime - startTime);
-        System.out.println((double) duration/1000000 );
     }
 
     @Override

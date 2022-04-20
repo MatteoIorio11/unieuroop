@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
-import unieuroop.model.person.ClientImpl;
 import unieuroop.model.person.Staff;
 import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;

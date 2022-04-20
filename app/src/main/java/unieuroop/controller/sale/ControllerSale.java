@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
-import unieuroop.model.person.ClientImpl;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
 

@@ -9,7 +9,6 @@ import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
-import unieuroop.model.person.ClientImpl;
 import unieuroop.model.person.StaffImpl;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.shop.Shop;

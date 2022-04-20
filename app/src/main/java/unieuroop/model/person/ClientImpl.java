@@ -1,8 +1,6 @@
 package unieuroop.model.person;
 
 import java.time.LocalDate;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public final class ClientImpl implements Client {
 

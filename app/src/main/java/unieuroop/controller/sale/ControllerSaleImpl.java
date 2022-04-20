@@ -95,11 +95,6 @@ public final class ControllerSaleImpl implements ControllerSale {
         return this.reservedProductsMap.isEmpty();
     }
 
-    private void serializaSale() throws IOException {
-        Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), this.shop.getSales());
-        Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
-    }
-
     @Override
     public void createInvoice(final String path, final Sale sale) {
         if (!Objects.isNull(path) && !Objects.isNull(sale)) {
