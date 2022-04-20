@@ -7,7 +7,7 @@
   "id" : 1145359388,
   "password" : 2101431141,
   "birthday" : [ 1999, 9, 21 ],
-  "days" : [ "TUESDAY", "THURSDAY", "MONDAY", "WEDNESDAY", "SATURDAY", "FRIDAY" ],
+  "days" : [ "MONDAY", "THURSDAY", "SATURDAY", "FRIDAY", "WEDNESDAY", "TUESDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ] ]
 }, {
@@ -17,59 +17,11 @@
   "id" : 738962461,
   "password" : 46792755,
   "birthday" : [ 2001, 7, 22 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
 } ],
   "products" : [ {
-    "productCode" : 27,
-    "name" : "Dyson Pure Cool",
-    "brand" : "Dyson",
-    "sellingPrice" : 449.9,
-    "purchasePrice" : 200.0,
-    "description" : "Pure Cool Dyson 36dB, Power 56W, Color Silver and White",
-    "category" : "HOME"
-  }, {
-    "productCode" : 26,
-    "name" : "iRobot Roomba Combo",
-    "brand" : "Romba Combo",
-    "sellingPrice" : 299.9,
-    "purchasePrice" : 100.0,
-    "description" : "Robot Vacuum 0,45 L Dust Bag, Black and Grey",
-    "category" : "HOME"
-  }, {
-    "productCode" : 25,
-    "name" : "Ariete 2474",
-    "brand" : "Ariete",
-    "sellingPrice" : 249.0,
-    "purchasePrice" : 30.0,
-    "description" : "Portable Vacuum Cleaner Bagless Black, Purple",
-    "category" : "HOME"
-  }, {
-    "productCode" : 24,
-    "name" : "Dyson V15 Detect Absolute",
-    "brand" : "Dyson",
-    "sellingPrice" : 749.0,
-    "purchasePrice" : 200.0,
-    "description" : "Cordless Vacuum Cleaner, Weight 3000g, Power Supply Battery, Charging Time 4.5h, Suction Power 240W, Color Copper, Niche, Yellow",
-    "category" : "HOME"
-  }, {
-    "productCode" : 23,
-    "name" : "Dyson V10 Absolute",
-    "brand" : "Dyson",
-    "sellingPrice" : 499.0,
-    "purchasePrice" : 150.0,
-    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
-    "category" : "HOME"
-  }, {
-    "productCode" : 22,
-    "name" : "Bose UFS-20",
-    "brand" : "Bose",
-    "sellingPrice" : 129.99,
-    "purchasePrice" : 70.0,
-    "description" : "The Black Floor wall mount for loudspeakers",
-    "category" : "HOME"
-  }, {
     "productCode" : 82,
     "name" : "D-Link DGS-108 Unmanaged Switch",
     "brand" : "D-Link",
@@ -117,32 +69,112 @@
     "purchasePrice" : 25.0,
     "description" : "4000 GB External Hard Disk Hub, Black",
     "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 27,
+    "name" : "Dyson Pure Cool",
+    "brand" : "Dyson",
+    "sellingPrice" : 449.9,
+    "purchasePrice" : 200.0,
+    "description" : "Pure Cool Dyson 36dB, Power 56W, Color Silver and White",
+    "category" : "HOME"
+  }, {
+    "productCode" : 26,
+    "name" : "iRobot Roomba Combo",
+    "brand" : "Romba Combo",
+    "sellingPrice" : 299.9,
+    "purchasePrice" : 100.0,
+    "description" : "Robot Vacuum 0,45 L Dust Bag, Black and Grey",
+    "category" : "HOME"
+  }, {
+    "productCode" : 25,
+    "name" : "Ariete 2474",
+    "brand" : "Ariete",
+    "sellingPrice" : 249.0,
+    "purchasePrice" : 30.0,
+    "description" : "Portable Vacuum Cleaner Bagless Black, Purple",
+    "category" : "HOME"
+  }, {
+    "productCode" : 24,
+    "name" : "Dyson V15 Detect Absolute",
+    "brand" : "Dyson",
+    "sellingPrice" : 749.0,
+    "purchasePrice" : 200.0,
+    "description" : "Cordless Vacuum Cleaner, Weight 3000g, Power Supply Battery, Charging Time 4.5h, Suction Power 240W, Color Copper, Niche, Yellow",
+    "category" : "HOME"
+  }, {
+    "productCode" : 23,
+    "name" : "Dyson V10 Absolute",
+    "brand" : "Dyson",
+    "sellingPrice" : 499.0,
+    "purchasePrice" : 150.0,
+    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
+    "category" : "HOME"
+  }, {
+    "productCode" : 22,
+    "name" : "Bose UFS-20",
+    "brand" : "Bose",
+    "sellingPrice" : 129.99,
+    "purchasePrice" : 70.0,
+    "description" : "The Black Floor wall mount for loudspeakers",
+    "category" : "HOME"
   } ],
-  "values" : [ 3, 5, 3, 1, 5, 5, 1, 3, 1, 3, 4, 4 ]
+  "values" : [ 1, 3, 1, 3, 4, 4, 3, 5, 3, 1, 5, 5 ]
 }, {
   "departmentName" : "Mouse",
   "staff" : [ {
-  "name" : "Giulia",
-  "surname" : "Merli",
-  "email" : "giulia.merli@icloud.com",
-  "id" : 709413956,
-  "password" : 112212417,
-  "birthday" : [ 2002, 6, 3 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ],
-  "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
-}, {
   "name" : "Fabio",
   "surname" : "Vincenzi",
   "email" : "fabio.vincenzi2001@gmail.com",
   "id" : 537341718,
   "password" : 1098694324,
   "birthday" : [ 2002, 4, 24 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
   "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
   "endTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ]
+}, {
+  "name" : "Giulia",
+  "surname" : "Merli",
+  "email" : "giulia.merli@icloud.com",
+  "id" : 709413956,
+  "password" : 112212417,
+  "birthday" : [ 2002, 6, 3 ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
+  "startTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ],
+  "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
 } ],
   "products" : [ {
+    "productCode" : 73,
+    "name" : "Samsung 870 EVO",
+    "brand" : "Samsung",
+    "sellingPrice" : 49.99,
+    "purchasePrice" : 15.0,
+    "description" : "250 GB Serial ATA III V-NAND, Write 530 MBps Read 560 MBps, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 72,
+    "name" : "Toshiba Canvio",
+    "brand" : "Toshiba",
+    "sellingPrice" : 39.99,
+    "purchasePrice" : 13.0,
+    "description" : "External Hard Disk, Capacity 1000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 71,
+    "name" : "Toshiba Canvio Basics",
+    "brand" : "Toshiba",
+    "sellingPrice" : 82.99,
+    "purchasePrice" : 30.0,
+    "description" : "External Hard Disk, Capacity 4000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 64,
+    "name" : "Logitech G G305",
+    "brand" : "Logitech",
+    "sellingPrice" : 32.99,
+    "purchasePrice" : 10.0,
+    "description" : "Right Hand Mouse, Wireless RF + Optical Bluetooth 12000 DPI, Black and Grey",
+    "category" : "MOUSE"
+  }, {
     "productCode" : 63,
     "name" : "Logitech M100",
     "brand" : "Logitech",
@@ -190,62 +222,30 @@
     "purchasePrice" : 120.0,
     "description" : "For iPad Pro 11 inches (Third Generation) and iPad Air (Fourth Generation) - White",
     "category" : "KEYBOARD"
-  }, {
-    "productCode" : 73,
-    "name" : "Samsung 870 EVO",
-    "brand" : "Samsung",
-    "sellingPrice" : 49.99,
-    "purchasePrice" : 15.0,
-    "description" : "250 GB Serial ATA III V-NAND, Write 530 MBps Read 560 MBps, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 72,
-    "name" : "Toshiba Canvio",
-    "brand" : "Toshiba",
-    "sellingPrice" : 39.99,
-    "purchasePrice" : 13.0,
-    "description" : "External Hard Disk, Capacity 1000 GB, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 71,
-    "name" : "Toshiba Canvio Basics",
-    "brand" : "Toshiba",
-    "sellingPrice" : 82.99,
-    "purchasePrice" : 30.0,
-    "description" : "External Hard Disk, Capacity 4000 GB, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 64,
-    "name" : "Logitech G G305",
-    "brand" : "Logitech",
-    "sellingPrice" : 32.99,
-    "purchasePrice" : 10.0,
-    "description" : "Right Hand Mouse, Wireless RF + Optical Bluetooth 12000 DPI, Black and Grey",
-    "category" : "MOUSE"
   } ],
-  "values" : [ 4, 15, 20, 4, 1, 0, 1, 5, 3, 4 ]
+  "values" : [ 1, 5, 3, 4, 4, 15, 20, 4, 1, 0 ]
 }, {
   "departmentName" : "PC & Computer",
   "staff" : [ {
-  "name" : "Matteo",
-  "surname" : "Iorio",
-  "email" : "matteo.iorio01@gmail.com",
-  "id" : 821220106,
-  "password" : 1509442,
-  "birthday" : [ 2001, 2, 11 ],
-  "days" : [ "TUESDAY", "THURSDAY", "MONDAY", "WEDNESDAY", "SATURDAY", "FRIDAY" ],
-  "startTimes" : [ [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ] ],
-  "endTimes" : [ [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ] ]
-}, {
   "name" : "Simone",
   "surname" : "Cefariello",
   "email" : "simone.cefariello@gmail.com",
   "id" : 1438068174,
   "password" : 1509442,
   "birthday" : [ 2001, 10, 5 ],
-  "days" : [ "TUESDAY", "THURSDAY", "MONDAY", "WEDNESDAY", "SATURDAY", "FRIDAY" ],
+  "days" : [ "MONDAY", "THURSDAY", "SATURDAY", "FRIDAY", "WEDNESDAY", "TUESDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
+}, {
+  "name" : "Matteo",
+  "surname" : "Iorio",
+  "email" : "matteo.iorio01@gmail.com",
+  "id" : 821220106,
+  "password" : 1509442,
+  "birthday" : [ 2001, 2, 11 ],
+  "days" : [ "MONDAY", "THURSDAY", "SATURDAY", "FRIDAY", "WEDNESDAY", "TUESDAY" ],
+  "startTimes" : [ [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ] ],
+  "endTimes" : [ [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ] ]
 }, {
   "name" : "Nicola",
   "surname" : "Strada",
@@ -253,7 +253,7 @@
   "id" : 1590664781,
   "password" : -1293335239,
   "birthday" : [ 2001, 10, 27 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
 } ],
@@ -358,43 +358,27 @@
 }, {
   "departmentName" : "Tablet",
   "staff" : [ {
-  "name" : "Lucia",
-  "surname" : "Martinelli",
-  "email" : "lucia.mar00@gmail.com",
-  "id" : 1336425467,
-  "password" : 46792755,
-  "birthday" : [ 2000, 11, 17 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ] ],
-  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
-}, {
   "name" : "Mario",
   "surname" : "Rossi",
   "email" : "mario.rossi@gmail.com",
   "id" : 1917962234,
   "password" : 46793748,
   "birthday" : [ 2002, 4, 19 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
+}, {
+  "name" : "Lucia",
+  "surname" : "Martinelli",
+  "email" : "lucia.mar00@gmail.com",
+  "id" : 1336425467,
+  "password" : 46792755,
+  "birthday" : [ 2000, 11, 17 ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
+  "startTimes" : [ [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ] ],
+  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
 } ],
   "products" : [ {
-    "productCode" : 16,
-    "name" : "Samsung Galaxy Book Pro 15",
-    "brand" : "Samsung",
-    "sellingPrice" : 1599.0,
-    "purchasePrice" : 400.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
-    "category" : "PC"
-  }, {
-    "productCode" : 15,
-    "name" : "Lenovo IdeaPad 3 15ITL6 PC",
-    "brand" : "Lenovo",
-    "sellingPrice" : 499.0,
-    "purchasePrice" : 150.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
-    "category" : "PC"
-  }, {
     "productCode" : 14,
     "name" : "Huawei MateBook D 14 53012JBB notebook PC",
     "brand" : "Huawei",
@@ -410,8 +394,24 @@
     "purchasePrice" : 230.0,
     "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
     "category" : "PC"
+  }, {
+    "productCode" : 16,
+    "name" : "Samsung Galaxy Book Pro 15",
+    "brand" : "Samsung",
+    "sellingPrice" : 1599.0,
+    "purchasePrice" : 400.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
+    "category" : "PC"
+  }, {
+    "productCode" : 15,
+    "name" : "Lenovo IdeaPad 3 15ITL6 PC",
+    "brand" : "Lenovo",
+    "sellingPrice" : 499.0,
+    "purchasePrice" : 150.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
+    "category" : "PC"
   } ],
-  "values" : [ 10, 6, 9, 7 ]
+  "values" : [ 9, 7, 10, 6 ]
 }, {
   "departmentName" : "Smartphone & TV",
   "staff" : [ {
@@ -421,7 +421,7 @@
   "id" : 2019713670,
   "password" : 3237900,
   "birthday" : [ 2001, 7, 27 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
   "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
   "endTimes" : [ [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ] ]
 }, {
@@ -431,11 +431,19 @@
   "id" : 1925175868,
   "password" : 1661526827,
   "birthday" : [ 2001, 6, 6 ],
-  "days" : [ "FRIDAY", "TUESDAY", "MONDAY", "THURSDAY", "WEDNESDAY" ],
+  "days" : [ "THURSDAY", "MONDAY", "WEDNESDAY", "FRIDAY", "TUESDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
 } ],
   "products" : [ {
+    "productCode" : 12,
+    "name" : "Samsung Galaxy Book",
+    "brand" : "Samsung",
+    "sellingPrice" : 849.9,
+    "purchasePrice" : 350.0,
+    "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
+    "category" : "PC"
+  }, {
     "productCode" : 10,
     "name" : "OPPO A74 Smartphone",
     "brand" : "Oppo",
@@ -459,14 +467,6 @@
     "purchasePrice" : 600.0,
     "description" : "256GB Blue Sierra, 5G, iOS 15",
     "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 12,
-    "name" : "Samsung Galaxy Book",
-    "brand" : "Samsung",
-    "sellingPrice" : 849.9,
-    "purchasePrice" : 350.0,
-    "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
-    "category" : "PC"
   } ],
-  "values" : [ 5, 5, 10, 10 ]
+  "values" : [ 10, 5, 5, 10 ]
 } ]
