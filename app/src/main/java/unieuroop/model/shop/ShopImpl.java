@@ -12,7 +12,6 @@ import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
-import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
@@ -24,7 +23,7 @@ public final class ShopImpl implements Shop {
 
     private String name;
     private final Set<Department> departments;
-    private final Set<StaffImpl> staffs;
+    private final Set<Staff> staffs;
     private final Set<Supplier> suppliers;
     private final Set<Sale> sales;
     private final Set<Client> registeredClients;
@@ -36,7 +35,7 @@ public final class ShopImpl implements Shop {
     }
 
     public ShopImpl(final String name, final Set<Department> departments, 
-            final Set<StaffImpl> staffs, final Set<Supplier> suppliers, 
+            final Set<Staff> staffs, final Set<Supplier> suppliers, 
             final Set<Sale> sales, final Set<Client> registeredClients, 
             final Stock stock, final Map<LocalDate, Double> bills) {
         this.name = name;
@@ -65,7 +64,7 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
-    public Set<StaffImpl> getStaffs() {
+    public Set<Staff> getStaffs() {
         return Set.copyOf(this.staffs);
     }
 
@@ -110,7 +109,7 @@ public final class ShopImpl implements Shop {
     }
 
     @Override
-    public void addStaff(final StaffImpl staff) {
+    public void addStaff(final Staff staff) {
         this.staffs.add(staff);
     }
 
@@ -172,7 +171,7 @@ public final class ShopImpl implements Shop {
                 .flatMap(m -> m.entrySet().stream())
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, Integer::sum));
         //Get all staff from the department i want to merge.
-        final Set<StaffImpl> staff = departments.stream()
+        final Set<Staff> staff = departments.stream()
                 .flatMap(d -> d.getStaff().stream())
                 .distinct()
                 .collect(Collectors.toSet());

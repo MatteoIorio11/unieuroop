@@ -8,7 +8,6 @@ import java.util.function.Predicate;
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.Staff;
-import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 import unieuroop.model.sale.Sale;
@@ -39,7 +38,7 @@ public interface Shop {
      * 
      * @return a set containing all the staffs of the shop
      */
-    Set<StaffImpl> getStaffs();
+    Set<Staff> getStaffs();
 
     /**
      * 
@@ -95,7 +94,7 @@ public interface Shop {
      * Adds a new person to the staff of the shop.
      * @param staff
      */
-    void addStaff(StaffImpl staff);
+    void addStaff(Staff staff);
 
     /**
      * Adds a new supplier to the shop.

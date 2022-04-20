@@ -19,17 +19,17 @@ import javafx.scene.control.Button;
 import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.model.department.Department;
-import unieuroop.model.person.StaffImpl;
+import unieuroop.model.person.Staff;
 
 public final class ViewEditStaffImpl implements Initializable, ViewEditStaff {
 
-    @FXML private ListView<StaffImpl> listAddStaff;
-    @FXML private ListView<StaffImpl> listRemoveStaff;
+    @FXML private ListView<Staff> listAddStaff;
+    @FXML private ListView<Staff> listRemoveStaff;
     @FXML private Button buttonAddStaff;
     @FXML private Button buttonRemoveStaff;
 
-    private final Set<StaffImpl> selectedAddStaff = new HashSet<>();
-    private final Set<StaffImpl> selectedRemoveStaff = new HashSet<>();
+    private final Set<Staff> selectedAddStaff = new HashSet<>();
+    private final Set<Staff> selectedRemoveStaff = new HashSet<>();
     private final ControllerStaff controllerStaff;
     private final ControllerDepartment controllerDepartment;
     private final Department department;

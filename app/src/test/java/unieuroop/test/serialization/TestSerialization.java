@@ -23,6 +23,7 @@ import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.ClientImpl;
+import unieuroop.model.person.Staff;
 import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
@@ -38,9 +39,9 @@ public class TestSerialization {
 
     private static final String DESCRIPTION = "Description test";
 
-    private final StaffImpl s = new StaffImpl("name", "surname", LocalDate.now(), 1, "ffff", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
-    private final StaffImpl s1 = new StaffImpl("name1", "surname1", LocalDate.now(), 1, "AAAA", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
-    private final StaffImpl s2 = new StaffImpl("name2", "surname2", LocalDate.now(), 3, "BBB", 222, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
+    private final Staff s = new StaffImpl("name", "surname", LocalDate.now(), 1, "ffff", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
+    private final Staff s1 = new StaffImpl("name1", "surname1", LocalDate.now(), 1, "AAAA", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
+    private final Staff s2 = new StaffImpl("name2", "surname2", LocalDate.now(), 3, "BBB", 222, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
     private final Product p = new ProductImpl(1, "try", "Brand", 11.4, 84.0, TestSerialization.DESCRIPTION, Category.PC);
     private final Product p1 = new ProductImpl(2, "try1", "Brand1", 19.4, 28.0, TestSerialization.DESCRIPTION, Category.HOME);
     private final Product p2 = new ProductImpl(3, "try2", "Brand4", 22.0, 15.0, TestSerialization.DESCRIPTION, Category.TABLET);
@@ -76,11 +77,11 @@ public class TestSerialization {
 
     @Test
     public void testStaff() throws IOException, ClassNotFoundException {
-        final Set<StaffImpl> staff = new HashSet<>();
+        final Set<Staff> staff = new HashSet<>();
         staff.add(s);
         staff.add(s1);
-        Serialization.<Set<StaffImpl>>serialize(Files.STAFFS.getPath(), staff);
-        final Set<StaffImpl> deserializedStaff = Serialization.<Set<StaffImpl>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<StaffImpl>>() { });
+        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), staff);
+        final Set<Staff> deserializedStaff = Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<Staff>>() { });
         assertEquals(staff, deserializedStaff);
     }
     @Test

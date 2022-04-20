@@ -22,14 +22,14 @@ import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.department.Department;
-import unieuroop.model.person.StaffImpl;
+import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 import unieuroop.view.loader.Loader;
 
 public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
 
     @FXML private ListView<Pane> listDepartments;
-    @FXML private ListView<StaffImpl> listStaff;
+    @FXML private ListView<Staff> listStaff;
     @FXML private ListView<Product> listProducts;
     @FXML private Button btnAddDepartment;
     @FXML private Button btnMergeDepartments;

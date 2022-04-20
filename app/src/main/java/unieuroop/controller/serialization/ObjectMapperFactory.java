@@ -13,6 +13,7 @@ import unieuroop.model.person.StaffImpl;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.ClientDeserializer;
 import unieuroop.model.person.ClientSerializer;
+import unieuroop.model.person.Staff;
 import unieuroop.model.person.StaffDeserializer;
 import unieuroop.model.person.StaffSerializer;
 import unieuroop.model.sale.Sale;
@@ -43,7 +44,7 @@ public final class ObjectMapperFactory {
         module.addDeserializer(Stock.class, new StockDeserializer());
         module.addDeserializer(Sale.class, new SaleDeserializer());
         module.addDeserializer(Supplier.class, new SupplierDeserializer());
-        module.addDeserializer(StaffImpl.class, new StaffDeserializer());
+        module.addDeserializer(Staff.class, new StaffDeserializer());
         module.addDeserializer(Department.class, new DepartmentDeserializer());
         mapper.registerModule(new JavaTimeModule());
         mapper.registerModule(new Jdk8Module());

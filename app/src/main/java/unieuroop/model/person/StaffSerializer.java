@@ -14,10 +14,10 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import javafx.util.Pair;
 import unieuroop.controller.serialization.ObjectMapperFactory;
 
-public final class StaffSerializer extends JsonSerializer<StaffImpl> {
+public final class StaffSerializer extends JsonSerializer<Staff> {
 
     @Override
-    public void serialize(final StaffImpl value, final JsonGenerator generator, final SerializerProvider serializers)
+    public void serialize(final Staff value, final JsonGenerator generator, final SerializerProvider serializers)
             throws IOException, JsonProcessingException {
         final var keys = new ArrayList<DayOfWeek>();
         final var values = new ArrayList<Pair<LocalTime, LocalTime>>();

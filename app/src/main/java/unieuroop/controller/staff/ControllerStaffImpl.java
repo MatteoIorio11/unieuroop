@@ -79,7 +79,7 @@ public final class ControllerStaffImpl implements ControllerStaff {
     }
 
     @Override
-    public Set<StaffImpl> getStaff() {
+    public Set<Staff> getStaff() {
         return this.shop.getStaffs();
     }
 
@@ -88,12 +88,12 @@ public final class ControllerStaffImpl implements ControllerStaff {
     }
 
     private void serializationStaff() throws IOException {
-        Serialization.<Set<StaffImpl>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
+        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
         Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
     }
 
     @Override
-    public Set<StaffImpl> getUnsignedStaff() {
+    public Set<Staff> getUnsignedStaff() {
         return this.shop.getStaffs().stream()
                 .filter((staff) -> this.shop.getDepartments().stream().allMatch((department) -> !department.getStaff().contains(staff)))
                 .collect(Collectors.toSet());
