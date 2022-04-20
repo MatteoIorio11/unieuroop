@@ -100,13 +100,8 @@ public final class ControllerStaffImpl implements ControllerStaff {
         return Math.abs(hourEnd - hourStart) + Math.abs(minEnd - minStart) != 8;
     }
 
-<<<<<<< Updated upstream
-    private void serializationStaff() throws IOException {
-        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
-=======
     private void serializeStaff() throws IOException {
-        Serialization.<Set<StaffImpl>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
->>>>>>> Stashed changes
+        Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), this.shop.getStaffs());
         Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
     }
 
