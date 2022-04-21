@@ -9,7 +9,7 @@ import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Client;
-import unieuroop.model.person.StaffImpl;
+import unieuroop.model.person.Staff;
 import unieuroop.model.sale.Sale;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.shop.ShopImpl;
@@ -21,14 +21,14 @@ public final class ControllerLoginImpl implements ControllerLogin {
 
     @Override
     public boolean checkPassword(final String email, final String password) {
-        return this.shop.getStaffs().stream().anyMatch(s -> s.getEmail().equals(email) && s.getPassword().equals(password.hashCode()));
+        return this.shop.getStaffs().stream().anyMatch(s -> s.getEmail().equals(email) && s.getPassword() == password.hashCode());
     }
 
     @Override
     public void loadData() throws  IOException, ClassNotFoundException {
         final var shopName = Serialization.<String>deserialize(Files.SHOPNAME.getPath(), new TypeReference<String>() { });
         final var departments = Serialization.<Set<Department>>deserialize(Files.DEPARTMENTS.getPath(), new TypeReference<Set<Department>>() { });
-        final var staff = Serialization.<Set<StaffImpl>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<StaffImpl>>() { });
+        final var staff = Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<Staff>>() { });
         final var suppliers = Serialization.<Set<Supplier>>deserialize(Files.SUPPLIERS.getPath(), new TypeReference<Set<Supplier>>() { });
         final var sales = Serialization.<Set<Sale>>deserialize(Files.SALES.getPath(), new TypeReference<Set<Sale>>() { });
         final var clients = Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { });

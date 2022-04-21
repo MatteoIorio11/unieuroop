@@ -12,12 +12,9 @@ import java.util.Set;
 import java.util.function.BiPredicate;
 
 
-public class StockImpl implements Stock {
+public final class StockImpl implements Stock {
     private final Map<Product, Integer> productsStocked = new HashMap<>();
 
-    /**
-     * Add Products in the Stock.
-     */
     @Override
     public void addProducts(final Map<Product, Integer> products) {
         for (final Product product : products.keySet()) {
@@ -25,17 +22,11 @@ public class StockImpl implements Stock {
         }
     }
 
-    /**
-     * Get the entire stock of product and their relative quantities.
-     */
     @Override
     public Map<Product, Integer> getTotalStock() {
         return new HashMap<Product, Integer>(this.productsStocked);
     }
 
-    /**
-     * Return the quantities present in the stock.
-     */
     @Override
     public int getQuantityOfProduct(final Product product) {
         if (this.productsStocked.containsKey(product)) {
@@ -44,9 +35,6 @@ public class StockImpl implements Stock {
         throw new IllegalArgumentException();
     }
 
-    /**
-     * Return the products and their quantities taken from the stock.
-     */
     @Override
     public Map<Product, Integer> takeFromStock(final Map<Product, Integer> productsTaken) {
         if (!checkProductTaken(productsTaken)) {
@@ -58,9 +46,6 @@ public class StockImpl implements Stock {
         return productsTaken;
     }
 
-    /**
-     * Delete products from the stock.
-     */
     @Override
     public void deleteProducts(final Set<Product> productsDelete) {
         for (final Product productDeleted : productsDelete) {
@@ -71,9 +56,6 @@ public class StockImpl implements Stock {
         this.productsStocked.keySet().removeAll(productsDelete);
     }
 
-    /**
-     * Return the the products filter by their amount and categories.
-     */
     @Override
     public List<Product> getFilterProducts(final BiPredicate<Integer, Category> filter) {
         final List<Product> productsFilter = new ArrayList<>();
@@ -85,9 +67,6 @@ public class StockImpl implements Stock {
         return productsFilter;
     }
 
-    /**
-     * Return the list of product sorted increasing or decreasing.
-     */
     @Override
     public List<Product> getProductsSorted(final Comparator<Product> sorting) {
         final List<Product> sortedProducts = new ArrayList<>(this.productsStocked.keySet());
@@ -95,9 +74,6 @@ public class StockImpl implements Stock {
         return sortedProducts;
     }
 
-    /**
-     * Return the max quantity of a product in the Stock.
-     */
     @Override
     public int getMaxAmountOfProducts() {
         return Collections.max(this.productsStocked.values());

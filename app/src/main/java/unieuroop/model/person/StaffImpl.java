@@ -13,7 +13,7 @@ import javafx.util.Pair;
 public final class StaffImpl implements Staff {
 
     private String email;
-    private Integer password;
+    private int password;
     private Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime;
     private final BasePerson person;
 
@@ -52,7 +52,7 @@ public final class StaffImpl implements Staff {
     }
 
     @Override
-    public Integer getPassword() {
+    public int getPassword() {
         return this.password;
     }
 

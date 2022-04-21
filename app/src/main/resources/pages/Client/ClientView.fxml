@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <left>
-      <ListView fx:id="listClients" onMouseClicked="#listClientHandler" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="listClients" onMouseClicked="#listClientHandler" prefHeight="400.0" prefWidth="331.0" BorderPane.alignment="CENTER" />
    </left>
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -45,7 +45,7 @@
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <center>
-                              <Label prefHeight="18.0" prefWidth="62.0" text="Surname:" BorderPane.alignment="CENTER" />
+                              <Label prefHeight="18.0" prefWidth="80.0" text="Surname:" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">

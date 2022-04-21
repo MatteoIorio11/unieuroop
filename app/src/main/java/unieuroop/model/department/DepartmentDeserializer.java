@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import unieuroop.controller.serialization.ObjectMapperFactory;
-import unieuroop.model.person.StaffImpl;
+import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
 
@@ -26,11 +26,11 @@ public final class DepartmentDeserializer extends JsonDeserializer<Department> {
         final String name = node.get("departmentName").asText();
         final var products = new ArrayList<Product>();
         final var quantity = new ArrayList<Integer>();
-        final var staff = new HashSet<StaffImpl>();
+        final var staff = new HashSet<Staff>();
         final ObjectMapper mapper = ObjectMapperFactory.getMapper();
 
         for (final var el : node.get("staff")) {
-            staff.add(mapper.treeToValue(el, StaffImpl.class));
+            staff.add(mapper.treeToValue(el, Staff.class));
         }
         for (final var el : node.get("products")) {
             products.add(mapper.treeToValue(el, ProductImpl.class));

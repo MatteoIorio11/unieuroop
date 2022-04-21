@@ -16,10 +16,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.util.Pair;
 import unieuroop.controller.serialization.ObjectMapperFactory;
 
-public final class StaffDeserializer extends JsonDeserializer<StaffImpl> {
+public final class StaffDeserializer extends JsonDeserializer<Staff> {
 
     @Override
-    public StaffImpl deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public Staff deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
         final String name = node.get("name").asText();
         final String surname = node.get("surname").asText();

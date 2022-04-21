@@ -19,11 +19,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.model.person.Staff;
-import unieuroop.model.person.StaffImpl;
 
 public final class ViewStaffImpl implements Initializable, ViewStaff {
 
-    @FXML private ListView<StaffImpl> listStaffs;
+    @FXML private ListView<Staff> listStaffs;
     @FXML private TextField tbxName;
     @FXML private TextField tbxSurname;
     @FXML private DatePicker dtBirthday;
@@ -115,7 +114,7 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
             this.dtBirthday.setValue(staff.getPerson().getBirthdayDate());
             this.lblId.setText(String.valueOf(staff.getPerson().getCode()));
             this.tbxEmail.setText(staff.getEmail());
-            this.pfPassword.setText(staff.getPassword().toString());
+            this.pfPassword.setText(String.valueOf(staff.getPassword()));
             this.tbxHoursStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getHour()));
             this.tbxMinutesStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getMinute()));
             this.tbxHoursEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getHour()));

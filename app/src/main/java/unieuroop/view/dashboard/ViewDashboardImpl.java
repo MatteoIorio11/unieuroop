@@ -2,6 +2,7 @@ package unieuroop.view.dashboard;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -40,6 +41,7 @@ public final class ViewDashboardImpl implements Initializable, ViewDashboard {
     private GridPane cardShopEarnings;
     private final ControllerDashboard controllerDashboard;
     private final ControllerAnalytic controllerAnalytic;
+    private final DecimalFormat format = new DecimalFormat("0.00");
 
     public ViewDashboardImpl(final ControllerDashboard controllerDashboard, final ControllerAnalytic controllerAnalytic) {
         this.controllerDashboard = controllerDashboard;
@@ -48,11 +50,11 @@ public final class ViewDashboardImpl implements Initializable, ViewDashboard {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.lblDepartments.setText(String.valueOf(this.controllerDashboard.getDepartments()));
-        this.lblShopEarnings.setText(String.valueOf(this.controllerAnalytic.getShopEarnings()));
+        this.lblShopEarnings.setText(String.valueOf(format.format(this.controllerAnalytic.getShopEarnings())));
         this.lblStaff.setText(String.valueOf(this.controllerDashboard.getStaff()));
-        this.lblStockPrice.setText(String.valueOf(this.controllerAnalytic.getStockPrice()));
+        this.lblStockPrice.setText(String.valueOf(format.format(this.controllerAnalytic.getStockPrice())));
         this.lblSuppliers.setText(String.valueOf(this.controllerDashboard.getSuppliers()));
-        this.lblTotalSpent.setText(String.valueOf(this.controllerAnalytic.getTotalSpent()));
+        this.lblTotalSpent.setText(String.valueOf(format.format(this.controllerAnalytic.getTotalSpent())));
         this.lstViewSales.getItems().addAll(this.controllerDashboard.getSales());
         if (this.controllerAnalytic.isEarning()) {
             this.cardShopEarnings.setStyle("-fx-background-color: #15cf00; ");

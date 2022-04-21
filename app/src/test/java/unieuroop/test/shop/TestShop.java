@@ -20,6 +20,7 @@ import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
 import unieuroop.model.person.ClientImpl;
+import unieuroop.model.person.Staff;
 import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
@@ -46,13 +47,13 @@ public class TestShop {
     /**
      * ALL THE STAFF THAT WILL BE USED IN THIS TEST.
      */
-    private final StaffImpl staff1 = new StaffImpl("Nome1", "Cognome1", TestShop.DATE_NOW,
+    private final Staff staff1 = new StaffImpl("Nome1", "Cognome1", TestShop.DATE_NOW,
             0, "email1@gmail.com", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    private final StaffImpl staff2 = new StaffImpl("Nome2", "Cognome2", TestShop.DATE_NOW,
+    private final Staff staff2 = new StaffImpl("Nome2", "Cognome2", TestShop.DATE_NOW,
             0, "email2@gmail.csom", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    private final StaffImpl staff3 = new StaffImpl("Nome3", "Cognome4", TestShop.DATE_NOW,
+    private final Staff staff3 = new StaffImpl("Nome3", "Cognome4", TestShop.DATE_NOW,
             0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
-    private final StaffImpl staff4 = new StaffImpl("Nome4", "Cognome4", TestShop.DATE_NOW,
+    private final Staff staff4 = new StaffImpl("Nome4", "Cognome4", TestShop.DATE_NOW,
             0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.

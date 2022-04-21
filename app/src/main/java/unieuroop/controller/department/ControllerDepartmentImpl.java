@@ -11,7 +11,7 @@ import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
-import unieuroop.model.person.StaffImpl;
+import unieuroop.model.person.Staff;
 import unieuroop.model.product.Product;
 import unieuroop.model.shop.Shop;
 import unieuroop.model.stock.Stock;
@@ -45,7 +45,7 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
                 .findAny().get().getAllProducts();
     }
     @Override
-    public void addDepartment(final String name, final Set<StaffImpl> staffs, final Map<Product, Integer> products) throws IOException {
+    public void addDepartment(final String name, final Set<Staff> staffs, final Map<Product, Integer> products) throws IOException {
         if (name.isBlank() || !staffs.isEmpty() && !products.isEmpty()) {
             final var department = new DepartmentImpl(name, staffs, products);
             this.shop.addDepartment(department);
@@ -95,7 +95,7 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     }
 
     @Override
-    public void addStaff(final Department inputDepartment, final Set<StaffImpl> staffs) throws IOException {
+    public void addStaff(final Department inputDepartment, final Set<Staff> staffs) throws IOException {
         if (!Objects.isNull(inputDepartment) && !staffs.isEmpty()) {
             final var dep = this.shop.getDepartments().stream().filter((department) -> department.equals(inputDepartment)).findAny().get();
             for (final var staff : staffs) {
@@ -108,7 +108,7 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     }
 
     @Override
-    public void removeStaff(final Department inputDepartment, final Set<StaffImpl> staffs) throws IOException {
+    public void removeStaff(final Department inputDepartment, final Set<Staff> staffs) throws IOException {
         if (!Objects.isNull(inputDepartment) && !staffs.isEmpty()) {
             final var dep = this.shop.getDepartments().stream().filter((department) -> department.equals(inputDepartment)).findAny().get();
             dep.removeStaff(staffs);
@@ -119,7 +119,7 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     }
 
     @Override
-    public Set<StaffImpl> getStaffOf(final Department departmentInput)  {
+    public Set<Staff> getStaffOf(final Department departmentInput)  {
         if (!Objects.isNull(departmentInput) && this.shop.getDepartments().contains(departmentInput)) {
             return this.shop.getDepartments().stream()
                     .filter((department) -> department.equals(departmentInput))

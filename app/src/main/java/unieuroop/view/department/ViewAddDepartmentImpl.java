@@ -22,12 +22,12 @@ import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.serialization.Pages;
 import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.controller.stock.ControllerStock;
-import unieuroop.model.person.StaffImpl;
+import unieuroop.model.person.Staff;
 import unieuroop.view.loader.Loader;
 
 public final class ViewAddDepartmentImpl implements Initializable, ViewAddDepartment {
 
-    @FXML private ListView<StaffImpl> listStaff;
+    @FXML private ListView<Staff> listStaff;
     @FXML private ListView<Pane> listProducts;
     @FXML private TextField textName;
     @FXML private Button buttonExit;
@@ -36,7 +36,7 @@ public final class ViewAddDepartmentImpl implements Initializable, ViewAddDepart
     private final ControllerDepartment controllerDepartment;
     private final ControllerStaff controllerStaff;
     private final ControllerStock controllerStock;
-    private final Set<StaffImpl> selectedStaff = new HashSet<>();
+    private final Set<Staff> selectedStaff = new HashSet<>();
 
     public ViewAddDepartmentImpl(final ControllerDepartment controllerDepartment, final ControllerStaff controllerStaff,
             final ControllerStock controllerStock) {
