@@ -34,7 +34,7 @@ public interface Staff {
     /**
      * @return password of the Staff
      */
-    Integer getPassword();
+    int getPassword();
 
     /**
      * @param day 

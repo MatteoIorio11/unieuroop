@@ -21,7 +21,7 @@ public final class ControllerLoginImpl implements ControllerLogin {
 
     @Override
     public boolean checkPassword(final String email, final String password) {
-        return this.shop.getStaffs().stream().anyMatch(s -> s.getEmail().equals(email) && s.getPassword().equals(password.hashCode()));
+        return this.shop.getStaffs().stream().anyMatch(s -> s.getEmail().equals(email) && s.getPassword() == password.hashCode());
     }
 
     @Override
