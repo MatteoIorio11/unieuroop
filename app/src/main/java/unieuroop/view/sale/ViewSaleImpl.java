@@ -29,22 +29,14 @@ import unieuroop.view.menu.ViewMainMenu;
 
 public final class ViewSaleImpl implements Initializable, ViewSale {
 
-    @FXML
-    private Stage primaryStage;
-    @FXML
-    private ScrollPane scrollPane;;
-    @FXML
-    private ListView<String> listSelectedProducts;
-    @FXML
-    private ListView<Pane> listLabel;
-    @FXML
-    private Button btnCompleteSale;
-    @FXML
-    private Button btnAddToSale;
-    @FXML
-    private Button btnQuit;
-    @FXML
-    private ComboBox<Department> comboDepartments;
+    @FXML private Stage primaryStage;
+    @FXML private ScrollPane scrollPane;;
+    @FXML private ListView<String> listSelectedProducts;
+    @FXML private ListView<Pane> listLabel;
+    @FXML private Button btnCompleteSale;
+    @FXML private Button btnAddToSale;
+    @FXML private Button btnQuit;
+    @FXML private ComboBox<Department> comboDepartments;
     private final ControllerClient controllerClient;
     private final ControllerDepartment controllerDepartment;
     private final ControllerSale controllerSale;

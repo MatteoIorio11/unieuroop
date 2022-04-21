@@ -11,9 +11,11 @@ import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -60,18 +62,22 @@ public final class ViewChoseClientImpl extends Stage implements Initializable, V
     @Override
     @FXML
     public void buttonSelectHandler(final ActionEvent event) {
-        Optional<Sale> sale;
+        final Optional<Sale> sale;
         try {
             sale = this.controllerSale.closeSale(this.selectedClient);
             final Stage stage = (Stage) this.btnSelect.getScene().getWindow();
-            final DirectoryChooser directoryChooser = new DirectoryChooser();
-            final File selectedDirectory = directoryChooser.showDialog(stage);
-            if (sale.isPresent() && !Objects.isNull(selectedDirectory)) {
-                this.controllerSale.createInvoice(selectedDirectory.getAbsolutePath(), sale.get());
+            if (this.selectedClient.isPresent()) {
+                final DirectoryChooser directoryChooser = new DirectoryChooser();
+                final File selectedDirectory = directoryChooser.showDialog(stage);
+                if (this.selectedClient.isPresent() && sale.isPresent() && !Objects.isNull(selectedDirectory)) {
+                    this.controllerSale.createInvoice(selectedDirectory.getAbsolutePath(), sale.get());
+                }
             }
             stage.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
