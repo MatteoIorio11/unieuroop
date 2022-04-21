@@ -73,7 +73,7 @@ public final class ControllerStaffImpl implements ControllerStaff {
         staff.getPerson().setPersonSurname(surname);
         staff.getPerson().setPersonBirthday(birthday);
         staff.setEmail(email);
-        staff.setPassword(Integer.parseInt(password));
+        staff.setPassword(password.hashCode());
         staff.setWorkTime(days);
         this.serializeStaff();
     }
