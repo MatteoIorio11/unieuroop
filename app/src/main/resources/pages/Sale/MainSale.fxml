@@ -27,6 +27,9 @@
             <Button id="buttonSell" fx:id="btnQuit" layoutX="22.0" layoutY="3.0" mnemonicParsing="false" onAction="#buttonQuitHandler" style="-fx-background-color: red;" text="QUIT" />
             <Button id="buttonSell" fx:id="btnCompleteSale" layoutX="139.0" layoutY="3.0" mnemonicParsing="false" onAction="#buttonSellHandler" text="SELL" />
          </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" />
+         </BorderPane.margin>
       </Pane>
    </bottom>
    <top>

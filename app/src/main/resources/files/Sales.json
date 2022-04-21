@@ -1,81 +1,45 @@
 [ {
-  "date" : [ 2022, 4, 20 ],
+  "date" : [ 2021, 4, 20 ],
   "products" : [ {
-    "productCode" : 25,
-    "name" : "Ariete 2474",
-    "brand" : "Ariete",
-    "sellingPrice" : 249.0,
-    "purchasePrice" : 30.0,
-    "description" : "Portable Vacuum Cleaner Bagless Black, Purple",
-    "category" : "HOME"
+    "productCode" : 39,
+    "name" : "Acer NITRO 50 N50-620",
+    "brand" : "Acer",
+    "sellingPrice" : 1099.0,
+    "purchasePrice" : 650.0,
+    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
+    "category" : "COMPUTER"
   }, {
-    "productCode" : 20,
-    "name" : "ASUS VivoBook 15 K513EA-L12251W PC",
+    "productCode" : 40,
+    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
     "brand" : "Asus",
-    "sellingPrice" : 999.0,
-    "purchasePrice" : 230.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
-    "category" : "PC"
+    "sellingPrice" : 1699.0,
+    "purchasePrice" : 520.0,
+    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
+    "category" : "COMPUTER"
   }, {
-    "productCode" : 16,
-    "name" : "Samsung Galaxy Book Pro 15",
+    "productCode" : 48,
+    "name" : "Samsung F27T350",
     "brand" : "Samsung",
-    "sellingPrice" : 1599.0,
-    "purchasePrice" : 400.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
+    "sellingPrice" : 159.0,
+    "purchasePrice" : 45.0,
+    "description" : "Monitor LED 27 inches, Flat Resolution 1920x1080 Black",
+    "category" : "MONITOR"
+  }, {
+    "productCode" : 19,
+    "name" : "Apple MacBook Air 13",
+    "brand" : "Apple",
+    "sellingPrice" : 1299.0,
+    "purchasePrice" : 500.0,
+    "description" : "Chip M1 con GPU 8-core, 512GB SSD, 8GB RAM - Silver (2020)",
     "category" : "PC"
-  } ],
-  "quantity" : [ 3, 1, 10 ],
-  "client" : {
-    "basePerson" : {
-      "name" : "Ilaria",
-      "surname" : "Endrizzi",
-      "birthdayDate" : [ 1998, 8, 12 ],
-      "code" : 1527167449
-    }
-  }
-}, {
-  "date" : [ 2022, 4, 20 ],
-  "products" : [ {
-    "productCode" : 78,
-    "name" : "Apple SuperDrive",
-    "brand" : "Apple",
-    "sellingPrice" : 69.99,
-    "purchasePrice" : 20.0,
-    "description" : "Ultra-compact, Apple USB SuperDrive connects to your MacBook Pro with Retina display, or with a single USB cable, 2000 GB, White",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 7,
-    "name" : "Apple iPhone 13 Pro",
-    "brand" : "Apple",
-    "sellingPrice" : 1259.0,
-    "purchasePrice" : 600.0,
-    "description" : "256GB Blue Sierra, 5G, iOS 15",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 31,
-    "name" : "Apple Watch Series 3",
-    "brand" : "Apple",
-    "sellingPrice" : 209.0,
-    "purchasePrice" : 60.0,
-    "description" : "GPS, 38mm Space Gray Aluminum with Black Sport Band, Type Display OLED, OS WatchOS 5",
-    "category" : "SMARTWATCH"
-  }, {
-    "productCode" : 77,
-    "name" : "Seagate Backup Plus",
-    "brand" : "Seagate",
-    "sellingPrice" : 149.99,
-    "purchasePrice" : 25.0,
-    "description" : "4000 GB External Hard Disk Hub, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
   } ],
   "quantity" : [ 1, 1, 1, 1 ],
   "client" : {
     "basePerson" : {
       "name" : "Filippo",
-      "surname" : "Romano",
-      "birthdayDate" : [ 2001, 7, 22 ],
-      "code" : 1479707598
+      "surname" : "Belletti",
+      "birthdayDate" : [ 2000, 4, 10 ],
+      "code" : 1088645318
     }
   }
 }, {
@@ -101,74 +65,50 @@
 }, {
   "date" : [ 2022, 4, 20 ],
   "products" : [ {
-    "productCode" : 14,
-    "name" : "Huawei MateBook D 14 53012JBB notebook PC",
-    "brand" : "Huawei",
-    "sellingPrice" : 599.0,
-    "purchasePrice" : 200.0,
-    "description" : "35,6 cm (14 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 10 Grey",
+    "productCode" : 16,
+    "name" : "Samsung Galaxy Book Pro 15",
+    "brand" : "Samsung",
+    "sellingPrice" : 1599.0,
+    "purchasePrice" : 400.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
     "category" : "PC"
   }, {
-    "productCode" : 31,
-    "name" : "Apple Watch Series 3",
-    "brand" : "Apple",
-    "sellingPrice" : 209.0,
-    "purchasePrice" : 60.0,
-    "description" : "GPS, 38mm Space Gray Aluminum with Black Sport Band, Type Display OLED, OS WatchOS 5",
-    "category" : "SMARTWATCH"
-  }, {
-    "productCode" : 32,
-    "name" : "Samsung Galaxy Watch4",
-    "brand" : "Samsung",
-    "sellingPrice" : 219.9,
-    "purchasePrice" : 90.0,
-    "description" : "40mm Smartwatch Ghiera Touch Alluminium Memory 16GB Pink Gold",
-    "category" : "SMARTWATCH"
-  }, {
-    "productCode" : 22,
-    "name" : "Bose UFS-20",
-    "brand" : "Bose",
-    "sellingPrice" : 129.99,
-    "purchasePrice" : 70.0,
-    "description" : "The Black Floor wall mount for loudspeakers",
+    "productCode" : 25,
+    "name" : "Ariete 2474",
+    "brand" : "Ariete",
+    "sellingPrice" : 249.0,
+    "purchasePrice" : 30.0,
+    "description" : "Portable Vacuum Cleaner Bagless Black, Purple",
     "category" : "HOME"
   }, {
-    "productCode" : 23,
-    "name" : "Dyson V10 Absolute",
-    "brand" : "Dyson",
-    "sellingPrice" : 499.0,
-    "purchasePrice" : 150.0,
-    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
-    "category" : "HOME"
-  }, {
-    "productCode" : 24,
-    "name" : "Dyson V15 Detect Absolute",
-    "brand" : "Dyson",
-    "sellingPrice" : 749.0,
-    "purchasePrice" : 200.0,
-    "description" : "Cordless Vacuum Cleaner, Weight 3000g, Power Supply Battery, Charging Time 4.5h, Suction Power 240W, Color Copper, Niche, Yellow",
-    "category" : "HOME"
-  }, {
-    "productCode" : 80,
-    "name" : "SanDisk Ultra Flash Unit",
-    "brand" : "SanDisk",
-    "sellingPrice" : 29.99,
-    "purchasePrice" : 11.0,
-    "description" : "USB 64 GB USB typeA 3.2 Gen 1 (3.1 Gen 1) Black",
-    "category" : "HARD_DISK_AND_STORAGE"
+    "productCode" : 20,
+    "name" : "ASUS VivoBook 15 K513EA-L12251W PC",
+    "brand" : "Asus",
+    "sellingPrice" : 999.0,
+    "purchasePrice" : 230.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
+    "category" : "PC"
   } ],
-  "quantity" : [ 1, 1, 1, 1, 1, 1, 1 ],
+  "quantity" : [ 10, 3, 1 ],
   "client" : {
     "basePerson" : {
-      "name" : "Giorgia",
-      "surname" : "Arpaia",
-      "birthdayDate" : [ 2002, 11, 7 ],
-      "code" : 910457297
+      "name" : "Ilaria",
+      "surname" : "Endrizzi",
+      "birthdayDate" : [ 1998, 8, 12 ],
+      "code" : 1527167449
     }
   }
 }, {
   "date" : [ 2022, 4, 20 ],
   "products" : [ {
+    "productCode" : 59,
+    "name" : "Trust GXT 845",
+    "brand" : "Trust",
+    "sellingPrice" : 29.99,
+    "purchasePrice" : 9.0,
+    "description" : "Tural keyboard USB QWERTY italy Black",
+    "category" : "KEYBOARD"
+  }, {
     "productCode" : 72,
     "name" : "Toshiba Canvio",
     "brand" : "Toshiba",
@@ -184,14 +124,6 @@
     "purchasePrice" : 400.0,
     "description" : "128GB (PRODUCT)RED, 5G, iOS 15",
     "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 59,
-    "name" : "Trust GXT 845",
-    "brand" : "Trust",
-    "sellingPrice" : 29.99,
-    "purchasePrice" : 9.0,
-    "description" : "Tural keyboard USB QWERTY italy Black",
-    "category" : "KEYBOARD"
   } ],
   "quantity" : [ 1, 1, 1 ],
   "client" : {
@@ -200,42 +132,6 @@
       "surname" : "Iogio",
       "birthdayDate" : [ 1980, 5, 22 ],
       "code" : 1141533007
-    }
-  }
-}, {
-  "date" : [ 2015, 4, 20 ],
-  "products" : [ {
-    "productCode" : 39,
-    "name" : "Acer NITRO 50 N50-620",
-    "brand" : "Acer",
-    "sellingPrice" : 1099.0,
-    "purchasePrice" : 650.0,
-    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 40,
-    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
-    "brand" : "Asus",
-    "sellingPrice" : 1699.0,
-    "purchasePrice" : 520.0,
-    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 41,
-    "name" : "Apple iMac 24",
-    "brand" : "Apple",
-    "sellingPrice" : 1499.0,
-    "purchasePrice" : 450.0,
-    "description" : "Display Retina 4.5K (Chip M1 con GPU 8-core, 256GB SSD) - Blue (2021)",
-    "category" : "COMPUTER"
-  } ],
-  "quantity" : [ 1, 1, 1 ],
-  "client" : {
-    "basePerson" : {
-      "name" : "Giorgia",
-      "surname" : "Arpaia",
-      "birthdayDate" : [ 2002, 11, 7 ],
-      "code" : 910457297
     }
   }
 }, {
@@ -261,46 +157,6 @@
 }, {
   "date" : [ 2020, 4, 21 ],
   "products" : [ {
-    "productCode" : 39,
-    "name" : "Acer NITRO 50 N50-620",
-    "brand" : "Acer",
-    "sellingPrice" : 1099.0,
-    "purchasePrice" : 650.0,
-    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 41,
-    "name" : "Apple iMac 24",
-    "brand" : "Apple",
-    "sellingPrice" : 1499.0,
-    "purchasePrice" : 450.0,
-    "description" : "Display Retina 4.5K (Chip M1 con GPU 8-core, 256GB SSD) - Blue (2021)",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 45,
-    "name" : "Apple Mac Mini",
-    "brand" : "Apple",
-    "sellingPrice" : 709.0,
-    "purchasePrice" : 230.0,
-    "description" : "Chip M1 con GPU 8-core, 256GB SSD, 8GB RAM - Silver (2020)",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 46,
-    "name" : "Samsung F24T350",
-    "brand" : "Samsung",
-    "sellingPrice" : 149.0,
-    "purchasePrice" : 30.0,
-    "description" : "Monitor LED 24 inches, Flat Resolution 1920x1080 Black",
-    "category" : "MONITOR"
-  }, {
-    "productCode" : 51,
-    "name" : "ASUS VA27EHE",
-    "brand" : "Asus",
-    "sellingPrice" : 174.0,
-    "purchasePrice" : 35.0,
-    "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
-    "category" : "MONITOR"
-  }, {
     "productCode" : 7,
     "name" : "Apple iPhone 13 Pro",
     "brand" : "Apple",
@@ -460,8 +316,48 @@
     "purchasePrice" : 90.0,
     "description" : "40mm Smartwatch Ghiera Touch Alluminium Memory 16GB Pink Gold",
     "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 39,
+    "name" : "Acer NITRO 50 N50-620",
+    "brand" : "Acer",
+    "sellingPrice" : 1099.0,
+    "purchasePrice" : 650.0,
+    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 41,
+    "name" : "Apple iMac 24",
+    "brand" : "Apple",
+    "sellingPrice" : 1499.0,
+    "purchasePrice" : 450.0,
+    "description" : "Display Retina 4.5K (Chip M1 con GPU 8-core, 256GB SSD) - Blue (2021)",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 45,
+    "name" : "Apple Mac Mini",
+    "brand" : "Apple",
+    "sellingPrice" : 709.0,
+    "purchasePrice" : 230.0,
+    "description" : "Chip M1 con GPU 8-core, 256GB SSD, 8GB RAM - Silver (2020)",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 46,
+    "name" : "Samsung F24T350",
+    "brand" : "Samsung",
+    "sellingPrice" : 149.0,
+    "purchasePrice" : 30.0,
+    "description" : "Monitor LED 24 inches, Flat Resolution 1920x1080 Black",
+    "category" : "MONITOR"
+  }, {
+    "productCode" : 51,
+    "name" : "ASUS VA27EHE",
+    "brand" : "Asus",
+    "sellingPrice" : 174.0,
+    "purchasePrice" : 35.0,
+    "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
+    "category" : "MONITOR"
   } ],
-  "quantity" : [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1 ],
+  "quantity" : [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ],
   "client" : {
     "basePerson" : {
       "name" : "Filippo",
@@ -471,7 +367,7 @@
     }
   }
 }, {
-  "date" : [ 2021, 4, 20 ],
+  "date" : [ 2015, 4, 20 ],
   "products" : [ {
     "productCode" : 39,
     "name" : "Acer NITRO 50 N50-620",
@@ -489,34 +385,47 @@
     "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
     "category" : "COMPUTER"
   }, {
-    "productCode" : 48,
-    "name" : "Samsung F27T350",
-    "brand" : "Samsung",
-    "sellingPrice" : 159.0,
-    "purchasePrice" : 45.0,
-    "description" : "Monitor LED 27 inches, Flat Resolution 1920x1080 Black",
-    "category" : "MONITOR"
-  }, {
-    "productCode" : 19,
-    "name" : "Apple MacBook Air 13",
+    "productCode" : 41,
+    "name" : "Apple iMac 24",
     "brand" : "Apple",
-    "sellingPrice" : 1299.0,
-    "purchasePrice" : 500.0,
-    "description" : "Chip M1 con GPU 8-core, 512GB SSD, 8GB RAM - Silver (2020)",
-    "category" : "PC"
+    "sellingPrice" : 1499.0,
+    "purchasePrice" : 450.0,
+    "description" : "Display Retina 4.5K (Chip M1 con GPU 8-core, 256GB SSD) - Blue (2021)",
+    "category" : "COMPUTER"
   } ],
-  "quantity" : [ 1, 1, 1, 1 ],
+  "quantity" : [ 1, 1, 1 ],
   "client" : {
     "basePerson" : {
-      "name" : "Filippo",
-      "surname" : "Belletti",
-      "birthdayDate" : [ 2000, 4, 10 ],
-      "code" : 1088645318
+      "name" : "Giorgia",
+      "surname" : "Arpaia",
+      "birthdayDate" : [ 2002, 11, 7 ],
+      "code" : 910457297
     }
   }
 }, {
+  "date" : [ 2022, 4, 21 ],
+  "products" : [ {
+    "productCode" : 64,
+    "name" : "Logitech G G305",
+    "brand" : "Logitech",
+    "sellingPrice" : 32.99,
+    "purchasePrice" : 10.0,
+    "description" : "Right Hand Mouse, Wireless RF + Optical Bluetooth 12000 DPI, Black and Grey",
+    "category" : "MOUSE"
+  } ],
+  "quantity" : [ 1 ],
+  "client" : null
+}, {
   "date" : [ 2020, 4, 20 ],
   "products" : [ {
+    "productCode" : 23,
+    "name" : "Dyson V10 Absolute",
+    "brand" : "Dyson",
+    "sellingPrice" : 499.0,
+    "purchasePrice" : 150.0,
+    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
+    "category" : "HOME"
+  }, {
     "productCode" : 49,
     "name" : "Lenovo D27-30",
     "brand" : "Lenovo",
@@ -548,16 +457,8 @@
     "purchasePrice" : 70.0,
     "description" : "The Black Floor wall mount for loudspeakers",
     "category" : "HOME"
-  }, {
-    "productCode" : 23,
-    "name" : "Dyson V10 Absolute",
-    "brand" : "Dyson",
-    "sellingPrice" : 499.0,
-    "purchasePrice" : 150.0,
-    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
-    "category" : "HOME"
   } ],
-  "quantity" : [ 1, 1, 1, 4, 1 ],
+  "quantity" : [ 1, 1, 1, 1, 4 ],
   "client" : {
     "basePerson" : {
       "name" : "Federica",
@@ -567,16 +468,52 @@
     }
   }
 }, {
+  "date" : [ 2022, 4, 20 ],
+  "products" : [ {
+    "productCode" : 7,
+    "name" : "Apple iPhone 13 Pro",
+    "brand" : "Apple",
+    "sellingPrice" : 1259.0,
+    "purchasePrice" : 600.0,
+    "description" : "256GB Blue Sierra, 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 31,
+    "name" : "Apple Watch Series 3",
+    "brand" : "Apple",
+    "sellingPrice" : 209.0,
+    "purchasePrice" : 60.0,
+    "description" : "GPS, 38mm Space Gray Aluminum with Black Sport Band, Type Display OLED, OS WatchOS 5",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 77,
+    "name" : "Seagate Backup Plus",
+    "brand" : "Seagate",
+    "sellingPrice" : 149.99,
+    "purchasePrice" : 25.0,
+    "description" : "4000 GB External Hard Disk Hub, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 78,
+    "name" : "Apple SuperDrive",
+    "brand" : "Apple",
+    "sellingPrice" : 69.99,
+    "purchasePrice" : 20.0,
+    "description" : "Ultra-compact, Apple USB SuperDrive connects to your MacBook Pro with Retina display, or with a single USB cable, 2000 GB, White",
+    "category" : "HARD_DISK_AND_STORAGE"
+  } ],
+  "quantity" : [ 1, 1, 1, 1 ],
+  "client" : {
+    "basePerson" : {
+      "name" : "Filippo",
+      "surname" : "Romano",
+      "birthdayDate" : [ 2001, 7, 22 ],
+      "code" : 1479707598
+    }
+  }
+}, {
   "date" : [ 2021, 4, 20 ],
   "products" : [ {
-    "productCode" : 46,
-    "name" : "Samsung F24T350",
-    "brand" : "Samsung",
-    "sellingPrice" : 149.0,
-    "purchasePrice" : 30.0,
-    "description" : "Monitor LED 24 inches, Flat Resolution 1920x1080 Black",
-    "category" : "MONITOR"
-  }, {
     "productCode" : 41,
     "name" : "Apple iMac 24",
     "brand" : "Apple",
@@ -600,6 +537,14 @@
     "purchasePrice" : 230.0,
     "description" : "Chip M1 con GPU 8-core, 256GB SSD, 8GB RAM - Silver (2020)",
     "category" : "COMPUTER"
+  }, {
+    "productCode" : 46,
+    "name" : "Samsung F24T350",
+    "brand" : "Samsung",
+    "sellingPrice" : 149.0,
+    "purchasePrice" : 30.0,
+    "description" : "Monitor LED 24 inches, Flat Resolution 1920x1080 Black",
+    "category" : "MONITOR"
   } ],
   "quantity" : [ 1, 1, 1, 1 ],
   "client" : {
@@ -608,6 +553,74 @@
       "surname" : "Pisani",
       "birthdayDate" : [ 1948, 6, 7 ],
       "code" : 2070289775
+    }
+  }
+}, {
+  "date" : [ 2022, 4, 20 ],
+  "products" : [ {
+    "productCode" : 31,
+    "name" : "Apple Watch Series 3",
+    "brand" : "Apple",
+    "sellingPrice" : 209.0,
+    "purchasePrice" : 60.0,
+    "description" : "GPS, 38mm Space Gray Aluminum with Black Sport Band, Type Display OLED, OS WatchOS 5",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 32,
+    "name" : "Samsung Galaxy Watch4",
+    "brand" : "Samsung",
+    "sellingPrice" : 219.9,
+    "purchasePrice" : 90.0,
+    "description" : "40mm Smartwatch Ghiera Touch Alluminium Memory 16GB Pink Gold",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 22,
+    "name" : "Bose UFS-20",
+    "brand" : "Bose",
+    "sellingPrice" : 129.99,
+    "purchasePrice" : 70.0,
+    "description" : "The Black Floor wall mount for loudspeakers",
+    "category" : "HOME"
+  }, {
+    "productCode" : 23,
+    "name" : "Dyson V10 Absolute",
+    "brand" : "Dyson",
+    "sellingPrice" : 499.0,
+    "purchasePrice" : 150.0,
+    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
+    "category" : "HOME"
+  }, {
+    "productCode" : 24,
+    "name" : "Dyson V15 Detect Absolute",
+    "brand" : "Dyson",
+    "sellingPrice" : 749.0,
+    "purchasePrice" : 200.0,
+    "description" : "Cordless Vacuum Cleaner, Weight 3000g, Power Supply Battery, Charging Time 4.5h, Suction Power 240W, Color Copper, Niche, Yellow",
+    "category" : "HOME"
+  }, {
+    "productCode" : 80,
+    "name" : "SanDisk Ultra Flash Unit",
+    "brand" : "SanDisk",
+    "sellingPrice" : 29.99,
+    "purchasePrice" : 11.0,
+    "description" : "USB 64 GB USB typeA 3.2 Gen 1 (3.1 Gen 1) Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 14,
+    "name" : "Huawei MateBook D 14 53012JBB notebook PC",
+    "brand" : "Huawei",
+    "sellingPrice" : 599.0,
+    "purchasePrice" : 200.0,
+    "description" : "35,6 cm (14 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 10 Grey",
+    "category" : "PC"
+  } ],
+  "quantity" : [ 1, 1, 1, 1, 1, 1, 1 ],
+  "client" : {
+    "basePerson" : {
+      "name" : "Giorgia",
+      "surname" : "Arpaia",
+      "birthdayDate" : [ 2002, 11, 7 ],
+      "code" : 910457297
     }
   }
 } ]
