@@ -108,11 +108,11 @@ public class TestStock {
         final Product p2 = new ProductImpl(2, TestStock.APPLEWATCH, TestStock.APPLE_PRODUCT, 500.00,  200.00, TestStock.DESCRIPTION_P2, Category.SMARTWATCH);
         final Product p3 = new ProductImpl(3, TestStock.MAC_BOOK_14, TestStock.APPLE_PRODUCT,  3000.00, 2000.00,  TestStock.DESCRIPTION_P3, Category.PC);
         this.shop.getStock().addProducts(Map.of(p1, 1, p2, 2, p3, 1));
-        assertEquals(Map.of(p1, 1), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.SMARTPHONE));
-        assertEquals(Map.of(p2, 2), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.SMARTWATCH));
-        assertEquals(Map.of(p3, 1), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.PC));
-        assertEquals(Map.of(p1, 1, p3, 1), this.shop.getStock().getFilterProducts((quantity, category) -> quantity == 1));
-        assertEquals(Collections.emptyMap(), this.shop.getStock().getFilterProducts((quantity, category) -> quantity == 1 
+        assertEquals(List.of(p1), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.SMARTPHONE));
+        assertEquals(List.of(p2), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.SMARTWATCH));
+        assertEquals(List.of(p3), this.shop.getStock().getFilterProducts((quantity, category) -> category == Category.PC));
+        assertEquals(List.of(p1, p3), this.shop.getStock().getFilterProducts((quantity, category) -> quantity == 1));
+        assertEquals(Collections.emptyList(), this.shop.getStock().getFilterProducts((quantity, category) -> quantity == 1 
                 && category == Category.DOMESTIC_APPLIANCE));
     }
 
