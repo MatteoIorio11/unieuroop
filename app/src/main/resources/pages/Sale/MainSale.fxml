@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="545.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="545.0" prefWidth="896.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <center>
       <ListView fx:id="listLabel" prefHeight="479.0" prefWidth="473.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -27,6 +27,9 @@
             <Button id="buttonSell" fx:id="btnQuit" layoutX="22.0" layoutY="3.0" mnemonicParsing="false" onAction="#buttonQuitHandler" style="-fx-background-color: red;" text="QUIT" />
             <Button id="buttonSell" fx:id="btnCompleteSale" layoutX="139.0" layoutY="3.0" mnemonicParsing="false" onAction="#buttonSellHandler" text="SELL" />
          </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" />
+         </BorderPane.margin>
       </Pane>
    </bottom>
    <top>
