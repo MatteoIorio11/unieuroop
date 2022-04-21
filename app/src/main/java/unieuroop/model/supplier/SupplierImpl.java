@@ -21,25 +21,16 @@ public class SupplierImpl implements Supplier {
         salableProduct = new HashMap<>(products);
     }
 
-    /**
-     * Return the Supplier name.
-     */
     @Override
     public String getName() {
         return this.supplierName;
     }
 
-    /**
-     * Return all avaible supplier's products. 
-     */
     @Override
     public Map<Product, Double> getCatalog() {
         return Map.copyOf(this.salableProduct);
     }
 
-    /**
-     * Return the price of a product based on the requested amount.
-     */
     @Override
     public double getPriceOf(final Product product, final int amount) {
         if (this.salableProduct.containsKey(product)) {
@@ -49,9 +40,6 @@ public class SupplierImpl implements Supplier {
         }
     }
 
-    /**
-     * Return the total price (as receipt) given products and their amount.
-     */
     @Override
     public double getTotalPriceByProducts(final Map<Product, Integer> productsPurchased) {
         double totalPrice = 0;
@@ -63,9 +51,6 @@ public class SupplierImpl implements Supplier {
         return totalPrice;
     }
 
-    /**
-     * Return all the products buyed with their quantities. (Limitazione nelle vendite?)
-     */
     @Override
     public Map<Product, Integer> sellProduct(final Map<Product, Integer> productsPurchased) {
         if (this.salableProduct.keySet().containsAll(productsPurchased.keySet())) {
@@ -74,9 +59,6 @@ public class SupplierImpl implements Supplier {
         throw new IllegalArgumentException();
     }
 
-    /**
-     * 
-     */
     @Override
     public String toString() {
         return "Supplier: " + supplierName;
