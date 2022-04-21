@@ -31,7 +31,7 @@ public final class DepartmentDeserializer extends JsonDeserializer<Department> {
         final ObjectMapper mapper = ObjectMapperFactory.getMapper();
 
         for (final var el : node.get("staff")) {
-            staff.add(mapper.treeToValue(el, StaffImpl.class));
+            staff.add(mapper.treeToValue(el, Staff.class));
         }
         for (final var el : node.get("products")) {
             products.add(mapper.treeToValue(el, ProductImpl.class));
