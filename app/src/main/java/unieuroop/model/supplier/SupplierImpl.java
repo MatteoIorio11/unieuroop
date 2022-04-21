@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import unieuroop.model.product.Product;
 
 @JsonIdentityInfo(scope = SupplierImpl.class, generator = ObjectIdGenerators.IntSequenceGenerator.class)
-public class SupplierImpl implements Supplier {
+public final class SupplierImpl implements Supplier {
     private final String supplierName;
     private final Map<Product, Double> salableProduct;
 
