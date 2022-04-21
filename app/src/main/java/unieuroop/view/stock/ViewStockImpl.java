@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -123,7 +124,7 @@ public final class ViewStockImpl implements Initializable, ViewStock {
            this.loadAllProductsFromStock();
        } else {
            this.loadProductsByList(this.controllerStock.getProductsStocked().keySet().stream()
-                   .filter((product) -> product.getName().contains(this.txtSearchProducts.getText())).collect(Collectors.toList()));
+                   .filter((product) -> product.getName().toLowerCase(Locale.ENGLISH).contains(this.txtSearchProducts.getText().toLowerCase(Locale.ENGLISH))).collect(Collectors.toList()));
        }
     }
 
