@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <ListView fx:id="listStaffs" onMouseClicked="#listSelectHandler" prefHeight="400.0" prefWidth="304.0" BorderPane.alignment="CENTER" />
    </left>
@@ -39,17 +39,17 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <center>
-                        <Button fx:id="btnEditStaff" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EDIT STAFF" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                        <Button fx:id="btnEditStaff" mnemonicParsing="false" onAction="#buttonEditHandler" prefHeight="50.0" prefWidth="100.0" text="EDIT STAFF" textAlignment="CENTER" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                      <center>
-                        <Button fx:id="btnDeleteStaff" mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" text="DELETE STAFF" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                        <Button fx:id="btnDeleteStaff" mnemonicParsing="false" onAction="#buttonDeleteHandler" prefHeight="50.0" prefWidth="113.0" text="DELETE STAFF" textAlignment="CENTER" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>
-                        <Button fx:id="btnAddStaff" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="ADD STAFF" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                        <Button fx:id="btnAddStaff" mnemonicParsing="false" onAction="#buttonAddHandler" prefHeight="50.0" prefWidth="100.0" text="ADD STAFF" textAlignment="CENTER" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                </children>

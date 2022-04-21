@@ -47,6 +47,7 @@ public final class ViewAddDepartmentImpl implements Initializable, ViewAddDepart
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
+        System.out.println(this.controllerStaff.getUnsignedStaff());
         this.listStaff.getItems().addAll(this.controllerStaff.getUnsignedStaff());
         this.loadProducts();
     }

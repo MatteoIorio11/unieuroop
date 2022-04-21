@@ -59,7 +59,6 @@ public final class ViewClientImpl implements Initializable, ViewClient {
             listClients.refresh();
         } catch (IllegalArgumentException illegalExc) {
             setAlert();
-            illegalExc.printStackTrace();
         }
         clearView();
     }
