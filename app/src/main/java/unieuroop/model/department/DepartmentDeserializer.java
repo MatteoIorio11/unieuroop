@@ -14,7 +14,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import unieuroop.controller.serialization.ObjectMapperFactory;
 import unieuroop.model.person.Staff;
-import unieuroop.model.person.StaffImpl;
 import unieuroop.model.product.Product;
 import unieuroop.model.product.ProductImpl;
 
