@@ -1,129 +1,241 @@
 [ {
-  "departmentName" : "Smartphone & TV",
+  "departmentName" : "Home & Utilities",
   "staff" : [ {
-  "name" : "Sofia",
-  "surname" : "Zoffoli",
-  "email" : "sofi.zoff@gmail.com",
-  "id" : 2019713670,
-  "password" : 3237900,
-  "birthday" : [ 2001, 7, 27 ],
-  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
-  "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
-  "endTimes" : [ [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ] ]
-}, {
-  "name" : "Samuele",
-  "surname" : "Ferri",
-  "email" : "samueleferri1301@gmail.com",
-  "id" : 1925175868,
-  "password" : 1661526827,
-  "birthday" : [ 2001, 6, 6 ],
-  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 12,
-    "name" : "Samsung Galaxy Book",
-    "brand" : "Samsung",
-    "sellingPrice" : 849.9,
-    "purchasePrice" : 350.0,
-    "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
-    "category" : "PC"
-  }, {
-    "productCode" : 7,
-    "name" : "Apple iPhone 13 Pro",
-    "brand" : "Apple",
-    "sellingPrice" : 1259.0,
-    "purchasePrice" : 600.0,
-    "description" : "256GB Blue Sierra, 5G, iOS 15",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 8,
-    "name" : "Apple iPhone 13",
-    "brand" : "Apple",
-    "sellingPrice" : 829.0,
-    "purchasePrice" : 400.0,
-    "description" : "128GB (PRODUCT)RED, 5G, iOS 15",
-    "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 10,
-    "name" : "OPPO A74 Smartphone",
-    "brand" : "Oppo",
-    "sellingPrice" : 219.0,
-    "purchasePrice" : 70.0,
-    "description" : "175g, Display 6.43 inch FHD+ AMOLED, 4 Fotocamere 48MP, RAM 6GB ROM 128GB, Battery 5000mAh, Rapid Charge, Dual Sim, Prism Black",
-    "category" : "SMARTPHONE"
-  } ],
-  "values" : [ 9, 8, 3, 4 ]
-}, {
-  "departmentName" : "Tablet",
-  "staff" : [ {
-  "name" : "Mario",
-  "surname" : "Rossi",
-  "email" : "mario.rossi@gmail.com",
-  "id" : 1917962234,
-  "password" : 46793748,
-  "birthday" : [ 2002, 4, 19 ],
-  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
-}, {
-  "name" : "Lucia",
-  "surname" : "Martinelli",
-  "email" : "lucia.mar00@gmail.com",
-  "id" : 1336425467,
+  "name" : "Filippo",
+  "surname" : "Romano",
+  "email" : "filipppo.romano00@gmail.com",
+  "id" : 738962461,
   "password" : 46792755,
-  "birthday" : [ 2000, 11, 17 ],
-  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
-  "startTimes" : [ [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ] ],
-  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
+  "birthday" : [ 2001, 7, 22 ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "MONDAY", "FRIDAY", "THURSDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
+}, {
+  "name" : "Luca",
+  "surname" : "Dimitri",
+  "email" : "lucadm99@gmail.com",
+  "id" : 1145359388,
+  "password" : 2101431141,
+  "birthday" : [ 1999, 9, 21 ],
+  "days" : [ "WEDNESDAY", "MONDAY", "TUESDAY", "SATURDAY", "FRIDAY", "THURSDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ] ]
 } ],
   "products" : [ {
-    "productCode" : 20,
-    "name" : "ASUS VivoBook 15 K513EA-L12251W PC",
-    "brand" : "Asus",
-    "sellingPrice" : 999.0,
-    "purchasePrice" : 230.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
-    "category" : "PC"
+    "productCode" : 82,
+    "name" : "D-Link DGS-108 Unmanaged Switch",
+    "brand" : "D-Link",
+    "sellingPrice" : 39.99,
+    "purchasePrice" : 20.0,
+    "description" : "RJ-45 Ports: 8, Ethernet Technology: 1000BASE-T, 100BASE-TX, 10BASE-T, Supported Data Transfer: 10-100-1000MBps Max Transfer: 1GBps, Silver",
+    "category" : "NETWORKING"
   }, {
-    "productCode" : 14,
-    "name" : "Huawei MateBook D 14 53012JBB notebook PC",
-    "brand" : "Huawei",
-    "sellingPrice" : 599.0,
+    "productCode" : 32,
+    "name" : "Samsung Galaxy Watch4",
+    "brand" : "Samsung",
+    "sellingPrice" : 219.9,
+    "purchasePrice" : 90.0,
+    "description" : "40mm Smartwatch Ghiera Touch Alluminium Memory 16GB Pink Gold",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 80,
+    "name" : "SanDisk Ultra Flash Unit",
+    "brand" : "SanDisk",
+    "sellingPrice" : 29.99,
+    "purchasePrice" : 11.0,
+    "description" : "USB 64 GB USB typeA 3.2 Gen 1 (3.1 Gen 1) Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 31,
+    "name" : "Apple Watch Series 3",
+    "brand" : "Apple",
+    "sellingPrice" : 209.0,
+    "purchasePrice" : 60.0,
+    "description" : "GPS, 38mm Space Gray Aluminum with Black Sport Band, Type Display OLED, OS WatchOS 5",
+    "category" : "SMARTWATCH"
+  }, {
+    "productCode" : 78,
+    "name" : "Apple SuperDrive",
+    "brand" : "Apple",
+    "sellingPrice" : 69.99,
+    "purchasePrice" : 20.0,
+    "description" : "Ultra-compact, Apple USB SuperDrive connects to your MacBook Pro with Retina display, or with a single USB cable, 2000 GB, White",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 77,
+    "name" : "Seagate Backup Plus",
+    "brand" : "Seagate",
+    "sellingPrice" : 149.99,
+    "purchasePrice" : 25.0,
+    "description" : "4000 GB External Hard Disk Hub, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 27,
+    "name" : "Dyson Pure Cool",
+    "brand" : "Dyson",
+    "sellingPrice" : 449.9,
     "purchasePrice" : 200.0,
-    "description" : "35,6 cm (14 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 10 Grey",
-    "category" : "PC"
+    "description" : "Pure Cool Dyson 36dB, Power 56W, Color Silver and White",
+    "category" : "HOME"
   }, {
-    "productCode" : 15,
-    "name" : "Lenovo IdeaPad 3 15ITL6 PC",
-    "brand" : "Lenovo",
+    "productCode" : 26,
+    "name" : "iRobot Roomba Combo",
+    "brand" : "Romba Combo",
+    "sellingPrice" : 299.9,
+    "purchasePrice" : 100.0,
+    "description" : "Robot Vacuum 0,45 L Dust Bag, Black and Grey",
+    "category" : "HOME"
+  }, {
+    "productCode" : 25,
+    "name" : "Ariete 2474",
+    "brand" : "Ariete",
+    "sellingPrice" : 249.0,
+    "purchasePrice" : 30.0,
+    "description" : "Portable Vacuum Cleaner Bagless Black, Purple",
+    "category" : "HOME"
+  }, {
+    "productCode" : 24,
+    "name" : "Dyson V15 Detect Absolute",
+    "brand" : "Dyson",
+    "sellingPrice" : 749.0,
+    "purchasePrice" : 200.0,
+    "description" : "Cordless Vacuum Cleaner, Weight 3000g, Power Supply Battery, Charging Time 4.5h, Suction Power 240W, Color Copper, Niche, Yellow",
+    "category" : "HOME"
+  }, {
+    "productCode" : 23,
+    "name" : "Dyson V10 Absolute",
+    "brand" : "Dyson",
     "sellingPrice" : 499.0,
     "purchasePrice" : 150.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
-    "category" : "PC"
+    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
+    "category" : "HOME"
   }, {
-    "productCode" : 16,
-    "name" : "Samsung Galaxy Book Pro 15",
-    "brand" : "Samsung",
-    "sellingPrice" : 1599.0,
-    "purchasePrice" : 400.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
-    "category" : "PC"
+    "productCode" : 22,
+    "name" : "Bose UFS-20",
+    "brand" : "Bose",
+    "sellingPrice" : 129.99,
+    "purchasePrice" : 70.0,
+    "description" : "The Black Floor wall mount for loudspeakers",
+    "category" : "HOME"
   } ],
-  "values" : [ 5, 7, 5, 0 ]
+  "values" : [ 0, 1, 0, 0, 2, 2, 2, 4, 0, 0, 2, 0 ]
+}, {
+  "departmentName" : "Mouse",
+  "staff" : [ {
+  "name" : "Giulia",
+  "surname" : "Merli",
+  "email" : "giulia.merli@icloud.com",
+  "id" : 709413956,
+  "password" : 112212417,
+  "birthday" : [ 2002, 6, 3 ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "MONDAY", "FRIDAY", "THURSDAY" ],
+  "startTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ],
+  "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
+}, {
+  "name" : "Fabio",
+  "surname" : "Vincenzi",
+  "email" : "fabio.vincenzi2001@gmail.com",
+  "id" : 537341718,
+  "password" : 1098694324,
+  "birthday" : [ 2002, 4, 24 ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "MONDAY", "FRIDAY", "THURSDAY" ],
+  "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
+  "endTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 63,
+    "name" : "Logitech M100",
+    "brand" : "Logitech",
+    "sellingPrice" : 7.99,
+    "purchasePrice" : 2.0,
+    "description" : "USB Mouse Cable, 3 Buttons, 1000 DPI Optical Tracking, Ambidextrous, Compatible with PC, Mac and Laptop",
+    "category" : "MOUSE"
+  }, {
+    "productCode" : 62,
+    "name" : "Logitech MX Master 3",
+    "brand" : "Logitech",
+    "sellingPrice" : 72.98,
+    "purchasePrice" : 25.0,
+    "description" : "Advanced Wireless Mouse, 2.4 GHz Bluetooth or USB Receiver, Ultra-Fast Scrolling, 4000 DPI Any Surface, Ergonomic, 7 Buttons, PC-Mac-Laptop-iPadOS, Light Gray",
+    "category" : "MOUSE"
+  }, {
+    "productCode" : 61,
+    "name" : "Apple Magic Mouse",
+    "brand" : "Apple",
+    "sellingPrice" : 69.99,
+    "purchasePrice" : 20.0,
+    "description" : "Ambidextrous Bluetooth Mouse, Rechargeable White",
+    "category" : "MOUSE"
+  }, {
+    "productCode" : 60,
+    "name" : "Logitech MK220",
+    "brand" : "Logitech",
+    "sellingPrice" : 19.0,
+    "purchasePrice" : 9.0,
+    "description" : "Wireless Keyboard USB, Black",
+    "category" : "KEYBOARD"
+  }, {
+    "productCode" : 59,
+    "name" : "Trust GXT 845",
+    "brand" : "Trust",
+    "sellingPrice" : 29.99,
+    "purchasePrice" : 9.0,
+    "description" : "Tural keyboard USB QWERTY italy Black",
+    "category" : "KEYBOARD"
+  }, {
+    "productCode" : 58,
+    "name" : "Apple Magic Keyboard",
+    "brand" : "Apple",
+    "sellingPrice" : 320.0,
+    "purchasePrice" : 120.0,
+    "description" : "For iPad Pro 11 inches (Third Generation) and iPad Air (Fourth Generation) - White",
+    "category" : "KEYBOARD"
+  }, {
+    "productCode" : 73,
+    "name" : "Samsung 870 EVO",
+    "brand" : "Samsung",
+    "sellingPrice" : 49.99,
+    "purchasePrice" : 15.0,
+    "description" : "250 GB Serial ATA III V-NAND, Write 530 MBps Read 560 MBps, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 72,
+    "name" : "Toshiba Canvio",
+    "brand" : "Toshiba",
+    "sellingPrice" : 39.99,
+    "purchasePrice" : 13.0,
+    "description" : "External Hard Disk, Capacity 1000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 71,
+    "name" : "Toshiba Canvio Basics",
+    "brand" : "Toshiba",
+    "sellingPrice" : 82.99,
+    "purchasePrice" : 30.0,
+    "description" : "External Hard Disk, Capacity 4000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 64,
+    "name" : "Logitech G G305",
+    "brand" : "Logitech",
+    "sellingPrice" : 32.99,
+    "purchasePrice" : 10.0,
+    "description" : "Right Hand Mouse, Wireless RF + Optical Bluetooth 12000 DPI, Black and Grey",
+    "category" : "MOUSE"
+  } ],
+  "values" : [ 4, 15, 20, 4, 0, 0, 1, 0, 0, 3 ]
 }, {
   "departmentName" : "PC & Computer",
   "staff" : [ {
-  "name" : "Matteo",
-  "surname" : "Iorio",
-  "email" : "matteo.iorio01@gmail.com",
-  "id" : 821220106,
-  "password" : 1509442,
-  "birthday" : [ 2001, 2, 11 ],
-  "days" : [ "MONDAY", "TUESDAY", "SATURDAY", "FRIDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ] ],
-  "endTimes" : [ [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ] ]
+  "name" : "Nicola",
+  "surname" : "Strada",
+  "email" : "nicola.strada4@gmail.com",
+  "id" : 1590664781,
+  "password" : -1293335239,
+  "birthday" : [ 2001, 10, 27 ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "MONDAY", "FRIDAY", "THURSDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
 }, {
   "name" : "Simone",
   "surname" : "Cefariello",
@@ -131,26 +243,26 @@
   "id" : 1438068174,
   "password" : 1509442,
   "birthday" : [ 2001, 10, 5 ],
-  "days" : [ "MONDAY", "TUESDAY", "SATURDAY", "FRIDAY", "THURSDAY", "WEDNESDAY" ],
+  "days" : [ "WEDNESDAY", "MONDAY", "TUESDAY", "SATURDAY", "FRIDAY", "THURSDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
 }, {
-  "name" : "Nicola",
-  "surname" : "Strada",
-  "email" : "nicola.strada4@gmail.com",
-  "id" : 1590664781,
-  "password" : -1293335239,
-  "birthday" : [ 2001, 10, 27 ],
-  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
+  "name" : "Matteo",
+  "surname" : "Iorio",
+  "email" : "matteo.iorio01@gmail.com",
+  "id" : 821220106,
+  "password" : 1509442,
+  "birthday" : [ 2001, 2, 11 ],
+  "days" : [ "WEDNESDAY", "MONDAY", "TUESDAY", "SATURDAY", "FRIDAY", "THURSDAY" ],
+  "startTimes" : [ [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ] ],
+  "endTimes" : [ [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ] ]
 } ],
   "products" : [ {
-    "productCode" : 49,
-    "name" : "Lenovo D27-30",
-    "brand" : "Lenovo",
-    "sellingPrice" : 149.0,
-    "purchasePrice" : 45.0,
+    "productCode" : 51,
+    "name" : "ASUS VA27EHE",
+    "brand" : "Asus",
+    "sellingPrice" : 174.0,
+    "purchasePrice" : 35.0,
     "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
     "category" : "MONITOR"
   }, {
@@ -162,68 +274,20 @@
     "description" : "60,5 cm (23.8 inches) 1920x1080 Pixel Full HD LED Black",
     "category" : "MONITOR"
   }, {
-    "productCode" : 51,
-    "name" : "ASUS VA27EHE",
-    "brand" : "Asus",
-    "sellingPrice" : 174.0,
-    "purchasePrice" : 35.0,
+    "productCode" : 49,
+    "name" : "Lenovo D27-30",
+    "brand" : "Lenovo",
+    "sellingPrice" : 149.0,
+    "purchasePrice" : 45.0,
     "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
     "category" : "MONITOR"
   }, {
-    "productCode" : 39,
-    "name" : "Acer NITRO 50 N50-620",
-    "brand" : "Acer",
-    "sellingPrice" : 1099.0,
-    "purchasePrice" : 650.0,
-    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 40,
-    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
-    "brand" : "Asus",
-    "sellingPrice" : 1699.0,
-    "purchasePrice" : 520.0,
-    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 41,
-    "name" : "Apple iMac 24",
-    "brand" : "Apple",
-    "sellingPrice" : 1499.0,
-    "purchasePrice" : 450.0,
-    "description" : "Display Retina 4.5K (Chip M1 con GPU 8-core, 256GB SSD) - Blue (2021)",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 18,
-    "name" : "Apple MacBook Pro 14",
-    "brand" : "Apple",
-    "sellingPrice" : 2099.0,
-    "purchasePrice" : 850.0,
-    "description" : "Chip M1 Pro 8‑core CPU 14‑core GPU 512GB SSD Space Gray 96 W",
-    "category" : "PC"
-  }, {
-    "productCode" : 19,
-    "name" : "Apple MacBook Air 13",
-    "brand" : "Apple",
-    "sellingPrice" : 1299.0,
-    "purchasePrice" : 500.0,
-    "description" : "Chip M1 con GPU 8-core, 512GB SSD, 8GB RAM - Silver (2020)",
-    "category" : "PC"
-  }, {
-    "productCode" : 45,
-    "name" : "Apple Mac Mini",
-    "brand" : "Apple",
-    "sellingPrice" : 709.0,
-    "purchasePrice" : 230.0,
-    "description" : "Chip M1 con GPU 8-core, 256GB SSD, 8GB RAM - Silver (2020)",
-    "category" : "COMPUTER"
-  }, {
-    "productCode" : 46,
-    "name" : "Samsung F24T350",
+    "productCode" : 48,
+    "name" : "Samsung F27T350",
     "brand" : "Samsung",
-    "sellingPrice" : 149.0,
-    "purchasePrice" : 30.0,
-    "description" : "Monitor LED 24 inches, Flat Resolution 1920x1080 Black",
+    "sellingPrice" : 159.0,
+    "purchasePrice" : 45.0,
+    "description" : "Monitor LED 27 inches, Flat Resolution 1920x1080 Black",
     "category" : "MONITOR"
   }, {
     "productCode" : 21,
@@ -234,239 +298,175 @@
     "description" : "Black 3.1.2 channel, Width 980mm, Audio: DTS Digital Surround, Dolby Atmos, Dolby Digital Plus, Dolby TrueHD",
     "category" : "HOME"
   }, {
-    "productCode" : 48,
-    "name" : "Samsung F27T350",
+    "productCode" : 46,
+    "name" : "Samsung F24T350",
     "brand" : "Samsung",
-    "sellingPrice" : 159.0,
-    "purchasePrice" : 45.0,
-    "description" : "Monitor LED 27 inches, Flat Resolution 1920x1080 Black",
+    "sellingPrice" : 149.0,
+    "purchasePrice" : 30.0,
+    "description" : "Monitor LED 24 inches, Flat Resolution 1920x1080 Black",
     "category" : "MONITOR"
-  } ],
-  "values" : [ 0, 0, 0, 1, 0, 7, 8, 3, 3, 0, 2, 0 ]
-}, {
-  "departmentName" : "Mouse",
-  "staff" : [ {
-  "name" : "Fabio",
-  "surname" : "Vincenzi",
-  "email" : "fabio.vincenzi2001@gmail.com",
-  "id" : 537341718,
-  "password" : 1098694324,
-  "birthday" : [ 2002, 4, 24 ],
-  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
-  "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
-  "endTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ]
-}, {
-  "name" : "Giulia",
-  "surname" : "Merli",
-  "email" : "giulia.merli@icloud.com",
-  "id" : 709413956,
-  "password" : 112212417,
-  "birthday" : [ 2002, 6, 3 ],
-  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
-  "startTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ],
-  "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 58,
-    "name" : "Apple Magic Keyboard",
+  }, {
+    "productCode" : 45,
+    "name" : "Apple Mac Mini",
     "brand" : "Apple",
-    "sellingPrice" : 320.0,
-    "purchasePrice" : 120.0,
-    "description" : "For iPad Pro 11 inches (Third Generation) and iPad Air (Fourth Generation) - White",
-    "category" : "KEYBOARD"
+    "sellingPrice" : 709.0,
+    "purchasePrice" : 230.0,
+    "description" : "Chip M1 con GPU 8-core, 256GB SSD, 8GB RAM - Silver (2020)",
+    "category" : "COMPUTER"
   }, {
-    "productCode" : 59,
-    "name" : "Trust GXT 845",
-    "brand" : "Trust",
-    "sellingPrice" : 29.99,
-    "purchasePrice" : 9.0,
-    "description" : "Tural keyboard USB QWERTY italy Black",
-    "category" : "KEYBOARD"
-  }, {
-    "productCode" : 60,
-    "name" : "Logitech MK220",
-    "brand" : "Logitech",
-    "sellingPrice" : 19.0,
-    "purchasePrice" : 9.0,
-    "description" : "Wireless Keyboard USB, Black",
-    "category" : "KEYBOARD"
-  }, {
-    "productCode" : 61,
-    "name" : "Apple Magic Mouse",
+    "productCode" : 19,
+    "name" : "Apple MacBook Air 13",
     "brand" : "Apple",
-    "sellingPrice" : 69.99,
-    "purchasePrice" : 20.0,
-    "description" : "Ambidextrous Bluetooth Mouse, Rechargeable White",
-    "category" : "MOUSE"
+    "sellingPrice" : 1299.0,
+    "purchasePrice" : 500.0,
+    "description" : "Chip M1 con GPU 8-core, 512GB SSD, 8GB RAM - Silver (2020)",
+    "category" : "PC"
   }, {
-    "productCode" : 62,
-    "name" : "Logitech MX Master 3",
-    "brand" : "Logitech",
-    "sellingPrice" : 72.98,
-    "purchasePrice" : 25.0,
-    "description" : "Advanced Wireless Mouse, 2.4 GHz Bluetooth or USB Receiver, Ultra-Fast Scrolling, 4000 DPI Any Surface, Ergonomic, 7 Buttons, PC-Mac-Laptop-iPadOS, Light Gray",
-    "category" : "MOUSE"
+    "productCode" : 18,
+    "name" : "Apple MacBook Pro 14",
+    "brand" : "Apple",
+    "sellingPrice" : 2099.0,
+    "purchasePrice" : 850.0,
+    "description" : "Chip M1 Pro 8‑core CPU 14‑core GPU 512GB SSD Space Gray 96 W",
+    "category" : "PC"
   }, {
-    "productCode" : 63,
-    "name" : "Logitech M100",
-    "brand" : "Logitech",
-    "sellingPrice" : 7.99,
-    "purchasePrice" : 2.0,
-    "description" : "USB Mouse Cable, 3 Buttons, 1000 DPI Optical Tracking, Ambidextrous, Compatible with PC, Mac and Laptop",
-    "category" : "MOUSE"
+    "productCode" : 41,
+    "name" : "Apple iMac 24",
+    "brand" : "Apple",
+    "sellingPrice" : 1499.0,
+    "purchasePrice" : 450.0,
+    "description" : "Display Retina 4.5K (Chip M1 con GPU 8-core, 256GB SSD) - Blue (2021)",
+    "category" : "COMPUTER"
   }, {
-    "productCode" : 64,
-    "name" : "Logitech G G305",
-    "brand" : "Logitech",
-    "sellingPrice" : 32.99,
-    "purchasePrice" : 10.0,
-    "description" : "Right Hand Mouse, Wireless RF + Optical Bluetooth 12000 DPI, Black and Grey",
-    "category" : "MOUSE"
+    "productCode" : 40,
+    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
+    "brand" : "Asus",
+    "sellingPrice" : 1699.0,
+    "purchasePrice" : 520.0,
+    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
+    "category" : "COMPUTER"
   }, {
-    "productCode" : 71,
-    "name" : "Toshiba Canvio Basics",
-    "brand" : "Toshiba",
-    "sellingPrice" : 82.99,
-    "purchasePrice" : 30.0,
-    "description" : "External Hard Disk, Capacity 4000 GB, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 72,
-    "name" : "Toshiba Canvio",
-    "brand" : "Toshiba",
-    "sellingPrice" : 39.99,
-    "purchasePrice" : 13.0,
-    "description" : "External Hard Disk, Capacity 1000 GB, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 73,
-    "name" : "Samsung 870 EVO",
-    "brand" : "Samsung",
-    "sellingPrice" : 49.99,
-    "purchasePrice" : 15.0,
-    "description" : "250 GB Serial ATA III V-NAND, Write 530 MBps Read 560 MBps, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
+    "productCode" : 39,
+    "name" : "Acer NITRO 50 N50-620",
+    "brand" : "Acer",
+    "sellingPrice" : 1099.0,
+    "purchasePrice" : 650.0,
+    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
+    "category" : "COMPUTER"
   } ],
-  "values" : [ 0, 0, 4, 20, 15, 4, 3, 0, 0, 1 ]
+  "values" : [ 0, 0, 0, 0, 2, 0, 3, 3, 8, 7, 0, 1 ]
 }, {
-  "departmentName" : "Home & Utilities",
+  "departmentName" : "Tablet",
   "staff" : [ {
-  "name" : "Filippo",
-  "surname" : "Romano",
-  "email" : "filipppo.romano00@gmail.com",
-  "id" : 738962461,
+  "name" : "Lucia",
+  "surname" : "Martinelli",
+  "email" : "lucia.mar00@gmail.com",
+  "id" : 1336425467,
   "password" : 46792755,
-  "birthday" : [ 2001, 7, 22 ],
-  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
+  "birthday" : [ 2000, 11, 17 ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "MONDAY", "FRIDAY", "THURSDAY" ],
+  "startTimes" : [ [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ] ],
+  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
 }, {
-  "name" : "Luca",
-  "surname" : "Dimitri",
-  "email" : "lucadm99@gmail.com",
-  "id" : 1145359388,
-  "password" : 2101431141,
-  "birthday" : [ 1999, 9, 21 ],
-  "days" : [ "MONDAY", "TUESDAY", "SATURDAY", "FRIDAY", "THURSDAY", "WEDNESDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ] ]
+  "name" : "Mario",
+  "surname" : "Rossi",
+  "email" : "mario.rossi@gmail.com",
+  "id" : 1917962234,
+  "password" : 46793748,
+  "birthday" : [ 2002, 4, 19 ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "MONDAY", "FRIDAY", "THURSDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
 } ],
   "products" : [ {
-    "productCode" : 25,
-    "name" : "Ariete 2474",
-    "brand" : "Ariete",
-    "sellingPrice" : 249.0,
-    "purchasePrice" : 30.0,
-    "description" : "Portable Vacuum Cleaner Bagless Black, Purple",
-    "category" : "HOME"
-  }, {
-    "productCode" : 26,
-    "name" : "iRobot Roomba Combo",
-    "brand" : "Romba Combo",
-    "sellingPrice" : 299.9,
-    "purchasePrice" : 100.0,
-    "description" : "Robot Vacuum 0,45 L Dust Bag, Black and Grey",
-    "category" : "HOME"
-  }, {
-    "productCode" : 27,
-    "name" : "Dyson Pure Cool",
-    "brand" : "Dyson",
-    "sellingPrice" : 449.9,
+    "productCode" : 14,
+    "name" : "Huawei MateBook D 14 53012JBB notebook PC",
+    "brand" : "Huawei",
+    "sellingPrice" : 599.0,
     "purchasePrice" : 200.0,
-    "description" : "Pure Cool Dyson 36dB, Power 56W, Color Silver and White",
-    "category" : "HOME"
+    "description" : "35,6 cm (14 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 10 Grey",
+    "category" : "PC"
   }, {
-    "productCode" : 77,
-    "name" : "Seagate Backup Plus",
-    "brand" : "Seagate",
-    "sellingPrice" : 149.99,
-    "purchasePrice" : 25.0,
-    "description" : "4000 GB External Hard Disk Hub, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
+    "productCode" : 20,
+    "name" : "ASUS VivoBook 15 K513EA-L12251W PC",
+    "brand" : "Asus",
+    "sellingPrice" : 999.0,
+    "purchasePrice" : 230.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
+    "category" : "PC"
   }, {
-    "productCode" : 78,
-    "name" : "Apple SuperDrive",
-    "brand" : "Apple",
-    "sellingPrice" : 69.99,
-    "purchasePrice" : 20.0,
-    "description" : "Ultra-compact, Apple USB SuperDrive connects to your MacBook Pro with Retina display, or with a single USB cable, 2000 GB, White",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 31,
-    "name" : "Apple Watch Series 3",
-    "brand" : "Apple",
-    "sellingPrice" : 209.0,
-    "purchasePrice" : 60.0,
-    "description" : "GPS, 38mm Space Gray Aluminum with Black Sport Band, Type Display OLED, OS WatchOS 5",
-    "category" : "SMARTWATCH"
-  }, {
-    "productCode" : 80,
-    "name" : "SanDisk Ultra Flash Unit",
-    "brand" : "SanDisk",
-    "sellingPrice" : 29.99,
-    "purchasePrice" : 11.0,
-    "description" : "USB 64 GB USB typeA 3.2 Gen 1 (3.1 Gen 1) Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 32,
-    "name" : "Samsung Galaxy Watch4",
+    "productCode" : 16,
+    "name" : "Samsung Galaxy Book Pro 15",
     "brand" : "Samsung",
-    "sellingPrice" : 219.9,
-    "purchasePrice" : 90.0,
-    "description" : "40mm Smartwatch Ghiera Touch Alluminium Memory 16GB Pink Gold",
-    "category" : "SMARTWATCH"
+    "sellingPrice" : 1599.0,
+    "purchasePrice" : 400.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
+    "category" : "PC"
   }, {
-    "productCode" : 82,
-    "name" : "D-Link DGS-108 Unmanaged Switch",
-    "brand" : "D-Link",
-    "sellingPrice" : 39.99,
-    "purchasePrice" : 20.0,
-    "description" : "RJ-45 Ports: 8, Ethernet Technology: 1000BASE-T, 100BASE-TX, 10BASE-T, Supported Data Transfer: 10-100-1000MBps Max Transfer: 1GBps, Silver",
-    "category" : "NETWORKING"
-  }, {
-    "productCode" : 22,
-    "name" : "Bose UFS-20",
-    "brand" : "Bose",
-    "sellingPrice" : 129.99,
-    "purchasePrice" : 70.0,
-    "description" : "The Black Floor wall mount for loudspeakers",
-    "category" : "HOME"
-  }, {
-    "productCode" : 23,
-    "name" : "Dyson V10 Absolute",
-    "brand" : "Dyson",
+    "productCode" : 15,
+    "name" : "Lenovo IdeaPad 3 15ITL6 PC",
+    "brand" : "Lenovo",
     "sellingPrice" : 499.0,
     "purchasePrice" : 150.0,
-    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
-    "category" : "HOME"
-  }, {
-    "productCode" : 24,
-    "name" : "Dyson V15 Detect Absolute",
-    "brand" : "Dyson",
-    "sellingPrice" : 749.0,
-    "purchasePrice" : 200.0,
-    "description" : "Cordless Vacuum Cleaner, Weight 3000g, Power Supply Battery, Charging Time 4.5h, Suction Power 240W, Color Copper, Niche, Yellow",
-    "category" : "HOME"
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
+    "category" : "PC"
   } ],
-  "values" : [ 0, 4, 2, 2, 2, 0, 0, 1, 0, 0, 2, 0 ]
+  "values" : [ 7, 5, 0, 5 ]
+}, {
+  "departmentName" : "Smartphone & TV",
+  "staff" : [ {
+  "name" : "Samuele",
+  "surname" : "Ferri",
+  "email" : "samueleferri1301@gmail.com",
+  "id" : 1925175868,
+  "password" : 1661526827,
+  "birthday" : [ 2001, 6, 6 ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "MONDAY", "FRIDAY", "THURSDAY" ],
+  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
+}, {
+  "name" : "Sofia",
+  "surname" : "Zoffoli",
+  "email" : "sofi.zoff@gmail.com",
+  "id" : 2019713670,
+  "password" : 3237900,
+  "birthday" : [ 2001, 7, 27 ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "MONDAY", "FRIDAY", "THURSDAY" ],
+  "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
+  "endTimes" : [ [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 12,
+    "name" : "Samsung Galaxy Book",
+    "brand" : "Samsung",
+    "sellingPrice" : 849.9,
+    "purchasePrice" : 350.0,
+    "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
+    "category" : "PC"
+  }, {
+    "productCode" : 10,
+    "name" : "OPPO A74 Smartphone",
+    "brand" : "Oppo",
+    "sellingPrice" : 219.0,
+    "purchasePrice" : 70.0,
+    "description" : "175g, Display 6.43 inch FHD+ AMOLED, 4 Fotocamere 48MP, RAM 6GB ROM 128GB, Battery 5000mAh, Rapid Charge, Dual Sim, Prism Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 8,
+    "name" : "Apple iPhone 13",
+    "brand" : "Apple",
+    "sellingPrice" : 829.0,
+    "purchasePrice" : 400.0,
+    "description" : "128GB (PRODUCT)RED, 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 7,
+    "name" : "Apple iPhone 13 Pro",
+    "brand" : "Apple",
+    "sellingPrice" : 1259.0,
+    "purchasePrice" : 600.0,
+    "description" : "256GB Blue Sierra, 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  } ],
+  "values" : [ 9, 4, 3, 8 ]
 } ]
