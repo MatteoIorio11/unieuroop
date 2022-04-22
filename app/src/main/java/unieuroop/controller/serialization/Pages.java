@@ -89,7 +89,7 @@ public enum Pages {
     /**
      * @param
      */
-    STAFF("/pages/Staff/staffView.fxml"),
+    STAFF("/pages/Staff/StaffView.fxml"),
     /**
      * @param file directory of balance's chart
      */
