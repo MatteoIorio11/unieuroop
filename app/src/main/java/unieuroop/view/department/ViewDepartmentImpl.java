@@ -77,7 +77,7 @@ public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
             });
             stage.showAndWait();
             currentStage.show();
-            this.listDepartments.getItems().clear();
+            this.cleanLists();
             this.populateList();
         } catch (IOException e) {
             e.printStackTrace();
@@ -94,12 +94,12 @@ public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
             currentStage.hide();
             stage.showAndWait();
             currentStage.show();
-            this.listDepartments.getItems().clear();
-            this.listProducts.getItems().clear();
-            this.listStaff.getItems().clear();
+            this.cleanLists();
             this.populateList();
         } catch (IOException e) {
-            e.printStackTrace();
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
@@ -113,11 +113,19 @@ public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
             currentStage.hide();
             stage.showAndWait();
             currentStage.show();
-            this.listDepartments.getItems().clear();
+            this.cleanLists();
             this.populateList();
         } catch (IOException e) {
-            e.printStackTrace();
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
+    }
+
+    private void cleanLists() {
+        this.listDepartments.getItems().clear();
+        this.listProducts.getItems().clear();
+        this.listStaff.getItems().clear();
     }
 
     /**
