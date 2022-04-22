@@ -79,4 +79,14 @@ public final class StaffImpl implements Staff {
     public String toString() {
         return this.person.toString() + " " + this.email;
     }
+
+    @Override
+    public int hashCode() {
+        return this.person.hashCode();
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        return this.person.equals(obj);
+    }
 }

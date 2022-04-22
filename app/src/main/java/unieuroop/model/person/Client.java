@@ -13,4 +13,17 @@ public interface Client {
      */
     String toString();
 
+    /**
+     * override of hashCode.
+     * @return hashCode
+     */
+    int hashCode();
+
+    /**
+     * override of equals.
+     * @param obj
+     * @return equals
+     */
+    boolean equals(Object obj);
+
 }

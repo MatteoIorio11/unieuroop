@@ -18,4 +18,14 @@ public final class ClientImpl implements Client {
     public String toString() {
         return this.person.toString();
     }
+
+    @Override
+    public int hashCode() {
+        return this.person.hashCode();
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        return this.person.equals(obj);
+    }
 }
