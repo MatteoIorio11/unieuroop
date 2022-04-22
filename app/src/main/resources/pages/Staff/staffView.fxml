@@ -154,13 +154,13 @@
                   </BorderPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <children>
-                        <TextField fx:id="tbxHoursStartTime" layoutX="2.0" layoutY="6.0" prefHeight="26.0" prefWidth="56.0" promptText="hours" />
+                        <TextField fx:id="tbxHoursStartTime" layoutX="3.0" layoutY="5.0" prefHeight="26.0" prefWidth="56.0" promptText="hours" />
                         <TextField fx:id="tbxMinutesStartTime" layoutX="81.0" layoutY="6.0" prefHeight="26.0" prefWidth="60.0" promptText="minutes" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <children>
-                        <TextField fx:id="tbxHoursEndTime" layoutX="2.0" layoutY="4.0" prefHeight="26.0" prefWidth="56.0" promptText="hours" />
+                        <TextField fx:id="tbxHoursEndTime" layoutX="4.0" layoutY="5.0" prefHeight="26.0" prefWidth="56.0" promptText="hours" />
                         <TextField fx:id="tbxMinutesEndTime" layoutX="81.0" layoutY="4.0" prefHeight="26.0" prefWidth="60.0" promptText="minutes" />
                      </children>
                   </AnchorPane>
