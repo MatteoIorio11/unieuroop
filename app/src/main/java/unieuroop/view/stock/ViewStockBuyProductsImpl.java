@@ -3,6 +3,7 @@ package unieuroop.view.stock;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -54,8 +55,10 @@ public final class ViewStockBuyProductsImpl implements Initializable, ViewStockB
     @Override
     @FXML
     public void listSupplierHandler(final MouseEvent event) {
-        final Supplier supplier = this.listSupplier.getSelectionModel().getSelectedItem();
-        this.addLabelProductsSold(supplier.getCatalog());
+        final var supplier = this.listSupplier.getSelectionModel().getSelectedItem();
+        if (!Objects.isNull(supplier)) {
+            this.addLabelProductsSold(supplier.getCatalog());
+        }
     }
 
     @Override
