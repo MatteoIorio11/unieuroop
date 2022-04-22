@@ -51,10 +51,8 @@ public final class ViewEditStaffImpl implements Initializable, ViewEditStaff {
     public void buttonAddHandler(final ActionEvent event) {
         try {
             this.controllerDepartment.addStaff(this.department, this.selectedAddStaff);
-            this.listAddStaff.getItems().clear();
-            this.listRemoveStaff.getItems().clear();
-            this.listAddStaff.getItems().addAll(this.controllerStaff.getUnsignedStaff());
-            this.listRemoveStaff.getItems().addAll(this.controllerDepartment.getStaffOf(department));
+            final Stage stage = (Stage) this.buttonAddStaff.getScene().getWindow();
+            stage.close();
         } catch (IOException e) {
             final Alert alertError = new Alert(AlertType.ERROR);
             alertError.setContentText(e.getMessage());
@@ -71,12 +69,8 @@ public final class ViewEditStaffImpl implements Initializable, ViewEditStaff {
     public void buttonRemoveHandler(final ActionEvent event) {
         try {
             this.controllerDepartment.removeStaff(department, this.selectedRemoveStaff);
-            this.listAddStaff.getItems().clear();
-            this.listRemoveStaff.getItems().clear();
-            this.listAddStaff.getItems().addAll(this.controllerStaff.getUnsignedStaff());
-            this.listRemoveStaff.getItems().addAll(this.controllerDepartment.getStaffOf(department));
-            final Stage currentStage = (Stage) this.buttonRemoveStaff.getScene().getWindow();
-            currentStage.close();
+            final Stage stage = (Stage) this.buttonRemoveStaff.getScene().getWindow();
+            stage.close();
         } catch (IOException e) {
             final Alert alertError = new Alert(AlertType.ERROR);
             alertError.setContentText(e.getMessage());

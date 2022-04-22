@@ -100,10 +100,10 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     @Override
     public void addStaff(final Department inputDepartment, final Set<Staff> staffs) throws IOException {
         if (!Objects.isNull(inputDepartment) && !staffs.isEmpty()) {
-            final var dep = this.shop.getDepartments().stream().filter((department) -> department.equals(inputDepartment)).findAny().get();
-            for (final var staff : staffs) {
-                dep.addStaff(staff);
+            if (this.shop.getDepartments().stream().anyMatch((department) -> department.getStaff().stream().anyMatch((staff) -> staffs.contains(staff)))) {
+                throw new IllegalArgumentException("One of the staff is already in the department.");
             }
+            this.shop.addStaffIn(inputDepartment, staffs);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
         } else {
             throw new IllegalArgumentException("One or both of the parameters are null");
@@ -113,8 +113,10 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     @Override
     public void removeStaff(final Department inputDepartment, final Set<Staff> staffs) throws IOException {
         if (!Objects.isNull(inputDepartment) && !staffs.isEmpty()) {
-            final var dep = this.shop.getDepartments().stream().filter((department) -> department.equals(inputDepartment)).findAny().get();
-            dep.removeStaff(staffs);
+            if (!this.shop.getDepartments().stream().anyMatch((department) -> department.getStaff().stream().anyMatch((staff) -> staffs.contains(staff)))) {
+                throw new IllegalArgumentException("One of the staff is already in the department.");
+            }
+            this.shop.removeStaffFrom(inputDepartment, staffs);
             Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), this.shop.getDepartments());
         } else {
             throw new IllegalArgumentException("One or both of the parameters are null");

@@ -4,6 +4,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Map;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -82,11 +83,22 @@ public final class StaffImpl implements Staff {
 
     @Override
     public int hashCode() {
-        return this.person.hashCode();
+        return Objects.hash(email, password, person, workTime);
     }
 
     @Override
     public boolean equals(final Object obj) {
-        return this.person.equals(obj);
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final StaffImpl other = (StaffImpl) obj;
+        return Objects.equals(email, other.email) && password == other.password && Objects.equals(person, other.person)
+                && Objects.equals(workTime, other.workTime);
     }
 }

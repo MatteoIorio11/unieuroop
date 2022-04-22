@@ -89,6 +89,41 @@ public interface Shop {
      * @param department
      */
     void addDepartment(Department department);
+    /**
+     * Add new staff inside the department.
+     * @param departmentInput
+     * @param staff
+     */
+    void addStaffIn(Department departmentInput, Set<Staff> staff);
+    /**
+     * Remove staff from the department.
+     * @param departmentInput
+     * @param staff
+     */
+    void removeStaffFrom(Department departmentInput, Set<Staff> staff);
+    /**
+     * Edit the selected staff.
+     * @param name
+     * @param surname
+     * @param birthday
+     * @param email
+     * @param password
+     * @param hoursStartWork
+     * @param minutesStartWork
+     * @param hoursEndWork
+     * @param minutesEndWork
+     * @param staff
+     */
+    void editStaff(String name, String surname, LocalDate birthday, String email, String password, 
+            String hoursStartWork, String minutesStartWork, String hoursEndWork, String minutesEndWork, Staff staff);
+    /**
+     * Edit the selected client.
+     * @param name
+     * @param surname
+     * @param birthday
+     * @param client
+     */
+    void editClient(String name, String surname, LocalDate birthday, Client client);
 
     /**
      * Adds a new person to the staff of the shop.

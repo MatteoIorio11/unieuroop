@@ -1,6 +1,8 @@
 package unieuroop.model.shop;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -8,6 +10,9 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import javafx.util.Pair;
 import unieuroop.model.department.Department;
 import unieuroop.model.department.DepartmentImpl;
 import unieuroop.model.person.Client;
@@ -106,6 +111,43 @@ public final class ShopImpl implements Shop {
     @Override
     public void addDepartment(final Department department) {
         this.departments.add(department);
+    }
+
+    @Override
+    public void addStaffIn(final Department departmentInput, final Set<Staff> staff) {
+        final Department department = this.departments.stream().filter((departmentStream) -> departmentStream.equals(departmentInput)).findAny().get();
+        for (final var singleStaff : staff) {
+            department.addStaff(singleStaff);
+        }
+    }
+
+    @Override
+    public void removeStaffFrom(final Department departmentInput, final Set<Staff> staff) {
+        final Department department = this.departments.stream().filter((departmentStream) -> departmentStream.equals(departmentInput)).findAny().get();
+        department.removeStaff(staff);
+    }
+
+    @Override
+    public void editStaff(final String name, final String surname, final LocalDate birthday, final String email, final String password, 
+            final String hoursStartWork, final String minutesStartWork, final String hoursEndWork, final String minutesEndWork, final Staff staff) {
+        final var days = new HashMap<DayOfWeek, Pair<LocalTime, LocalTime>>();
+        final var times = new Pair<>(LocalTime.of(Integer.parseInt(hoursStartWork), Integer.parseInt(minutesStartWork)), LocalTime.of(Integer.parseInt(hoursEndWork), Integer.parseInt(minutesEndWork)));
+        IntStream.range(DayOfWeek.MONDAY.getValue(), DayOfWeek.SUNDAY.getValue()).forEach(i -> days.put(DayOfWeek.of(i), times));
+        final Staff staffInput = this.staffs.stream().filter((staffStream) -> staffStream.equals(staff)).findAny().get();
+        staffInput.getPerson().setPersonName(name);
+        staffInput.getPerson().setPersonSurname(surname);
+        staffInput.getPerson().setPersonBirthday(birthday);
+        staffInput.setEmail(email);
+        staffInput.setPassword(password.hashCode());
+        staffInput.setWorkTime(days);
+    }
+
+    @Override
+    public void editClient(final String name, final String surname, final LocalDate birthday, final Client client) {
+        final var clientInput = this.registeredClients.stream().filter((clientStream) -> clientStream.equals(client)).findAny().get();
+        clientInput.getPerson().setPersonName(name);
+        clientInput.getPerson().setPersonSurname(surname);
+        clientInput.getPerson().setPersonBirthday(birthday);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package unieuroop.model.person;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public final class ClientImpl implements Client {
 
@@ -21,11 +22,21 @@ public final class ClientImpl implements Client {
 
     @Override
     public int hashCode() {
-        return this.person.hashCode();
+        return Objects.hash(person);
     }
 
     @Override
     public boolean equals(final Object obj) {
-        return this.person.equals(obj);
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ClientImpl other = (ClientImpl) obj;
+        return Objects.equals(person, other.person);
     }
 }
