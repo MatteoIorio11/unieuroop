@@ -7,7 +7,7 @@
   "id" : 2019713670,
   "password" : 3237900,
   "birthday" : [ 2001, 7, 27 ],
-  "days" : [ "THURSDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
   "endTimes" : [ [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ] ]
 }, {
@@ -17,11 +17,19 @@
   "id" : 1925175868,
   "password" : 1661526827,
   "birthday" : [ 2001, 6, 6 ],
-  "days" : [ "THURSDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
 } ],
   "products" : [ {
+    "productCode" : 12,
+    "name" : "Samsung Galaxy Book",
+    "brand" : "Samsung",
+    "sellingPrice" : 849.9,
+    "purchasePrice" : 350.0,
+    "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
+    "category" : "PC"
+  }, {
     "productCode" : 7,
     "name" : "Apple iPhone 13 Pro",
     "brand" : "Apple",
@@ -45,16 +53,8 @@
     "purchasePrice" : 70.0,
     "description" : "175g, Display 6.43 inch FHD+ AMOLED, 4 Fotocamere 48MP, RAM 6GB ROM 128GB, Battery 5000mAh, Rapid Charge, Dual Sim, Prism Black",
     "category" : "SMARTPHONE"
-  }, {
-    "productCode" : 12,
-    "name" : "Samsung Galaxy Book",
-    "brand" : "Samsung",
-    "sellingPrice" : 849.9,
-    "purchasePrice" : 350.0,
-    "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
-    "category" : "PC"
   } ],
-  "values" : [ 8, 3, 4, 9 ]
+  "values" : [ 9, 8, 3, 4 ]
 }, {
   "departmentName" : "Tablet",
   "staff" : [ {
@@ -64,7 +64,7 @@
   "id" : 1917962234,
   "password" : 46793748,
   "birthday" : [ 2002, 4, 19 ],
-  "days" : [ "THURSDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
 }, {
@@ -74,27 +74,11 @@
   "id" : 1336425467,
   "password" : 46792755,
   "birthday" : [ 2000, 11, 17 ],
-  "days" : [ "THURSDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ] ],
   "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
 } ],
   "products" : [ {
-    "productCode" : 15,
-    "name" : "Lenovo IdeaPad 3 15ITL6 PC",
-    "brand" : "Lenovo",
-    "sellingPrice" : 499.0,
-    "purchasePrice" : 150.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
-    "category" : "PC"
-  }, {
-    "productCode" : 16,
-    "name" : "Samsung Galaxy Book Pro 15",
-    "brand" : "Samsung",
-    "sellingPrice" : 1599.0,
-    "purchasePrice" : 400.0,
-    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
-    "category" : "PC"
-  }, {
     "productCode" : 20,
     "name" : "ASUS VivoBook 15 K513EA-L12251W PC",
     "brand" : "Asus",
@@ -110,8 +94,24 @@
     "purchasePrice" : 200.0,
     "description" : "35,6 cm (14 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 5 (802.11ac) Windows 10 Grey",
     "category" : "PC"
+  }, {
+    "productCode" : 15,
+    "name" : "Lenovo IdeaPad 3 15ITL6 PC",
+    "brand" : "Lenovo",
+    "sellingPrice" : 499.0,
+    "purchasePrice" : 150.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i3 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Grey",
+    "category" : "PC"
+  }, {
+    "productCode" : 16,
+    "name" : "Samsung Galaxy Book Pro 15",
+    "brand" : "Samsung",
+    "sellingPrice" : 1599.0,
+    "purchasePrice" : 400.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
+    "category" : "PC"
   } ],
-  "values" : [ 5, 0, 5, 7 ]
+  "values" : [ 5, 7, 5, 0 ]
 }, {
   "departmentName" : "PC & Computer",
   "staff" : [ {
@@ -121,7 +121,7 @@
   "id" : 821220106,
   "password" : 1509442,
   "birthday" : [ 2001, 2, 11 ],
-  "days" : [ "WEDNESDAY", "MONDAY", "THURSDAY", "TUESDAY", "SATURDAY", "FRIDAY" ],
+  "days" : [ "MONDAY", "TUESDAY", "SATURDAY", "FRIDAY", "THURSDAY", "WEDNESDAY" ],
   "startTimes" : [ [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ] ],
   "endTimes" : [ [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ] ]
 }, {
@@ -131,7 +131,7 @@
   "id" : 1438068174,
   "password" : 1509442,
   "birthday" : [ 2001, 10, 5 ],
-  "days" : [ "WEDNESDAY", "MONDAY", "THURSDAY", "TUESDAY", "SATURDAY", "FRIDAY" ],
+  "days" : [ "MONDAY", "TUESDAY", "SATURDAY", "FRIDAY", "THURSDAY", "WEDNESDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
 }, {
@@ -141,11 +141,35 @@
   "id" : 1590664781,
   "password" : -1293335239,
   "birthday" : [ 2001, 10, 27 ],
-  "days" : [ "THURSDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
 } ],
   "products" : [ {
+    "productCode" : 49,
+    "name" : "Lenovo D27-30",
+    "brand" : "Lenovo",
+    "sellingPrice" : 149.0,
+    "purchasePrice" : 45.0,
+    "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
+    "category" : "MONITOR"
+  }, {
+    "productCode" : 50,
+    "name" : "Acer NITRO QG1 QG241Y",
+    "brand" : "Acer",
+    "sellingPrice" : 139.9,
+    "purchasePrice" : 50.0,
+    "description" : "60,5 cm (23.8 inches) 1920x1080 Pixel Full HD LED Black",
+    "category" : "MONITOR"
+  }, {
+    "productCode" : 51,
+    "name" : "ASUS VA27EHE",
+    "brand" : "Asus",
+    "sellingPrice" : 174.0,
+    "purchasePrice" : 35.0,
+    "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
+    "category" : "MONITOR"
+  }, {
     "productCode" : 39,
     "name" : "Acer NITRO 50 N50-620",
     "brand" : "Acer",
@@ -217,32 +241,8 @@
     "purchasePrice" : 45.0,
     "description" : "Monitor LED 27 inches, Flat Resolution 1920x1080 Black",
     "category" : "MONITOR"
-  }, {
-    "productCode" : 49,
-    "name" : "Lenovo D27-30",
-    "brand" : "Lenovo",
-    "sellingPrice" : 149.0,
-    "purchasePrice" : 45.0,
-    "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
-    "category" : "MONITOR"
-  }, {
-    "productCode" : 50,
-    "name" : "Acer NITRO QG1 QG241Y",
-    "brand" : "Acer",
-    "sellingPrice" : 139.9,
-    "purchasePrice" : 50.0,
-    "description" : "60,5 cm (23.8 inches) 1920x1080 Pixel Full HD LED Black",
-    "category" : "MONITOR"
-  }, {
-    "productCode" : 51,
-    "name" : "ASUS VA27EHE",
-    "brand" : "Asus",
-    "sellingPrice" : 174.0,
-    "purchasePrice" : 35.0,
-    "description" : "68,6 cm (27 inches) 1920x1080 Pixel Full HD LED Black",
-    "category" : "MONITOR"
   } ],
-  "values" : [ 1, 0, 7, 8, 3, 3, 0, 2, 0, 0, 0, 0 ]
+  "values" : [ 0, 0, 0, 1, 0, 7, 8, 3, 3, 0, 2, 0 ]
 }, {
   "departmentName" : "Mouse",
   "staff" : [ {
@@ -252,7 +252,7 @@
   "id" : 537341718,
   "password" : 1098694324,
   "birthday" : [ 2002, 4, 24 ],
-  "days" : [ "THURSDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
   "endTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ]
 }, {
@@ -262,51 +262,11 @@
   "id" : 709413956,
   "password" : 112212417,
   "birthday" : [ 2002, 6, 3 ],
-  "days" : [ "THURSDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ],
   "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
 } ],
   "products" : [ {
-    "productCode" : 63,
-    "name" : "Logitech M100",
-    "brand" : "Logitech",
-    "sellingPrice" : 7.99,
-    "purchasePrice" : 2.0,
-    "description" : "USB Mouse Cable, 3 Buttons, 1000 DPI Optical Tracking, Ambidextrous, Compatible with PC, Mac and Laptop",
-    "category" : "MOUSE"
-  }, {
-    "productCode" : 64,
-    "name" : "Logitech G G305",
-    "brand" : "Logitech",
-    "sellingPrice" : 32.99,
-    "purchasePrice" : 10.0,
-    "description" : "Right Hand Mouse, Wireless RF + Optical Bluetooth 12000 DPI, Black and Grey",
-    "category" : "MOUSE"
-  }, {
-    "productCode" : 71,
-    "name" : "Toshiba Canvio Basics",
-    "brand" : "Toshiba",
-    "sellingPrice" : 82.99,
-    "purchasePrice" : 30.0,
-    "description" : "External Hard Disk, Capacity 4000 GB, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 72,
-    "name" : "Toshiba Canvio",
-    "brand" : "Toshiba",
-    "sellingPrice" : 39.99,
-    "purchasePrice" : 13.0,
-    "description" : "External Hard Disk, Capacity 1000 GB, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
-    "productCode" : 73,
-    "name" : "Samsung 870 EVO",
-    "brand" : "Samsung",
-    "sellingPrice" : 49.99,
-    "purchasePrice" : 15.0,
-    "description" : "250 GB Serial ATA III V-NAND, Write 530 MBps Read 560 MBps, Black",
-    "category" : "HARD_DISK_AND_STORAGE"
-  }, {
     "productCode" : 58,
     "name" : "Apple Magic Keyboard",
     "brand" : "Apple",
@@ -346,8 +306,48 @@
     "purchasePrice" : 25.0,
     "description" : "Advanced Wireless Mouse, 2.4 GHz Bluetooth or USB Receiver, Ultra-Fast Scrolling, 4000 DPI Any Surface, Ergonomic, 7 Buttons, PC-Mac-Laptop-iPadOS, Light Gray",
     "category" : "MOUSE"
+  }, {
+    "productCode" : 63,
+    "name" : "Logitech M100",
+    "brand" : "Logitech",
+    "sellingPrice" : 7.99,
+    "purchasePrice" : 2.0,
+    "description" : "USB Mouse Cable, 3 Buttons, 1000 DPI Optical Tracking, Ambidextrous, Compatible with PC, Mac and Laptop",
+    "category" : "MOUSE"
+  }, {
+    "productCode" : 64,
+    "name" : "Logitech G G305",
+    "brand" : "Logitech",
+    "sellingPrice" : 32.99,
+    "purchasePrice" : 10.0,
+    "description" : "Right Hand Mouse, Wireless RF + Optical Bluetooth 12000 DPI, Black and Grey",
+    "category" : "MOUSE"
+  }, {
+    "productCode" : 71,
+    "name" : "Toshiba Canvio Basics",
+    "brand" : "Toshiba",
+    "sellingPrice" : 82.99,
+    "purchasePrice" : 30.0,
+    "description" : "External Hard Disk, Capacity 4000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 72,
+    "name" : "Toshiba Canvio",
+    "brand" : "Toshiba",
+    "sellingPrice" : 39.99,
+    "purchasePrice" : 13.0,
+    "description" : "External Hard Disk, Capacity 1000 GB, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
+  }, {
+    "productCode" : 73,
+    "name" : "Samsung 870 EVO",
+    "brand" : "Samsung",
+    "sellingPrice" : 49.99,
+    "purchasePrice" : 15.0,
+    "description" : "250 GB Serial ATA III V-NAND, Write 530 MBps Read 560 MBps, Black",
+    "category" : "HARD_DISK_AND_STORAGE"
   } ],
-  "values" : [ 4, 3, 0, 0, 1, 0, 0, 4, 20, 15 ]
+  "values" : [ 0, 0, 4, 20, 15, 4, 3, 0, 0, 1 ]
 }, {
   "departmentName" : "Home & Utilities",
   "staff" : [ {
@@ -357,7 +357,7 @@
   "id" : 738962461,
   "password" : 46792755,
   "birthday" : [ 2001, 7, 22 ],
-  "days" : [ "THURSDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
+  "days" : [ "WEDNESDAY", "TUESDAY", "FRIDAY", "THURSDAY", "MONDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
 }, {
@@ -367,35 +367,11 @@
   "id" : 1145359388,
   "password" : 2101431141,
   "birthday" : [ 1999, 9, 21 ],
-  "days" : [ "WEDNESDAY", "MONDAY", "THURSDAY", "TUESDAY", "SATURDAY", "FRIDAY" ],
+  "days" : [ "MONDAY", "TUESDAY", "SATURDAY", "FRIDAY", "THURSDAY", "WEDNESDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
   "endTimes" : [ [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ] ]
 } ],
   "products" : [ {
-    "productCode" : 22,
-    "name" : "Bose UFS-20",
-    "brand" : "Bose",
-    "sellingPrice" : 129.99,
-    "purchasePrice" : 70.0,
-    "description" : "The Black Floor wall mount for loudspeakers",
-    "category" : "HOME"
-  }, {
-    "productCode" : 23,
-    "name" : "Dyson V10 Absolute",
-    "brand" : "Dyson",
-    "sellingPrice" : 499.0,
-    "purchasePrice" : 150.0,
-    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
-    "category" : "HOME"
-  }, {
-    "productCode" : 24,
-    "name" : "Dyson V15 Detect Absolute",
-    "brand" : "Dyson",
-    "sellingPrice" : 749.0,
-    "purchasePrice" : 200.0,
-    "description" : "Cordless Vacuum Cleaner, Weight 3000g, Power Supply Battery, Charging Time 4.5h, Suction Power 240W, Color Copper, Niche, Yellow",
-    "category" : "HOME"
-  }, {
     "productCode" : 25,
     "name" : "Ariete 2474",
     "brand" : "Ariete",
@@ -467,6 +443,30 @@
     "purchasePrice" : 20.0,
     "description" : "RJ-45 Ports: 8, Ethernet Technology: 1000BASE-T, 100BASE-TX, 10BASE-T, Supported Data Transfer: 10-100-1000MBps Max Transfer: 1GBps, Silver",
     "category" : "NETWORKING"
+  }, {
+    "productCode" : 22,
+    "name" : "Bose UFS-20",
+    "brand" : "Bose",
+    "sellingPrice" : 129.99,
+    "purchasePrice" : 70.0,
+    "description" : "The Black Floor wall mount for loudspeakers",
+    "category" : "HOME"
+  }, {
+    "productCode" : 23,
+    "name" : "Dyson V10 Absolute",
+    "brand" : "Dyson",
+    "sellingPrice" : 499.0,
+    "purchasePrice" : 150.0,
+    "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
+    "category" : "HOME"
+  }, {
+    "productCode" : 24,
+    "name" : "Dyson V15 Detect Absolute",
+    "brand" : "Dyson",
+    "sellingPrice" : 749.0,
+    "purchasePrice" : 200.0,
+    "description" : "Cordless Vacuum Cleaner, Weight 3000g, Power Supply Battery, Charging Time 4.5h, Suction Power 240W, Color Copper, Niche, Yellow",
+    "category" : "HOME"
   } ],
-  "values" : [ 0, 2, 0, 0, 4, 2, 2, 2, 0, 0, 1, 0 ]
+  "values" : [ 0, 4, 2, 2, 2, 0, 0, 1, 0, 0, 2, 0 ]
 } ]

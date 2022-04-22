@@ -69,13 +69,19 @@ public final class ControllerStaffImpl implements ControllerStaff {
         final var days = new HashMap<DayOfWeek, Pair<LocalTime, LocalTime>>();
         final var times = new Pair<>(LocalTime.of(Integer.parseInt(hoursStartWork), Integer.parseInt(minutesStartWork)), LocalTime.of(Integer.parseInt(hoursEndWork), Integer.parseInt(minutesEndWork)));
         IntStream.range(DayOfWeek.MONDAY.getValue(), DayOfWeek.SUNDAY.getValue()).forEach(i -> days.put(DayOfWeek.of(i), times));
-        staff.getPerson().setPersonName(name);
-        staff.getPerson().setPersonSurname(surname);
-        staff.getPerson().setPersonBirthday(birthday);
-        staff.setEmail(email);
-        staff.setPassword(password.hashCode());
-        staff.setWorkTime(days);
-        this.serializeStaff();
+        final var staffShop = this.shop.getStaffs().stream().filter(staffStream -> staffStream.equals(staff)).findAny();
+        if (staffShop.isPresent()) {
+            final var staffInput = staffShop.get();
+            staffInput.getPerson().setPersonName(name);
+            staffInput.getPerson().setPersonSurname(surname);
+            staffInput.getPerson().setPersonBirthday(birthday);
+            staffInput.setEmail(email);
+            staffInput.setPassword(password.hashCode());
+            staffInput.setWorkTime(days);
+            this.serializeStaff();
+        } else {
+            throw new IllegalArgumentException("The selected staff does not exist"); 
+        }
     }
 
     @Override
