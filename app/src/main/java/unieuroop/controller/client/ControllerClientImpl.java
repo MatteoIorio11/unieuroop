@@ -44,10 +44,16 @@ public final class ControllerClientImpl implements ControllerClient {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
         }
-        client.getPerson().setPersonName(name);
-        client.getPerson().setPersonSurname(surname);
-        client.getPerson().setPersonBirthday(birthday);
-        serializationClient();
+        final var clientSelected = this.shop.getRegisteredClients().stream().filter(clientStream -> clientStream.equals(client)).findAny();
+        if (clientSelected.isPresent()) {
+            final var clientInput = clientSelected.get();
+            clientInput.getPerson().setPersonName(name);
+            clientInput.getPerson().setPersonSurname(surname);
+            clientInput.getPerson().setPersonBirthday(birthday);
+            serializationClient();
+        } else {
+            throw new IllegalArgumentException("The selected client does not exist");
+        }
     }
 
     @Override
