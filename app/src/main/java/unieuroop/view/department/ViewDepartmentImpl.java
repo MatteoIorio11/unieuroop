@@ -95,6 +95,8 @@ public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
             stage.showAndWait();
             currentStage.show();
             this.listDepartments.getItems().clear();
+            this.listProducts.getItems().clear();
+            this.listStaff.getItems().clear();
             this.populateList();
         } catch (IOException e) {
             e.printStackTrace();
