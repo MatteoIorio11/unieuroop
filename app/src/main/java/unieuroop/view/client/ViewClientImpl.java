@@ -45,7 +45,6 @@ public final class ViewClientImpl implements Initializable, ViewClient {
             this.listClients.getItems().addAll(this.controller.getRegisteredClients());
         } catch (IllegalArgumentException illegalExc) {
             setAlert();
-            illegalExc.printStackTrace();
         }
         clearView();
     }

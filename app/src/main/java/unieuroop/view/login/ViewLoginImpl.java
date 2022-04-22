@@ -34,9 +34,13 @@ public final class ViewLoginImpl implements Initializable, ViewLogin {
         try {
             this.controller.loadData();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            final Alert alert = new Alert(AlertType.WARNING);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         } catch (IOException e1) {
-            e1.printStackTrace();
+            final Alert alert = new Alert(AlertType.WARNING);
+            alert.setContentText(e1.getMessage());
+            alert.showAndWait();
         }
     }
 

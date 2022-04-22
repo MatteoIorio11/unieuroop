@@ -142,6 +142,7 @@ public final class ViewMainMenuImpl implements Initializable, ViewMainMenu {
         } catch (IOException e) {
             final Alert errorMessage = new Alert(AlertType.ERROR);
             errorMessage.setContentText(e.getMessage());
+            errorMessage.showAndWait();
         }
     }
 }

@@ -102,7 +102,9 @@ public final class ViewAddDepartmentImpl implements Initializable, ViewAddDepart
                 final Pane pane = Loader.loadPane(Pages.LABEL_PRODUCT.getPath(), controller);
                 this.listProducts.getItems().add(pane);
             } catch (IOException e) {
-                e.printStackTrace();
+                final Alert alert = new Alert(AlertType.WARNING);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
             }
         }
     }
