@@ -47,6 +47,9 @@ public final class ControllerDepartmentImpl implements ControllerDepartment {
     @Override
     public void addDepartment(final String name, final Set<Staff> staffs, final Map<Product, Integer> products) throws IOException {
         if (name.isBlank() || !staffs.isEmpty() && !products.isEmpty()) {
+            if (this.shop.getDepartments().stream().anyMatch((departmentStream) -> departmentStream.getDepartmentName().equals(name))) {
+                throw new IllegalArgumentException("This name already exist inside the shop");
+            }
             final var department = new DepartmentImpl(name, staffs, products);
             this.shop.addDepartment(department);
         } else {
