@@ -1,23 +1,9 @@
 [ {
   "basePerson" : {
-    "name" : "name3",
-    "surname" : "surname3",
+    "name" : "name4",
+    "surname" : "surname4",
     "birthdayDate" : [ 2022, 4, 23 ],
-    "code" : 2
-  }
-}, {
-  "basePerson" : {
-    "name" : "name2",
-    "surname" : "surname2",
-    "birthdayDate" : [ 2022, 4, 23 ],
-    "code" : 1
-  }
-}, {
-  "basePerson" : {
-    "name" : "name1",
-    "surname" : "surname1",
-    "birthdayDate" : [ 2022, 4, 23 ],
-    "code" : 0
+    "code" : 3
   }
 }, {
   "basePerson" : {
@@ -28,9 +14,23 @@
   }
 }, {
   "basePerson" : {
-    "name" : "name4",
-    "surname" : "surname4",
+    "name" : "name1",
+    "surname" : "surname1",
     "birthdayDate" : [ 2022, 4, 23 ],
-    "code" : 3
+    "code" : 0
+  }
+}, {
+  "basePerson" : {
+    "name" : "name2",
+    "surname" : "surname2",
+    "birthdayDate" : [ 2022, 4, 23 ],
+    "code" : 1
+  }
+}, {
+  "basePerson" : {
+    "name" : "name3",
+    "surname" : "surname3",
+    "birthdayDate" : [ 2022, 4, 23 ],
+    "code" : 2
   }
 } ]
