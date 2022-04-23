@@ -1,36 +1,36 @@
 [ {
-  "person" : {
-    "name" : "name2",
-    "surname" : "surname2",
-    "code" : 1,
-    "birthdayDate" : [ 2022, 4, 20 ]
-  }
-}, {
-  "person" : {
-    "name" : "name5",
-    "surname" : "surname5",
-    "code" : 4,
-    "birthdayDate" : [ 2022, 4, 20 ]
-  }
-}, {
-  "person" : {
-    "name" : "name1",
-    "surname" : "surname1",
-    "code" : 0,
-    "birthdayDate" : [ 2022, 4, 20 ]
-  }
-}, {
-  "person" : {
-    "name" : "name4",
-    "surname" : "surname4",
-    "code" : 3,
-    "birthdayDate" : [ 2022, 4, 20 ]
-  }
-}, {
-  "person" : {
+  "basePerson" : {
     "name" : "name3",
     "surname" : "surname3",
-    "code" : 2,
-    "birthdayDate" : [ 2022, 4, 20 ]
+    "birthdayDate" : [ 2022, 4, 23 ],
+    "code" : 2
+  }
+}, {
+  "basePerson" : {
+    "name" : "name2",
+    "surname" : "surname2",
+    "birthdayDate" : [ 2022, 4, 23 ],
+    "code" : 1
+  }
+}, {
+  "basePerson" : {
+    "name" : "name1",
+    "surname" : "surname1",
+    "birthdayDate" : [ 2022, 4, 23 ],
+    "code" : 0
+  }
+}, {
+  "basePerson" : {
+    "name" : "name5",
+    "surname" : "surname5",
+    "birthdayDate" : [ 2022, 4, 23 ],
+    "code" : 4
+  }
+}, {
+  "basePerson" : {
+    "name" : "name4",
+    "surname" : "surname4",
+    "birthdayDate" : [ 2022, 4, 23 ],
+    "code" : 3
   }
 } ]

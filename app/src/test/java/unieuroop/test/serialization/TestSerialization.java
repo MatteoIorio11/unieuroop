@@ -38,6 +38,7 @@ import unieuroop.model.supplier.SupplierImpl;
 public class TestSerialization {
 
     private static final String DESCRIPTION = "Description test";
+    private static final int SLEEP = 500;
 
     private final Staff s = new StaffImpl("name", "surname", LocalDate.now(), 1, "ffff", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
     private final Staff s1 = new StaffImpl("name1", "surname1", LocalDate.now(), 1, "AAAA", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
@@ -71,55 +72,63 @@ public class TestSerialization {
     private final Supplier supp1 = new SupplierImpl("name1", Map.of(p1, 100.0, p2, 120.0, p3, 620.0));
     private final Supplier supp2 = new SupplierImpl("name2", Map.of(p3, 52.0, p6, 732.0, p1, 152.0, p5, 261.0));
     private final Supplier supp3 = new SupplierImpl("name3", Map.of(p2, 100.0, p5, 823.0, p1, 220.5));
+
     @Before
     public void setUp() throws Exception {
     }
 
     @Test
-    public void testStaff() throws IOException, ClassNotFoundException {
+    public void testStaff() throws IOException, ClassNotFoundException, InterruptedException {
         final Set<Staff> staff = new HashSet<>();
         staff.add(s);
         staff.add(s1);
         Serialization.<Set<Staff>>serialize(Files.STAFFS.getPath(), staff);
+        Thread.sleep(SLEEP);
         final Set<Staff> deserializedStaff = Serialization.<Set<Staff>>deserialize(Files.STAFFS.getPath(), new TypeReference<Set<Staff>>() { });
         assertEquals(staff, deserializedStaff);
     }
     @Test
-    public void testStock() throws IOException, ClassNotFoundException {
+    public void testStock() throws IOException, ClassNotFoundException, InterruptedException {
         final Stock stock = new StockImpl();
         stock.addProducts(Map.of(p, 10, p1, 10, p2, 2, p3, 32, p4, 32));
         Serialization.<Stock>serialize(Files.STOCK.getPath(), stock);
+        Thread.sleep(SLEEP);
+
         final Stock deserializedStock = Serialization.<Stock>deserialize(Files.STOCK.getPath(), new TypeReference<Stock>() { });
         assertTrue(deserializedStock.getTotalStock().entrySet().stream()
                 .allMatch((entry) -> stock.getTotalStock().entrySet().stream()
                         .anyMatch((entry1) -> entry1.getKey().equals(entry.getKey()) && entry1.getValue() == entry.getValue())));
     }
     @Test
-    public void testDepartments() throws IOException, ClassNotFoundException {
+    public void testDepartments() throws IOException, ClassNotFoundException, InterruptedException {
         final var departments = Set.of(d1, d2, d3);
         Serialization.<Set<Department>>serialize(Files.DEPARTMENTS.getPath(), departments);
+        Thread.sleep(SLEEP);
         final Set<Department> deserializedDepartments = Serialization.<Set<Department>>deserialize(Files.DEPARTMENTS.getPath(), new TypeReference<Set<Department>>() { });
         assertEquals(departments, deserializedDepartments);
     }
     @Test
-    public void testClients() throws IOException, ClassNotFoundException {
+    public void testClients() throws IOException, ClassNotFoundException, InterruptedException {
         final var clients = Set.of(c1, c2, c3, c4, c5);
         Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), clients);
+        Thread.sleep(SLEEP);
         final Set<Client> deserializedClients = Serialization.<Set<Client>>deserialize(Files.CLIENTS.getPath(), new TypeReference<Set<Client>>() { });
         assertEquals(clients, deserializedClients);
     }
     @Test
-    public void testBills() throws IOException, ClassNotFoundException {
+    public void testBills() throws IOException, ClassNotFoundException, InterruptedException {
         final var bills = Map.of(LocalDate.now(), 10.3, LocalDate.ofYearDay(2019, 22), 
                 183.9, LocalDate.ofYearDay(2022, 35), 104.2, LocalDate.ofYearDay(2012, 273), 37.7);
         Serialization.<Map<LocalDate, Double>>serialize(Files.BILLS.getPath(), bills);
+        Thread.sleep(SLEEP);
         final var deserializedBills = Serialization.<Map<LocalDate, Double>>deserialize(Files.BILLS.getPath(), new TypeReference<Map<LocalDate, Double>>() { });
         assertEquals(deserializedBills, bills);
     }
     @Test
-    public void testSales() throws IOException, ClassNotFoundException {
+    public void testSales() throws IOException, ClassNotFoundException, InterruptedException {
         final Set<Sale> sales = Set.of(sale1, sale2, sale3, sale4, sale5, sale6);
         Serialization.<Set<Sale>>serialize(Files.SALES.getPath(), sales);
+        Thread.sleep(SLEEP);
         final Set<Sale> deserializedSales = Serialization.<Set<Sale>>deserialize(Files.SALES.getPath(), new TypeReference<Set<Sale>>() { });
         assertTrue(sales.stream().allMatch((sale) -> deserializedSales.stream().anyMatch((saleI) -> sale.getDate().isEqual(saleI.getDate()))));
         assertTrue(sales.stream().allMatch((sale) -> deserializedSales.stream().anyMatch((saleI) -> sale.getClient().equals(saleI.getClient()))));
@@ -128,16 +137,19 @@ public class TestSerialization {
                         .anyMatch((product) -> sale1.getProducts().contains(product)))));
     }
     @Test
-    public void testShopName() throws IOException, ClassNotFoundException {
+    public void testShopName() throws IOException, ClassNotFoundException, InterruptedException {
         final String shopName = "unieurOOP";
         Serialization.<String>serialize(Files.SHOPNAME.getPath(), shopName);
+        Thread.sleep(SLEEP);
         final String deserializedShopName = Serialization.<String>deserialize(Files.SHOPNAME.getPath(), new TypeReference<String>() { });
+        System.out.println(shopName + " " + deserializedShopName);
         assertEquals(shopName, deserializedShopName);
     }
     @Test
-    public void testSuppliers() throws IOException, ClassNotFoundException {
+    public void testSuppliers() throws IOException, ClassNotFoundException, InterruptedException {
         final Set<Supplier> suppliers = Set.of(supp1, supp2, supp3);
         Serialization.<Set<Supplier>>serialize(Files.SUPPLIERS.getPath(), suppliers);
+        Thread.sleep(SLEEP);
         final Set<Supplier> deserializedSuppliers = Serialization.<Set<Supplier>>deserialize(Files.SUPPLIERS.getPath(), new TypeReference<Set<Supplier>>() { });
         assertTrue(suppliers.stream().allMatch((suppl) -> deserializedSuppliers.stream().anyMatch((supplD) -> suppl.getName().equals(supplD.getName()))));
         assertTrue(suppliers.stream()

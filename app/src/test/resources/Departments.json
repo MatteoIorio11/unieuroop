@@ -1,25 +1,90 @@
 [ {
-  "departmentName" : "department2",
+  "departmentName" : "department3",
   "staff" : [ {
-  "name" : "name",
-  "surname" : "surname",
-  "email" : "ffff",
-  "id" : 1,
-  "password" : 111,
-  "birthday" : [ 2022, 4, 20 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 12, 36, 43, 87945000 ] ],
-  "endTimes" : [ [ 12, 36, 43, 87960000 ] ]
-}, {
   "name" : "name2",
   "surname" : "surname2",
   "email" : "BBB",
   "id" : 3,
   "password" : 222,
-  "birthday" : [ 2022, 4, 20 ],
+  "birthday" : [ 2022, 4, 23 ],
   "days" : [ "TUESDAY" ],
-  "startTimes" : [ [ 12, 36, 43, 88039000 ] ],
-  "endTimes" : [ [ 12, 36, 43, 88061000 ] ]
+  "startTimes" : [ [ 9, 19, 14, 859516000 ] ],
+  "endTimes" : [ [ 9, 19, 14, 859522000 ] ]
+}, {
+  "name" : "name1",
+  "surname" : "surname1",
+  "email" : "AAAA",
+  "id" : 1,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 23 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 9, 19, 14, 859491000 ] ],
+  "endTimes" : [ [ 9, 19, 14, 859501000 ] ]
+} ],
+  "products" : [ {
+    "productCode" : 1,
+    "name" : "try",
+    "brand" : "Brand",
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
+    "description" : "Description test",
+    "category" : "PC"
+  }, {
+    "productCode" : 8,
+    "name" : "try7",
+    "brand" : "Brand2",
+    "sellingPrice" : 1293.4,
+    "purchasePrice" : 1534.0,
+    "description" : "Description test",
+    "category" : "PC"
+  }, {
+    "productCode" : 6,
+    "name" : "try5",
+    "brand" : "Brand2",
+    "sellingPrice" : 234.3,
+    "purchasePrice" : 125.0,
+    "description" : "Description test",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 5,
+    "name" : "try4",
+    "brand" : "Brand2",
+    "sellingPrice" : 102.4,
+    "purchasePrice" : 12.0,
+    "description" : "Description test",
+    "category" : "PC"
+  }, {
+    "productCode" : 3,
+    "name" : "try2",
+    "brand" : "Brand4",
+    "sellingPrice" : 22.0,
+    "purchasePrice" : 15.0,
+    "description" : "Description test",
+    "category" : "TABLET"
+  } ],
+  "values" : [ 15, 1, 2, 16, 21 ]
+}, {
+  "departmentName" : "department2",
+  "staff" : [ {
+  "name" : "name2",
+  "surname" : "surname2",
+  "email" : "BBB",
+  "id" : 3,
+  "password" : 222,
+  "birthday" : [ 2022, 4, 23 ],
+  "days" : [ "TUESDAY" ],
+  "startTimes" : [ [ 9, 19, 14, 859516000 ] ],
+  "endTimes" : [ [ 9, 19, 14, 859522000 ] ]
+}, {
+  "name" : "name",
+  "surname" : "surname",
+  "email" : "ffff",
+  "id" : 1,
+  "password" : 111,
+  "birthday" : [ 2022, 4, 23 ],
+  "days" : [ "MONDAY" ],
+  "startTimes" : [ [ 9, 19, 14, 859416000 ] ],
+  "endTimes" : [ [ 9, 19, 14, 859429000 ] ]
 } ],
   "products" : [ {
     "productCode" : 2,
@@ -63,22 +128,30 @@
   "email" : "AAAA",
   "id" : 1,
   "password" : 222,
-  "birthday" : [ 2022, 4, 20 ],
+  "birthday" : [ 2022, 4, 23 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 12, 36, 43, 87998000 ] ],
-  "endTimes" : [ [ 12, 36, 43, 88010000 ] ]
+  "startTimes" : [ [ 9, 19, 14, 859491000 ] ],
+  "endTimes" : [ [ 9, 19, 14, 859501000 ] ]
 }, {
   "name" : "name",
   "surname" : "surname",
   "email" : "ffff",
   "id" : 1,
   "password" : 111,
-  "birthday" : [ 2022, 4, 20 ],
+  "birthday" : [ 2022, 4, 23 ],
   "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 12, 36, 43, 87945000 ] ],
-  "endTimes" : [ [ 12, 36, 43, 87960000 ] ]
+  "startTimes" : [ [ 9, 19, 14, 859416000 ] ],
+  "endTimes" : [ [ 9, 19, 14, 859429000 ] ]
 } ],
   "products" : [ {
+    "productCode" : 1,
+    "name" : "try",
+    "brand" : "Brand",
+    "sellingPrice" : 11.4,
+    "purchasePrice" : 84.0,
+    "description" : "Description test",
+    "category" : "PC"
+  }, {
     "productCode" : 5,
     "name" : "try4",
     "brand" : "Brand2",
@@ -110,79 +183,6 @@
     "purchasePrice" : 28.0,
     "description" : "Description test",
     "category" : "HOME"
-  }, {
-    "productCode" : 1,
-    "name" : "try",
-    "brand" : "Brand",
-    "sellingPrice" : 11.4,
-    "purchasePrice" : 84.0,
-    "description" : "Description test",
-    "category" : "PC"
   } ],
-  "values" : [ 32, 32, 2, 10, 10 ]
-}, {
-  "departmentName" : "department3",
-  "staff" : [ {
-  "name" : "name1",
-  "surname" : "surname1",
-  "email" : "AAAA",
-  "id" : 1,
-  "password" : 222,
-  "birthday" : [ 2022, 4, 20 ],
-  "days" : [ "MONDAY" ],
-  "startTimes" : [ [ 12, 36, 43, 87998000 ] ],
-  "endTimes" : [ [ 12, 36, 43, 88010000 ] ]
-}, {
-  "name" : "name2",
-  "surname" : "surname2",
-  "email" : "BBB",
-  "id" : 3,
-  "password" : 222,
-  "birthday" : [ 2022, 4, 20 ],
-  "days" : [ "TUESDAY" ],
-  "startTimes" : [ [ 12, 36, 43, 88039000 ] ],
-  "endTimes" : [ [ 12, 36, 43, 88061000 ] ]
-} ],
-  "products" : [ {
-    "productCode" : 6,
-    "name" : "try5",
-    "brand" : "Brand2",
-    "sellingPrice" : 234.3,
-    "purchasePrice" : 125.0,
-    "description" : "Description test",
-    "category" : "TABLET"
-  }, {
-    "productCode" : 5,
-    "name" : "try4",
-    "brand" : "Brand2",
-    "sellingPrice" : 102.4,
-    "purchasePrice" : 12.0,
-    "description" : "Description test",
-    "category" : "PC"
-  }, {
-    "productCode" : 3,
-    "name" : "try2",
-    "brand" : "Brand4",
-    "sellingPrice" : 22.0,
-    "purchasePrice" : 15.0,
-    "description" : "Description test",
-    "category" : "TABLET"
-  }, {
-    "productCode" : 1,
-    "name" : "try",
-    "brand" : "Brand",
-    "sellingPrice" : 11.4,
-    "purchasePrice" : 84.0,
-    "description" : "Description test",
-    "category" : "PC"
-  }, {
-    "productCode" : 8,
-    "name" : "try7",
-    "brand" : "Brand2",
-    "sellingPrice" : 1293.4,
-    "purchasePrice" : 1534.0,
-    "description" : "Description test",
-    "category" : "PC"
-  } ],
-  "values" : [ 2, 16, 21, 15, 1 ]
+  "values" : [ 10, 32, 32, 2, 10 ]
 } ]
