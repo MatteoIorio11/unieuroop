@@ -41,7 +41,7 @@ Email degli sviluppatori :
 ## How to run
 
 ``` 
-java -jar unieurOOP
+java -jar unieurOOP.jar
 ```
 
 All'avvio della nostra applicazione verrà visualizzata la pagina di LogIn, utilizzare le seguenti credenziali:
