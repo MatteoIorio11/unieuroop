@@ -12,14 +12,14 @@ Email degli sviluppatori :
 
 # Funzionalità minimali ritenute Obbligatorie:
 
-[x] Gestione dei prodotti
-[x] Gestione dei reparti
-[x] Gestione del magazzino con i relativi rifornimenti dello stock
-[x] Grafici che permettono di visualizzare le statistiche inerenti al negozio e riguardo i suoi prodotti
-[x] Visualizzare storico delle vendite
-[x] Gestione della grafica
-[x] Gestione della vendita da parte del negozio verso i clienti
-[x] Salvataggio dei dati in locale ( attraverso XML o JSON )
+- [x] Gestione dei prodotti
+- [x] Gestione dei reparti
+- [x] Gestione del magazzino con i relativi rifornimenti dello stock
+- [x] Grafici che permettono di visualizzare le statistiche inerenti al negozio e riguardo i suoi prodotti
+- [x] Visualizzare storico delle vendite
+- [x] Gestione della grafica
+- [x] Gestione della vendita da parte del negozio verso i clienti
+- [x] Salvataggio dei dati in locale ( attraverso XML o JSON )
 
 # Challenge principali:
 
@@ -31,12 +31,12 @@ Email degli sviluppatori :
 
 # Funzionalità Opzionali:
 
-[x] Il fornitore propone dei prodotti al nostro punto vendita.
-[ ] Gestione dei vari stock contenuti in altri punti vendita con consigli su dove prendere determinati prodotti in caso mancassero nel punto di vendita attuale.
-[ ] Gestione strategie di vendita e di mercato
-[x] Creazione di una fattura ( con relativo PDF )
-[ ] Informazione riguardo il punto vendita (mappa che visualizza dov’è situato e altre info)
-[ ] Presa in custodia dei prodotti da riparare.
+- [x] Il fornitore propone dei prodotti al nostro punto vendita.
+- [ ] Gestione dei vari stock contenuti in altri punti vendita con consigli su dove prendere determinati prodotti in caso mancassero nel punto di vendita attuale.
+- [ ] Gestione strategie di vendita e di mercato
+- [x] Creazione di una fattura ( con relativo PDF )
+- [ ] Informazione riguardo il punto vendita (mappa che visualizza dov’è situato e altre info)
+- [ ] Presa in custodia dei prodotti da riparare.
 
 ## How to run
 
