@@ -12,3 +12,6 @@ app/bin
 
 # Ignore JAVADOC
 app/doc
+
+#Ignore settings
+app/.settings
