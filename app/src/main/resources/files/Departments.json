@@ -128,7 +128,7 @@
     "description" : "Black 3.1.2 channel, Width 980mm, Audio: DTS Digital Surround, Dolby Atmos, Dolby Digital Plus, Dolby TrueHD",
     "category" : "HOME"
   } ],
-  "values" : [ 0, 2, 2, 5, 4, 0, 0, 0, 0, 0, 0, 0 ]
+  "values" : [ 10, 2, 2, 5, 4, 8, 100, 1, 10, 12, 19, 12 ]
 }, {
   "departmentName" : "Tablet",
   "staff" : [ {
@@ -262,7 +262,7 @@
     "description" : "15.6 inches, Windows 11, Intel Core i5, 8 GB RAM, 256 GB SSD, Mystic Blue",
     "category" : "PC"
   } ],
-  "values" : [ 0, 0, 1, 6 ]
+  "values" : [ 5, 1, 1, 6 ]
 }, {
   "departmentName" : "Home & Utilities",
   "staff" : [ {
@@ -383,7 +383,7 @@
     "description" : "Cordless Vacuum Cleaner, Weight 2580g, Power Supply Battery, Charging Time 3.5h, Suction Power 151W, Color Copper, Niche",
     "category" : "HOME"
   } ],
-  "values" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  "values" : [ 10, 50, 20, 10, 3, 5, 1, 9, 7, 9, 1, 1 ]
 }, {
   "departmentName" : "Mouse",
   "staff" : [ {
@@ -488,5 +488,5 @@
     "description" : "For iPad Pro 11 inches (Third Generation) and iPad Air (Fourth Generation) - White",
     "category" : "KEYBOARD"
   } ],
-  "values" : [ 0, 0, 0, 2, 0, 13, 19, 0, 0, 0 ]
+  "values" : [ 10, 10, 1, 2, 1, 13, 19, 1, 1, 6 ]
 } ]
