@@ -37,7 +37,7 @@
   "birthday" : [ 2002, 4, 24 ],
   "days" : [ "THURSDAY", "WEDNESDAY", "FRIDAY", "TUESDAY", "MONDAY" ],
   "startTimes" : [ [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ], [ 8, 0 ] ],
-  "endTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ]
+  "endTimes" : [ [ 16, 0 ], [ 16, 0 ], [ 16, 0 ], [ 16, 0 ], [ 16, 0 ] ]
 }, {
   "name" : "Verdiana",
   "surname" : "Lori",
@@ -77,7 +77,7 @@
   "birthday" : [ 2001, 2, 11 ],
   "days" : [ "THURSDAY", "SATURDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
   "startTimes" : [ [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ], [ 10, 6 ] ],
-  "endTimes" : [ [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ], [ 20, 10 ] ]
+  "endTimes" : [ [ 18, 6 ], [ 18, 6 ], [ 18, 6 ], [ 18, 6 ], [ 18, 6 ], [ 18, 6 ] ]
 }, {
   "name" : "Anna",
   "surname" : "Spunzoni",
@@ -86,7 +86,7 @@
   "password" : 46792755,
   "birthday" : [ 1991, 7, 18 ],
   "days" : [ "THURSDAY", "WEDNESDAY", "FRIDAY", "TUESDAY", "MONDAY" ],
-  "startTimes" : [ [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ], [ 17, 0 ] ],
+  "startTimes" : [ [ 15, 0 ], [ 15, 0 ], [ 15, 0 ], [ 15, 0 ], [ 15, 0 ] ],
   "endTimes" : [ [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ], [ 23, 0 ] ]
 }, {
   "name" : "Lucia",
@@ -97,7 +97,7 @@
   "birthday" : [ 2000, 11, 17 ],
   "days" : [ "THURSDAY", "WEDNESDAY", "FRIDAY", "TUESDAY", "MONDAY" ],
   "startTimes" : [ [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ], [ 10, 30 ] ],
-  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
+  "endTimes" : [ [ 18, 30 ], [ 18, 30 ], [ 18, 30 ], [ 18, 30 ], [ 18, 30 ] ]
 }, {
   "name" : "Luca",
   "surname" : "Verdi",
@@ -106,7 +106,7 @@
   "password" : 1480159904,
   "birthday" : [ 2001, 6, 19 ],
   "days" : [ "THURSDAY", "SATURDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
-  "startTimes" : [ [ 12, 12 ], [ 12, 12 ], [ 12, 12 ], [ 12, 12 ], [ 12, 12 ], [ 12, 12 ] ],
+  "startTimes" : [ [ 10, 18 ], [ 10, 18 ], [ 10, 18 ], [ 10, 18 ], [ 10, 18 ], [ 10, 18 ] ],
   "endTimes" : [ [ 18, 18 ], [ 18, 18 ], [ 18, 18 ], [ 18, 18 ], [ 18, 18 ], [ 18, 18 ] ]
 }, {
   "name" : "Marianna",
@@ -127,7 +127,7 @@
   "birthday" : [ 2001, 6, 6 ],
   "days" : [ "THURSDAY", "WEDNESDAY", "FRIDAY", "TUESDAY", "MONDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
+  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
 }, {
   "name" : "Mario",
   "surname" : "Rossi",
@@ -136,7 +136,7 @@
   "password" : 46793748,
   "birthday" : [ 2002, 4, 19 ],
   "days" : [ "THURSDAY", "WEDNESDAY", "FRIDAY", "TUESDAY", "MONDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "startTimes" : [ [ 10, 20 ], [ 10, 20 ], [ 10, 20 ], [ 10, 20 ], [ 10, 20 ] ],
   "endTimes" : [ [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ], [ 18, 20 ] ]
 }, {
   "name" : "Filippo",
@@ -157,7 +157,7 @@
   "birthday" : [ 1999, 9, 21 ],
   "days" : [ "THURSDAY", "SATURDAY", "WEDNESDAY", "MONDAY", "FRIDAY", "TUESDAY" ],
   "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
-  "endTimes" : [ [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ], [ 12, 30 ] ]
+  "endTimes" : [ [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ], [ 18, 0 ] ]
 }, {
   "name" : "Filippo",
   "surname" : "Romano",
@@ -176,7 +176,7 @@
   "password" : -1293335239,
   "birthday" : [ 2001, 10, 27 ],
   "days" : [ "THURSDAY", "WEDNESDAY", "FRIDAY", "TUESDAY", "MONDAY" ],
-  "startTimes" : [ [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ], [ 10, 0 ] ],
+  "startTimes" : [ [ 15, 30 ], [ 15, 30 ], [ 15, 30 ], [ 15, 30 ], [ 15, 30 ] ],
   "endTimes" : [ [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ], [ 23, 30 ] ]
 }, {
   "name" : "Utente",
@@ -187,7 +187,7 @@
   "birthday" : [ 2000, 1, 1 ],
   "days" : [ "THURSDAY", "WEDNESDAY", "FRIDAY", "TUESDAY", "MONDAY" ],
   "startTimes" : [ [ 7, 0 ], [ 7, 0 ], [ 7, 0 ], [ 7, 0 ], [ 7, 0 ] ],
-  "endTimes" : [ [ 16, 0 ], [ 16, 0 ], [ 16, 0 ], [ 16, 0 ], [ 16, 0 ] ]
+  "endTimes" : [ [ 15, 0 ], [ 15, 0 ], [ 15, 0 ], [ 15, 0 ], [ 15, 0 ] ]
 }, {
   "name" : "Sofia",
   "surname" : "Zoffoli",
