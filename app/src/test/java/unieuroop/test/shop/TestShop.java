@@ -79,7 +79,7 @@ public class TestShop {
 
     }
     /**
-     * TESTING :  mergeDepartments(Set<Department> departments {@link Department}, String name) {@link Shop}.
+     * TESTING :  mergeDepartments(...) {@link Shop}.
      */
     @Test
     public void testMergeDepartments() {
@@ -90,7 +90,7 @@ public class TestShop {
         assertEquals(Set.of(staff1, staff2, staff3, staff4), departmentTemp.getStaff());
     }
     /**
-     * Testing supplyDepartment(Department {@link Department}, Map<Product, Integer> products).  {@link Shop}
+     * Testing supplyDepartment(...).  {@link Shop}
      */
     @Test
     public void testSupplyDepartment() {

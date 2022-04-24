@@ -50,7 +50,7 @@ public class TestDepartment {
     }
 
     /**
-     * TESTING : department.addStaff(Staff staff {@link StaffImpl}); {@link Department}.
+     * TESTING : department.addStaff().
      */
     @Test
     public void testAddStaff1() {
@@ -64,7 +64,7 @@ public class TestDepartment {
         }
     }
     /**
-     * TESTING : department.addStaff(Staff staff {@link StaffImpl}); {@link Department}.
+     * TESTING : department.addStaff().
      */
     @Test
     public void testAddStaff2() {
@@ -75,7 +75,7 @@ public class TestDepartment {
         }
     }
     /**
-     *  TESTING : department.removeStaff(Staff staff {@link StaffImpl}); {@link Department}.
+     *  TESTING : department.removeStaff().
      */
     @Test
     public void testRemoveStaff1() {
@@ -86,7 +86,7 @@ public class TestDepartment {
         }
     }
     /**
-     *  TESTING : department.removeStaff(Staff staff {@link StaffImpl}); {@link Department}.
+     *  TESTING : department.removeStaff().
      */
     @Test
     public void testRemoveStaff2() {
@@ -99,7 +99,7 @@ public class TestDepartment {
         }
     }
     /**
-     * TESTING : department.productsByQuantity(Predicate<Integer> quantity); {@link Department}.
+     * TESTING : department.productsByQuantity(...).
      */
     @Test
     public void testProductByQuantity() {
@@ -116,7 +116,7 @@ public class TestDepartment {
         assertEquals(TestDepartment.QUANTITY_P1, quantityP1);
     }
     /**
-     * TESTING : department.takeProductFromDepartment(Map<Product< Integer> products {@link Product} ) {@link Department}.
+     * TESTING : department.takeProductFromDepartment(...).
      */
     @Test
     public void testTakeProductFromDepartment1() {
@@ -127,7 +127,7 @@ public class TestDepartment {
         }
     }
     /**
-     * TESTING : department.takeProductFromDepartment(Map<Product< Integer> products {@link Product} ) {@link Department}.
+     * TESTING : department.takeProductFromDepartment(...).
      */
     @Test
     public void testTakeProductFromDepartment2() {
@@ -139,7 +139,7 @@ public class TestDepartment {
         }
     }
     /**
-     * TESTING : department.addProducts(Map<Product< Integer> products {@link Product} ) {@link Department}.
+     * TESTING : department.addProducts(...).
      */
     @Test
     public void testAddProducts() {

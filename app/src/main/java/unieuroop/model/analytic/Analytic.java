@@ -39,7 +39,7 @@ public interface Analytic {
     Map<Product, Integer> getOrderedByCategory(Predicate<Category> categories);
 
     /**
-     * All the products sold in date, it can be also a range like 02/11/2022 < x < 10/27/2022.
+     * All the products sold in date, it can be also in a range like: x between 02/11/2022 and 10/27/2022.
      * @param date : specifies which dates we have to consider
      * @return the Set of all products sold in the specific date
      */
