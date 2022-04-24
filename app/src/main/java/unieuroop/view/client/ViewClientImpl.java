@@ -70,7 +70,7 @@ public final class ViewClientImpl implements Initializable, ViewClient {
             this.tbxName.setText(client.getPerson().getName());
             this.tbxSurname.setText(client.getPerson().getSurname());
             this.dtBirthday.setValue(client.getPerson().getBirthdayDate());
-            this.lblCode.setText(Integer.toString(client.getPerson().getCode()));
+            this.lblCode.setText(client.getPerson().getCode());
         }
     }
 

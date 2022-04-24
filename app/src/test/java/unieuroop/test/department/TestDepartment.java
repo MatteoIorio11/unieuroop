@@ -39,11 +39,11 @@ public class TestDepartment {
     private final Product p3 = new ProductImpl(3, "mac book pro 14 ", TestDepartment.APPLE_PRODUCT,  3000.00, 2000.00, "best mac book ever created", Category.PC);
     private final Product p4 = new ProductImpl(4, "mac book pro 16", TestDepartment.APPLE_PRODUCT,  6000.00,  3000.00, "best mac book ever created", Category.PC);
     private final Staff staff1 = new StaffImpl("Nome1", "Cognome1", TestDepartment.TIME_NOW,
-            0, "email1@gmail.com", 12, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            "a", "email1@gmail.com", 12, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff2 = new StaffImpl("Nome2", "Cognome2", TestDepartment.TIME_NOW,
-            0, "email2@gmail.csom", 123, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            "b", "email2@gmail.csom", 123, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff3 = new StaffImpl("NomeProva", "CognomeProva", TestDepartment.TIME_NOW,
-            0, "email3@gmail.com", 12, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            "c", "email3@gmail.com", 12, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     @Before
     public void setUp() throws Exception {
         this.department = new DepartmentImpl("department1", Set.of(staff1, staff2), Map.of(p1, 10, p2, 100, p3, 3));

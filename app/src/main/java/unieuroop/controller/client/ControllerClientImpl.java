@@ -2,11 +2,10 @@ package unieuroop.controller.client;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.serialization.Files;
@@ -32,10 +31,8 @@ public final class ControllerClientImpl implements ControllerClient {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
         }
-        final var date = LocalDateTime.now();
-        final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
-        final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
-        this.shop.registerClient(new ClientImpl(name, surname, birthday, Math.abs(code)));
+        final String code = UUID.randomUUID().toString();
+        this.shop.registerClient(new ClientImpl(name, surname, birthday, code));
         serializationClient();
     }
 

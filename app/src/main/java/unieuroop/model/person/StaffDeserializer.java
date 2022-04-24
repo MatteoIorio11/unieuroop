@@ -24,7 +24,7 @@ public final class StaffDeserializer extends JsonDeserializer<Staff> {
         final String name = node.get("name").asText();
         final String surname = node.get("surname").asText();
         final String email = node.get("email").asText();
-        final int id = node.get("id").asInt();
+        final String id = node.get("id").asText();
         final int password = node.get("password").asInt();
         final var days = new ArrayList<DayOfWeek>();
         final var endTimes = new ArrayList<LocalTime>();

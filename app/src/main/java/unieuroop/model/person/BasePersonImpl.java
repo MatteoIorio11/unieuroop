@@ -10,12 +10,12 @@ public final class BasePersonImpl implements BasePerson {
     private String name;
     private String surname;
     private LocalDate birthday;
-    private final int code;
+    private final String code;
     @JsonCreator
     protected BasePersonImpl(@JsonProperty("name")final String name, 
             @JsonProperty("surname")final String surname, 
             @JsonProperty("birthdayDate")final LocalDate birthday, 
-            @JsonProperty("code")final int code) {
+            @JsonProperty("code")final String code) {
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
@@ -53,7 +53,7 @@ public final class BasePersonImpl implements BasePerson {
     }
 
     @Override
-    public int getCode() {
+    public String getCode() {
         return this.code;
     }
 
@@ -84,7 +84,7 @@ public final class BasePersonImpl implements BasePerson {
             return false;
         }
         final BasePerson other = (BasePerson) obj;
-        return this.code == other.getCode() ? true : false;
+        return this.code.equals(other.getCode());
     }
 
 }

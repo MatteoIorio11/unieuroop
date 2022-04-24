@@ -41,7 +41,7 @@ public interface BasePerson {
      * 
      * @return person code
      */
-    int getCode();
+    String getCode();
 
     /**
      * @return toString of the person

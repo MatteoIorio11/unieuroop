@@ -48,13 +48,13 @@ public class TestShop {
      * ALL THE STAFF THAT WILL BE USED IN THIS TEST.
      */
     private final Staff staff1 = new StaffImpl("Nome1", "Cognome1", TestShop.DATE_NOW,
-            0, "email1@gmail.com", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            "a", "email1@gmail.com", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff2 = new StaffImpl("Nome2", "Cognome2", TestShop.DATE_NOW,
-            0, "email2@gmail.csom", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            "b", "email2@gmail.csom", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff3 = new StaffImpl("Nome3", "Cognome4", TestShop.DATE_NOW,
-            0, "email3@gmail.com", 333, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            "c", "email3@gmail.com", 333, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     private final Staff staff4 = new StaffImpl("Nome4", "Cognome4", TestShop.DATE_NOW,
-            0, "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
+            "d", "email4@gmail.csom", 444, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(TIME_START, TIME_FINISH)));
     /**
      * ALL THE PRODUCTS THAT WILL BE USED IN THIS TEST.
      */
@@ -105,9 +105,9 @@ public class TestShop {
      */
     @Test
     public void testRemoveClient1() {
-        final Client client1 = new ClientImpl("Name1", "Surname1", TestShop.DATE_NOW, 1);
-        final Client client2 = new ClientImpl("Name2", "Surname2", TestShop.DATE_NOW, 2);
-        final Client client3 = new ClientImpl("Name3", "Surname3", TestShop.DATE_NOW, 3);
+        final Client client1 = new ClientImpl("Name1", "Surname1", TestShop.DATE_NOW, "a");
+        final Client client2 = new ClientImpl("Name2", "Surname2", TestShop.DATE_NOW, "b");
+        final Client client3 = new ClientImpl("Name3", "Surname3", TestShop.DATE_NOW, "c");
         this.shop01.registerClient(client1);
         this.shop01.registerClient(client2);
 
@@ -123,8 +123,8 @@ public class TestShop {
      */
     @Test
     public void testRemoveClient2() {
-        final Client client1 = new ClientImpl("Name1", "Surname1", TestShop.DATE_NOW, 1);
-        final Client client2 = new ClientImpl("Name2", "Surname2", TestShop.DATE_NOW, 2);
+        final Client client1 = new ClientImpl("Name1", "Surname1", TestShop.DATE_NOW, "a");
+        final Client client2 = new ClientImpl("Name2", "Surname2", TestShop.DATE_NOW, "b");
         this.shop01.registerClient(client1);
         this.shop01.registerClient(client2);
 

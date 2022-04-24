@@ -3,13 +3,11 @@ package unieuroop.controller.staff;
 import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import javafx.util.Pair;
@@ -49,10 +47,8 @@ public final class ControllerStaffImpl implements ControllerStaff {
         final var days = new HashMap<DayOfWeek, Pair<LocalTime, LocalTime>>();
         final var times = new Pair<>(LocalTime.of(Integer.parseInt(hoursStartWork), Integer.parseInt(minutesStartWork)), LocalTime.of(Integer.parseInt(hoursEndWork), Integer.parseInt(minutesEndWork)));
         IntStream.range(DayOfWeek.MONDAY.getValue(), DayOfWeek.SATURDAY.getValue()).forEach(i -> days.put(DayOfWeek.of(i), times));
-        final var date = LocalDateTime.now();
-        final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
-        final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
-        this.shop.addStaff(new StaffImpl(name, surname, birthday, Math.abs(code), email, password.hashCode(), days));
+        final String code = UUID.randomUUID().toString();
+        this.shop.addStaff(new StaffImpl(name, surname, birthday, code, email, password.hashCode(), days));
         this.serializeStaff();
     }
  

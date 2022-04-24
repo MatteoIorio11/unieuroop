@@ -38,11 +38,11 @@ import unieuroop.model.supplier.SupplierImpl;
 public class TestSerialization {
 
     private static final String DESCRIPTION = "Description test";
-    private static final int SLEEP = 500;
+    private static final int SLEEP = 800;
 
-    private final Staff s = new StaffImpl("name", "surname", LocalDate.now(), 1, "ffff", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
-    private final Staff s1 = new StaffImpl("name1", "surname1", LocalDate.now(), 1, "AAAA", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
-    private final Staff s2 = new StaffImpl("name2", "surname2", LocalDate.now(), 3, "BBB", 222, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
+    private final Staff s = new StaffImpl("name", "surname", LocalDate.now(), "a", "ffff", 111, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
+    private final Staff s1 = new StaffImpl("name1", "surname1", LocalDate.now(), "b", "AAAA", 222, Map.of(DayOfWeek.of(1), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
+    private final Staff s2 = new StaffImpl("name2", "surname2", LocalDate.now(), "c", "BBB", 222, Map.of(DayOfWeek.of(2), new Pair<LocalTime, LocalTime>(LocalTime.now(), LocalTime.now())));
     private final Product p = new ProductImpl(1, "try", "Brand", 11.4, 84.0, TestSerialization.DESCRIPTION, Category.PC);
     private final Product p1 = new ProductImpl(2, "try1", "Brand1", 19.4, 28.0, TestSerialization.DESCRIPTION, Category.HOME);
     private final Product p2 = new ProductImpl(3, "try2", "Brand4", 22.0, 15.0, TestSerialization.DESCRIPTION, Category.TABLET);
@@ -56,11 +56,11 @@ public class TestSerialization {
     private final Department d2 = new DepartmentImpl("department2", Set.of(this.s, this.s2), Map.of(p, 4, p1, 2, p5, 11, p6, 34));
     private final Department d3 = new DepartmentImpl("department3", Set.of(this.s1, this.s2), Map.of(p, 15, p7, 1, p2, 21, p5, 2, p4, 16));
 
-    private final Client c1 = new ClientImpl("name1", "surname1", LocalDate.now(), 0);
-    private final Client c2 = new ClientImpl("name2", "surname2", LocalDate.now(), 1);
-    private final Client c3 = new ClientImpl("name3", "surname3", LocalDate.now(), 2);
-    private final Client c4 = new ClientImpl("name4", "surname4", LocalDate.now(), 3);
-    private final Client c5 = new ClientImpl("name5", "surname5", LocalDate.now(), 4);
+    private final Client c1 = new ClientImpl("name1", "surname1", LocalDate.now(), "a");
+    private final Client c2 = new ClientImpl("name2", "surname2", LocalDate.now(), "b");
+    private final Client c3 = new ClientImpl("name3", "surname3", LocalDate.now(), "c");
+    private final Client c4 = new ClientImpl("name4", "surname4", LocalDate.now(), "d");
+    private final Client c5 = new ClientImpl("name5", "surname5", LocalDate.now(), "e");
 
     private final Sale sale1 = new SaleImpl(LocalDate.now(), Map.of(p, 10, p1, 13), Optional.of(c1));
     private final Sale sale2 = new SaleImpl(LocalDate.of(2010, 3, 22), Map.of(p2, 140, p3, 82), Optional.of(c2));
@@ -97,7 +97,7 @@ public class TestSerialization {
         final Stock deserializedStock = Serialization.<Stock>deserialize(Files.STOCK.getPath(), new TypeReference<Stock>() { });
         assertTrue(deserializedStock.getTotalStock().entrySet().stream()
                 .allMatch((entry) -> stock.getTotalStock().entrySet().stream()
-                        .anyMatch((entry1) -> entry1.getKey().equals(entry.getKey()) && entry1.getValue() == entry.getValue())));
+                        .anyMatch((entry1) -> entry1.getKey().equals(entry.getKey()) && entry1.getValue().equals(entry.getValue()))));
     }
     @Test
     public void testDepartments() throws IOException, ClassNotFoundException, InterruptedException {

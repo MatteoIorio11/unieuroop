@@ -22,9 +22,9 @@ public final class StaffImpl implements Staff {
     public StaffImpl(@JsonProperty("name") final String name, 
             @JsonProperty("surname") final String surname, 
             @JsonProperty("birthdayDate") final LocalDate birthdayDate,
-            @JsonProperty("id") final Integer id,
+            @JsonProperty("id") final String id,
             @JsonProperty("email") final String email,
-            @JsonProperty("password") final Integer password,
+            @JsonProperty("password") final int password,
             @JsonProperty("workTime") final Map<DayOfWeek, Pair<LocalTime, LocalTime>> workTime) {
         person = new BasePersonImpl(name, surname, birthdayDate, id);
         this.email = email;
