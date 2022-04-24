@@ -10,3 +10,10 @@ Nei pressi di Gambettola, è nata UnieurOOP. Un piccolo punto vendita in cui vi 
 ``` 
 java -jar unieurOOP
 ```
+
+All'avvio della nostra applicazione verrà visualizzata la pagina di LogIn, utilizzare le seguenti credenziali :
+
+email : prova@gmail.com
+password : 1234
+
+Per avere una guida più completa su come utilizzare il nostro software si consiglia di leggere la "Guida Utente" all'interno della relazione.
