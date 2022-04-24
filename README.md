@@ -1,19 +1,53 @@
 # unieurOOP
 
-
 Applicativo per la gestione di un punto vendita riguardo prodotti di informatica ed elettronica.
 
-Nei pressi di Gambettola, è nata UnieurOOP. Un piccolo punto vendita in cui vi sono una grande quantità di prodotti che spaziano dalla ’elettrodomestica ai più comuni computer. Il nostro applicativo ha come scopo quello di riuscire a gestire tutto ciò che riguarda UnieurOOP, ovvero la gestione della vendita verso i suoi clienti, la gestione dei prodotti e la gestione dei vari reparti del negozio. Questa applicazione inoltre è anche in grado di fornire elementi di statistica riguardo le vendite dei vari reparti e dei singoli prodotti. 
 
+
+Email degli sviluppatori : 
++ matteo.iorio2@studio.unibo.it
++ fabio.vincenzi2@studio.unibo.it
++ samuele.ferri2@studio.unibo.it
++ nicola.strada@studio.unibo.it
+
+# Funzionalità minimali ritenute Obbligatorie:
+
+[x] Gestione dei prodotti 
+[x] Gestione dei reparti
+[x] Gestione del magazzino con i relativi rifornimenti dello stock
+[x] Grafici che permettono di visualizzare le statistiche inerenti al negozio e riguardo i suoi prodotti
+[x] Visualizzare storico delle vendite
+[x] Gestione della grafica
+[x] Gestione della vendita da parte del negozio verso i clienti
+[x] Salvataggio dei dati in locale ( attraverso XML o JSON ) 
+
+# Challenge principali:
+
++ Riuscire a creare i grafici utili con informazioni veritiere e precise
++ Sarà necessario estrapolare tutti i vari prodotti da un catalogo di una GDO 
++ Riuscire ad interfacciarsi con il catalogo dei prodotti.
++ Creare la GUI 
++ Riuscire a gestire le interazioni con i nostri file di salvataggio ( Scrittura e Lettura ).
+
+# Funzionalità Opzionali:
+
+[x] Il fornitore propone dei prodotti al nostro punto vendita.
+[ ] Gestione dei vari stock contenuti in altri punti vendita con consigli su dove prendere determinati prodotti in caso mancassero nel punto di vendita attuale.
+[ ] Gestione strategie di vendita e di mercato
+[x] Creazione di una fattura ( con relativo PDF ) 
+[ ] Informazione riguardo il punto vendita (mappa che visualizza dov’è situato e altre info)
+Presa in custodia dei prodotti da riparare.
+----
 ## How to run
 
 ``` 
 java -jar unieurOOP
 ```
 
-All'avvio della nostra applicazione verrà visualizzata la pagina di LogIn, utilizzare le seguenti credenziali :
-
+All'avvio della nostra applicazione verrà visualizzata la pagina di LogIn, utilizzare le seguenti credenziali:
+``` 
 email : prova@gmail.com
 password : 1234
-
+``` 
+----
 Per avere una guida più completa su come utilizzare il nostro software si consiglia di leggere la "Guida Utente" all'interno della relazione.
