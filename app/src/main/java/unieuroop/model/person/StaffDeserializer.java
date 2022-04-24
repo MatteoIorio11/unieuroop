@@ -44,7 +44,7 @@ public final class StaffDeserializer extends JsonDeserializer<Staff> {
         for (int i = 0; i < endTimes.size(); i++) {
             m.put(days.get(i), new Pair<>(startTimes.get(i), endTimes.get(i)));
         }
-        return new Staff(name, surname, birthday, id, email, password, m);
+        return new StaffImpl(name, surname, birthday, id, email, password, m);
     }
 
 }

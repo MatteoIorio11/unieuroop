@@ -799,6 +799,46 @@
     "purchasePrice" : 80.0,
     "description" : "Tablet LTE 4G 64 GB 25.6 cm (10.1 inches) Hisilicon Kirin 4 GB Wi-Fi 5 (802.11ac) EMUI 10.1 - Blue",
     "category" : "TABLET"
+  }, {
+    "productCode" : 101,
+    "name" : "Rakuten Kobo Clara",
+    "brand" : "Kobo",
+    "sellingPrice" : 40.0,
+    "purchasePrice" : 139.0,
+    "description" : "HD lettore e-book Touch Screen, 8 GB Wi-Fi Black",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 107,
+    "name" : "Agando 5600",
+    "brand" : "Agando",
+    "sellingPrice" : 250.0,
+    "purchasePrice" : 549.0,
+    "description" : "Gamers Edition, AMD Ryzen 5 PRO, 4,4 GHz, 16 GB DDR4-RAM PC-3000, Windows 10 Professional - Black and Red",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 108,
+    "name" : "Agando Agua 1235",
+    "brand" : "Agando",
+    "sellingPrice" : 430.0,
+    "purchasePrice" : 1049.9,
+    "description" : "RTX Intel Core i5 12400F 6x 4.40GHz, 16 GB DDR4-RAM PC-3200, Nvidia GeForce RTX3050 8GB, Windows 10 Professional - Blue and Black",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 110,
+    "name" : "Lenovo IdeaPad 4 15IML05",
+    "brand" : "Lenovo",
+    "sellingPrice" : 300.0,
+    "purchasePrice" : 749.9,
+    "description" : "PC 39,6 cm (15.6 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD, NVIDIA® GeForce® MX130 Wi-Fi 5 (802.11ac) Windows 10 - Grey",
+    "category" : "PC"
+  }, {
+    "productCode" : 111,
+    "name" : "Acer TravelMate P2",
+    "brand" : "Acer",
+    "sellingPrice" : 200.0,
+    "purchasePrice" : 749.9,
+    "description" : "35,6 cm (14 inches) Full HD Intel Core i5, 8 GB DDR4-SDRAM 512 GB SSD, Wi-Fi 6 (802.11ax) Windows 10 Pro - Black",
+    "category" : "PC"
   } ],
-  "values" : [ 0, 0, 0, 0, 0, 0, 34, 35, 7, 5, 32, 73, 57, 9, 7, 114, 65, 53, 73, 7, 96, 89, 101, 42, 42, 22, 63, 86, 116, 78, 98, 81, 115, 30, 84, 23, 25, 0, 97, 6, 87, 48, 118, 5, 36, 99, 12, 83, 30, 1, 73, 67, 109, 100, 0, 0, 117, 77, 26, 23, 27, 99, 8, 50, 61, 39, 36, 85, 0, 70, 34, 71, 35, 40, 0, 0, 5, 6, 99, 48, 63, 96, 39, 30, 22, 86, 24, 44, 29, 54, 79, 73, 49, 105, 100, 72, 83, 115, 0, 60 ]
+  "values" : [ 0, 0, 0, 15, 22, 24, 61, 65, 24, 20, 32, 73, 57, 9, 7, 114, 92, 53, 73, 7, 96, 89, 101, 42, 42, 22, 63, 86, 116, 78, 98, 81, 115, 30, 84, 23, 25, 0, 125, 6, 87, 48, 118, 5, 36, 99, 12, 83, 30, 1, 73, 67, 109, 100, 0, 0, 117, 78, 26, 23, 27, 99, 8, 50, 61, 39, 36, 85, 0, 70, 34, 71, 35, 40, 0, 0, 5, 6, 99, 48, 63, 96, 39, 30, 22, 86, 24, 44, 29, 54, 99, 97, 68, 120, 100, 72, 104, 133, 21, 76, 22, 1, 6, 18, 23 ]
 }

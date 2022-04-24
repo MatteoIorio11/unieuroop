@@ -85,11 +85,11 @@ public enum Pages {
     /**
      * @param
      */
-    CLIENTS("/pages/Client/clientView.fxml"),
+    CLIENTS("/pages/Client/ClientView.fxml"),
     /**
      * @param
      */
-    STAFF("/pages/Staff/staffView.fxml"),
+    STAFF("/pages/Staff/StaffView.fxml"),
     /**
      * @param file directory of balance's chart
      */

@@ -63,7 +63,7 @@
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <left>
-                        <Label text="STOK PRICE" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Label text="STOCK PRICE" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font size="17.0" />
                            </font>

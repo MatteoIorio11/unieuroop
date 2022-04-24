@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,29 +18,32 @@ import unieuroop.view.loader.Loader;
 import unieuroop.view.menu.ViewMainMenuImpl;
 
 public final class ViewLoginImpl implements Initializable, ViewLogin {
+
     @FXML  private TextField email;
-    @FXML private PasswordField password;
+    @FXML  private PasswordField password;
     private final ControllerLogin controller;
     private static final double MIN_HEIGHT = 600;
     private static final double MIN_WIDTH = 1000;
+
     public ViewLoginImpl(final ControllerLogin controller) {
         this.controller = controller;
     }
+
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        long startTime = System.nanoTime();
-        Platform.runLater(new Runnable() {
-
-            @Override
-            public void run() {
-                controller.run();
-            }
-            
-        });
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime);
-        System.out.println((double) duration/1000000 );
+        try {
+            this.controller.loadData();
+        } catch (ClassNotFoundException e) {
+            final Alert alert = new Alert(AlertType.WARNING);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        } catch (IOException e1) {
+            final Alert alert = new Alert(AlertType.WARNING);
+            alert.setContentText(e1.getMessage());
+            alert.showAndWait();
+        }
     }
+
     @Override
     @FXML
     public void btnLoginHandler(final ActionEvent event) throws IOException {

@@ -11,6 +11,7 @@ import unieuroop.model.product.Category;
 import unieuroop.model.product.Product;
 
 public interface Stock {
+
     /**
      * Add multiple products.
      * @param products

@@ -31,6 +31,7 @@ public final class ViewStockProductsImpl implements Initializable, ViewStockProd
     private int maxQuantity;
     private final ControllerDepartment controllerDepartment;
     private final ViewDepartmentEditProducts viewDepartment;
+
     public ViewStockProductsImpl(final Department department, final Product product, final int maxQuantity,
             final ControllerDepartment controllerDepartment, final ViewDepartmentEditProducts viewDepartment) {
         this.department = department;

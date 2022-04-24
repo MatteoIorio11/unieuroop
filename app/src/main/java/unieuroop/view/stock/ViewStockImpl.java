@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -21,7 +23,7 @@ import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.product.Product;
 import unieuroop.view.loader.Loader;
 
-public class ViewStockImpl implements Initializable, ViewStock {
+public final class ViewStockImpl implements Initializable, ViewStock {
 
     @FXML private TextField txtSearchProducts;
     @FXML private Button btnSearchFilters;
@@ -37,29 +39,21 @@ public class ViewStockImpl implements Initializable, ViewStock {
         this.controllerStock = controllerStock;
     }
 
-    /**
-     * 
-     */
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.loadAllProductsFromStock();
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void listProductsStockedHandler() {
-        if (this.listProductsStocked.getSelectionModel().getSelectedItem() != null) {
+        final var product = this.listProductsStocked.getSelectionModel().getSelectedItem();
+        if (!Objects.isNull(product)) {
             this.txtAreaInfoProducts.clear();
             this.txtAreaInfoProducts.setText(this.controllerStock.getInfoByProduct(this.listProductsStocked.getSelectionModel().getSelectedItem()));
         }
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void btnBuyProductsHandler() {
@@ -77,9 +71,6 @@ public class ViewStockImpl implements Initializable, ViewStock {
         }
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void btnDeleteProductsHandler() {
@@ -104,9 +95,6 @@ public class ViewStockImpl implements Initializable, ViewStock {
         }
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void btnSearchFiltersHandler() {
@@ -123,18 +111,12 @@ public class ViewStockImpl implements Initializable, ViewStock {
         }
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void btnResetFiltersHandler() {
         this.loadAllProductsFromStock();
     }
 
-    /**
-     * 
-     */
     @Override
     @FXML
     public void txtSearchProductsHandler() {
@@ -142,18 +124,15 @@ public class ViewStockImpl implements Initializable, ViewStock {
            this.loadAllProductsFromStock();
        } else {
            this.loadProductsByList(this.controllerStock.getProductsStocked().keySet().stream()
-                   .filter((product) -> product.getName().contains(this.txtSearchProducts.getText())).collect(Collectors.toList()));
+                   .filter((product) -> product.getName().toLowerCase(Locale.ENGLISH).contains(this.txtSearchProducts.getText().toLowerCase(Locale.ENGLISH))).collect(Collectors.toList()));
        }
     }
 
-    /**
-     * 
-     */
-    private void loadAllProductsFromStock() {
+    @Override
+    public void loadProductsByList(final List<Product> products) {
         this.listProductsStocked.getItems().clear();
-        this.txtAreaInfoProducts.clear();
         try {
-            this.listProductsStocked.getItems().addAll(this.controllerStock.getProductsStocked().keySet().stream().collect(Collectors.toList()));
+            this.listProductsStocked.getItems().addAll(products);
         } catch (InputMismatchException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
@@ -161,14 +140,13 @@ public class ViewStockImpl implements Initializable, ViewStock {
     }
 
     /**
-     * 
-     * @param products
+     * Load the ListView with all the products present in the Stock.
      */
-    @Override
-    public void loadProductsByList(final List<Product> products) {
+    private void loadAllProductsFromStock() {
         this.listProductsStocked.getItems().clear();
+        this.txtAreaInfoProducts.clear();
         try {
-            this.listProductsStocked.getItems().addAll(products);
+            this.listProductsStocked.getItems().addAll(this.controllerStock.getProductsStocked().keySet().stream().collect(Collectors.toList()));
         } catch (InputMismatchException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());

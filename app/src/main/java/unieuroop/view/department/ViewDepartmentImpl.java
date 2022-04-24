@@ -19,7 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import unieuroop.controller.department.ControllerDepartment;
 import unieuroop.controller.serialization.Pages;
-import unieuroop.controller.staff.ControllerStaffImpl;
+import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.controller.stock.ControllerStock;
 import unieuroop.model.department.Department;
 import unieuroop.model.person.Staff;
@@ -37,10 +37,10 @@ public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
 
     private final Map<Pane, Department> departmentPane = new HashMap<>();
     private final ControllerDepartment controllerDepartment;
-    private final ControllerStaffImpl controllerStaff;
+    private final ControllerStaff controllerStaff;
     private final ControllerStock controllerStock;
 
-    public ViewDepartmentImpl(final ControllerDepartment controllerDepartment, final ControllerStaffImpl controllerStaff, final ControllerStock controllerStock) {
+    public ViewDepartmentImpl(final ControllerDepartment controllerDepartment, final ControllerStaff controllerStaff, final ControllerStock controllerStock) {
         this.controllerDepartment = controllerDepartment;
         this.controllerStaff = controllerStaff;
         this.controllerStock = controllerStock;
@@ -77,7 +77,7 @@ public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
             });
             stage.showAndWait();
             currentStage.show();
-            this.listDepartments.getItems().clear();
+            this.cleanLists();
             this.populateList();
         } catch (IOException e) {
             e.printStackTrace();
@@ -94,10 +94,12 @@ public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
             currentStage.hide();
             stage.showAndWait();
             currentStage.show();
-            this.listDepartments.getItems().clear();
+            this.cleanLists();
             this.populateList();
         } catch (IOException e) {
-            e.printStackTrace();
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
@@ -111,13 +113,24 @@ public final class ViewDepartmentImpl implements Initializable, ViewDepartment {
             currentStage.hide();
             stage.showAndWait();
             currentStage.show();
-            this.listDepartments.getItems().clear();
+            this.cleanLists();
             this.populateList();
         } catch (IOException e) {
-            e.printStackTrace();
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
+    private void cleanLists() {
+        this.listDepartments.getItems().clear();
+        this.listProducts.getItems().clear();
+        this.listStaff.getItems().clear();
+    }
+
+    /**
+     * 
+     */
     private void populateList() {
         this.departmentPane.clear();
         for (final Department department : this.controllerDepartment.getDepartments()) {

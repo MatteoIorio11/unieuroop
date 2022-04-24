@@ -2,7 +2,6 @@ package unieuroop.model.sale;
 
 import unieuroop.model.product.Product;
 import unieuroop.model.person.Client;
-
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.Optional;

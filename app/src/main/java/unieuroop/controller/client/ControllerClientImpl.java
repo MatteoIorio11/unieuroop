@@ -7,13 +7,15 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.Set;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import unieuroop.controller.serialization.Files;
 import unieuroop.controller.serialization.Serialization;
 import unieuroop.model.person.Client;
+import unieuroop.model.person.ClientImpl;
 import unieuroop.model.shop.Shop;
 
-public final class ControllerClientImpl {
+public final class ControllerClientImpl implements ControllerClient {
 
     private static final int ADULT = 18;
     private static final int MAXDATE = 1900;
@@ -25,6 +27,7 @@ public final class ControllerClientImpl {
         this.shop = shop;
     }
 
+    @Override
     public void addClient(final String name, final String surname, final LocalDate birthday) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
@@ -32,20 +35,28 @@ public final class ControllerClientImpl {
         final var date = LocalDateTime.now();
         final ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
         final int code = (zdt.toInstant().getEpochSecond() + name + surname).hashCode();
-        this.shop.registerClient(new Client(name, surname, birthday, Math.abs(code)));
+        this.shop.registerClient(new ClientImpl(name, surname, birthday, Math.abs(code)));
         serializationClient();
     }
 
+    @Override
     public void editClient(final String name, final String surname, final LocalDate birthday, final Client client) {
         if (name.isEmpty() || surname.isEmpty() || birthday.isBefore(minBirthday) || birthday.isAfter(maxBirthday)) {
             throw new IllegalArgumentException("Impossible because one of the parameters are null");
         }
-        client.setPersonName(name);
-        client.setPersonSurname(surname);
-        client.setPersonBirthday(birthday);
-        serializationClient();
+        final var clientSelected = this.shop.getRegisteredClients().stream().filter(clientStream -> clientStream.equals(client)).findAny();
+        if (clientSelected.isPresent()) {
+            final var clientInput = clientSelected.get();
+            clientInput.getPerson().setPersonName(name);
+            clientInput.getPerson().setPersonSurname(surname);
+            clientInput.getPerson().setPersonBirthday(birthday);
+            serializationClient();
+        } else {
+            throw new IllegalArgumentException("The selected client does not exist");
+        }
     }
 
+    @Override
     public void deleteClient(final Client client) {
         if (!Objects.isNull(client)) {
             this.shop.removeClient(client);
@@ -53,6 +64,7 @@ public final class ControllerClientImpl {
         }
     }
 
+    @Override
     public Set<Client> getRegisteredClients() {
         return this.shop.getRegisteredClients();
     }
@@ -61,7 +73,9 @@ public final class ControllerClientImpl {
         try {
             Serialization.<Set<Client>>serialize(Files.CLIENTS.getPath(), this.shop.getRegisteredClients());
         } catch (IOException e) {
-            e.printStackTrace();
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
 }

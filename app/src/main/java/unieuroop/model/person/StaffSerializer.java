@@ -26,14 +26,14 @@ public final class StaffSerializer extends JsonSerializer<Staff> {
             values.add(e.getValue());
         });
         generator.writeStartObject();
-        generator.writeStringField("name", value.getName());
-        generator.writeStringField("surname", value.getSurname());
+        generator.writeStringField("name", value.getPerson().getName());
+        generator.writeStringField("surname", value.getPerson().getSurname());
         generator.writeStringField("email", value.getEmail());
-        generator.writeNumberField("id", value.getId());
+        generator.writeNumberField("id", value.getPerson().getCode());
         generator.writeNumberField("password", value.getPassword());
         final ObjectMapper mapper = ObjectMapperFactory.getMapper();
         generator.writeFieldName("birthday");
-        generator.writeRawValue(mapper.writeValueAsString(value.getBirthdayDate()));
+        generator.writeRawValue(mapper.writeValueAsString(value.getPerson().getBirthdayDate()));
         generator.writeArrayFieldStart("days");
         for (final var el : keys) {
           generator.writeObject(el);

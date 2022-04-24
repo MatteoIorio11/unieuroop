@@ -3,6 +3,7 @@ package unieuroop.view.stock;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -35,9 +36,6 @@ public final class ViewStockBuyProductsImpl implements Initializable, ViewStockB
         this.controllerStock = controller;
     }
 
-    /**
-     * 
-     */
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.listSoldProducts.getItems().clear();
@@ -54,28 +52,15 @@ public final class ViewStockBuyProductsImpl implements Initializable, ViewStockB
         stage.close();
     }
 
-    /**
-     * 
-     * @param event
-     */
     @Override
     @FXML
     public void listSupplierHandler(final MouseEvent event) {
-        final Supplier supplier = this.listSupplier.getSelectionModel().getSelectedItem();
-        this.addStockLabelBuyProducts(supplier.getCatalog());
+        final var supplier = this.listSupplier.getSelectionModel().getSelectedItem();
+        if (!Objects.isNull(supplier)) {
+            this.addLabelProductsSold(supplier.getCatalog());
+        }
     }
 
-    /**
-     * 
-     */
-    private void loadSuppliersList() {
-        this.listSupplier.getItems().clear();
-        this.listSupplier.getItems().addAll(this.controllerStock.getSuppliers());
-    }
-
-    /**
-     * 
-     */
     @Override
     public void uploadInfoLabelBuying() {
         this.lblTotalPrice.setText("Total Price: " + this.controllerStock.getTotalPriceOfAllProductsBuying());
@@ -83,10 +68,18 @@ public final class ViewStockBuyProductsImpl implements Initializable, ViewStockB
     }
 
     /**
-     * 
+     * Load the ListView of Supplier with all the Supplier present.
+     */
+    private void loadSuppliersList() {
+        this.listSupplier.getItems().clear();
+        this.listSupplier.getItems().addAll(this.controllerStock.getSuppliers());
+    }
+
+    /**
+     * Load the Pane in the ListView of Products, with a Label for every products sold by a Supplier.
      * @param productsSold
      */
-    private void addStockLabelBuyProducts(final Map<Product, Double> productsSold) {
+    private void addLabelProductsSold(final Map<Product, Double> productsSold) {
         this.listSoldProducts.getItems().clear();
         for (final Map.Entry<Product, Double> entryProductSold : productsSold.entrySet()) {
             try {

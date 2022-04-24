@@ -34,9 +34,6 @@ public final class ViewStockLabelBuyProductsImpl implements Initializable, ViewS
         this.productSold = product;
     }
 
-    /**
-     * 
-     */
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         this.lblProductSold.setText("Product: " + this.productSold.getKey().toString());
@@ -59,7 +56,7 @@ public final class ViewStockLabelBuyProductsImpl implements Initializable, ViewS
     }
 
     /**
-     * 
+     * Check if the products if already present in the sale, and in that case it's already checked.
      */
     private void checkIfProductPresent() {
         if (this.controllerStock.checkIfProductBuyingPresent(this.productSold.getKey())) {

@@ -1,12 +1,11 @@
 package unieuroop.view.staff;
 
 import javafx.scene.control.Label;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.DayOfWeek;
+import java.util.Objects;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
-import unieuroop.controller.staff.ControllerStaffImpl;
+import unieuroop.controller.staff.ControllerStaff;
 import unieuroop.model.person.Staff;
 
 public final class ViewStaffImpl implements Initializable, ViewStaff {
@@ -37,9 +36,9 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
     @FXML private Button btnAddStaff;
     @FXML private Button btnEditStaff;
     @FXML private Button btnDeleteStaff;
-    private final ControllerStaffImpl controller;
+    private final ControllerStaff controller;
 
-    public ViewStaffImpl(final ControllerStaffImpl controller) {
+    public ViewStaffImpl(final ControllerStaff controller) {
         this.controller = controller;
     }
 
@@ -109,16 +108,18 @@ public final class ViewStaffImpl implements Initializable, ViewStaff {
     @FXML
     public void listSelectHandler(final MouseEvent event) {
         final Staff staff = this.listStaffs.getSelectionModel().getSelectedItem();
-        this.tbxName.setText(staff.getName());
-        this.tbxSurname.setText(staff.getSurname());
-        this.dtBirthday.setValue(staff.getBirthdayDate());
-        this.lblId.setText(staff.getId().toString());
-        this.tbxEmail.setText(staff.getEmail());
-        this.pfPassword.setText(staff.getPassword().toString());
-        this.tbxHoursStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getHour()));
-        this.tbxMinutesStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getMinute()));
-        this.tbxHoursEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getHour()));
-        this.tbxMinutesEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getMinute()));
+        if (!Objects.isNull(staff)) {
+            this.tbxName.setText(staff.getPerson().getName());
+            this.tbxSurname.setText(staff.getPerson().getSurname());
+            this.dtBirthday.setValue(staff.getPerson().getBirthdayDate());
+            this.lblId.setText(String.valueOf(staff.getPerson().getCode()));
+            this.tbxEmail.setText(staff.getEmail());
+            this.pfPassword.setText(String.valueOf(staff.getPassword()));
+            this.tbxHoursStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getHour()));
+            this.tbxMinutesStartTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getKey().getMinute()));
+            this.tbxHoursEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getHour()));
+            this.tbxMinutesEndTime.setText(Integer.toString(staff.getWorkTime(DayOfWeek.MONDAY).getValue().getMinute()));
+        }
     }
 
     private void clearView() {

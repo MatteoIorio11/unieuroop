@@ -10,9 +10,19 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public final class Loader {
+
     private Loader() {
+
     }
 
+    /**
+     * 
+     * @param <X>
+     * @param path
+     * @param controller
+     * @return To DO.
+     * @throws IOException
+     */
     public static <X> Pane loadPane(final String path, final X controller) throws IOException {
         final Pane pane;
         final var loader = new FXMLLoader(Loader.class.getResource(path));
@@ -21,6 +31,17 @@ public final class Loader {
         return pane;
     }
 
+    /**
+     * 
+     * @param <X>
+     * @param path
+     * @param title
+     * @param controller
+     * @param minHeight
+     * @param minWidth
+     * @return TO Do.
+     * @throws IOException
+     */
     public static <X> Stage loadStage(final String path, final String title, final X controller, final double minHeight, final double minWidth) throws IOException {
         final Pane pane;
         final Rectangle2D screenBounds = Screen.getPrimary().getBounds();

@@ -1,12 +1,12 @@
 package unieuroop.controller.stock;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -27,46 +27,26 @@ public final class ControllerStockImpl implements ControllerStock {
         this.shop = shop;
     }
 
-    /**
-     * 
-     * @return
-     */
     @Override
     public Set<Supplier> getSuppliers() {
         return this.shop.getSuppliers();
     }
 
-    /**
-     * 
-     * @return
-     */
     @Override
     public Set<Category> getCategory() {
         return this.shop.getAllCategories();
     }
 
-    /**
-     * 
-     * @return
-     */
     @Override
     public int getMaxAmountproducts() {
         return this.shop.getStock().getMaxAmountOfProducts();
     }
 
-    /**
-     * 
-     * @param productBuying
-     */
     @Override
     public void addProductBuying(final Map.Entry<Product, Double> productBuying, final int amount) {
         this.productsBought.merge(productBuying.getKey(), amount, (existingQuantity, newQuantity) -> existingQuantity + newQuantity);
     }
 
-    /**
-     * 
-     * @param productBuying
-     */
     @Override
     public void removeProductsBuying(final Map.Entry<Product, Double> productBuying, final int amount) {
         if (this.productsBought.containsKey(productBuying.getKey())) {
@@ -76,94 +56,54 @@ public final class ControllerStockImpl implements ControllerStock {
         }
     }
 
-    /**
-     * 
-     * @param product
-     * @return
-     */
     @Override
     public boolean checkIfProductBuyingPresent(final Product product) {
         return this.productsBought.containsKey(product);
     }
 
-    /**
-     * 
-     * @param product
-     * @return
-     */
     @Override
     public int getAmountofProductBuying(final Product product) {
         return this.productsBought.get(product);
     }
 
-    /**
-     * 
-     * @return
-     */
     @Override
     public int getAmountOfAllProductsBuying() {
         return this.productsBought.entrySet().stream().mapToInt(entryProduct -> entryProduct.getValue()).sum();
     }
 
-    /**
-     * 
-     * @return
-     */
     @Override
     public double getTotalPriceOfAllProductsBuying() {
         return this.productsBought.entrySet().stream().mapToDouble(entryProduct -> entryProduct.getKey().getSellingPrice() * entryProduct.getValue()).sum();
     }
 
-    /**
-     * 
-     */
     @Override
     public void addProductsBoughtInStock() {
         try {
             this.shop.getStock().addProducts(this.productsBought);
             Serialization.<Stock>serialize(Files.STOCK.getPath(), this.shop.getStock());
+            this.shop.addBills(LocalDate.now(), this.getTotalPriceOfAllProductsBuying());
         } catch (IOException e) {
             final Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText(e.getMessage());
         }
     }
 
-    /**
-     * 
-     */
     @Override
     public void resetProductsBoughtBuying() {
         this.productsBought.clear();
     }
 
-    /**
-     * 
-     * @return
-     * @param product
-     */
     @Override
     public String getInfoByProduct(final Product product) {
         return "Category: " + product.getCategory() + "\nBrand: " + product.getBrand() + "\nDescription: " + product.getDescription() + "\n\nSelling Price: " + product.getSellingPrice()
         + "\nPurchase Price: " + product.getPurchasePrice() + "\nQuantity in Stock: " + this.shop.getStock().getQuantityOfProduct(product);
     }
 
-    /**
-     * 
-     * @return
-     */
     @Override
     public Map<Product, Integer> getProductsStocked() {
         return this.shop.getStock().getTotalStock();
     }
 
-    /**
-     * 
-     * @param categoryChoose
-     * @param minAmount
-     * @param maxAmount
-     * @param increasing
-     * @return
-     */
     @Override
     public List<Product> getListProductsFilterBy(final Category categoryChoose, final int minAmount, final int maxAmount, final boolean increasing) {
         final List<Product> filteredProducts = this.shop.getStock().getFilterProducts((amount, category) -> minAmount <= amount && amount <= maxAmount && category == categoryChoose);
@@ -174,10 +114,6 @@ public final class ControllerStockImpl implements ControllerStock {
         }
     }
 
-    /**
-     * 
-     * @param productSelected
-     */
     @Override
     public void deleteSelectedProduct(final Product productSelected) {
         final Set<Product> productDelete = new HashSet<>();
@@ -192,9 +128,9 @@ public final class ControllerStockImpl implements ControllerStock {
     }
 
     /**
-     * 
+     * Return the filteredProducts list, sorted increasing.
      * @param filteredProducts
-     * @return
+     * @return sortedList.
      */
     private List<Product> getListProductsIncreasing(final List<Product> filteredProducts) {
         final Comparator<Product> productsSorter = (p1, p2) -> this.shop.getStock().getQuantityOfProduct(p1) - this.shop.getStock().getQuantityOfProduct(p2);
@@ -203,9 +139,9 @@ public final class ControllerStockImpl implements ControllerStock {
     }
 
     /**
-     * 
+     * Return the filteredProducts list, sorted decreasing.
      * @param filteredProducts
-     * @return
+     * @return sortedList.
      */
     private List<Product> getListProductsDecreasing(final List<Product> filteredProducts) {
         final Comparator<Product> productsSorter = (p1, p2) -> this.shop.getStock().getQuantityOfProduct(p2) - this.shop.getStock().getQuantityOfProduct(p1);

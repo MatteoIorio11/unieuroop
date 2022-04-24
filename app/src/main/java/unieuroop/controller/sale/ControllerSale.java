@@ -1,5 +1,6 @@
 package unieuroop.controller.sale;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
 
@@ -30,7 +31,7 @@ public interface ControllerSale {
      * @param client
      * @return the new sale.
      */
-    Optional<Sale> closeSale(Optional<Client> client);
+    Optional<Sale> closeSale(Optional<Client> client) throws IOException;
 
     /**
      * Remove all the reserved products inside the Map and their reserved quantity.

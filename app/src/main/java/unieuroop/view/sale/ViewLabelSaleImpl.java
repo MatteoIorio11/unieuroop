@@ -37,6 +37,7 @@ public final class ViewLabelSaleImpl implements Initializable, ViewLabelSale {
         this.department = department;
         this.totalQuantity = 0;
     }
+
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         final int minValue = this.maxQuantity > 0 ? 1 : 0;
